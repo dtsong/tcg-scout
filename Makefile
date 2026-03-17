@@ -1,4 +1,4 @@
-.PHONY: setup init cards scrape meta buylist report full clean fukuoka-cl mappings translate
+.PHONY: setup init cards scrape meta buylist report full clean fukuoka-cl import-cl mappings translate
 
 PYTHON = uv run python
 
@@ -32,6 +32,10 @@ report:
 # Scrape Fukuoka Champions League (Juniors, Seniors, Masters)
 fukuoka-cl:
 	$(PYTHON) cli.py champions 903701 903702 903703
+
+# Import CL data from CSV files into SQLite
+import-cl:
+	$(PYTHON) cli.py import-cl
 
 # Sync JP-to-EN card mappings from Limitless
 mappings:

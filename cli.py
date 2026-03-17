@@ -393,5 +393,88 @@ def translate() -> None:
         conn.close()
 
 
+@cli.command("import-cl")
+@click.option("--dir", "data_dir", default="data/fukuoka-cl", help="Directory with CL CSV files")
+def import_cl(data_dir: str) -> None:
+    """Import Champions League data from CSV files into SQLite."""
+    import csv
+    import json
+    from pathlib import Path
+
+    data_path = Path(data_dir)
+    if not data_path.exists():
+        console.print(f"[red]Directory {data_dir} not found[/red]")
+        return
+
+    conn = get_connection()
+    init_db(conn)
+
+    try:
+        divisions = ["juniors", "seniors", "masters"]
+        total_placements = 0
+        total_cards = 0
+
+        for division in divisions:
+            meta_file = data_path / f"{division}-meta.json"
+            placements_file = data_path / f"{division}-placements.csv"
+            decklists_file = data_path / f"{division}-decklists.csv"
+
+            if not meta_file.exists():
+                console.print(f"[yellow]Skipping {division} — no meta file[/yellow]")
+                continue
+
+            with open(meta_file) as f:
+                meta = json.load(f)
+
+            console.print(f"[cyan]Importing {division}: {meta['event_name']}[/cyan]")
+
+            # Store event
+            conn.execute(
+                "INSERT OR REPLACE INTO cl_events (id, name, division, date) VALUES (?, ?, ?, ?)",
+                (meta["event_id"], meta["event_name"], meta["division"], meta["date"]),
+            )
+
+            # Store placements
+            placement_id_map: dict[tuple[int, str], int] = {}
+            with open(placements_file, newline="", encoding="utf-8") as f:
+                reader = csv.DictReader(f)
+                for row in reader:
+                    cursor = conn.execute(
+                        "INSERT INTO cl_placements (event_id, standing, player_name, region, deck_code, deck_url) "
+                        "VALUES (?, ?, ?, ?, ?, ?)",
+                        (meta["event_id"], int(row["standing"]), row["player_name"],
+                         row["region"], row["deck_code"], row["deck_url"]),
+                    )
+                    key = (int(row["standing"]), row["player_name"])
+                    placement_id_map[key] = cursor.lastrowid
+                    total_placements += 1
+
+            # Store decklists
+            with open(decklists_file, newline="", encoding="utf-8") as f:
+                reader = csv.DictReader(f)
+                for row in reader:
+                    key = (int(row["standing"]), row["player_name"])
+                    pid = placement_id_map.get(key)
+                    if not pid:
+                        continue
+                    conn.execute(
+                        "INSERT OR REPLACE INTO cl_decklist_cards "
+                        "(placement_id, card_name_jp, set_code, count, category) "
+                        "VALUES (?, ?, ?, ?, ?)",
+                        (pid, row["card_name_jp"], row["set_code"],
+                         int(row["count"]), row["category"]),
+                    )
+                    total_cards += 1
+
+            conn.commit()
+
+        console.print(
+            f"\n[green]Imported {total_placements} placements, "
+            f"{total_cards} decklist cards[/green]"
+        )
+    finally:
+        conn.close()
+
+
 if __name__ == "__main__":
     cli()
