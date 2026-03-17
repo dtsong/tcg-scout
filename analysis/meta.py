@@ -1,0 +1,129 @@
+"""Meta share computation and tier assignment."""
+
+import logging
+import sqlite3
+from datetime import datetime
+
+from config import TIER_THRESHOLDS
+
+logger = logging.getLogger(__name__)
+
+
+def _assign_tier(meta_share: float) -> str:
+    """Assign tier based on meta share percentage."""
+    if meta_share >= TIER_THRESHOLDS["S"]:
+        return "S"
+    if meta_share >= TIER_THRESHOLDS["A"]:
+        return "A"
+    if meta_share >= TIER_THRESHOLDS["B"]:
+        return "B"
+    if meta_share >= TIER_THRESHOLDS["C"]:
+        return "C"
+    return "Rogue"
+
+
+def compute_meta_snapshot(conn: sqlite3.Connection) -> int:
+    """Compute meta snapshot from all placements. Returns snapshot_id."""
+    conn.row_factory = sqlite3.Row
+
+    # Query all placements grouped by archetype
+    rows = conn.execute(
+        """
+        SELECT p.archetype,
+               COUNT(*) AS deck_count,
+               MIN(p.standing) AS best_placement
+        FROM placements p
+        JOIN tournaments t ON t.id = p.tournament_id
+        GROUP BY p.archetype
+        """
+    ).fetchall()
+
+    if not rows:
+        logger.warning("No placements found; cannot compute meta snapshot")
+        raise ValueError("No placement data available")
+
+    total_decks = sum(r["deck_count"] for r in rows)
+    tournament_count_row = conn.execute(
+        "SELECT COUNT(DISTINCT tournament_id) AS cnt FROM placements"
+    ).fetchone()
+    tournament_count = tournament_count_row["cnt"]
+
+    logger.info(
+        "Computing meta snapshot: %d archetypes, %d decks, %d tournaments",
+        len(rows),
+        total_decks,
+        tournament_count,
+    )
+
+    # Insert meta snapshot
+    cur = conn.execute(
+        """
+        INSERT INTO meta_snapshots (generated_at, tournament_count, deck_count)
+        VALUES (?, ?, ?)
+        """,
+        (datetime.utcnow().isoformat(), tournament_count, total_decks),
+    )
+    snapshot_id = cur.lastrowid
+
+    # Insert archetype stats
+    for row in rows:
+        meta_share = row["deck_count"] / total_decks * 100
+        tier = _assign_tier(meta_share)
+        conn.execute(
+            """
+            INSERT INTO archetype_stats
+                (snapshot_id, archetype, meta_share, deck_count, best_placement, tier)
+            VALUES (?, ?, ?, ?, ?, ?)
+            """,
+            (
+                snapshot_id,
+                row["archetype"],
+                round(meta_share, 2),
+                row["deck_count"],
+                row["best_placement"],
+                tier,
+            ),
+        )
+
+    conn.commit()
+    logger.info("Meta snapshot %d created", snapshot_id)
+    return snapshot_id
+
+
+def get_latest_snapshot(conn: sqlite3.Connection) -> dict | None:
+    """Get the latest meta snapshot with archetype stats.
+
+    Returns dict with snapshot info and a list of archetype_stats rows
+    sorted by meta_share descending, or None if no snapshots exist.
+    """
+    conn.row_factory = sqlite3.Row
+
+    snapshot = conn.execute(
+        """
+        SELECT id, generated_at, tournament_count, deck_count
+        FROM meta_snapshots
+        ORDER BY id DESC
+        LIMIT 1
+        """
+    ).fetchone()
+
+    if snapshot is None:
+        return None
+
+    stats = conn.execute(
+        """
+        SELECT archetype, meta_share, deck_count, best_placement, tier
+        FROM archetype_stats
+        WHERE snapshot_id = ?
+        ORDER BY meta_share DESC
+        """,
+        (snapshot["id"],),
+    ).fetchall()
+
+    return {
+        "id": snapshot["id"],
+        "generated_at": snapshot["generated_at"],
+        "tournament_count": snapshot["tournament_count"],
+        "deck_count": snapshot["deck_count"],
+        "archetypes": [dict(row) for row in stats],
+    }
