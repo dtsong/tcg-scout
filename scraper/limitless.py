@@ -257,17 +257,12 @@ class LimitlessClient:
             if stop_early:
                 break
 
-            if not found_any:
-                # Page had rows but none in range — might need to keep going
-                # or we've exhausted results
-                pass
-
-            # Check for next page
-            next_link = soup.find("a", string=re.compile(r"Next|›|»"))
-            if next_link is None:
-                break
-
+            # Always paginate if the page had rows (reverse chronological order
+            # means we may need to go past pages with dates > end to reach
+            # dates within the window)
             page += 1
+            if page > 20:  # Safety limit
+                break
 
         logger.info("Found %d tournaments in date range %s to %s", len(tournaments), start_date, end_date)
         return tournaments
