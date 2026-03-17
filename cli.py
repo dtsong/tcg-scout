@@ -295,5 +295,103 @@ def report() -> None:
         conn.close()
 
 
+@cli.command()
+@click.argument("event_ids", nargs=-1, type=int, required=True)
+@click.option("--fetch-decklists/--no-decklists", default=True, help="Fetch decklists")
+@click.option("--top", default=16, help="Max placements to fetch decklists for")
+def champions(event_ids: tuple[int, ...], fetch_decklists: bool, top: int) -> None:
+    """Scrape Champions League results from players.pokemon-card.com.
+
+    Requires KERNEL_API_KEY in .env for cloud browser rendering.
+    Pass event IDs as arguments (e.g., scout champions 903701 903702 903703).
+    """
+    import asyncio
+    from dotenv import load_dotenv
+    load_dotenv()
+
+    from scraper.pokemon_jp import PokemonJPClient, store_event_results
+
+    conn = get_connection()
+    init_db(conn)
+
+    try:
+        client = PokemonJPClient()
+
+        for event_id in event_ids:
+            console.print(f"\n[cyan]Scraping event {event_id}...[/cyan]")
+
+            # Fetch event results
+            event = asyncio.run(client.fetch_event_results(event_id))
+            console.print(
+                f"  [bold]{event.event_name}[/bold] ({event.division}) — "
+                f"{len(event.placements)} placements"
+            )
+
+            # Fetch decklists for top placements
+            decklists: dict[str, list] = {}
+            if fetch_decklists:
+                decks_to_fetch = [
+                    p for p in event.placements
+                    if p.deck_url and p.standing <= top
+                ]
+                console.print(f"  Fetching {len(decks_to_fetch)} decklists...")
+
+                for i, placement in enumerate(decks_to_fetch, 1):
+                    console.print(
+                        f"    [{i}/{len(decks_to_fetch)}] "
+                        f"#{placement.standing} {placement.player_name}"
+                    )
+                    try:
+                        cards = asyncio.run(client.fetch_decklist(placement.deck_url))
+                        if cards and placement.deck_code:
+                            decklists[placement.deck_code] = cards
+                            console.print(f"      {len(cards)} cards")
+                    except Exception as e:
+                        console.print(f"      [red]Error: {e}[/red]")
+
+            # Store in database
+            store_event_results(conn, event, decklists)
+            console.print(
+                f"  [green]Stored {len(event.placements)} placements, "
+                f"{len(decklists)} decklists[/green]"
+            )
+
+    finally:
+        conn.close()
+
+
+@cli.command()
+@click.option("--sets", help="Comma-separated JP set codes to sync (e.g., SV7,SV8a)")
+def mappings(sets: str | None) -> None:
+    """Sync JP-to-EN card ID mappings from Limitless."""
+    from scraper.card_mappings import sync_card_mappings
+
+    conn = get_connection()
+    init_db(conn)
+
+    set_codes = [s.strip() for s in sets.split(",")] if sets else None
+
+    try:
+        count = sync_card_mappings(conn, set_codes=set_codes)
+        console.print(f"[green]Synced {count} new card mappings[/green]")
+    finally:
+        conn.close()
+
+
+@cli.command()
+def translate() -> None:
+    """Translate JP card names in CL decklists using card mappings."""
+    from scraper.pokemon_jp import translate_cl_decklists
+
+    conn = get_connection()
+    init_db(conn)
+
+    try:
+        count = translate_cl_decklists(conn)
+        console.print(f"[green]Translated {count} cards[/green]")
+    finally:
+        conn.close()
+
+
 if __name__ == "__main__":
     cli()

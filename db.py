@@ -61,6 +61,46 @@ CREATE TABLE IF NOT EXISTS archetype_stats (
     tier TEXT CHECK(tier IN ('S','A','B','C','Rogue')),
     PRIMARY KEY (snapshot_id, archetype)
 );
+
+-- JP-to-EN card ID mappings (from Limitless)
+CREATE TABLE IF NOT EXISTS card_mappings (
+    jp_card_id TEXT PRIMARY KEY,      -- e.g. "SV7-018"
+    en_card_id TEXT NOT NULL,         -- e.g. "SCR-028"
+    card_name_jp TEXT,
+    card_name_en TEXT,
+    jp_set_id TEXT,
+    en_set_id TEXT
+);
+
+-- Champions League events and decklists
+CREATE TABLE IF NOT EXISTS cl_events (
+    id INTEGER PRIMARY KEY,           -- Official event ID (e.g. 903702)
+    name TEXT NOT NULL,
+    division TEXT NOT NULL,            -- juniors, seniors, masters
+    date TEXT NOT NULL,
+    player_count INTEGER DEFAULT 0
+);
+
+CREATE TABLE IF NOT EXISTS cl_placements (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    event_id INTEGER NOT NULL REFERENCES cl_events(id),
+    standing INTEGER NOT NULL,
+    player_name TEXT,
+    region TEXT,
+    deck_code TEXT,
+    deck_url TEXT
+);
+
+CREATE TABLE IF NOT EXISTS cl_decklist_cards (
+    placement_id INTEGER NOT NULL REFERENCES cl_placements(id),
+    card_name_jp TEXT NOT NULL,
+    card_name_en TEXT,
+    card_id TEXT,                      -- Resolved EN card ID
+    set_code TEXT,
+    count INTEGER NOT NULL,
+    category TEXT,                     -- Pokemon, Trainer, Energy
+    PRIMARY KEY (placement_id, card_name_jp)
+);
 """
 
 
