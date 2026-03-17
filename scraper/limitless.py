@@ -396,46 +396,47 @@ class LimitlessClient:
 
         cards: list[dict[str, Any]] = []
 
-        # Strategy 1: Official format with card links and quantity images
-        # Links like: <a href="/cards/SET/NUM">
-        # Quantities from: decklist/N.png image src
-        card_links = soup.find_all("a", href=re.compile(r"^/cards/[A-Za-z0-9]+/"))
+        # Strategy 1: Structured card-link elements
+        # Format: <a class="card-link" href="/cards/SET/NUM">
+        #           <span class="card-count">4</span>
+        #           <span class="card-name">Dragapult ex</span>
+        #         </a>
+        card_links = soup.find_all("a", class_="card-link")
         if card_links:
             for link in card_links:
                 href = link.get("href", "")
-                parts = href.rstrip("/").split("/")
-                if len(parts) < 4:
-                    continue
+                # Remove query params (e.g. ?translate=en)
+                href_clean = href.split("?")[0].rstrip("/")
+                parts = href_clean.split("/")
 
-                set_code = parts[2]
-                card_number = parts[3]
-                name = link.get_text(strip=True)
+                set_code = parts[2] if len(parts) > 2 else ""
+                card_number = parts[3] if len(parts) > 3 else ""
 
-                # Find quantity from sibling or parent decklist/N.png image
+                # Extract count and name from spans
+                count_el = link.find("span", class_="card-count")
+                name_el = link.find("span", class_="card-name")
+
                 count = 1
-                # Check within the same parent container
-                parent = link.parent
-                if parent:
-                    qty_img = parent.find(
-                        "img", src=re.compile(r"decklist/(\d+)\.png")
-                    )
-                    if qty_img:
-                        qty_match = re.search(
-                            r"decklist/(\d+)\.png", qty_img.get("src", "")
-                        )
-                        if qty_match:
-                            count = int(qty_match.group(1))
+                if count_el:
+                    try:
+                        count = int(count_el.get_text(strip=True))
+                    except ValueError:
+                        pass
+
+                name = name_el.get_text(strip=True) if name_el else link.get_text(strip=True)
+                if not name:
+                    continue
 
                 cards.append({
                     "count": count,
                     "name": name,
                     "set_code": set_code,
                     "card_number": card_number,
+                    "card_id": f"{set_code}-{card_number}" if set_code and card_number else name,
                 })
 
         # Strategy 2: Text format fallback
         if not cards:
-            # Look for decklist text content
             text = soup.get_text("\n")
             for line in text.split("\n"):
                 line = line.strip()
@@ -453,6 +454,7 @@ class LimitlessClient:
                         "name": name,
                         "set_code": set_code,
                         "card_number": card_number,
+                        "card_id": f"{set_code}-{card_number}",
                     })
                     continue
 
@@ -461,11 +463,13 @@ class LimitlessClient:
                     r"^(\d+)\s+(Basic\s+\w+\s+Energy)\s*$", line, re.IGNORECASE
                 )
                 if energy_match:
+                    name = energy_match.group(2).strip()
                     cards.append({
                         "count": int(energy_match.group(1)),
-                        "name": energy_match.group(2).strip(),
+                        "name": name,
                         "set_code": "Energy",
                         "card_number": "",
+                        "card_id": name,
                     })
 
         if not cards:
