@@ -9,6 +9,9 @@ dependencies = [
     "lxml>=5.0",
     "click>=8.1",
     "rich>=13.0",
+    "kernel>=0.1",
+    "playwright>=1.40",
+    "python-dotenv>=1.0",
 ]
 
 [project.scripts]
