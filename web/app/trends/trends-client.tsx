@@ -9,7 +9,7 @@ import {
   ResponsiveContainer,
   Legend,
 } from "recharts";
-import { TrendingUp, TrendingDown, Trophy } from "lucide-react";
+import { TrendingUp, Trophy } from "lucide-react";
 import type { TrendsData, WinningEdgeCard } from "@/app/lib/types";
 
 export function TrendsClient({
