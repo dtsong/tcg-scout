@@ -1,8 +1,11 @@
 """Integration tests: full pipeline from DB through JSON export."""
 
+import importlib.util
 import json
 import sys
 from pathlib import Path
+
+import pytest
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
@@ -119,6 +122,10 @@ class TestFormatIntegration:
 
 
 class TestScrapeJPIntegration:
+    @pytest.mark.skipif(
+        not importlib.util.find_spec("kernel"),
+        reason="kernel SDK not installed",
+    )
     def test_store_and_backfill_flow(self, db):
         """Store JP results with Unknown archetype, then backfill from Limitless data."""
         from scraper.limitless import match_archetype_labels
