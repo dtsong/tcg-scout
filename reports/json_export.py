@@ -41,8 +41,15 @@ BASIC_ENERGY_NAMES = {
     "Basic Darkness Energy",
     "Basic Metal Energy",
     "Basic Grass Energy",
-    "Basic Colorless Energy",
-    "Basic Fairy Energy",
+    # DB stores without "Basic" prefix
+    "Fire Energy",
+    "Water Energy",
+    "Lightning Energy",
+    "Psychic Energy",
+    "Fighting Energy",
+    "Darkness Energy",
+    "Metal Energy",
+    "Grass Energy",
 }
 
 
@@ -481,7 +488,7 @@ def _compute_windowed_trends(
         FROM decklist_cards dc
         JOIN placements p ON p.id = dc.placement_id
         JOIN tournaments t ON t.id = p.tournament_id
-        WHERE t.date >= ? AND t.date <= ? AND {_basic_energy_exclusion_sql()}
+        WHERE t.date >= ? AND t.date <= ? AND {_basic_energy_exclusion_sql()} AND dc.card_name NOT LIKE '%Energy%'
         GROUP BY dc.card_name
         HAVING early_count >= 3 AND late_count >= 3
         """,
@@ -953,7 +960,7 @@ def export_trends(
         FROM decklist_cards dc
         JOIN placements p ON p.id = dc.placement_id
         JOIN tournaments t ON t.id = p.tournament_id
-        WHERE {_basic_energy_exclusion_sql()}
+        WHERE {_basic_energy_exclusion_sql()} AND dc.card_name NOT LIKE '%Energy%'
         GROUP BY dc.card_name
         HAVING early_count >= ? AND late_count >= ?
         """,

@@ -63,7 +63,7 @@ export function TrendsClient({
   );
 
   const chartData = (trends.surging || []).slice(0, 15).map((c) => ({
-    name: c.card_name.length > 18 ? c.card_name.slice(0, 16) + "..." : c.card_name,
+    name: c.card_name,
     early: c.early_pct,
     late: c.late_pct,
   }));
@@ -94,7 +94,7 @@ export function TrendsClient({
           Top Surging Cards: Early vs Late Period
         </h2>
         <ResponsiveContainer width="100%" height={450}>
-          <BarChart data={chartData} layout="vertical" margin={{ left: 130, right: 20 }}>
+          <BarChart data={chartData} layout="vertical" margin={{ left: 200, right: 20 }}>
             <XAxis
               type="number"
               tickFormatter={(v) => `${v}%`}
@@ -108,7 +108,7 @@ export function TrendsClient({
               tick={{ fill: "#94a3b8", fontSize: 12 }}
               axisLine={false}
               tickLine={false}
-              width={130}
+              width={200}
             />
             <Tooltip
               wrapperStyle={{ outline: 'none' }}

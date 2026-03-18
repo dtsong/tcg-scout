@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import localFont from "next/font/local";
 import { Instrument_Sans, IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -23,6 +24,12 @@ const ibmPlexMono = IBM_Plex_Mono({
   display: "swap",
 });
 
+const pokemonClassic = localFont({
+  src: "../public/fonts/pokemon-classic.ttf",
+  variable: "--font-pokemon",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: "Scout | JP Meta Explorer",
   description:
@@ -37,7 +44,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${instrumentSans.variable} ${ibmPlexSans.variable} ${ibmPlexMono.variable}`}
+      className={`${instrumentSans.variable} ${ibmPlexSans.variable} ${ibmPlexMono.variable} ${pokemonClassic.variable}`}
     >
       <body className="min-h-screen antialiased">
         {children}
