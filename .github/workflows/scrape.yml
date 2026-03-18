@@ -1,0 +1,76 @@
+name: Daily Scrape & Deploy
+
+on:
+  schedule:
+    # Daily at 21:00 JST (12:00 UTC) -- catches same-day CL results
+    - cron: "0 12 * * *"
+  workflow_dispatch:
+    inputs:
+      format:
+        description: "Format to scrape (or 'all')"
+        required: false
+        default: "all"
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      # Cache SQLite databases between runs so scrapes are incremental
+      - name: Restore DB cache
+        uses: actions/cache@v4
+        with:
+          path: data/*.db
+          key: scout-dbs-${{ github.ref_name }}
+          restore-keys: scout-dbs-
+
+      - name: Initialize databases
+        run: |
+          python cli.py --format ninja-spinner init
+          python cli.py --format nihil-zero init
+
+      - name: Scrape Ninja Spinner
+        if: >-
+          github.event_name == 'schedule' ||
+          github.event.inputs.format == 'all' ||
+          github.event.inputs.format == 'ninja-spinner'
+        run: |
+          python cli.py --format ninja-spinner scrape-jp
+          python cli.py --format ninja-spinner meta
+          python cli.py --format ninja-spinner export-web
+
+      - name: Scrape Nihil Zero
+        if: >-
+          github.event_name == 'schedule' ||
+          github.event.inputs.format == 'all' ||
+          github.event.inputs.format == 'nihil-zero'
+        run: |
+          python cli.py --format nihil-zero scrape-jp
+          python cli.py --format nihil-zero meta
+          python cli.py --format nihil-zero export-web
+
+      - name: Check for changes
+        id: changes
+        run: |
+          git diff --quiet web/public/data/ && echo "changed=false" >> "$GITHUB_OUTPUT" || echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Commit & push updated data
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add web/public/data/
+          git commit -m "data: daily scrape $(date -u +%Y-%m-%d)"
+          git push
