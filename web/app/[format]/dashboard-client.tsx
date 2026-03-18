@@ -93,13 +93,13 @@ export function DashboardClient({
           <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
             <p className="text-sm text-surface-300 max-w-xl">
               <span className="text-slate-200 font-medium">{formatName}</span>{" "}is Japan&apos;s post-rotation format. {rotationDays > 0
-                ? `These results preview the Standard meta going live internationally on ${meta.rotation_date}.`
-                : "This format is now live internationally."}
+                ? `These results preview the Standard meta. Set legal internationally on ${meta.rotation_date}.`
+                : "This set is now legal internationally."}
             </p>
             <div className="flex items-center gap-1 shrink-0">
               <span className="text-xs text-surface-300 flex items-center gap-1 mr-1">
                 <Calendar className="w-3.5 h-3.5" />
-                Rotation
+                Set Legal
               </span>
               <span className="font-mono text-xl font-medium text-accent tabular-nums">
                 {rotationDays > 0 ? `${rotationDays}d` : "Live"}
