@@ -91,14 +91,9 @@ export function DashboardClient({
       <section className="relative rounded-lg bg-surface-800 border border-surface-600 p-5 sm:p-6 scanline-overlay">
         <div className="relative">
           <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
-            <div>
-              <h1 className="font-display text-2xl sm:text-3xl font-bold text-slate-100">
-                Scout
-              </h1>
-              <p className="mt-1 text-sm text-surface-300 max-w-xl">
-                <span className="text-slate-200 font-medium">{formatName}</span>{" "}is Japan&apos;s post-rotation format. These results preview the 2026 Standard meta going live internationally on April 10, 2026.
-              </p>
-            </div>
+            <p className="text-sm text-surface-300 max-w-xl">
+              <span className="text-slate-200 font-medium">{formatName}</span>{" "}is Japan&apos;s post-rotation format. These results preview the 2026 Standard meta going live internationally on April 10, 2026.
+            </p>
             <div className="flex items-center gap-1 shrink-0">
               <span className="text-xs text-surface-300 flex items-center gap-1 mr-1">
                 <Calendar className="w-3.5 h-3.5" />
