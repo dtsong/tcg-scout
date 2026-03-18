@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-18T07:47:58.445591",
+  "generated_at": "2026-03-18T20:30:46.744802",
   "tournament_count": 54,
   "deck_count": 772,
   "date_range": {
@@ -17,9 +17,9 @@
     {
       "archetype": "Dragapult Meowth",
       "slug": "dragapult-meowth",
-      "meta_share": 8.3,
-      "weighted_share": 8.8,
-      "deck_count": 64,
+      "meta_share": 9.8,
+      "weighted_share": 10.9,
+      "deck_count": 76,
       "best_placement": 1,
       "tier": "A",
       "sprite_filenames": [
@@ -28,39 +28,29 @@
       ]
     },
     {
-      "archetype": "Unknown",
-      "slug": "unknown",
-      "meta_share": 8.7,
-      "weighted_share": 8.4,
-      "deck_count": 67,
-      "best_placement": 1,
-      "tier": "A",
-      "sprite_filenames": []
-    },
-    {
-      "archetype": "Mega Lucario",
-      "slug": "mega-lucario",
-      "meta_share": 6.1,
-      "weighted_share": 6.5,
-      "deck_count": 47,
-      "best_placement": 1,
-      "tier": "B",
-      "sprite_filenames": [
-        "hariyama.png",
-        "lucario-mega.png"
-      ]
-    },
-    {
       "archetype": "Dragapult Dusknoir",
       "slug": "dragapult-dusknoir",
-      "meta_share": 5.6,
-      "weighted_share": 5.1,
-      "deck_count": 43,
+      "meta_share": 7.6,
+      "weighted_share": 7.0,
+      "deck_count": 59,
       "best_placement": 1,
       "tier": "B",
       "sprite_filenames": [
         "dragapult.png",
         "dusknoir.png"
+      ]
+    },
+    {
+      "archetype": "Mega Lucario",
+      "slug": "mega-lucario",
+      "meta_share": 6.2,
+      "weighted_share": 6.7,
+      "deck_count": 48,
+      "best_placement": 1,
+      "tier": "B",
+      "sprite_filenames": [
+        "hariyama.png",
+        "lucario-mega.png"
       ]
     },
     {
@@ -74,6 +64,19 @@
       "sprite_filenames": [
         "darmanitan.png",
         "zoroark.png"
+      ]
+    },
+    {
+      "archetype": "Dusknoir Greninja",
+      "slug": "dusknoir-greninja",
+      "meta_share": 4.7,
+      "weighted_share": 3.6,
+      "deck_count": 36,
+      "best_placement": 1,
+      "tier": "B",
+      "sprite_filenames": [
+        "dusknoir.png",
+        "greninja.png"
       ]
     },
     {
@@ -154,6 +157,19 @@
       ]
     },
     {
+      "archetype": "Garchomp Roserade",
+      "slug": "garchomp-roserade",
+      "meta_share": 3.4,
+      "weighted_share": 2.8,
+      "deck_count": 26,
+      "best_placement": 3,
+      "tier": "B",
+      "sprite_filenames": [
+        "garchomp.png",
+        "roserade.png"
+      ]
+    },
+    {
       "archetype": "Clefairy Ogerpon",
       "slug": "clefairy-ogerpon",
       "meta_share": 2.3,
@@ -164,19 +180,6 @@
       "sprite_filenames": [
         "clefairy.png",
         "ogerpon.png"
-      ]
-    },
-    {
-      "archetype": "Garchomp Roserade",
-      "slug": "garchomp-roserade",
-      "meta_share": 3.2,
-      "weighted_share": 2.7,
-      "deck_count": 25,
-      "best_placement": 3,
-      "tier": "B",
-      "sprite_filenames": [
-        "garchomp.png",
-        "roserade.png"
       ]
     },
     {
@@ -216,6 +219,19 @@
       "sprite_filenames": [
         "barbaracle.png",
         "okidogi.png"
+      ]
+    },
+    {
+      "archetype": "Flareon Noctowl",
+      "slug": "flareon-noctowl",
+      "meta_share": 1.3,
+      "weighted_share": 1.8,
+      "deck_count": 10,
+      "best_placement": 1,
+      "tier": "C",
+      "sprite_filenames": [
+        "flareon.png",
+        "noctowl.png"
       ]
     },
     {
@@ -398,19 +414,6 @@
       ]
     },
     {
-      "archetype": "Flareon Noctowl",
-      "slug": "flareon-noctowl",
-      "meta_share": 0.8,
-      "weighted_share": 0.8,
-      "deck_count": 6,
-      "best_placement": 1,
-      "tier": "Rogue",
-      "sprite_filenames": [
-        "flareon.png",
-        "noctowl.png"
-      ]
-    },
-    {
       "archetype": "Mega Absol Box",
       "slug": "mega-absol-box",
       "meta_share": 0.8,
@@ -460,19 +463,6 @@
       "sprite_filenames": [
         "meganium-mega.png",
         "ogerpon.png"
-      ]
-    },
-    {
-      "archetype": "Dusknoir Greninja",
-      "slug": "dusknoir-greninja",
-      "meta_share": 0.5,
-      "weighted_share": 0.6,
-      "deck_count": 4,
-      "best_placement": 1,
-      "tier": "Rogue",
-      "sprite_filenames": [
-        "dusknoir.png",
-        "greninja.png"
       ]
     },
     {
@@ -1584,6 +1574,16 @@
       "sprite_filenames": [
         "spidops.png"
       ]
+    },
+    {
+      "archetype": "Unknown",
+      "slug": "unknown",
+      "meta_share": 0.1,
+      "weighted_share": 0.1,
+      "deck_count": 1,
+      "best_placement": 15,
+      "tier": "Rogue",
+      "sprite_filenames": []
     }
   ],
   "format": {
