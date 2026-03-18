@@ -6,14 +6,14 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from analysis.archetype import (
-    build_sprite_key,
-    normalize_archetype,
     _derive_name_from_key,
     _sprite_key_to_filenames,
+    build_sprite_key,
+    normalize_archetype,
 )
 
-
 # --- build_sprite_key ---
+
 
 class TestBuildSpriteKey:
     def test_single_sprite(self):
@@ -44,6 +44,7 @@ class TestBuildSpriteKey:
 
 # --- normalize_archetype ---
 
+
 class TestNormalizeArchetype:
     def test_known_sprite_mapping(self):
         urls = ["https://r2.limitlesstcg.net/pokemon/gen9/charizard.png"]
@@ -73,6 +74,7 @@ class TestNormalizeArchetype:
 
 # --- _derive_name_from_key ---
 
+
 class TestDeriveNameFromKey:
     def test_simple_name(self):
         assert _derive_name_from_key("charizard") == "Charizard"
@@ -94,6 +96,7 @@ class TestDeriveNameFromKey:
 
 
 # --- _sprite_key_to_filenames ---
+
 
 class TestSpriteKeyToFilenames:
     def test_composite_key(self):

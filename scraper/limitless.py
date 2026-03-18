@@ -31,6 +31,7 @@ logger = logging.getLogger(__name__)
 # Data classes
 # ---------------------------------------------------------------------------
 
+
 @dataclass
 class LimitlessDecklist:
     cards: list[dict[str, Any]]  # Each dict has: count, name, set_code, card_number
@@ -60,14 +61,13 @@ class LimitlessTournament:
 # Decklist text-line regex
 # ---------------------------------------------------------------------------
 
-_DECKLIST_LINE_RE = re.compile(
-    r"^(\d+)\s+(.+?)\s+([A-Z0-9]{2,5}[A-Z]?|Energy)\s+(\d+|[A-Z]+\d*)$"
-)
+_DECKLIST_LINE_RE = re.compile(r"^(\d+)\s+(.+?)\s+([A-Z0-9]{2,5}[A-Z]?|Energy)\s+(\d+|[A-Z]+\d*)$")
 
 
 # ---------------------------------------------------------------------------
 # Client
 # ---------------------------------------------------------------------------
+
 
 class LimitlessClient:
     """Synchronous scraper for LimitlessTCG tournament data."""
@@ -97,9 +97,7 @@ class LimitlessClient:
         with self._lock:
             now = time.monotonic()
             # Remove timestamps older than 60 seconds
-            self._request_timestamps = [
-                ts for ts in self._request_timestamps if now - ts < 60.0
-            ]
+            self._request_timestamps = [ts for ts in self._request_timestamps if now - ts < 60.0]
             if len(self._request_timestamps) >= self._max_rpm:
                 oldest = self._request_timestamps[0]
                 wait = 60.0 - (now - oldest) + 0.1
@@ -131,10 +129,14 @@ class LimitlessClient:
                     )
 
                 if response.status_code == 429 or response.status_code >= 500:
-                    delay = base_delay * (2 ** attempt)
+                    delay = base_delay * (2**attempt)
                     logger.warning(
                         "Retryable status %d for %s, retrying in %.1fs (attempt %d/%d)",
-                        response.status_code, url, delay, attempt + 1, self._max_retries,
+                        response.status_code,
+                        url,
+                        delay,
+                        attempt + 1,
+                        self._max_retries,
                     )
                     time.sleep(delay)
                     continue
@@ -146,16 +148,18 @@ class LimitlessClient:
                 raise
             except httpx.HTTPError as exc:
                 last_exc = exc
-                delay = base_delay * (2 ** attempt)
+                delay = base_delay * (2**attempt)
                 logger.warning(
                     "Request error for %s: %s, retrying in %.1fs (attempt %d/%d)",
-                    url, exc, delay, attempt + 1, self._max_retries,
+                    url,
+                    exc,
+                    delay,
+                    attempt + 1,
+                    self._max_retries,
                 )
                 time.sleep(delay)
 
-        raise httpx.ConnectError(
-            f"Failed after {self._max_retries} retries: {last_exc}"
-        )
+        raise httpx.ConnectError(f"Failed after {self._max_retries} retries: {last_exc}")
 
     def _soup(self, url: str) -> BeautifulSoup:
         """Fetch a page and return parsed BeautifulSoup."""
@@ -198,7 +202,6 @@ class LimitlessClient:
                 # Only header row or empty
                 break
 
-            found_any = False
             stop_early = False
 
             for row in rows[1:]:  # Skip header
@@ -223,11 +226,8 @@ class LimitlessClient:
                 if tournament_date > end:
                     continue
 
-                found_any = True
-
                 # Extract prefecture and link
                 prefecture = cells[1].get_text(strip=True)
-                link_tag = cells[1].find("a") or cells[0].find("a") or row.find("a")
 
                 # Find tournament link (pattern: /tournaments/jp/[ID])
                 tournament_href = None
@@ -264,7 +264,9 @@ class LimitlessClient:
             if page > 20:  # Safety limit
                 break
 
-        logger.info("Found %d tournaments in date range %s to %s", len(tournaments), start_date, end_date)
+        logger.info(
+            "Found %d tournaments in date range %s to %s", len(tournaments), start_date, end_date
+        )
         return tournaments
 
     # ------------------------------------------------------------------
@@ -286,15 +288,12 @@ class LimitlessClient:
         # Use relative URL if it starts with base
         url = tournament_url
         if url.startswith(self._base_url):
-            url = url[len(self._base_url):]
+            url = url[len(self._base_url) :]
 
         soup = self._soup(url)
 
         # Find standings table
-        table = (
-            soup.find("table", class_="striped")
-            or soup.find("table", class_="standings")
-        )
+        table = soup.find("table", class_="striped") or soup.find("table", class_="standings")
 
         if table is None:
             # Fallback: find any table with 3+ data rows
@@ -358,9 +357,7 @@ class LimitlessClient:
                 )
             )
 
-        logger.info(
-            "Parsed %d placements from %s", len(placements), tournament_url
-        )
+        logger.info("Parsed %d placements from %s", len(placements), tournament_url)
         return placements
 
     # ------------------------------------------------------------------
@@ -381,7 +378,7 @@ class LimitlessClient:
         """
         url = decklist_url
         if url.startswith(self._base_url):
-            url = url[len(self._base_url):]
+            url = url[len(self._base_url) :]
 
         try:
             soup = self._soup(url)
@@ -422,13 +419,17 @@ class LimitlessClient:
                 if not name:
                     continue
 
-                cards.append({
-                    "count": count,
-                    "name": name,
-                    "set_code": set_code,
-                    "card_number": card_number,
-                    "card_id": f"{set_code}-{card_number}" if set_code and card_number else name,
-                })
+                cards.append(
+                    {
+                        "count": count,
+                        "name": name,
+                        "set_code": set_code,
+                        "card_number": card_number,
+                        "card_id": f"{set_code}-{card_number}"
+                        if set_code and card_number
+                        else name,
+                    }
+                )
 
         # Strategy 2: Text format fallback
         if not cards:
@@ -444,28 +445,30 @@ class LimitlessClient:
                     name = match.group(2).strip()
                     set_code = match.group(3)
                     card_number = match.group(4)
-                    cards.append({
-                        "count": count,
-                        "name": name,
-                        "set_code": set_code,
-                        "card_number": card_number,
-                        "card_id": f"{set_code}-{card_number}",
-                    })
+                    cards.append(
+                        {
+                            "count": count,
+                            "name": name,
+                            "set_code": set_code,
+                            "card_number": card_number,
+                            "card_id": f"{set_code}-{card_number}",
+                        }
+                    )
                     continue
 
                 # Handle basic energy lines (no card number)
-                energy_match = re.match(
-                    r"^(\d+)\s+(Basic\s+\w+\s+Energy)\s*$", line, re.IGNORECASE
-                )
+                energy_match = re.match(r"^(\d+)\s+(Basic\s+\w+\s+Energy)\s*$", line, re.IGNORECASE)
                 if energy_match:
                     name = energy_match.group(2).strip()
-                    cards.append({
-                        "count": int(energy_match.group(1)),
-                        "name": name,
-                        "set_code": "Energy",
-                        "card_number": "",
-                        "card_id": name,
-                    })
+                    cards.append(
+                        {
+                            "count": int(energy_match.group(1)),
+                            "name": name,
+                            "set_code": "Energy",
+                            "card_number": "",
+                            "card_id": name,
+                        }
+                    )
 
         if not cards:
             logger.warning("No cards parsed from decklist: %s", decklist_url)

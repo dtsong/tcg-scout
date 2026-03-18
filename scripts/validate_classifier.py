@@ -4,7 +4,6 @@ Runs the classifier on every decklist in the DB and compares
 against the Limitless-assigned archetype. Outputs accuracy stats.
 """
 
-import sqlite3
 import sys
 from collections import Counter
 from pathlib import Path
@@ -41,8 +40,7 @@ def validate(format_slug: str = "nihil-zero") -> None:
         # (the classifier filters on category=="Pokemon", so this means
         # all cards are candidates -- Trainer/Energy names won't match anchors)
         card_dicts = [
-            {"card_name": c["card_name"], "count": c["count"], "category": "Pokemon"}
-            for c in cards
+            {"card_name": c["card_name"], "count": c["count"], "category": "Pokemon"} for c in cards
         ]
         predicted = classify_from_decklist(card_dicts)
         actual = p["archetype"]
@@ -57,7 +55,7 @@ def validate(format_slug: str = "nihil-zero") -> None:
     accuracy = correct / total * 100 if total > 0 else 0
 
     print(f"\nClassifier Validation: {format_slug}")
-    print(f"{'='*50}")
+    print(f"{'=' * 50}")
     print(f"Total placements: {len(placements)}")
     print(f"With decklists:   {total}")
     print(f"No decklist:      {no_decklist}")
@@ -65,7 +63,7 @@ def validate(format_slug: str = "nihil-zero") -> None:
     print(f"Wrong:            {wrong}")
 
     if mismatches:
-        print(f"\nTop mismatches:")
+        print("\nTop mismatches:")
         for (actual, predicted), count in mismatches.most_common(20):
             print(f"  {count:4d}x  actual={actual}  predicted={predicted}")
 

@@ -7,12 +7,11 @@ which requires JavaScript rendering (Vue.js SPA).
 import asyncio
 import logging
 import os
-import re
 import sqlite3
 from dataclasses import dataclass, field
 
 from kernel import Kernel
-from playwright.async_api import async_playwright, Page
+from playwright.async_api import Page, async_playwright
 
 logger = logging.getLogger(__name__)
 
@@ -105,11 +104,11 @@ class PokemonJPClient:
                         break
 
                 event_name = title.split(" | ")[0].strip()
-                date_text = await page.evaluate('''() => {
+                date_text = await page.evaluate("""() => {
                     const text = document.body.innerText;
                     const match = text.match(/(\\d{4}\\/\\d{2}\\/\\d{2})/);
                     return match ? match[1] : '';
-                }''')
+                }""")
 
                 # Extract placements from all pages
                 all_placements: list[JPPlacement] = []
@@ -120,10 +119,12 @@ class PokemonJPClient:
                     all_placements.extend(placements)
                     logger.info(
                         "Event %d page %d: %d placements",
-                        event_id, page_num, len(placements),
+                        event_id,
+                        page_num,
+                        len(placements),
                     )
 
-                    next_btn = await page.query_selector('text=次のページ')
+                    next_btn = await page.query_selector("text=次のページ")
                     if next_btn:
                         await next_btn.click()
                         await asyncio.sleep(2)
@@ -145,7 +146,7 @@ class PokemonJPClient:
 
     async def _extract_placements(self, page: Page) -> list[JPPlacement]:
         """Extract placements from the current results page."""
-        data = await page.evaluate('''() => {
+        data = await page.evaluate("""() => {
             const results = [];
             const rows = document.querySelectorAll('tr');
             for (const row of rows) {
@@ -185,7 +186,7 @@ class PokemonJPClient:
                 });
             }
             return results;
-        }''')
+        }""")
 
         return [
             JPPlacement(
@@ -218,14 +219,14 @@ class PokemonJPClient:
                 await asyncio.sleep(3)
 
                 # Click "リスト表示" (List View) for structured text
-                list_btn = await page.query_selector('text=リスト表示')
+                list_btn = await page.query_selector("text=リスト表示")
                 if list_btn:
                     await list_btn.click()
                     await asyncio.sleep(2)
 
                 # Extract img alt (JP card names) + set codes from image URLs
                 # This is the most reliable source of JP names
-                img_cards = await page.evaluate('''() => {
+                img_cards = await page.evaluate("""() => {
                     const cards = [];
                     const imgs = document.querySelectorAll('.thumbsImageArea img');
                     imgs.forEach(img => {
@@ -239,10 +240,10 @@ class PokemonJPClient:
                         });
                     });
                     return cards;
-                }''')
+                }""")
 
                 # Extract structured text from list view for counts + categories
-                text_data = await page.evaluate('''() => {
+                text_data = await page.evaluate("""() => {
                     const body = document.body.innerText;
                     const lines = body.split('\\n').map(l => l.trim()).filter(l => l);
                     const cards = [];
@@ -290,7 +291,7 @@ class PokemonJPClient:
                         }
                     }
                     return cards;
-                }''')
+                }""")
 
                 await browser.close()
         finally:
@@ -303,13 +304,15 @@ class PokemonJPClient:
             # Perfect alignment — merge both sources
             for i, td in enumerate(text_data):
                 ic = img_cards[i]
-                result.append(JPDeckCard(
-                    name_jp=ic["name"],
-                    set_code=ic.get("setCode", td.get("setCode", "")),
-                    card_number=td.get("cardNumber", ""),
-                    count=td["count"],
-                    category=td["category"],
-                ))
+                result.append(
+                    JPDeckCard(
+                        name_jp=ic["name"],
+                        set_code=ic.get("setCode", td.get("setCode", "")),
+                        card_number=td.get("cardNumber", ""),
+                        count=td["count"],
+                        category=td["category"],
+                    )
+                )
         elif text_data:
             # Use text data, supplement with img names where available
             for i, td in enumerate(text_data):
@@ -318,21 +321,25 @@ class PokemonJPClient:
                 if i < len(img_cards):
                     name = img_cards[i]["name"] or name
                     set_code = img_cards[i].get("setCode", "") or set_code
-                result.append(JPDeckCard(
-                    name_jp=name,
-                    set_code=set_code,
-                    card_number=td.get("cardNumber", ""),
-                    count=td["count"],
-                    category=td["category"],
-                ))
+                result.append(
+                    JPDeckCard(
+                        name_jp=name,
+                        set_code=set_code,
+                        card_number=td.get("cardNumber", ""),
+                        count=td["count"],
+                        category=td["category"],
+                    )
+                )
         elif img_cards:
             # Fallback: only img data, counts unknown (set to 1)
             for ic in img_cards:
-                result.append(JPDeckCard(
-                    name_jp=ic["name"],
-                    set_code=ic.get("setCode", ""),
-                    count=1,
-                ))
+                result.append(
+                    JPDeckCard(
+                        name_jp=ic["name"],
+                        set_code=ic.get("setCode", ""),
+                        count=1,
+                    )
+                )
 
         logger.info("Parsed %d cards from deck %s", len(result), deck_url)
         return result
@@ -453,7 +460,9 @@ def translate_cl_decklists(conn: sqlite3.Connection) -> int:
     rows = conn.execute(
         "SELECT card_name_jp, card_name_en FROM card_mappings WHERE card_name_en IS NOT NULL"
     ).fetchall()
-    jp_to_en: dict[str, str] = {r["card_name_jp"]: r["card_name_en"] for r in rows if r["card_name_jp"]}
+    jp_to_en: dict[str, str] = {
+        r["card_name_jp"]: r["card_name_en"] for r in rows if r["card_name_jp"]
+    }
 
     # Add energy translations
     jp_to_en.update(JP_ENERGY_MAP)

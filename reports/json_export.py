@@ -7,11 +7,10 @@ import sqlite3
 import urllib.request
 from pathlib import Path
 
-from analysis.archetype import SPRITE_ARCHETYPE_MAP, _COMPOSITE_SPRITE_FILENAMES
+from analysis.archetype import _COMPOSITE_SPRITE_FILENAMES, SPRITE_ARCHETYPE_MAP
 from analysis.buylist import generate_buylist
 from analysis.meta import get_latest_snapshot
 from config import (
-    CL_WEIGHT_MULTIPLIER,
     DATASET_END,
     DATASET_START,
     DEFAULT_FORMAT,
@@ -30,9 +29,15 @@ DEFAULT_OUTPUT_DIR = Path(__file__).parent.parent / "web" / "public" / "data"
 
 # Basic energy card names to exclude from all analytics
 BASIC_ENERGY_NAMES = {
-    "Basic Fire Energy", "Basic Water Energy", "Basic Lightning Energy",
-    "Basic Psychic Energy", "Basic Fighting Energy", "Basic Darkness Energy",
-    "Basic Metal Energy", "Basic Grass Energy", "Basic Colorless Energy",
+    "Basic Fire Energy",
+    "Basic Water Energy",
+    "Basic Lightning Energy",
+    "Basic Psychic Energy",
+    "Basic Fighting Energy",
+    "Basic Darkness Energy",
+    "Basic Metal Energy",
+    "Basic Grass Energy",
+    "Basic Colorless Energy",
     "Basic Fairy Energy",
 }
 
@@ -46,6 +51,7 @@ def _basic_energy_exclusion_sql() -> str:
 def _basic_energy_params() -> list[str]:
     """Return params list for basic energy exclusion."""
     return sorted(BASIC_ENERGY_NAMES)
+
 
 # Known ACE SPEC card names
 ACE_SPEC_CARDS = {
@@ -163,14 +169,27 @@ def _get_sprite_filenames(archetype_name: str) -> list[str]:
                 i += 2
                 continue
         # Handle hyphenated names (Porygon-Z, Raging Bolt, etc.)
-        if i + 1 < len(parts) and parts[i + 1].lower() not in ("ex", "box", "stall", "control", "mega"):
+        if i + 1 < len(parts) and parts[i + 1].lower() not in (
+            "ex",
+            "box",
+            "stall",
+            "control",
+            "mega",
+        ):
             # Check if this could be a two-word Pokemon name
             combined = f"{part}-{parts[i + 1].lower()}"
             # Known two-word Pokemon that use hyphens in sprite names
             if combined in (
-                "raging-bolt", "iron-hands", "iron-valiant", "roaring-moon",
-                "chien-pao", "porygon-z", "ogerpon-wellspring", "ogerpon-cornerstone",
-                "ho-oh", "zacian-crowned",
+                "raging-bolt",
+                "iron-hands",
+                "iron-valiant",
+                "roaring-moon",
+                "chien-pao",
+                "porygon-z",
+                "ogerpon-wellspring",
+                "ogerpon-cornerstone",
+                "ho-oh",
+                "zacian-crowned",
             ):
                 filenames.append(f"{combined}.png")
                 i += 2
@@ -188,18 +207,67 @@ def _classify_card(card_name: str) -> str:
         return "Energy"
     # Common trainer keywords
     trainer_keywords = (
-        "ball", "catcher", "switch", "rope", "rod", "stretcher", "candy",
-        "cape", "belt", "brace", "stamp", "drum", "tree", "laser", "box",
-        "headset", "amulet", "aroma", "pod", "crystal", "pad", "vital",
-        "tower", "gong", "scrapper", "balloon", "board", "poffin",
-        "determination", "fighting spirit", "watchtower",
+        "ball",
+        "catcher",
+        "switch",
+        "rope",
+        "rod",
+        "stretcher",
+        "candy",
+        "cape",
+        "belt",
+        "brace",
+        "stamp",
+        "drum",
+        "tree",
+        "laser",
+        "box",
+        "headset",
+        "amulet",
+        "aroma",
+        "pod",
+        "crystal",
+        "pad",
+        "vital",
+        "tower",
+        "gong",
+        "scrapper",
+        "balloon",
+        "board",
+        "poffin",
+        "determination",
+        "fighting spirit",
+        "watchtower",
     )
     # Trainer supporter names (people)
     trainer_names = (
-        "boss", "iono", "professor", "judge", "pepper", "cynthia", "biwa",
-        "roxanne", "avery", "lillie", "crispin", "dawn", "iris", "marnie",
-        "team rocket", "petrel", "arven", "penny", "jacq", "turo", "sada",
-        "kieran", "carmine", "briar", "drayton", "lacey", "hassel",
+        "boss",
+        "iono",
+        "professor",
+        "judge",
+        "pepper",
+        "cynthia",
+        "biwa",
+        "roxanne",
+        "avery",
+        "lillie",
+        "crispin",
+        "dawn",
+        "iris",
+        "marnie",
+        "team rocket",
+        "petrel",
+        "arven",
+        "penny",
+        "jacq",
+        "turo",
+        "sada",
+        "kieran",
+        "carmine",
+        "briar",
+        "drayton",
+        "lacey",
+        "hassel",
     )
     for kw in trainer_keywords:
         if kw in lower:
@@ -237,14 +305,12 @@ def _compute_weighted_shares(conn: sqlite3.Connection, snapshot: dict) -> dict[s
     if total_weight == 0:
         return {}
 
-    return {
-        arch: round(w / total_weight * 100, 2)
-        for arch, w in weighted_sums.items()
-    }
+    return {arch: round(w / total_weight * 100, 2) for arch, w in weighted_sums.items()}
 
 
-def export_meta(conn: sqlite3.Connection, output_dir: Path,
-                format_slug: str | None = None) -> dict | None:
+def export_meta(
+    conn: sqlite3.Connection, output_dir: Path, format_slug: str | None = None
+) -> dict | None:
     """Export meta.json — snapshot stats + tier list with weighted shares."""
     snapshot = get_latest_snapshot(conn)
     if not snapshot:
@@ -267,16 +333,18 @@ def export_meta(conn: sqlite3.Connection, output_dir: Path,
     for arch in snapshot["archetypes"]:
         name = arch["archetype"]
         ws = weighted_shares.get(name, 0.0)
-        archetypes.append({
-            "archetype": name,
-            "slug": _slugify(name),
-            "meta_share": round(arch["meta_share"], 1),
-            "weighted_share": round(ws, 1),
-            "deck_count": arch["deck_count"],
-            "best_placement": arch["best_placement"],
-            "tier": arch["tier"],
-            "sprite_filenames": _get_sprite_filenames(name),
-        })
+        archetypes.append(
+            {
+                "archetype": name,
+                "slug": _slugify(name),
+                "meta_share": round(arch["meta_share"], 1),
+                "weighted_share": round(ws, 1),
+                "deck_count": arch["deck_count"],
+                "best_placement": arch["best_placement"],
+                "tier": arch["tier"],
+                "sprite_filenames": _get_sprite_filenames(name),
+            }
+        )
 
     # Re-sort by weighted_share for tier assignment display
     archetypes.sort(key=lambda a: a["weighted_share"], reverse=True)
@@ -339,12 +407,14 @@ def export_staples(conn: sqlite3.Connection, output_dir: Path) -> None:
     staples = []
     for row in rows:
         pct = round(row["deck_count"] * 100.0 / total_decks, 1)
-        staples.append({
-            "card_name": row["card_name"],
-            "deck_count": row["deck_count"],
-            "usage_pct": pct,
-            "avg_copies": row["avg_copies"],
-        })
+        staples.append(
+            {
+                "card_name": row["card_name"],
+                "deck_count": row["deck_count"],
+                "usage_pct": pct,
+                "avg_copies": row["avg_copies"],
+            }
+        )
 
     _write_json(staples, output_dir / "staples.json")
 
@@ -371,12 +441,14 @@ def export_flex(conn: sqlite3.Connection, output_dir: Path) -> None:
     flex = []
     for row in rows:
         pct = round(row["deck_count"] * 100.0 / total_decks, 1)
-        flex.append({
-            "card_name": row["card_name"],
-            "deck_count": row["deck_count"],
-            "usage_pct": pct,
-            "avg_copies": row["avg_copies"],
-        })
+        flex.append(
+            {
+                "card_name": row["card_name"],
+                "deck_count": row["deck_count"],
+                "usage_pct": pct,
+                "avg_copies": row["avg_copies"],
+            }
+        )
 
     _write_json(flex, output_dir / "flex.json")
 
@@ -424,21 +496,25 @@ def _get_card_archetype_breakdown(
             continue
         early_pct = round(row["early_count"] * 100.0 / et, 1)
         late_pct = round(row["late_count"] * 100.0 / lt, 1)
-        result.append({
-            "archetype": arch,
-            "early_pct": early_pct,
-            "late_pct": late_pct,
-            "delta": round(late_pct - early_pct, 1),
-        })
+        result.append(
+            {
+                "archetype": arch,
+                "early_pct": early_pct,
+                "late_pct": late_pct,
+                "delta": round(late_pct - early_pct, 1),
+            }
+        )
     return result
 
 
-def export_trends(conn: sqlite3.Connection, output_dir: Path,
-                  format_slug: str | None = None) -> None:
+def export_trends(
+    conn: sqlite3.Connection, output_dir: Path, format_slug: str | None = None
+) -> None:
     """Export trends.json — surging and declining cards with archetype breakdowns."""
     if format_slug:
         fmt = get_format_config(format_slug)
         from datetime import date
+
         start = date.fromisoformat(fmt["dataset_start"])
         end = date.fromisoformat(fmt["dataset_end"])
         mid = start + (end - start) / 2
@@ -458,10 +534,16 @@ def export_trends(conn: sqlite3.Connection, output_dir: Path,
 
     if early_total == 0 or late_total == 0:
         logger.warning("Insufficient data for trend analysis")
-        _write_json({
-            "midpoint": midpoint, "early_decks": 0, "late_decks": 0,
-            "surging": [], "declining": [],
-        }, output_dir / "trends.json")
+        _write_json(
+            {
+                "midpoint": midpoint,
+                "early_decks": 0,
+                "late_decks": 0,
+                "surging": [],
+                "declining": [],
+            },
+            output_dir / "trends.json",
+        )
         return
 
     rows = conn.execute(
@@ -484,14 +566,16 @@ def export_trends(conn: sqlite3.Connection, output_dir: Path,
         early_pct = round(row["early_count"] * 100.0 / early_total, 1)
         late_pct = round(row["late_count"] * 100.0 / late_total, 1)
         delta = round(late_pct - early_pct, 1)
-        cards.append({
-            "card_name": row["card_name"],
-            "early_count": row["early_count"],
-            "late_count": row["late_count"],
-            "early_pct": early_pct,
-            "late_pct": late_pct,
-            "delta": delta,
-        })
+        cards.append(
+            {
+                "card_name": row["card_name"],
+                "early_count": row["early_count"],
+                "late_count": row["late_count"],
+                "early_pct": early_pct,
+                "late_pct": late_pct,
+                "delta": delta,
+            }
+        )
 
     # Top 20 surging (positive delta) with archetype breakdowns
     cards.sort(key=lambda x: x["delta"], reverse=True)
@@ -507,13 +591,16 @@ def export_trends(conn: sqlite3.Connection, output_dir: Path,
         card["direction"] = "declining"
         card["archetypes"] = _get_card_archetype_breakdown(conn, card["card_name"], midpoint)
 
-    _write_json({
-        "midpoint": midpoint,
-        "early_decks": early_total,
-        "late_decks": late_total,
-        "surging": surging,
-        "declining": declining,
-    }, output_dir / "trends.json")
+    _write_json(
+        {
+            "midpoint": midpoint,
+            "early_decks": early_total,
+            "late_decks": late_total,
+            "surging": surging,
+            "declining": declining,
+        },
+        output_dir / "trends.json",
+    )
 
 
 def export_winning_edge(conn: sqlite3.Connection, output_dir: Path) -> None:
@@ -523,10 +610,7 @@ def export_winning_edge(conn: sqlite3.Connection, output_dir: Path) -> None:
         return
 
     # Get S/A/B archetype names
-    sa_archetypes = [
-        a["archetype"] for a in snapshot["archetypes"]
-        if a["tier"] in ("S", "A", "B")
-    ]
+    sa_archetypes = [a["archetype"] for a in snapshot["archetypes"] if a["tier"] in ("S", "A", "B")]
 
     if not sa_archetypes:
         _write_json([], output_dir / "winning-edge.json")
@@ -586,14 +670,16 @@ def export_winning_edge(conn: sqlite3.Connection, output_dir: Path) -> None:
         field_pct = round(field_usage[name] * 100.0 / total_field, 1)
         win_pct = round(row["winner_decks"] * 100.0 / total_winners, 1)
         edge = round(win_pct - field_pct, 1)
-        cards.append({
-            "card_name": name,
-            "field_pct": field_pct,
-            "win_pct": win_pct,
-            "edge": edge,
-            "winner_decks": row["winner_decks"],
-            "field_decks": field_usage[name],
-        })
+        cards.append(
+            {
+                "card_name": name,
+                "field_pct": field_pct,
+                "win_pct": win_pct,
+                "edge": edge,
+                "winner_decks": row["winner_decks"],
+                "field_decks": field_usage[name],
+            }
+        )
 
     cards.sort(key=lambda x: x["edge"], reverse=True)
     _write_json(cards[:20], output_dir / "winning-edge.json")
@@ -619,11 +705,13 @@ def export_ace_specs(conn: sqlite3.Connection, output_dir: Path) -> None:
     specs = []
     for row in rows:
         pct = round(row["deck_count"] * 100.0 / total_decks, 1)
-        specs.append({
-            "card_name": row["card_name"],
-            "deck_count": row["deck_count"],
-            "usage_pct": pct,
-        })
+        specs.append(
+            {
+                "card_name": row["card_name"],
+                "deck_count": row["deck_count"],
+                "usage_pct": pct,
+            }
+        )
 
     _write_json(specs, output_dir / "ace-specs.json")
 
@@ -792,20 +880,24 @@ def export_champions_league(conn: sqlite3.Connection, output_dir: Path) -> None:
                 elif jp_name:
                     untranslated_names.add(jp_name)
 
-                decklist.append({
-                    "card_name_jp": jp_name,
-                    "card_name_en": en_name,
-                    "count": card["count"],
-                    "category": card["category"],
-                })
+                decklist.append(
+                    {
+                        "card_name_jp": jp_name,
+                        "card_name_en": en_name,
+                        "count": card["count"],
+                        "category": card["category"],
+                    }
+                )
 
-            placement_list.append({
-                "standing": p["standing"],
-                "player_name": p["player_name"],
-                "region": p["region"],
-                "deck_code": p["deck_code"],
-                "decklist": decklist,
-            })
+            placement_list.append(
+                {
+                    "standing": p["standing"],
+                    "player_name": p["player_name"],
+                    "region": p["region"],
+                    "deck_code": p["deck_code"],
+                    "decklist": decklist,
+                }
+            )
 
         division_data = {
             "event_id": event["id"],
@@ -861,7 +953,9 @@ def export_images(conn: sqlite3.Connection, output_dir: Path) -> None:
         except Exception as e:
             logger.warning("Failed to download sprite %s: %s", filename, e)
 
-    logger.info("Sprites: %d downloaded, %d already cached", downloaded, len(sprite_files) - downloaded)
+    logger.info(
+        "Sprites: %d downloaded, %d already cached", downloaded, len(sprite_files) - downloaded
+    )
 
     # Download card images for top 50 buylist cards
     buylist = generate_buylist(conn, snapshot["id"])
@@ -890,7 +984,9 @@ def export_images(conn: sqlite3.Connection, output_dir: Path) -> None:
         if dest.exists():
             continue
         try:
-            req = urllib.request.Request(info["image_url"], headers={"User-Agent": "Mozilla/5.0 Scout/1.0"})
+            req = urllib.request.Request(
+                info["image_url"], headers={"User-Agent": "Mozilla/5.0 Scout/1.0"}
+            )
             with urllib.request.urlopen(req) as resp:
                 dest.write_bytes(resp.read())
             card_downloaded += 1
@@ -900,8 +996,9 @@ def export_images(conn: sqlite3.Connection, output_dir: Path) -> None:
     logger.info("Card images: %d downloaded for top buylist cards", card_downloaded)
 
 
-def export_all(conn: sqlite3.Connection, output_dir: Path | None = None,
-               format_slug: str | None = None) -> Path:
+def export_all(
+    conn: sqlite3.Connection, output_dir: Path | None = None, format_slug: str | None = None
+) -> Path:
     """Run all exports. Returns the output directory."""
     base = output_dir or DEFAULT_OUTPUT_DIR
     # Write to format subdirectory
@@ -942,6 +1039,7 @@ def export_formats(output_dir: Path | None = None) -> None:
         deck_count = 0
         if meta_path.exists():
             import json as _json
+
             try:
                 meta = _json.loads(meta_path.read_text(encoding="utf-8"))
                 tournament_count = meta.get("tournament_count", 0)
@@ -949,16 +1047,18 @@ def export_formats(output_dir: Path | None = None) -> None:
             except Exception:
                 pass
 
-        formats.append({
-            "slug": slug,
-            "name": fmt["name"],
-            "name_en": fmt["name_en"],
-            "description": fmt["description"],
-            "dataset_start": fmt["dataset_start"],
-            "dataset_end": fmt["dataset_end"],
-            "status": status,
-            "tournament_count": tournament_count,
-            "deck_count": deck_count,
-        })
+        formats.append(
+            {
+                "slug": slug,
+                "name": fmt["name"],
+                "name_en": fmt["name_en"],
+                "description": fmt["description"],
+                "dataset_start": fmt["dataset_start"],
+                "dataset_end": fmt["dataset_end"],
+                "status": status,
+                "tournament_count": tournament_count,
+                "deck_count": deck_count,
+            }
+        )
 
     _write_json(formats, base / "formats.json")

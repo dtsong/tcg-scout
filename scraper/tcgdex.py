@@ -6,7 +6,7 @@ import sqlite3
 import httpx
 from rich.progress import Progress
 
-from config import TCGDEX_API_URL, ROTATION_LEGAL_REGULATION_MARKS, ROTATION_LEGAL_SETS
+from config import ROTATION_LEGAL_REGULATION_MARKS, ROTATION_LEGAL_SETS, TCGDEX_API_URL
 
 logger = logging.getLogger(__name__)
 

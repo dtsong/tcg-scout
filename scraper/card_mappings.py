@@ -14,7 +14,7 @@ from typing import Any
 
 import httpx
 from bs4 import BeautifulSoup
-from rich.progress import Progress, SpinnerColumn, TextColumn, BarColumn, MofNCompleteColumn
+from rich.progress import BarColumn, MofNCompleteColumn, Progress, SpinnerColumn, TextColumn
 
 from config import (
     LIMITLESS_BASE_URL,
@@ -30,13 +30,30 @@ logger = logging.getLogger(__name__)
 # ---------------------------------------------------------------------------
 
 LIMITLESS_TO_TCGDEX = {
-    "BLK": "sv10.5b", "WHT": "sv10.5w", "DRI": "sv10", "JTG": "sv09",
-    "PRE": "sv08.5", "SSP": "sv08", "SCR": "sv07", "SFA": "sv06.5",
-    "TWM": "sv06", "TEF": "sv05", "PAF": "sv04.5", "PAR": "sv04",
-    "MEW": "sv03.5", "OBF": "sv03", "PAL": "sv02", "SVI": "sv01",
-    "SVE": "sve", "SVP": "svp",
+    "BLK": "sv10.5b",
+    "WHT": "sv10.5w",
+    "DRI": "sv10",
+    "JTG": "sv09",
+    "PRE": "sv08.5",
+    "SSP": "sv08",
+    "SCR": "sv07",
+    "SFA": "sv06.5",
+    "TWM": "sv06",
+    "TEF": "sv05",
+    "PAF": "sv04.5",
+    "PAR": "sv04",
+    "MEW": "sv03.5",
+    "OBF": "sv03",
+    "PAL": "sv02",
+    "SVI": "sv01",
+    "SVE": "sve",
+    "SVP": "svp",
     # Mega Evolution
-    "ASC": "me02.5", "PFL": "me02", "MEG": "me01", "MEE": "mee", "MEP": "mep",
+    "ASC": "me02.5",
+    "PFL": "me02",
+    "MEG": "me01",
+    "MEE": "mee",
+    "MEP": "mep",
 }
 
 
@@ -48,6 +65,7 @@ def map_set_code(limitless_code: str) -> str:
 # ---------------------------------------------------------------------------
 # HTTP client (mirrors LimitlessClient pattern from limitless.py)
 # ---------------------------------------------------------------------------
+
 
 class _CardMappingClient:
     """Synchronous scraper for Limitless card pages."""
@@ -76,9 +94,7 @@ class _CardMappingClient:
         """Block until a request slot is available (max N requests/minute)."""
         with self._lock:
             now = time.monotonic()
-            self._request_timestamps = [
-                ts for ts in self._request_timestamps if now - ts < 60.0
-            ]
+            self._request_timestamps = [ts for ts in self._request_timestamps if now - ts < 60.0]
             if len(self._request_timestamps) >= self._max_rpm:
                 oldest = self._request_timestamps[0]
                 wait = 60.0 - (now - oldest) + 0.1
@@ -109,10 +125,14 @@ class _CardMappingClient:
                     )
 
                 if response.status_code == 429 or response.status_code >= 500:
-                    delay = base_delay * (2 ** attempt)
+                    delay = base_delay * (2**attempt)
                     logger.warning(
                         "Retryable status %d for %s, retrying in %.1fs (attempt %d/%d)",
-                        response.status_code, url, delay, attempt + 1, self._max_retries,
+                        response.status_code,
+                        url,
+                        delay,
+                        attempt + 1,
+                        self._max_retries,
                     )
                     time.sleep(delay)
                     continue
@@ -124,16 +144,18 @@ class _CardMappingClient:
                 raise
             except httpx.HTTPError as exc:
                 last_exc = exc
-                delay = base_delay * (2 ** attempt)
+                delay = base_delay * (2**attempt)
                 logger.warning(
                     "Request error for %s: %s, retrying in %.1fs (attempt %d/%d)",
-                    url, exc, delay, attempt + 1, self._max_retries,
+                    url,
+                    exc,
+                    delay,
+                    attempt + 1,
+                    self._max_retries,
                 )
                 time.sleep(delay)
 
-        raise httpx.ConnectError(
-            f"Failed after {self._max_retries} retries: {last_exc}"
-        )
+        raise httpx.ConnectError(f"Failed after {self._max_retries} retries: {last_exc}")
 
     def _soup(self, url: str) -> BeautifulSoup:
         """Fetch a page and return parsed BeautifulSoup."""
@@ -190,9 +212,7 @@ class _CardMappingClient:
         logger.info("Found %d cards in JP set %s", len(card_ids), set_code)
         return card_ids
 
-    def fetch_card_equivalent(
-        self, jp_card_id: str, jp_set_id: str
-    ) -> dict[str, str | None]:
+    def fetch_card_equivalent(self, jp_card_id: str, jp_set_id: str) -> dict[str, str | None]:
         """Fetch the EN equivalent for a JP card.
 
         Args:
@@ -326,6 +346,7 @@ class _CardMappingClient:
 # Database sync
 # ---------------------------------------------------------------------------
 
+
 def sync_card_mappings(
     conn: sqlite3.Connection,
     set_codes: list[str] | None = None,
@@ -365,9 +386,7 @@ def sync_card_mappings(
                     progress.advance(sets_task)
                     continue
 
-                cards_task = progress.add_task(
-                    f"  {set_code} cards", total=len(card_ids)
-                )
+                cards_task = progress.add_task(f"  {set_code} cards", total=len(card_ids))
 
                 for jp_card_id in card_ids:
                     # Check if already mapped
@@ -383,9 +402,7 @@ def sync_card_mappings(
                     try:
                         info = client.fetch_card_equivalent(jp_card_id, set_code)
                     except httpx.HTTPStatusError as exc:
-                        logger.warning(
-                            "Failed to fetch equivalent for %s: %s", jp_card_id, exc
-                        )
+                        logger.warning("Failed to fetch equivalent for %s: %s", jp_card_id, exc)
                         progress.advance(cards_task)
                         continue
 
@@ -417,6 +434,7 @@ def sync_card_mappings(
 # ---------------------------------------------------------------------------
 # Lookup helpers
 # ---------------------------------------------------------------------------
+
 
 def get_en_name(
     conn: sqlite3.Connection,
@@ -466,7 +484,6 @@ def translate_decklist(
     for card in jp_cards:
         name_jp = card.get("name_jp", "")
         set_code = card.get("set_code", "")
-        count = card.get("count", 1)
 
         translated = dict(card)
 
@@ -497,9 +514,7 @@ def translate_decklist(
         else:
             translated["card_name_en"] = None
             translated["card_id"] = None
-            logger.debug(
-                "No EN mapping found for %s (set %s)", name_jp, set_code
-            )
+            logger.debug("No EN mapping found for %s (set %s)", name_jp, set_code)
 
         result.append(translated)
 

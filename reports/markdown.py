@@ -17,8 +17,7 @@ def render_meta_report(
     """Render a Markdown meta report. Writes to file and returns the file path."""
     # Fetch snapshot metadata
     row = conn.execute(
-        "SELECT generated_at, tournament_count, deck_count "
-        "FROM meta_snapshots WHERE id = ?",
+        "SELECT generated_at, tournament_count, deck_count FROM meta_snapshots WHERE id = ?",
         (snapshot_id,),
     ).fetchone()
     if row is None:
@@ -55,25 +54,17 @@ def render_meta_report(
         f"> Data: {tournament_count} tournaments, {deck_count} decks "
         f"| Format: JP Standard (BO1) | Rotation-legal only"
     )
-    lines.append(
-        "> Note: JP plays BO1 — aggressive/linear decks may be overrepresented vs BO3"
-    )
+    lines.append("> Note: JP plays BO1 — aggressive/linear decks may be overrepresented vs BO3")
     lines.append("")
     lines.append("## Tier List")
-    lines.append(
-        "| Tier | Archetype | Meta Share | Decks | Best Finish |"
-    )
-    lines.append(
-        "|------|-----------|-----------|-------|-------------|"
-    )
+    lines.append("| Tier | Archetype | Meta Share | Decks | Best Finish |")
+    lines.append("|------|-----------|-----------|-------|-------------|")
 
     for tier in TIER_ORDER:
         for r in tiers[tier]:
             best = _format_placement(r["best_placement"])
             share = f"{r['meta_share']:.1f}%"
-            lines.append(
-                f"| {tier} | {r['archetype']} | {share} | {r['deck_count']} | {best} |"
-            )
+            lines.append(f"| {tier} | {r['archetype']} | {share} | {r['deck_count']} | {best} |")
 
     md = "\n".join(lines) + "\n"
 
@@ -90,7 +81,5 @@ def _format_placement(placement: int | None) -> str:
     """Format a placement number as a finish string (e.g. 1 -> '1st')."""
     if placement is None:
         return "—"
-    suffix = {1: "st", 2: "nd", 3: "rd"}.get(
-        placement if placement < 20 else placement % 10, "th"
-    )
+    suffix = {1: "st", 2: "nd", 3: "rd"}.get(placement if placement < 20 else placement % 10, "th")
     return f"{placement}{suffix}"

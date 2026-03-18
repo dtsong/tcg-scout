@@ -259,4 +259,5 @@ def classify_from_decklist(cards: list[dict]) -> str:
     Falls back to "Unknown" if no anchor cards match.
     """
     from analysis.archetype_classifier import classify_decklist
+
     return classify_decklist(cards)

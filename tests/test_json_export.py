@@ -6,22 +6,22 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
+from config import get_format_config
 from reports.json_export import (
-    _slugify,
-    _get_sprite_filenames,
     _build_jp_en_lookup,
     _compute_weighted_shares,
-    export_meta,
-    export_trends,
+    _get_sprite_filenames,
+    _slugify,
+    export_all,
     export_archetypes,
     export_champions_league,
-    export_all,
     export_formats,
+    export_meta,
+    export_trends,
 )
-from config import PLACEMENT_WEIGHTS, PLACEMENT_WEIGHT_DEFAULT, get_format_config
-
 
 # --- _slugify ---
+
 
 class TestSlugify:
     def test_simple_name(self):
@@ -42,6 +42,7 @@ class TestSlugify:
 
 # --- _get_sprite_filenames ---
 
+
 class TestGetSpriteFilenames:
     def test_known_single_sprite(self):
         result = _get_sprite_filenames("Charizard ex")
@@ -56,10 +57,12 @@ class TestGetSpriteFilenames:
 
     def test_unknown_archetype(self):
         result = _get_sprite_filenames("Nonexistent Archetype")
-        assert result == []
+        # Auto-derives from name: "Nonexistent Archetype" -> ["nonexistent.png", "archetype.png"]
+        assert result == ["nonexistent.png", "archetype.png"]
 
 
 # --- _build_jp_en_lookup ---
+
 
 class TestBuildJpEnLookup:
     def test_includes_hardcoded_entries(self, db):
@@ -80,6 +83,7 @@ class TestBuildJpEnLookup:
 
 
 # --- _compute_weighted_shares ---
+
 
 class TestComputeWeightedShares:
     def test_returns_all_archetypes(self, db):
@@ -107,6 +111,7 @@ class TestComputeWeightedShares:
 
 # --- export_meta ---
 
+
 class TestExportMeta:
     def test_produces_correct_structure(self, db, tmp_path):
         data = export_meta(db, tmp_path)
@@ -133,6 +138,7 @@ class TestExportMeta:
 
 # --- export_trends ---
 
+
 class TestExportTrends:
     def test_produces_surging_and_declining(self, db, tmp_path):
         export_trends(db, tmp_path)
@@ -156,6 +162,7 @@ class TestExportTrends:
 
 
 # --- export_archetypes ---
+
 
 class TestExportArchetypes:
     def test_generates_files_for_all_archetypes(self, db, tmp_path):
@@ -191,6 +198,7 @@ class TestExportArchetypes:
 
 # --- export_champions_league ---
 
+
 class TestExportChampionsLeague:
     def test_applies_jp_en_translation(self, db, tmp_path):
         export_champions_league(db, tmp_path)
@@ -219,6 +227,7 @@ class TestExportChampionsLeague:
 
 # --- Format support ---
 
+
 class TestGetFormatConfig:
     def test_valid_slug(self):
         cfg = get_format_config("nihil-zero")
@@ -227,6 +236,7 @@ class TestGetFormatConfig:
 
     def test_invalid_slug(self):
         import pytest
+
         with pytest.raises(KeyError, match="Unknown format"):
             get_format_config("nonexistent")
 
@@ -257,10 +267,14 @@ class TestExportFormats:
         # Create a fake meta.json for nihil-zero to mark it as active
         nz_dir = tmp_path / "nihil-zero"
         nz_dir.mkdir()
-        (nz_dir / "meta.json").write_text(json.dumps({
-            "tournament_count": 42,
-            "deck_count": 100,
-        }))
+        (nz_dir / "meta.json").write_text(
+            json.dumps(
+                {
+                    "tournament_count": 42,
+                    "deck_count": 100,
+                }
+            )
+        )
 
         export_formats(output_dir=tmp_path)
         formats_file = tmp_path / "formats.json"

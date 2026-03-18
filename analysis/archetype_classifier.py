@@ -12,10 +12,7 @@ def classify_decklist(cards: list[dict]) -> str:
     Returns:
         Archetype name string, or "Unknown" if no match.
     """
-    pokemon_names = {
-        c["card_name"] for c in cards
-        if c.get("category") == "Pokemon"
-    }
+    pokemon_names = {c["card_name"] for c in cards if c.get("category") == "Pokemon"}
 
     for anchor, mapping in ARCHETYPE_ANCHOR_CARDS.items():
         if anchor not in pokemon_names:

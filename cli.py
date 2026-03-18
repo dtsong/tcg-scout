@@ -1,7 +1,6 @@
 """CLI entry point for Rotation Scout."""
 
 import logging
-import sys
 
 import click
 from rich.console import Console
@@ -16,9 +15,13 @@ logger = logging.getLogger("scout")
 
 @click.group()
 @click.option("--verbose", "-v", is_flag=True, help="Enable verbose logging")
-@click.option("--format", "format_slug", default=DEFAULT_FORMAT,
-              type=click.Choice(list(FORMATS.keys())),
-              help="Format to operate on")
+@click.option(
+    "--format",
+    "format_slug",
+    default=DEFAULT_FORMAT,
+    type=click.Choice(list(FORMATS.keys())),
+    help="Format to operate on",
+)
 @click.pass_context
 def cli(ctx: click.Context, verbose: bool, format_slug: str) -> None:
     """Rotation Scout — JP meta intelligence for Pokemon TCG."""
@@ -71,8 +74,13 @@ def cards(ctx: click.Context) -> None:
 @click.option("--max-placements", default=32, help="Max placements per tournament")
 @click.option("--fetch-decklists/--no-decklists", default=True, help="Fetch decklists")
 @click.pass_context
-def scrape(ctx: click.Context, start: str | None, end: str | None,
-           max_placements: int, fetch_decklists: bool) -> None:
+def scrape(
+    ctx: click.Context,
+    start: str | None,
+    end: str | None,
+    max_placements: int,
+    fetch_decklists: bool,
+) -> None:
     """Scrape JP City League results from LimitlessTCG."""
     from scraper.limitless import LimitlessClient
 
@@ -110,8 +118,7 @@ def scrape(ctx: click.Context, start: str | None, end: str | None,
 
         for i, tournament in enumerate(new_tournaments, 1):
             console.print(
-                f"  [{i}/{len(new_tournaments)}] {tournament.name} "
-                f"({tournament.tournament_date})"
+                f"  [{i}/{len(new_tournaments)}] {tournament.name} ({tournament.tournament_date})"
             )
 
             # Fetch placements
@@ -250,7 +257,7 @@ def buylist(ctx: click.Context) -> None:
         console.print(f"\n[green]Buy list: {len(cards)} cards[/green]")
 
         # Display top cards
-        table = Table(title=f"Top Buy List Cards (showing top 30)")
+        table = Table(title="Top Buy List Cards (showing top 30)")
         table.add_column("Card", style="bold")
         table.add_column("Set")
         table.add_column("Priority", justify="right")
@@ -318,14 +325,18 @@ def report(ctx: click.Context) -> None:
 @click.option("--fetch-decklists/--no-decklists", default=True, help="Fetch decklists")
 @click.option("--top", default=16, help="Max placements to fetch decklists for")
 @click.pass_context
-def champions(ctx: click.Context, event_ids: tuple[int, ...], fetch_decklists: bool, top: int) -> None:
+def champions(
+    ctx: click.Context, event_ids: tuple[int, ...], fetch_decklists: bool, top: int
+) -> None:
     """Scrape Champions League results from players.pokemon-card.com.
 
     Requires KERNEL_API_KEY in .env for cloud browser rendering.
     Pass event IDs as arguments (e.g., scout champions 903701 903702 903703).
     """
     import asyncio
+
     from dotenv import load_dotenv
+
     load_dotenv()
 
     from scraper.pokemon_jp import PokemonJPClient, store_event_results
@@ -349,10 +360,7 @@ def champions(ctx: click.Context, event_ids: tuple[int, ...], fetch_decklists: b
             # Fetch decklists for top placements
             decklists: dict[str, list] = {}
             if fetch_decklists:
-                decks_to_fetch = [
-                    p for p in event.placements
-                    if p.deck_url and p.standing <= top
-                ]
+                decks_to_fetch = [p for p in event.placements if p.deck_url and p.standing <= top]
                 console.print(f"  Fetching {len(decks_to_fetch)} decklists...")
 
                 for i, placement in enumerate(decks_to_fetch, 1):
@@ -464,8 +472,14 @@ def import_cl(ctx: click.Context, data_dir: str) -> None:
                     cursor = conn.execute(
                         "INSERT INTO cl_placements (event_id, standing, player_name, region, deck_code, deck_url) "
                         "VALUES (?, ?, ?, ?, ?, ?)",
-                        (meta["event_id"], int(row["standing"]), row["player_name"],
-                         row["region"], row["deck_code"], row["deck_url"]),
+                        (
+                            meta["event_id"],
+                            int(row["standing"]),
+                            row["player_name"],
+                            row["region"],
+                            row["deck_code"],
+                            row["deck_url"],
+                        ),
                     )
                     key = (int(row["standing"]), row["player_name"])
                     placement_id_map[key] = cursor.lastrowid
@@ -483,16 +497,20 @@ def import_cl(ctx: click.Context, data_dir: str) -> None:
                         "INSERT OR REPLACE INTO cl_decklist_cards "
                         "(placement_id, card_name_jp, set_code, count, category) "
                         "VALUES (?, ?, ?, ?, ?)",
-                        (pid, row["card_name_jp"], row["set_code"],
-                         int(row["count"]), row["category"]),
+                        (
+                            pid,
+                            row["card_name_jp"],
+                            row["set_code"],
+                            int(row["count"]),
+                            row["category"],
+                        ),
                     )
                     total_cards += 1
 
             conn.commit()
 
         console.print(
-            f"\n[green]Imported {total_placements} placements, "
-            f"{total_cards} decklist cards[/green]"
+            f"\n[green]Imported {total_placements} placements, {total_cards} decklist cards[/green]"
         )
     finally:
         conn.close()
@@ -501,19 +519,23 @@ def import_cl(ctx: click.Context, data_dir: str) -> None:
 @cli.command("scrape-jp")
 @click.option("--start", default=None, help="Start date (YYYY-MM-DD)")
 @click.option("--end", default=None, help="End date (YYYY-MM-DD)")
-@click.option("--fetch-decklists/--no-decklists", default=False, help="Fetch decklists via Playwright")
+@click.option(
+    "--fetch-decklists/--no-decklists", default=False, help="Fetch decklists via Playwright"
+)
 @click.option("--top", default=16, help="Max placements to fetch decklists for")
 @click.pass_context
-def scrape_jp(ctx: click.Context, start: str | None, end: str | None,
-              fetch_decklists: bool, top: int) -> None:
+def scrape_jp(
+    ctx: click.Context, start: str | None, end: str | None, fetch_decklists: bool, top: int
+) -> None:
     """Scrape JP City League results from players.pokemon-card.com API.
 
     Uses plain HTTP for event listings and results (no browser required).
     Pass --fetch-decklists to also fetch decklists via Playwright (requires KERNEL_API_KEY).
     """
     import asyncio
-    from scraper.pokemon_jp_api import PokemonJPAPIClient
+
     from scraper.pokemon_jp import JPEventResult, JPPlacement, store_cl_city_league_results
+    from scraper.pokemon_jp_api import PokemonJPAPIClient
 
     fmt = get_format_config(ctx.obj["format"])
     start = start or fmt["dataset_start"]
@@ -539,24 +561,25 @@ def scrape_jp(ctx: click.Context, start: str | None, end: str | None,
         existing = {row["id"] for row in conn.execute("SELECT id FROM tournaments")}
         new_events = [e for e in events if f"jp-{e.event_id}" not in existing]
         console.print(
-            f"[cyan]{len(new_events)} new events to process "
-            f"({len(existing)} already in DB)[/cyan]"
+            f"[cyan]{len(new_events)} new events to process ({len(existing)} already in DB)[/cyan]"
         )
 
         if fetch_decklists:
             from dotenv import load_dotenv
+
             load_dotenv()
             from scraper.pokemon_jp import PokemonJPClient
+
             jp_client = PokemonJPClient()
 
         total_placements = 0
         total_decklists = 0
 
         for i, event in enumerate(new_events, 1):
-            event_name = f"{event.prefecture} {event.store_name}".strip() or f"City League {event.date}"
-            console.print(
-                f"  [{i}/{len(new_events)}] {event_name} ({event.date})"
+            event_name = (
+                f"{event.prefecture} {event.store_name}".strip() or f"City League {event.date}"
             )
+            console.print(f"  [{i}/{len(new_events)}] {event_name} ({event.date})")
 
             # Fetch placements via plain HTTP API
             results = api_client.fetch_event_results(event.event_id)
@@ -589,10 +612,7 @@ def scrape_jp(ctx: click.Context, start: str | None, end: str | None,
             # Fetch decklists for top placements if requested
             decklists: dict[str, list] = {}
             if fetch_decklists and jp_client:
-                decks_to_fetch = [
-                    p for p in placements
-                    if p.deck_url and p.standing <= top
-                ]
+                decks_to_fetch = [p for p in placements if p.deck_url and p.standing <= top]
                 console.print(f"    Fetching {len(decks_to_fetch)} decklists...")
                 for j, placement in enumerate(decks_to_fetch, 1):
                     console.print(
@@ -632,8 +652,9 @@ def scrape_jp(ctx: click.Context, start: str | None, end: str | None,
 @click.option("--end", default=None, help="Override end date (YYYY-MM-DD)")
 @click.option("--max-placements", default=32, help="Max placements per Limitless tournament")
 @click.pass_context
-def backfill_archetypes(ctx: click.Context, start: str | None, end: str | None,
-                        max_placements: int) -> None:
+def backfill_archetypes(
+    ctx: click.Context, start: str | None, end: str | None, max_placements: int
+) -> None:
     """Backfill Unknown archetypes using Limitless tournament data.
 
     Queries placements with archetype='Unknown', fetches matching Limitless
@@ -681,8 +702,7 @@ def backfill_archetypes(ctx: click.Context, start: str | None, end: str | None,
 
         for i, tournament in enumerate(tournaments, 1):
             console.print(
-                f"  [{i}/{len(tournaments)}] {tournament.name} "
-                f"({tournament.tournament_date})"
+                f"  [{i}/{len(tournaments)}] {tournament.name} ({tournament.tournament_date})"
             )
             placements = client.fetch_jp_city_league_placements(
                 tournament.source_url, max_placements
@@ -707,9 +727,7 @@ def backfill_archetypes(ctx: click.Context, start: str | None, end: str | None,
                 updated += 1
 
         conn.commit()
-        console.print(
-            f"\n[green]Updated {updated}/{len(rows)} placements with archetypes.[/green]"
-        )
+        console.print(f"\n[green]Updated {updated}/{len(rows)} placements with archetypes.[/green]")
     finally:
         conn.close()
 

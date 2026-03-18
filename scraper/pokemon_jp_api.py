@@ -32,8 +32,8 @@ PAGE_SIZE = 20  # event_search returns 20 per page
 
 @dataclass
 class JPCityLeagueEvent:
-    event_id: int       # event_holding_id
-    date: str           # YYYY-MM-DD
+    event_id: int  # event_holding_id
+    date: str  # YYYY-MM-DD
     prefecture: str
     store_name: str
     capacity: int
@@ -158,13 +158,15 @@ class PokemonJPAPIClient:
 
         results = []
         for r in data.get("results", []):
-            results.append(JPCityLeagueResult(
-                rank=r.get("rank", 0),
-                player_name=r.get("name", ""),
-                player_id=r.get("player_id", ""),
-                area=r.get("area", ""),
-                deck_id=r.get("deck_id") or None,
-            ))
+            results.append(
+                JPCityLeagueResult(
+                    rank=r.get("rank", 0),
+                    player_name=r.get("name", ""),
+                    player_id=r.get("player_id", ""),
+                    area=r.get("area", ""),
+                    deck_id=r.get("deck_id") or None,
+                )
+            )
 
         results.sort(key=lambda r: r.rank)
         logger.info("Fetched %d results for event %d", len(results), event_holding_id)

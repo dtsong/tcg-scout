@@ -7,8 +7,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from analysis.meta import _assign_tier, compute_meta_snapshot, get_latest_snapshot
 
-
 # --- _assign_tier ---
+
 
 class TestAssignTier:
     def test_s_tier(self):
@@ -34,6 +34,7 @@ class TestAssignTier:
 
 # --- compute_meta_snapshot ---
 
+
 class TestComputeMetaSnapshot:
     def test_creates_snapshot(self, db):
         # Delete the pre-seeded snapshot so we start fresh
@@ -45,9 +46,7 @@ class TestComputeMetaSnapshot:
         assert snapshot_id is not None
 
         # Verify snapshot row
-        snap = db.execute(
-            "SELECT * FROM meta_snapshots WHERE id = ?", (snapshot_id,)
-        ).fetchone()
+        snap = db.execute("SELECT * FROM meta_snapshots WHERE id = ?", (snapshot_id,)).fetchone()
         assert snap["tournament_count"] == 3
         assert snap["deck_count"] == 6
 
@@ -73,6 +72,7 @@ class TestComputeMetaSnapshot:
 
 
 # --- get_latest_snapshot ---
+
 
 class TestGetLatestSnapshot:
     def test_returns_correct_structure(self, db):

@@ -63,6 +63,7 @@ class TestClassifyDecklist:
 class TestClassifyFromDecklist:
     def test_content_based_takes_priority(self):
         from analysis.archetype import classify_from_decklist
+
         cards = [
             {"card_name": "Charizard ex", "count": 2, "category": "Pokemon"},
             {"card_name": "Pidgeot ex", "count": 2, "category": "Pokemon"},
@@ -71,6 +72,7 @@ class TestClassifyFromDecklist:
 
     def test_falls_back_to_unknown(self):
         from analysis.archetype import classify_from_decklist
+
         cards = [
             {"card_name": "Bidoof", "count": 4, "category": "Pokemon"},
         ]

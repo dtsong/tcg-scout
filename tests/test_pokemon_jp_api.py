@@ -14,6 +14,7 @@ try:
         JPPlacement,
         store_cl_city_league_results,
     )
+
     _POKEMON_JP_AVAILABLE = True
 except ImportError:
     _POKEMON_JP_AVAILABLE = False
@@ -37,9 +38,7 @@ class TestStoreCLResults:
         store_cl_city_league_results(db, event, decklists={})
 
         # Tournament should be stored with prefixed ID
-        tournament = db.execute(
-            "SELECT * FROM tournaments WHERE id = ?", ("jp-12345",)
-        ).fetchone()
+        tournament = db.execute("SELECT * FROM tournaments WHERE id = ?", ("jp-12345",)).fetchone()
         assert tournament is not None
         assert tournament["name"] == "City League Sapporo"
         assert tournament["date"] == "2026-02-15"
@@ -83,9 +82,19 @@ class TestStoreCLResults:
         )
 
         cards = [
-            JPDeckCard(name_jp="リザードンex", set_code="sv5", card_number="001", count=2, category="Pokemon"),
-            JPDeckCard(name_jp="ネストボール", set_code="sv5", card_number="", count=4, category="Trainer"),
-            JPDeckCard(name_jp="基本炎エネルギー", set_code="", card_number="", count=10, category="Energy"),
+            JPDeckCard(
+                name_jp="リザードンex",
+                set_code="sv5",
+                card_number="001",
+                count=2,
+                category="Pokemon",
+            ),
+            JPDeckCard(
+                name_jp="ネストボール", set_code="sv5", card_number="", count=4, category="Trainer"
+            ),
+            JPDeckCard(
+                name_jp="基本炎エネルギー", set_code="", card_number="", count=10, category="Energy"
+            ),
         ]
 
         store_cl_city_league_results(db, event, decklists={"deck-abc": cards})
@@ -131,6 +140,7 @@ class TestStoreCLResults:
 class TestArchetypeCrossRef:
     def test_matches_by_date_and_standing(self):
         from scraper.limitless import match_archetype_labels
+
         limitless_data = [
             {"date": "2026-03-17", "standing": 1, "archetype": "Dragapult ex"},
             {"date": "2026-03-17", "standing": 2, "archetype": "Charizard ex"},
@@ -145,6 +155,7 @@ class TestArchetypeCrossRef:
 
     def test_unmatched_stays_unknown(self):
         from scraper.limitless import match_archetype_labels
+
         limitless_data = [
             {"date": "2026-03-17", "standing": 1, "archetype": "Dragapult ex"},
         ]
@@ -158,6 +169,7 @@ class TestArchetypeCrossRef:
 
     def test_does_not_mutate_input(self):
         from scraper.limitless import match_archetype_labels
+
         jp = [{"date": "2026-03-17", "standing": 1, "player_name": "Taro"}]
         matched = match_archetype_labels(jp, [])
         assert "archetype" not in jp[0]  # Original not mutated

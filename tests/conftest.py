@@ -2,11 +2,11 @@
 
 import sqlite3
 
-import pytest
-
 # Import schema from the project
 import sys
 from pathlib import Path
+
+import pytest
 
 # Ensure project root is on sys.path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
@@ -76,8 +76,7 @@ def db() -> sqlite3.Connection:
     decklist_rows.append((6, "card-iono", "Iono", 3))
 
     conn.executemany(
-        "INSERT INTO decklist_cards (placement_id, card_id, card_name, count) "
-        "VALUES (?, ?, ?, ?)",
+        "INSERT INTO decklist_cards (placement_id, card_id, card_name, count) VALUES (?, ?, ?, ?)",
         decklist_rows,
     )
 
@@ -93,8 +92,7 @@ def db() -> sqlite3.Connection:
 
     # --- CL events ---
     conn.execute(
-        "INSERT INTO cl_events (id, name, division, date, player_count) "
-        "VALUES (?, ?, ?, ?, ?)",
+        "INSERT INTO cl_events (id, name, division, date, player_count) VALUES (?, ?, ?, ?, ?)",
         (900001, "Champions League Tokyo", "masters", "2026-02-20", 7000),
     )
 

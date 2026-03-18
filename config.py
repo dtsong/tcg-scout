@@ -7,9 +7,18 @@ ROTATION_LEGAL_REGULATION_MARKS = {"H", "I"}
 # SV5+ (Temporal Forces onward, including JP-only sets)
 ROTATION_LEGAL_SETS = {
     # International sets
-    "sv5", "sv5a", "sv6", "sv6a", "sv7", "sv7a", "sv8", "sv8a",
+    "sv5",
+    "sv5a",
+    "sv6",
+    "sv6a",
+    "sv7",
+    "sv7a",
+    "sv8",
+    "sv8a",
     # JP Mega Evolution sets
-    "me01", "me02", "me02.5",
+    "me01",
+    "me02",
+    "me02.5",
     # Promos
     "svp",
 }

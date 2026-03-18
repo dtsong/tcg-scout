@@ -23,3 +23,19 @@ build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
 packages = ["cli.py", "config.py", "db.py", "scraper", "analysis", "reports"]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W", "UP"]
+ignore = [
+    "E501",   # line-too-long (let formatter handle)
+]
+
+[tool.ruff.lint.isort]
+known-first-party = ["scraper", "analysis", "reports", "config", "db"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

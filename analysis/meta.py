@@ -23,7 +23,9 @@ def _assign_tier(meta_share: float, thresholds: dict[str, float] | None = None) 
     return "Rogue"
 
 
-def compute_meta_snapshot(conn: sqlite3.Connection, thresholds: dict[str, float] | None = None) -> int:
+def compute_meta_snapshot(
+    conn: sqlite3.Connection, thresholds: dict[str, float] | None = None
+) -> int:
     """Compute meta snapshot from all placements. Returns snapshot_id."""
     conn.row_factory = sqlite3.Row
 

@@ -15,9 +15,15 @@ logger = logging.getLogger(__name__)
 
 # Basic energy card names to exclude from buy list analytics
 BASIC_ENERGY_NAMES = {
-    "Basic Fire Energy", "Basic Water Energy", "Basic Lightning Energy",
-    "Basic Psychic Energy", "Basic Fighting Energy", "Basic Darkness Energy",
-    "Basic Metal Energy", "Basic Grass Energy", "Basic Colorless Energy",
+    "Basic Fire Energy",
+    "Basic Water Energy",
+    "Basic Lightning Energy",
+    "Basic Psychic Energy",
+    "Basic Fighting Energy",
+    "Basic Darkness Energy",
+    "Basic Metal Energy",
+    "Basic Grass Energy",
+    "Basic Colorless Energy",
     "Basic Fairy Energy",
 }
 
@@ -50,7 +56,9 @@ def generate_buylist(conn: sqlite3.Connection, snapshot_id: int) -> list[dict]:
     # Build a lookup of card supertype from the cards table
     card_supertype: dict[str, str] = {}
     card_info: dict[str, dict] = {}  # card_id -> {set_code, set_number, rotation_legal}
-    for row in conn.execute("SELECT id, supertype, set_code, set_number, rotation_legal FROM cards").fetchall():
+    for row in conn.execute(
+        "SELECT id, supertype, set_code, set_number, rotation_legal FROM cards"
+    ).fetchall():
         card_supertype[row["id"]] = row["supertype"] or ""
         card_info[row["id"]] = {
             "set_code": row["set_code"],
@@ -60,16 +68,18 @@ def generate_buylist(conn: sqlite3.Connection, snapshot_id: int) -> list[dict]:
 
     # Per-card cross-archetype aggregation structures
     # card_key = card_id (or card_name if card_id not in cards table)
-    card_archetype_data: dict[str, dict] = defaultdict(lambda: {
-        "card_name": None,
-        "card_id": None,
-        "archetypes": [],
-        "archetype_tiers": [],
-        "priority_score": 0.0,
-        "core_in_any": False,
-        "max_inclusion_rate": 0.0,
-        "max_avg_copies": 0.0,
-    })
+    card_archetype_data: dict[str, dict] = defaultdict(
+        lambda: {
+            "card_name": None,
+            "card_id": None,
+            "archetypes": [],
+            "archetype_tiers": [],
+            "priority_score": 0.0,
+            "core_in_any": False,
+            "max_inclusion_rate": 0.0,
+            "max_avg_copies": 0.0,
+        }
+    )
 
     for arch_row in archetypes:
         archetype = arch_row["archetype"]
@@ -103,13 +113,15 @@ def generate_buylist(conn: sqlite3.Connection, snapshot_id: int) -> list[dict]:
 
         # Step 4: Per-card stats within this archetype
         # card_key -> {decks_with: int, total_copies: int, card_name, card_id}
-        archetype_card_stats: dict[str, dict] = defaultdict(lambda: {
-            "decks_with": 0,
-            "total_copies": 0,
-            "card_name": None,
-            "card_id": None,
-            "placement_ids_seen": set(),
-        })
+        archetype_card_stats: dict[str, dict] = defaultdict(
+            lambda: {
+                "decks_with": 0,
+                "total_copies": 0,
+                "card_name": None,
+                "card_id": None,
+                "placement_ids_seen": set(),
+            }
+        )
 
         for dc in decklist_rows:
             card_key = dc["card_id"]
@@ -125,7 +137,9 @@ def generate_buylist(conn: sqlite3.Connection, snapshot_id: int) -> list[dict]:
         # Step 5: Aggregate into cross-archetype data
         for card_key, stats in archetype_card_stats.items():
             inclusion_rate = stats["decks_with"] / total_decks
-            avg_copies = stats["total_copies"] / stats["decks_with"] if stats["decks_with"] > 0 else 0
+            avg_copies = (
+                stats["total_copies"] / stats["decks_with"] if stats["decks_with"] > 0 else 0
+            )
 
             entry = card_archetype_data[card_key]
             entry["card_name"] = stats["card_name"]
@@ -165,9 +179,7 @@ def generate_buylist(conn: sqlite3.Connection, snapshot_id: int) -> list[dict]:
         core_flex = "core" if entry["core_in_any"] else "flex"
         archetype_count = len(entry["archetypes"])
         sa_tiers = {"S", "A"}
-        sa_core_count = sum(
-            1 for t in entry["archetype_tiers"] if t in sa_tiers
-        )
+        sa_core_count = sum(1 for t in entry["archetype_tiers"] if t in sa_tiers)
 
         # Step 8: Urgency labels
         if core_flex == "core" and sa_core_count >= 2:
@@ -179,18 +191,20 @@ def generate_buylist(conn: sqlite3.Connection, snapshot_id: int) -> list[dict]:
         else:
             urgency = "MODERATE"
 
-        results.append({
-            "card_name": entry["card_name"],
-            "card_id": cid if cid in card_info else None,
-            "set_code": set_code,
-            "set_number": set_number,
-            "priority_score": round(entry["priority_score"], 1),
-            "urgency": urgency,
-            "core_flex": core_flex,
-            "archetypes": entry["archetypes"],
-            "avg_copies": round(entry["max_avg_copies"], 1),
-            "inclusion_rate": round(entry["max_inclusion_rate"], 2),
-        })
+        results.append(
+            {
+                "card_name": entry["card_name"],
+                "card_id": cid if cid in card_info else None,
+                "set_code": set_code,
+                "set_number": set_number,
+                "priority_score": round(entry["priority_score"], 1),
+                "urgency": urgency,
+                "core_flex": core_flex,
+                "archetypes": entry["archetypes"],
+                "avg_copies": round(entry["max_avg_copies"], 1),
+                "inclusion_rate": round(entry["max_inclusion_rate"], 2),
+            }
+        )
 
     # Step 9: Sort by priority_score descending
     results.sort(key=lambda x: x["priority_score"], reverse=True)
