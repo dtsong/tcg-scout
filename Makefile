@@ -1,4 +1,4 @@
-.PHONY: setup init cards scrape meta buylist report full clean fukuoka-cl import-cl mappings translate
+.PHONY: setup init cards scrape meta buylist report full clean fukuoka-cl import-cl mappings translate export-web
 
 PYTHON = uv run python
 
@@ -44,6 +44,10 @@ mappings:
 # Translate JP card names in CL decklists
 translate:
 	$(PYTHON) cli.py translate
+
+# Export JSON data for Scout Web dashboard
+export-web:
+	$(PYTHON) cli.py export-web
 
 # Run the full pipeline end-to-end
 full: init cards scrape meta report

@@ -476,5 +476,18 @@ def import_cl(data_dir: str) -> None:
         conn.close()
 
 
+@cli.command("export-web")
+def export_web() -> None:
+    """Export JSON data for the Scout Web dashboard."""
+    from reports.json_export import export_all
+
+    conn = get_connection()
+    try:
+        out = export_all(conn)
+        console.print(f"[green]Web data exported to {out}[/green]")
+    finally:
+        conn.close()
+
+
 if __name__ == "__main__":
     cli()

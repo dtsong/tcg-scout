@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+@theme {
+  /* Base palette */
+  --color-surface-900: #0a0c10;
+  --color-surface-800: #0f1218;
+  --color-surface-700: #151921;
+  --color-surface-600: #1c2130;
+  --color-surface-500: #2a3040;
+  --color-surface-400: #3d4556;
+  --color-surface-300: #6b7280;
+
+  /* Tier colors */
+  --color-tier-s: #f59e0b;
+  --color-tier-a: #14b8a6;
+  --color-tier-b: #3b82f6;
+  --color-tier-c: #64748b;
+  --color-tier-rogue: #a855f7;
+
+  /* Signal colors */
+  --color-signal-up: #22c55e;
+  --color-signal-down: #ef4444;
+  --color-signal-neutral: #64748b;
+
+  /* Urgency colors */
+  --color-urgency-urgent: #ef4444;
+  --color-urgency-high: #f59e0b;
+  --color-urgency-moderate: #14b8a6;
+
+  /* Accent */
+  --color-accent: #f59e0b;
+  --color-accent-dim: #92640a;
+
+  /* Typography */
+  --font-display: "Instrument Sans", sans-serif;
+  --font-body: "IBM Plex Sans", sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+}
+
+body {
+  background-color: var(--color-surface-900);
+  color: #e2e8f0;
+  font-family: var(--font-body);
+}
+
+/* Scanline texture overlay for hero sections */
+.scanline-overlay {
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(255, 255, 255, 0.015) 2px,
+    rgba(255, 255, 255, 0.015) 4px
+  );
+}
+
+/* Staggered row reveal animation */
+@keyframes row-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-row-reveal {
+  animation: row-reveal 0.3s ease-out forwards;
+  opacity: 0;
+}
