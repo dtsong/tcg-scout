@@ -22,5 +22,5 @@ npm-debug.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# generated data (rebuilt from SQLite)
-/public/data/
+# vercel
+.vercel
