@@ -131,62 +131,8 @@ export function DashboardClient({
 
       {/* Loading overlay */}
       <div className={loading ? "opacity-50 pointer-events-none transition-opacity" : "transition-opacity"}>
-        {/* Tier List Preview */}
-        <section>
-          <div className="flex items-center justify-between mb-4">
-            <h2 className="font-display text-xl font-semibold text-slate-100">
-              Meta Tier List
-            </h2>
-            <Link
-              href={`/${format}/archetypes`}
-              className="text-sm text-accent hover:text-accent/80 flex items-center gap-1"
-            >
-              View all <ArrowRight className="w-3.5 h-3.5" />
-            </Link>
-          </div>
-          <div className="bg-surface-800 border border-surface-600 rounded-lg overflow-hidden">
-            <table className="w-full">
-              <thead>
-                <tr className="border-b border-surface-600 text-xs text-surface-300 uppercase tracking-wider">
-                  <th className="text-left px-4 py-3">Tier</th>
-                  <th className="text-left px-4 py-3">Archetype</th>
-                  <th className="text-right px-4 py-3">Meta Share</th>
-                  <th className="text-right px-4 py-3 hidden sm:table-cell">Decks</th>
-                </tr>
-              </thead>
-              <tbody>
-                {topArchetypes.map((arch, i) => (
-                  <tr
-                    key={arch.slug}
-                    className="border-b border-surface-700 hover:bg-surface-700/50 transition-colors animate-row-reveal"
-                    style={{ animationDelay: `${i * 30}ms` }}
-                  >
-                    <td className="px-4 py-3">
-                      <TierBadge tier={arch.tier} />
-                    </td>
-                    <td className="px-4 py-3">
-                      <Link
-                        href={`/${format}/archetypes/${arch.slug}`}
-                        className="text-slate-200 hover:text-accent transition-colors"
-                      >
-                        {arch.archetype}
-                      </Link>
-                    </td>
-                    <td className="px-4 py-3 text-right font-mono tabular-nums">
-                      {formatPct(arch.meta_share)}
-                    </td>
-                    <td className="px-4 py-3 text-right font-mono tabular-nums text-surface-300 hidden sm:table-cell">
-                      {arch.deck_count}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </section>
-
         {/* Quick Insights Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {/* Surging Cards */}
           <section className="bg-surface-800 border border-surface-600 rounded-lg p-5">
             <div className="flex items-center justify-between mb-4">
@@ -291,6 +237,60 @@ export function DashboardClient({
             </div>
           </section>
         </div>
+
+        {/* Tier List Preview */}
+        <section className="mt-10">
+          <div className="flex items-center justify-between mb-3">
+            <h2 className="font-display text-lg font-semibold text-slate-100">
+              Meta Tier List
+            </h2>
+            <Link
+              href={`/${format}/archetypes`}
+              className="text-sm text-accent hover:text-accent/80 flex items-center gap-1"
+            >
+              View all <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
+          <div className="bg-surface-800 border border-surface-600 rounded-lg overflow-hidden">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="border-b border-surface-600 text-[11px] text-surface-300 uppercase tracking-wider">
+                  <th className="text-left px-3 py-2">Tier</th>
+                  <th className="text-left px-3 py-2">Archetype</th>
+                  <th className="text-right px-3 py-2">Share</th>
+                  <th className="text-right px-3 py-2 hidden sm:table-cell">Decks</th>
+                </tr>
+              </thead>
+              <tbody>
+                {topArchetypes.map((arch, i) => (
+                  <tr
+                    key={arch.slug}
+                    className="border-b border-surface-700 hover:bg-surface-700/50 transition-colors animate-row-reveal"
+                    style={{ animationDelay: `${i * 20}ms` }}
+                  >
+                    <td className="px-3 py-2">
+                      <TierBadge tier={arch.tier} />
+                    </td>
+                    <td className="px-3 py-2">
+                      <Link
+                        href={`/${format}/archetypes/${arch.slug}`}
+                        className="text-slate-200 hover:text-accent transition-colors"
+                      >
+                        {arch.archetype}
+                      </Link>
+                    </td>
+                    <td className="px-3 py-2 text-right font-mono tabular-nums">
+                      {formatPct(arch.meta_share)}
+                    </td>
+                    <td className="px-3 py-2 text-right font-mono tabular-nums text-surface-300 hidden sm:table-cell">
+                      {arch.deck_count}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
       </div>
 
       {/* Nav Cards */}
