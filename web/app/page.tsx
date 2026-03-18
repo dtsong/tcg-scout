@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Crosshair, ChevronRight } from "lucide-react";
+import { Crosshair, ChevronRight, Github } from "lucide-react";
 import { getFormats } from "@/app/lib/data";
 
 const FORMAT_STYLES: Record<string, { accent: string; glow: string; badge: string }> = {
@@ -147,6 +147,70 @@ export default function FormatSelectorPage() {
                 </Link>
               );
             })}
+          </div>
+
+          {/* About & Methodology */}
+          <div className="mt-10 pt-8 border-t border-surface-700 space-y-6">
+            <div>
+              <h3 className="font-display text-base font-semibold text-slate-100 mb-2">
+                About the Data
+              </h3>
+              <p className="text-sm text-surface-300 leading-relaxed">
+                Scout aggregates results from Japan&apos;s City League tournaments (64-player events held daily across the country) to provide an early look at each format&apos;s competitive meta before sets release internationally. Data is refreshed daily.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <h4 className="text-sm font-semibold text-slate-200 mb-1.5">Tier Methodology</h4>
+                <p className="text-sm text-surface-300 leading-relaxed">
+                  Archetypes are assigned tiers based on meta share: S (15%+), A (8%+), B (3%+), C (1%+), and Rogue (under 1%). Weighted shares factor in placement finish -- winning decks are valued higher than raw counts.
+                </p>
+              </div>
+              <div>
+                <h4 className="text-sm font-semibold text-slate-200 mb-1.5">Trends & Winning Edge</h4>
+                <p className="text-sm text-surface-300 leading-relaxed">
+                  Trends compare card usage between the first and second half of each format&apos;s data window. The Winning Edge highlights cards that appear more often in 1st-place decks than the general field across S/A/B tier archetypes.
+                </p>
+              </div>
+            </div>
+
+            <div className="pt-4 border-t border-surface-700">
+              <p className="text-xs text-surface-300">
+                Tournament results sourced from{" "}
+                <a href="https://limitlesstcg.com" target="_blank" rel="noopener noreferrer" className="text-accent hover:text-accent/80">
+                  LimitlessTCG
+                </a>
+                . Champions League decklists from{" "}
+                <a href="https://pokemon-card.com" target="_blank" rel="noopener noreferrer" className="text-accent hover:text-accent/80">
+                  pokemon-card.com
+                </a>
+                {" "}(official Japanese Pokemon TCG site). Scout is a fan project and is not affiliated with or endorsed by The Pokemon Company.
+              </p>
+              <p className="text-xs text-surface-300 mt-3">
+                Have feedback or feature requests? Reach out:
+              </p>
+              <div className="flex items-center gap-4 mt-2">
+                <a
+                  href="https://github.com/dtsong/tcg-scout"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 text-xs text-surface-300 hover:text-slate-200 transition-colors"
+                >
+                  <Github className="w-3.5 h-3.5" />
+                  GitHub
+                </a>
+                <a
+                  href="https://x.com/pokedansong"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 text-xs text-surface-300 hover:text-slate-200 transition-colors"
+                >
+                  <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" /></svg>
+                  @pokedansong
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
