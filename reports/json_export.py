@@ -5,6 +5,7 @@ import logging
 import re
 import sqlite3
 import urllib.request
+from collections import defaultdict
 from datetime import date, timedelta
 from pathlib import Path
 
@@ -663,10 +664,164 @@ def _compute_windowed_ace_specs(
     ]
 
 
+def _compute_windowed_staples_flex(
+    conn: sqlite3.Connection,
+    date_from: str,
+    date_to: str,
+    threshold_min: float,
+    threshold_max: float | None = None,
+) -> list[dict]:
+    """Compute staples or flex cards filtered to a date window.
+
+    threshold_min/max are usage percentages (e.g. 40 for staples, 20-40 for flex).
+    """
+    total_decks = conn.execute(
+        """
+        SELECT COUNT(*) FROM placements p
+        JOIN tournaments t ON t.id = p.tournament_id
+        WHERE t.date >= ? AND t.date <= ?
+        """,
+        (date_from, date_to),
+    ).fetchone()[0]
+
+    if total_decks == 0:
+        return []
+
+    rows = conn.execute(
+        f"""
+        SELECT dc.card_name,
+               COUNT(DISTINCT dc.placement_id) AS deck_count,
+               ROUND(AVG(dc.count), 1) AS avg_copies
+        FROM decklist_cards dc
+        JOIN placements p ON p.id = dc.placement_id
+        JOIN tournaments t ON t.id = p.tournament_id
+        WHERE t.date >= ? AND t.date <= ?
+          AND {_basic_energy_exclusion_sql()}
+        GROUP BY dc.card_name
+        ORDER BY deck_count DESC
+        """,
+        (date_from, date_to, *_basic_energy_params()),
+    ).fetchall()
+
+    result = []
+    for row in rows:
+        pct = row["deck_count"] * 100.0 / total_decks
+        if pct < threshold_min:
+            continue
+        if threshold_max is not None and pct >= threshold_max:
+            continue
+        result.append(
+            {
+                "card_name": row["card_name"],
+                "deck_count": row["deck_count"],
+                "usage_pct": round(pct, 1),
+                "avg_copies": row["avg_copies"],
+            }
+        )
+
+    return result
+
+
+def _compute_windowed_buylist(
+    conn: sqlite3.Connection,
+    date_from: str,
+    date_to: str,
+    meta: dict,
+) -> list[dict]:
+    """Compute buylist filtered to a date window using windowed meta tiers."""
+    sab_archetypes = {
+        a["archetype"]: a["tier"]
+        for a in meta.get("archetypes", [])
+        if a["tier"] in ("S", "A", "B")
+    }
+    if not sab_archetypes:
+        return []
+
+    # Get placement IDs for S/A/B archetypes within the window
+    arch_placeholders = ",".join("?" * len(sab_archetypes))
+    placement_rows = conn.execute(
+        f"""
+        SELECT p.id, p.archetype
+        FROM placements p
+        JOIN tournaments t ON t.id = p.tournament_id
+        WHERE t.date >= ? AND t.date <= ?
+          AND p.archetype IN ({arch_placeholders})
+        """,
+        (date_from, date_to, *list(sab_archetypes.keys())),
+    ).fetchall()
+
+    if not placement_rows:
+        return []
+
+    # Group placements by archetype
+    arch_placements: dict[str, list[int]] = defaultdict(list)
+    for row in placement_rows:
+        arch_placements[row["archetype"]].append(row["id"])
+
+    energy_names = sorted(BASIC_ENERGY_NAMES)
+    energy_placeholders = ",".join("?" * len(energy_names))
+
+    card_data: dict[str, dict] = defaultdict(
+        lambda: {
+            "card_name": None,
+            "archetypes": [],
+            "priority_score": 0.0,
+            "max_inclusion_rate": 0.0,
+            "max_avg_copies": 0.0,
+        }
+    )
+
+    tier_weights = {"S": 3, "A": 2, "B": 1}
+
+    for archetype, pids in arch_placements.items():
+        tier = sab_archetypes[archetype]
+        tier_weight = tier_weights.get(tier, 1)
+        total_decks = len(pids)
+        placeholders = ",".join("?" * len(pids))
+
+        rows = conn.execute(
+            f"""
+            SELECT card_name,
+                   COUNT(DISTINCT placement_id) AS deck_count,
+                   ROUND(AVG(count), 1) AS avg_copies
+            FROM decklist_cards
+            WHERE placement_id IN ({placeholders})
+              AND card_name NOT IN ({energy_placeholders})
+            GROUP BY card_name
+            """,
+            (*pids, *energy_names),
+        ).fetchall()
+
+        for row in rows:
+            name = row["card_name"]
+            inclusion = row["deck_count"] / total_decks
+            cd = card_data[name]
+            cd["card_name"] = name
+            if archetype not in cd["archetypes"]:
+                cd["archetypes"].append(archetype)
+            cd["priority_score"] += inclusion * tier_weight
+            cd["max_inclusion_rate"] = max(cd["max_inclusion_rate"], inclusion)
+            cd["max_avg_copies"] = max(cd["max_avg_copies"], row["avg_copies"])
+
+    result = [
+        {
+            "card_name": cd["card_name"],
+            "priority_score": round(cd["priority_score"], 2),
+            "avg_copies": cd["max_avg_copies"],
+            "inclusion_rate": round(cd["max_inclusion_rate"], 3),
+            "archetypes": cd["archetypes"],
+        }
+        for cd in card_data.values()
+        if cd["card_name"]
+    ]
+    result.sort(key=lambda c: c["priority_score"], reverse=True)
+    return result
+
+
 def export_windowed(
     conn: sqlite3.Connection, output_dir: Path, format_slug: str | None = None
 ) -> None:
-    """Export time-windowed variants of meta, trends, winning-edge, and ace-specs."""
+    """Export time-windowed variants of meta, trends, winning-edge, ace-specs, buylist, staples, and flex."""
     latest_date = _get_latest_tournament_date(conn)
     if not latest_date:
         logger.warning("No tournaments found; skipping windowed exports")
@@ -689,6 +844,10 @@ def export_windowed(
             # Winning edge (depends on meta for tier filtering)
             edge = _compute_windowed_winning_edge(conn, date_from, date_to, meta)
             _write_json(edge, output_dir / f"winning-edge-{suffix}.json")
+
+            # Buylist (depends on meta for tier filtering)
+            buylist = _compute_windowed_buylist(conn, date_from, date_to, meta)
+            _write_json(buylist, output_dir / f"buylist-{suffix}.json")
         else:
             logger.warning("No data for %s window", suffix)
             continue
@@ -700,6 +859,14 @@ def export_windowed(
         # ACE SPECs
         specs = _compute_windowed_ace_specs(conn, date_from, date_to)
         _write_json(specs, output_dir / f"ace-specs-{suffix}.json")
+
+        # Staples (40%+ usage)
+        staples = _compute_windowed_staples_flex(conn, date_from, date_to, 40)
+        _write_json(staples, output_dir / f"staples-{suffix}.json")
+
+        # Flex (20-40% usage)
+        flex = _compute_windowed_staples_flex(conn, date_from, date_to, 20, 40)
+        _write_json(flex, output_dir / f"flex-{suffix}.json")
 
 
 def export_meta(

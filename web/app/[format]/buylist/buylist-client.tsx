@@ -1,35 +1,81 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
+import { useParams } from "next/navigation";
 import { DataTable } from "@/app/components/data-table";
+import { DateFilter } from "@/app/components/date-filter";
+import { useDateFilter, fetchWindowedData } from "@/app/components/date-filter-provider";
 import { ExternalLink } from "lucide-react";
 import { formatPct } from "@/app/lib/utils";
 import { cn } from "@/app/lib/utils";
-import type { BuylistCard, StapleCard } from "@/app/lib/types";
+import type { BuylistCard, StapleCard, TimeWindow } from "@/app/lib/types";
 
 const tabs = ["Full List", "Staples", "Flex"] as const;
 type Tab = (typeof tabs)[number];
 
 export function BuylistClient({
-  buylist,
-  staples,
-  flex,
+  buylist: initialBuylist,
+  staples: initialStaples,
+  flex: initialFlex,
+  dateRange,
 }: {
   buylist: BuylistCard[];
   staples: StapleCard[];
   flex: StapleCard[];
+  dateRange: { start: string; end: string };
 }) {
   const [activeTab, setActiveTab] = useState<Tab>("Full List");
+  const { format } = useParams<{ format: string }>();
+  const { activeWindow, setWindow } = useDateFilter();
+
+  const [buylist, setBuylist] = useState(initialBuylist);
+  const [staples, setStaples] = useState(initialStaples);
+  const [flex, setFlex] = useState(initialFlex);
+
+  const handleWindowChange = useCallback(
+    async (window: TimeWindow) => {
+      setWindow(window);
+
+      if (window === "all") {
+        setBuylist(initialBuylist);
+        setStaples(initialStaples);
+        setFlex(initialFlex);
+        return;
+      }
+
+      const suffix = window === "7d" ? "-7d" : "-30d";
+
+      const [newBuylist, newStaples, newFlex] = await Promise.all([
+        fetchWindowedData<BuylistCard[]>(format, "buylist.json", suffix),
+        fetchWindowedData<StapleCard[]>(format, "staples.json", suffix),
+        fetchWindowedData<StapleCard[]>(format, "flex.json", suffix),
+      ]);
+
+      if (newBuylist) setBuylist(newBuylist);
+      if (newStaples) setStaples(newStaples);
+      if (newFlex) setFlex(newFlex);
+    },
+    [format, initialBuylist, initialStaples, initialFlex, setWindow],
+  );
+
+  useEffect(() => {
+    if (activeWindow !== "all") {
+      handleWindowChange(activeWindow);
+    }
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div className="space-y-6">
-      <div>
-        <h1 className="font-display text-2xl font-bold text-slate-100">
-          Buy List
-        </h1>
-        <p className="text-sm text-surface-300 mt-1">
-          Prioritized acquisition guide: {buylist.length} cards across S/A/B tier archetypes
-        </p>
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div>
+          <h1 className="font-display text-2xl font-bold text-slate-100">
+            Buy List
+          </h1>
+          <p className="text-sm text-surface-300 mt-1">
+            Prioritized acquisition guide: {buylist.length} cards across S/A/B tier archetypes
+          </p>
+        </div>
+        <DateFilter activeWindow={activeWindow} onWindowChange={handleWindowChange} dateRange={dateRange} />
       </div>
 
       {/* Tabs */}

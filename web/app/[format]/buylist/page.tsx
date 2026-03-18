@@ -1,4 +1,4 @@
-import { getBuylist, getStaples, getFlex, formatHasData } from "@/app/lib/data";
+import { getBuylist, getStaples, getFlex, getMeta, formatHasData } from "@/app/lib/data";
 import { BuylistClient } from "./buylist-client";
 import Link from "next/link";
 
@@ -21,5 +21,6 @@ export default async function BuylistPage({
   const buylist = getBuylist(format);
   const staples = getStaples(format);
   const flex = getFlex(format);
-  return <BuylistClient buylist={buylist} staples={staples} flex={flex} />;
+  const meta = getMeta(format);
+  return <BuylistClient buylist={buylist} staples={staples} flex={flex} dateRange={meta.date_range} />;
 }
