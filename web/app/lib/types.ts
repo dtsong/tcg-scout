@@ -87,6 +87,7 @@ export interface ArchetypeCard {
   inclusion_pct: number;
   avg_copies: number;
   decks_with: number;
+  category?: "Pokemon" | "Trainer" | "Energy";
 }
 
 export interface ArchetypeResult {

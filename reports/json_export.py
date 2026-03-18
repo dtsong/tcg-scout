@@ -159,6 +159,36 @@ def _get_sprite_filenames(archetype_name: str) -> list[str]:
     return filenames[:2]  # Max 2 sprites per archetype
 
 
+def _classify_card(card_name: str) -> str:
+    """Classify a card as Pokemon, Trainer, or Energy by name heuristics."""
+    lower = card_name.lower()
+    if "energy" in lower:
+        return "Energy"
+    # Common trainer keywords
+    trainer_keywords = (
+        "ball", "catcher", "switch", "rope", "rod", "stretcher", "candy",
+        "cape", "belt", "brace", "stamp", "drum", "tree", "laser", "box",
+        "headset", "amulet", "aroma", "pod", "crystal", "pad", "vital",
+        "tower", "gong", "scrapper", "balloon", "board", "poffin",
+        "determination", "fighting spirit", "watchtower",
+    )
+    # Trainer supporter names (people)
+    trainer_names = (
+        "boss", "iono", "professor", "judge", "pepper", "cynthia", "biwa",
+        "roxanne", "avery", "lillie", "crispin", "dawn", "iris", "marnie",
+        "team rocket", "petrel", "arven", "penny", "jacq", "turo", "sada",
+        "kieran", "carmine", "briar", "drayton", "lacey", "hassel",
+    )
+    for kw in trainer_keywords:
+        if kw in lower:
+            return "Trainer"
+    for name in trainer_names:
+        if name in lower:
+            return "Trainer"
+    # Check DB supertype as last resort (most are empty but try)
+    return "Pokemon"
+
+
 def _compute_weighted_shares(conn: sqlite3.Connection, snapshot: dict) -> dict[str, float]:
     """Compute performance-weighted meta share for each archetype.
 
@@ -603,6 +633,7 @@ def export_archetypes(conn: sqlite3.Connection, output_dir: Path) -> None:
                 "inclusion_pct": inclusion,
                 "avg_copies": avg_copies,
                 "decks_with": row["decks_with"],
+                "category": _classify_card(row["card_name"]),
             }
             all_cards.append(card_data)
             if inclusion >= 80:
