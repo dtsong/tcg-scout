@@ -1,22 +1,22 @@
 {
-  "archetype": "Blaziken Clefairy",
-  "slug": "blaziken-clefairy",
+  "archetype": "Mega Dragalge Dudunsparce",
+  "slug": "mega-dragalge-dudunsparce",
   "tier": "Rogue",
   "meta_share": 0.1,
   "weighted_share": 0.1,
   "deck_count": 1,
-  "best_placement": 10,
+  "best_placement": 3,
   "sprite_filenames": [
-    "blaziken.png",
-    "clefairy.png"
+    "dragalge-mega.png",
+    "dudunsparce.png"
   ],
   "core_cards": [
     {
-      "card_name": "Unfair Stamp",
+      "card_name": "Yveltal",
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Trainer"
+      "category": "Pokemon"
     },
     {
       "card_name": "Ultra Ball",
@@ -26,18 +26,11 @@
       "category": "Trainer"
     },
     {
-      "card_name": "Torchic",
-      "inclusion_pct": 100.0,
-      "avg_copies": 3.0,
-      "decks_with": 1,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Team Rocket's Petrel",
+      "card_name": "Tatsugiri",
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Trainer"
+      "category": "Pokemon"
     },
     {
       "card_name": "Special Red Card",
@@ -47,13 +40,6 @@
       "category": "Pokemon"
     },
     {
-      "card_name": "Rare Candy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 3.0,
-      "decks_with": 1,
-      "category": "Trainer"
-    },
-    {
       "card_name": "Psyduck",
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
@@ -61,11 +47,46 @@
       "category": "Pokemon"
     },
     {
-      "card_name": "Poké Pad",
+      "card_name": "Prime Catcher",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Pokémon Catcher",
       "inclusion_pct": 100.0,
       "avg_copies": 3.0,
       "decks_with": 1,
       "category": "Trainer"
+    },
+    {
+      "card_name": "Poké Pad",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Perilous Jungle",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Pecharunt ex",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Pecharunt",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Pokemon"
     },
     {
       "card_name": "Night Stretcher",
@@ -89,13 +110,6 @@
       "category": "Pokemon"
     },
     {
-      "card_name": "Mega Kangaskhan ex",
-      "inclusion_pct": 100.0,
-      "avg_copies": 2.0,
-      "decks_with": 1,
-      "category": "Pokemon"
-    },
-    {
       "card_name": "Lillie's Determination",
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
@@ -103,16 +117,16 @@
       "category": "Trainer"
     },
     {
-      "card_name": "Lillie's Clefairy ex",
+      "card_name": "Gravity Mountain",
       "inclusion_pct": 100.0,
-      "avg_copies": 2.0,
+      "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Trainer"
+      "category": "Pokemon"
     },
     {
-      "card_name": "Latias ex",
+      "card_name": "Gravity Gemstone",
       "inclusion_pct": 100.0,
-      "avg_copies": 2.0,
+      "avg_copies": 1.0,
       "decks_with": 1,
       "category": "Pokemon"
     },
@@ -124,16 +138,37 @@
       "category": "Pokemon"
     },
     {
-      "card_name": "Crispin",
+      "card_name": "Dunsparce",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Dudunsparce",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Crushing Hammer",
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Crispin",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
       "decks_with": 1,
       "category": "Trainer"
     },
     {
-      "card_name": "Combusken",
+      "card_name": "Budew",
       "inclusion_pct": 100.0,
-      "avg_copies": 2.0,
+      "avg_copies": 1.0,
       "decks_with": 1,
       "category": "Pokemon"
     },
@@ -145,48 +180,27 @@
       "category": "Trainer"
     },
     {
-      "card_name": "Brock's Scouting",
-      "inclusion_pct": 100.0,
-      "avg_copies": 2.0,
-      "decks_with": 1,
-      "category": "Pokemon"
-    },
-    {
       "card_name": "Boss's Orders",
       "inclusion_pct": 100.0,
-      "avg_copies": 2.0,
+      "avg_copies": 1.0,
       "decks_with": 1,
       "category": "Trainer"
     },
     {
-      "card_name": "Blaziken ex",
-      "inclusion_pct": 100.0,
-      "avg_copies": 2.0,
-      "decks_with": 1,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Blaziken",
+      "card_name": "Air Balloon",
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Battle Cage",
-      "inclusion_pct": 100.0,
-      "avg_copies": 2.0,
-      "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     }
   ],
   "all_cards": [
     {
-      "card_name": "Unfair Stamp",
+      "card_name": "Yveltal",
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Trainer"
+      "category": "Pokemon"
     },
     {
       "card_name": "Ultra Ball",
@@ -196,18 +210,11 @@
       "category": "Trainer"
     },
     {
-      "card_name": "Torchic",
-      "inclusion_pct": 100.0,
-      "avg_copies": 3.0,
-      "decks_with": 1,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Team Rocket's Petrel",
+      "card_name": "Tatsugiri",
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Trainer"
+      "category": "Pokemon"
     },
     {
       "card_name": "Special Red Card",
@@ -217,13 +224,6 @@
       "category": "Pokemon"
     },
     {
-      "card_name": "Rare Candy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 3.0,
-      "decks_with": 1,
-      "category": "Trainer"
-    },
-    {
       "card_name": "Psyduck",
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
@@ -231,11 +231,46 @@
       "category": "Pokemon"
     },
     {
-      "card_name": "Poké Pad",
+      "card_name": "Prime Catcher",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Pokémon Catcher",
       "inclusion_pct": 100.0,
       "avg_copies": 3.0,
       "decks_with": 1,
       "category": "Trainer"
+    },
+    {
+      "card_name": "Poké Pad",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Perilous Jungle",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Pecharunt ex",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Pecharunt",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Pokemon"
     },
     {
       "card_name": "Night Stretcher",
@@ -259,13 +294,6 @@
       "category": "Pokemon"
     },
     {
-      "card_name": "Mega Kangaskhan ex",
-      "inclusion_pct": 100.0,
-      "avg_copies": 2.0,
-      "decks_with": 1,
-      "category": "Pokemon"
-    },
-    {
       "card_name": "Lillie's Determination",
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
@@ -273,16 +301,16 @@
       "category": "Trainer"
     },
     {
-      "card_name": "Lillie's Clefairy ex",
+      "card_name": "Gravity Mountain",
       "inclusion_pct": 100.0,
-      "avg_copies": 2.0,
+      "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Trainer"
+      "category": "Pokemon"
     },
     {
-      "card_name": "Latias ex",
+      "card_name": "Gravity Gemstone",
       "inclusion_pct": 100.0,
-      "avg_copies": 2.0,
+      "avg_copies": 1.0,
       "decks_with": 1,
       "category": "Pokemon"
     },
@@ -294,16 +322,37 @@
       "category": "Pokemon"
     },
     {
-      "card_name": "Crispin",
+      "card_name": "Dunsparce",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Dudunsparce",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Crushing Hammer",
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Crispin",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
       "decks_with": 1,
       "category": "Trainer"
     },
     {
-      "card_name": "Combusken",
+      "card_name": "Budew",
       "inclusion_pct": 100.0,
-      "avg_copies": 2.0,
+      "avg_copies": 1.0,
       "decks_with": 1,
       "category": "Pokemon"
     },
@@ -315,80 +364,39 @@
       "category": "Trainer"
     },
     {
-      "card_name": "Brock's Scouting",
-      "inclusion_pct": 100.0,
-      "avg_copies": 2.0,
-      "decks_with": 1,
-      "category": "Pokemon"
-    },
-    {
       "card_name": "Boss's Orders",
       "inclusion_pct": 100.0,
-      "avg_copies": 2.0,
+      "avg_copies": 1.0,
       "decks_with": 1,
       "category": "Trainer"
     },
     {
-      "card_name": "Blaziken ex",
-      "inclusion_pct": 100.0,
-      "avg_copies": 2.0,
-      "decks_with": 1,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Blaziken",
+      "card_name": "Air Balloon",
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Battle Cage",
-      "inclusion_pct": 100.0,
-      "avg_copies": 2.0,
-      "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     }
   ],
   "results": [
     {
-      "tournament_name": "City League Nagasaki",
-      "date": "2026-03-14",
-      "standing": 10,
-      "player_name": "なえとる。",
+      "tournament_name": "City League Kyōto",
+      "date": "2026-03-18",
+      "standing": 3,
+      "player_name": "さとり",
       "decklist": [
         {
-          "card_name": "Torchic",
-          "count": 3,
+          "card_name": "Crushing Hammer",
+          "count": 4,
           "category": "Pokemon"
         },
         {
-          "card_name": "Combusken",
+          "card_name": "Dunsparce",
           "count": 2,
           "category": "Pokemon"
         },
         {
-          "card_name": "Brock's Scouting",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Blaziken ex",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Mega Kangaskhan ex",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Battle Cage",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Latias ex",
+          "card_name": "Dudunsparce",
           "count": 2,
           "category": "Pokemon"
         },
@@ -403,12 +411,47 @@
           "category": "Pokemon"
         },
         {
+          "card_name": "Budew",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
           "card_name": "Psyduck",
           "count": 1,
           "category": "Pokemon"
         },
         {
-          "card_name": "Blaziken",
+          "card_name": "Yveltal",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Gravity Gemstone",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Pecharunt ex",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Gravity Mountain",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Pecharunt",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Perilous Jungle",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Tatsugiri",
           "count": 1,
           "category": "Pokemon"
         },
@@ -423,6 +466,11 @@
           "category": "Pokemon"
         },
         {
+          "card_name": "Poké Pad",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
           "card_name": "Lillie's Determination",
           "count": 4,
           "category": "Trainer"
@@ -433,17 +481,7 @@
           "category": "Trainer"
         },
         {
-          "card_name": "Crispin",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Poké Pad",
-          "count": 3,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Rare Candy",
+          "card_name": "Pokémon Catcher",
           "count": 3,
           "category": "Trainer"
         },
@@ -458,37 +496,32 @@
           "category": "Trainer"
         },
         {
-          "card_name": "Lillie's Clefairy ex",
+          "card_name": "Crispin",
           "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Air Balloon",
+          "count": 1,
           "category": "Trainer"
         },
         {
           "card_name": "Boss's Orders",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Team Rocket's Petrel",
           "count": 1,
           "category": "Trainer"
         },
         {
-          "card_name": "Unfair Stamp",
+          "card_name": "Prime Catcher",
           "count": 1,
           "category": "Trainer"
-        },
-        {
-          "card_name": "Fire Energy",
-          "count": 3,
-          "category": "Energy"
-        },
-        {
-          "card_name": "Psychic Energy",
-          "count": 3,
-          "category": "Energy"
         },
         {
           "card_name": "Darkness Energy",
+          "count": 5,
+          "category": "Energy"
+        },
+        {
+          "card_name": "Water Energy",
           "count": 3,
           "category": "Energy"
         }
@@ -497,9 +530,9 @@
   ],
   "radar": {
     "meta_share": 0.6,
-    "weighted_share": 0.4,
-    "consistency": 55.0,
-    "ceiling": 25,
+    "weighted_share": 0.8,
+    "consistency": 90.0,
+    "ceiling": 75,
     "popularity": 1.1,
     "core_density": 100.0
   }

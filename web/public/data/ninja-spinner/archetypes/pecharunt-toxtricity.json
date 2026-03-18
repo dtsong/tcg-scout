@@ -1,16 +1,23 @@
 {
-  "archetype": "Blaziken Clefairy",
-  "slug": "blaziken-clefairy",
+  "archetype": "Pecharunt Toxtricity",
+  "slug": "pecharunt-toxtricity",
   "tier": "Rogue",
   "meta_share": 0.1,
   "weighted_share": 0.1,
   "deck_count": 1,
-  "best_placement": 10,
+  "best_placement": 11,
   "sprite_filenames": [
-    "blaziken.png",
-    "clefairy.png"
+    "pecharunt.png",
+    "toxtricity.png"
   ],
   "core_cards": [
+    {
+      "card_name": "Yveltal ex",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
     {
       "card_name": "Unfair Stamp",
       "inclusion_pct": 100.0,
@@ -21,23 +28,51 @@
     {
       "card_name": "Ultra Ball",
       "inclusion_pct": 100.0,
-      "avg_copies": 4.0,
+      "avg_copies": 3.0,
       "decks_with": 1,
       "category": "Trainer"
     },
     {
-      "card_name": "Torchic",
+      "card_name": "Toxtricity",
       "inclusion_pct": 100.0,
-      "avg_copies": 3.0,
+      "avg_copies": 4.0,
       "decks_with": 1,
       "category": "Pokemon"
     },
     {
-      "card_name": "Team Rocket's Petrel",
+      "card_name": "Toxel",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Team Rocket's Watchtower",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Team Rocket's Sneasel",
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
       "category": "Trainer"
+    },
+    {
+      "card_name": "Team Rocket's Petrel",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Tatsugiri",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Pokemon"
     },
     {
       "card_name": "Special Red Card",
@@ -47,14 +82,7 @@
       "category": "Pokemon"
     },
     {
-      "card_name": "Rare Candy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 3.0,
-      "decks_with": 1,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Psyduck",
+      "card_name": "Punk Helmet",
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
@@ -63,9 +91,23 @@
     {
       "card_name": "Poké Pad",
       "inclusion_pct": 100.0,
-      "avg_copies": 3.0,
+      "avg_copies": 4.0,
       "decks_with": 1,
       "category": "Trainer"
+    },
+    {
+      "card_name": "Pecharunt ex",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Pecharunt",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Pokemon"
     },
     {
       "card_name": "Night Stretcher",
@@ -82,16 +124,9 @@
       "category": "Pokemon"
     },
     {
-      "card_name": "Meowth ex",
+      "card_name": "Mega Absol ex",
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
-      "decks_with": 1,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Mega Kangaskhan ex",
-      "inclusion_pct": 100.0,
-      "avg_copies": 2.0,
       "decks_with": 1,
       "category": "Pokemon"
     },
@@ -103,18 +138,18 @@
       "category": "Trainer"
     },
     {
-      "card_name": "Lillie's Clefairy ex",
+      "card_name": "Iris's Fighting Spirit",
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
       "decks_with": 1,
       "category": "Trainer"
     },
     {
-      "card_name": "Latias ex",
+      "card_name": "Hassel",
       "inclusion_pct": 100.0,
-      "avg_copies": 2.0,
+      "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Fezandipiti ex",
@@ -124,30 +159,30 @@
       "category": "Pokemon"
     },
     {
-      "card_name": "Crispin",
+      "card_name": "Energy Switch",
       "inclusion_pct": 100.0,
-      "avg_copies": 4.0,
+      "avg_copies": 2.0,
       "decks_with": 1,
       "category": "Trainer"
     },
     {
-      "card_name": "Combusken",
+      "card_name": "Energy Recycler",
       "inclusion_pct": 100.0,
-      "avg_copies": 2.0,
+      "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Buddy-Buddy Poffin",
       "inclusion_pct": 100.0,
-      "avg_copies": 3.0,
+      "avg_copies": 2.0,
       "decks_with": 1,
       "category": "Trainer"
     },
     {
-      "card_name": "Brock's Scouting",
+      "card_name": "Brute Bonnet",
       "inclusion_pct": 100.0,
-      "avg_copies": 2.0,
+      "avg_copies": 1.0,
       "decks_with": 1,
       "category": "Pokemon"
     },
@@ -159,29 +194,22 @@
       "category": "Trainer"
     },
     {
-      "card_name": "Blaziken ex",
+      "card_name": "Air Balloon",
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
       "decks_with": 1,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Blaziken",
-      "inclusion_pct": 100.0,
-      "avg_copies": 1.0,
-      "decks_with": 1,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Battle Cage",
-      "inclusion_pct": 100.0,
-      "avg_copies": 2.0,
-      "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     }
   ],
   "all_cards": [
     {
+      "card_name": "Yveltal ex",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
       "card_name": "Unfair Stamp",
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
@@ -191,23 +219,51 @@
     {
       "card_name": "Ultra Ball",
       "inclusion_pct": 100.0,
-      "avg_copies": 4.0,
+      "avg_copies": 3.0,
       "decks_with": 1,
       "category": "Trainer"
     },
     {
-      "card_name": "Torchic",
+      "card_name": "Toxtricity",
       "inclusion_pct": 100.0,
-      "avg_copies": 3.0,
+      "avg_copies": 4.0,
       "decks_with": 1,
       "category": "Pokemon"
     },
     {
-      "card_name": "Team Rocket's Petrel",
+      "card_name": "Toxel",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Team Rocket's Watchtower",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Team Rocket's Sneasel",
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
       "category": "Trainer"
+    },
+    {
+      "card_name": "Team Rocket's Petrel",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Tatsugiri",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Pokemon"
     },
     {
       "card_name": "Special Red Card",
@@ -217,14 +273,7 @@
       "category": "Pokemon"
     },
     {
-      "card_name": "Rare Candy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 3.0,
-      "decks_with": 1,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Psyduck",
+      "card_name": "Punk Helmet",
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
@@ -233,9 +282,23 @@
     {
       "card_name": "Poké Pad",
       "inclusion_pct": 100.0,
-      "avg_copies": 3.0,
+      "avg_copies": 4.0,
       "decks_with": 1,
       "category": "Trainer"
+    },
+    {
+      "card_name": "Pecharunt ex",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Pecharunt",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Pokemon"
     },
     {
       "card_name": "Night Stretcher",
@@ -252,16 +315,9 @@
       "category": "Pokemon"
     },
     {
-      "card_name": "Meowth ex",
+      "card_name": "Mega Absol ex",
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
-      "decks_with": 1,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Mega Kangaskhan ex",
-      "inclusion_pct": 100.0,
-      "avg_copies": 2.0,
       "decks_with": 1,
       "category": "Pokemon"
     },
@@ -273,18 +329,18 @@
       "category": "Trainer"
     },
     {
-      "card_name": "Lillie's Clefairy ex",
+      "card_name": "Iris's Fighting Spirit",
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
       "decks_with": 1,
       "category": "Trainer"
     },
     {
-      "card_name": "Latias ex",
+      "card_name": "Hassel",
       "inclusion_pct": 100.0,
-      "avg_copies": 2.0,
+      "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Fezandipiti ex",
@@ -294,30 +350,30 @@
       "category": "Pokemon"
     },
     {
-      "card_name": "Crispin",
+      "card_name": "Energy Switch",
       "inclusion_pct": 100.0,
-      "avg_copies": 4.0,
+      "avg_copies": 2.0,
       "decks_with": 1,
       "category": "Trainer"
     },
     {
-      "card_name": "Combusken",
+      "card_name": "Energy Recycler",
       "inclusion_pct": 100.0,
-      "avg_copies": 2.0,
+      "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Buddy-Buddy Poffin",
       "inclusion_pct": 100.0,
-      "avg_copies": 3.0,
+      "avg_copies": 2.0,
       "decks_with": 1,
       "category": "Trainer"
     },
     {
-      "card_name": "Brock's Scouting",
+      "card_name": "Brute Bonnet",
       "inclusion_pct": 100.0,
-      "avg_copies": 2.0,
+      "avg_copies": 1.0,
       "decks_with": 1,
       "category": "Pokemon"
     },
@@ -329,67 +385,28 @@
       "category": "Trainer"
     },
     {
-      "card_name": "Blaziken ex",
+      "card_name": "Air Balloon",
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
       "decks_with": 1,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Blaziken",
-      "inclusion_pct": 100.0,
-      "avg_copies": 1.0,
-      "decks_with": 1,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Battle Cage",
-      "inclusion_pct": 100.0,
-      "avg_copies": 2.0,
-      "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     }
   ],
   "results": [
     {
-      "tournament_name": "City League Nagasaki",
-      "date": "2026-03-14",
-      "standing": 10,
-      "player_name": "なえとる。",
+      "tournament_name": "City League Chiba",
+      "date": "2026-03-17",
+      "standing": 11,
+      "player_name": "ナスカダ",
       "decklist": [
         {
-          "card_name": "Torchic",
-          "count": 3,
+          "card_name": "Toxel",
+          "count": 4,
           "category": "Pokemon"
         },
         {
-          "card_name": "Combusken",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Brock's Scouting",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Blaziken ex",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Mega Kangaskhan ex",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Battle Cage",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Latias ex",
-          "count": 2,
+          "card_name": "Toxtricity",
+          "count": 4,
           "category": "Pokemon"
         },
         {
@@ -403,17 +420,37 @@
           "category": "Pokemon"
         },
         {
-          "card_name": "Psyduck",
+          "card_name": "Mega Absol ex",
           "count": 1,
           "category": "Pokemon"
         },
         {
-          "card_name": "Blaziken",
+          "card_name": "Punk Helmet",
           "count": 1,
           "category": "Pokemon"
         },
         {
-          "card_name": "Meowth ex",
+          "card_name": "Pecharunt ex",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Pecharunt",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Brute Bonnet",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Tatsugiri",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Yveltal ex",
           "count": 1,
           "category": "Pokemon"
         },
@@ -423,33 +460,23 @@
           "category": "Pokemon"
         },
         {
+          "card_name": "Poké Pad",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
           "card_name": "Lillie's Determination",
           "count": 4,
           "category": "Trainer"
         },
         {
           "card_name": "Ultra Ball",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Crispin",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Poké Pad",
           "count": 3,
           "category": "Trainer"
         },
         {
-          "card_name": "Rare Candy",
-          "count": 3,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Buddy-Buddy Poffin",
-          "count": 3,
+          "card_name": "Air Balloon",
+          "count": 2,
           "category": "Trainer"
         },
         {
@@ -458,7 +485,17 @@
           "category": "Trainer"
         },
         {
-          "card_name": "Lillie's Clefairy ex",
+          "card_name": "Team Rocket's Petrel",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Team Rocket's Watchtower",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Iris's Fighting Spirit",
           "count": 2,
           "category": "Trainer"
         },
@@ -468,7 +505,27 @@
           "category": "Trainer"
         },
         {
-          "card_name": "Team Rocket's Petrel",
+          "card_name": "Energy Switch",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Buddy-Buddy Poffin",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Team Rocket's Sneasel",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Energy Recycler",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Hassel",
           "count": 1,
           "category": "Trainer"
         },
@@ -478,18 +535,8 @@
           "category": "Trainer"
         },
         {
-          "card_name": "Fire Energy",
-          "count": 3,
-          "category": "Energy"
-        },
-        {
-          "card_name": "Psychic Energy",
-          "count": 3,
-          "category": "Energy"
-        },
-        {
           "card_name": "Darkness Energy",
-          "count": 3,
+          "count": 10,
           "category": "Energy"
         }
       ]
@@ -498,7 +545,7 @@
   "radar": {
     "meta_share": 0.6,
     "weighted_share": 0.4,
-    "consistency": 55.0,
+    "consistency": 50.0,
     "ceiling": 25,
     "popularity": 1.1,
     "core_density": 100.0
