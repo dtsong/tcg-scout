@@ -14,10 +14,42 @@ ROTATION_LEGAL_SETS = {
     "svp",
 }
 
-# Dataset window — JP City League results
-DATASET_START = "2026-01-23"
-DATASET_END = "2026-03-13"
-ROTATION_DATE = "2026-04-10"
+# --- Format registry ---
+FORMATS = {
+    "nihil-zero": {
+        "name": "Nihil Zero",
+        "name_en": "Perfect Order",
+        "dataset_start": "2026-01-23",
+        "dataset_end": "2026-03-13",
+        "rotation_date": "2026-04-10",
+        "description": "Temporal Forces through Perfect Order + Mega Evolution sets",
+        "db_name": "nihil-zero.db",
+    },
+    "ninja-spinner": {
+        "name": "Ninja Spinner",
+        "name_en": "Chaos Rising",
+        "dataset_start": "2026-03-14",
+        "dataset_end": "2026-05-22",
+        "rotation_date": "2026-04-10",
+        "description": "Temporal Forces through Chaos Rising + Mega Evolution sets",
+        "db_name": "ninja-spinner.db",
+    },
+}
+
+DEFAULT_FORMAT = "nihil-zero"
+
+
+def get_format_config(format_slug: str) -> dict:
+    """Get configuration for a format by slug. Raises KeyError if not found."""
+    if format_slug not in FORMATS:
+        raise KeyError(f"Unknown format: {format_slug!r}. Available: {list(FORMATS.keys())}")
+    return FORMATS[format_slug]
+
+
+# Dataset window — JP City League results (backward compat, delegates to default format)
+DATASET_START = FORMATS[DEFAULT_FORMAT]["dataset_start"]
+DATASET_END = FORMATS[DEFAULT_FORMAT]["dataset_end"]
+ROTATION_DATE = FORMATS[DEFAULT_FORMAT]["rotation_date"]
 
 # Tier thresholds (meta share percentage)
 TIER_THRESHOLDS = {
@@ -79,3 +111,51 @@ LIMITLESS_MAX_RETRIES = 3
 
 # TCGdex
 TCGDEX_API_URL = "https://api.tcgdex.net/v2/en"
+
+# Anchor cards for content-based archetype classification.
+# Primary anchor -> secondary anchor -> archetype name.
+# If primary matches but no secondary does, uses "_default".
+ARCHETYPE_ANCHOR_CARDS: dict[str, dict[str, str] | str] = {
+    "Charizard ex": {
+        "_default": "Charizard ex",
+        "Dusknoir": "Charizard Dusknoir",
+    },
+    "Dragapult ex": {
+        "_default": "Dragapult ex",
+        "Pidgeot ex": "Dragapult ex",
+        "Dusknoir": "Dragapult Dusknoir",
+        "Noctowl": "Dragapult Noctowl",
+    },
+    "Gardevoir ex": "Gardevoir ex",
+    "Raging Bolt ex": "Raging Bolt ex",
+    "Gholdengo ex": "Gholdengo ex",
+    "Terapagos ex": "Terapagos ex",
+    "Archaludon ex": "Archaludon ex",
+    "Miraidon ex": "Miraidon ex",
+    "Grimmsnarl ex": {
+        "_default": "Grimmsnarl ex",
+        "Munkidori": "Grimmsnarl Munkidori",
+    },
+    "Froslass ex": {
+        "_default": "Froslass ex",
+        "Munkidori": "Froslass Munkidori",
+        "Grimmsnarl": "Froslass Grimmsnarl",
+    },
+    "Alakazam ex": {
+        "_default": "Alakazam ex",
+        "Dudunsparce": "Alakazam Dudunsparce",
+    },
+    "Lucario ex": {
+        "_default": "Mega Lucario ex",
+        "Solrock": "Mega Lucario Solrock",
+    },
+    "Starmie ex": {
+        "_default": "Mega Starmie ex",
+        "Greninja ex": "Mega Starmie Greninja",
+        "Dusknoir": "Mega Starmie Dusknoir",
+    },
+    "Venusaur ex": {
+        "_default": "Mega Venusaur ex",
+        "Ogerpon ex": "Mega Venusaur",
+    },
+}

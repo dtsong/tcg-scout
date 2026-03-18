@@ -5,29 +5,36 @@ import { usePathname } from "next/navigation";
 import { cn } from "@/app/lib/utils";
 import { Crosshair } from "lucide-react";
 
-const links = [
-  { href: "/", label: "Dashboard" },
-  { href: "/archetypes", label: "Archetypes" },
-  { href: "/buylist", label: "Buy List" },
-  { href: "/trends", label: "Trends" },
-  { href: "/champions", label: "Champions League" },
-];
-
-export function Nav() {
+export function Nav({ format }: { format: string }) {
   const pathname = usePathname();
+
+  const links = [
+    { href: `/${format}`, label: "Dashboard" },
+    { href: `/${format}/archetypes`, label: "Archetypes" },
+    { href: `/${format}/buylist`, label: "Buy List" },
+    { href: `/${format}/trends`, label: "Trends" },
+    { href: `/${format}/champions`, label: "Champions League" },
+  ];
 
   return (
     <nav className="border-b border-surface-600 bg-surface-800/80 backdrop-blur-sm sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-14">
-          <Link href="/" className="flex items-center gap-2 text-accent font-display font-bold text-lg">
-            <Crosshair className="w-5 h-5" />
-            Scout
-          </Link>
+          <div className="flex items-center gap-3">
+            <Link href="/" className="flex items-center gap-2 text-accent font-display font-bold text-lg">
+              <Crosshair className="w-5 h-5" />
+              Scout
+            </Link>
+            <span className="text-xs font-mono px-2 py-0.5 rounded bg-surface-700 text-surface-300 border border-surface-600">
+              {format}
+            </span>
+          </div>
           <div className="flex items-center gap-1 overflow-x-auto">
             {links.map(({ href, label }) => {
               const active =
-                href === "/" ? pathname === "/" : pathname.startsWith(href);
+                href === `/${format}`
+                  ? pathname === `/${format}`
+                  : pathname.startsWith(href);
               return (
                 <Link
                   key={href}

@@ -13,6 +13,14 @@ from config import (
 
 logger = logging.getLogger(__name__)
 
+# Basic energy card names to exclude from buy list analytics
+BASIC_ENERGY_NAMES = {
+    "Basic Fire Energy", "Basic Water Energy", "Basic Lightning Energy",
+    "Basic Psychic Energy", "Basic Fighting Energy", "Basic Darkness Energy",
+    "Basic Metal Energy", "Basic Grass Energy", "Basic Colorless Energy",
+    "Basic Fairy Energy",
+}
+
 
 def generate_buylist(conn: sqlite3.Connection, snapshot_id: int) -> list[dict]:
     """Generate prioritized buy list from meta data. Returns list of card dicts."""
@@ -82,13 +90,15 @@ def generate_buylist(conn: sqlite3.Connection, snapshot_id: int) -> list[dict]:
 
         # Step 3: Query decklist_cards for all placements in this archetype
         placeholders = ",".join("?" * len(placement_ids))
+        energy_placeholders = ",".join("?" * len(BASIC_ENERGY_NAMES))
         decklist_rows = conn.execute(
             f"""
             SELECT placement_id, card_id, card_name, count
             FROM decklist_cards
             WHERE placement_id IN ({placeholders})
+              AND card_name NOT IN ({energy_placeholders})
             """,
-            placement_ids,
+            (*placement_ids, *sorted(BASIC_ENERGY_NAMES)),
         ).fetchall()
 
         # Step 4: Per-card stats within this archetype

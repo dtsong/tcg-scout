@@ -9,20 +9,21 @@ from config import TIER_THRESHOLDS
 logger = logging.getLogger(__name__)
 
 
-def _assign_tier(meta_share: float) -> str:
+def _assign_tier(meta_share: float, thresholds: dict[str, float] | None = None) -> str:
     """Assign tier based on meta share percentage."""
-    if meta_share >= TIER_THRESHOLDS["S"]:
+    t = thresholds or TIER_THRESHOLDS
+    if meta_share >= t["S"]:
         return "S"
-    if meta_share >= TIER_THRESHOLDS["A"]:
+    if meta_share >= t["A"]:
         return "A"
-    if meta_share >= TIER_THRESHOLDS["B"]:
+    if meta_share >= t["B"]:
         return "B"
-    if meta_share >= TIER_THRESHOLDS["C"]:
+    if meta_share >= t["C"]:
         return "C"
     return "Rogue"
 
 
-def compute_meta_snapshot(conn: sqlite3.Connection) -> int:
+def compute_meta_snapshot(conn: sqlite3.Connection, thresholds: dict[str, float] | None = None) -> int:
     """Compute meta snapshot from all placements. Returns snapshot_id."""
     conn.row_factory = sqlite3.Row
 
@@ -68,7 +69,7 @@ def compute_meta_snapshot(conn: sqlite3.Connection) -> int:
     # Insert archetype stats
     for row in rows:
         meta_share = row["deck_count"] / total_decks * 100
-        tier = _assign_tier(meta_share)
+        tier = _assign_tier(meta_share, thresholds)
         conn.execute(
             """
             INSERT INTO archetype_stats

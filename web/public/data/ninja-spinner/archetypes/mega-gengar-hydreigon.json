@@ -1,0 +1,445 @@
+{
+  "archetype": "Mega Gengar Hydreigon",
+  "slug": "mega-gengar-hydreigon",
+  "tier": "Rogue",
+  "meta_share": 0.1,
+  "weighted_share": 0.1,
+  "deck_count": 1,
+  "best_placement": 8,
+  "sprite_filenames": [
+    "gengar-mega.png",
+    "hydreigon.png"
+  ],
+  "core_cards": [
+    {
+      "card_name": "Zweilous",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Yveltal",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Ultra Ball",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Team Rocket's Watchtower",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Team Rocket's Petrel",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Special Red Card",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Rosa's Encouragement",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Rare Candy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Psychic Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Energy"
+    },
+    {
+      "card_name": "Pecharunt ex",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Night Stretcher",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Neo Upper Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Energy"
+    },
+    {
+      "card_name": "N's Zorua",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "N's Zoroark ex",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Metal Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Energy"
+    },
+    {
+      "card_name": "Mega Gengar ex",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Lillie's Determination",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Lillie's Clefairy ex",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Janine's Secret Art",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Hydreigon ex",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Hilda",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Haunter",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Fezandipiti ex",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Deino",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Darkness Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 5.0,
+      "decks_with": 1,
+      "category": "Energy"
+    },
+    {
+      "card_name": "Cyrano",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Crispin",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Budew",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Buddy-Buddy Poffin",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Boss's Orders",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    }
+  ],
+  "all_cards": [
+    {
+      "card_name": "Zweilous",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Yveltal",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Ultra Ball",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Team Rocket's Watchtower",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Team Rocket's Petrel",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Special Red Card",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Rosa's Encouragement",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Rare Candy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Psychic Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Energy"
+    },
+    {
+      "card_name": "Pecharunt ex",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Night Stretcher",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Neo Upper Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Energy"
+    },
+    {
+      "card_name": "N's Zorua",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "N's Zoroark ex",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Metal Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Energy"
+    },
+    {
+      "card_name": "Mega Gengar ex",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Lillie's Determination",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Lillie's Clefairy ex",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Janine's Secret Art",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Hydreigon ex",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Hilda",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Haunter",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Fezandipiti ex",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Deino",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Darkness Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 5.0,
+      "decks_with": 1,
+      "category": "Energy"
+    },
+    {
+      "card_name": "Cyrano",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Crispin",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Budew",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Buddy-Buddy Poffin",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Boss's Orders",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    }
+  ],
+  "results": [
+    {
+      "tournament_name": "City League Kagawa",
+      "date": "2026-03-14",
+      "standing": 8,
+      "player_name": "ルンルン"
+    }
+  ]
+}

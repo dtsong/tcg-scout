@@ -1,0 +1,443 @@
+{
+  "archetype": "Trevenant",
+  "slug": "trevenant",
+  "tier": "Rogue",
+  "meta_share": 0.3,
+  "weighted_share": 0.2,
+  "deck_count": 2,
+  "best_placement": 5,
+  "sprite_filenames": [
+    "trevenant.png"
+  ],
+  "core_cards": [
+    {
+      "card_name": "Unfair Stamp",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 2,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Ultra Ball",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 2,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Telepath Psychic Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.5,
+      "decks_with": 2,
+      "category": "Energy"
+    },
+    {
+      "card_name": "Switch",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 2,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Shaymin",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 2,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Psyduck",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 2,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Postwick",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.0,
+      "decks_with": 2,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Pokégear 3.0",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.5,
+      "decks_with": 2,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Poké Pad",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.5,
+      "decks_with": 2,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Night Stretcher",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 2,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Mist Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.5,
+      "decks_with": 2,
+      "category": "Energy"
+    },
+    {
+      "card_name": "Lillie's Determination",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.5,
+      "decks_with": 2,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Lillie's Clefairy ex",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 2,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Latias ex",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 2,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Hop's Zacian ex",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 2,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Hop's Trevenant",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.0,
+      "decks_with": 2,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Hop's Snorlax",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 2,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Hop's Phantump",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.0,
+      "decks_with": 2,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Hop's Cramorant",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 2,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Hop's Choice Band",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.0,
+      "decks_with": 2,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Hop's Bag",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.0,
+      "decks_with": 2,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Hilda",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 2,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Hassel",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.5,
+      "decks_with": 2,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Fezandipiti ex",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 2,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Colress's Tenacity",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 2,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Boss's Orders",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.0,
+      "decks_with": 2,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Bloodmoon Ursaluna ex",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 2,
+      "category": "Pokemon"
+    }
+  ],
+  "all_cards": [
+    {
+      "card_name": "Unfair Stamp",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 2,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Ultra Ball",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 2,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Telepath Psychic Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.5,
+      "decks_with": 2,
+      "category": "Energy"
+    },
+    {
+      "card_name": "Switch",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 2,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Shaymin",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 2,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Psyduck",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 2,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Postwick",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.0,
+      "decks_with": 2,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Pokégear 3.0",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.5,
+      "decks_with": 2,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Poké Pad",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.5,
+      "decks_with": 2,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Night Stretcher",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 2,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Mist Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.5,
+      "decks_with": 2,
+      "category": "Energy"
+    },
+    {
+      "card_name": "Lillie's Determination",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.5,
+      "decks_with": 2,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Lillie's Clefairy ex",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 2,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Latias ex",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 2,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Hop's Zacian ex",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 2,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Hop's Trevenant",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.0,
+      "decks_with": 2,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Hop's Snorlax",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 2,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Hop's Phantump",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.0,
+      "decks_with": 2,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Hop's Cramorant",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 2,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Hop's Choice Band",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.0,
+      "decks_with": 2,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Hop's Bag",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.0,
+      "decks_with": 2,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Hilda",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 2,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Hassel",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.5,
+      "decks_with": 2,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Fezandipiti ex",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 2,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Colress's Tenacity",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 2,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Boss's Orders",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.0,
+      "decks_with": 2,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Bloodmoon Ursaluna ex",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 2,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Xerosic's Machinations",
+      "inclusion_pct": 50.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Team Rocket's Petrel",
+      "inclusion_pct": 50.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Special Red Card",
+      "inclusion_pct": 50.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Psychic Energy",
+      "inclusion_pct": 50.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Energy"
+    },
+    {
+      "card_name": "Judge",
+      "inclusion_pct": 50.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    }
+  ],
+  "results": [
+    {
+      "tournament_name": "City League Kanagawa",
+      "date": "2026-03-15",
+      "standing": 5,
+      "player_name": "ピタゴラ"
+    },
+    {
+      "tournament_name": "City League Ōsaka",
+      "date": "2026-03-14",
+      "standing": 11,
+      "player_name": "雪解けに"
+    }
+  ]
+}

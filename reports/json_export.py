@@ -14,16 +14,38 @@ from config import (
     CL_WEIGHT_MULTIPLIER,
     DATASET_END,
     DATASET_START,
+    DEFAULT_FORMAT,
+    FORMATS,
     PLACEMENT_WEIGHT_DEFAULT,
     PLACEMENT_WEIGHTS,
     ROTATION_DATE,
     TIER_THRESHOLDS,
+    get_format_config,
 )
 
 logger = logging.getLogger(__name__)
 
 # Default output directory (web/public/data/)
 DEFAULT_OUTPUT_DIR = Path(__file__).parent.parent / "web" / "public" / "data"
+
+# Basic energy card names to exclude from all analytics
+BASIC_ENERGY_NAMES = {
+    "Basic Fire Energy", "Basic Water Energy", "Basic Lightning Energy",
+    "Basic Psychic Energy", "Basic Fighting Energy", "Basic Darkness Energy",
+    "Basic Metal Energy", "Basic Grass Energy", "Basic Colorless Energy",
+    "Basic Fairy Energy",
+}
+
+
+def _basic_energy_exclusion_sql() -> str:
+    """Return SQL WHERE clause fragment to exclude basic energy."""
+    placeholders = ",".join("?" * len(BASIC_ENERGY_NAMES))
+    return f"dc.card_name NOT IN ({placeholders})"
+
+
+def _basic_energy_params() -> list[str]:
+    """Return params list for basic energy exclusion."""
+    return sorted(BASIC_ENERGY_NAMES)
 
 # Known ACE SPEC card names
 ACE_SPEC_CARDS = {
@@ -221,12 +243,18 @@ def _compute_weighted_shares(conn: sqlite3.Connection, snapshot: dict) -> dict[s
     }
 
 
-def export_meta(conn: sqlite3.Connection, output_dir: Path) -> dict | None:
+def export_meta(conn: sqlite3.Connection, output_dir: Path,
+                format_slug: str | None = None) -> dict | None:
     """Export meta.json — snapshot stats + tier list with weighted shares."""
     snapshot = get_latest_snapshot(conn)
     if not snapshot:
         logger.warning("No meta snapshot found")
         return None
+
+    fmt = get_format_config(format_slug) if format_slug else None
+    rotation_date = fmt["rotation_date"] if fmt else ROTATION_DATE
+    dataset_start = fmt["dataset_start"] if fmt else DATASET_START
+    dataset_end = fmt["dataset_end"] if fmt else DATASET_END
 
     weighted_shares = _compute_weighted_shares(conn, snapshot)
 
@@ -258,13 +286,20 @@ def export_meta(conn: sqlite3.Connection, output_dir: Path) -> dict | None:
         "tournament_count": snapshot["tournament_count"],
         "deck_count": snapshot["deck_count"],
         "date_range": {
-            "start": date_range["earliest"] if date_range else DATASET_START,
-            "end": date_range["latest"] if date_range else DATASET_END,
+            "start": date_range["earliest"] if date_range else dataset_start,
+            "end": date_range["latest"] if date_range else dataset_end,
         },
-        "rotation_date": ROTATION_DATE,
+        "rotation_date": rotation_date,
         "tier_thresholds": TIER_THRESHOLDS,
         "archetypes": archetypes,
     }
+
+    if fmt:
+        data["format"] = {
+            "slug": format_slug,
+            "name": fmt["name"],
+            "name_en": fmt["name_en"],
+        }
 
     _write_json(data, output_dir / "meta.json")
     return data
@@ -288,16 +323,17 @@ def export_staples(conn: sqlite3.Connection, output_dir: Path) -> None:
     total_decks = conn.execute("SELECT COUNT(*) FROM placements").fetchone()[0]
 
     rows = conn.execute(
-        """
+        f"""
         SELECT card_name,
                COUNT(DISTINCT placement_id) AS deck_count,
                ROUND(AVG(count), 1) AS avg_copies
-        FROM decklist_cards
+        FROM decklist_cards dc
+        WHERE {_basic_energy_exclusion_sql()}
         GROUP BY card_name
         HAVING COUNT(DISTINCT placement_id) * 100.0 / ? >= 40
         ORDER BY deck_count DESC
         """,
-        (total_decks,),
+        (*_basic_energy_params(), total_decks),
     ).fetchall()
 
     staples = []
@@ -318,17 +354,18 @@ def export_flex(conn: sqlite3.Connection, output_dir: Path) -> None:
     total_decks = conn.execute("SELECT COUNT(*) FROM placements").fetchone()[0]
 
     rows = conn.execute(
-        """
+        f"""
         SELECT card_name,
                COUNT(DISTINCT placement_id) AS deck_count,
                ROUND(AVG(count), 1) AS avg_copies
-        FROM decklist_cards
+        FROM decklist_cards dc
+        WHERE {_basic_energy_exclusion_sql()}
         GROUP BY card_name
         HAVING COUNT(DISTINCT placement_id) * 100.0 / ? >= 20
            AND COUNT(DISTINCT placement_id) * 100.0 / ? < 40
         ORDER BY deck_count DESC
         """,
-        (total_decks, total_decks),
+        (*_basic_energy_params(), total_decks, total_decks),
     ).fetchall()
 
     flex = []
@@ -349,20 +386,20 @@ def _get_card_archetype_breakdown(
 ) -> list[dict]:
     """Get per-archetype usage deltas for a trending card."""
     rows = conn.execute(
-        """
+        f"""
         SELECT p.archetype,
                SUM(CASE WHEN t.date < ? THEN 1 ELSE 0 END) AS early_count,
                SUM(CASE WHEN t.date >= ? THEN 1 ELSE 0 END) AS late_count
         FROM decklist_cards dc
         JOIN placements p ON p.id = dc.placement_id
         JOIN tournaments t ON t.id = p.tournament_id
-        WHERE dc.card_name = ?
+        WHERE dc.card_name = ? AND {_basic_energy_exclusion_sql()}
         GROUP BY p.archetype
         HAVING (early_count + late_count) >= 3
         ORDER BY (early_count + late_count) DESC
         LIMIT 5
         """,
-        (midpoint, midpoint, card_name),
+        (midpoint, midpoint, card_name, *_basic_energy_params()),
     ).fetchall()
 
     # Get per-archetype totals for the periods
@@ -396,9 +433,18 @@ def _get_card_archetype_breakdown(
     return result
 
 
-def export_trends(conn: sqlite3.Connection, output_dir: Path) -> None:
+def export_trends(conn: sqlite3.Connection, output_dir: Path,
+                  format_slug: str | None = None) -> None:
     """Export trends.json — surging and declining cards with archetype breakdowns."""
-    midpoint = "2026-02-15"
+    if format_slug:
+        fmt = get_format_config(format_slug)
+        from datetime import date
+        start = date.fromisoformat(fmt["dataset_start"])
+        end = date.fromisoformat(fmt["dataset_end"])
+        mid = start + (end - start) / 2
+        midpoint = mid.isoformat()
+    else:
+        midpoint = "2026-02-15"
 
     early_total = conn.execute(
         "SELECT COUNT(*) FROM placements p JOIN tournaments t ON t.id = p.tournament_id WHERE t.date < ?",
@@ -419,17 +465,18 @@ def export_trends(conn: sqlite3.Connection, output_dir: Path) -> None:
         return
 
     rows = conn.execute(
-        """
+        f"""
         SELECT dc.card_name,
                SUM(CASE WHEN t.date < ? THEN 1 ELSE 0 END) AS early_count,
                SUM(CASE WHEN t.date >= ? THEN 1 ELSE 0 END) AS late_count
         FROM decklist_cards dc
         JOIN placements p ON p.id = dc.placement_id
         JOIN tournaments t ON t.id = p.tournament_id
+        WHERE {_basic_energy_exclusion_sql()}
         GROUP BY dc.card_name
         HAVING early_count >= 5 AND late_count >= 5
         """,
-        (midpoint, midpoint),
+        (midpoint, midpoint, *_basic_energy_params()),
     ).fetchall()
 
     cards = []
@@ -510,11 +557,11 @@ def export_winning_edge(conn: sqlite3.Connection, output_dir: Path) -> None:
                COUNT(DISTINCT dc.placement_id) AS field_decks
         FROM decklist_cards dc
         JOIN placements p ON p.id = dc.placement_id
-        WHERE p.archetype IN ({placeholders})
+        WHERE p.archetype IN ({placeholders}) AND {_basic_energy_exclusion_sql()}
         GROUP BY dc.card_name
         HAVING field_decks >= 10
         """,
-        sa_archetypes,
+        (*sa_archetypes, *_basic_energy_params()),
     ).fetchall()
 
     field_usage = {row["card_name"]: row["field_decks"] for row in field_rows}
@@ -525,10 +572,10 @@ def export_winning_edge(conn: sqlite3.Connection, output_dir: Path) -> None:
                COUNT(DISTINCT dc.placement_id) AS winner_decks
         FROM decklist_cards dc
         JOIN placements p ON p.id = dc.placement_id
-        WHERE p.standing = 1 AND p.archetype IN ({placeholders})
+        WHERE p.standing = 1 AND p.archetype IN ({placeholders}) AND {_basic_energy_exclusion_sql()}
         GROUP BY dc.card_name
         """,
-        sa_archetypes,
+        (*sa_archetypes, *_basic_energy_params()),
     ).fetchall()
 
     cards = []
@@ -615,12 +662,12 @@ def export_archetypes(conn: sqlite3.Connection, output_dir: Path) -> None:
             SELECT card_name,
                    COUNT(DISTINCT placement_id) AS decks_with,
                    SUM(count) AS total_copies
-            FROM decklist_cards
-            WHERE placement_id IN ({placeholders})
+            FROM decklist_cards dc
+            WHERE placement_id IN ({placeholders}) AND {_basic_energy_exclusion_sql()}
             GROUP BY card_name
             ORDER BY decks_with DESC
             """,
-            placement_ids,
+            (*placement_ids, *_basic_energy_params()),
         ).fetchall()
 
         core_cards = []
@@ -853,18 +900,22 @@ def export_images(conn: sqlite3.Connection, output_dir: Path) -> None:
     logger.info("Card images: %d downloaded for top buylist cards", card_downloaded)
 
 
-def export_all(conn: sqlite3.Connection, output_dir: Path | None = None) -> Path:
+def export_all(conn: sqlite3.Connection, output_dir: Path | None = None,
+               format_slug: str | None = None) -> Path:
     """Run all exports. Returns the output directory."""
-    out = output_dir or DEFAULT_OUTPUT_DIR
+    base = output_dir or DEFAULT_OUTPUT_DIR
+    # Write to format subdirectory
+    slug = format_slug or DEFAULT_FORMAT
+    out = base / slug
     out.mkdir(parents=True, exist_ok=True)
 
     logger.info("Exporting web data to %s", out)
 
-    export_meta(conn, out)
+    export_meta(conn, out, format_slug=slug)
     export_buylist(conn, out)
     export_staples(conn, out)
     export_flex(conn, out)
-    export_trends(conn, out)
+    export_trends(conn, out, format_slug=slug)
     export_winning_edge(conn, out)
     export_ace_specs(conn, out)
     export_archetypes(conn, out)
@@ -873,3 +924,41 @@ def export_all(conn: sqlite3.Connection, output_dir: Path | None = None) -> Path
 
     logger.info("Export complete")
     return out
+
+
+def export_formats(output_dir: Path | None = None) -> None:
+    """Export formats.json manifest with all format metadata and status."""
+    base = output_dir or DEFAULT_OUTPUT_DIR
+    base.mkdir(parents=True, exist_ok=True)
+
+    formats = []
+    for slug, fmt in FORMATS.items():
+        # Check if data exists for this format
+        meta_path = base / slug / "meta.json"
+        status = "active" if meta_path.exists() else "upcoming"
+
+        # Read stats from meta.json if it exists
+        tournament_count = 0
+        deck_count = 0
+        if meta_path.exists():
+            import json as _json
+            try:
+                meta = _json.loads(meta_path.read_text(encoding="utf-8"))
+                tournament_count = meta.get("tournament_count", 0)
+                deck_count = meta.get("deck_count", 0)
+            except Exception:
+                pass
+
+        formats.append({
+            "slug": slug,
+            "name": fmt["name"],
+            "name_en": fmt["name_en"],
+            "description": fmt["description"],
+            "dataset_start": fmt["dataset_start"],
+            "dataset_end": fmt["dataset_end"],
+            "status": status,
+            "tournament_count": tournament_count,
+            "deck_count": deck_count,
+        })
+
+    _write_json(formats, base / "formats.json")

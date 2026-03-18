@@ -393,6 +393,57 @@ def store_event_results(
     )
 
 
+def store_cl_city_league_results(
+    conn: sqlite3.Connection,
+    event: JPEventResult,
+    decklists: dict[str, list[JPDeckCard]],
+) -> None:
+    """Store City League event results and decklists in the standard tournaments/placements tables."""
+    tournament_id = f"jp-{event.event_id}"
+
+    # Store tournament
+    conn.execute(
+        "INSERT OR REPLACE INTO tournaments (id, name, date, country) VALUES (?, ?, ?, ?)",
+        (tournament_id, event.event_name, event.date, "JP"),
+    )
+
+    for placement in event.placements:
+        cursor = conn.execute(
+            "INSERT INTO placements (tournament_id, standing, player_name, archetype) "
+            "VALUES (?, ?, ?, ?)",
+            (
+                tournament_id,
+                placement.standing,
+                placement.player_name,
+                "Unknown",
+            ),
+        )
+        placement_id = cursor.lastrowid
+
+        # Store decklist cards if available
+        if placement.deck_code and placement.deck_code in decklists:
+            for card in decklists[placement.deck_code]:
+                if card.set_code and card.card_number:
+                    card_id = f"{card.set_code}-{card.card_number}"
+                else:
+                    card_id = card.name_jp
+                conn.execute(
+                    "INSERT OR REPLACE INTO decklist_cards "
+                    "(placement_id, card_id, card_name, count) "
+                    "VALUES (?, ?, ?, ?)",
+                    (placement_id, card_id, card.name_jp, card.count),
+                )
+
+    conn.commit()
+    logger.info(
+        "Stored City League event %d (%s): %d placements, %d decklists",
+        event.event_id,
+        event.division,
+        len(event.placements),
+        len(decklists),
+    )
+
+
 def translate_cl_decklists(conn: sqlite3.Connection) -> int:
     """Translate JP card names in cl_decklist_cards using card_mappings table.
 

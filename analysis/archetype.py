@@ -250,3 +250,13 @@ def normalize_archetype(sprite_urls: list[str], html_archetype: str = "") -> str
         return html_archetype.strip()
 
     return "Unknown"
+
+
+def classify_from_decklist(cards: list[dict]) -> str:
+    """Classify archetype from decklist card contents.
+
+    Uses content-based anchor card detection.
+    Falls back to "Unknown" if no anchor cards match.
+    """
+    from analysis.archetype_classifier import classify_decklist
+    return classify_decklist(cards)

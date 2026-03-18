@@ -1,224 +1,126 @@
 import Link from "next/link";
-import { ArrowRight, TrendingUp, TrendingDown, Trophy, ShoppingCart, Calendar } from "lucide-react";
-import { getMeta, getAceSpecs, getTrends, getWinningEdge } from "@/app/lib/data";
-import { TierBadge } from "@/app/components/tier-badge";
-import { StatCard } from "@/app/components/stat-card";
-import { formatPct, daysUntil } from "@/app/lib/utils";
+import { Crosshair, ChevronRight } from "lucide-react";
+import { getFormats } from "@/app/lib/data";
 
-export default function Dashboard() {
-  const meta = getMeta();
-  const aceSpecs = getAceSpecs();
-  const trends = getTrends();
-  const winningEdge = getWinningEdge();
+const FORMAT_STYLES: Record<string, { accent: string; glow: string; badge: string }> = {
+  "nihil-zero": {
+    accent: "text-amber-400",
+    glow: "hover:border-amber-500/40 hover:shadow-[0_0_24px_-4px_rgba(245,158,11,0.15)]",
+    badge: "bg-amber-500/15 text-amber-400 border-amber-500/30",
+  },
+  "ninja-spinner": {
+    accent: "text-teal-400",
+    glow: "hover:border-teal-500/40 hover:shadow-[0_0_24px_-4px_rgba(20,184,166,0.15)]",
+    badge: "bg-teal-500/15 text-teal-400 border-teal-500/30",
+  },
+};
 
-  const rotationDays = daysUntil(meta.rotation_date);
-  const topArchetypes = meta.archetypes.filter((a) =>
-    ["S", "A", "B"].includes(a.tier),
-  );
-  const surgingCards = (trends.surging || []).slice(0, 5);
-  const decliningCards = (trends.declining || []).slice(0, 5);
-  const topEdge = winningEdge.slice(0, 5);
-  const topAceSpecs = aceSpecs.slice(0, 5);
+const DEFAULT_STYLE = {
+  accent: "text-accent",
+  glow: "hover:border-surface-400",
+  badge: "bg-surface-700 text-surface-300 border-surface-600",
+};
+
+export default function FormatSelectorPage() {
+  const formats = getFormats();
 
   return (
-    <div className="space-y-10">
-      {/* Hero */}
-      <section className="relative rounded-lg bg-surface-800 border border-surface-600 p-6 sm:p-8 scanline-overlay">
-        <div className="relative">
-          <h1 className="font-display text-3xl sm:text-4xl font-bold text-slate-100">
+    <div className="min-h-screen flex flex-col">
+      {/* Header */}
+      <div className="border-b border-surface-600 bg-surface-800/80">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 h-14 flex items-center">
+          <span className="flex items-center gap-2 text-accent font-display font-bold text-lg">
+            <Crosshair className="w-5 h-5" />
             Scout
-          </h1>
-          <p className="mt-2 text-surface-300 max-w-2xl">
-            <span className="text-slate-200 font-medium">Nihil Zero</span>{" "}is Japan&apos;s post-rotation format (Temporal Forces through Perfect Order + Mega Evolution sets). These results preview the 2026 Standard meta going live internationally on April 10, 2026.
-          </p>
-          <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-6">
-            <StatCard label="Tournaments" value={meta.tournament_count.toLocaleString()} />
-            <StatCard label="Decks Analyzed" value={meta.deck_count.toLocaleString()} />
-            <StatCard
-              label="Date Range"
-              value={`${meta.date_range.start.slice(5)} to ${meta.date_range.end.slice(5)}`}
-            />
-            <div className="flex flex-col gap-1">
-              <span className="text-sm text-surface-300 flex items-center gap-1">
-                <Calendar className="w-3.5 h-3.5" />
-                Rotation
-              </span>
-              <span className="font-mono text-2xl font-medium text-accent tabular-nums">
-                {rotationDays > 0 ? `${rotationDays}d` : "Live"}
-              </span>
-            </div>
-          </div>
+          </span>
         </div>
-      </section>
-
-      {/* Tier List Preview */}
-      <section>
-        <div className="flex items-center justify-between mb-4">
-          <h2 className="font-display text-xl font-semibold text-slate-100">
-            Meta Tier List
-          </h2>
-          <Link
-            href="/archetypes"
-            className="text-sm text-accent hover:text-accent/80 flex items-center gap-1"
-          >
-            View all <ArrowRight className="w-3.5 h-3.5" />
-          </Link>
-        </div>
-        <div className="bg-surface-800 border border-surface-600 rounded-lg overflow-hidden">
-          <table className="w-full">
-            <thead>
-              <tr className="border-b border-surface-600 text-xs text-surface-300 uppercase tracking-wider">
-                <th className="text-left px-4 py-3">Tier</th>
-                <th className="text-left px-4 py-3">Archetype</th>
-                <th className="text-right px-4 py-3">Meta Share</th>
-                <th className="text-right px-4 py-3 hidden sm:table-cell">Decks</th>
-              </tr>
-            </thead>
-            <tbody>
-              {topArchetypes.map((arch, i) => (
-                <tr
-                  key={arch.slug}
-                  className="border-b border-surface-700 hover:bg-surface-700/50 transition-colors animate-row-reveal"
-                  style={{ animationDelay: `${i * 30}ms` }}
-                >
-                  <td className="px-4 py-3">
-                    <TierBadge tier={arch.tier} />
-                  </td>
-                  <td className="px-4 py-3">
-                    <Link
-                      href={`/archetypes/${arch.slug}`}
-                      className="text-slate-200 hover:text-accent transition-colors"
-                    >
-                      {arch.archetype}
-                    </Link>
-                  </td>
-                  <td className="px-4 py-3 text-right font-mono tabular-nums">
-                    {formatPct(arch.meta_share)}
-                  </td>
-                  <td className="px-4 py-3 text-right font-mono tabular-nums text-surface-300 hidden sm:table-cell">
-                    {arch.deck_count}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      {/* Quick Insights Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {/* Surging Cards */}
-        <section className="bg-surface-800 border border-surface-600 rounded-lg p-5">
-          <div className="flex items-center justify-between mb-4">
-            <h3 className="font-display text-sm font-semibold text-slate-200 flex items-center gap-2">
-              <TrendingUp className="w-4 h-4 text-signal-up" />
-              Surging Cards
-            </h3>
-            <Link href="/trends" className="text-xs text-accent hover:text-accent/80">
-              More
-            </Link>
-          </div>
-          <div className="space-y-3">
-            {surgingCards.map((card) => (
-              <div key={card.card_name} className="flex items-center justify-between">
-                <span className="text-sm text-slate-300 truncate mr-2">{card.card_name}</span>
-                <span className="font-mono text-xs text-signal-up whitespace-nowrap">
-                  +{card.delta.toFixed(1)}%
-                </span>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Declining Cards */}
-        <section className="bg-surface-800 border border-surface-600 rounded-lg p-5">
-          <div className="flex items-center justify-between mb-4">
-            <h3 className="font-display text-sm font-semibold text-slate-200 flex items-center gap-2">
-              <TrendingDown className="w-4 h-4 text-signal-down" />
-              Declining Cards
-            </h3>
-            <Link href="/trends" className="text-xs text-accent hover:text-accent/80">
-              More
-            </Link>
-          </div>
-          <div className="space-y-3">
-            {decliningCards.map((card) => (
-              <div key={card.card_name} className="flex items-center justify-between">
-                <span className="text-sm text-slate-300 truncate mr-2">{card.card_name}</span>
-                <span className="font-mono text-xs text-signal-down whitespace-nowrap">
-                  {card.delta.toFixed(1)}%
-                </span>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Winning Edge */}
-        <section className="bg-surface-800 border border-surface-600 rounded-lg p-5">
-          <div className="flex items-center justify-between mb-4">
-            <h3 className="font-display text-sm font-semibold text-slate-200 flex items-center gap-2">
-              <Trophy className="w-4 h-4 text-tier-s" />
-              Winning Edge
-            </h3>
-            <Link href="/trends" className="text-xs text-accent hover:text-accent/80">
-              More
-            </Link>
-          </div>
-          <div className="space-y-3">
-            {topEdge.map((card) => (
-              <div key={card.card_name} className="flex items-center justify-between">
-                <span className="text-sm text-slate-300 truncate mr-2">{card.card_name}</span>
-                <span className="font-mono text-xs text-tier-s whitespace-nowrap">
-                  +{card.edge.toFixed(1)}%
-                </span>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* ACE SPEC Distribution */}
-        <section className="bg-surface-800 border border-surface-600 rounded-lg p-5">
-          <div className="flex items-center justify-between mb-4">
-            <h3 className="font-display text-sm font-semibold text-slate-200 flex items-center gap-2">
-              <ShoppingCart className="w-4 h-4 text-tier-rogue" />
-              ACE SPECs
-            </h3>
-            <Link href="/buylist" className="text-xs text-accent hover:text-accent/80">
-              Buy List
-            </Link>
-          </div>
-          <div className="space-y-3">
-            {topAceSpecs.map((spec) => (
-              <div key={spec.card_name} className="flex items-center justify-between">
-                <span className="text-sm text-slate-300 truncate mr-2">{spec.card_name}</span>
-                <span className="font-mono text-xs text-surface-300 whitespace-nowrap">
-                  {formatPct(spec.usage_pct)}
-                </span>
-              </div>
-            ))}
-          </div>
-        </section>
       </div>
 
-      {/* Nav Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        {[
-          { href: "/archetypes", title: "Archetypes", desc: `${meta.archetypes.length} decks tracked` },
-          { href: "/buylist", title: "Buy List", desc: "Priority acquisition guide" },
-          { href: "/trends", title: "Trends", desc: "Usage shifts & winning edge" },
-          { href: "/champions", title: "Champions League", desc: "Fukuoka CL decklists" },
-        ].map(({ href, title, desc }) => (
-          <Link
-            key={href}
-            href={href}
-            className="group bg-surface-800 border border-surface-600 rounded-lg p-4 hover:border-surface-400 transition-colors"
-          >
-            <h3 className="font-display font-semibold text-slate-200 group-hover:text-accent transition-colors">
-              {title}
-            </h3>
-            <p className="text-sm text-surface-300 mt-1">{desc}</p>
-          </Link>
-        ))}
+      {/* Main */}
+      <div className="flex-1 flex items-center justify-center px-4 py-16">
+        <div className="w-full max-w-3xl">
+          <div className="text-center mb-12">
+            <h1 className="font-display text-4xl sm:text-5xl font-bold text-slate-100 tracking-tight">
+              Choose a Format
+            </h1>
+            <p className="mt-3 text-surface-300 max-w-lg mx-auto">
+              JP rotation meta intelligence. Pick a format to explore tournament results, tier lists, and trends.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            {formats.map((fmt) => {
+              const style = FORMAT_STYLES[fmt.slug] || DEFAULT_STYLE;
+              const isActive = fmt.status === "active";
+
+              return (
+                <Link
+                  key={fmt.slug}
+                  href={isActive ? `/${fmt.slug}` : "#"}
+                  aria-disabled={!isActive}
+                  className={`group relative bg-surface-800 border border-surface-600 rounded-xl p-6 transition-all duration-200 ${
+                    isActive
+                      ? `${style.glow} cursor-pointer`
+                      : "opacity-60 cursor-default"
+                  }`}
+                >
+                  {/* Status badge */}
+                  <div className="flex items-center justify-between mb-4">
+                    <span
+                      className={`text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 rounded-full border ${style.badge}`}
+                    >
+                      {isActive ? "Active" : "Coming Soon"}
+                    </span>
+                    {isActive && (
+                      <ChevronRight className="w-4 h-4 text-surface-500 group-hover:text-surface-300 transition-colors" />
+                    )}
+                  </div>
+
+                  {/* Name */}
+                  <h2 className={`font-display text-2xl font-bold ${style.accent}`}>
+                    {fmt.name}
+                  </h2>
+                  <p className="text-sm text-surface-300 mt-0.5">
+                    {fmt.name_en}
+                  </p>
+
+                  {/* Description */}
+                  <p className="text-xs text-surface-400 mt-3 leading-relaxed">
+                    {fmt.description}
+                  </p>
+
+                  {/* Stats */}
+                  {isActive && fmt.tournament_count && fmt.tournament_count > 0 ? (
+                    <div className="flex gap-6 mt-5 pt-4 border-t border-surface-700">
+                      <div>
+                        <span className="font-mono text-lg font-medium text-slate-200 tabular-nums">
+                          {fmt.tournament_count?.toLocaleString()}
+                        </span>
+                        <p className="text-[10px] text-surface-400 uppercase tracking-wider mt-0.5">
+                          Tournaments
+                        </p>
+                      </div>
+                      <div>
+                        <span className="font-mono text-lg font-medium text-slate-200 tabular-nums">
+                          {fmt.deck_count?.toLocaleString()}
+                        </span>
+                        <p className="text-[10px] text-surface-400 uppercase tracking-wider mt-0.5">
+                          Decks
+                        </p>
+                      </div>
+                    </div>
+                  ) : !isActive ? (
+                    <div className="mt-5 pt-4 border-t border-surface-700">
+                      <p className="text-xs text-surface-400">
+                        First results expected after {fmt.dataset_start}
+                      </p>
+                    </div>
+                  ) : null}
+                </Link>
+              );
+            })}
+          </div>
+        </div>
       </div>
     </div>
   );

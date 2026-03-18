@@ -15,8 +15,10 @@ from reports.json_export import (
     export_trends,
     export_archetypes,
     export_champions_league,
+    export_all,
+    export_formats,
 )
-from config import PLACEMENT_WEIGHTS, PLACEMENT_WEIGHT_DEFAULT
+from config import PLACEMENT_WEIGHTS, PLACEMENT_WEIGHT_DEFAULT, get_format_config
 
 
 # --- _slugify ---
@@ -213,3 +215,65 @@ class TestExportChampionsLeague:
         mystery_card = [c for c in p2["decklist"] if c["card_name_jp"] == "謎のカード"]
         assert len(mystery_card) == 1
         assert mystery_card[0]["card_name_en"] is None
+
+
+# --- Format support ---
+
+class TestGetFormatConfig:
+    def test_valid_slug(self):
+        cfg = get_format_config("nihil-zero")
+        assert cfg["name"] == "Nihil Zero"
+        assert cfg["db_name"] == "nihil-zero.db"
+
+    def test_invalid_slug(self):
+        import pytest
+        with pytest.raises(KeyError, match="Unknown format"):
+            get_format_config("nonexistent")
+
+    def test_ninja_spinner(self):
+        cfg = get_format_config("ninja-spinner")
+        assert cfg["name_en"] == "Chaos Rising"
+        assert cfg["dataset_start"] == "2026-03-14"
+
+
+class TestExportMetaWithFormat:
+    def test_includes_format_metadata(self, db, tmp_path):
+        data = export_meta(db, tmp_path, format_slug="nihil-zero")
+        assert data is not None
+        assert "format" in data
+        assert data["format"]["slug"] == "nihil-zero"
+        assert data["format"]["name"] == "Nihil Zero"
+
+
+class TestExportAll:
+    def test_writes_to_format_subdirectory(self, db, tmp_path):
+        out = export_all(db, output_dir=tmp_path, format_slug="nihil-zero")
+        assert out == tmp_path / "nihil-zero"
+        assert (tmp_path / "nihil-zero" / "meta.json").exists()
+
+
+class TestExportFormats:
+    def test_writes_formats_json(self, tmp_path):
+        # Create a fake meta.json for nihil-zero to mark it as active
+        nz_dir = tmp_path / "nihil-zero"
+        nz_dir.mkdir()
+        (nz_dir / "meta.json").write_text(json.dumps({
+            "tournament_count": 42,
+            "deck_count": 100,
+        }))
+
+        export_formats(output_dir=tmp_path)
+        formats_file = tmp_path / "formats.json"
+        assert formats_file.exists()
+        data = json.loads(formats_file.read_text())
+        assert len(data) == 2
+        slugs = [f["slug"] for f in data]
+        assert "nihil-zero" in slugs
+        assert "ninja-spinner" in slugs
+
+        # Check status detection
+        nz = next(f for f in data if f["slug"] == "nihil-zero")
+        ns = next(f for f in data if f["slug"] == "ninja-spinner")
+        assert nz["status"] == "active"
+        assert nz["tournament_count"] == 42
+        assert ns["status"] == "upcoming"

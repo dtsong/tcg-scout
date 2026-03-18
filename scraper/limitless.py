@@ -529,3 +529,31 @@ class LimitlessClient:
 
     def __exit__(self, *args: Any) -> None:
         self.close()
+
+
+def match_archetype_labels(
+    jp_placements: list[dict],
+    limitless_data: list[dict],
+) -> list[dict]:
+    """Match Limitless archetype labels to JP placements by date + standing.
+
+    Args:
+        jp_placements: Dicts with 'date', 'standing', 'player_name' keys.
+        limitless_data: Dicts with 'date', 'standing', 'archetype' keys.
+
+    Returns:
+        Copy of jp_placements with 'archetype' field populated where matched.
+    """
+    lookup = {}
+    for ld in limitless_data:
+        key = (ld["date"], ld["standing"])
+        lookup[key] = ld["archetype"]
+
+    result = []
+    for jp in jp_placements:
+        entry = dict(jp)
+        key = (jp["date"], jp["standing"])
+        entry["archetype"] = lookup.get(key, jp.get("archetype", "Unknown"))
+        result.append(entry)
+
+    return result

@@ -4,16 +4,44 @@ vi.mock("fs", () => ({
   default: {
     readFileSync: vi.fn(),
     readdirSync: vi.fn(),
+    existsSync: vi.fn(() => true),
   },
   readFileSync: vi.fn(),
   readdirSync: vi.fn(),
+  existsSync: vi.fn(() => true),
 }));
 
 import fs from "fs";
-import { getMeta, getTrends, getArchetypeSlugs } from "../data";
+import { getMeta, getTrends, getArchetypeSlugs, getFormats } from "../data";
 
 beforeEach(() => {
   vi.clearAllMocks();
+  vi.mocked(fs.existsSync).mockReturnValue(true);
+});
+
+describe("getFormats", () => {
+  it("returns expected FormatInfo array", () => {
+    const mockFormats = [
+      {
+        slug: "nihil-zero",
+        name: "Nihil Zero",
+        name_en: "Perfect Order",
+        description: "Test format",
+        dataset_start: "2026-01-23",
+        dataset_end: "2026-03-13",
+        status: "active",
+        tournament_count: 100,
+        deck_count: 500,
+      },
+    ];
+
+    vi.mocked(fs.readFileSync).mockReturnValue(JSON.stringify(mockFormats));
+
+    const result = getFormats();
+    expect(result).toHaveLength(1);
+    expect(result[0].slug).toBe("nihil-zero");
+    expect(result[0].status).toBe("active");
+  });
 });
 
 describe("getMeta", () => {
@@ -39,7 +67,7 @@ describe("getMeta", () => {
 
     vi.mocked(fs.readFileSync).mockReturnValue(JSON.stringify(mockMeta));
 
-    const result = getMeta();
+    const result = getMeta("nihil-zero");
     expect(result.tournament_count).toBe(5);
     expect(result.deck_count).toBe(100);
     expect(result.archetypes).toHaveLength(1);
@@ -77,7 +105,7 @@ describe("getTrends", () => {
 
     vi.mocked(fs.readFileSync).mockReturnValue(JSON.stringify(mockTrends));
 
-    const result = getTrends();
+    const result = getTrends("nihil-zero");
     expect(result.surging).toHaveLength(1);
     expect(result.surging[0].card_name).toBe("Rare Candy");
     expect(result.declining).toHaveLength(1);
@@ -103,7 +131,7 @@ describe("getTrends", () => {
 
     vi.mocked(fs.readFileSync).mockReturnValue(JSON.stringify(mockOldTrends));
 
-    const result = getTrends();
+    const result = getTrends("nihil-zero");
     expect(result.surging).toHaveLength(1);
     expect(result.surging[0].card_name).toBe("Iono");
     expect(result.declining).toHaveLength(0);
@@ -118,7 +146,7 @@ describe("getArchetypeSlugs", () => {
       "gardevoir-ex.json" as unknown as fs.Dirent,
     ]);
 
-    const result = getArchetypeSlugs();
+    const result = getArchetypeSlugs("nihil-zero");
     expect(result).toEqual(["charizard-ex", "lugia-vstar", "gardevoir-ex"]);
   });
 
@@ -129,7 +157,7 @@ describe("getArchetypeSlugs", () => {
       "readme.txt" as unknown as fs.Dirent,
     ]);
 
-    const result = getArchetypeSlugs();
+    const result = getArchetypeSlugs("nihil-zero");
     expect(result).toEqual(["charizard-ex"]);
   });
 });

@@ -3,8 +3,10 @@
 import sqlite3
 from pathlib import Path
 
+from config import DEFAULT_FORMAT, FORMATS
+
 DATA_DIR = Path(__file__).parent / "data"
-DB_PATH = DATA_DIR / "scout.db"
+DB_PATH = DATA_DIR / FORMATS[DEFAULT_FORMAT]["db_name"]
 
 SCHEMA = """
 CREATE TABLE IF NOT EXISTS cards (
@@ -104,14 +106,21 @@ CREATE TABLE IF NOT EXISTS cl_decklist_cards (
 """
 
 
-def get_connection() -> sqlite3.Connection:
-    """Get a SQLite connection, creating the database if needed."""
+def get_format_connection(format_slug: str) -> sqlite3.Connection:
+    """Get a SQLite connection for a specific format."""
+    db_name = FORMATS[format_slug]["db_name"]
+    db_path = DATA_DIR / db_name
     DATA_DIR.mkdir(parents=True, exist_ok=True)
-    conn = sqlite3.connect(str(DB_PATH))
+    conn = sqlite3.connect(str(db_path))
     conn.row_factory = sqlite3.Row
     conn.execute("PRAGMA journal_mode=WAL")
     conn.execute("PRAGMA foreign_keys=ON")
     return conn
+
+
+def get_connection() -> sqlite3.Connection:
+    """Get a SQLite connection for the default format."""
+    return get_format_connection(DEFAULT_FORMAT)
 
 
 def init_db(conn: sqlite3.Connection | None = None) -> None:
@@ -126,10 +135,12 @@ def init_db(conn: sqlite3.Connection | None = None) -> None:
         conn.close()
 
 
-def reset_db() -> None:
+def reset_db(format_slug: str | None = None) -> None:
     """Drop and recreate the database."""
-    if DB_PATH.exists():
-        DB_PATH.unlink()
-    conn = get_connection()
+    slug = format_slug or DEFAULT_FORMAT
+    db_path = DATA_DIR / FORMATS[slug]["db_name"]
+    if db_path.exists():
+        db_path.unlink()
+    conn = get_format_connection(slug)
     init_db(conn)
     conn.close()

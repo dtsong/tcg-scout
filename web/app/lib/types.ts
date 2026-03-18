@@ -1,5 +1,17 @@
 export type Tier = "S" | "A" | "B" | "C" | "Rogue";
 
+export interface FormatInfo {
+  slug: string;
+  name: string;
+  name_en: string;
+  description: string;
+  dataset_start: string;
+  dataset_end: string;
+  status: "active" | "upcoming";
+  tournament_count?: number;
+  deck_count?: number;
+}
+
 export interface ArchetypeSummary {
   archetype: string;
   slug: string;
@@ -19,6 +31,7 @@ export interface MetaData {
   rotation_date: string;
   tier_thresholds: Record<string, number>;
   archetypes: ArchetypeSummary[];
+  format?: { slug: string; name: string; name_en: string };
 }
 
 export interface BuylistCard {

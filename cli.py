@@ -7,8 +7,8 @@ import click
 from rich.console import Console
 from rich.table import Table
 
-from config import DATASET_START, DATASET_END
-from db import get_connection, init_db, reset_db
+from config import DEFAULT_FORMAT, FORMATS, get_format_config
+from db import get_format_connection, init_db, reset_db
 
 console = Console()
 logger = logging.getLogger("scout")
@@ -16,8 +16,14 @@ logger = logging.getLogger("scout")
 
 @click.group()
 @click.option("--verbose", "-v", is_flag=True, help="Enable verbose logging")
-def cli(verbose: bool) -> None:
+@click.option("--format", "format_slug", default=DEFAULT_FORMAT,
+              type=click.Choice(list(FORMATS.keys())),
+              help="Format to operate on")
+@click.pass_context
+def cli(ctx: click.Context, verbose: bool, format_slug: str) -> None:
     """Rotation Scout — JP meta intelligence for Pokemon TCG."""
+    ctx.ensure_object(dict)
+    ctx.obj["format"] = format_slug
     level = logging.DEBUG if verbose else logging.INFO
     logging.basicConfig(
         level=level,
@@ -28,24 +34,27 @@ def cli(verbose: bool) -> None:
 
 @cli.command()
 @click.option("--reset", is_flag=True, help="Drop and recreate the database")
-def init(reset: bool) -> None:
+@click.pass_context
+def init(ctx: click.Context, reset: bool) -> None:
     """Initialize the database."""
+    fmt = ctx.obj["format"]
     if reset:
-        reset_db()
-        console.print("[green]Database reset and recreated.[/green]")
+        reset_db(fmt)
+        console.print(f"[green]Database reset and recreated for {fmt}.[/green]")
     else:
-        conn = get_connection()
+        conn = get_format_connection(fmt)
         init_db(conn)
         conn.close()
-        console.print("[green]Database initialized.[/green]")
+        console.print(f"[green]Database initialized for {fmt}.[/green]")
 
 
 @cli.command()
-def cards() -> None:
+@click.pass_context
+def cards(ctx: click.Context) -> None:
     """Fetch card data from TCGdex and flag rotation-legal cards."""
     from scraper.tcgdex import TCGdexClient
 
-    conn = get_connection()
+    conn = get_format_connection(ctx.obj["format"])
     init_db(conn)
 
     client = TCGdexClient()
@@ -57,15 +66,21 @@ def cards() -> None:
 
 
 @cli.command()
-@click.option("--start", default=DATASET_START, help="Start date (YYYY-MM-DD)")
-@click.option("--end", default=DATASET_END, help="End date (YYYY-MM-DD)")
+@click.option("--start", default=None, help="Start date (YYYY-MM-DD)")
+@click.option("--end", default=None, help="End date (YYYY-MM-DD)")
 @click.option("--max-placements", default=32, help="Max placements per tournament")
 @click.option("--fetch-decklists/--no-decklists", default=True, help="Fetch decklists")
-def scrape(start: str, end: str, max_placements: int, fetch_decklists: bool) -> None:
+@click.pass_context
+def scrape(ctx: click.Context, start: str | None, end: str | None,
+           max_placements: int, fetch_decklists: bool) -> None:
     """Scrape JP City League results from LimitlessTCG."""
     from scraper.limitless import LimitlessClient
 
-    conn = get_connection()
+    fmt = get_format_config(ctx.obj["format"])
+    start = start or fmt["dataset_start"]
+    end = end or fmt["dataset_end"]
+
+    conn = get_format_connection(ctx.obj["format"])
     init_db(conn)
 
     client = LimitlessClient()
@@ -167,11 +182,12 @@ def scrape(start: str, end: str, max_placements: int, fetch_decklists: bool) -> 
 
 
 @cli.command()
-def meta() -> None:
+@click.pass_context
+def meta(ctx: click.Context) -> None:
     """Compute meta snapshot from scraped data."""
     from analysis.meta import compute_meta_snapshot, get_latest_snapshot
 
-    conn = get_connection()
+    conn = get_format_connection(ctx.obj["format"])
     try:
         snapshot_id = compute_meta_snapshot(conn)
         snapshot = get_latest_snapshot(conn)
@@ -213,12 +229,13 @@ def meta() -> None:
 
 
 @cli.command()
-def buylist() -> None:
+@click.pass_context
+def buylist(ctx: click.Context) -> None:
     """Generate prioritized buy list from meta data."""
     from analysis.buylist import generate_buylist
     from analysis.meta import get_latest_snapshot
 
-    conn = get_connection()
+    conn = get_format_connection(ctx.obj["format"])
     try:
         snapshot = get_latest_snapshot(conn)
         if not snapshot:
@@ -266,14 +283,15 @@ def buylist() -> None:
 
 
 @cli.command()
-def report() -> None:
+@click.pass_context
+def report(ctx: click.Context) -> None:
     """Generate Markdown meta report and CSV buy list."""
     from analysis.buylist import generate_buylist
     from analysis.meta import get_latest_snapshot
     from reports.csv_export import export_buylist_csv
     from reports.markdown import render_meta_report
 
-    conn = get_connection()
+    conn = get_format_connection(ctx.obj["format"])
     try:
         snapshot = get_latest_snapshot(conn)
         if not snapshot:
@@ -299,7 +317,8 @@ def report() -> None:
 @click.argument("event_ids", nargs=-1, type=int, required=True)
 @click.option("--fetch-decklists/--no-decklists", default=True, help="Fetch decklists")
 @click.option("--top", default=16, help="Max placements to fetch decklists for")
-def champions(event_ids: tuple[int, ...], fetch_decklists: bool, top: int) -> None:
+@click.pass_context
+def champions(ctx: click.Context, event_ids: tuple[int, ...], fetch_decklists: bool, top: int) -> None:
     """Scrape Champions League results from players.pokemon-card.com.
 
     Requires KERNEL_API_KEY in .env for cloud browser rendering.
@@ -311,7 +330,7 @@ def champions(event_ids: tuple[int, ...], fetch_decklists: bool, top: int) -> No
 
     from scraper.pokemon_jp import PokemonJPClient, store_event_results
 
-    conn = get_connection()
+    conn = get_format_connection(ctx.obj["format"])
     init_db(conn)
 
     try:
@@ -362,11 +381,12 @@ def champions(event_ids: tuple[int, ...], fetch_decklists: bool, top: int) -> No
 
 @cli.command()
 @click.option("--sets", help="Comma-separated JP set codes to sync (e.g., SV7,SV8a)")
-def mappings(sets: str | None) -> None:
+@click.pass_context
+def mappings(ctx: click.Context, sets: str | None) -> None:
     """Sync JP-to-EN card ID mappings from Limitless."""
     from scraper.card_mappings import sync_card_mappings
 
-    conn = get_connection()
+    conn = get_format_connection(ctx.obj["format"])
     init_db(conn)
 
     set_codes = [s.strip() for s in sets.split(",")] if sets else None
@@ -379,11 +399,12 @@ def mappings(sets: str | None) -> None:
 
 
 @cli.command()
-def translate() -> None:
+@click.pass_context
+def translate(ctx: click.Context) -> None:
     """Translate JP card names in CL decklists using card mappings."""
     from scraper.pokemon_jp import translate_cl_decklists
 
-    conn = get_connection()
+    conn = get_format_connection(ctx.obj["format"])
     init_db(conn)
 
     try:
@@ -395,7 +416,8 @@ def translate() -> None:
 
 @cli.command("import-cl")
 @click.option("--dir", "data_dir", default="data/fukuoka-cl", help="Directory with CL CSV files")
-def import_cl(data_dir: str) -> None:
+@click.pass_context
+def import_cl(ctx: click.Context, data_dir: str) -> None:
     """Import Champions League data from CSV files into SQLite."""
     import csv
     import json
@@ -406,7 +428,7 @@ def import_cl(data_dir: str) -> None:
         console.print(f"[red]Directory {data_dir} not found[/red]")
         return
 
-    conn = get_connection()
+    conn = get_format_connection(ctx.obj["format"])
     init_db(conn)
 
     try:
@@ -476,15 +498,235 @@ def import_cl(data_dir: str) -> None:
         conn.close()
 
 
-@cli.command("export-web")
-def export_web() -> None:
-    """Export JSON data for the Scout Web dashboard."""
-    from reports.json_export import export_all
+@cli.command("scrape-jp")
+@click.option("--start", default=None, help="Start date (YYYY-MM-DD)")
+@click.option("--end", default=None, help="End date (YYYY-MM-DD)")
+@click.option("--fetch-decklists/--no-decklists", default=False, help="Fetch decklists via Playwright")
+@click.option("--top", default=16, help="Max placements to fetch decklists for")
+@click.pass_context
+def scrape_jp(ctx: click.Context, start: str | None, end: str | None,
+              fetch_decklists: bool, top: int) -> None:
+    """Scrape JP City League results from players.pokemon-card.com API.
 
-    conn = get_connection()
+    Uses plain HTTP for event listings and results (no browser required).
+    Pass --fetch-decklists to also fetch decklists via Playwright (requires KERNEL_API_KEY).
+    """
+    import asyncio
+    from scraper.pokemon_jp_api import PokemonJPAPIClient
+    from scraper.pokemon_jp import JPEventResult, JPPlacement, store_cl_city_league_results
+
+    fmt = get_format_config(ctx.obj["format"])
+    start = start or fmt["dataset_start"]
+    end = end or fmt["dataset_end"]
+
+    conn = get_format_connection(ctx.obj["format"])
+    init_db(conn)
+
+    api_client = PokemonJPAPIClient()
+    jp_client = None
+
     try:
-        out = export_all(conn)
+        # Fetch event listings via plain HTTP
+        console.print(f"[cyan]Fetching JP City League events ({start} to {end})...[/cyan]")
+        events = api_client.fetch_cl_events(start, end)
+        console.print(f"Found [bold]{len(events)}[/bold] events")
+
+        if not events:
+            console.print("[yellow]No events found in date range.[/yellow]")
+            return
+
+        # Check which tournaments are already in DB
+        existing = {row["id"] for row in conn.execute("SELECT id FROM tournaments")}
+        new_events = [e for e in events if f"jp-{e.event_id}" not in existing]
+        console.print(
+            f"[cyan]{len(new_events)} new events to process "
+            f"({len(existing)} already in DB)[/cyan]"
+        )
+
+        if fetch_decklists:
+            from dotenv import load_dotenv
+            load_dotenv()
+            from scraper.pokemon_jp import PokemonJPClient
+            jp_client = PokemonJPClient()
+
+        total_placements = 0
+        total_decklists = 0
+
+        for i, event in enumerate(new_events, 1):
+            event_name = f"{event.prefecture} {event.store_name}".strip() or f"City League {event.date}"
+            console.print(
+                f"  [{i}/{len(new_events)}] {event_name} ({event.date})"
+            )
+
+            # Fetch placements via plain HTTP API
+            results = api_client.fetch_event_results(event.event_id)
+
+            if not results:
+                console.print("    [yellow]No results found, skipping[/yellow]")
+                continue
+
+            # Build JPPlacement list from API results
+            deck_url_base = "https://players.pokemon-card.com/deck/confirm.html/deckID/"
+            placements = [
+                JPPlacement(
+                    standing=r.rank,
+                    player_name=r.player_name,
+                    region=r.area,
+                    deck_url=(deck_url_base + r.deck_id) if r.deck_id else None,
+                    deck_code=r.deck_id,
+                )
+                for r in results
+            ]
+
+            jp_event = JPEventResult(
+                event_id=event.event_id,
+                event_name=event_name,
+                division="masters",
+                date=event.date,
+                placements=placements,
+            )
+
+            # Fetch decklists for top placements if requested
+            decklists: dict[str, list] = {}
+            if fetch_decklists and jp_client:
+                decks_to_fetch = [
+                    p for p in placements
+                    if p.deck_url and p.standing <= top
+                ]
+                console.print(f"    Fetching {len(decks_to_fetch)} decklists...")
+                for j, placement in enumerate(decks_to_fetch, 1):
+                    console.print(
+                        f"      [{j}/{len(decks_to_fetch)}] "
+                        f"#{placement.standing} {placement.player_name}"
+                    )
+                    try:
+                        cards = asyncio.run(jp_client.fetch_decklist(placement.deck_url))
+                        if cards and placement.deck_code:
+                            decklists[placement.deck_code] = cards
+                            total_decklists += 1
+                            console.print(f"        {len(cards)} cards")
+                    except Exception as e:
+                        console.print(f"        [red]Error: {e}[/red]")
+
+            store_cl_city_league_results(conn, jp_event, decklists)
+            total_placements += len(placements)
+            console.print(
+                f"    [green]Stored {len(placements)} placements"
+                + (f", {len(decklists)} decklists" if decklists else "")
+                + "[/green]"
+            )
+
+        console.print(
+            f"\n[green]Done! Stored {total_placements} placements "
+            f"and {total_decklists} decklists.[/green]"
+        )
+    finally:
+        api_client.close()
+        if jp_client is not None:
+            pass  # PokemonJPClient has no explicit close
+        conn.close()
+
+
+@cli.command("backfill-archetypes")
+@click.option("--start", default=None, help="Override start date (YYYY-MM-DD)")
+@click.option("--end", default=None, help="Override end date (YYYY-MM-DD)")
+@click.option("--max-placements", default=32, help="Max placements per Limitless tournament")
+@click.pass_context
+def backfill_archetypes(ctx: click.Context, start: str | None, end: str | None,
+                        max_placements: int) -> None:
+    """Backfill Unknown archetypes using Limitless tournament data.
+
+    Queries placements with archetype='Unknown', fetches matching Limitless
+    tournament data for those date ranges, and updates archetypes by
+    matching on (date, standing).
+    """
+    from scraper.limitless import LimitlessClient
+
+    conn = get_format_connection(ctx.obj["format"])
+    init_db(conn)
+
+    try:
+        # Find date range of Unknown placements
+        rows = conn.execute(
+            "SELECT p.id, p.standing, p.player_name, t.date "
+            "FROM placements p "
+            "JOIN tournaments t ON p.tournament_id = t.id "
+            "WHERE p.archetype = 'Unknown' "
+            "ORDER BY t.date"
+        ).fetchall()
+
+        if not rows:
+            console.print("[yellow]No Unknown placements found.[/yellow]")
+            return
+
+        console.print(f"Found [bold]{len(rows)}[/bold] placements with archetype='Unknown'")
+
+        # Determine date range
+        dates = [r["date"] for r in rows]
+        range_start = start or min(dates)
+        range_end = end or max(dates)
+
+        console.print(f"[cyan]Fetching Limitless listings ({range_start} to {range_end})...[/cyan]")
+
+        client = LimitlessClient()
+        tournaments = client.fetch_jp_city_league_listings(range_start, range_end)
+        console.print(f"Found [bold]{len(tournaments)}[/bold] Limitless tournaments")
+
+        if not tournaments:
+            console.print("[yellow]No Limitless tournaments found for that range.[/yellow]")
+            return
+
+        # Build lookup: (date_str, standing) -> archetype
+        archetype_lookup: dict[tuple[str, int], str] = {}
+
+        for i, tournament in enumerate(tournaments, 1):
+            console.print(
+                f"  [{i}/{len(tournaments)}] {tournament.name} "
+                f"({tournament.tournament_date})"
+            )
+            placements = client.fetch_jp_city_league_placements(
+                tournament.source_url, max_placements
+            )
+            date_str = tournament.tournament_date.isoformat()
+            for p in placements:
+                key = (date_str, p.placement)
+                archetype_lookup[key] = p.archetype
+
+        console.print(f"Built lookup with [bold]{len(archetype_lookup)}[/bold] entries")
+
+        # Update placements in DB
+        updated = 0
+        for row in rows:
+            key = (row["date"], row["standing"])
+            archetype = archetype_lookup.get(key)
+            if archetype and archetype != "Unknown":
+                conn.execute(
+                    "UPDATE placements SET archetype = ? WHERE id = ?",
+                    (archetype, row["id"]),
+                )
+                updated += 1
+
+        conn.commit()
+        console.print(
+            f"\n[green]Updated {updated}/{len(rows)} placements with archetypes.[/green]"
+        )
+    finally:
+        conn.close()
+
+
+@cli.command("export-web")
+@click.pass_context
+def export_web(ctx: click.Context) -> None:
+    """Export JSON data for the Scout Web dashboard."""
+    from reports.json_export import export_all, export_formats
+
+    fmt = ctx.obj["format"]
+    conn = get_format_connection(fmt)
+    try:
+        out = export_all(conn, format_slug=fmt)
         console.print(f"[green]Web data exported to {out}[/green]")
+        export_formats()
+        console.print("[green]formats.json updated[/green]")
     finally:
         conn.close()
 
