@@ -37,30 +37,14 @@ jobs:
           key: scout-dbs-${{ github.ref_name }}
           restore-keys: scout-dbs-
 
-      - name: Initialize databases
-        run: |
-          python cli.py --format ninja-spinner init
-          python cli.py --format nihil-zero init
+      - name: Initialize database
+        run: python cli.py --format ninja-spinner init
 
       - name: Scrape Ninja Spinner
-        if: >-
-          github.event_name == 'schedule' ||
-          github.event.inputs.format == 'all' ||
-          github.event.inputs.format == 'ninja-spinner'
         run: |
           python cli.py --format ninja-spinner scrape
           python cli.py --format ninja-spinner meta
           python cli.py --format ninja-spinner export-web
-
-      - name: Scrape Nihil Zero
-        if: >-
-          github.event_name == 'schedule' ||
-          github.event.inputs.format == 'all' ||
-          github.event.inputs.format == 'nihil-zero'
-        run: |
-          python cli.py --format nihil-zero scrape
-          python cli.py --format nihil-zero meta
-          python cli.py --format nihil-zero export-web
 
       - name: Check for changes
         id: changes
