@@ -37,44 +37,45 @@ export default function FormatSelectorPage() {
       </div>
 
       {/* Main */}
-      <div className="flex-1 flex items-center justify-center px-4 py-16">
-        <div className="w-full max-w-3xl">
-          {/* Professor Oak Welcome */}
-          <div className="flex flex-col items-center mb-12">
-            <div className="relative mb-4">
-              {/* Ambient glow */}
+      <div className="flex-1 flex items-start justify-center px-4 py-8 sm:py-12">
+        <div className="w-full max-w-4xl">
+          {/* Professor Oak Welcome — side by side on desktop */}
+          <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 mb-8 sm:mb-10">
+            <div className="relative shrink-0">
               <div
                 className="absolute inset-0 rounded-full blur-2xl opacity-30"
                 style={{ background: "radial-gradient(circle, #f59e0b 0%, transparent 70%)" }}
               />
-              {/* Platform ellipse */}
               <div
-                className="absolute bottom-0 left-1/2 -translate-x-1/2 w-28 h-6 rounded-full opacity-20 blur-sm"
+                className="absolute bottom-0 left-1/2 -translate-x-1/2 w-20 h-5 rounded-full opacity-20 blur-sm"
                 style={{ background: "radial-gradient(ellipse, #f59e0b 0%, transparent 70%)" }}
               />
               <img
                 src="/images/professor-oak.png"
                 alt="Professor Oak"
-                width={128}
-                height={128}
+                width={96}
+                height={96}
                 className="relative"
                 style={{ imageRendering: "pixelated" }}
               />
             </div>
-            <div className="relative bg-surface-800 border-2 border-surface-500 rounded-xl px-6 py-4 max-w-md w-full" style={{ fontFamily: "var(--font-pokemon), monospace" }}>
-              <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-3 h-3 bg-surface-800 border-l-2 border-t-2 border-surface-500 rotate-45" />
+            <div className="relative bg-surface-800 border-2 border-surface-500 rounded-xl px-5 py-3.5 flex-1 max-w-lg" style={{ fontFamily: "var(--font-pokemon), monospace" }}>
+              {/* Speech arrow — points left on desktop, up on mobile */}
+              <div className="hidden sm:block absolute top-1/2 -left-2 -translate-y-1/2 w-3 h-3 bg-surface-800 border-l-2 border-b-2 border-surface-500 rotate-45" />
+              <div className="sm:hidden absolute -top-2 left-8 w-3 h-3 bg-surface-800 border-l-2 border-t-2 border-surface-500 rotate-45" />
               <p className="text-[11px] text-slate-200 leading-relaxed">
                 Welcome to the world of competitive Pokemon TCG!
               </p>
-              <p className="text-[11px] text-slate-200 leading-relaxed mt-2">
+              <p className="text-[11px] text-slate-200 leading-relaxed mt-1.5">
                 I&apos;m here to help you explore Japan&apos;s City League meta.
               </p>
-              <p className="text-[11px] text-slate-200 leading-relaxed mt-2">
+              <p className="text-[11px] text-slate-200 leading-relaxed mt-1.5">
                 Pick a format below to examine tier lists, trending cards, and tournament results.
               </p>
             </div>
           </div>
 
+          {/* Format cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             {formats.map((fmt) => {
               const style = FORMAT_STYLES[fmt.slug] || DEFAULT_STYLE;

@@ -86,32 +86,50 @@ export function DashboardClient({
   const formatName = meta.format?.name || format;
 
   return (
-    <div className="space-y-10">
-      {/* Hero */}
-      <section className="relative rounded-lg bg-surface-800 border border-surface-600 p-6 sm:p-8 scanline-overlay">
+    <div className="space-y-6">
+      {/* Hero + Stats + Date Filter */}
+      <section className="relative rounded-lg bg-surface-800 border border-surface-600 p-5 sm:p-6 scanline-overlay">
         <div className="relative">
-          <h1 className="font-display text-3xl sm:text-4xl font-bold text-slate-100">
-            Scout
-          </h1>
-          <p className="mt-2 text-surface-300 max-w-2xl">
-            <span className="text-slate-200 font-medium">{formatName}</span>{" "}is Japan&apos;s post-rotation format. These results preview the 2026 Standard meta going live internationally on April 10, 2026.
-          </p>
-          <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-6">
-            <StatCard label="Tournaments" value={meta.tournament_count.toLocaleString()} />
-            <StatCard label="Decks Analyzed" value={meta.deck_count.toLocaleString()} />
-            <StatCard
-              label="Date Range"
-              value={`${meta.date_range.start.slice(5)} to ${meta.date_range.end.slice(5)}`}
-            />
-            <div className="flex flex-col gap-1">
-              <span className="text-sm text-surface-300 flex items-center gap-1">
+          <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
+            <div>
+              <h1 className="font-display text-2xl sm:text-3xl font-bold text-slate-100">
+                Scout
+              </h1>
+              <p className="mt-1 text-sm text-surface-300 max-w-xl">
+                <span className="text-slate-200 font-medium">{formatName}</span>{" "}is Japan&apos;s post-rotation format. These results preview the 2026 Standard meta going live internationally on April 10, 2026.
+              </p>
+            </div>
+            <div className="flex items-center gap-1 shrink-0">
+              <span className="text-xs text-surface-300 flex items-center gap-1 mr-1">
                 <Calendar className="w-3.5 h-3.5" />
                 Rotation
               </span>
-              <span className="font-mono text-2xl font-medium text-accent tabular-nums">
+              <span className="font-mono text-xl font-medium text-accent tabular-nums">
                 {rotationDays > 0 ? `${rotationDays}d` : "Live"}
               </span>
             </div>
+          </div>
+          <div className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm">
+            <div>
+              <span className="text-surface-300">Tournaments </span>
+              <span className="font-mono font-medium text-slate-100 tabular-nums">{meta.tournament_count.toLocaleString()}</span>
+            </div>
+            <div>
+              <span className="text-surface-300">Decks </span>
+              <span className="font-mono font-medium text-slate-100 tabular-nums">{meta.deck_count.toLocaleString()}</span>
+            </div>
+            <div>
+              <span className="text-surface-300">Range </span>
+              <span className="font-mono font-medium text-slate-100 tabular-nums">{meta.date_range.start.slice(5)} to {meta.date_range.end.slice(5)}</span>
+            </div>
+          </div>
+          <div className="mt-4 pt-3 border-t border-surface-600">
+            <DateFilter
+              activeWindow={activeWindow}
+              onWindowChange={handleWindowChange}
+              dateRange={initialMeta.date_range}
+              customRange={customRange}
+            />
           </div>
         </div>
       </section>
@@ -119,20 +137,10 @@ export function DashboardClient({
       {/* Welcome Guide (first visit only) */}
       <WelcomeGuide />
 
-      {/* Date Filter */}
-      <section>
-        <DateFilter
-          activeWindow={activeWindow}
-          onWindowChange={handleWindowChange}
-          dateRange={initialMeta.date_range}
-          customRange={customRange}
-        />
-      </section>
-
       {/* Loading overlay */}
       <div className={loading ? "opacity-50 pointer-events-none transition-opacity" : "transition-opacity"}>
         {/* Quick Insights Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {/* Surging Cards */}
           <section className="bg-surface-800 border border-surface-600 rounded-lg p-5">
             <div className="flex items-center justify-between mb-4">
@@ -239,7 +247,7 @@ export function DashboardClient({
         </div>
 
         {/* Tier List Preview */}
-        <section className="mt-10">
+        <section className="mt-6">
           <div className="flex items-center justify-between mb-3">
             <h2 className="font-display text-lg font-semibold text-slate-100">
               Meta Tier List
@@ -294,7 +302,7 @@ export function DashboardClient({
       </div>
 
       {/* Nav Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
         {[
           { href: `/${format}/archetypes`, title: "Archetypes", desc: `${meta.archetypes.length} decks tracked` },
           { href: `/${format}/buylist`, title: "Buy List", desc: "Priority acquisition guide" },
