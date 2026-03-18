@@ -1,29 +1,18 @@
 steps:
-  # ── Python CI ──
-  - id: python-install
+  # ── Python CI (single step -- pip installs don't persist across containers) ──
+  - id: python-ci
     name: python:3.12-slim
-    entrypoint: pip
-    args: ["install", "-r", "requirements.txt", "ruff", "pytest"]
-
-  - id: ruff-lint
-    name: python:3.12-slim
-    entrypoint: ruff
-    args: ["check", "."]
-    waitFor: ["python-install"]
-
-  - id: ruff-format
-    name: python:3.12-slim
-    entrypoint: ruff
-    args: ["format", "--check", "."]
-    waitFor: ["python-install"]
-
-  - id: python-test
-    name: python:3.12-slim
-    entrypoint: pytest
-    args: ["tests/", "-v"]
-    waitFor: ["ruff-lint", "ruff-format"]
+    entrypoint: bash
+    args:
+      - -c
+      - |
+        pip install -r requirements.txt ruff pytest &&
+        ruff check . &&
+        ruff format --check . &&
+        pytest tests/ -v
 
   # ── Frontend CI ──
+  # /workspace is shared across steps, so node_modules persists
   - id: npm-install
     name: node:22-slim
     entrypoint: npm
