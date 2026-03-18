@@ -1300,6 +1300,9 @@ def export_archetypes(conn: sqlite3.Connection, output_dir: Path) -> None:
     arch_dir = output_dir / "archetypes"
     arch_dir.mkdir(parents=True, exist_ok=True)
 
+    # Compute max_deck_count across all archetypes for popularity normalization
+    max_deck_count = max((a["deck_count"] for a in snapshot["archetypes"]), default=1)
+
     for arch in snapshot["archetypes"]:
         archetype_name = arch["archetype"]
         slug = _slugify(archetype_name)
@@ -1370,6 +1373,48 @@ def export_archetypes(conn: sqlite3.Connection, output_dir: Path) -> None:
             for r in results_rows
         ]
 
+        # Radar metrics
+        meta_share_val = arch["meta_share"]
+        weighted_share_val = weighted_shares.get(archetype_name, 0.0)
+
+        # Consistency: lower avg standing = higher score
+        avg_row = conn.execute(
+            "SELECT AVG(standing) as avg_standing FROM placements WHERE archetype = ?",
+            (archetype_name,),
+        ).fetchone()
+        avg_standing = avg_row["avg_standing"] if avg_row and avg_row["avg_standing"] else 1
+        consistency_score = max(0, 100 - (avg_standing - 1) * 5)
+
+        # Ceiling: based on best placement
+        bp = arch["best_placement"]
+        if bp == 1:
+            ceiling_score = 100
+        elif bp == 2:
+            ceiling_score = 90
+        elif bp <= 4:
+            ceiling_score = 75
+        elif bp <= 8:
+            ceiling_score = 50
+        elif bp <= 16:
+            ceiling_score = 25
+        else:
+            ceiling_score = 10
+
+        # Popularity: relative to max deck count
+        popularity_score = min(arch["deck_count"] / max_deck_count * 100, 100)
+
+        # Core density: percentage of cards that are core (80%+ inclusion)
+        core_density_score = len(core_cards) / len(all_cards) * 100 if all_cards else 0
+
+        radar = {
+            "meta_share": round(min(meta_share_val / 20 * 100, 100), 1),
+            "weighted_share": round(min(weighted_share_val / 20 * 100, 100), 1),
+            "consistency": round(consistency_score, 1),
+            "ceiling": ceiling_score,
+            "popularity": round(popularity_score, 1),
+            "core_density": round(core_density_score, 1),
+        }
+
         arch_data = {
             "archetype": archetype_name,
             "slug": slug,
@@ -1382,6 +1427,7 @@ def export_archetypes(conn: sqlite3.Connection, output_dir: Path) -> None:
             "core_cards": core_cards,
             "all_cards": all_cards,
             "results": results,
+            "radar": radar,
         }
 
         _write_json(arch_data, arch_dir / f"{slug}.json")
@@ -1569,6 +1615,68 @@ def export_images(conn: sqlite3.Connection, output_dir: Path) -> None:
     logger.info("Card images: %d downloaded for top buylist cards", card_downloaded)
 
 
+def export_timeline(conn: sqlite3.Connection, output_dir: Path) -> None:
+    """Export weekly meta share timeline for the top 12 archetypes."""
+    # Get all placements with tournament info, ordered by date
+    rows = conn.execute(
+        """
+        SELECT t.id as tid, t.date, p.archetype
+        FROM placements p
+        JOIN tournaments t ON t.id = p.tournament_id
+        ORDER BY t.date
+        """
+    ).fetchall()
+
+    if not rows:
+        return
+
+    # Group placements into ISO weeks (Monday-based)
+    week_data: dict[str, dict[str, int]] = defaultdict(lambda: defaultdict(int))
+    week_totals: dict[str, int] = defaultdict(int)
+    week_tournament_ids: dict[str, set[str]] = defaultdict(set)
+    archetype_totals: dict[str, int] = defaultdict(int)
+
+    for row in rows:
+        # Compute Monday of the week for this date
+        d = date.fromisoformat(row["date"])
+        monday = d - timedelta(days=d.weekday())
+        week_key = monday.isoformat()
+
+        week_data[week_key][row["archetype"]] += 1
+        week_totals[week_key] += 1
+        week_tournament_ids[week_key].add(row["tid"])
+        archetype_totals[row["archetype"]] += 1
+
+    # Determine top 12 archetypes by total deck count
+    top_archetypes = sorted(archetype_totals, key=archetype_totals.get, reverse=True)[:12]
+
+    # Build output
+    weeks = []
+    for week_key in sorted(week_data):
+        total = week_totals[week_key]
+        archetypes_shares = {}
+        for arch_name in top_archetypes:
+            count = week_data[week_key].get(arch_name, 0)
+            share = round(count / total * 100, 1) if total > 0 else 0
+            archetypes_shares[arch_name] = share
+
+        weeks.append(
+            {
+                "week": week_key,
+                "tournament_count": len(week_tournament_ids[week_key]),
+                "deck_count": total,
+                "archetypes": archetypes_shares,
+            }
+        )
+
+    timeline = {
+        "weeks": weeks,
+        "archetype_order": top_archetypes,
+    }
+
+    _write_json(timeline, output_dir / "timeline.json")
+
+
 def export_all(
     conn: sqlite3.Connection, output_dir: Path | None = None, format_slug: str | None = None
 ) -> Path:
@@ -1591,6 +1699,7 @@ def export_all(
     export_archetypes(conn, out)
     export_champions_league(conn, out)
     export_images(conn, out)
+    export_timeline(conn, out)
     export_windowed(conn, out, format_slug=slug)
 
     logger.info("Export complete")

@@ -10,6 +10,7 @@ import type {
   ArchetypeDetail,
   CLDivision,
   FormatInfo,
+  TimelineData,
 } from "./types";
 
 const DATA_DIR = path.join(process.cwd(), "public", "data");
@@ -75,6 +76,14 @@ export function getArchetypeSlugs(format: string): string[] {
 
 export function getCLDivision(format: string, division: string): CLDivision {
   return readJson(`${format}/champions-league/${division}.json`);
+}
+
+export function getTimeline(format: string): TimelineData | null {
+  try {
+    return readJson(`${format}/timeline.json`);
+  } catch {
+    return null;
+  }
 }
 
 export function formatHasData(format: string): boolean {

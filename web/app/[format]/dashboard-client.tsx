@@ -9,7 +9,8 @@ import { DateFilter } from "@/app/components/date-filter";
 import { WelcomeGuide } from "@/app/components/welcome-guide";
 import { useDateFilter, fetchWindowedData } from "@/app/components/date-filter-provider";
 import { formatPct, daysUntil } from "@/app/lib/utils";
-import type { MetaData, TrendsData, WinningEdgeCard, AceSpec, TimeWindow } from "@/app/lib/types";
+import { MetaTimeline } from "@/app/components/meta-timeline";
+import type { MetaData, TrendsData, WinningEdgeCard, AceSpec, TimelineData, TimeWindow } from "@/app/lib/types";
 
 interface DashboardClientProps {
   format: string;
@@ -17,6 +18,7 @@ interface DashboardClientProps {
   trends: TrendsData;
   winningEdge: WinningEdgeCard[];
   aceSpecs: AceSpec[];
+  timeline?: TimelineData | null;
 }
 
 export function DashboardClient({
@@ -25,6 +27,7 @@ export function DashboardClient({
   trends: initialTrends,
   winningEdge: initialWinningEdge,
   aceSpecs: initialAceSpecs,
+  timeline,
 }: DashboardClientProps) {
   const { activeWindow, customRange, setWindow } = useDateFilter();
 
@@ -242,6 +245,13 @@ export function DashboardClient({
             </div>
           </section>
         </div>
+
+        {/* Meta Timeline */}
+        {timeline && timeline.weeks.length > 0 && (
+          <div className="mt-6">
+            <MetaTimeline data={timeline} />
+          </div>
+        )}
 
         {/* Tier List Preview */}
         <section className="mt-6">

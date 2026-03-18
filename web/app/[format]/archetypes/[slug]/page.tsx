@@ -2,6 +2,7 @@ import { getArchetype, getArchetypeSlugs, getFormats } from "@/app/lib/data";
 import { TierBadge } from "@/app/components/tier-badge";
 import { SpriteRow } from "@/app/components/sprite-row";
 import { StatCard } from "@/app/components/stat-card";
+import { ArchetypeRadar } from "@/app/components/archetype-radar";
 import { formatPct, formatPlacement } from "@/app/lib/utils";
 import type { ArchetypeCard } from "@/app/lib/types";
 import { ResultsTable } from "./results-table";
@@ -131,6 +132,9 @@ export default async function ArchetypeDetailPage({
           <StatCard label="Core Cards" value={arch.core_cards.length} />
         </div>
       </div>
+
+      {/* Radar */}
+      {arch.radar && <ArchetypeRadar radar={arch.radar} />}
 
       {/* Decklist */}
       <section>

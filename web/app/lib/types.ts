@@ -112,6 +112,15 @@ export interface ArchetypeResult {
   player_name: string;
 }
 
+export interface ArchetypeRadar {
+  meta_share: number;
+  weighted_share: number;
+  consistency: number;
+  ceiling: number;
+  popularity: number;
+  core_density: number;
+}
+
 export interface ArchetypeDetail {
   archetype: string;
   slug: string;
@@ -124,6 +133,19 @@ export interface ArchetypeDetail {
   core_cards: ArchetypeCard[];
   all_cards: ArchetypeCard[];
   results?: ArchetypeResult[];
+  radar?: ArchetypeRadar;
+}
+
+export interface TimelineWeek {
+  week: string;
+  tournament_count: number;
+  deck_count: number;
+  archetypes: Record<string, number>;
+}
+
+export interface TimelineData {
+  weeks: TimelineWeek[];
+  archetype_order: string[];
 }
 
 export interface CLDecklistCard {
