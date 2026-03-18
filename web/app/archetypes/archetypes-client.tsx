@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { TierBadge } from "@/app/components/tier-badge";
+import { SpriteRow } from "@/app/components/sprite-row";
 import { MetaBarChart } from "@/app/components/meta-bar-chart";
 import { DataTable } from "@/app/components/data-table";
 import { formatPct, formatPlacement } from "@/app/lib/utils";
@@ -47,23 +48,27 @@ export function ArchetypesClient({ archetypes }: { archetypes: ArchetypeSummary[
               render: (a) => (
                 <Link
                   href={`/archetypes/${a.slug}`}
-                  className="text-slate-200 hover:text-accent transition-colors"
+                  className="text-slate-200 hover:text-accent transition-colors inline-flex items-center gap-2"
                 >
+                  <SpriteRow filenames={a.sprite_filenames ?? []} size={20} />
                   {a.archetype}
                 </Link>
               ),
               sortValue: (a) => a.archetype,
             },
             {
-              key: "meta_share",
-              header: "Meta Share",
+              key: "weighted_share",
+              header: "Weighted",
               align: "right",
               render: (a) => (
                 <span className="font-mono tabular-nums">
-                  {formatPct(a.meta_share)}
+                  {formatPct(a.weighted_share ?? a.meta_share)}
+                  {a.weighted_share != null && (
+                    <span className="text-surface-400 text-xs ml-1">({formatPct(a.meta_share)})</span>
+                  )}
                 </span>
               ),
-              sortValue: (a) => a.meta_share,
+              sortValue: (a) => a.weighted_share ?? a.meta_share,
             },
             {
               key: "deck_count",

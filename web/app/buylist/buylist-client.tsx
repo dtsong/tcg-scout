@@ -2,10 +2,10 @@
 
 import { useState } from "react";
 import { DataTable } from "@/app/components/data-table";
-import { UrgencyBadge } from "@/app/components/urgency-badge";
+import { ExternalLink } from "lucide-react";
 import { formatPct } from "@/app/lib/utils";
 import { cn } from "@/app/lib/utils";
-import type { BuylistCard, StapleCard, Urgency } from "@/app/lib/types";
+import type { BuylistCard, StapleCard } from "@/app/lib/types";
 
 const tabs = ["Full List", "Staples", "Flex"] as const;
 type Tab = (typeof tabs)[number];
@@ -20,12 +20,6 @@ export function BuylistClient({
   flex: StapleCard[];
 }) {
   const [activeTab, setActiveTab] = useState<Tab>("Full List");
-  const [urgencyFilter, setUrgencyFilter] = useState<Urgency | "all">("all");
-
-  const filteredBuylist =
-    urgencyFilter === "all"
-      ? buylist
-      : buylist.filter((c) => c.urgency === urgencyFilter);
 
   return (
     <div className="space-y-6">
@@ -34,7 +28,7 @@ export function BuylistClient({
           Buy List
         </h1>
         <p className="text-sm text-surface-300 mt-1">
-          Prioritized acquisition guide — {buylist.length} cards across S/A/B tier archetypes
+          Prioritized acquisition guide: {buylist.length} cards across S/A/B tier archetypes
         </p>
       </div>
 
@@ -61,27 +55,9 @@ export function BuylistClient({
 
       {activeTab === "Full List" && (
         <div className="space-y-4">
-          <div className="flex items-center gap-2">
-            <span className="text-xs text-surface-300 mr-1">Filter:</span>
-            {(["all", "URGENT", "HIGH", "MODERATE"] as const).map((u) => (
-              <button
-                key={u}
-                onClick={() => setUrgencyFilter(u)}
-                className={cn(
-                  "px-2.5 py-1 text-xs rounded-md transition-colors",
-                  urgencyFilter === u
-                    ? "bg-surface-600 text-slate-200"
-                    : "text-surface-400 hover:text-slate-300 hover:bg-surface-700",
-                )}
-              >
-                {u === "all" ? "All" : u}
-              </button>
-            ))}
-          </div>
-
           <div className="bg-surface-800 border border-surface-600 rounded-lg overflow-hidden">
             <DataTable
-              data={filteredBuylist}
+              data={buylist}
               searchKey={(c) => c.card_name}
               searchPlaceholder="Search cards..."
               columns={[
@@ -92,10 +68,19 @@ export function BuylistClient({
                   sortValue: (c) => c.card_name,
                 },
                 {
-                  key: "urgency",
-                  header: "Urgency",
-                  render: (c) => <UrgencyBadge urgency={c.urgency} />,
-                  sortValue: (c) => ({ URGENT: 0, HIGH: 1, MODERATE: 2 }[c.urgency]),
+                  key: "buy",
+                  header: "",
+                  render: (c) => (
+                    <a
+                      href={`https://www.tcgplayer.com/search/pokemon/product?q=${encodeURIComponent(c.card_name)}&view=grid`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-accent hover:text-accent/80 inline-flex items-center gap-1 text-xs"
+                    >
+                      <ExternalLink className="w-3.5 h-3.5" />
+                      <span className="hidden sm:inline">TCGPlayer</span>
+                    </a>
+                  ),
                 },
                 {
                   key: "priority",

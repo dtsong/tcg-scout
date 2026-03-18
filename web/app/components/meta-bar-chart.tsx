@@ -45,12 +45,15 @@ export function MetaBarChart({ data }: { data: ArchetypeSummary[] }) {
           width={140}
         />
         <Tooltip
+          wrapperStyle={{ outline: 'none' }}
           contentStyle={{
             backgroundColor: "#151921",
             border: "1px solid #2a3040",
             borderRadius: "6px",
             fontSize: "13px",
           }}
+          labelStyle={{ color: '#e2e8f0' }}
+          itemStyle={{ color: '#94a3b8' }}
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
           formatter={(value: any) => [`${Number(value).toFixed(1)}%`, "Meta Share"]}
           cursor={{ fill: "rgba(255,255,255,0.03)" }}

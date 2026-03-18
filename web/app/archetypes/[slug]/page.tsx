@@ -1,5 +1,6 @@
 import { getArchetype, getArchetypeSlugs } from "@/app/lib/data";
 import { TierBadge } from "@/app/components/tier-badge";
+import { SpriteRow } from "@/app/components/sprite-row";
 import { StatCard } from "@/app/components/stat-card";
 import { formatPct, formatPlacement } from "@/app/lib/utils";
 
@@ -20,6 +21,7 @@ export default async function ArchetypeDetailPage({
       <div>
         <div className="flex items-center gap-3 mb-2">
           <TierBadge tier={arch.tier} />
+          <SpriteRow filenames={arch.sprite_filenames ?? []} size={32} />
           <h1 className="font-display text-2xl font-bold text-slate-100">
             {arch.archetype}
           </h1>
@@ -112,6 +114,53 @@ export default async function ArchetypeDetailPage({
           </div>
         </div>
       </section>
+
+      {/* Tournament Results */}
+      {arch.results && arch.results.length > 0 && (
+        <section>
+          <h2 className="font-display text-lg font-semibold text-slate-100 mb-4">
+            Results
+            <span className="text-sm font-normal text-surface-300 ml-2">
+              {arch.results.length} placements
+            </span>
+          </h2>
+          <div className="bg-surface-800 border border-surface-600 rounded-lg overflow-hidden">
+            <div className="overflow-x-auto">
+              <table className="w-full">
+                <thead>
+                  <tr className="border-b border-surface-600 text-xs text-surface-300 uppercase tracking-wider">
+                    <th className="text-left px-4 py-3">Date</th>
+                    <th className="text-left px-4 py-3">City League</th>
+                    <th className="text-right px-4 py-3">Standing</th>
+                    <th className="text-left px-4 py-3 hidden sm:table-cell">Player</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {arch.results.map((result, i) => (
+                    <tr
+                      key={`${result.date}-${result.standing}-${result.player_name}`}
+                      className="border-b border-surface-700 hover:bg-surface-700/50 transition-colors"
+                    >
+                      <td className="px-4 py-3 font-mono text-xs text-surface-300">
+                        {result.date}
+                      </td>
+                      <td className="px-4 py-3 text-slate-300 text-sm">
+                        {result.tournament_name}
+                      </td>
+                      <td className="px-4 py-3 text-right font-mono tabular-nums">
+                        {formatPlacement(result.standing)}
+                      </td>
+                      <td className="px-4 py-3 text-sm text-surface-300 hidden sm:table-cell">
+                        {result.player_name}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+      )}
     </div>
   );
 }

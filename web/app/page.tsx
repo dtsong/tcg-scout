@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, TrendingUp, Trophy, ShoppingCart, Calendar } from "lucide-react";
+import { ArrowRight, TrendingUp, TrendingDown, Trophy, ShoppingCart, Calendar } from "lucide-react";
 import { getMeta, getAceSpecs, getTrends, getWinningEdge } from "@/app/lib/data";
 import { TierBadge } from "@/app/components/tier-badge";
 import { StatCard } from "@/app/components/stat-card";
@@ -15,7 +15,8 @@ export default function Dashboard() {
   const topArchetypes = meta.archetypes.filter((a) =>
     ["S", "A", "B"].includes(a.tier),
   );
-  const surgingCards = trends.cards.slice(0, 5);
+  const surgingCards = (trends.surging || []).slice(0, 5);
+  const decliningCards = (trends.declining || []).slice(0, 5);
   const topEdge = winningEdge.slice(0, 5);
   const topAceSpecs = aceSpecs.slice(0, 5);
 
@@ -28,15 +29,14 @@ export default function Dashboard() {
             Scout
           </h1>
           <p className="mt-2 text-surface-300 max-w-2xl">
-            JP Rotation Meta Intelligence — City League tournament data and competitive analysis
-            for the post-rotation format.
+            <span className="text-slate-200 font-medium">Nihil Zero</span>{" "}is Japan&apos;s post-rotation format (Temporal Forces through Perfect Order + Mega Evolution sets). These results preview the 2026 Standard meta going live internationally on April 10, 2026.
           </p>
           <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-6">
             <StatCard label="Tournaments" value={meta.tournament_count.toLocaleString()} />
             <StatCard label="Decks Analyzed" value={meta.deck_count.toLocaleString()} />
             <StatCard
               label="Date Range"
-              value={`${meta.date_range.start.slice(5)} — ${meta.date_range.end.slice(5)}`}
+              value={`${meta.date_range.start.slice(5)} to ${meta.date_range.end.slice(5)}`}
             />
             <div className="flex flex-col gap-1">
               <span className="text-sm text-surface-300 flex items-center gap-1">
@@ -106,7 +106,7 @@ export default function Dashboard() {
       </section>
 
       {/* Quick Insights Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {/* Surging Cards */}
         <section className="bg-surface-800 border border-surface-600 rounded-lg p-5">
           <div className="flex items-center justify-between mb-4">
@@ -124,6 +124,29 @@ export default function Dashboard() {
                 <span className="text-sm text-slate-300 truncate mr-2">{card.card_name}</span>
                 <span className="font-mono text-xs text-signal-up whitespace-nowrap">
                   +{card.delta.toFixed(1)}%
+                </span>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Declining Cards */}
+        <section className="bg-surface-800 border border-surface-600 rounded-lg p-5">
+          <div className="flex items-center justify-between mb-4">
+            <h3 className="font-display text-sm font-semibold text-slate-200 flex items-center gap-2">
+              <TrendingDown className="w-4 h-4 text-signal-down" />
+              Declining Cards
+            </h3>
+            <Link href="/trends" className="text-xs text-accent hover:text-accent/80">
+              More
+            </Link>
+          </div>
+          <div className="space-y-3">
+            {decliningCards.map((card) => (
+              <div key={card.card_name} className="flex items-center justify-between">
+                <span className="text-sm text-slate-300 truncate mr-2">{card.card_name}</span>
+                <span className="font-mono text-xs text-signal-down whitespace-nowrap">
+                  {card.delta.toFixed(1)}%
                 </span>
               </div>
             ))}

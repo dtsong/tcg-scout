@@ -35,7 +35,13 @@ export function getFlex(): StapleCard[] {
 }
 
 export function getTrends(): TrendsData {
-  return readJson("trends.json");
+  // Handle both old format (cards) and new format (surging/declining)
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const raw: any = readJson("trends.json");
+  if (raw.cards && !raw.surging) {
+    return { ...raw, surging: raw.cards, declining: [] };
+  }
+  return raw;
 }
 
 export function getWinningEdge(): WinningEdgeCard[] {

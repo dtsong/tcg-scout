@@ -2,14 +2,47 @@
   "midpoint": "2026-02-15",
   "early_decks": 3908,
   "late_decks": 2848,
-  "cards": [
+  "surging": [
     {
       "card_name": "Unfair Stamp",
       "early_count": 1163,
       "late_count": 1521,
       "early_pct": 29.8,
       "late_pct": 53.4,
-      "delta": 23.6
+      "delta": 23.6,
+      "direction": "surging",
+      "archetypes": [
+        {
+          "archetype": "Dragapult Dusknoir",
+          "early_pct": 79.3,
+          "late_pct": 90.7,
+          "delta": 11.4
+        },
+        {
+          "archetype": "Dragapult Meowth",
+          "early_pct": 92.6,
+          "late_pct": 98.6,
+          "delta": 6.0
+        },
+        {
+          "archetype": "Blaziken Dragapult",
+          "early_pct": 90.2,
+          "late_pct": 94.6,
+          "delta": 4.4
+        },
+        {
+          "archetype": "Dragapult ex",
+          "early_pct": 89.4,
+          "late_pct": 98.0,
+          "delta": 8.6
+        },
+        {
+          "archetype": "Grimmsnarl Munkidori",
+          "early_pct": 66.3,
+          "late_pct": 90.2,
+          "delta": 23.9
+        }
+      ]
     },
     {
       "card_name": "Psychic Energy",
@@ -17,7 +50,40 @@
       "late_count": 1515,
       "early_pct": 39.7,
       "late_pct": 53.2,
-      "delta": 13.5
+      "delta": 13.5,
+      "direction": "surging",
+      "archetypes": [
+        {
+          "archetype": "Dragapult Dusknoir",
+          "early_pct": 100.0,
+          "late_pct": 100.0,
+          "delta": 0.0
+        },
+        {
+          "archetype": "Alakazam Dudunsparce",
+          "early_pct": 100.0,
+          "late_pct": 100.0,
+          "delta": 0.0
+        },
+        {
+          "archetype": "Blaziken Dragapult",
+          "early_pct": 100.0,
+          "late_pct": 100.0,
+          "delta": 0.0
+        },
+        {
+          "archetype": "Dragapult Meowth",
+          "early_pct": 100.0,
+          "late_pct": 100.0,
+          "delta": 0.0
+        },
+        {
+          "archetype": "Dragapult ex",
+          "early_pct": 100.0,
+          "late_pct": 100.0,
+          "delta": 0.0
+        }
+      ]
     },
     {
       "card_name": "Fezandipiti ex",
@@ -25,7 +91,40 @@
       "late_count": 1699,
       "early_pct": 46.8,
       "late_pct": 59.7,
-      "delta": 12.9
+      "delta": 12.9,
+      "direction": "surging",
+      "archetypes": [
+        {
+          "archetype": "Dragapult Dusknoir",
+          "early_pct": 98.8,
+          "late_pct": 98.9,
+          "delta": 0.1
+        },
+        {
+          "archetype": "Alakazam Dudunsparce",
+          "early_pct": 66.7,
+          "late_pct": 78.5,
+          "delta": 11.8
+        },
+        {
+          "archetype": "Dragapult Meowth",
+          "early_pct": 92.6,
+          "late_pct": 99.5,
+          "delta": 6.9
+        },
+        {
+          "archetype": "Blaziken Dragapult",
+          "early_pct": 90.2,
+          "late_pct": 96.6,
+          "delta": 6.4
+        },
+        {
+          "archetype": "Dragapult ex",
+          "early_pct": 97.6,
+          "late_pct": 100.0,
+          "delta": 2.4
+        }
+      ]
     },
     {
       "card_name": "Grass Energy",
@@ -33,7 +132,40 @@
       "late_count": 816,
       "early_pct": 16.9,
       "late_pct": 28.7,
-      "delta": 11.8
+      "delta": 11.8,
+      "direction": "surging",
+      "archetypes": [
+        {
+          "archetype": "Mewtwo Spidops",
+          "early_pct": 100.0,
+          "late_pct": 100.0,
+          "delta": 0.0
+        },
+        {
+          "archetype": "Mega Venusaur",
+          "early_pct": 100.0,
+          "late_pct": 100.0,
+          "delta": 0.0
+        },
+        {
+          "archetype": "Dipplin Thwackey",
+          "early_pct": 100.0,
+          "late_pct": 100.0,
+          "delta": 0.0
+        },
+        {
+          "archetype": "Raging Bolt ex",
+          "early_pct": 100.0,
+          "late_pct": 100.0,
+          "delta": 0.0
+        },
+        {
+          "archetype": "Noctowl Ogerpon",
+          "early_pct": 100.0,
+          "late_pct": 100.0,
+          "delta": 0.0
+        }
+      ]
     },
     {
       "card_name": "Energy Switch",
@@ -41,7 +173,40 @@
       "late_count": 659,
       "early_pct": 11.6,
       "late_pct": 23.1,
-      "delta": 11.5
+      "delta": 11.5,
+      "direction": "surging",
+      "archetypes": [
+        {
+          "archetype": "Mewtwo Spidops",
+          "early_pct": 95.6,
+          "late_pct": 96.1,
+          "delta": 0.5
+        },
+        {
+          "archetype": "Noctowl Ogerpon",
+          "early_pct": 97.1,
+          "late_pct": 98.6,
+          "delta": 1.5
+        },
+        {
+          "archetype": "Raging Bolt ex",
+          "early_pct": 91.7,
+          "late_pct": 87.1,
+          "delta": -4.6
+        },
+        {
+          "archetype": "Grimmsnarl Munkidori",
+          "early_pct": 47.5,
+          "late_pct": 23.6,
+          "delta": -23.9
+        },
+        {
+          "archetype": "Froslass Grimmsnarl",
+          "early_pct": 38.4,
+          "late_pct": 42.3,
+          "delta": 3.9
+        }
+      ]
     },
     {
       "card_name": "Crispin",
@@ -49,7 +214,40 @@
       "late_count": 1242,
       "early_pct": 32.2,
       "late_pct": 43.6,
-      "delta": 11.4
+      "delta": 11.4,
+      "direction": "surging",
+      "archetypes": [
+        {
+          "archetype": "Dragapult Dusknoir",
+          "early_pct": 97.9,
+          "late_pct": 100.0,
+          "delta": 2.1
+        },
+        {
+          "archetype": "Dragapult Meowth",
+          "early_pct": 100.0,
+          "late_pct": 100.0,
+          "delta": 0.0
+        },
+        {
+          "archetype": "Blaziken Dragapult",
+          "early_pct": 90.2,
+          "late_pct": 95.2,
+          "delta": 5.0
+        },
+        {
+          "archetype": "Dragapult ex",
+          "early_pct": 98.4,
+          "late_pct": 100.0,
+          "delta": 1.6
+        },
+        {
+          "archetype": "Mega Froslass Mega Starmie",
+          "early_pct": 88.1,
+          "late_pct": 92.6,
+          "delta": 4.5
+        }
+      ]
     },
     {
       "card_name": "Teal Mask Ogerpon ex",
@@ -57,7 +255,40 @@
       "late_count": 541,
       "early_pct": 8.8,
       "late_pct": 19.0,
-      "delta": 10.2
+      "delta": 10.2,
+      "direction": "surging",
+      "archetypes": [
+        {
+          "archetype": "Mega Venusaur",
+          "early_pct": 100.0,
+          "late_pct": 100.0,
+          "delta": 0.0
+        },
+        {
+          "archetype": "Raging Bolt ex",
+          "early_pct": 100.0,
+          "late_pct": 100.0,
+          "delta": 0.0
+        },
+        {
+          "archetype": "Noctowl Ogerpon",
+          "early_pct": 100.0,
+          "late_pct": 100.0,
+          "delta": 0.0
+        },
+        {
+          "archetype": "Arboliva Ogerpon",
+          "early_pct": 100.0,
+          "late_pct": 100.0,
+          "delta": 0.0
+        },
+        {
+          "archetype": "Mega Meganium",
+          "early_pct": 100.0,
+          "late_pct": 100.0,
+          "delta": 0.0
+        }
+      ]
     },
     {
       "card_name": "Area Zero Underdepths",
@@ -65,7 +296,40 @@
       "late_count": 507,
       "early_pct": 7.8,
       "late_pct": 17.8,
-      "delta": 10.0
+      "delta": 10.0,
+      "direction": "surging",
+      "archetypes": [
+        {
+          "archetype": "Raging Bolt ex",
+          "early_pct": 95.8,
+          "late_pct": 98.8,
+          "delta": 3.0
+        },
+        {
+          "archetype": "Noctowl Ogerpon",
+          "early_pct": 97.1,
+          "late_pct": 98.6,
+          "delta": 1.5
+        },
+        {
+          "archetype": "Dragapult Noctowl",
+          "early_pct": 100.0,
+          "late_pct": 100.0,
+          "delta": 0.0
+        },
+        {
+          "archetype": "Flareon Noctowl",
+          "early_pct": 100.0,
+          "late_pct": 100.0,
+          "delta": 0.0
+        },
+        {
+          "archetype": "Clefairy Ogerpon",
+          "early_pct": 100.0,
+          "late_pct": 100.0,
+          "delta": 0.0
+        }
+      ]
     },
     {
       "card_name": "Meowth ex",
@@ -73,7 +337,40 @@
       "late_count": 1165,
       "early_pct": 31.1,
       "late_pct": 40.9,
-      "delta": 9.8
+      "delta": 9.8,
+      "direction": "surging",
+      "archetypes": [
+        {
+          "archetype": "Dragapult Dusknoir",
+          "early_pct": 85.9,
+          "late_pct": 78.7,
+          "delta": -7.2
+        },
+        {
+          "archetype": "Blaziken Dragapult",
+          "early_pct": 86.6,
+          "late_pct": 95.9,
+          "delta": 9.3
+        },
+        {
+          "archetype": "Dragapult ex",
+          "early_pct": 78.0,
+          "late_pct": 89.8,
+          "delta": 11.8
+        },
+        {
+          "archetype": "Mega Froslass Mega Starmie",
+          "early_pct": 67.8,
+          "late_pct": 70.4,
+          "delta": 2.6
+        },
+        {
+          "archetype": "Mega Venusaur",
+          "early_pct": 42.5,
+          "late_pct": 63.2,
+          "delta": 20.7
+        }
+      ]
     },
     {
       "card_name": "Ciphermaniac's Codebreaking",
@@ -81,7 +378,40 @@
       "late_count": 361,
       "early_pct": 3.5,
       "late_pct": 12.7,
-      "delta": 9.2
+      "delta": 9.2,
+      "direction": "surging",
+      "archetypes": [
+        {
+          "archetype": "Mega Lucario",
+          "early_pct": 9.4,
+          "late_pct": 25.0,
+          "delta": 15.6
+        },
+        {
+          "archetype": "Darmanitan Zoroark",
+          "early_pct": 16.8,
+          "late_pct": 25.2,
+          "delta": 8.4
+        },
+        {
+          "archetype": "Raging Bolt ex",
+          "early_pct": 25.0,
+          "late_pct": 42.4,
+          "delta": 17.4
+        },
+        {
+          "archetype": "Clefairy Ogerpon",
+          "early_pct": 0.0,
+          "late_pct": 80.0,
+          "delta": 80.0
+        },
+        {
+          "archetype": "Mega Kangaskhan Ogerpon",
+          "early_pct": 12.5,
+          "late_pct": 81.8,
+          "delta": 69.3
+        }
+      ]
     },
     {
       "card_name": "Cyrano",
@@ -89,7 +419,40 @@
       "late_count": 421,
       "early_pct": 5.7,
       "late_pct": 14.8,
-      "delta": 9.1
+      "delta": 9.1,
+      "direction": "surging",
+      "archetypes": [
+        {
+          "archetype": "Darmanitan Zoroark",
+          "early_pct": 92.1,
+          "late_pct": 94.6,
+          "delta": 2.5
+        },
+        {
+          "archetype": "Raging Bolt ex",
+          "early_pct": 58.3,
+          "late_pct": 68.2,
+          "delta": 9.9
+        },
+        {
+          "archetype": "Flareon Noctowl",
+          "early_pct": 76.0,
+          "late_pct": 86.8,
+          "delta": 10.8
+        },
+        {
+          "archetype": "Zoroark ex",
+          "early_pct": 85.7,
+          "late_pct": 100.0,
+          "delta": 14.3
+        },
+        {
+          "archetype": "Mega Kangaskhan Ogerpon",
+          "early_pct": 12.5,
+          "late_pct": 93.2,
+          "delta": 80.7
+        }
+      ]
     },
     {
       "card_name": "Lillie's Clefairy ex",
@@ -97,7 +460,40 @@
       "late_count": 965,
       "early_pct": 25.0,
       "late_pct": 33.9,
-      "delta": 8.9
+      "delta": 8.9,
+      "direction": "surging",
+      "archetypes": [
+        {
+          "archetype": "Blaziken Dragapult",
+          "early_pct": 94.6,
+          "late_pct": 97.3,
+          "delta": 2.7
+        },
+        {
+          "archetype": "Dragapult Dusknoir",
+          "early_pct": 32.5,
+          "late_pct": 28.4,
+          "delta": -4.1
+        },
+        {
+          "archetype": "Mewtwo Spidops",
+          "early_pct": 70.0,
+          "late_pct": 97.6,
+          "delta": 27.6
+        },
+        {
+          "archetype": "Dragapult ex",
+          "early_pct": 79.7,
+          "late_pct": 87.8,
+          "delta": 8.1
+        },
+        {
+          "archetype": "Mega Diancie Dusknoir",
+          "early_pct": 100.0,
+          "late_pct": 100.0,
+          "delta": 0.0
+        }
+      ]
     },
     {
       "card_name": "Mega Kangaskhan ex",
@@ -105,7 +501,40 @@
       "late_count": 322,
       "early_pct": 3.2,
       "late_pct": 11.3,
-      "delta": 8.1
+      "delta": 8.1,
+      "direction": "surging",
+      "archetypes": [
+        {
+          "archetype": "Raging Bolt ex",
+          "early_pct": 91.7,
+          "late_pct": 87.1,
+          "delta": -4.6
+        },
+        {
+          "archetype": "Clefairy Ogerpon",
+          "early_pct": 100.0,
+          "late_pct": 100.0,
+          "delta": 0.0
+        },
+        {
+          "archetype": "Mega Kangaskhan Ogerpon",
+          "early_pct": 100.0,
+          "late_pct": 100.0,
+          "delta": 0.0
+        },
+        {
+          "archetype": "Mega Absol Box",
+          "early_pct": 100.0,
+          "late_pct": 100.0,
+          "delta": 0.0
+        },
+        {
+          "archetype": "Noctowl Ogerpon",
+          "early_pct": 29.4,
+          "late_pct": 23.6,
+          "delta": -5.8
+        }
+      ]
     },
     {
       "card_name": "Psyduck",
@@ -113,7 +542,40 @@
       "late_count": 772,
       "early_pct": 20.3,
       "late_pct": 27.1,
-      "delta": 6.8
+      "delta": 6.8,
+      "direction": "surging",
+      "archetypes": [
+        {
+          "archetype": "Alakazam Dudunsparce",
+          "early_pct": 87.3,
+          "late_pct": 96.5,
+          "delta": 9.2
+        },
+        {
+          "archetype": "Dragapult ex",
+          "early_pct": 77.2,
+          "late_pct": 57.1,
+          "delta": -20.1
+        },
+        {
+          "archetype": "Blaziken Dragapult",
+          "early_pct": 51.8,
+          "late_pct": 54.4,
+          "delta": 2.6
+        },
+        {
+          "archetype": "Dipplin Thwackey",
+          "early_pct": 79.5,
+          "late_pct": 89.3,
+          "delta": 9.8
+        },
+        {
+          "archetype": "Archaludon ex",
+          "early_pct": 73.1,
+          "late_pct": 87.5,
+          "delta": 14.4
+        }
+      ]
     },
     {
       "card_name": "Mist Energy",
@@ -121,7 +583,40 @@
       "late_count": 207,
       "early_pct": 1.1,
       "late_pct": 7.3,
-      "delta": 6.2
+      "delta": 6.2,
+      "direction": "surging",
+      "archetypes": [
+        {
+          "archetype": "Crustle Munkidori",
+          "early_pct": 66.7,
+          "late_pct": 100.0,
+          "delta": 33.3
+        },
+        {
+          "archetype": "Clefairy Ogerpon",
+          "early_pct": 0.0,
+          "late_pct": 58.0,
+          "delta": 58.0
+        },
+        {
+          "archetype": "Mega Kangaskhan Ogerpon",
+          "early_pct": 0.0,
+          "late_pct": 59.1,
+          "delta": 59.1
+        },
+        {
+          "archetype": "Mega Absol Box",
+          "early_pct": 50.0,
+          "late_pct": 85.2,
+          "delta": 35.2
+        },
+        {
+          "archetype": "Ceruledge ex",
+          "early_pct": 60.0,
+          "late_pct": 54.5,
+          "delta": -5.5
+        }
+      ]
     },
     {
       "card_name": "Risky Ruins",
@@ -129,7 +624,40 @@
       "late_count": 364,
       "early_pct": 6.6,
       "late_pct": 12.8,
-      "delta": 6.2
+      "delta": 6.2,
+      "direction": "surging",
+      "archetypes": [
+        {
+          "archetype": "Dragapult Meowth",
+          "early_pct": 11.1,
+          "late_pct": 74.1,
+          "delta": 63.0
+        },
+        {
+          "archetype": "Dragapult ex",
+          "early_pct": 61.0,
+          "late_pct": 78.6,
+          "delta": 17.6
+        },
+        {
+          "archetype": "Mega Froslass Mega Starmie",
+          "early_pct": 64.4,
+          "late_pct": 51.9,
+          "delta": -12.5
+        },
+        {
+          "archetype": "Blaziken Dragapult",
+          "early_pct": 8.0,
+          "late_pct": 34.7,
+          "delta": 26.7
+        },
+        {
+          "archetype": "Dragapult Dusknoir",
+          "early_pct": 2.8,
+          "late_pct": 16.9,
+          "delta": 14.1
+        }
+      ]
     },
     {
       "card_name": "Iron Leaves ex",
@@ -137,7 +665,40 @@
       "late_count": 198,
       "early_pct": 1.2,
       "late_pct": 7.0,
-      "delta": 5.8
+      "delta": 5.8,
+      "direction": "surging",
+      "archetypes": [
+        {
+          "archetype": "Raging Bolt ex",
+          "early_pct": 50.0,
+          "late_pct": 77.6,
+          "delta": 27.6
+        },
+        {
+          "archetype": "Noctowl Ogerpon",
+          "early_pct": 41.2,
+          "late_pct": 79.2,
+          "delta": 38.0
+        },
+        {
+          "archetype": "Mega Kangaskhan Ogerpon",
+          "early_pct": 12.5,
+          "late_pct": 40.9,
+          "delta": 28.4
+        },
+        {
+          "archetype": "Clefairy Ogerpon",
+          "early_pct": 6.2,
+          "late_pct": 36.0,
+          "delta": 29.8
+        },
+        {
+          "archetype": "Ogerpon Ogerpon Wellspring",
+          "early_pct": 33.3,
+          "late_pct": 52.2,
+          "delta": 18.9
+        }
+      ]
     },
     {
       "card_name": "Munkidori",
@@ -145,7 +706,40 @@
       "late_count": 1274,
       "early_pct": 38.9,
       "late_pct": 44.7,
-      "delta": 5.8
+      "delta": 5.8,
+      "direction": "surging",
+      "archetypes": [
+        {
+          "archetype": "Dragapult Dusknoir",
+          "early_pct": 61.6,
+          "late_pct": 89.1,
+          "delta": 27.5
+        },
+        {
+          "archetype": "Blaziken Dragapult",
+          "early_pct": 100.0,
+          "late_pct": 100.0,
+          "delta": 0.0
+        },
+        {
+          "archetype": "Dragapult Meowth",
+          "early_pct": 92.6,
+          "late_pct": 97.3,
+          "delta": 4.7
+        },
+        {
+          "archetype": "Grimmsnarl Munkidori",
+          "early_pct": 100.0,
+          "late_pct": 100.0,
+          "delta": 0.0
+        },
+        {
+          "archetype": "Dragapult ex",
+          "early_pct": 99.2,
+          "late_pct": 100.0,
+          "delta": 0.8
+        }
+      ]
     },
     {
       "card_name": "Rosa's Encouragement",
@@ -153,7 +747,40 @@
       "late_count": 196,
       "early_pct": 1.5,
       "late_pct": 6.9,
-      "delta": 5.4
+      "delta": 5.4,
+      "direction": "surging",
+      "archetypes": [
+        {
+          "archetype": "Dragapult Meowth",
+          "early_pct": 3.7,
+          "late_pct": 65.5,
+          "delta": 61.8
+        },
+        {
+          "archetype": "Dragapult Dusknoir",
+          "early_pct": 5.4,
+          "late_pct": 18.0,
+          "delta": 12.6
+        },
+        {
+          "archetype": "Dragapult ex",
+          "early_pct": 8.9,
+          "late_pct": 7.1,
+          "delta": -1.8
+        },
+        {
+          "archetype": "Garchomp Roserade",
+          "early_pct": 3.6,
+          "late_pct": 0.8,
+          "delta": -2.8
+        },
+        {
+          "archetype": "Dragapult Noctowl",
+          "early_pct": 3.3,
+          "late_pct": 8.3,
+          "delta": 5.0
+        }
+      ]
     },
     {
       "card_name": "Hoothoot",
@@ -161,7 +788,838 @@
       "late_count": 327,
       "early_pct": 6.2,
       "late_pct": 11.5,
-      "delta": 5.3
+      "delta": 5.3,
+      "direction": "surging",
+      "archetypes": [
+        {
+          "archetype": "Dragapult Meowth",
+          "early_pct": 11.1,
+          "late_pct": 58.6,
+          "delta": 47.5
+        },
+        {
+          "archetype": "Noctowl Ogerpon",
+          "early_pct": 102.9,
+          "late_pct": 106.9,
+          "delta": 4.0
+        },
+        {
+          "archetype": "Dragapult Noctowl",
+          "early_pct": 102.2,
+          "late_pct": 100.0,
+          "delta": -2.2
+        },
+        {
+          "archetype": "Flareon Noctowl",
+          "early_pct": 110.0,
+          "late_pct": 110.5,
+          "delta": 0.5
+        },
+        {
+          "archetype": "Dragapult Dusknoir",
+          "early_pct": 1.9,
+          "late_pct": 12.6,
+          "delta": 10.7
+        }
+      ]
+    }
+  ],
+  "declining": [
+    {
+      "card_name": "Judge",
+      "early_count": 2023,
+      "late_count": 944,
+      "early_pct": 51.8,
+      "late_pct": 33.1,
+      "delta": -18.7,
+      "direction": "declining",
+      "archetypes": [
+        {
+          "archetype": "Mega Lucario",
+          "early_pct": 96.6,
+          "late_pct": 95.7,
+          "delta": -0.9
+        },
+        {
+          "archetype": "Garchomp Roserade",
+          "early_pct": 90.5,
+          "late_pct": 81.3,
+          "delta": -9.2
+        },
+        {
+          "archetype": "Mega Venusaur",
+          "early_pct": 78.1,
+          "late_pct": 79.4,
+          "delta": 1.3
+        },
+        {
+          "archetype": "Mega Lucario Solrock",
+          "early_pct": 86.7,
+          "late_pct": 84.2,
+          "delta": -2.5
+        },
+        {
+          "archetype": "Dragapult Dusknoir",
+          "early_pct": 27.8,
+          "late_pct": 18.0,
+          "delta": -9.8
+        }
+      ]
+    },
+    {
+      "card_name": "Tool Scrapper",
+      "early_count": 842,
+      "late_count": 191,
+      "early_pct": 21.5,
+      "late_pct": 6.7,
+      "delta": -14.8,
+      "direction": "declining",
+      "archetypes": [
+        {
+          "archetype": "Mega Lucario",
+          "early_pct": 48.8,
+          "late_pct": 14.0,
+          "delta": -34.8
+        },
+        {
+          "archetype": "Froslass Grimmsnarl",
+          "early_pct": 42.8,
+          "late_pct": 26.9,
+          "delta": -15.9
+        },
+        {
+          "archetype": "Honchkrow Porygon-Z",
+          "early_pct": 43.1,
+          "late_pct": 33.3,
+          "delta": -9.8
+        },
+        {
+          "archetype": "Darmanitan Zoroark",
+          "early_pct": 38.6,
+          "late_pct": 24.3,
+          "delta": -14.3
+        },
+        {
+          "archetype": "Grimmsnarl Munkidori",
+          "early_pct": 41.6,
+          "late_pct": 11.4,
+          "delta": -30.2
+        }
+      ]
+    },
+    {
+      "card_name": "Switch",
+      "early_count": 1235,
+      "late_count": 492,
+      "early_pct": 31.6,
+      "late_pct": 17.3,
+      "delta": -14.3,
+      "direction": "declining",
+      "archetypes": [
+        {
+          "archetype": "Mega Lucario",
+          "early_pct": 93.7,
+          "late_pct": 89.6,
+          "delta": -4.1
+        },
+        {
+          "archetype": "Garchomp Roserade",
+          "early_pct": 59.8,
+          "late_pct": 35.8,
+          "delta": -24.0
+        },
+        {
+          "archetype": "Mega Lucario Solrock",
+          "early_pct": 68.3,
+          "late_pct": 75.0,
+          "delta": 6.7
+        },
+        {
+          "archetype": "Dragapult Noctowl",
+          "early_pct": 89.1,
+          "late_pct": 75.0,
+          "delta": -14.1
+        },
+        {
+          "archetype": "Flareon Noctowl",
+          "early_pct": 94.0,
+          "late_pct": 97.4,
+          "delta": 3.4
+        }
+      ]
+    },
+    {
+      "card_name": "Air Balloon",
+      "early_count": 1479,
+      "late_count": 685,
+      "early_pct": 37.8,
+      "late_pct": 24.1,
+      "delta": -13.7,
+      "direction": "declining",
+      "archetypes": [
+        {
+          "archetype": "Mega Lucario",
+          "early_pct": 98.0,
+          "late_pct": 96.3,
+          "delta": -1.7
+        },
+        {
+          "archetype": "Grimmsnarl Munkidori",
+          "early_pct": 92.1,
+          "late_pct": 87.8,
+          "delta": -4.3
+        },
+        {
+          "archetype": "Froslass Grimmsnarl",
+          "early_pct": 91.2,
+          "late_pct": 88.5,
+          "delta": -2.7
+        },
+        {
+          "archetype": "Mega Froslass Mega Starmie",
+          "early_pct": 84.2,
+          "late_pct": 66.7,
+          "delta": -17.5
+        },
+        {
+          "archetype": "Barbaracle Okidogi",
+          "early_pct": 98.4,
+          "late_pct": 100.0,
+          "delta": 1.6
+        }
+      ]
+    },
+    {
+      "card_name": "Shaymin",
+      "early_count": 1148,
+      "late_count": 527,
+      "early_pct": 29.4,
+      "late_pct": 18.5,
+      "delta": -10.9,
+      "direction": "declining",
+      "archetypes": [
+        {
+          "archetype": "Alakazam Dudunsparce",
+          "early_pct": 97.0,
+          "late_pct": 93.6,
+          "delta": -3.4
+        },
+        {
+          "archetype": "Dragapult Dusknoir",
+          "early_pct": 47.3,
+          "late_pct": 21.3,
+          "delta": -26.0
+        },
+        {
+          "archetype": "Dragapult ex",
+          "early_pct": 75.6,
+          "late_pct": 49.0,
+          "delta": -26.6
+        },
+        {
+          "archetype": "Froslass Grimmsnarl",
+          "early_pct": 69.2,
+          "late_pct": 34.6,
+          "delta": -34.6
+        },
+        {
+          "archetype": "Blaziken Dragapult",
+          "early_pct": 42.9,
+          "late_pct": 45.6,
+          "delta": 2.7
+        }
+      ]
+    },
+    {
+      "card_name": "Carmine",
+      "early_count": 678,
+      "late_count": 243,
+      "early_pct": 17.3,
+      "late_pct": 8.5,
+      "delta": -8.8,
+      "direction": "declining",
+      "archetypes": [
+        {
+          "archetype": "Mega Lucario",
+          "early_pct": 57.0,
+          "late_pct": 48.8,
+          "delta": -8.2
+        },
+        {
+          "archetype": "Archaludon ex",
+          "early_pct": 96.8,
+          "late_pct": 93.8,
+          "delta": -3.0
+        },
+        {
+          "archetype": "Mega Diancie Dusknoir",
+          "early_pct": 80.0,
+          "late_pct": 65.2,
+          "delta": -14.8
+        },
+        {
+          "archetype": "Mega Lucario Solrock",
+          "early_pct": 32.5,
+          "late_pct": 40.8,
+          "delta": 8.3
+        },
+        {
+          "archetype": "Barbaracle Okidogi",
+          "early_pct": 42.9,
+          "late_pct": 13.3,
+          "delta": -29.6
+        }
+      ]
+    },
+    {
+      "card_name": "Wally's Compassion",
+      "early_count": 678,
+      "late_count": 275,
+      "early_pct": 17.3,
+      "late_pct": 9.7,
+      "delta": -7.6,
+      "direction": "declining",
+      "archetypes": [
+        {
+          "archetype": "Mega Lucario",
+          "early_pct": 63.8,
+          "late_pct": 64.0,
+          "delta": 0.2
+        },
+        {
+          "archetype": "Mega Venusaur",
+          "early_pct": 87.7,
+          "late_pct": 91.2,
+          "delta": 3.5
+        },
+        {
+          "archetype": "Mega Froslass Mega Starmie",
+          "early_pct": 54.8,
+          "late_pct": 40.7,
+          "delta": -14.1
+        },
+        {
+          "archetype": "Mega Lucario Solrock",
+          "early_pct": 55.8,
+          "late_pct": 51.3,
+          "delta": -4.5
+        },
+        {
+          "archetype": "Mega Meganium",
+          "early_pct": 72.1,
+          "late_pct": 85.2,
+          "delta": 13.1
+        }
+      ]
+    },
+    {
+      "card_name": "Premium Power Pro",
+      "early_count": 768,
+      "late_count": 359,
+      "early_pct": 19.7,
+      "late_pct": 12.6,
+      "delta": -7.1,
+      "direction": "declining",
+      "archetypes": [
+        {
+          "archetype": "Mega Lucario",
+          "early_pct": 100.0,
+          "late_pct": 100.0,
+          "delta": 0.0
+        },
+        {
+          "archetype": "Garchomp Roserade",
+          "early_pct": 96.4,
+          "late_pct": 82.1,
+          "delta": -14.3
+        },
+        {
+          "archetype": "Mega Lucario Solrock",
+          "early_pct": 100.0,
+          "late_pct": 100.0,
+          "delta": 0.0
+        },
+        {
+          "archetype": "Mega Lucario ex",
+          "early_pct": 100.0,
+          "late_pct": 100.0,
+          "delta": 0.0
+        },
+        {
+          "archetype": "Barbaracle Okidogi",
+          "early_pct": 14.3,
+          "late_pct": 1.7,
+          "delta": -12.6
+        }
+      ]
+    },
+    {
+      "card_name": "Hero's Cape",
+      "early_count": 475,
+      "late_count": 155,
+      "early_pct": 12.2,
+      "late_pct": 5.4,
+      "delta": -6.8,
+      "direction": "declining",
+      "archetypes": [
+        {
+          "archetype": "Mega Lucario",
+          "early_pct": 33.1,
+          "late_pct": 16.5,
+          "delta": -16.6
+        },
+        {
+          "archetype": "Mega Venusaur",
+          "early_pct": 37.7,
+          "late_pct": 27.9,
+          "delta": -9.8
+        },
+        {
+          "archetype": "Mega Froslass Mega Starmie",
+          "early_pct": 38.4,
+          "late_pct": 7.4,
+          "delta": -31.0
+        },
+        {
+          "archetype": "Archaludon ex",
+          "early_pct": 47.3,
+          "late_pct": 56.2,
+          "delta": 8.9
+        },
+        {
+          "archetype": "Crustle Munkidori",
+          "early_pct": 66.7,
+          "late_pct": 100.0,
+          "delta": 33.3
+        }
+      ]
+    },
+    {
+      "card_name": "Kieran",
+      "early_count": 425,
+      "late_count": 120,
+      "early_pct": 10.9,
+      "late_pct": 4.2,
+      "delta": -6.7,
+      "direction": "declining",
+      "archetypes": [
+        {
+          "archetype": "Dipplin Thwackey",
+          "early_pct": 94.0,
+          "late_pct": 96.4,
+          "delta": 2.4
+        },
+        {
+          "archetype": "Mega Lucario",
+          "early_pct": 13.9,
+          "late_pct": 8.5,
+          "delta": -5.4
+        },
+        {
+          "archetype": "Dipplin Rillaboom",
+          "early_pct": 98.1,
+          "late_pct": 92.3,
+          "delta": -5.8
+        },
+        {
+          "archetype": "Dragapult Dusknoir",
+          "early_pct": 11.8,
+          "late_pct": 2.2,
+          "delta": -9.6
+        },
+        {
+          "archetype": "Mega Lucario Solrock",
+          "early_pct": 34.2,
+          "late_pct": 15.8,
+          "delta": -18.4
+        }
+      ]
+    },
+    {
+      "card_name": "Hilda",
+      "early_count": 935,
+      "late_count": 496,
+      "early_pct": 23.9,
+      "late_pct": 17.4,
+      "delta": -6.5,
+      "direction": "declining",
+      "archetypes": [
+        {
+          "archetype": "Alakazam Dudunsparce",
+          "early_pct": 99.4,
+          "late_pct": 99.4,
+          "delta": 0.0
+        },
+        {
+          "archetype": "Mega Froslass Mega Starmie",
+          "early_pct": 95.5,
+          "late_pct": 88.9,
+          "delta": -6.6
+        },
+        {
+          "archetype": "Garchomp Roserade",
+          "early_pct": 44.4,
+          "late_pct": 66.7,
+          "delta": 22.3
+        },
+        {
+          "archetype": "Dragapult Dusknoir",
+          "early_pct": 23.5,
+          "late_pct": 11.5,
+          "delta": -12.0
+        },
+        {
+          "archetype": "Mega Lucario",
+          "early_pct": 10.7,
+          "late_pct": 10.4,
+          "delta": -0.3
+        }
+      ]
+    },
+    {
+      "card_name": "Riolu",
+      "early_count": 600,
+      "late_count": 258,
+      "early_pct": 15.4,
+      "late_pct": 9.1,
+      "delta": -6.3,
+      "direction": "declining",
+      "archetypes": [
+        {
+          "archetype": "Mega Lucario",
+          "early_pct": 100.0,
+          "late_pct": 101.2,
+          "delta": 1.2
+        },
+        {
+          "archetype": "Mega Lucario Solrock",
+          "early_pct": 100.0,
+          "late_pct": 100.0,
+          "delta": 0.0
+        },
+        {
+          "archetype": "Mega Lucario ex",
+          "early_pct": 100.0,
+          "late_pct": 100.0,
+          "delta": 0.0
+        },
+        {
+          "archetype": "Mega Lucario Dusknoir",
+          "early_pct": 162.5,
+          "late_pct": 100.0,
+          "delta": -62.5
+        },
+        {
+          "archetype": "Mega Lucario Meowth",
+          "early_pct": 100.0,
+          "late_pct": 100.0,
+          "delta": 0.0
+        }
+      ]
+    },
+    {
+      "card_name": "Mega Lucario ex",
+      "early_count": 595,
+      "late_count": 256,
+      "early_pct": 15.2,
+      "late_pct": 9.0,
+      "delta": -6.2,
+      "direction": "declining",
+      "archetypes": [
+        {
+          "archetype": "Mega Lucario",
+          "early_pct": 100.0,
+          "late_pct": 100.0,
+          "delta": 0.0
+        },
+        {
+          "archetype": "Mega Lucario Solrock",
+          "early_pct": 100.0,
+          "late_pct": 100.0,
+          "delta": 0.0
+        },
+        {
+          "archetype": "Mega Lucario ex",
+          "early_pct": 100.0,
+          "late_pct": 100.0,
+          "delta": 0.0
+        },
+        {
+          "archetype": "Mega Lucario Dusknoir",
+          "early_pct": 100.0,
+          "late_pct": 100.0,
+          "delta": 0.0
+        },
+        {
+          "archetype": "Mega Lucario Meowth",
+          "early_pct": 100.0,
+          "late_pct": 100.0,
+          "delta": 0.0
+        }
+      ]
+    },
+    {
+      "card_name": "Fighting Gong",
+      "early_count": 874,
+      "late_count": 466,
+      "early_pct": 22.4,
+      "late_pct": 16.4,
+      "delta": -6.0,
+      "direction": "declining",
+      "archetypes": [
+        {
+          "archetype": "Mega Lucario",
+          "early_pct": 100.0,
+          "late_pct": 100.0,
+          "delta": 0.0
+        },
+        {
+          "archetype": "Garchomp Roserade",
+          "early_pct": 100.0,
+          "late_pct": 100.0,
+          "delta": 0.0
+        },
+        {
+          "archetype": "Mega Lucario Solrock",
+          "early_pct": 100.0,
+          "late_pct": 100.0,
+          "delta": 0.0
+        },
+        {
+          "archetype": "Barbaracle Okidogi",
+          "early_pct": 100.0,
+          "late_pct": 100.0,
+          "delta": 0.0
+        },
+        {
+          "archetype": "Ceruledge ex",
+          "early_pct": 100.0,
+          "late_pct": 100.0,
+          "delta": 0.0
+        }
+      ]
+    },
+    {
+      "card_name": "Lunatone",
+      "early_count": 700,
+      "late_count": 344,
+      "early_pct": 17.9,
+      "late_pct": 12.1,
+      "delta": -5.8,
+      "direction": "declining",
+      "archetypes": [
+        {
+          "archetype": "Mega Lucario",
+          "early_pct": 100.0,
+          "late_pct": 100.0,
+          "delta": 0.0
+        },
+        {
+          "archetype": "Mega Lucario Solrock",
+          "early_pct": 100.0,
+          "late_pct": 100.0,
+          "delta": 0.0
+        },
+        {
+          "archetype": "Barbaracle Okidogi",
+          "early_pct": 100.0,
+          "late_pct": 100.0,
+          "delta": 0.0
+        },
+        {
+          "archetype": "Ceruledge ex",
+          "early_pct": 100.0,
+          "late_pct": 100.0,
+          "delta": 0.0
+        },
+        {
+          "archetype": "Mega Lucario ex",
+          "early_pct": 100.0,
+          "late_pct": 100.0,
+          "delta": 0.0
+        }
+      ]
+    },
+    {
+      "card_name": "Solrock",
+      "early_count": 700,
+      "late_count": 344,
+      "early_pct": 17.9,
+      "late_pct": 12.1,
+      "delta": -5.8,
+      "direction": "declining",
+      "archetypes": [
+        {
+          "archetype": "Mega Lucario",
+          "early_pct": 100.0,
+          "late_pct": 100.0,
+          "delta": 0.0
+        },
+        {
+          "archetype": "Mega Lucario Solrock",
+          "early_pct": 100.0,
+          "late_pct": 100.0,
+          "delta": 0.0
+        },
+        {
+          "archetype": "Barbaracle Okidogi",
+          "early_pct": 100.0,
+          "late_pct": 100.0,
+          "delta": 0.0
+        },
+        {
+          "archetype": "Ceruledge ex",
+          "early_pct": 100.0,
+          "late_pct": 100.0,
+          "delta": 0.0
+        },
+        {
+          "archetype": "Mega Lucario ex",
+          "early_pct": 100.0,
+          "late_pct": 100.0,
+          "delta": 0.0
+        }
+      ]
+    },
+    {
+      "card_name": "Froslass",
+      "early_count": 477,
+      "late_count": 187,
+      "early_pct": 12.2,
+      "late_pct": 6.6,
+      "delta": -5.6,
+      "direction": "declining",
+      "archetypes": [
+        {
+          "archetype": "Grimmsnarl Munkidori",
+          "early_pct": 93.1,
+          "late_pct": 95.9,
+          "delta": 2.8
+        },
+        {
+          "archetype": "Mega Froslass Mega Starmie",
+          "early_pct": 98.9,
+          "late_pct": 96.3,
+          "delta": -2.6
+        },
+        {
+          "archetype": "Froslass Grimmsnarl",
+          "early_pct": 100.0,
+          "late_pct": 100.0,
+          "delta": 0.0
+        },
+        {
+          "archetype": "Mega Froslass Grimmsnarl",
+          "early_pct": 100.0,
+          "late_pct": 100.0,
+          "delta": 0.0
+        },
+        {
+          "archetype": "Mega Froslass Bronzong",
+          "early_pct": 100.0,
+          "late_pct": 100.0,
+          "delta": 0.0
+        }
+      ]
+    },
+    {
+      "card_name": "Hariyama",
+      "early_count": 506,
+      "late_count": 208,
+      "early_pct": 12.9,
+      "late_pct": 7.3,
+      "delta": -5.6,
+      "direction": "declining",
+      "archetypes": [
+        {
+          "archetype": "Mega Lucario",
+          "early_pct": 100.0,
+          "late_pct": 100.0,
+          "delta": 0.0
+        },
+        {
+          "archetype": "Mega Lucario Solrock",
+          "early_pct": 45.8,
+          "late_pct": 47.4,
+          "delta": 1.6
+        },
+        {
+          "archetype": "Mega Lucario ex",
+          "early_pct": 37.5,
+          "late_pct": 53.8,
+          "delta": 16.3
+        }
+      ]
+    },
+    {
+      "card_name": "Makuhita",
+      "early_count": 506,
+      "late_count": 208,
+      "early_pct": 12.9,
+      "late_pct": 7.3,
+      "delta": -5.6,
+      "direction": "declining",
+      "archetypes": [
+        {
+          "archetype": "Mega Lucario",
+          "early_pct": 100.0,
+          "late_pct": 100.0,
+          "delta": 0.0
+        },
+        {
+          "archetype": "Mega Lucario Solrock",
+          "early_pct": 45.8,
+          "late_pct": 47.4,
+          "delta": 1.6
+        },
+        {
+          "archetype": "Mega Lucario ex",
+          "early_pct": 37.5,
+          "late_pct": 53.8,
+          "delta": 16.3
+        }
+      ]
+    },
+    {
+      "card_name": "Secret Box",
+      "early_count": 327,
+      "late_count": 82,
+      "early_pct": 8.4,
+      "late_pct": 2.9,
+      "delta": -5.5,
+      "direction": "declining",
+      "archetypes": [
+        {
+          "archetype": "Froslass Grimmsnarl",
+          "early_pct": 57.2,
+          "late_pct": 15.4,
+          "delta": -41.8
+        },
+        {
+          "archetype": "Mega Diancie Dusknoir",
+          "early_pct": 56.0,
+          "late_pct": 21.7,
+          "delta": -34.3
+        },
+        {
+          "archetype": "Grimmsnarl Munkidori",
+          "early_pct": 29.7,
+          "late_pct": 9.8,
+          "delta": -19.9
+        },
+        {
+          "archetype": "Mewtwo Spidops",
+          "early_pct": 30.0,
+          "late_pct": 9.4,
+          "delta": -20.6
+        },
+        {
+          "archetype": "Garchomp Roserade",
+          "early_pct": 5.9,
+          "late_pct": 2.4,
+          "delta": -3.5
+        }
+      ]
     }
   ]
 }

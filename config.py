@@ -37,6 +37,35 @@ TIER_WEIGHTS = {
     "Rogue": 0,
 }
 
+# Placement weights for performance-weighted tier scoring (City League, 64-player)
+PLACEMENT_WEIGHTS = {
+    1: 3.0,
+    2: 2.5,
+    3: 2.0,
+    4: 2.0,
+    5: 1.5,
+    6: 1.5,
+    7: 1.5,
+    8: 1.5,
+    9: 1.2,
+    10: 1.2,
+    11: 1.2,
+    12: 1.2,
+    13: 1.2,
+    14: 1.2,
+    15: 1.2,
+    16: 1.2,
+}
+# Default weight for standings beyond top 16
+PLACEMENT_WEIGHT_DEFAULT = 1.0
+
+# Champions League weighting multiplier (7000-player field)
+CL_WEIGHT_MULTIPLIER = {
+    "masters": 5.0,
+    "seniors": 2.0,
+    "juniors": 2.0,
+}
+
 # Core card thresholds
 CORE_INCLUSION_RATE = 0.75
 CORE_AVG_COPIES_POKEMON = 3

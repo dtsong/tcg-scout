@@ -1,5 +1,4 @@
 export type Tier = "S" | "A" | "B" | "C" | "Rogue";
-export type Urgency = "URGENT" | "HIGH" | "MODERATE";
 
 export interface ArchetypeSummary {
   archetype: string;
@@ -8,6 +7,8 @@ export interface ArchetypeSummary {
   deck_count: number;
   best_placement: number;
   tier: Tier;
+  weighted_share?: number;
+  sprite_filenames?: string[];
 }
 
 export interface MetaData {
@@ -26,8 +27,8 @@ export interface BuylistCard {
   set_code: string | null;
   set_number: string | null;
   priority_score: number;
-  urgency: Urgency;
   core_flex: "core" | "flex";
+  image_path?: string;
   archetypes: string[];
   avg_copies: number;
   inclusion_rate: number;
@@ -40,6 +41,13 @@ export interface StapleCard {
   avg_copies: number;
 }
 
+export interface TrendCardArchetype {
+  archetype: string;
+  early_pct: number;
+  late_pct: number;
+  delta: number;
+}
+
 export interface TrendCard {
   card_name: string;
   early_count: number;
@@ -47,13 +55,16 @@ export interface TrendCard {
   early_pct: number;
   late_pct: number;
   delta: number;
+  direction?: "surging" | "declining";
+  archetypes?: TrendCardArchetype[];
 }
 
 export interface TrendsData {
   midpoint: string;
   early_decks: number;
   late_decks: number;
-  cards: TrendCard[];
+  surging: TrendCard[];
+  declining: TrendCard[];
 }
 
 export interface WinningEdgeCard {
@@ -78,15 +89,25 @@ export interface ArchetypeCard {
   decks_with: number;
 }
 
+export interface ArchetypeResult {
+  tournament_name: string;
+  date: string;
+  standing: number;
+  player_name: string;
+}
+
 export interface ArchetypeDetail {
   archetype: string;
   slug: string;
   tier: Tier;
   meta_share: number;
+  weighted_share?: number;
   deck_count: number;
   best_placement: number;
+  sprite_filenames?: string[];
   core_cards: ArchetypeCard[];
   all_cards: ArchetypeCard[];
+  results?: ArchetypeResult[];
 }
 
 export interface CLDecklistCard {
