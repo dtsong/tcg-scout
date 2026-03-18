@@ -105,14 +105,58 @@ def _slugify(name: str) -> str:
 
 
 def _get_sprite_filenames(archetype_name: str) -> list[str]:
-    """Get sprite filenames for an archetype by reverse-looking up the sprite key."""
-    # Reverse lookup: archetype name → sprite key
+    """Get sprite filenames for an archetype.
+
+    Priority: exact reverse lookup in SPRITE_ARCHETYPE_MAP, then derive from name.
+    """
+    # Priority 1: Reverse lookup from canonical map
     for key, name in SPRITE_ARCHETYPE_MAP.items():
         if name == archetype_name:
-            # Get filenames from composite map, or use key directly
             filenames = _COMPOSITE_SPRITE_FILENAMES.get(key, [key])
             return [f"{fn}.png" for fn in filenames]
-    return []
+
+    # Priority 2: Derive from archetype name by parsing Pokemon names
+    # "Dragapult Meowth" -> ["dragapult.png", "meowth.png"]
+    # "Mega Lucario Noctowl" -> ["lucario-mega.png", "noctowl.png"]
+    # "Ceruledge ex" -> ["ceruledge.png"]
+    parts = archetype_name.split()
+    filenames: list[str] = []
+    i = 0
+    while i < len(parts):
+        part = parts[i].lower()
+        # Skip suffixes and non-Pokemon tokens
+        if part in ("ex", "box", "stall", "control", "x", "y", "unknown"):
+            i += 1
+            continue
+        # "Mega X" -> "x-mega", "Mega Charizard X" -> "charizard-mega-x"
+        if part == "mega" and i + 1 < len(parts):
+            next_part = parts[i + 1].lower()
+            if next_part not in ("ex", "box", "stall", "control", "unknown"):
+                # Check for "Mega Pokemon X/Y" variant (e.g. Mega Charizard X)
+                if i + 2 < len(parts) and parts[i + 2].lower() in ("x", "y"):
+                    filenames.append(f"{next_part}-mega-{parts[i + 2].lower()}.png")
+                    i += 3
+                    continue
+                filenames.append(f"{next_part}-mega.png")
+                i += 2
+                continue
+        # Handle hyphenated names (Porygon-Z, Raging Bolt, etc.)
+        if i + 1 < len(parts) and parts[i + 1].lower() not in ("ex", "box", "stall", "control", "mega"):
+            # Check if this could be a two-word Pokemon name
+            combined = f"{part}-{parts[i + 1].lower()}"
+            # Known two-word Pokemon that use hyphens in sprite names
+            if combined in (
+                "raging-bolt", "iron-hands", "iron-valiant", "roaring-moon",
+                "chien-pao", "porygon-z", "ogerpon-wellspring", "ogerpon-cornerstone",
+                "ho-oh", "zacian-crowned",
+            ):
+                filenames.append(f"{combined}.png")
+                i += 2
+                continue
+        filenames.append(f"{part}.png")
+        i += 1
+
+    return filenames[:2]  # Max 2 sprites per archetype
 
 
 def _compute_weighted_shares(conn: sqlite3.Connection, snapshot: dict) -> dict[str, float]:
@@ -719,10 +763,9 @@ def export_images(conn: sqlite3.Connection, output_dir: Path) -> None:
 
     sprite_files: set[str] = set()
     for arch in snapshot["archetypes"]:
-        if arch["tier"] in ("S", "A", "B", "C"):
-            filenames = _get_sprite_filenames(arch["archetype"])
-            for fn in filenames:
-                sprite_files.add(fn)
+        filenames = _get_sprite_filenames(arch["archetype"])
+        for fn in filenames:
+            sprite_files.add(fn)
 
     # Download sprites
     downloaded = 0

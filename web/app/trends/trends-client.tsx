@@ -118,7 +118,7 @@ export function TrendsClient({
                         {card.archetypes.slice(0, 3).map((a) => (
                           <span key={a.archetype} className="text-[10px] px-1.5 py-0.5 rounded bg-surface-700 text-surface-300">
                             {a.archetype}
-                            <span className={a.delta > 0 ? "text-signal-up ml-1" : "text-signal-down ml-1"}>
+                            <span className={`ml-1 ${a.delta > 0 ? "text-signal-up" : a.delta < 0 ? "text-signal-down" : "text-surface-400"}`}>
                               {a.delta > 0 ? "+" : ""}{a.delta.toFixed(1)}%
                             </span>
                           </span>
@@ -133,7 +133,7 @@ export function TrendsClient({
                     {card.late_pct.toFixed(1)}%
                   </td>
                   <td className="px-4 py-3 text-right font-mono tabular-nums">
-                    <span className={card.delta > 0 ? "text-signal-up" : "text-signal-down"}>
+                    <span className={card.delta > 0 ? "text-signal-up" : card.delta < 0 ? "text-signal-down" : "text-surface-400"}>
                       {card.delta > 0 ? "+" : ""}
                       {card.delta.toFixed(1)}%
                     </span>
@@ -177,7 +177,7 @@ export function TrendsClient({
                         {card.archetypes.slice(0, 3).map((a) => (
                           <span key={a.archetype} className="text-[10px] px-1.5 py-0.5 rounded bg-surface-700 text-surface-300">
                             {a.archetype}
-                            <span className={a.delta > 0 ? "text-signal-up ml-1" : "text-signal-down ml-1"}>
+                            <span className={`ml-1 ${a.delta > 0 ? "text-signal-up" : a.delta < 0 ? "text-signal-down" : "text-surface-400"}`}>
                               {a.delta > 0 ? "+" : ""}{a.delta.toFixed(1)}%
                             </span>
                           </span>
