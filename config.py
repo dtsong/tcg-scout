@@ -118,6 +118,19 @@ LIMITLESS_REQUESTS_PER_MINUTE = 25
 LIMITLESS_TIMEOUT = 30.0
 LIMITLESS_MAX_RETRIES = 3
 
+# Pokemon JP API: City League event_type values (3:N = City League Season N)
+# Each season maps to a different competitive period within the championship year.
+POKEMON_JP_CITY_LEAGUE_EVENT_TYPES = [
+    "3:1",
+    "3:2",
+    "3:3",
+    "3:4",
+    "3:5",
+    "3:6",
+    "3:7",
+    "3:8",
+]
+
 # TCGdex
 TCGDEX_API_URL = "https://api.tcgdex.net/v2/en"
 

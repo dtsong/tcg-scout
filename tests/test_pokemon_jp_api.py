@@ -19,6 +19,13 @@ try:
 except ImportError:
     _POKEMON_JP_AVAILABLE = False
 
+try:
+    from scraper.pokemon_jp_api import PokemonJPAPIClient  # noqa: F401
+
+    _POKEMON_JP_API_AVAILABLE = True
+except ImportError:
+    _POKEMON_JP_API_AVAILABLE = False
+
 
 @pytest.mark.skipif(not _POKEMON_JP_AVAILABLE, reason="scraper.pokemon_jp requires 'kernel' module")
 class TestStoreCLResults:
@@ -135,6 +142,29 @@ class TestStoreCLResults:
             (placement2["id"],),
         ).fetchall()
         assert len(cards_for_p2) == 0
+
+
+class TestEventTypeConfig:
+    def test_all_city_league_seasons_included(self):
+        """Ensure all City League seasons 1-8 are included in event types."""
+        from config import POKEMON_JP_CITY_LEAGUE_EVENT_TYPES
+
+        for season in range(1, 9):
+            assert f"3:{season}" in POKEMON_JP_CITY_LEAGUE_EVENT_TYPES, (
+                f"Missing City League season 3:{season}"
+            )
+
+    @pytest.mark.skipif(not _POKEMON_JP_API_AVAILABLE, reason="httpx not installed")
+    def test_scraper_uses_config_event_types(self):
+        """PokemonJPAPIClient should reference config for event types."""
+        import inspect
+
+        from scraper.pokemon_jp_api import PokemonJPAPIClient
+
+        source = inspect.getsource(PokemonJPAPIClient.fetch_cl_events)
+        # Should not have hardcoded event types
+        assert "3:1" not in source, "Event types should come from config, not be hardcoded"
+        assert "POKEMON_JP_CITY_LEAGUE_EVENT_TYPES" in source
 
 
 class TestArchetypeCrossRef:
