@@ -1350,28 +1350,49 @@ def export_archetypes(conn: sqlite3.Connection, output_dir: Path) -> None:
             if inclusion >= 80:
                 core_cards.append(card_data)
 
-        # Tournament results — top 50 by standing ASC, date DESC
+        # Tournament results — top 16 by standing ASC, date DESC
+        # (limited to 16 since each result now includes full decklists)
         results_rows = conn.execute(
             """
-            SELECT t.name AS tournament_name, t.date, p.standing, p.player_name
+            SELECT p.id AS placement_id, t.name AS tournament_name, t.date,
+                   p.standing, p.player_name
             FROM placements p
             JOIN tournaments t ON t.id = p.tournament_id
             WHERE p.archetype = ?
             ORDER BY p.standing ASC, t.date DESC
-            LIMIT 50
+            LIMIT 16
             """,
             (archetype_name,),
         ).fetchall()
 
-        results = [
-            {
+        # Category sort order for decklists
+        _category_order = {"Pokemon": 0, "Trainer": 1, "Energy": 2}
+
+        results = []
+        for r in results_rows:
+            entry: dict = {
                 "tournament_name": r["tournament_name"],
                 "date": r["date"],
                 "standing": r["standing"],
                 "player_name": r["player_name"],
             }
-            for r in results_rows
-        ]
+            # Attach decklist if available
+            dl_rows = conn.execute(
+                "SELECT card_name, count FROM decklist_cards WHERE placement_id = ?",
+                (r["placement_id"],),
+            ).fetchall()
+            if dl_rows:
+                decklist = [
+                    {
+                        "card_name": dl["card_name"],
+                        "count": dl["count"],
+                        "category": _classify_card(dl["card_name"]),
+                    }
+                    for dl in dl_rows
+                ]
+                decklist.sort(key=lambda c: (_category_order.get(c["category"], 99), -c["count"]))
+                entry["decklist"] = decklist
+            results.append(entry)
 
         # Radar metrics
         meta_share_val = arch["meta_share"]

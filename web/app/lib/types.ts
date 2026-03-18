@@ -105,11 +105,18 @@ export interface ArchetypeCard {
   category?: "Pokemon" | "Trainer" | "Energy";
 }
 
+export interface DecklistCard {
+  card_name: string;
+  count: number;
+  category?: "Pokemon" | "Trainer" | "Energy";
+}
+
 export interface ArchetypeResult {
   tournament_name: string;
   date: string;
   standing: number;
   player_name: string;
+  decklist?: DecklistCard[];
 }
 
 export interface ArchetypeRadar {
