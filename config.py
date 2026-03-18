@@ -39,7 +39,7 @@ FORMATS = {
         "name_en": "Chaos Rising",
         "dataset_start": "2026-03-14",
         "dataset_end": "2026-05-22",
-        "rotation_date": "2026-04-10",
+        "rotation_date": "2026-06-05",
         "description": "Temporal Forces through Mega Evolution: Chaos Rising",
         "db_name": "ninja-spinner.db",
     },
