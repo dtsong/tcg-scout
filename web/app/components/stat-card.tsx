@@ -13,10 +13,10 @@ export function StatCard({
 }) {
   return (
     <div className={cn("flex flex-col gap-1", className)}>
-      <span className="text-sm text-surface-300 font-[family-name:var(--font-body)]">
+      <span className="text-sm text-surface-300 font-body">
         {label}
       </span>
-      <span className="font-[family-name:var(--font-mono)] text-2xl font-medium text-slate-100 tabular-nums">
+      <span className="font-mono text-2xl font-medium text-slate-100 tabular-nums">
         {value}
         {unit && (
           <span className="text-sm text-surface-300 ml-1">{unit}</span>

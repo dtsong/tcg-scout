@@ -24,7 +24,7 @@ export default function Dashboard() {
       {/* Hero */}
       <section className="relative rounded-lg bg-surface-800 border border-surface-600 p-6 sm:p-8 scanline-overlay">
         <div className="relative">
-          <h1 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl font-bold text-slate-100">
+          <h1 className="font-display text-3xl sm:text-4xl font-bold text-slate-100">
             Scout
           </h1>
           <p className="mt-2 text-surface-300 max-w-2xl">
@@ -43,7 +43,7 @@ export default function Dashboard() {
                 <Calendar className="w-3.5 h-3.5" />
                 Rotation
               </span>
-              <span className="font-[family-name:var(--font-mono)] text-2xl font-medium text-accent tabular-nums">
+              <span className="font-mono text-2xl font-medium text-accent tabular-nums">
                 {rotationDays > 0 ? `${rotationDays}d` : "Live"}
               </span>
             </div>
@@ -54,7 +54,7 @@ export default function Dashboard() {
       {/* Tier List Preview */}
       <section>
         <div className="flex items-center justify-between mb-4">
-          <h2 className="font-[family-name:var(--font-display)] text-xl font-semibold text-slate-100">
+          <h2 className="font-display text-xl font-semibold text-slate-100">
             Meta Tier List
           </h2>
           <Link
@@ -92,10 +92,10 @@ export default function Dashboard() {
                       {arch.archetype}
                     </Link>
                   </td>
-                  <td className="px-4 py-3 text-right font-[family-name:var(--font-mono)] tabular-nums">
+                  <td className="px-4 py-3 text-right font-mono tabular-nums">
                     {formatPct(arch.meta_share)}
                   </td>
-                  <td className="px-4 py-3 text-right font-[family-name:var(--font-mono)] tabular-nums text-surface-300 hidden sm:table-cell">
+                  <td className="px-4 py-3 text-right font-mono tabular-nums text-surface-300 hidden sm:table-cell">
                     {arch.deck_count}
                   </td>
                 </tr>
@@ -110,7 +110,7 @@ export default function Dashboard() {
         {/* Surging Cards */}
         <section className="bg-surface-800 border border-surface-600 rounded-lg p-5">
           <div className="flex items-center justify-between mb-4">
-            <h3 className="font-[family-name:var(--font-display)] text-sm font-semibold text-slate-200 flex items-center gap-2">
+            <h3 className="font-display text-sm font-semibold text-slate-200 flex items-center gap-2">
               <TrendingUp className="w-4 h-4 text-signal-up" />
               Surging Cards
             </h3>
@@ -122,7 +122,7 @@ export default function Dashboard() {
             {surgingCards.map((card) => (
               <div key={card.card_name} className="flex items-center justify-between">
                 <span className="text-sm text-slate-300 truncate mr-2">{card.card_name}</span>
-                <span className="font-[family-name:var(--font-mono)] text-xs text-signal-up whitespace-nowrap">
+                <span className="font-mono text-xs text-signal-up whitespace-nowrap">
                   +{card.delta.toFixed(1)}%
                 </span>
               </div>
@@ -133,7 +133,7 @@ export default function Dashboard() {
         {/* Winning Edge */}
         <section className="bg-surface-800 border border-surface-600 rounded-lg p-5">
           <div className="flex items-center justify-between mb-4">
-            <h3 className="font-[family-name:var(--font-display)] text-sm font-semibold text-slate-200 flex items-center gap-2">
+            <h3 className="font-display text-sm font-semibold text-slate-200 flex items-center gap-2">
               <Trophy className="w-4 h-4 text-tier-s" />
               Winning Edge
             </h3>
@@ -145,7 +145,7 @@ export default function Dashboard() {
             {topEdge.map((card) => (
               <div key={card.card_name} className="flex items-center justify-between">
                 <span className="text-sm text-slate-300 truncate mr-2">{card.card_name}</span>
-                <span className="font-[family-name:var(--font-mono)] text-xs text-tier-s whitespace-nowrap">
+                <span className="font-mono text-xs text-tier-s whitespace-nowrap">
                   +{card.edge.toFixed(1)}%
                 </span>
               </div>
@@ -156,7 +156,7 @@ export default function Dashboard() {
         {/* ACE SPEC Distribution */}
         <section className="bg-surface-800 border border-surface-600 rounded-lg p-5">
           <div className="flex items-center justify-between mb-4">
-            <h3 className="font-[family-name:var(--font-display)] text-sm font-semibold text-slate-200 flex items-center gap-2">
+            <h3 className="font-display text-sm font-semibold text-slate-200 flex items-center gap-2">
               <ShoppingCart className="w-4 h-4 text-tier-rogue" />
               ACE SPECs
             </h3>
@@ -168,7 +168,7 @@ export default function Dashboard() {
             {topAceSpecs.map((spec) => (
               <div key={spec.card_name} className="flex items-center justify-between">
                 <span className="text-sm text-slate-300 truncate mr-2">{spec.card_name}</span>
-                <span className="font-[family-name:var(--font-mono)] text-xs text-surface-300 whitespace-nowrap">
+                <span className="font-mono text-xs text-surface-300 whitespace-nowrap">
                   {formatPct(spec.usage_pct)}
                 </span>
               </div>
@@ -190,7 +190,7 @@ export default function Dashboard() {
             href={href}
             className="group bg-surface-800 border border-surface-600 rounded-lg p-4 hover:border-surface-400 transition-colors"
           >
-            <h3 className="font-[family-name:var(--font-display)] font-semibold text-slate-200 group-hover:text-accent transition-colors">
+            <h3 className="font-display font-semibold text-slate-200 group-hover:text-accent transition-colors">
               {title}
             </h3>
             <p className="text-sm text-surface-300 mt-1">{desc}</p>

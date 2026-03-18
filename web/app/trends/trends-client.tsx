@@ -28,7 +28,7 @@ export function TrendsClient({
   return (
     <div className="space-y-8">
       <div>
-        <h1 className="font-[family-name:var(--font-display)] text-2xl font-bold text-slate-100">
+        <h1 className="font-display text-2xl font-bold text-slate-100">
           Trends
         </h1>
         <p className="text-sm text-surface-300 mt-1">
@@ -38,7 +38,7 @@ export function TrendsClient({
 
       {/* Trend Chart */}
       <div className="bg-surface-800 border border-surface-600 rounded-lg p-4 sm:p-6">
-        <h2 className="font-[family-name:var(--font-display)] text-sm font-semibold text-slate-200 mb-4 flex items-center gap-2">
+        <h2 className="font-display text-sm font-semibold text-slate-200 mb-4 flex items-center gap-2">
           <TrendingUp className="w-4 h-4 text-signal-up" />
           Top Surging Cards — Early vs Late Period
         </h2>
@@ -86,7 +86,7 @@ export function TrendsClient({
       {/* Surging Cards Table */}
       <div className="bg-surface-800 border border-surface-600 rounded-lg overflow-hidden">
         <div className="px-4 py-3 border-b border-surface-600">
-          <h2 className="font-[family-name:var(--font-display)] text-sm font-semibold text-slate-200 flex items-center gap-2">
+          <h2 className="font-display text-sm font-semibold text-slate-200 flex items-center gap-2">
             <TrendingUp className="w-4 h-4 text-signal-up" />
             Surging Cards
           </h2>
@@ -109,13 +109,13 @@ export function TrendsClient({
                   style={{ animationDelay: `${i * 20}ms` }}
                 >
                   <td className="px-4 py-3 text-slate-200">{card.card_name}</td>
-                  <td className="px-4 py-3 text-right font-[family-name:var(--font-mono)] tabular-nums text-surface-300">
+                  <td className="px-4 py-3 text-right font-mono tabular-nums text-surface-300">
                     {card.early_pct.toFixed(1)}%
                   </td>
-                  <td className="px-4 py-3 text-right font-[family-name:var(--font-mono)] tabular-nums text-surface-300">
+                  <td className="px-4 py-3 text-right font-mono tabular-nums text-surface-300">
                     {card.late_pct.toFixed(1)}%
                   </td>
-                  <td className="px-4 py-3 text-right font-[family-name:var(--font-mono)] tabular-nums">
+                  <td className="px-4 py-3 text-right font-mono tabular-nums">
                     <span className={card.delta > 0 ? "text-signal-up" : "text-signal-down"}>
                       {card.delta > 0 ? "+" : ""}
                       {card.delta.toFixed(1)}%
@@ -131,7 +131,7 @@ export function TrendsClient({
       {/* Winning Edge */}
       <div className="bg-surface-800 border border-surface-600 rounded-lg overflow-hidden">
         <div className="px-4 py-3 border-b border-surface-600">
-          <h2 className="font-[family-name:var(--font-display)] text-sm font-semibold text-slate-200 flex items-center gap-2">
+          <h2 className="font-display text-sm font-semibold text-slate-200 flex items-center gap-2">
             <Trophy className="w-4 h-4 text-tier-s" />
             Winning Edge — 1st Place Overrepresentation vs Field
           </h2>
@@ -157,13 +157,13 @@ export function TrendsClient({
                   style={{ animationDelay: `${i * 20}ms` }}
                 >
                   <td className="px-4 py-3 text-slate-200">{card.card_name}</td>
-                  <td className="px-4 py-3 text-right font-[family-name:var(--font-mono)] tabular-nums text-surface-300">
+                  <td className="px-4 py-3 text-right font-mono tabular-nums text-surface-300">
                     {card.field_pct.toFixed(1)}%
                   </td>
-                  <td className="px-4 py-3 text-right font-[family-name:var(--font-mono)] tabular-nums text-surface-300">
+                  <td className="px-4 py-3 text-right font-mono tabular-nums text-surface-300">
                     {card.win_pct.toFixed(1)}%
                   </td>
-                  <td className="px-4 py-3 text-right font-[family-name:var(--font-mono)] tabular-nums">
+                  <td className="px-4 py-3 text-right font-mono tabular-nums">
                     <span className={card.edge > 0 ? "text-signal-up" : "text-signal-down"}>
                       {card.edge > 0 ? "+" : ""}
                       {card.edge.toFixed(1)}%

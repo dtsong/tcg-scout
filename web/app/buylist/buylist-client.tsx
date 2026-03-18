@@ -30,7 +30,7 @@ export function BuylistClient({
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="font-[family-name:var(--font-display)] text-2xl font-bold text-slate-100">
+        <h1 className="font-display text-2xl font-bold text-slate-100">
           Buy List
         </h1>
         <p className="text-sm text-surface-300 mt-1">
@@ -102,7 +102,7 @@ export function BuylistClient({
                   header: "Priority",
                   align: "right",
                   render: (c) => (
-                    <span className="font-[family-name:var(--font-mono)] tabular-nums">
+                    <span className="font-mono tabular-nums">
                       {c.priority_score.toFixed(1)}
                     </span>
                   ),
@@ -114,7 +114,7 @@ export function BuylistClient({
                   align: "right",
                   hideOnMobile: true,
                   render: (c) => (
-                    <span className="font-[family-name:var(--font-mono)] tabular-nums text-surface-300">
+                    <span className="font-mono tabular-nums text-surface-300">
                       {c.avg_copies.toFixed(1)}
                     </span>
                   ),
@@ -126,7 +126,7 @@ export function BuylistClient({
                   align: "right",
                   hideOnMobile: true,
                   render: (c) => (
-                    <span className="font-[family-name:var(--font-mono)] tabular-nums text-surface-300">
+                    <span className="font-mono tabular-nums text-surface-300">
                       {formatPct(c.inclusion_rate * 100)}
                     </span>
                   ),
@@ -170,7 +170,7 @@ export function BuylistClient({
                 header: "Usage",
                 align: "right",
                 render: (c) => (
-                  <span className="font-[family-name:var(--font-mono)] tabular-nums">
+                  <span className="font-mono tabular-nums">
                     {formatPct(c.usage_pct)}
                   </span>
                 ),
@@ -181,7 +181,7 @@ export function BuylistClient({
                 header: "Avg Copies",
                 align: "right",
                 render: (c) => (
-                  <span className="font-[family-name:var(--font-mono)] tabular-nums text-surface-300">
+                  <span className="font-mono tabular-nums text-surface-300">
                     {c.avg_copies.toFixed(1)}
                   </span>
                 ),
@@ -193,7 +193,7 @@ export function BuylistClient({
                 align: "right",
                 hideOnMobile: true,
                 render: (c) => (
-                  <span className="font-[family-name:var(--font-mono)] tabular-nums text-surface-300">
+                  <span className="font-mono tabular-nums text-surface-300">
                     {c.deck_count}
                   </span>
                 ),
@@ -222,7 +222,7 @@ export function BuylistClient({
                 header: "Usage",
                 align: "right",
                 render: (c) => (
-                  <span className="font-[family-name:var(--font-mono)] tabular-nums">
+                  <span className="font-mono tabular-nums">
                     {formatPct(c.usage_pct)}
                   </span>
                 ),
@@ -233,7 +233,7 @@ export function BuylistClient({
                 header: "Avg Copies",
                 align: "right",
                 render: (c) => (
-                  <span className="font-[family-name:var(--font-mono)] tabular-nums text-surface-300">
+                  <span className="font-mono tabular-nums text-surface-300">
                     {c.avg_copies.toFixed(1)}
                   </span>
                 ),
@@ -245,7 +245,7 @@ export function BuylistClient({
                 align: "right",
                 hideOnMobile: true,
                 render: (c) => (
-                  <span className="font-[family-name:var(--font-mono)] tabular-nums text-surface-300">
+                  <span className="font-mono tabular-nums text-surface-300">
                     {c.deck_count}
                   </span>
                 ),

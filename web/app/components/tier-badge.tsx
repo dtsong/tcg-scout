@@ -14,7 +14,7 @@ export function TierBadge({ tier, className }: { tier: Tier; className?: string 
   return (
     <span
       className={cn(
-        "inline-flex items-center px-2.5 py-0.5 text-xs font-semibold font-[family-name:var(--font-display)] border-l-2 rounded-r-sm",
+        "inline-flex items-center px-2.5 py-0.5 text-xs font-semibold font-display border-l-2 rounded-r-sm",
         config.bg,
         config.border,
         config.text,

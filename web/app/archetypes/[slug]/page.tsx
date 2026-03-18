@@ -20,7 +20,7 @@ export default async function ArchetypeDetailPage({
       <div>
         <div className="flex items-center gap-3 mb-2">
           <TierBadge tier={arch.tier} />
-          <h1 className="font-[family-name:var(--font-display)] text-2xl font-bold text-slate-100">
+          <h1 className="font-display text-2xl font-bold text-slate-100">
             {arch.archetype}
           </h1>
         </div>
@@ -34,7 +34,7 @@ export default async function ArchetypeDetailPage({
 
       {/* Core Cards */}
       <section>
-        <h2 className="font-[family-name:var(--font-display)] text-lg font-semibold text-slate-100 mb-4">
+        <h2 className="font-display text-lg font-semibold text-slate-100 mb-4">
           Core Cards
           <span className="text-sm font-normal text-surface-300 ml-2">80%+ inclusion</span>
         </h2>
@@ -57,13 +57,13 @@ export default async function ArchetypeDetailPage({
                     style={{ animationDelay: `${i * 20}ms` }}
                   >
                     <td className="px-4 py-3 text-slate-200">{card.card_name}</td>
-                    <td className="px-4 py-3 text-right font-[family-name:var(--font-mono)] tabular-nums">
+                    <td className="px-4 py-3 text-right font-mono tabular-nums">
                       {card.inclusion_pct.toFixed(1)}%
                     </td>
-                    <td className="px-4 py-3 text-right font-[family-name:var(--font-mono)] tabular-nums">
+                    <td className="px-4 py-3 text-right font-mono tabular-nums">
                       {card.avg_copies.toFixed(1)}
                     </td>
-                    <td className="px-4 py-3 text-right text-surface-300 font-[family-name:var(--font-mono)] tabular-nums hidden sm:table-cell">
+                    <td className="px-4 py-3 text-right text-surface-300 font-mono tabular-nums hidden sm:table-cell">
                       {card.decks_with}
                     </td>
                   </tr>
@@ -76,7 +76,7 @@ export default async function ArchetypeDetailPage({
 
       {/* All Cards */}
       <section>
-        <h2 className="font-[family-name:var(--font-display)] text-lg font-semibold text-slate-100 mb-4">
+        <h2 className="font-display text-lg font-semibold text-slate-100 mb-4">
           All Cards
           <span className="text-sm font-normal text-surface-300 ml-2">
             {arch.all_cards.length} unique cards
@@ -99,10 +99,10 @@ export default async function ArchetypeDetailPage({
                     className="border-b border-surface-700 hover:bg-surface-700/50 transition-colors"
                   >
                     <td className="px-4 py-3 text-slate-300">{card.card_name}</td>
-                    <td className="px-4 py-3 text-right font-[family-name:var(--font-mono)] tabular-nums text-surface-300">
+                    <td className="px-4 py-3 text-right font-mono tabular-nums text-surface-300">
                       {card.inclusion_pct.toFixed(1)}%
                     </td>
-                    <td className="px-4 py-3 text-right font-[family-name:var(--font-mono)] tabular-nums text-surface-300">
+                    <td className="px-4 py-3 text-right font-mono tabular-nums text-surface-300">
                       {card.avg_copies.toFixed(1)}
                     </td>
                   </tr>

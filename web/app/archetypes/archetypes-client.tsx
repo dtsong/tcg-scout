@@ -11,7 +11,7 @@ export function ArchetypesClient({ archetypes }: { archetypes: ArchetypeSummary[
   return (
     <div className="space-y-8">
       <div>
-        <h1 className="font-[family-name:var(--font-display)] text-2xl font-bold text-slate-100">
+        <h1 className="font-display text-2xl font-bold text-slate-100">
           Archetypes
         </h1>
         <p className="text-sm text-surface-300 mt-1">
@@ -20,7 +20,7 @@ export function ArchetypesClient({ archetypes }: { archetypes: ArchetypeSummary[
       </div>
 
       <div className="bg-surface-800 border border-surface-600 rounded-lg p-4 sm:p-6">
-        <h2 className="font-[family-name:var(--font-display)] text-sm font-semibold text-slate-200 mb-4">
+        <h2 className="font-display text-sm font-semibold text-slate-200 mb-4">
           Top 20 Meta Shares
         </h2>
         <MetaBarChart data={archetypes} />
@@ -59,7 +59,7 @@ export function ArchetypesClient({ archetypes }: { archetypes: ArchetypeSummary[
               header: "Meta Share",
               align: "right",
               render: (a) => (
-                <span className="font-[family-name:var(--font-mono)] tabular-nums">
+                <span className="font-mono tabular-nums">
                   {formatPct(a.meta_share)}
                 </span>
               ),
@@ -71,7 +71,7 @@ export function ArchetypesClient({ archetypes }: { archetypes: ArchetypeSummary[
               align: "right",
               hideOnMobile: true,
               render: (a) => (
-                <span className="font-[family-name:var(--font-mono)] tabular-nums text-surface-300">
+                <span className="font-mono tabular-nums text-surface-300">
                   {a.deck_count}
                 </span>
               ),

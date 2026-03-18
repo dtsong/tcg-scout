@@ -28,7 +28,7 @@ function PlacementRow({ placement }: { placement: CLPlacement }) {
         className="border-b border-surface-700 hover:bg-surface-700/50 transition-colors cursor-pointer"
         onClick={() => setExpanded(!expanded)}
       >
-        <td className="px-4 py-3 font-[family-name:var(--font-mono)] tabular-nums text-surface-300 w-16">
+        <td className="px-4 py-3 font-mono tabular-nums text-surface-300 w-16">
           {placement.standing}
         </td>
         <td className="px-4 py-3 text-slate-200">
@@ -70,7 +70,7 @@ function PlacementRow({ placement }: { placement: CLPlacement }) {
                               </span>
                             )}
                           </span>
-                          <span className="font-[family-name:var(--font-mono)] text-xs text-surface-300 ml-2 tabular-nums">
+                          <span className="font-mono text-xs text-surface-300 ml-2 tabular-nums">
                             x{card.count}
                           </span>
                         </div>
@@ -98,7 +98,7 @@ export function ChampionsClient({
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="font-[family-name:var(--font-display)] text-2xl font-bold text-slate-100">
+        <h1 className="font-display text-2xl font-bold text-slate-100">
           Champions League
         </h1>
         <p className="text-sm text-surface-300 mt-1">
