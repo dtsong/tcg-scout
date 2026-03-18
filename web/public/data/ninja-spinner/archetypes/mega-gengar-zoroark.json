@@ -103,13 +103,6 @@
       "category": "Pokemon"
     },
     {
-      "card_name": "Darkness Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 8.0,
-      "decks_with": 2,
-      "category": "Energy"
-    },
-    {
       "card_name": "Buddy-Buddy Poffin",
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
@@ -217,13 +210,6 @@
       "category": "Pokemon"
     },
     {
-      "card_name": "Darkness Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 8.0,
-      "decks_with": 2,
-      "category": "Energy"
-    },
-    {
       "card_name": "Buddy-Buddy Poffin",
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
@@ -326,7 +312,7 @@
       "inclusion_pct": 50.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Energy"
+      "category": "Trainer"
     },
     {
       "card_name": "Dawn",
@@ -391,5 +377,13 @@
       "standing": 9,
       "player_name": "AN"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 1.4,
+    "weighted_share": 1.3,
+    "consistency": 75.0,
+    "ceiling": 75,
+    "popularity": 3.1,
+    "core_density": 42.9
+  }
 }

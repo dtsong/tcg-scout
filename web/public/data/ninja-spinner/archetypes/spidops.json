@@ -151,13 +151,6 @@
       "category": "Pokemon"
     },
     {
-      "card_name": "Grass Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 8.0,
-      "decks_with": 1,
-      "category": "Energy"
-    },
-    {
       "card_name": "Buddy-Buddy Poffin",
       "inclusion_pct": 100.0,
       "avg_copies": 3.0,
@@ -314,13 +307,6 @@
       "category": "Pokemon"
     },
     {
-      "card_name": "Grass Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 8.0,
-      "decks_with": 1,
-      "category": "Energy"
-    },
-    {
       "card_name": "Buddy-Buddy Poffin",
       "inclusion_pct": 100.0,
       "avg_copies": 3.0,
@@ -342,5 +328,13 @@
       "standing": 5,
       "player_name": "がや"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 0.7,
+    "weighted_share": 0.6,
+    "consistency": 80.0,
+    "ceiling": 50,
+    "popularity": 1.6,
+    "core_density": 100.0
+  }
 }

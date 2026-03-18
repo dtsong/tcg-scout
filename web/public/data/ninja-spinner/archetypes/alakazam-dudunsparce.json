@@ -3,7 +3,7 @@
   "slug": "alakazam-dudunsparce",
   "tier": "C",
   "meta_share": 2.5,
-  "weighted_share": 2.7,
+  "weighted_share": 2.5,
   "deck_count": 18,
   "best_placement": 1,
   "sprite_filenames": [
@@ -31,13 +31,6 @@
       "avg_copies": 3.2,
       "decks_with": 18,
       "category": "Trainer"
-    },
-    {
-      "card_name": "Psychic Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 2.4,
-      "decks_with": 18,
-      "category": "Energy"
     },
     {
       "card_name": "Poké Pad",
@@ -166,13 +159,6 @@
       "avg_copies": 3.2,
       "decks_with": 18,
       "category": "Trainer"
-    },
-    {
-      "card_name": "Psychic Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 2.4,
-      "decks_with": 18,
-      "category": "Energy"
     },
     {
       "card_name": "Poké Pad",
@@ -564,5 +550,13 @@
       "standing": 16,
       "player_name": "LK"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 12.7,
+    "weighted_share": 12.6,
+    "consistency": 68.9,
+    "ceiling": 100,
+    "popularity": 28.1,
+    "core_density": 41.9
+  }
 }

@@ -12,13 +12,6 @@
   ],
   "core_cards": [
     {
-      "card_name": "Water Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 6.0,
-      "decks_with": 1,
-      "category": "Energy"
-    },
-    {
       "card_name": "Wally's Compassion",
       "inclusion_pct": 100.0,
       "avg_copies": 3.0,
@@ -181,13 +174,6 @@
     }
   ],
   "all_cards": [
-    {
-      "card_name": "Water Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 6.0,
-      "decks_with": 1,
-      "category": "Energy"
-    },
     {
       "card_name": "Wally's Compassion",
       "inclusion_pct": 100.0,
@@ -357,5 +343,13 @@
       "standing": 6,
       "player_name": "ペイチン"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 0.7,
+    "weighted_share": 0.6,
+    "consistency": 75.0,
+    "ceiling": 50,
+    "popularity": 1.6,
+    "core_density": 100.0
+  }
 }

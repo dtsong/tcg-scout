@@ -61,13 +61,6 @@
       "category": "Pokemon"
     },
     {
-      "card_name": "Psychic Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 3.0,
-      "decks_with": 1,
-      "category": "Energy"
-    },
-    {
       "card_name": "Poké Pad",
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
@@ -245,13 +238,6 @@
       "category": "Pokemon"
     },
     {
-      "card_name": "Psychic Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 3.0,
-      "decks_with": 1,
-      "category": "Energy"
-    },
-    {
       "card_name": "Poké Pad",
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
@@ -385,5 +371,13 @@
       "standing": 3,
       "player_name": "やしーすけ"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 0.7,
+    "weighted_share": 0.8,
+    "consistency": 90.0,
+    "ceiling": 75,
+    "popularity": 1.6,
+    "core_density": 100.0
+  }
 }

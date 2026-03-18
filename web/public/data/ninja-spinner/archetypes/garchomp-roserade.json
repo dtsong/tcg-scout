@@ -3,7 +3,7 @@
   "slug": "garchomp-roserade",
   "tier": "B",
   "meta_share": 3.5,
-  "weighted_share": 2.9,
+  "weighted_share": 2.7,
   "deck_count": 25,
   "best_placement": 3,
   "sprite_filenames": [
@@ -24,13 +24,6 @@
       "avg_copies": 3.9,
       "decks_with": 25,
       "category": "Trainer"
-    },
-    {
-      "card_name": "Fighting Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 4.7,
-      "decks_with": 25,
-      "category": "Energy"
     },
     {
       "card_name": "Cynthia's Roserade",
@@ -131,13 +124,6 @@
       "avg_copies": 3.9,
       "decks_with": 25,
       "category": "Trainer"
-    },
-    {
-      "card_name": "Fighting Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 4.7,
-      "decks_with": 25,
-      "category": "Energy"
     },
     {
       "card_name": "Cynthia's Roserade",
@@ -455,13 +441,6 @@
       "category": "Pokemon"
     },
     {
-      "card_name": "Darkness Energy",
-      "inclusion_pct": 4.0,
-      "avg_copies": 3.0,
-      "decks_with": 1,
-      "category": "Energy"
-    },
-    {
       "card_name": "Crispin",
       "inclusion_pct": 4.0,
       "avg_copies": 2.0,
@@ -627,5 +606,13 @@
       "standing": 16,
       "player_name": "咆狼~ほうろう~"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 17.6,
+    "weighted_share": 13.4,
+    "consistency": 51.6,
+    "ceiling": 75,
+    "popularity": 39.1,
+    "core_density": 28.6
+  }
 }

@@ -343,5 +343,13 @@
       "standing": 3,
       "player_name": "スーリヤ"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 0.7,
+    "weighted_share": 0.8,
+    "consistency": 90.0,
+    "ceiling": 75,
+    "popularity": 1.6,
+    "core_density": 100.0
+  }
 }

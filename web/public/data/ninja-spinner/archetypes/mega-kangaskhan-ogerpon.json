@@ -3,7 +3,7 @@
   "slug": "mega-kangaskhan-ogerpon",
   "tier": "B",
   "meta_share": 3.7,
-  "weighted_share": 4.0,
+  "weighted_share": 3.6,
   "deck_count": 26,
   "best_placement": 1,
   "sprite_filenames": [
@@ -40,13 +40,6 @@
       "category": "Pokemon"
     },
     {
-      "card_name": "Grass Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 6.9,
-      "decks_with": 26,
-      "category": "Energy"
-    },
-    {
       "card_name": "Fezandipiti ex",
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
@@ -79,7 +72,7 @@
       "inclusion_pct": 96.2,
       "avg_copies": 3.6,
       "decks_with": 25,
-      "category": "Energy"
+      "category": "Trainer"
     },
     {
       "card_name": "Meowth ex",
@@ -94,13 +87,6 @@
       "avg_copies": 2.5,
       "decks_with": 24,
       "category": "Pokemon"
-    },
-    {
-      "card_name": "Psychic Energy",
-      "inclusion_pct": 88.5,
-      "avg_copies": 2.8,
-      "decks_with": 23,
-      "category": "Energy"
     },
     {
       "card_name": "Night Stretcher",
@@ -154,13 +140,6 @@
       "category": "Pokemon"
     },
     {
-      "card_name": "Grass Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 6.9,
-      "decks_with": 26,
-      "category": "Energy"
-    },
-    {
       "card_name": "Fezandipiti ex",
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
@@ -193,7 +172,7 @@
       "inclusion_pct": 96.2,
       "avg_copies": 3.6,
       "decks_with": 25,
-      "category": "Energy"
+      "category": "Trainer"
     },
     {
       "card_name": "Meowth ex",
@@ -208,13 +187,6 @@
       "avg_copies": 2.5,
       "decks_with": 24,
       "category": "Pokemon"
-    },
-    {
-      "card_name": "Psychic Energy",
-      "inclusion_pct": 88.5,
-      "avg_copies": 2.8,
-      "decks_with": 23,
-      "category": "Energy"
     },
     {
       "card_name": "Night Stretcher",
@@ -250,13 +222,6 @@
       "avg_copies": 1.7,
       "decks_with": 17,
       "category": "Pokemon"
-    },
-    {
-      "card_name": "Water Energy",
-      "inclusion_pct": 65.4,
-      "avg_copies": 1.7,
-      "decks_with": 17,
-      "category": "Energy"
     },
     {
       "card_name": "Brock's Scouting",
@@ -308,13 +273,6 @@
       "category": "Pokemon"
     },
     {
-      "card_name": "Darkness Energy",
-      "inclusion_pct": 38.5,
-      "avg_copies": 2.9,
-      "decks_with": 10,
-      "category": "Energy"
-    },
-    {
       "card_name": "Pokégear 3.0",
       "inclusion_pct": 34.6,
       "avg_copies": 2.4,
@@ -334,20 +292,6 @@
       "avg_copies": 1.0,
       "decks_with": 9,
       "category": "Pokemon"
-    },
-    {
-      "card_name": "Lightning Energy",
-      "inclusion_pct": 30.8,
-      "avg_copies": 2.1,
-      "decks_with": 8,
-      "category": "Energy"
-    },
-    {
-      "card_name": "Fighting Energy",
-      "inclusion_pct": 26.9,
-      "avg_copies": 2.9,
-      "decks_with": 7,
-      "category": "Energy"
     },
     {
       "card_name": "Raging Bolt ex",
@@ -382,7 +326,7 @@
       "inclusion_pct": 15.4,
       "avg_copies": 1.0,
       "decks_with": 4,
-      "category": "Energy"
+      "category": "Trainer"
     },
     {
       "card_name": "Tapu Koko ex",
@@ -480,7 +424,7 @@
       "inclusion_pct": 7.7,
       "avg_copies": 1.0,
       "decks_with": 2,
-      "category": "Energy"
+      "category": "Trainer"
     },
     {
       "card_name": "Carmine",
@@ -635,13 +579,6 @@
       "avg_copies": 2.0,
       "decks_with": 1,
       "category": "Pokemon"
-    },
-    {
-      "card_name": "Fire Energy",
-      "inclusion_pct": 3.8,
-      "avg_copies": 2.0,
-      "decks_with": 1,
-      "category": "Energy"
     },
     {
       "card_name": "Fighting Gong",
@@ -850,5 +787,13 @@
       "standing": 15,
       "player_name": "ざと"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 18.4,
+    "weighted_share": 18.2,
+    "consistency": 69.6,
+    "ceiling": 100,
+    "popularity": 40.6,
+    "core_density": 18.9
+  }
 }

@@ -3,7 +3,7 @@
   "slug": "dipplin-thwackey",
   "tier": "Rogue",
   "meta_share": 1.0,
-  "weighted_share": 1.1,
+  "weighted_share": 1.0,
   "deck_count": 7,
   "best_placement": 2,
   "sprite_filenames": [
@@ -52,13 +52,6 @@
       "avg_copies": 3.7,
       "decks_with": 7,
       "category": "Pokemon"
-    },
-    {
-      "card_name": "Grass Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 4.7,
-      "decks_with": 7,
-      "category": "Energy"
     },
     {
       "card_name": "Festival Grounds",
@@ -180,13 +173,6 @@
       "avg_copies": 3.7,
       "decks_with": 7,
       "category": "Pokemon"
-    },
-    {
-      "card_name": "Grass Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 4.7,
-      "decks_with": 7,
-      "category": "Energy"
     },
     {
       "card_name": "Festival Grounds",
@@ -470,5 +456,13 @@
       "standing": 13,
       "player_name": "ナナさんすぅ"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 5.0,
+    "weighted_share": 5.1,
+    "consistency": 77.1,
+    "ceiling": 90,
+    "popularity": 10.9,
+    "core_density": 42.5
+  }
 }

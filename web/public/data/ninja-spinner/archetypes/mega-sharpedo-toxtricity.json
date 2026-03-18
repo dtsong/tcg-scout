@@ -96,13 +96,6 @@
       "category": "Pokemon"
     },
     {
-      "card_name": "Darkness Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 8.4,
-      "decks_with": 5,
-      "category": "Energy"
-    },
-    {
       "card_name": "Carvanha",
       "inclusion_pct": 100.0,
       "avg_copies": 3.6,
@@ -243,13 +236,6 @@
       "avg_copies": 1.4,
       "decks_with": 5,
       "category": "Pokemon"
-    },
-    {
-      "card_name": "Darkness Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 8.4,
-      "decks_with": 5,
-      "category": "Energy"
     },
     {
       "card_name": "Carvanha",
@@ -396,7 +382,7 @@
       "inclusion_pct": 20.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Energy"
+      "category": "Trainer"
     },
     {
       "card_name": "Dunsparce",
@@ -479,5 +465,13 @@
       "standing": 15,
       "player_name": "もつ"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 3.5,
+    "weighted_share": 2.9,
+    "consistency": 53.0,
+    "ceiling": 90,
+    "popularity": 7.8,
+    "core_density": 50.0
+  }
 }

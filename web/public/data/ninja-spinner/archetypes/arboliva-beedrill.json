@@ -3,7 +3,7 @@
   "slug": "arboliva-beedrill",
   "tier": "Rogue",
   "meta_share": 0.8,
-  "weighted_share": 1.0,
+  "weighted_share": 0.9,
   "deck_count": 6,
   "best_placement": 1,
   "sprite_filenames": [
@@ -59,13 +59,6 @@
       "avg_copies": 4.0,
       "decks_with": 6,
       "category": "Trainer"
-    },
-    {
-      "card_name": "Grass Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 5.0,
-      "decks_with": 6,
-      "category": "Energy"
     },
     {
       "card_name": "Forest of Vitality",
@@ -189,13 +182,6 @@
       "category": "Trainer"
     },
     {
-      "card_name": "Grass Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 5.0,
-      "decks_with": 6,
-      "category": "Energy"
-    },
-    {
       "card_name": "Forest of Vitality",
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
@@ -303,5 +289,13 @@
       "standing": 14,
       "player_name": "しばやん"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 4.2,
+    "weighted_share": 4.6,
+    "consistency": 75.8,
+    "ceiling": 100,
+    "popularity": 9.4,
+    "core_density": 100.0
+  }
 }

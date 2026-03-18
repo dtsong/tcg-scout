@@ -12,13 +12,6 @@
   ],
   "core_cards": [
     {
-      "card_name": "Water Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 6.8,
-      "decks_with": 4,
-      "category": "Energy"
-    },
-    {
       "card_name": "Ultra Ball",
       "inclusion_pct": 100.0,
       "avg_copies": 3.8,
@@ -132,13 +125,6 @@
     }
   ],
   "all_cards": [
-    {
-      "card_name": "Water Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 6.8,
-      "decks_with": 4,
-      "category": "Energy"
-    },
     {
       "card_name": "Ultra Ball",
       "inclusion_pct": 100.0,
@@ -361,5 +347,13 @@
       "standing": 15,
       "player_name": "TeacH"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 2.8,
+    "weighted_share": 2.8,
+    "consistency": 61.2,
+    "ceiling": 100,
+    "popularity": 6.2,
+    "core_density": 57.1
+  }
 }

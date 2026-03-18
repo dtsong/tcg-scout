@@ -3,7 +3,7 @@
   "slug": "mega-lucario",
   "tier": "B",
   "meta_share": 6.6,
-  "weighted_share": 7.1,
+  "weighted_share": 6.5,
   "deck_count": 47,
   "best_placement": 1,
   "sprite_filenames": [
@@ -87,13 +87,6 @@
       "avg_copies": 4.0,
       "decks_with": 47,
       "category": "Trainer"
-    },
-    {
-      "card_name": "Fighting Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 10.1,
-      "decks_with": 47,
-      "category": "Energy"
     },
     {
       "card_name": "Boss's Orders",
@@ -208,13 +201,6 @@
       "avg_copies": 4.0,
       "decks_with": 47,
       "category": "Trainer"
-    },
-    {
-      "card_name": "Fighting Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 10.1,
-      "decks_with": 47,
-      "category": "Energy"
     },
     {
       "card_name": "Boss's Orders",
@@ -773,5 +759,13 @@
       "standing": 16,
       "player_name": "わー"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 33.2,
+    "weighted_share": 32.8,
+    "consistency": 71.6,
+    "ceiling": 100,
+    "popularity": 73.4,
+    "core_density": 32.0
+  }
 }

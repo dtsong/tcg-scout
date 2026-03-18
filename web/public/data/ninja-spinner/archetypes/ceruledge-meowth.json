@@ -54,25 +54,11 @@
       "category": "Pokemon"
     },
     {
-      "card_name": "Fire Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 8.0,
-      "decks_with": 2,
-      "category": "Energy"
-    },
-    {
       "card_name": "Fighting Gong",
       "inclusion_pct": 100.0,
       "avg_copies": 3.5,
       "decks_with": 2,
       "category": "Trainer"
-    },
-    {
-      "card_name": "Fighting Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 12.5,
-      "decks_with": 2,
-      "category": "Energy"
     },
     {
       "card_name": "Fezandipiti ex",
@@ -168,25 +154,11 @@
       "category": "Pokemon"
     },
     {
-      "card_name": "Fire Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 8.0,
-      "decks_with": 2,
-      "category": "Energy"
-    },
-    {
       "card_name": "Fighting Gong",
       "inclusion_pct": 100.0,
       "avg_copies": 3.5,
       "decks_with": 2,
       "category": "Trainer"
-    },
-    {
-      "card_name": "Fighting Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 12.5,
-      "decks_with": 2,
-      "category": "Energy"
     },
     {
       "card_name": "Fezandipiti ex",
@@ -272,5 +244,13 @@
       "standing": 12,
       "player_name": "香月(こうづき)"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 1.4,
+    "weighted_share": 0.9,
+    "consistency": 47.5,
+    "ceiling": 25,
+    "popularity": 3.1,
+    "core_density": 82.4
+  }
 }

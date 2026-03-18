@@ -3,7 +3,7 @@
   "slug": "mega-diancie-dusknoir",
   "tier": "Rogue",
   "meta_share": 0.6,
-  "weighted_share": 0.5,
+  "weighted_share": 0.4,
   "deck_count": 4,
   "best_placement": 7,
   "sprite_filenames": [
@@ -38,13 +38,6 @@
       "avg_copies": 2.8,
       "decks_with": 4,
       "category": "Trainer"
-    },
-    {
-      "card_name": "Psychic Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 7.2,
-      "decks_with": 4,
-      "category": "Energy"
     },
     {
       "card_name": "Powerglass",
@@ -159,13 +152,6 @@
       "avg_copies": 2.8,
       "decks_with": 4,
       "category": "Trainer"
-    },
-    {
-      "card_name": "Psychic Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 7.2,
-      "decks_with": 4,
-      "category": "Energy"
     },
     {
       "card_name": "Powerglass",
@@ -389,5 +375,13 @@
       "standing": 16,
       "player_name": "ショデ"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 2.8,
+    "weighted_share": 2.0,
+    "consistency": 47.5,
+    "ceiling": 50,
+    "popularity": 6.2,
+    "core_density": 50.0
+  }
 }

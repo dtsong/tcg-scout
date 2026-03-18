@@ -3,7 +3,7 @@
   "slug": "dudunsparce-yanmega",
   "tier": "Rogue",
   "meta_share": 0.1,
-  "weighted_share": 0.3,
+  "weighted_share": 0.2,
   "deck_count": 1,
   "best_placement": 1,
   "sprite_filenames": [
@@ -96,13 +96,6 @@
       "category": "Trainer"
     },
     {
-      "card_name": "Grass Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 10.0,
-      "decks_with": 1,
-      "category": "Energy"
-    },
-    {
       "card_name": "Fezandipiti ex",
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
@@ -114,7 +107,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Energy"
+      "category": "Trainer"
     },
     {
       "card_name": "Dunsparce",
@@ -238,13 +231,6 @@
       "category": "Trainer"
     },
     {
-      "card_name": "Grass Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 10.0,
-      "decks_with": 1,
-      "category": "Energy"
-    },
-    {
       "card_name": "Fezandipiti ex",
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
@@ -256,7 +242,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Energy"
+      "category": "Trainer"
     },
     {
       "card_name": "Dunsparce",
@@ -301,5 +287,13 @@
       "standing": 1,
       "player_name": "かくりつ"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 0.7,
+    "weighted_share": 1.2,
+    "consistency": 100.0,
+    "ceiling": 100,
+    "popularity": 1.6,
+    "core_density": 100.0
+  }
 }

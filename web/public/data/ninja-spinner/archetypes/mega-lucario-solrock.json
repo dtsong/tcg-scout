@@ -3,7 +3,7 @@
   "slug": "mega-lucario-solrock",
   "tier": "C",
   "meta_share": 1.3,
-  "weighted_share": 1.2,
+  "weighted_share": 1.1,
   "deck_count": 9,
   "best_placement": 4,
   "sprite_filenames": [
@@ -73,13 +73,6 @@
       "avg_copies": 4.0,
       "decks_with": 9,
       "category": "Trainer"
-    },
-    {
-      "card_name": "Fighting Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 10.1,
-      "decks_with": 9,
-      "category": "Energy"
     },
     {
       "card_name": "Boss's Orders",
@@ -159,13 +152,6 @@
       "avg_copies": 4.0,
       "decks_with": 9,
       "category": "Trainer"
-    },
-    {
-      "card_name": "Fighting Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 10.1,
-      "decks_with": 9,
-      "category": "Energy"
     },
     {
       "card_name": "Boss's Orders",
@@ -378,13 +364,6 @@
       "category": "Pokemon"
     },
     {
-      "card_name": "Darkness Energy",
-      "inclusion_pct": 11.1,
-      "avg_copies": 3.0,
-      "decks_with": 1,
-      "category": "Energy"
-    },
-    {
       "card_name": "Crispin",
       "inclusion_pct": 11.1,
       "avg_copies": 3.0,
@@ -468,5 +447,13 @@
       "standing": 16,
       "player_name": "テレサ"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 6.3,
+    "weighted_share": 5.6,
+    "consistency": 64.4,
+    "ceiling": 75,
+    "popularity": 14.1,
+    "core_density": 25.6
+  }
 }

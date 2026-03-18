@@ -19,13 +19,6 @@
       "category": "Pokemon"
     },
     {
-      "card_name": "Water Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 1.0,
-      "decks_with": 1,
-      "category": "Energy"
-    },
-    {
       "card_name": "Ultra Ball",
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
@@ -52,13 +45,6 @@
       "avg_copies": 4.0,
       "decks_with": 1,
       "category": "Trainer"
-    },
-    {
-      "card_name": "Psychic Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 1.0,
-      "decks_with": 1,
-      "category": "Energy"
     },
     {
       "card_name": "Prism Energy",
@@ -96,13 +82,6 @@
       "category": "Pokemon"
     },
     {
-      "card_name": "Metal Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 2.0,
-      "decks_with": 1,
-      "category": "Energy"
-    },
-    {
       "card_name": "Mega Lopunny ex",
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
@@ -115,13 +94,6 @@
       "avg_copies": 1.0,
       "decks_with": 1,
       "category": "Trainer"
-    },
-    {
-      "card_name": "Lightning Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 4.0,
-      "decks_with": 1,
-      "category": "Energy"
     },
     {
       "card_name": "Light Ball",
@@ -166,13 +138,6 @@
       "category": "Pokemon"
     },
     {
-      "card_name": "Grass Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 4.0,
-      "decks_with": 1,
-      "category": "Energy"
-    },
-    {
       "card_name": "Fezandipiti ex",
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
@@ -184,14 +149,14 @@
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Energy"
+      "category": "Trainer"
     },
     {
       "card_name": "Energy Recycler",
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Energy"
+      "category": "Trainer"
     },
     {
       "card_name": "Crispin",
@@ -245,13 +210,6 @@
       "category": "Pokemon"
     },
     {
-      "card_name": "Water Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 1.0,
-      "decks_with": 1,
-      "category": "Energy"
-    },
-    {
       "card_name": "Ultra Ball",
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
@@ -278,13 +236,6 @@
       "avg_copies": 4.0,
       "decks_with": 1,
       "category": "Trainer"
-    },
-    {
-      "card_name": "Psychic Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 1.0,
-      "decks_with": 1,
-      "category": "Energy"
     },
     {
       "card_name": "Prism Energy",
@@ -322,13 +273,6 @@
       "category": "Pokemon"
     },
     {
-      "card_name": "Metal Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 2.0,
-      "decks_with": 1,
-      "category": "Energy"
-    },
-    {
       "card_name": "Mega Lopunny ex",
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
@@ -341,13 +285,6 @@
       "avg_copies": 1.0,
       "decks_with": 1,
       "category": "Trainer"
-    },
-    {
-      "card_name": "Lightning Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 4.0,
-      "decks_with": 1,
-      "category": "Energy"
     },
     {
       "card_name": "Light Ball",
@@ -392,13 +329,6 @@
       "category": "Pokemon"
     },
     {
-      "card_name": "Grass Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 4.0,
-      "decks_with": 1,
-      "category": "Energy"
-    },
-    {
       "card_name": "Fezandipiti ex",
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
@@ -410,14 +340,14 @@
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Energy"
+      "category": "Trainer"
     },
     {
       "card_name": "Energy Recycler",
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Energy"
+      "category": "Trainer"
     },
     {
       "card_name": "Crispin",
@@ -469,5 +399,13 @@
       "standing": 15,
       "player_name": "シオン"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 0.7,
+    "weighted_share": 0.5,
+    "consistency": 30.0,
+    "ceiling": 25,
+    "popularity": 1.6,
+    "core_density": 100.0
+  }
 }

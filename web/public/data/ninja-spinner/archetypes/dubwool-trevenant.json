@@ -3,7 +3,7 @@
   "slug": "dubwool-trevenant",
   "tier": "Rogue",
   "meta_share": 0.4,
-  "weighted_share": 0.4,
+  "weighted_share": 0.3,
   "deck_count": 3,
   "best_placement": 5,
   "sprite_filenames": [
@@ -411,5 +411,13 @@
       "standing": 16,
       "player_name": "パリキン"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 2.1,
+    "weighted_share": 1.7,
+    "consistency": 60.0,
+    "ceiling": 50,
+    "popularity": 4.7,
+    "core_density": 80.0
+  }
 }

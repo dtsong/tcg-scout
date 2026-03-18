@@ -3,7 +3,7 @@
   "slug": "mega-froslass-mega-starmie",
   "tier": "C",
   "meta_share": 1.4,
-  "weighted_share": 1.5,
+  "weighted_share": 1.4,
   "deck_count": 10,
   "best_placement": 1,
   "sprite_filenames": [
@@ -11,13 +11,6 @@
     "starmie-mega.png"
   ],
   "core_cards": [
-    {
-      "card_name": "Water Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 4.9,
-      "decks_with": 10,
-      "category": "Energy"
-    },
     {
       "card_name": "Ultra Ball",
       "inclusion_pct": 100.0,
@@ -94,13 +87,6 @@
       "avg_copies": 2.9,
       "decks_with": 9,
       "category": "Pokemon"
-    },
-    {
-      "card_name": "Darkness Energy",
-      "inclusion_pct": 90.0,
-      "avg_copies": 3.3,
-      "decks_with": 9,
-      "category": "Energy"
     },
     {
       "card_name": "Crispin",
@@ -126,13 +112,6 @@
   ],
   "all_cards": [
     {
-      "card_name": "Water Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 4.9,
-      "decks_with": 10,
-      "category": "Energy"
-    },
-    {
       "card_name": "Ultra Ball",
       "inclusion_pct": 100.0,
       "avg_copies": 3.3,
@@ -208,13 +187,6 @@
       "avg_copies": 2.9,
       "decks_with": 9,
       "category": "Pokemon"
-    },
-    {
-      "card_name": "Darkness Energy",
-      "inclusion_pct": 90.0,
-      "avg_copies": 3.3,
-      "decks_with": 9,
-      "category": "Energy"
     },
     {
       "card_name": "Crispin",
@@ -523,5 +495,13 @@
       "standing": 13,
       "player_name": "としまる"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 7.0,
+    "weighted_share": 6.8,
+    "consistency": 72.0,
+    "ceiling": 100,
+    "popularity": 15.6,
+    "core_density": 30.4
+  }
 }

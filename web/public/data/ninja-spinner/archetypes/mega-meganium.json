@@ -89,13 +89,6 @@
       "category": "Pokemon"
     },
     {
-      "card_name": "Grass Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 11.2,
-      "decks_with": 6,
-      "category": "Energy"
-    },
-    {
       "card_name": "Forest of Vitality",
       "inclusion_pct": 100.0,
       "avg_copies": 3.0,
@@ -236,13 +229,6 @@
       "avg_copies": 2.0,
       "decks_with": 6,
       "category": "Pokemon"
-    },
-    {
-      "card_name": "Grass Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 11.2,
-      "decks_with": 6,
-      "category": "Energy"
     },
     {
       "card_name": "Forest of Vitality",
@@ -429,5 +415,13 @@
       "standing": 16,
       "player_name": "草月"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 4.2,
+    "weighted_share": 3.4,
+    "consistency": 51.7,
+    "ceiling": 75,
+    "popularity": 9.4,
+    "core_density": 62.5
+  }
 }

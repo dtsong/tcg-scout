@@ -180,13 +180,6 @@
       "category": "Trainer"
     },
     {
-      "card_name": "Darkness Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 8.0,
-      "decks_with": 1,
-      "category": "Energy"
-    },
-    {
       "card_name": "Cyrano",
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
@@ -385,13 +378,6 @@
       "category": "Trainer"
     },
     {
-      "card_name": "Darkness Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 8.0,
-      "decks_with": 1,
-      "category": "Energy"
-    },
-    {
       "card_name": "Cyrano",
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
@@ -427,5 +413,13 @@
       "standing": 2,
       "player_name": "アリ"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 0.7,
+    "weighted_share": 1.0,
+    "consistency": 95.0,
+    "ceiling": 90,
+    "popularity": 1.6,
+    "core_density": 100.0
+  }
 }

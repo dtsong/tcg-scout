@@ -75,13 +75,6 @@
       "category": "Trainer"
     },
     {
-      "card_name": "Metal Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 12.0,
-      "decks_with": 1,
-      "category": "Energy"
-    },
-    {
       "card_name": "Lumiose City",
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
@@ -203,13 +196,6 @@
       "category": "Trainer"
     },
     {
-      "card_name": "Metal Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 12.0,
-      "decks_with": 1,
-      "category": "Energy"
-    },
-    {
       "card_name": "Lumiose City",
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
@@ -273,5 +259,13 @@
       "standing": 8,
       "player_name": "ちゃみんす"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 0.7,
+    "weighted_share": 0.6,
+    "consistency": 65.0,
+    "ceiling": 50,
+    "popularity": 1.6,
+    "core_density": 100.0
+  }
 }

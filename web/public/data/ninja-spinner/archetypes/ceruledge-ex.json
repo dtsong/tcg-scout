@@ -3,7 +3,7 @@
   "slug": "ceruledge-ex",
   "tier": "Rogue",
   "meta_share": 1.0,
-  "weighted_share": 1.0,
+  "weighted_share": 0.9,
   "deck_count": 7,
   "best_placement": 2,
   "sprite_filenames": [
@@ -46,25 +46,11 @@
       "category": "Pokemon"
     },
     {
-      "card_name": "Fire Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 7.0,
-      "decks_with": 7,
-      "category": "Energy"
-    },
-    {
       "card_name": "Fighting Gong",
       "inclusion_pct": 100.0,
       "avg_copies": 3.6,
       "decks_with": 7,
       "category": "Trainer"
-    },
-    {
-      "card_name": "Fighting Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 12.3,
-      "decks_with": 7,
-      "category": "Energy"
     },
     {
       "card_name": "Charcadet",
@@ -153,25 +139,11 @@
       "category": "Pokemon"
     },
     {
-      "card_name": "Fire Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 7.0,
-      "decks_with": 7,
-      "category": "Energy"
-    },
-    {
       "card_name": "Fighting Gong",
       "inclusion_pct": 100.0,
       "avg_copies": 3.6,
       "decks_with": 7,
       "category": "Trainer"
-    },
-    {
-      "card_name": "Fighting Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 12.3,
-      "decks_with": 7,
-      "category": "Energy"
     },
     {
       "card_name": "Charcadet",
@@ -420,5 +392,13 @@
       "standing": 15,
       "player_name": "サブロウ"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 5.0,
+    "weighted_share": 4.5,
+    "consistency": 65.7,
+    "ceiling": 90,
+    "popularity": 10.9,
+    "core_density": 37.1
+  }
 }

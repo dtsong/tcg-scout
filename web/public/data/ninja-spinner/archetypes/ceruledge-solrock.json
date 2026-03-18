@@ -82,20 +82,6 @@
       "category": "Trainer"
     },
     {
-      "card_name": "Fire Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 5.0,
-      "decks_with": 1,
-      "category": "Energy"
-    },
-    {
-      "card_name": "Fighting Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 16.0,
-      "decks_with": 1,
-      "category": "Energy"
-    },
-    {
       "card_name": "Drilbur",
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
@@ -217,20 +203,6 @@
       "category": "Trainer"
     },
     {
-      "card_name": "Fire Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 5.0,
-      "decks_with": 1,
-      "category": "Energy"
-    },
-    {
-      "card_name": "Fighting Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 16.0,
-      "decks_with": 1,
-      "category": "Energy"
-    },
-    {
       "card_name": "Drilbur",
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
@@ -287,5 +259,13 @@
       "standing": 9,
       "player_name": "キメジマ"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 0.7,
+    "weighted_share": 0.5,
+    "consistency": 60.0,
+    "ceiling": 25,
+    "popularity": 1.6,
+    "core_density": 100.0
+  }
 }

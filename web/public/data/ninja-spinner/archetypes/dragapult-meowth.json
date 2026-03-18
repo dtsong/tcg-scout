@@ -3,7 +3,7 @@
   "slug": "dragapult-meowth",
   "tier": "A",
   "meta_share": 9.0,
-  "weighted_share": 9.6,
+  "weighted_share": 8.8,
   "deck_count": 64,
   "best_placement": 1,
   "sprite_filenames": [
@@ -17,13 +17,6 @@
       "avg_copies": 4.0,
       "decks_with": 64,
       "category": "Trainer"
-    },
-    {
-      "card_name": "Psychic Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 3.3,
-      "decks_with": 64,
-      "category": "Energy"
     },
     {
       "card_name": "Poké Pad",
@@ -45,13 +38,6 @@
       "avg_copies": 4.0,
       "decks_with": 64,
       "category": "Trainer"
-    },
-    {
-      "card_name": "Fire Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 3.0,
-      "decks_with": 64,
-      "category": "Energy"
     },
     {
       "card_name": "Fezandipiti ex",
@@ -122,13 +108,6 @@
       "avg_copies": 1.3,
       "decks_with": 62,
       "category": "Pokemon"
-    },
-    {
-      "card_name": "Darkness Energy",
-      "inclusion_pct": 96.9,
-      "avg_copies": 1.7,
-      "decks_with": 62,
-      "category": "Energy"
     },
     {
       "card_name": "Special Red Card",
@@ -182,13 +161,6 @@
       "category": "Trainer"
     },
     {
-      "card_name": "Psychic Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 3.3,
-      "decks_with": 64,
-      "category": "Energy"
-    },
-    {
       "card_name": "Poké Pad",
       "inclusion_pct": 100.0,
       "avg_copies": 3.9,
@@ -208,13 +180,6 @@
       "avg_copies": 4.0,
       "decks_with": 64,
       "category": "Trainer"
-    },
-    {
-      "card_name": "Fire Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 3.0,
-      "decks_with": 64,
-      "category": "Energy"
     },
     {
       "card_name": "Fezandipiti ex",
@@ -285,13 +250,6 @@
       "avg_copies": 1.3,
       "decks_with": 62,
       "category": "Pokemon"
-    },
-    {
-      "card_name": "Darkness Energy",
-      "inclusion_pct": 96.9,
-      "avg_copies": 1.7,
-      "decks_with": 62,
-      "category": "Energy"
     },
     {
       "card_name": "Special Red Card",
@@ -805,5 +763,13 @@
       "standing": 12,
       "player_name": "もんちー"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 45.2,
+    "weighted_share": 44.2,
+    "consistency": 68.0,
+    "ceiling": 100,
+    "popularity": 100.0,
+    "core_density": 45.5
+  }
 }

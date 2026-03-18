@@ -3,7 +3,7 @@
   "slug": "clefairy-ogerpon",
   "tier": "C",
   "meta_share": 2.5,
-  "weighted_share": 2.9,
+  "weighted_share": 2.7,
   "deck_count": 18,
   "best_placement": 1,
   "sprite_filenames": [
@@ -26,13 +26,6 @@
       "category": "Pokemon"
     },
     {
-      "card_name": "Psychic Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 3.1,
-      "decks_with": 18,
-      "category": "Energy"
-    },
-    {
       "card_name": "Lillie's Clefairy ex",
       "inclusion_pct": 100.0,
       "avg_copies": 2.9,
@@ -47,13 +40,6 @@
       "category": "Pokemon"
     },
     {
-      "card_name": "Grass Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 7.4,
-      "decks_with": 18,
-      "category": "Energy"
-    },
-    {
       "card_name": "Fezandipiti ex",
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
@@ -65,7 +51,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 3.9,
       "decks_with": 18,
-      "category": "Energy"
+      "category": "Trainer"
     },
     {
       "card_name": "Crispin",
@@ -140,13 +126,6 @@
       "category": "Pokemon"
     },
     {
-      "card_name": "Psychic Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 3.1,
-      "decks_with": 18,
-      "category": "Energy"
-    },
-    {
       "card_name": "Lillie's Clefairy ex",
       "inclusion_pct": 100.0,
       "avg_copies": 2.9,
@@ -161,13 +140,6 @@
       "category": "Pokemon"
     },
     {
-      "card_name": "Grass Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 7.4,
-      "decks_with": 18,
-      "category": "Energy"
-    },
-    {
       "card_name": "Fezandipiti ex",
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
@@ -179,7 +151,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 3.9,
       "decks_with": 18,
-      "category": "Energy"
+      "category": "Trainer"
     },
     {
       "card_name": "Crispin",
@@ -308,13 +280,6 @@
       "category": "Pokemon"
     },
     {
-      "card_name": "Water Energy",
-      "inclusion_pct": 38.9,
-      "avg_copies": 1.9,
-      "decks_with": 7,
-      "category": "Energy"
-    },
-    {
       "card_name": "Pokégear 3.0",
       "inclusion_pct": 33.3,
       "avg_copies": 3.2,
@@ -385,13 +350,6 @@
       "category": "Trainer"
     },
     {
-      "card_name": "Fighting Energy",
-      "inclusion_pct": 11.1,
-      "avg_copies": 1.0,
-      "decks_with": 2,
-      "category": "Energy"
-    },
-    {
       "card_name": "Cornerstone Mask Ogerpon ex",
       "inclusion_pct": 11.1,
       "avg_copies": 1.0,
@@ -455,13 +413,6 @@
       "category": "Trainer"
     },
     {
-      "card_name": "Lightning Energy",
-      "inclusion_pct": 5.6,
-      "avg_copies": 1.0,
-      "decks_with": 1,
-      "category": "Energy"
-    },
-    {
       "card_name": "Kieran",
       "inclusion_pct": 5.6,
       "avg_copies": 1.0,
@@ -487,7 +438,7 @@
       "inclusion_pct": 5.6,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Energy"
+      "category": "Trainer"
     }
   ],
   "results": [
@@ -599,5 +550,13 @@
       "standing": 16,
       "player_name": "げんぱ"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 12.7,
+    "weighted_share": 13.4,
+    "consistency": 69.2,
+    "ceiling": 100,
+    "popularity": 28.1,
+    "core_density": 29.8
+  }
 }

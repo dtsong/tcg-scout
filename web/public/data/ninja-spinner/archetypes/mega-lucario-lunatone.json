@@ -110,13 +110,6 @@
       "category": "Trainer"
     },
     {
-      "card_name": "Fighting Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 12.0,
-      "decks_with": 1,
-      "category": "Energy"
-    },
-    {
       "card_name": "Boss's Orders",
       "inclusion_pct": 100.0,
       "avg_copies": 3.0,
@@ -238,13 +231,6 @@
       "category": "Trainer"
     },
     {
-      "card_name": "Fighting Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 12.0,
-      "decks_with": 1,
-      "category": "Energy"
-    },
-    {
       "card_name": "Boss's Orders",
       "inclusion_pct": 100.0,
       "avg_copies": 3.0,
@@ -273,5 +259,13 @@
       "standing": 11,
       "player_name": "さかしろ"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 0.7,
+    "weighted_share": 0.5,
+    "consistency": 50.0,
+    "ceiling": 25,
+    "popularity": 1.6,
+    "core_density": 100.0
+  }
 }

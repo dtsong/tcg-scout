@@ -3,7 +3,7 @@
   "slug": "genesect-metagross",
   "tier": "C",
   "meta_share": 1.1,
-  "weighted_share": 1.1,
+  "weighted_share": 1.0,
   "deck_count": 8,
   "best_placement": 2,
   "sprite_filenames": [
@@ -11,13 +11,6 @@
     "metagross.png"
   ],
   "core_cards": [
-    {
-      "card_name": "Metal Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 8.5,
-      "decks_with": 8,
-      "category": "Energy"
-    },
     {
       "card_name": "Genesect ex",
       "inclusion_pct": 100.0,
@@ -30,7 +23,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 1.4,
       "decks_with": 8,
-      "category": "Energy"
+      "category": "Trainer"
     },
     {
       "card_name": "Buddy-Buddy Poffin",
@@ -77,13 +70,6 @@
   ],
   "all_cards": [
     {
-      "card_name": "Metal Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 8.5,
-      "decks_with": 8,
-      "category": "Energy"
-    },
-    {
       "card_name": "Genesect ex",
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
@@ -95,7 +81,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 1.4,
       "decks_with": 8,
-      "category": "Energy"
+      "category": "Trainer"
     },
     {
       "card_name": "Buddy-Buddy Poffin",
@@ -166,13 +152,6 @@
       "avg_copies": 2.8,
       "decks_with": 6,
       "category": "Trainer"
-    },
-    {
-      "card_name": "Psychic Energy",
-      "inclusion_pct": 75.0,
-      "avg_copies": 4.8,
-      "decks_with": 6,
-      "category": "Energy"
     },
     {
       "card_name": "Mega Mawile ex",
@@ -595,5 +574,13 @@
       "standing": 15,
       "player_name": "やまかがし"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 5.6,
+    "weighted_share": 5.1,
+    "consistency": 64.4,
+    "ceiling": 90,
+    "popularity": 12.5,
+    "core_density": 12.3
+  }
 }
