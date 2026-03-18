@@ -15,7 +15,11 @@ import type {
 const DATA_DIR = path.join(process.cwd(), "public", "data");
 
 function readJson<T>(filePath: string): T {
-  const raw = fs.readFileSync(path.join(DATA_DIR, filePath), "utf-8");
+  const resolved = path.resolve(DATA_DIR, filePath);
+  if (!resolved.startsWith(DATA_DIR + path.sep) && resolved !== DATA_DIR) {
+    throw new Error(`Path traversal blocked: ${filePath}`);
+  }
+  const raw = fs.readFileSync(resolved, "utf-8");
   return JSON.parse(raw);
 }
 
