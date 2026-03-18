@@ -44,9 +44,9 @@ steps:
         git config user.email "cloud-build[bot]@scout.trainerlab.io"
         git remote set-url origin "https://x-access-token:$$GITHUB_TOKEN@github.com/dtsong/tcg-scout.git"
         git add web/public/data/
-        BRANCH=$(git rev-parse --abbrev-ref HEAD)
+        LOCAL_BRANCH=$(git rev-parse --abbrev-ref HEAD)
         git commit -m "data: daily scrape $(date -u +%Y-%m-%d) [skip ci]"
-        git push origin "$BRANCH:main"
+        git push origin "$LOCAL_BRANCH:main"
     waitFor: ["save-db-cache"]
 
 substitutions:
