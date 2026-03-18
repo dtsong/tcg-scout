@@ -140,10 +140,12 @@ describe("getTrends", () => {
 
 describe("getArchetypeSlugs", () => {
   it("returns an array of slug strings from json filenames", () => {
-    vi.mocked(fs.readdirSync).mockReturnValue([
-      "charizard-ex.json" as unknown as fs.Dirent,
-      "lugia-vstar.json" as unknown as fs.Dirent,
-      "gardevoir-ex.json" as unknown as fs.Dirent,
+    // readdirSync without options returns string[], but the mock type is broader
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (vi.mocked(fs.readdirSync) as any).mockReturnValue([
+      "charizard-ex.json",
+      "lugia-vstar.json",
+      "gardevoir-ex.json",
     ]);
 
     const result = getArchetypeSlugs("nihil-zero");
@@ -151,10 +153,11 @@ describe("getArchetypeSlugs", () => {
   });
 
   it("filters out non-json files", () => {
-    vi.mocked(fs.readdirSync).mockReturnValue([
-      "charizard-ex.json" as unknown as fs.Dirent,
-      ".DS_Store" as unknown as fs.Dirent,
-      "readme.txt" as unknown as fs.Dirent,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (vi.mocked(fs.readdirSync) as any).mockReturnValue([
+      "charizard-ex.json",
+      ".DS_Store",
+      "readme.txt",
     ]);
 
     const result = getArchetypeSlugs("nihil-zero");

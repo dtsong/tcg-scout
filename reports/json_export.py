@@ -5,6 +5,7 @@ import logging
 import re
 import sqlite3
 import urllib.request
+from datetime import date, timedelta
 from pathlib import Path
 
 from analysis.archetype import _COMPOSITE_SPRITE_FILENAMES, SPRITE_ARCHETYPE_MAP
@@ -21,6 +22,9 @@ from config import (
     TIER_THRESHOLDS,
     get_format_config,
 )
+
+# Time windows for pre-computed date-filtered exports
+TIME_WINDOWS = {"7d": 7, "30d": 30}
 
 logger = logging.getLogger(__name__)
 
@@ -203,6 +207,9 @@ def _get_sprite_filenames(archetype_name: str) -> list[str]:
 def _classify_card(card_name: str) -> str:
     """Classify a card as Pokemon, Trainer, or Energy by name heuristics."""
     lower = card_name.lower()
+    # Trainer items that contain "energy" in the name
+    if lower in ("energy switch", "energy search", "energy retrieval", "energy recycler"):
+        return "Trainer"
     if "energy" in lower:
         return "Energy"
     # Common trainer keywords
@@ -306,6 +313,386 @@ def _compute_weighted_shares(conn: sqlite3.Connection, snapshot: dict) -> dict[s
         return {}
 
     return {arch: round(w / total_weight * 100, 2) for arch, w in weighted_sums.items()}
+
+
+def _get_latest_tournament_date(conn: sqlite3.Connection) -> str | None:
+    """Get the most recent tournament date in the database."""
+    row = conn.execute("SELECT MAX(date) as latest FROM tournaments").fetchone()
+    return row["latest"] if row and row["latest"] else None
+
+
+def _compute_windowed_meta(
+    conn: sqlite3.Connection,
+    date_from: str,
+    date_to: str,
+    format_slug: str | None = None,
+) -> dict | None:
+    """Compute meta data filtered to a specific date window."""
+    fmt = get_format_config(format_slug) if format_slug else None
+    rotation_date = fmt["rotation_date"] if fmt else ROTATION_DATE
+
+    # Count tournaments and placements within the window
+    rows = conn.execute(
+        """
+        SELECT p.archetype,
+               COUNT(*) AS deck_count,
+               MIN(p.standing) AS best_placement
+        FROM placements p
+        JOIN tournaments t ON t.id = p.tournament_id
+        WHERE t.date >= ? AND t.date <= ?
+        GROUP BY p.archetype
+        """,
+        (date_from, date_to),
+    ).fetchall()
+
+    if not rows:
+        return None
+
+    total_decks = sum(r["deck_count"] for r in rows)
+    tournament_count = conn.execute(
+        """
+        SELECT COUNT(DISTINCT t.id) AS cnt
+        FROM tournaments t
+        JOIN placements p ON p.tournament_id = t.id
+        WHERE t.date >= ? AND t.date <= ?
+        """,
+        (date_from, date_to),
+    ).fetchone()["cnt"]
+
+    # Weighted shares within the window
+    weight_rows = conn.execute(
+        """
+        SELECT p.archetype, p.standing
+        FROM placements p
+        JOIN tournaments t ON t.id = p.tournament_id
+        WHERE t.date >= ? AND t.date <= ?
+        """,
+        (date_from, date_to),
+    ).fetchall()
+
+    weighted_sums: dict[str, float] = {}
+    total_weight = 0.0
+    for row in weight_rows:
+        weight = PLACEMENT_WEIGHTS.get(row["standing"], PLACEMENT_WEIGHT_DEFAULT)
+        weighted_sums[row["archetype"]] = weighted_sums.get(row["archetype"], 0.0) + weight
+        total_weight += weight
+
+    weighted_shares = (
+        {arch: round(w / total_weight * 100, 2) for arch, w in weighted_sums.items()}
+        if total_weight > 0
+        else {}
+    )
+
+    archetypes = []
+    for row in rows:
+        name = row["archetype"]
+        meta_share = row["deck_count"] / total_decks * 100
+        ws = weighted_shares.get(name, 0.0)
+
+        # Assign tier based on meta share
+        if meta_share >= TIER_THRESHOLDS["S"]:
+            tier = "S"
+        elif meta_share >= TIER_THRESHOLDS["A"]:
+            tier = "A"
+        elif meta_share >= TIER_THRESHOLDS["B"]:
+            tier = "B"
+        elif meta_share >= TIER_THRESHOLDS["C"]:
+            tier = "C"
+        else:
+            tier = "Rogue"
+
+        archetypes.append(
+            {
+                "archetype": name,
+                "slug": _slugify(name),
+                "meta_share": round(meta_share, 1),
+                "weighted_share": round(ws, 1),
+                "deck_count": row["deck_count"],
+                "best_placement": row["best_placement"],
+                "tier": tier,
+                "sprite_filenames": _get_sprite_filenames(name),
+            }
+        )
+
+    archetypes.sort(key=lambda a: a["weighted_share"], reverse=True)
+
+    return {
+        "generated_at": conn.execute("SELECT MAX(generated_at) FROM meta_snapshots").fetchone()[0]
+        or "",
+        "tournament_count": tournament_count,
+        "deck_count": total_decks,
+        "date_range": {"start": date_from, "end": date_to},
+        "rotation_date": rotation_date,
+        "tier_thresholds": TIER_THRESHOLDS,
+        "archetypes": archetypes,
+        "format": {
+            "slug": format_slug,
+            "name": fmt["name"],
+            "name_en": fmt["name_en"],
+        }
+        if fmt
+        else None,
+    }
+
+
+def _compute_windowed_trends(
+    conn: sqlite3.Connection,
+    date_from: str,
+    date_to: str,
+) -> dict:
+    """Compute trends data filtered to a specific date window."""
+    d_from = date.fromisoformat(date_from)
+    d_to = date.fromisoformat(date_to)
+    mid = d_from + (d_to - d_from) / 2
+    midpoint = mid.isoformat()
+
+    early_total = conn.execute(
+        """
+        SELECT COUNT(*) FROM placements p
+        JOIN tournaments t ON t.id = p.tournament_id
+        WHERE t.date >= ? AND t.date < ?
+        """,
+        (date_from, midpoint),
+    ).fetchone()[0]
+
+    late_total = conn.execute(
+        """
+        SELECT COUNT(*) FROM placements p
+        JOIN tournaments t ON t.id = p.tournament_id
+        WHERE t.date >= ? AND t.date <= ?
+        """,
+        (midpoint, date_to),
+    ).fetchone()[0]
+
+    if early_total == 0 or late_total == 0:
+        return {
+            "midpoint": midpoint,
+            "early_decks": early_total,
+            "late_decks": late_total,
+            "surging": [],
+            "declining": [],
+        }
+
+    rows = conn.execute(
+        f"""
+        SELECT dc.card_name,
+               SUM(CASE WHEN t.date < ? THEN 1 ELSE 0 END) AS early_count,
+               SUM(CASE WHEN t.date >= ? THEN 1 ELSE 0 END) AS late_count
+        FROM decklist_cards dc
+        JOIN placements p ON p.id = dc.placement_id
+        JOIN tournaments t ON t.id = p.tournament_id
+        WHERE t.date >= ? AND t.date <= ? AND {_basic_energy_exclusion_sql()}
+        GROUP BY dc.card_name
+        HAVING early_count >= 3 AND late_count >= 3
+        """,
+        (midpoint, midpoint, date_from, date_to, *_basic_energy_params()),
+    ).fetchall()
+
+    cards = []
+    for row in rows:
+        early_pct = round(row["early_count"] * 100.0 / early_total, 1)
+        late_pct = round(row["late_count"] * 100.0 / late_total, 1)
+        delta = round(late_pct - early_pct, 1)
+        cards.append(
+            {
+                "card_name": row["card_name"],
+                "early_count": row["early_count"],
+                "late_count": row["late_count"],
+                "early_pct": early_pct,
+                "late_pct": late_pct,
+                "delta": delta,
+            }
+        )
+
+    cards.sort(key=lambda x: x["delta"], reverse=True)
+    surging = [dict(c, direction="surging") for c in cards[:20]]
+    cards.sort(key=lambda x: x["delta"])
+    declining = [dict(c, direction="declining") for c in cards[:20]]
+
+    return {
+        "midpoint": midpoint,
+        "early_decks": early_total,
+        "late_decks": late_total,
+        "surging": surging,
+        "declining": declining,
+    }
+
+
+def _compute_windowed_winning_edge(
+    conn: sqlite3.Connection,
+    date_from: str,
+    date_to: str,
+    meta_data: dict,
+) -> list[dict]:
+    """Compute winning edge filtered to a specific date window."""
+    sa_archetypes = [
+        a["archetype"] for a in meta_data["archetypes"] if a["tier"] in ("S", "A", "B")
+    ]
+    if not sa_archetypes:
+        return []
+
+    placeholders = ",".join("?" * len(sa_archetypes))
+
+    total_field = conn.execute(
+        f"""
+        SELECT COUNT(*) FROM placements p
+        JOIN tournaments t ON t.id = p.tournament_id
+        WHERE p.archetype IN ({placeholders}) AND t.date >= ? AND t.date <= ?
+        """,
+        (*sa_archetypes, date_from, date_to),
+    ).fetchone()[0]
+
+    total_winners = conn.execute(
+        f"""
+        SELECT COUNT(*) FROM placements p
+        JOIN tournaments t ON t.id = p.tournament_id
+        WHERE p.standing = 1 AND p.archetype IN ({placeholders})
+          AND t.date >= ? AND t.date <= ?
+        """,
+        (*sa_archetypes, date_from, date_to),
+    ).fetchone()[0]
+
+    if total_field == 0 or total_winners == 0:
+        return []
+
+    field_rows = conn.execute(
+        f"""
+        SELECT dc.card_name,
+               COUNT(DISTINCT dc.placement_id) AS field_decks
+        FROM decklist_cards dc
+        JOIN placements p ON p.id = dc.placement_id
+        JOIN tournaments t ON t.id = p.tournament_id
+        WHERE p.archetype IN ({placeholders})
+          AND t.date >= ? AND t.date <= ?
+          AND {_basic_energy_exclusion_sql()}
+        GROUP BY dc.card_name
+        HAVING field_decks >= 5
+        """,
+        (*sa_archetypes, date_from, date_to, *_basic_energy_params()),
+    ).fetchall()
+
+    field_usage = {row["card_name"]: row["field_decks"] for row in field_rows}
+
+    winner_rows = conn.execute(
+        f"""
+        SELECT dc.card_name,
+               COUNT(DISTINCT dc.placement_id) AS winner_decks
+        FROM decklist_cards dc
+        JOIN placements p ON p.id = dc.placement_id
+        JOIN tournaments t ON t.id = p.tournament_id
+        WHERE p.standing = 1 AND p.archetype IN ({placeholders})
+          AND t.date >= ? AND t.date <= ?
+          AND {_basic_energy_exclusion_sql()}
+        GROUP BY dc.card_name
+        """,
+        (*sa_archetypes, date_from, date_to, *_basic_energy_params()),
+    ).fetchall()
+
+    cards = []
+    for row in winner_rows:
+        name = row["card_name"]
+        if name not in field_usage:
+            continue
+        field_pct = round(field_usage[name] * 100.0 / total_field, 1)
+        win_pct = round(row["winner_decks"] * 100.0 / total_winners, 1)
+        edge = round(win_pct - field_pct, 1)
+        cards.append(
+            {
+                "card_name": name,
+                "field_pct": field_pct,
+                "win_pct": win_pct,
+                "edge": edge,
+                "winner_decks": row["winner_decks"],
+                "field_decks": field_usage[name],
+            }
+        )
+
+    cards.sort(key=lambda x: x["edge"], reverse=True)
+    return cards[:20]
+
+
+def _compute_windowed_ace_specs(
+    conn: sqlite3.Connection,
+    date_from: str,
+    date_to: str,
+) -> list[dict]:
+    """Compute ACE SPEC distribution filtered to a specific date window."""
+    total_decks = conn.execute(
+        """
+        SELECT COUNT(*) FROM placements p
+        JOIN tournaments t ON t.id = p.tournament_id
+        WHERE t.date >= ? AND t.date <= ?
+        """,
+        (date_from, date_to),
+    ).fetchone()[0]
+
+    if total_decks == 0:
+        return []
+
+    placeholders = ",".join("?" * len(ACE_SPEC_CARDS))
+
+    rows = conn.execute(
+        f"""
+        SELECT dc.card_name,
+               COUNT(DISTINCT dc.placement_id) AS deck_count
+        FROM decklist_cards dc
+        JOIN placements p ON p.id = dc.placement_id
+        JOIN tournaments t ON t.id = p.tournament_id
+        WHERE dc.card_name IN ({placeholders})
+          AND t.date >= ? AND t.date <= ?
+        GROUP BY dc.card_name
+        ORDER BY deck_count DESC
+        """,
+        (*list(ACE_SPEC_CARDS), date_from, date_to),
+    ).fetchall()
+
+    return [
+        {
+            "card_name": row["card_name"],
+            "deck_count": row["deck_count"],
+            "usage_pct": round(row["deck_count"] * 100.0 / total_decks, 1),
+        }
+        for row in rows
+    ]
+
+
+def export_windowed(
+    conn: sqlite3.Connection, output_dir: Path, format_slug: str | None = None
+) -> None:
+    """Export time-windowed variants of meta, trends, winning-edge, and ace-specs."""
+    latest_date = _get_latest_tournament_date(conn)
+    if not latest_date:
+        logger.warning("No tournaments found; skipping windowed exports")
+        return
+
+    d_latest = date.fromisoformat(latest_date)
+
+    for suffix, days in TIME_WINDOWS.items():
+        d_from = d_latest - timedelta(days=days)
+        date_from = d_from.isoformat()
+        date_to = latest_date
+
+        logger.info("Exporting %s window: %s to %s", suffix, date_from, date_to)
+
+        # Meta
+        meta = _compute_windowed_meta(conn, date_from, date_to, format_slug)
+        if meta:
+            _write_json(meta, output_dir / f"meta-{suffix}.json")
+
+            # Winning edge (depends on meta for tier filtering)
+            edge = _compute_windowed_winning_edge(conn, date_from, date_to, meta)
+            _write_json(edge, output_dir / f"winning-edge-{suffix}.json")
+        else:
+            logger.warning("No data for %s window", suffix)
+            continue
+
+        # Trends
+        trends = _compute_windowed_trends(conn, date_from, date_to)
+        _write_json(trends, output_dir / f"trends-{suffix}.json")
+
+        # ACE SPECs
+        specs = _compute_windowed_ace_specs(conn, date_from, date_to)
+        _write_json(specs, output_dir / f"ace-specs-{suffix}.json")
 
 
 def export_meta(
@@ -511,10 +898,19 @@ def export_trends(
     conn: sqlite3.Connection, output_dir: Path, format_slug: str | None = None
 ) -> None:
     """Export trends.json — surging and declining cards with archetype breakdowns."""
-    if format_slug:
-        fmt = get_format_config(format_slug)
-        from datetime import date
+    # Compute midpoint from actual tournament dates, not config dates
+    # This handles cases where dataset_end is in the future
+    actual_range = conn.execute(
+        "SELECT MIN(t.date) as earliest, MAX(t.date) as latest FROM tournaments t"
+    ).fetchone()
 
+    if actual_range and actual_range["earliest"] and actual_range["latest"]:
+        actual_start = date.fromisoformat(actual_range["earliest"])
+        actual_end = date.fromisoformat(actual_range["latest"])
+        mid = actual_start + (actual_end - actual_start) / 2
+        midpoint = mid.isoformat()
+    elif format_slug:
+        fmt = get_format_config(format_slug)
         start = date.fromisoformat(fmt["dataset_start"])
         end = date.fromisoformat(fmt["dataset_end"])
         mid = start + (end - start) / 2
@@ -546,6 +942,9 @@ def export_trends(
         )
         return
 
+    # Adaptive threshold: lower minimums for small datasets
+    min_count = 2 if min(early_total, late_total) < 50 else 5
+
     rows = conn.execute(
         f"""
         SELECT dc.card_name,
@@ -556,9 +955,9 @@ def export_trends(
         JOIN tournaments t ON t.id = p.tournament_id
         WHERE {_basic_energy_exclusion_sql()}
         GROUP BY dc.card_name
-        HAVING early_count >= 5 AND late_count >= 5
+        HAVING early_count >= ? AND late_count >= ?
         """,
-        (midpoint, midpoint, *_basic_energy_params()),
+        (midpoint, midpoint, *_basic_energy_params(), min_count, min_count),
     ).fetchall()
 
     cards = []
@@ -1018,6 +1417,7 @@ def export_all(
     export_archetypes(conn, out)
     export_champions_league(conn, out)
     export_images(conn, out)
+    export_windowed(conn, out, format_slug=slug)
 
     logger.info("Export complete")
     return out

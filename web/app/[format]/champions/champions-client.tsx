@@ -102,7 +102,7 @@ export function ChampionsClient({
           Champions League
         </h1>
         <p className="text-sm text-surface-300 mt-1">
-          Fukuoka CL, {division.date}
+          {division.event_name}, {division.date}
         </p>
       </div>
 

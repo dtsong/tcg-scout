@@ -1,5 +1,7 @@
 export type Tier = "S" | "A" | "B" | "C" | "Rogue";
 
+export type TimeWindow = "all" | "7d" | "30d" | "custom";
+
 export interface FormatInfo {
   slug: string;
   name: string;

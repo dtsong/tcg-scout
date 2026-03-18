@@ -10,6 +10,9 @@ from config import get_format_config
 from reports.json_export import (
     _build_jp_en_lookup,
     _compute_weighted_shares,
+    _compute_windowed_ace_specs,
+    _compute_windowed_meta,
+    _compute_windowed_trends,
     _get_sprite_filenames,
     _slugify,
     export_all,
@@ -18,6 +21,7 @@ from reports.json_export import (
     export_formats,
     export_meta,
     export_trends,
+    export_windowed,
 )
 
 # --- _slugify ---
@@ -291,3 +295,98 @@ class TestExportFormats:
         assert nz["status"] == "active"
         assert nz["tournament_count"] == 42
         assert ns["status"] == "upcoming"
+
+
+# --- Windowed exports ---
+
+
+class TestComputeWindowedMeta:
+    def test_returns_data_for_valid_window(self, db):
+        """Windowed meta should return data when tournaments exist in the range."""
+        result = _compute_windowed_meta(db, "2026-01-01", "2026-03-31")
+        assert result is not None
+        assert result["tournament_count"] == 3
+        assert result["deck_count"] == 6
+        assert len(result["archetypes"]) == 3
+
+    def test_returns_none_for_empty_window(self, db):
+        """Windowed meta should return None when no tournaments in range."""
+        result = _compute_windowed_meta(db, "2025-01-01", "2025-01-31")
+        assert result is None
+
+    def test_filters_by_date(self, db):
+        """Windowed meta should only include placements within the date range."""
+        # Only the March tournament
+        result = _compute_windowed_meta(db, "2026-03-01", "2026-03-31")
+        assert result is not None
+        assert result["tournament_count"] == 1
+        assert result["deck_count"] == 2
+        archetypes = {a["archetype"] for a in result["archetypes"]}
+        assert "Charizard ex" in archetypes
+        assert "Raging Bolt ex" in archetypes
+        assert "Dragapult ex" not in archetypes
+
+    def test_assigns_tiers(self, db):
+        """Windowed meta archetypes should have tier assignments."""
+        result = _compute_windowed_meta(db, "2026-01-01", "2026-03-31")
+        assert result is not None
+        for arch in result["archetypes"]:
+            assert arch["tier"] in ("S", "A", "B", "C", "Rogue")
+
+    def test_includes_date_range(self, db):
+        """Windowed meta should include the requested date range."""
+        result = _compute_windowed_meta(db, "2026-02-01", "2026-03-15")
+        assert result is not None
+        assert result["date_range"]["start"] == "2026-02-01"
+        assert result["date_range"]["end"] == "2026-03-15"
+
+
+class TestComputeWindowedTrends:
+    def test_returns_structure(self, db):
+        """Windowed trends should return proper structure."""
+        result = _compute_windowed_trends(db, "2026-01-01", "2026-03-31")
+        assert "midpoint" in result
+        assert "surging" in result
+        assert "declining" in result
+        assert "early_decks" in result
+        assert "late_decks" in result
+
+    def test_empty_window_returns_empty_lists(self, db):
+        """Windowed trends with no data should return empty lists."""
+        result = _compute_windowed_trends(db, "2025-01-01", "2025-01-31")
+        assert result["surging"] == []
+        assert result["declining"] == []
+
+
+class TestComputeWindowedAceSpecs:
+    def test_returns_empty_for_no_data(self, db):
+        """ACE spec query should return empty for window with no data."""
+        result = _compute_windowed_ace_specs(db, "2025-01-01", "2025-01-31")
+        assert result == []
+
+    def test_returns_list(self, db):
+        """ACE spec query should return a list."""
+        result = _compute_windowed_ace_specs(db, "2026-01-01", "2026-03-31")
+        assert isinstance(result, list)
+
+
+class TestExportWindowed:
+    def test_generates_windowed_files(self, db, tmp_path):
+        """export_windowed should generate -7d and -30d JSON files."""
+        export_windowed(db, tmp_path)
+
+        # Should generate files for at least one window
+        windowed_files = list(tmp_path.glob("*-7d.json")) + list(tmp_path.glob("*-30d.json"))
+        assert len(windowed_files) > 0
+
+    def test_windowed_meta_is_valid_json(self, db, tmp_path):
+        """Windowed meta files should contain valid JSON."""
+        export_windowed(db, tmp_path)
+
+        for suffix in ["7d", "30d"]:
+            meta_file = tmp_path / f"meta-{suffix}.json"
+            if meta_file.exists():
+                data = json.loads(meta_file.read_text())
+                assert "archetypes" in data
+                assert "tournament_count" in data
+                assert "date_range" in data

@@ -1,14 +1,55 @@
 "use client";
 
+import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { TierBadge } from "@/app/components/tier-badge";
 import { SpriteRow } from "@/app/components/sprite-row";
 import { MetaBarChart } from "@/app/components/meta-bar-chart";
 import { DataTable } from "@/app/components/data-table";
+import { DateFilter } from "@/app/components/date-filter";
+import { useDateFilter, fetchWindowedData } from "@/app/components/date-filter-provider";
 import { formatPct, formatPlacement } from "@/app/lib/utils";
-import type { ArchetypeSummary, Tier } from "@/app/lib/types";
+import type { ArchetypeSummary, MetaData, Tier, TimeWindow } from "@/app/lib/types";
 
-export function ArchetypesClient({ archetypes, format }: { archetypes: ArchetypeSummary[]; format: string }) {
+export function ArchetypesClient({
+  archetypes: initialArchetypes,
+  format,
+  dateRange,
+}: {
+  archetypes: ArchetypeSummary[];
+  format: string;
+  dateRange: { start: string; end: string };
+}) {
+  const { activeWindow, customRange, setWindow } = useDateFilter();
+  const [archetypes, setArchetypes] = useState(initialArchetypes);
+  const [loading, setLoading] = useState(false);
+
+  const fetchWindowData = useCallback(
+    async (window: TimeWindow) => {
+      if (window === "all" || window === "custom") {
+        setArchetypes(initialArchetypes);
+        return;
+      }
+      setLoading(true);
+      const suffix = window === "7d" ? "-7d" : "-30d";
+      const newMeta = await fetchWindowedData<MetaData>(format, "meta.json", suffix);
+      if (newMeta) setArchetypes(newMeta.archetypes);
+      setLoading(false);
+    },
+    [format, initialArchetypes],
+  );
+
+  useEffect(() => {
+    fetchWindowData(activeWindow);
+  }, [activeWindow, fetchWindowData]);
+
+  const handleWindowChange = useCallback(
+    (window: TimeWindow, range?: { start: string; end: string }) => {
+      setWindow(window, range);
+    },
+    [setWindow],
+  );
+
   return (
     <div className="space-y-8">
       <div>
@@ -19,6 +60,15 @@ export function ArchetypesClient({ archetypes, format }: { archetypes: Archetype
           {archetypes.length} archetypes tracked across all tiers
         </p>
       </div>
+
+      <DateFilter
+        activeWindow={activeWindow}
+        onWindowChange={handleWindowChange}
+        dateRange={dateRange}
+        customRange={customRange}
+      />
+
+      <div className={loading ? "opacity-50 pointer-events-none transition-opacity" : "transition-opacity"}>
 
       <div className="bg-surface-800 border border-surface-600 rounded-lg p-4 sm:p-6">
         <h2 className="font-display text-sm font-semibold text-slate-200 mb-4">
@@ -96,6 +146,7 @@ export function ArchetypesClient({ archetypes, format }: { archetypes: Archetype
             },
           ]}
         />
+      </div>
       </div>
     </div>
   );

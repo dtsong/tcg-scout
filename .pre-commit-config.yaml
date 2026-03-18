@@ -21,9 +21,9 @@ repos:
   # Frontend: lint + typecheck + tests
   - repo: local
     hooks:
-      - id: next-lint
-        name: next lint
-        entry: bash -c 'cd web && source ~/.nvm/nvm.sh && nvm use default --silent && npx next lint'
+      - id: next-build
+        name: next build
+        entry: bash -c 'cd web && source ~/.nvm/nvm.sh && nvm use default --silent && npx next build'
         language: system
         pass_filenames: false
         files: ^web/

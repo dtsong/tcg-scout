@@ -39,23 +39,25 @@ function groupByCategory(cards: ArchetypeCard[]) {
 }
 
 function CardRow({ card, isCore }: { card: ArchetypeCard; isCore: boolean }) {
-  const copies = Math.round(card.avg_copies);
+  const copies = card.avg_copies % 1 === 0
+    ? card.avg_copies.toString()
+    : card.avg_copies.toFixed(1);
   return (
     <div
-      className={`flex items-center justify-between py-1.5 px-2 rounded transition-colors hover:bg-surface-700/40 ${
+      className={`flex items-center justify-between py-2 px-3 rounded transition-colors hover:bg-surface-700/40 ${
         isCore ? "" : "opacity-50"
       }`}
     >
-      <div className="flex items-center gap-2 min-w-0">
+      <div className="flex items-center gap-2.5 min-w-0">
         <span
-          className="font-mono text-xs w-5 h-5 flex items-center justify-center rounded bg-surface-700 text-slate-300 shrink-0"
+          className="font-mono text-xs w-7 h-6 flex items-center justify-center rounded bg-surface-700 text-slate-300 shrink-0 tabular-nums"
         >
           {copies}
         </span>
         <span className="text-sm text-slate-200 truncate">{card.card_name}</span>
       </div>
       {card.inclusion_pct < 100 && (
-        <span className="text-[10px] font-mono text-surface-400 ml-2 shrink-0">
+        <span className="text-xs font-mono text-surface-400 ml-3 shrink-0 tabular-nums">
           {card.inclusion_pct.toFixed(0)}%
         </span>
       )}

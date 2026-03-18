@@ -1,4 +1,4 @@
-import { getTrends, getWinningEdge, formatHasData } from "@/app/lib/data";
+import { getTrends, getWinningEdge, getMeta, formatHasData } from "@/app/lib/data";
 import { TrendsClient } from "./trends-client";
 import Link from "next/link";
 
@@ -18,7 +18,15 @@ export default async function TrendsPage({
     );
   }
 
+  const meta = getMeta(format);
   const trends = getTrends(format);
   const winningEdge = getWinningEdge(format);
-  return <TrendsClient trends={trends} winningEdge={winningEdge} />;
+  return (
+    <TrendsClient
+      trends={trends}
+      winningEdge={winningEdge}
+      format={format}
+      dateRange={meta.date_range}
+    />
+  );
 }

@@ -31,7 +31,7 @@ FORMATS = {
         "dataset_start": "2026-01-23",
         "dataset_end": "2026-03-13",
         "rotation_date": "2026-04-10",
-        "description": "Temporal Forces through Perfect Order + Mega Evolution sets",
+        "description": "Temporal Forces through Mega Evolution: Perfect Order",
         "db_name": "nihil-zero.db",
     },
     "ninja-spinner": {
@@ -40,7 +40,7 @@ FORMATS = {
         "dataset_start": "2026-03-14",
         "dataset_end": "2026-05-22",
         "rotation_date": "2026-04-10",
-        "description": "Temporal Forces through Chaos Rising + Mega Evolution sets",
+        "description": "Temporal Forces through Mega Evolution: Chaos Rising",
         "db_name": "ninja-spinner.db",
     },
 }

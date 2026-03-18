@@ -1,4 +1,4 @@
-import { getMeta, getFormats, formatHasData } from "@/app/lib/data";
+import { getMeta, formatHasData } from "@/app/lib/data";
 import { ArchetypesClient } from "./archetypes-client";
 import Link from "next/link";
 
@@ -19,5 +19,11 @@ export default async function ArchetypesPage({
   }
 
   const meta = getMeta(format);
-  return <ArchetypesClient archetypes={meta.archetypes} format={format} />;
+  return (
+    <ArchetypesClient
+      archetypes={meta.archetypes}
+      format={format}
+      dateRange={meta.date_range}
+    />
+  );
 }

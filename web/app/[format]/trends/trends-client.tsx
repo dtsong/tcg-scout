@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect, useCallback } from "react";
 import {
   BarChart,
   Bar,
@@ -10,15 +11,57 @@ import {
   Legend,
 } from "recharts";
 import { TrendingUp, TrendingDown, Trophy } from "lucide-react";
-import type { TrendsData, WinningEdgeCard } from "@/app/lib/types";
+import { DateFilter } from "@/app/components/date-filter";
+import { useDateFilter, fetchWindowedData } from "@/app/components/date-filter-provider";
+import type { TrendsData, WinningEdgeCard, TimeWindow } from "@/app/lib/types";
 
 export function TrendsClient({
-  trends,
-  winningEdge,
+  trends: initialTrends,
+  winningEdge: initialWinningEdge,
+  format,
+  dateRange,
 }: {
   trends: TrendsData;
   winningEdge: WinningEdgeCard[];
+  format: string;
+  dateRange: { start: string; end: string };
 }) {
+  const { activeWindow, customRange, setWindow } = useDateFilter();
+  const [trends, setTrends] = useState(initialTrends);
+  const [winningEdge, setWinningEdge] = useState(initialWinningEdge);
+  const [loading, setLoading] = useState(false);
+
+  const fetchWindowData = useCallback(
+    async (window: TimeWindow) => {
+      if (window === "all" || window === "custom") {
+        setTrends(initialTrends);
+        setWinningEdge(initialWinningEdge);
+        return;
+      }
+      setLoading(true);
+      const suffix = window === "7d" ? "-7d" : "-30d";
+      const [newTrends, newEdge] = await Promise.all([
+        fetchWindowedData<TrendsData>(format, "trends.json", suffix),
+        fetchWindowedData<WinningEdgeCard[]>(format, "winning-edge.json", suffix),
+      ]);
+      if (newTrends) setTrends(newTrends);
+      if (newEdge) setWinningEdge(newEdge);
+      setLoading(false);
+    },
+    [format, initialTrends, initialWinningEdge],
+  );
+
+  useEffect(() => {
+    fetchWindowData(activeWindow);
+  }, [activeWindow, fetchWindowData]);
+
+  const handleWindowChange = useCallback(
+    (window: TimeWindow, range?: { start: string; end: string }) => {
+      setWindow(window, range);
+    },
+    [setWindow],
+  );
+
   const chartData = (trends.surging || []).slice(0, 15).map((c) => ({
     name: c.card_name.length > 18 ? c.card_name.slice(0, 16) + "..." : c.card_name,
     early: c.early_pct,
@@ -36,6 +79,14 @@ export function TrendsClient({
         </p>
       </div>
 
+      <DateFilter
+        activeWindow={activeWindow}
+        onWindowChange={handleWindowChange}
+        dateRange={dateRange}
+        customRange={customRange}
+      />
+
+      <div className={loading ? "opacity-50 pointer-events-none transition-opacity space-y-8" : "transition-opacity space-y-8"}>
       {/* Trend Chart */}
       <div className="bg-surface-800 border border-surface-600 rounded-lg p-4 sm:p-6">
         <h2 className="font-display text-sm font-semibold text-slate-200 mb-4 flex items-center gap-2">
@@ -249,6 +300,7 @@ export function TrendsClient({
             </tbody>
           </table>
         </div>
+      </div>
       </div>
     </div>
   );
