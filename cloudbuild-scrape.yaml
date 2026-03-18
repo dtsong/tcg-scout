@@ -18,10 +18,10 @@ steps:
         pip install -r requirements.txt &&
         python cli.py --format ninja-spinner init &&
         python cli.py --format nihil-zero init &&
-        python cli.py --format ninja-spinner scrape-jp &&
+        python cli.py --format ninja-spinner scrape &&
         python cli.py --format ninja-spinner meta &&
         python cli.py --format ninja-spinner export-web &&
-        python cli.py --format nihil-zero scrape-jp &&
+        python cli.py --format nihil-zero scrape &&
         python cli.py --format nihil-zero meta &&
         python cli.py --format nihil-zero export-web
     waitFor: ["restore-db-cache"]

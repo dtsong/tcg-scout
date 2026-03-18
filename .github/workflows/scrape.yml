@@ -48,7 +48,7 @@ jobs:
           github.event.inputs.format == 'all' ||
           github.event.inputs.format == 'ninja-spinner'
         run: |
-          python cli.py --format ninja-spinner scrape-jp
+          python cli.py --format ninja-spinner scrape
           python cli.py --format ninja-spinner meta
           python cli.py --format ninja-spinner export-web
 
@@ -58,7 +58,7 @@ jobs:
           github.event.inputs.format == 'all' ||
           github.event.inputs.format == 'nihil-zero'
         run: |
-          python cli.py --format nihil-zero scrape-jp
+          python cli.py --format nihil-zero scrape
           python cli.py --format nihil-zero meta
           python cli.py --format nihil-zero export-web
 
