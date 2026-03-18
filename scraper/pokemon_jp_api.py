@@ -24,6 +24,8 @@ from dataclasses import dataclass
 
 import httpx
 
+from config import POKEMON_JP_CITY_LEAGUE_EVENT_TYPES
+
 logger = logging.getLogger(__name__)
 
 BASE_URL = "https://players.pokemon-card.com"
@@ -100,7 +102,7 @@ class PokemonJPAPIClient:
                     "offset": offset,
                     "order": 4,  # Sort by date desc
                     "result_resist": 1,  # Only events with results
-                    "event_type[]": ["3:1", "3:2", "3:7"],  # City League types
+                    "event_type[]": POKEMON_JP_CITY_LEAGUE_EVENT_TYPES,
                 },
             )
             resp.raise_for_status()
