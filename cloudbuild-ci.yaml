@@ -1,0 +1,57 @@
+steps:
+  # ── Python CI ──
+  - id: python-install
+    name: python:3.12-slim
+    entrypoint: pip
+    args: ["install", "-r", "requirements.txt", "ruff", "pytest"]
+
+  - id: ruff-lint
+    name: python:3.12-slim
+    entrypoint: ruff
+    args: ["check", "."]
+    waitFor: ["python-install"]
+
+  - id: ruff-format
+    name: python:3.12-slim
+    entrypoint: ruff
+    args: ["format", "--check", "."]
+    waitFor: ["python-install"]
+
+  - id: python-test
+    name: python:3.12-slim
+    entrypoint: pytest
+    args: ["tests/", "-v"]
+    waitFor: ["ruff-lint", "ruff-format"]
+
+  # ── Frontend CI ──
+  - id: npm-install
+    name: node:22-slim
+    entrypoint: npm
+    args: ["ci"]
+    dir: web
+    waitFor: ["-"]
+
+  - id: typecheck
+    name: node:22-slim
+    entrypoint: npx
+    args: ["tsc", "--noEmit"]
+    dir: web
+    waitFor: ["npm-install"]
+
+  - id: frontend-test
+    name: node:22-slim
+    entrypoint: npx
+    args: ["vitest", "run"]
+    dir: web
+    waitFor: ["npm-install"]
+
+  - id: frontend-build
+    name: node:22-slim
+    entrypoint: npm
+    args: ["run", "build"]
+    dir: web
+    waitFor: ["typecheck", "frontend-test"]
+
+timeout: 600s
+options:
+  logging: CLOUD_LOGGING_ONLY

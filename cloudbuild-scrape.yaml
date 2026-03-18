@@ -1,0 +1,85 @@
+steps:
+  # Restore cached SQLite databases from GCS
+  - id: restore-db-cache
+    name: gcr.io/cloud-builders/gsutil
+    entrypoint: bash
+    args:
+      - -c
+      - |
+        gsutil -m cp "gs://${_CACHE_BUCKET}/scout-dbs/*.db" data/ 2>/dev/null || echo "No cached databases found, starting fresh"
+
+  - id: pip-install
+    name: python:3.12-slim
+    entrypoint: pip
+    args: ["install", "-r", "requirements.txt"]
+    waitFor: ["-"]
+
+  - id: init-dbs
+    name: python:3.12-slim
+    entrypoint: bash
+    args:
+      - -c
+      - |
+        python cli.py --format ninja-spinner init
+        python cli.py --format nihil-zero init
+    waitFor: ["pip-install", "restore-db-cache"]
+
+  - id: scrape-ninja-spinner
+    name: python:3.12-slim
+    entrypoint: bash
+    args:
+      - -c
+      - |
+        python cli.py --format ninja-spinner scrape-jp
+        python cli.py --format ninja-spinner meta
+        python cli.py --format ninja-spinner export-web
+    waitFor: ["init-dbs"]
+
+  - id: scrape-nihil-zero
+    name: python:3.12-slim
+    entrypoint: bash
+    args:
+      - -c
+      - |
+        python cli.py --format nihil-zero scrape-jp
+        python cli.py --format nihil-zero meta
+        python cli.py --format nihil-zero export-web
+    waitFor: ["init-dbs"]
+
+  # Save SQLite databases to GCS for next run
+  - id: save-db-cache
+    name: gcr.io/cloud-builders/gsutil
+    entrypoint: bash
+    args:
+      - -c
+      - gsutil -m cp data/*.db "gs://${_CACHE_BUCKET}/scout-dbs/"
+    waitFor: ["scrape-ninja-spinner", "scrape-nihil-zero"]
+
+  # Commit and push updated data to GitHub
+  - id: push-to-github
+    name: gcr.io/cloud-builders/git
+    entrypoint: bash
+    secretEnv: ["GITHUB_TOKEN"]
+    args:
+      - -c
+      - |
+        git diff --quiet web/public/data/ && { echo "No changes to commit"; exit 0; }
+        git config user.name "cloud-build[bot]"
+        git config user.email "cloud-build[bot]@scout.trainerlab.io"
+        git remote set-url origin "https://x-access-token:$$GITHUB_TOKEN@github.com/dtsong/tcg-scout.git"
+        git add web/public/data/
+        git commit -m "data: daily scrape $(date -u +%Y-%m-%d) [skip ci]"
+        git push origin main
+    waitFor: ["save-db-cache"]
+
+substitutions:
+  _CACHE_BUCKET: tcg-scout-cache
+
+timeout: 900s
+options:
+  logging: CLOUD_LOGGING_ONLY
+
+availableSecrets:
+  secretManager:
+    - versionName: projects/$PROJECT_ID/secrets/github-token/versions/latest
+      env: GITHUB_TOKEN

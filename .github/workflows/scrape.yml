@@ -1,15 +1,16 @@
 name: Daily Scrape & Deploy
 
-on:
-  schedule:
-    # Daily at 21:00 JST (12:00 UTC) -- catches same-day CL results
-    - cron: "0 12 * * *"
-  workflow_dispatch:
-    inputs:
-      format:
-        description: "Format to scrape (or 'all')"
-        required: false
-        default: "all"
+# Disabled while GitHub Actions minutes are exhausted -- using Cloud Build
+# on:
+#   schedule:
+#     - cron: "0 12 * * *"
+#   workflow_dispatch:
+#     inputs:
+#       format:
+#         description: "Format to scrape (or 'all')"
+#         required: false
+#         default: "all"
+on: workflow_dispatch
 
 jobs:
   scrape:
