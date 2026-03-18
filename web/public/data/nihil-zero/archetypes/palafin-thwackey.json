@@ -12,13 +12,6 @@
   ],
   "core_cards": [
     {
-      "card_name": "Water Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 6.5,
-      "decks_with": 2,
-      "category": "Energy"
-    },
-    {
       "card_name": "Thwackey",
       "inclusion_pct": 100.0,
       "avg_copies": 3.0,
@@ -125,13 +118,6 @@
     }
   ],
   "all_cards": [
-    {
-      "card_name": "Water Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 6.5,
-      "decks_with": 2,
-      "category": "Energy"
-    },
     {
       "card_name": "Thwackey",
       "inclusion_pct": 100.0,
@@ -370,5 +356,13 @@
       "standing": 9,
       "player_name": "モリタ"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 0.1,
+    "weighted_share": 0.1,
+    "consistency": 67.5,
+    "ceiling": 50,
+    "popularity": 0.3,
+    "core_density": 46.9
+  }
 }

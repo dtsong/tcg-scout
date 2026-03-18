@@ -67,13 +67,6 @@
       "category": "Trainer"
     },
     {
-      "card_name": "Fighting Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 9.6,
-      "decks_with": 21,
-      "category": "Energy"
-    },
-    {
       "card_name": "Boss's Orders",
       "inclusion_pct": 100.0,
       "avg_copies": 2.7,
@@ -186,13 +179,6 @@
       "avg_copies": 4.0,
       "decks_with": 21,
       "category": "Trainer"
-    },
-    {
-      "card_name": "Fighting Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 9.6,
-      "decks_with": 21,
-      "category": "Energy"
     },
     {
       "card_name": "Boss's Orders",
@@ -486,21 +472,21 @@
       "inclusion_pct": 4.8,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Energy"
+      "category": "Trainer"
     },
     {
       "card_name": "Energy Search",
       "inclusion_pct": 4.8,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Energy"
+      "category": "Trainer"
     },
     {
       "card_name": "Energy Retrieval",
       "inclusion_pct": 4.8,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Energy"
+      "category": "Trainer"
     },
     {
       "card_name": "Dunsparce",
@@ -515,13 +501,6 @@
       "avg_copies": 1.0,
       "decks_with": 1,
       "category": "Pokemon"
-    },
-    {
-      "card_name": "Darkness Energy",
-      "inclusion_pct": 4.8,
-      "avg_copies": 2.0,
-      "decks_with": 1,
-      "category": "Energy"
     },
     {
       "card_name": "Crispin",
@@ -672,5 +651,13 @@
       "standing": 16,
       "player_name": "ねむ"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 1.6,
+    "weighted_share": 1.7,
+    "consistency": 61.2,
+    "ceiling": 100,
+    "popularity": 3.4,
+    "core_density": 28.1
+  }
 }

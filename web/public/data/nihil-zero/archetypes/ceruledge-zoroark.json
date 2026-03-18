@@ -89,13 +89,6 @@
       "category": "Pokemon"
     },
     {
-      "card_name": "Fire Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 19.0,
-      "decks_with": 1,
-      "category": "Energy"
-    },
-    {
       "card_name": "Fezandipiti ex",
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
@@ -217,13 +210,6 @@
       "category": "Pokemon"
     },
     {
-      "card_name": "Fire Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 19.0,
-      "decks_with": 1,
-      "category": "Energy"
-    },
-    {
       "card_name": "Fezandipiti ex",
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
@@ -273,5 +259,13 @@
       "standing": 15,
       "player_name": "チョロ"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 0.1,
+    "weighted_share": 0.1,
+    "consistency": 30.0,
+    "ceiling": 25,
+    "popularity": 0.2,
+    "core_density": 100.0
+  }
 }

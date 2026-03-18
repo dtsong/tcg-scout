@@ -89,13 +89,6 @@
       "category": "Trainer"
     },
     {
-      "card_name": "Fighting Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 10.3,
-      "decks_with": 3,
-      "category": "Energy"
-    },
-    {
       "card_name": "Boss's Orders",
       "inclusion_pct": 100.0,
       "avg_copies": 3.3,
@@ -180,13 +173,6 @@
       "avg_copies": 4.0,
       "decks_with": 3,
       "category": "Trainer"
-    },
-    {
-      "card_name": "Fighting Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 10.3,
-      "decks_with": 3,
-      "category": "Energy"
     },
     {
       "card_name": "Boss's Orders",
@@ -341,5 +327,13 @@
       "standing": 16,
       "player_name": "tomo"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 0.2,
+    "weighted_share": 0.2,
+    "consistency": 48.3,
+    "ceiling": 50,
+    "popularity": 0.5,
+    "core_density": 40.0
+  }
 }

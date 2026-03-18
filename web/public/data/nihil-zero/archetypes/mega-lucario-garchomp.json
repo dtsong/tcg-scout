@@ -124,13 +124,6 @@
       "category": "Trainer"
     },
     {
-      "card_name": "Fighting Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 9.0,
-      "decks_with": 1,
-      "category": "Energy"
-    },
-    {
       "card_name": "Cynthia's Spiritomb",
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
@@ -301,13 +294,6 @@
       "category": "Trainer"
     },
     {
-      "card_name": "Fighting Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 9.0,
-      "decks_with": 1,
-      "category": "Energy"
-    },
-    {
       "card_name": "Cynthia's Spiritomb",
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
@@ -371,5 +357,13 @@
       "standing": 16,
       "player_name": "吉岡"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 0.1,
+    "weighted_share": 0.1,
+    "consistency": 25.0,
+    "ceiling": 25,
+    "popularity": 0.2,
+    "core_density": 100.0
+  }
 }

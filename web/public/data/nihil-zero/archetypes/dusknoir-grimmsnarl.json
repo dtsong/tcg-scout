@@ -110,13 +110,6 @@
       "category": "Pokemon"
     },
     {
-      "card_name": "Darkness Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 8.6,
-      "decks_with": 7,
-      "category": "Energy"
-    },
-    {
       "card_name": "Buddy-Buddy Poffin",
       "inclusion_pct": 100.0,
       "avg_copies": 3.3,
@@ -238,13 +231,6 @@
       "category": "Pokemon"
     },
     {
-      "card_name": "Darkness Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 8.6,
-      "decks_with": 7,
-      "category": "Energy"
-    },
-    {
       "card_name": "Buddy-Buddy Poffin",
       "inclusion_pct": 100.0,
       "avg_copies": 3.3,
@@ -340,7 +326,7 @@
       "inclusion_pct": 28.6,
       "avg_copies": 1.0,
       "decks_with": 2,
-      "category": "Energy"
+      "category": "Trainer"
     },
     {
       "card_name": "Telepath Psychic Energy",
@@ -424,7 +410,7 @@
       "inclusion_pct": 14.3,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Energy"
+      "category": "Trainer"
     },
     {
       "card_name": "Colress's Tenacity",
@@ -491,5 +477,13 @@
       "standing": 13,
       "player_name": "大図書館"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 0.5,
+    "weighted_share": 0.4,
+    "consistency": 57.9,
+    "ceiling": 75,
+    "popularity": 1.1,
+    "core_density": 39.5
+  }
 }

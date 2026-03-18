@@ -19,13 +19,6 @@
       "category": "Trainer"
     },
     {
-      "card_name": "Psychic Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 3.0,
-      "decks_with": 4,
-      "category": "Energy"
-    },
-    {
       "card_name": "Poké Pad",
       "inclusion_pct": 100.0,
       "avg_copies": 3.5,
@@ -61,20 +54,6 @@
       "category": "Trainer"
     },
     {
-      "card_name": "Grass Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 2.2,
-      "decks_with": 4,
-      "category": "Energy"
-    },
-    {
-      "card_name": "Fire Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 2.8,
-      "decks_with": 4,
-      "category": "Energy"
-    },
-    {
       "card_name": "Dwebble",
       "inclusion_pct": 100.0,
       "avg_copies": 2.2,
@@ -101,13 +80,6 @@
       "avg_copies": 2.2,
       "decks_with": 4,
       "category": "Pokemon"
-    },
-    {
-      "card_name": "Darkness Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 2.0,
-      "decks_with": 4,
-      "category": "Energy"
     },
     {
       "card_name": "Crustle",
@@ -147,13 +119,6 @@
       "category": "Trainer"
     },
     {
-      "card_name": "Psychic Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 3.0,
-      "decks_with": 4,
-      "category": "Energy"
-    },
-    {
       "card_name": "Poké Pad",
       "inclusion_pct": 100.0,
       "avg_copies": 3.5,
@@ -189,20 +154,6 @@
       "category": "Trainer"
     },
     {
-      "card_name": "Grass Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 2.2,
-      "decks_with": 4,
-      "category": "Energy"
-    },
-    {
-      "card_name": "Fire Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 2.8,
-      "decks_with": 4,
-      "category": "Energy"
-    },
-    {
       "card_name": "Dwebble",
       "inclusion_pct": 100.0,
       "avg_copies": 2.2,
@@ -229,13 +180,6 @@
       "avg_copies": 2.2,
       "decks_with": 4,
       "category": "Pokemon"
-    },
-    {
-      "card_name": "Darkness Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 2.0,
-      "decks_with": 4,
-      "category": "Energy"
     },
     {
       "card_name": "Crustle",
@@ -410,5 +354,13 @@
       "standing": 12,
       "player_name": "すみたろう"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 0.3,
+    "weighted_share": 0.2,
+    "consistency": 63.8,
+    "ceiling": 50,
+    "popularity": 0.7,
+    "core_density": 45.2
+  }
 }

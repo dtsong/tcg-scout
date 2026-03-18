@@ -68,13 +68,6 @@
       "category": "Trainer"
     },
     {
-      "card_name": "Fighting Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 9.0,
-      "decks_with": 9,
-      "category": "Energy"
-    },
-    {
       "card_name": "Duskull",
       "inclusion_pct": 100.0,
       "avg_copies": 2.3,
@@ -180,13 +173,6 @@
       "avg_copies": 4.0,
       "decks_with": 9,
       "category": "Trainer"
-    },
-    {
-      "card_name": "Fighting Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 9.0,
-      "decks_with": 9,
-      "category": "Energy"
     },
     {
       "card_name": "Duskull",
@@ -496,5 +482,13 @@
       "standing": 13,
       "player_name": "フォント"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 0.7,
+    "weighted_share": 0.5,
+    "consistency": 59.4,
+    "ceiling": 75,
+    "popularity": 1.5,
+    "core_density": 34.1
+  }
 }

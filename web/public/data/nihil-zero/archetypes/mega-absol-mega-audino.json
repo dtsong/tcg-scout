@@ -61,13 +61,6 @@
       "category": "Trainer"
     },
     {
-      "card_name": "Psychic Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 4.0,
-      "decks_with": 1,
-      "category": "Energy"
-    },
-    {
       "card_name": "Pokégear 3.0",
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
@@ -166,25 +159,11 @@
       "category": "Pokemon"
     },
     {
-      "card_name": "Grass Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 2.0,
-      "decks_with": 1,
-      "category": "Energy"
-    },
-    {
       "card_name": "Energy Switch",
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
       "decks_with": 1,
-      "category": "Energy"
-    },
-    {
-      "card_name": "Darkness Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 7.0,
-      "decks_with": 1,
-      "category": "Energy"
+      "category": "Trainer"
     },
     {
       "card_name": "Cyrano",
@@ -259,13 +238,6 @@
       "category": "Trainer"
     },
     {
-      "card_name": "Psychic Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 4.0,
-      "decks_with": 1,
-      "category": "Energy"
-    },
-    {
       "card_name": "Pokégear 3.0",
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
@@ -364,25 +336,11 @@
       "category": "Pokemon"
     },
     {
-      "card_name": "Grass Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 2.0,
-      "decks_with": 1,
-      "category": "Energy"
-    },
-    {
       "card_name": "Energy Switch",
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
       "decks_with": 1,
-      "category": "Energy"
-    },
-    {
-      "card_name": "Darkness Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 7.0,
-      "decks_with": 1,
-      "category": "Energy"
+      "category": "Trainer"
     },
     {
       "card_name": "Cyrano",
@@ -413,5 +371,13 @@
       "standing": 14,
       "player_name": "かさ"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 0.1,
+    "weighted_share": 0.1,
+    "consistency": 35.0,
+    "ceiling": 25,
+    "popularity": 0.2,
+    "core_density": 100.0
+  }
 }

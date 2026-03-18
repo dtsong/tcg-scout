@@ -32,11 +32,9 @@ export function BuylistClient({
   const [staples, setStaples] = useState(initialStaples);
   const [flex, setFlex] = useState(initialFlex);
 
-  const handleWindowChange = useCallback(
+  const fetchWindowData = useCallback(
     async (window: TimeWindow) => {
-      setWindow(window);
-
-      if (window === "all") {
+      if (window === "all" || window === "custom") {
         setBuylist(initialBuylist);
         setStaples(initialStaples);
         setFlex(initialFlex);
@@ -55,14 +53,19 @@ export function BuylistClient({
       if (newStaples) setStaples(newStaples);
       if (newFlex) setFlex(newFlex);
     },
-    [format, initialBuylist, initialStaples, initialFlex, setWindow],
+    [format, initialBuylist, initialStaples, initialFlex],
   );
 
   useEffect(() => {
-    if (activeWindow !== "all") {
-      handleWindowChange(activeWindow);
-    }
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+    fetchWindowData(activeWindow);
+  }, [activeWindow, fetchWindowData]);
+
+  const handleWindowChange = useCallback(
+    (window: TimeWindow, range?: { start: string; end: string }) => {
+      setWindow(window, range);
+    },
+    [setWindow],
+  );
 
   return (
     <div className="space-y-6">
@@ -75,7 +78,7 @@ export function BuylistClient({
             Prioritized acquisition guide: {buylist.length} cards across S/A/B tier archetypes
           </p>
         </div>
-        <DateFilter activeWindow={activeWindow} onWindowChange={handleWindowChange} dateRange={dateRange} />
+        <DateFilter activeWindow={activeWindow} onWindowChange={handleWindowChange} dateRange={dateRange} customRange={undefined} />
       </div>
 
       {/* Tabs */}

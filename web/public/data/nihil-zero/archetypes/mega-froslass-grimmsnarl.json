@@ -12,13 +12,6 @@
   ],
   "core_cards": [
     {
-      "card_name": "Water Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 1.1,
-      "decks_with": 20,
-      "category": "Energy"
-    },
-    {
       "card_name": "Spikemuth Gym",
       "inclusion_pct": 100.0,
       "avg_copies": 3.2,
@@ -101,13 +94,6 @@
       "avg_copies": 2.0,
       "decks_with": 20,
       "category": "Pokemon"
-    },
-    {
-      "card_name": "Darkness Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 8.2,
-      "decks_with": 20,
-      "category": "Energy"
     },
     {
       "card_name": "Buddy-Buddy Poffin",
@@ -147,13 +133,6 @@
   ],
   "all_cards": [
     {
-      "card_name": "Water Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 1.1,
-      "decks_with": 20,
-      "category": "Energy"
-    },
-    {
       "card_name": "Spikemuth Gym",
       "inclusion_pct": 100.0,
       "avg_copies": 3.2,
@@ -236,13 +215,6 @@
       "avg_copies": 2.0,
       "decks_with": 20,
       "category": "Pokemon"
-    },
-    {
-      "card_name": "Darkness Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 8.2,
-      "decks_with": 20,
-      "category": "Energy"
     },
     {
       "card_name": "Buddy-Buddy Poffin",
@@ -312,7 +284,7 @@
       "inclusion_pct": 45.0,
       "avg_copies": 1.1,
       "decks_with": 9,
-      "category": "Energy"
+      "category": "Trainer"
     },
     {
       "card_name": "Morty's Conviction",
@@ -361,7 +333,7 @@
       "inclusion_pct": 30.0,
       "avg_copies": 1.0,
       "decks_with": 6,
-      "category": "Energy"
+      "category": "Trainer"
     },
     {
       "card_name": "Psyduck",
@@ -411,13 +383,6 @@
       "avg_copies": 1.0,
       "decks_with": 1,
       "category": "Pokemon"
-    },
-    {
-      "card_name": "Psychic Energy",
-      "inclusion_pct": 5.0,
-      "avg_copies": 2.0,
-      "decks_with": 1,
-      "category": "Energy"
     },
     {
       "card_name": "Prime Catcher",
@@ -522,7 +487,7 @@
       "inclusion_pct": 5.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Energy"
+      "category": "Trainer"
     },
     {
       "card_name": "Dawn",
@@ -674,5 +639,13 @@
       "standing": 14,
       "player_name": "アサクラ"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 1.5,
+    "weighted_share": 1.4,
+    "consistency": 65.8,
+    "ceiling": 100,
+    "popularity": 3.3,
+    "core_density": 30.9
+  }
 }

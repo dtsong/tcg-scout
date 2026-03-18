@@ -26,13 +26,6 @@
       "category": "Pokemon"
     },
     {
-      "card_name": "Psychic Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 3.0,
-      "decks_with": 259,
-      "category": "Energy"
-    },
-    {
       "card_name": "Munkidori",
       "inclusion_pct": 100.0,
       "avg_copies": 1.9,
@@ -45,13 +38,6 @@
       "avg_copies": 4.0,
       "decks_with": 259,
       "category": "Trainer"
-    },
-    {
-      "card_name": "Fire Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 3.0,
-      "decks_with": 259,
-      "category": "Energy"
     },
     {
       "card_name": "Dreepy",
@@ -115,13 +101,6 @@
       "avg_copies": 2.0,
       "decks_with": 258,
       "category": "Trainer"
-    },
-    {
-      "card_name": "Darkness Energy",
-      "inclusion_pct": 99.6,
-      "avg_copies": 2.0,
-      "decks_with": 258,
-      "category": "Energy"
     },
     {
       "card_name": "Combusken",
@@ -196,13 +175,6 @@
       "category": "Pokemon"
     },
     {
-      "card_name": "Psychic Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 3.0,
-      "decks_with": 259,
-      "category": "Energy"
-    },
-    {
       "card_name": "Munkidori",
       "inclusion_pct": 100.0,
       "avg_copies": 1.9,
@@ -215,13 +187,6 @@
       "avg_copies": 4.0,
       "decks_with": 259,
       "category": "Trainer"
-    },
-    {
-      "card_name": "Fire Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 3.0,
-      "decks_with": 259,
-      "category": "Energy"
     },
     {
       "card_name": "Dreepy",
@@ -285,13 +250,6 @@
       "avg_copies": 2.0,
       "decks_with": 258,
       "category": "Trainer"
-    },
-    {
-      "card_name": "Darkness Energy",
-      "inclusion_pct": 99.6,
-      "avg_copies": 2.0,
-      "decks_with": 258,
-      "category": "Energy"
     },
     {
       "card_name": "Combusken",
@@ -424,7 +382,7 @@
       "inclusion_pct": 7.3,
       "avg_copies": 1.0,
       "decks_with": 19,
-      "category": "Energy"
+      "category": "Trainer"
     },
     {
       "card_name": "Brock's Scouting",
@@ -602,13 +560,6 @@
       "category": "Pokemon"
     },
     {
-      "card_name": "Water Energy",
-      "inclusion_pct": 0.4,
-      "avg_copies": 1.0,
-      "decks_with": 1,
-      "category": "Energy"
-    },
-    {
       "card_name": "Tapu Koko ex",
       "inclusion_pct": 0.4,
       "avg_copies": 1.0,
@@ -700,13 +651,6 @@
       "category": "Trainer"
     },
     {
-      "card_name": "Lightning Energy",
-      "inclusion_pct": 0.4,
-      "avg_copies": 1.0,
-      "decks_with": 1,
-      "category": "Energy"
-    },
-    {
       "card_name": "Kieran",
       "inclusion_pct": 0.4,
       "avg_copies": 1.0,
@@ -788,7 +732,7 @@
       "inclusion_pct": 0.4,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Energy"
+      "category": "Trainer"
     },
     {
       "card_name": "Chi-Yu",
@@ -1127,5 +1071,13 @@
       "standing": 3,
       "player_name": "kutuzoko"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 19.1,
+    "weighted_share": 19.8,
+    "consistency": 64.5,
+    "ceiling": 100,
+    "popularity": 42.4,
+    "core_density": 24.1
+  }
 }

@@ -33,13 +33,6 @@
       "category": "Energy"
     },
     {
-      "card_name": "Psychic Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 7.0,
-      "decks_with": 5,
-      "category": "Energy"
-    },
-    {
       "card_name": "Powerglass",
       "inclusion_pct": 100.0,
       "avg_copies": 2.4,
@@ -87,13 +80,6 @@
       "avg_copies": 2.0,
       "decks_with": 5,
       "category": "Pokemon"
-    },
-    {
-      "card_name": "Darkness Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 4.0,
-      "decks_with": 5,
-      "category": "Energy"
     },
     {
       "card_name": "Crispin",
@@ -140,13 +126,6 @@
       "category": "Energy"
     },
     {
-      "card_name": "Psychic Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 7.0,
-      "decks_with": 5,
-      "category": "Energy"
-    },
-    {
       "card_name": "Powerglass",
       "inclusion_pct": 100.0,
       "avg_copies": 2.4,
@@ -194,13 +173,6 @@
       "avg_copies": 2.0,
       "decks_with": 5,
       "category": "Pokemon"
-    },
-    {
-      "card_name": "Darkness Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 4.0,
-      "decks_with": 5,
-      "category": "Energy"
     },
     {
       "card_name": "Crispin",
@@ -340,14 +312,14 @@
       "inclusion_pct": 20.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Energy"
+      "category": "Trainer"
     },
     {
       "card_name": "Energy Search",
       "inclusion_pct": 20.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Energy"
+      "category": "Trainer"
     },
     {
       "card_name": "Colress's Tenacity",
@@ -409,5 +381,13 @@
       "standing": 16,
       "player_name": "ぽったー。"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 0.4,
+    "weighted_share": 0.4,
+    "consistency": 55.0,
+    "ceiling": 90,
+    "popularity": 0.8,
+    "core_density": 37.1
+  }
 }

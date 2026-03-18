@@ -12,13 +12,6 @@
   ],
   "core_cards": [
     {
-      "card_name": "Water Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 5.3,
-      "decks_with": 3,
-      "category": "Energy"
-    },
-    {
       "card_name": "Ultra Ball",
       "inclusion_pct": 100.0,
       "avg_copies": 3.7,
@@ -111,13 +104,6 @@
     }
   ],
   "all_cards": [
-    {
-      "card_name": "Water Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 5.3,
-      "decks_with": 3,
-      "category": "Energy"
-    },
     {
       "card_name": "Ultra Ball",
       "inclusion_pct": 100.0,
@@ -252,13 +238,6 @@
       "category": "Pokemon"
     },
     {
-      "card_name": "Darkness Energy",
-      "inclusion_pct": 66.7,
-      "avg_copies": 2.0,
-      "decks_with": 2,
-      "category": "Energy"
-    },
-    {
       "card_name": "Air Balloon",
       "inclusion_pct": 66.7,
       "avg_copies": 2.0,
@@ -355,5 +334,13 @@
       "standing": 12,
       "player_name": "うすちよ"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 0.2,
+    "weighted_share": 0.2,
+    "consistency": 68.3,
+    "ceiling": 75,
+    "popularity": 0.5,
+    "core_density": 43.3
+  }
 }

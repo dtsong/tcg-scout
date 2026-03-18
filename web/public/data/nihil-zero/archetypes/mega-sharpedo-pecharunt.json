@@ -128,14 +128,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
       "decks_with": 1,
-      "category": "Energy"
-    },
-    {
-      "card_name": "Darkness Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 9.0,
-      "decks_with": 1,
-      "category": "Energy"
+      "category": "Trainer"
     },
     {
       "card_name": "Carvanha",
@@ -284,14 +277,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
       "decks_with": 1,
-      "category": "Energy"
-    },
-    {
-      "card_name": "Darkness Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 9.0,
-      "decks_with": 1,
-      "category": "Energy"
+      "category": "Trainer"
     },
     {
       "card_name": "Carvanha",
@@ -329,5 +315,13 @@
       "standing": 6,
       "player_name": "マット"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 0.1,
+    "weighted_share": 0.1,
+    "consistency": 75.0,
+    "ceiling": 50,
+    "popularity": 0.2,
+    "core_density": 100.0
+  }
 }

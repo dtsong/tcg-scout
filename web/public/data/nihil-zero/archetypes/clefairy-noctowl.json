@@ -19,13 +19,6 @@
       "category": "Pokemon"
     },
     {
-      "card_name": "Water Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 2.0,
-      "decks_with": 1,
-      "category": "Energy"
-    },
-    {
       "card_name": "Ultra Ball",
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
@@ -52,13 +45,6 @@
       "avg_copies": 1.0,
       "decks_with": 1,
       "category": "Trainer"
-    },
-    {
-      "card_name": "Psychic Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 4.0,
-      "decks_with": 1,
-      "category": "Energy"
     },
     {
       "card_name": "Poké Pad",
@@ -124,13 +110,6 @@
       "category": "Pokemon"
     },
     {
-      "card_name": "Grass Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 6.0,
-      "decks_with": 1,
-      "category": "Energy"
-    },
-    {
       "card_name": "Fezandipiti ex",
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
@@ -149,14 +128,14 @@
       "inclusion_pct": 100.0,
       "avg_copies": 3.0,
       "decks_with": 1,
-      "category": "Energy"
+      "category": "Trainer"
     },
     {
       "card_name": "Energy Search",
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Energy"
+      "category": "Trainer"
     },
     {
       "card_name": "Crispin",
@@ -203,13 +182,6 @@
       "category": "Pokemon"
     },
     {
-      "card_name": "Water Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 2.0,
-      "decks_with": 1,
-      "category": "Energy"
-    },
-    {
       "card_name": "Ultra Ball",
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
@@ -236,13 +208,6 @@
       "avg_copies": 1.0,
       "decks_with": 1,
       "category": "Trainer"
-    },
-    {
-      "card_name": "Psychic Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 4.0,
-      "decks_with": 1,
-      "category": "Energy"
     },
     {
       "card_name": "Poké Pad",
@@ -308,13 +273,6 @@
       "category": "Pokemon"
     },
     {
-      "card_name": "Grass Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 6.0,
-      "decks_with": 1,
-      "category": "Energy"
-    },
-    {
       "card_name": "Fezandipiti ex",
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
@@ -333,14 +291,14 @@
       "inclusion_pct": 100.0,
       "avg_copies": 3.0,
       "decks_with": 1,
-      "category": "Energy"
+      "category": "Trainer"
     },
     {
       "card_name": "Energy Search",
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Energy"
+      "category": "Trainer"
     },
     {
       "card_name": "Crispin",
@@ -385,5 +343,13 @@
       "standing": 13,
       "player_name": "のり"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 0.1,
+    "weighted_share": 0.1,
+    "consistency": 40.0,
+    "ceiling": 25,
+    "popularity": 0.2,
+    "core_density": 100.0
+  }
 }

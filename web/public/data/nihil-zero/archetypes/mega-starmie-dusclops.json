@@ -12,13 +12,6 @@
   ],
   "core_cards": [
     {
-      "card_name": "Water Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 4.4,
-      "decks_with": 7,
-      "category": "Energy"
-    },
-    {
       "card_name": "Ultra Ball",
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
@@ -86,7 +79,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 1.7,
       "decks_with": 7,
-      "category": "Energy"
+      "category": "Trainer"
     },
     {
       "card_name": "Duskull",
@@ -101,13 +94,6 @@
       "avg_copies": 2.0,
       "decks_with": 7,
       "category": "Pokemon"
-    },
-    {
-      "card_name": "Darkness Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 3.6,
-      "decks_with": 7,
-      "category": "Energy"
     },
     {
       "card_name": "Budew",
@@ -161,13 +147,6 @@
   ],
   "all_cards": [
     {
-      "card_name": "Water Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 4.4,
-      "decks_with": 7,
-      "category": "Energy"
-    },
-    {
       "card_name": "Ultra Ball",
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
@@ -235,7 +214,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 1.7,
       "decks_with": 7,
-      "category": "Energy"
+      "category": "Trainer"
     },
     {
       "card_name": "Duskull",
@@ -250,13 +229,6 @@
       "avg_copies": 2.0,
       "decks_with": 7,
       "category": "Pokemon"
-    },
-    {
-      "card_name": "Darkness Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 3.6,
-      "decks_with": 7,
-      "category": "Energy"
     },
     {
       "card_name": "Budew",
@@ -470,5 +442,13 @@
       "standing": 16,
       "player_name": "MAKOTO"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 0.5,
+    "weighted_share": 0.6,
+    "consistency": 70.0,
+    "ceiling": 100,
+    "popularity": 1.1,
+    "core_density": 52.8
+  }
 }

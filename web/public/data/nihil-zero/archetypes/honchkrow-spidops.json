@@ -122,13 +122,6 @@
       "avg_copies": 1.5,
       "decks_with": 2,
       "category": "Trainer"
-    },
-    {
-      "card_name": "Grass Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 5.5,
-      "decks_with": 2,
-      "category": "Energy"
     }
   ],
   "all_cards": [
@@ -245,13 +238,6 @@
       "category": "Trainer"
     },
     {
-      "card_name": "Grass Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 5.5,
-      "decks_with": 2,
-      "category": "Energy"
-    },
-    {
       "card_name": "Ultra Ball",
       "inclusion_pct": 50.0,
       "avg_copies": 4.0,
@@ -280,13 +266,6 @@
       "category": "Trainer"
     },
     {
-      "card_name": "Psychic Energy",
-      "inclusion_pct": 50.0,
-      "avg_copies": 2.0,
-      "decks_with": 1,
-      "category": "Energy"
-    },
-    {
       "card_name": "Poké Pad",
       "inclusion_pct": 50.0,
       "avg_copies": 4.0,
@@ -312,14 +291,14 @@
       "inclusion_pct": 50.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Energy"
+      "category": "Trainer"
     },
     {
       "card_name": "Energy Search",
       "inclusion_pct": 50.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Energy"
+      "category": "Trainer"
     },
     {
       "card_name": "Buddy-Buddy Poffin",
@@ -349,5 +328,13 @@
       "standing": 4,
       "player_name": "さく"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 0.1,
+    "weighted_share": 0.2,
+    "consistency": 90.0,
+    "ceiling": 90,
+    "popularity": 0.3,
+    "core_density": 59.3
+  }
 }

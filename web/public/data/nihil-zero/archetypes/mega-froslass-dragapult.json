@@ -12,13 +12,6 @@
   ],
   "core_cards": [
     {
-      "card_name": "Water Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 1.0,
-      "decks_with": 7,
-      "category": "Energy"
-    },
-    {
       "card_name": "Ultra Ball",
       "inclusion_pct": 100.0,
       "avg_copies": 3.1,
@@ -31,13 +24,6 @@
       "avg_copies": 2.9,
       "decks_with": 7,
       "category": "Pokemon"
-    },
-    {
-      "card_name": "Psychic Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 2.1,
-      "decks_with": 7,
-      "category": "Energy"
     },
     {
       "card_name": "Poké Pad",
@@ -103,13 +89,6 @@
       "category": "Pokemon"
     },
     {
-      "card_name": "Fire Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 2.0,
-      "decks_with": 7,
-      "category": "Energy"
-    },
-    {
       "card_name": "Fezandipiti ex",
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
@@ -121,7 +100,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 7,
-      "category": "Energy"
+      "category": "Trainer"
     },
     {
       "card_name": "Dreepy",
@@ -143,13 +122,6 @@
       "avg_copies": 2.1,
       "decks_with": 7,
       "category": "Pokemon"
-    },
-    {
-      "card_name": "Darkness Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 2.6,
-      "decks_with": 7,
-      "category": "Energy"
     },
     {
       "card_name": "Crispin",
@@ -189,13 +161,6 @@
   ],
   "all_cards": [
     {
-      "card_name": "Water Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 1.0,
-      "decks_with": 7,
-      "category": "Energy"
-    },
-    {
       "card_name": "Ultra Ball",
       "inclusion_pct": 100.0,
       "avg_copies": 3.1,
@@ -208,13 +173,6 @@
       "avg_copies": 2.9,
       "decks_with": 7,
       "category": "Pokemon"
-    },
-    {
-      "card_name": "Psychic Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 2.1,
-      "decks_with": 7,
-      "category": "Energy"
     },
     {
       "card_name": "Poké Pad",
@@ -280,13 +238,6 @@
       "category": "Pokemon"
     },
     {
-      "card_name": "Fire Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 2.0,
-      "decks_with": 7,
-      "category": "Energy"
-    },
-    {
       "card_name": "Fezandipiti ex",
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
@@ -298,7 +249,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 7,
-      "category": "Energy"
+      "category": "Trainer"
     },
     {
       "card_name": "Dreepy",
@@ -320,13 +271,6 @@
       "avg_copies": 2.1,
       "decks_with": 7,
       "category": "Pokemon"
-    },
-    {
-      "card_name": "Darkness Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 2.6,
-      "decks_with": 7,
-      "category": "Energy"
     },
     {
       "card_name": "Crispin",
@@ -470,5 +414,13 @@
       "standing": 16,
       "player_name": "サザト"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 0.5,
+    "weighted_share": 0.6,
+    "consistency": 71.4,
+    "ceiling": 100,
+    "popularity": 1.1,
+    "core_density": 70.0
+  }
 }

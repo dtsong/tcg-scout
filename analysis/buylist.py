@@ -25,6 +25,15 @@ BASIC_ENERGY_NAMES = {
     "Basic Grass Energy",
     "Basic Colorless Energy",
     "Basic Fairy Energy",
+    # DB stores without "Basic" prefix
+    "Fire Energy",
+    "Water Energy",
+    "Lightning Energy",
+    "Psychic Energy",
+    "Fighting Energy",
+    "Darkness Energy",
+    "Metal Energy",
+    "Grass Energy",
 }
 
 

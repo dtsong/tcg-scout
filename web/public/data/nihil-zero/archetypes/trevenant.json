@@ -307,13 +307,6 @@
       "category": "Trainer"
     },
     {
-      "card_name": "Psychic Energy",
-      "inclusion_pct": 45.5,
-      "avg_copies": 2.0,
-      "decks_with": 5,
-      "category": "Energy"
-    },
-    {
       "card_name": "Munkidori",
       "inclusion_pct": 45.5,
       "avg_copies": 1.2,
@@ -326,13 +319,6 @@
       "avg_copies": 1.2,
       "decks_with": 5,
       "category": "Trainer"
-    },
-    {
-      "card_name": "Darkness Energy",
-      "inclusion_pct": 45.5,
-      "avg_copies": 3.2,
-      "decks_with": 5,
-      "category": "Energy"
     },
     {
       "card_name": "Repel",
@@ -417,13 +403,6 @@
       "avg_copies": 1.0,
       "decks_with": 1,
       "category": "Pokemon"
-    },
-    {
-      "card_name": "Fighting Energy",
-      "inclusion_pct": 9.1,
-      "avg_copies": 1.0,
-      "decks_with": 1,
-      "category": "Energy"
     },
     {
       "card_name": "Crispin",
@@ -514,5 +493,13 @@
       "standing": 15,
       "player_name": "リク"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 0.8,
+    "weighted_share": 1.0,
+    "consistency": 70.9,
+    "ceiling": 100,
+    "popularity": 1.8,
+    "core_density": 37.2
+  }
 }

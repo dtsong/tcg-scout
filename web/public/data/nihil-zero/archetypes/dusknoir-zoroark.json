@@ -82,13 +82,6 @@
       "category": "Pokemon"
     },
     {
-      "card_name": "Darkness Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 7.5,
-      "decks_with": 11,
-      "category": "Energy"
-    },
-    {
       "card_name": "Buddy-Buddy Poffin",
       "inclusion_pct": 100.0,
       "avg_copies": 3.9,
@@ -215,13 +208,6 @@
       "avg_copies": 1.5,
       "decks_with": 11,
       "category": "Pokemon"
-    },
-    {
-      "card_name": "Darkness Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 7.5,
-      "decks_with": 11,
-      "category": "Energy"
     },
     {
       "card_name": "Buddy-Buddy Poffin",
@@ -578,5 +564,13 @@
       "standing": 14,
       "player_name": "アイス"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 0.8,
+    "weighted_share": 1.0,
+    "consistency": 76.4,
+    "ceiling": 100,
+    "popularity": 1.8,
+    "core_density": 35.3
+  }
 }

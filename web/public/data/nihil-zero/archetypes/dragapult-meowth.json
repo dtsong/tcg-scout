@@ -19,13 +19,6 @@
       "category": "Trainer"
     },
     {
-      "card_name": "Psychic Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 3.4,
-      "decks_with": 247,
-      "category": "Energy"
-    },
-    {
       "card_name": "Poké Pad",
       "inclusion_pct": 100.0,
       "avg_copies": 3.9,
@@ -38,13 +31,6 @@
       "avg_copies": 4.0,
       "decks_with": 247,
       "category": "Trainer"
-    },
-    {
-      "card_name": "Fire Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 3.0,
-      "decks_with": 247,
-      "category": "Energy"
     },
     {
       "card_name": "Dreepy",
@@ -122,13 +108,6 @@
       "avg_copies": 1.2,
       "decks_with": 239,
       "category": "Pokemon"
-    },
-    {
-      "card_name": "Darkness Energy",
-      "inclusion_pct": 96.8,
-      "avg_copies": 1.7,
-      "decks_with": 239,
-      "category": "Energy"
     },
     {
       "card_name": "Rare Candy",
@@ -161,13 +140,6 @@
       "category": "Trainer"
     },
     {
-      "card_name": "Psychic Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 3.4,
-      "decks_with": 247,
-      "category": "Energy"
-    },
-    {
       "card_name": "Poké Pad",
       "inclusion_pct": 100.0,
       "avg_copies": 3.9,
@@ -180,13 +152,6 @@
       "avg_copies": 4.0,
       "decks_with": 247,
       "category": "Trainer"
-    },
-    {
-      "card_name": "Fire Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 3.0,
-      "decks_with": 247,
-      "category": "Energy"
     },
     {
       "card_name": "Dreepy",
@@ -264,13 +229,6 @@
       "avg_copies": 1.2,
       "decks_with": 239,
       "category": "Pokemon"
-    },
-    {
-      "card_name": "Darkness Energy",
-      "inclusion_pct": 96.8,
-      "avg_copies": 1.7,
-      "decks_with": 239,
-      "category": "Energy"
     },
     {
       "card_name": "Rare Candy",
@@ -532,13 +490,6 @@
       "category": "Pokemon"
     },
     {
-      "card_name": "Water Energy",
-      "inclusion_pct": 0.4,
-      "avg_copies": 1.0,
-      "decks_with": 1,
-      "category": "Energy"
-    },
-    {
       "card_name": "Thick Scale",
       "inclusion_pct": 0.4,
       "avg_copies": 1.0,
@@ -578,14 +529,14 @@
       "inclusion_pct": 0.4,
       "avg_copies": 2.0,
       "decks_with": 1,
-      "category": "Energy"
+      "category": "Trainer"
     },
     {
       "card_name": "Energy Search",
       "inclusion_pct": 0.4,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Energy"
+      "category": "Trainer"
     },
     {
       "card_name": "Counter Gain",
@@ -910,5 +861,13 @@
       "standing": 3,
       "player_name": "恋水"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 18.3,
+    "weighted_share": 18.5,
+    "consistency": 63.2,
+    "ceiling": 100,
+    "popularity": 40.4,
+    "core_density": 27.9
+  }
 }

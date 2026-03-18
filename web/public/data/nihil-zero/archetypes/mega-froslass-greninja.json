@@ -12,13 +12,6 @@
   ],
   "core_cards": [
     {
-      "card_name": "Water Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 5.9,
-      "decks_with": 10,
-      "category": "Energy"
-    },
-    {
       "card_name": "Ultra Ball",
       "inclusion_pct": 100.0,
       "avg_copies": 3.8,
@@ -181,13 +174,6 @@
     }
   ],
   "all_cards": [
-    {
-      "card_name": "Water Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 5.9,
-      "decks_with": 10,
-      "category": "Energy"
-    },
     {
       "card_name": "Ultra Ball",
       "inclusion_pct": 100.0,
@@ -441,13 +427,6 @@
       "category": "Trainer"
     },
     {
-      "card_name": "Darkness Energy",
-      "inclusion_pct": 10.0,
-      "avg_copies": 2.0,
-      "decks_with": 1,
-      "category": "Energy"
-    },
-    {
       "card_name": "Crispin",
       "inclusion_pct": 10.0,
       "avg_copies": 1.0,
@@ -530,5 +509,13 @@
       "standing": 15,
       "player_name": "ろっき"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 0.8,
+    "weighted_share": 0.7,
+    "consistency": 59.5,
+    "ceiling": 90,
+    "popularity": 1.6,
+    "core_density": 59.0
+  }
 }

@@ -39,25 +39,11 @@
       "category": "Pokemon"
     },
     {
-      "card_name": "Fire Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 7.0,
-      "decks_with": 31,
-      "category": "Energy"
-    },
-    {
       "card_name": "Fighting Gong",
       "inclusion_pct": 100.0,
       "avg_copies": 3.7,
       "decks_with": 31,
       "category": "Trainer"
-    },
-    {
-      "card_name": "Fighting Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 11.8,
-      "decks_with": 31,
-      "category": "Energy"
     },
     {
       "card_name": "Charcadet",
@@ -125,25 +111,11 @@
       "category": "Pokemon"
     },
     {
-      "card_name": "Fire Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 7.0,
-      "decks_with": 31,
-      "category": "Energy"
-    },
-    {
       "card_name": "Fighting Gong",
       "inclusion_pct": 100.0,
       "avg_copies": 3.7,
       "decks_with": 31,
       "category": "Trainer"
-    },
-    {
-      "card_name": "Fighting Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 11.8,
-      "decks_with": 31,
-      "category": "Energy"
     },
     {
       "card_name": "Charcadet",
@@ -402,7 +374,7 @@
       "inclusion_pct": 3.2,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Energy"
+      "category": "Trainer"
     },
     {
       "card_name": "Chi-Yu",
@@ -599,5 +571,13 @@
       "standing": 16,
       "player_name": "Latte"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 2.3,
+    "weighted_share": 2.0,
+    "consistency": 57.3,
+    "ceiling": 90,
+    "popularity": 5.1,
+    "core_density": 23.3
+  }
 }

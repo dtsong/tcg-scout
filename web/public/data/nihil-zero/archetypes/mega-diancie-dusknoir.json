@@ -33,13 +33,6 @@
       "category": "Energy"
     },
     {
-      "card_name": "Psychic Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 7.6,
-      "decks_with": 123,
-      "category": "Energy"
-    },
-    {
       "card_name": "Powerglass",
       "inclusion_pct": 100.0,
       "avg_copies": 2.7,
@@ -143,13 +136,6 @@
       "card_name": "Telepath Psychic Energy",
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
-      "decks_with": 123,
-      "category": "Energy"
-    },
-    {
-      "card_name": "Psychic Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 7.6,
       "decks_with": 123,
       "category": "Energy"
     },
@@ -371,13 +357,6 @@
       "category": "Pokemon"
     },
     {
-      "card_name": "Darkness Energy",
-      "inclusion_pct": 4.9,
-      "avg_copies": 1.8,
-      "decks_with": 6,
-      "category": "Energy"
-    },
-    {
       "card_name": "Togepi",
       "inclusion_pct": 4.1,
       "avg_copies": 1.2,
@@ -424,7 +403,7 @@
       "inclusion_pct": 2.4,
       "avg_copies": 1.0,
       "decks_with": 3,
-      "category": "Energy"
+      "category": "Trainer"
     },
     {
       "card_name": "Bloodmoon Ursaluna ex",
@@ -868,5 +847,13 @@
       "standing": 8,
       "player_name": "ヒロアラシ"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 9.1,
+    "weighted_share": 8.5,
+    "consistency": 58.2,
+    "ceiling": 100,
+    "popularity": 20.1,
+    "core_density": 24.6
+  }
 }

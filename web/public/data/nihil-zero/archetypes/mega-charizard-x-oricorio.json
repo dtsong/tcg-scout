@@ -117,13 +117,6 @@
       "category": "Pokemon"
     },
     {
-      "card_name": "Fire Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 9.0,
-      "decks_with": 1,
-      "category": "Energy"
-    },
-    {
       "card_name": "Fezandipiti ex",
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
@@ -135,7 +128,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 3.0,
       "decks_with": 1,
-      "category": "Energy"
+      "category": "Trainer"
     },
     {
       "card_name": "Charmeleon",
@@ -287,13 +280,6 @@
       "category": "Pokemon"
     },
     {
-      "card_name": "Fire Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 9.0,
-      "decks_with": 1,
-      "category": "Energy"
-    },
-    {
       "card_name": "Fezandipiti ex",
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
@@ -305,7 +291,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 3.0,
       "decks_with": 1,
-      "category": "Energy"
+      "category": "Trainer"
     },
     {
       "card_name": "Charmeleon",
@@ -357,5 +343,13 @@
       "standing": 11,
       "player_name": "じろう"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 0.1,
+    "weighted_share": 0.1,
+    "consistency": 50.0,
+    "ceiling": 25,
+    "popularity": 0.2,
+    "core_density": 100.0
+  }
 }

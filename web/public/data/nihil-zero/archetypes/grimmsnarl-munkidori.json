@@ -68,13 +68,6 @@
       "category": "Trainer"
     },
     {
-      "card_name": "Darkness Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 9.1,
-      "decks_with": 224,
-      "category": "Energy"
-    },
-    {
       "card_name": "Buddy-Buddy Poffin",
       "inclusion_pct": 100.0,
       "avg_copies": 2.9,
@@ -189,13 +182,6 @@
       "category": "Trainer"
     },
     {
-      "card_name": "Darkness Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 9.1,
-      "decks_with": 224,
-      "category": "Energy"
-    },
-    {
       "card_name": "Buddy-Buddy Poffin",
       "inclusion_pct": 100.0,
       "avg_copies": 2.9,
@@ -277,7 +263,7 @@
       "inclusion_pct": 34.4,
       "avg_copies": 1.2,
       "decks_with": 77,
-      "category": "Energy"
+      "category": "Trainer"
     },
     {
       "card_name": "Ultra Ball",
@@ -403,7 +389,7 @@
       "inclusion_pct": 3.1,
       "avg_copies": 1.1,
       "decks_with": 7,
-      "category": "Energy"
+      "category": "Trainer"
     },
     {
       "card_name": "Dunsparce",
@@ -459,7 +445,7 @@
       "inclusion_pct": 2.2,
       "avg_copies": 1.0,
       "decks_with": 5,
-      "category": "Energy"
+      "category": "Trainer"
     },
     {
       "card_name": "Dawn",
@@ -588,13 +574,6 @@
       "category": "Pokemon"
     },
     {
-      "card_name": "Water Energy",
-      "inclusion_pct": 0.4,
-      "avg_copies": 1.0,
-      "decks_with": 1,
-      "category": "Energy"
-    },
-    {
       "card_name": "Team Rocket's Watchtower",
       "inclusion_pct": 0.4,
       "avg_copies": 1.0,
@@ -607,13 +586,6 @@
       "avg_copies": 1.0,
       "decks_with": 1,
       "category": "Trainer"
-    },
-    {
-      "card_name": "Psychic Energy",
-      "inclusion_pct": 0.4,
-      "avg_copies": 2.0,
-      "decks_with": 1,
-      "category": "Energy"
     },
     {
       "card_name": "Precious Trolley",
@@ -1008,5 +980,13 @@
       "standing": 3,
       "player_name": "ガッちゃん"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 16.6,
+    "weighted_share": 17.5,
+    "consistency": 65.1,
+    "ceiling": 100,
+    "popularity": 36.7,
+    "core_density": 20.3
+  }
 }

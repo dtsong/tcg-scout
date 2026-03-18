@@ -103,13 +103,6 @@
       "category": "Trainer"
     },
     {
-      "card_name": "Fighting Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 9.5,
-      "decks_with": 2,
-      "category": "Energy"
-    },
-    {
       "card_name": "Dunsparce",
       "inclusion_pct": 100.0,
       "avg_copies": 3.0,
@@ -238,13 +231,6 @@
       "category": "Trainer"
     },
     {
-      "card_name": "Fighting Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 9.5,
-      "decks_with": 2,
-      "category": "Energy"
-    },
-    {
       "card_name": "Dunsparce",
       "inclusion_pct": 100.0,
       "avg_copies": 3.0,
@@ -328,5 +314,13 @@
       "standing": 14,
       "player_name": "きにゃ粉"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 0.1,
+    "weighted_share": 0.1,
+    "consistency": 52.5,
+    "ceiling": 50,
+    "popularity": 0.3,
+    "core_density": 78.3
+  }
 }

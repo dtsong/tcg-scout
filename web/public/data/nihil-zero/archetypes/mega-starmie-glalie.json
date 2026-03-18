@@ -12,13 +12,6 @@
   ],
   "core_cards": [
     {
-      "card_name": "Water Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 4.0,
-      "decks_with": 2,
-      "category": "Energy"
-    },
-    {
       "card_name": "Ultra Ball",
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
@@ -115,13 +108,6 @@
       "avg_copies": 1.0,
       "decks_with": 2,
       "category": "Pokemon"
-    },
-    {
-      "card_name": "Darkness Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 3.5,
-      "decks_with": 2,
-      "category": "Energy"
     },
     {
       "card_name": "Crispin",
@@ -168,13 +154,6 @@
   ],
   "all_cards": [
     {
-      "card_name": "Water Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 4.0,
-      "decks_with": 2,
-      "category": "Energy"
-    },
-    {
       "card_name": "Ultra Ball",
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
@@ -271,13 +250,6 @@
       "avg_copies": 1.0,
       "decks_with": 2,
       "category": "Pokemon"
-    },
-    {
-      "card_name": "Darkness Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 3.5,
-      "decks_with": 2,
-      "category": "Energy"
     },
     {
       "card_name": "Crispin",
@@ -342,5 +314,13 @@
       "standing": 13,
       "player_name": "さきっちょ"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 0.1,
+    "weighted_share": 0.2,
+    "consistency": 70.0,
+    "ceiling": 100,
+    "popularity": 0.3,
+    "core_density": 95.2
+  }
 }

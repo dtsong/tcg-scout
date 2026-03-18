@@ -128,14 +128,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 2.7,
       "decks_with": 3,
-      "category": "Energy"
-    },
-    {
-      "card_name": "Darkness Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 8.3,
-      "decks_with": 3,
-      "category": "Energy"
+      "category": "Trainer"
     },
     {
       "card_name": "Buddy-Buddy Poffin",
@@ -277,14 +270,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 2.7,
       "decks_with": 3,
-      "category": "Energy"
-    },
-    {
-      "card_name": "Darkness Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 8.3,
-      "decks_with": 3,
-      "category": "Energy"
+      "category": "Trainer"
     },
     {
       "card_name": "Buddy-Buddy Poffin",
@@ -397,5 +383,13 @@
       "standing": 15,
       "player_name": "とるく"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 0.2,
+    "weighted_share": 0.3,
+    "consistency": 71.7,
+    "ceiling": 100,
+    "popularity": 0.5,
+    "core_density": 66.7
+  }
 }

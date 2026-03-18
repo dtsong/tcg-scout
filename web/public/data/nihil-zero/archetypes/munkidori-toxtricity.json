@@ -79,14 +79,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 1.7,
       "decks_with": 13,
-      "category": "Energy"
-    },
-    {
-      "card_name": "Darkness Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 9.9,
-      "decks_with": 13,
-      "category": "Energy"
+      "category": "Trainer"
     },
     {
       "card_name": "Brute Bonnet",
@@ -114,7 +107,7 @@
       "inclusion_pct": 92.3,
       "avg_copies": 1.5,
       "decks_with": 12,
-      "category": "Energy"
+      "category": "Trainer"
     },
     {
       "card_name": "Unfair Stamp",
@@ -200,14 +193,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 1.7,
       "decks_with": 13,
-      "category": "Energy"
-    },
-    {
-      "card_name": "Darkness Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 9.9,
-      "decks_with": 13,
-      "category": "Energy"
+      "category": "Trainer"
     },
     {
       "card_name": "Brute Bonnet",
@@ -235,7 +221,7 @@
       "inclusion_pct": 92.3,
       "avg_copies": 1.5,
       "decks_with": 12,
-      "category": "Energy"
+      "category": "Trainer"
     },
     {
       "card_name": "Unfair Stamp",
@@ -417,7 +403,7 @@
       "inclusion_pct": 15.4,
       "avg_copies": 1.0,
       "decks_with": 2,
-      "category": "Energy"
+      "category": "Trainer"
     },
     {
       "card_name": "Switch",
@@ -576,5 +562,13 @@
       "standing": 16,
       "player_name": "おばけ"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 0.9,
+    "weighted_share": 0.9,
+    "consistency": 53.5,
+    "ceiling": 100,
+    "popularity": 2.1,
+    "core_density": 31.4
+  }
 }

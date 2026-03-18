@@ -162,21 +162,14 @@
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
       "decks_with": 1,
-      "category": "Energy"
+      "category": "Trainer"
     },
     {
       "card_name": "Energy Recycler",
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Energy"
-    },
-    {
-      "card_name": "Darkness Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 10.0,
-      "decks_with": 1,
-      "category": "Energy"
+      "category": "Trainer"
     },
     {
       "card_name": "Buddy-Buddy Poffin",
@@ -360,21 +353,14 @@
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
       "decks_with": 1,
-      "category": "Energy"
+      "category": "Trainer"
     },
     {
       "card_name": "Energy Recycler",
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Energy"
-    },
-    {
-      "card_name": "Darkness Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 10.0,
-      "decks_with": 1,
-      "category": "Energy"
+      "category": "Trainer"
     },
     {
       "card_name": "Buddy-Buddy Poffin",
@@ -412,5 +398,13 @@
       "standing": 13,
       "player_name": "ナスカダ"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 0.1,
+    "weighted_share": 0.1,
+    "consistency": 40.0,
+    "ceiling": 25,
+    "popularity": 0.2,
+    "core_density": 100.0
+  }
 }

@@ -75,13 +75,6 @@
       "category": "Trainer"
     },
     {
-      "card_name": "Grass Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 12.0,
-      "decks_with": 1,
-      "category": "Energy"
-    },
-    {
       "card_name": "Forest of Vitality",
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
@@ -238,13 +231,6 @@
       "category": "Trainer"
     },
     {
-      "card_name": "Grass Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 12.0,
-      "decks_with": 1,
-      "category": "Energy"
-    },
-    {
       "card_name": "Forest of Vitality",
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
@@ -343,5 +329,13 @@
       "standing": 7,
       "player_name": "マールド"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 0.1,
+    "weighted_share": 0.1,
+    "consistency": 70.0,
+    "ceiling": 50,
+    "popularity": 0.2,
+    "core_density": 100.0
+  }
 }

@@ -68,25 +68,11 @@
       "category": "Trainer"
     },
     {
-      "card_name": "Fire Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 6.0,
-      "decks_with": 1,
-      "category": "Energy"
-    },
-    {
       "card_name": "Fighting Gong",
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
       "decks_with": 1,
       "category": "Trainer"
-    },
-    {
-      "card_name": "Fighting Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 13.0,
-      "decks_with": 1,
-      "category": "Energy"
     },
     {
       "card_name": "Explorer's Guidance",
@@ -189,25 +175,11 @@
       "category": "Trainer"
     },
     {
-      "card_name": "Fire Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 6.0,
-      "decks_with": 1,
-      "category": "Energy"
-    },
-    {
       "card_name": "Fighting Gong",
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
       "decks_with": 1,
       "category": "Trainer"
-    },
-    {
-      "card_name": "Fighting Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 13.0,
-      "decks_with": 1,
-      "category": "Energy"
     },
     {
       "card_name": "Explorer's Guidance",
@@ -259,5 +231,13 @@
       "standing": 6,
       "player_name": "からやぶ"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 0.1,
+    "weighted_share": 0.1,
+    "consistency": 75.0,
+    "ceiling": 50,
+    "popularity": 0.2,
+    "core_density": 100.0
+  }
 }

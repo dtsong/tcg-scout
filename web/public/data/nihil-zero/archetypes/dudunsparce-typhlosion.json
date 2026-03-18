@@ -54,13 +54,6 @@
       "category": "Trainer"
     },
     {
-      "card_name": "Fire Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 5.3,
-      "decks_with": 3,
-      "category": "Energy"
-    },
-    {
       "card_name": "Ethan's Typhlosion",
       "inclusion_pct": 100.0,
       "avg_copies": 3.3,
@@ -180,13 +173,6 @@
       "avg_copies": 2.0,
       "decks_with": 3,
       "category": "Trainer"
-    },
-    {
-      "card_name": "Fire Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 5.3,
-      "decks_with": 3,
-      "category": "Energy"
     },
     {
       "card_name": "Ethan's Typhlosion",
@@ -439,5 +425,13 @@
       "standing": 15,
       "player_name": "ねもてぃ"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 0.2,
+    "weighted_share": 0.2,
+    "consistency": 56.7,
+    "ceiling": 50,
+    "popularity": 0.5,
+    "core_density": 43.6
+  }
 }

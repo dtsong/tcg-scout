@@ -68,13 +68,6 @@
       "category": "Pokemon"
     },
     {
-      "card_name": "Grass Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 9.0,
-      "decks_with": 2,
-      "category": "Energy"
-    },
-    {
       "card_name": "Forest of Vitality",
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
@@ -215,13 +208,6 @@
       "avg_copies": 2.0,
       "decks_with": 2,
       "category": "Pokemon"
-    },
-    {
-      "card_name": "Grass Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 9.0,
-      "decks_with": 2,
-      "category": "Energy"
     },
     {
       "card_name": "Forest of Vitality",
@@ -377,5 +363,13 @@
       "standing": 12,
       "player_name": "hayabusa"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 0.1,
+    "weighted_share": 0.1,
+    "consistency": 60.0,
+    "ceiling": 50,
+    "popularity": 0.3,
+    "core_density": 71.4
+  }
 }

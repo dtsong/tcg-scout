@@ -40,13 +40,6 @@
       "category": "Trainer"
     },
     {
-      "card_name": "Psychic Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 11.0,
-      "decks_with": 1,
-      "category": "Energy"
-    },
-    {
       "card_name": "Prime Catcher",
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
@@ -182,13 +175,6 @@
       "category": "Trainer"
     },
     {
-      "card_name": "Psychic Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 11.0,
-      "decks_with": 1,
-      "category": "Energy"
-    },
-    {
       "card_name": "Prime Catcher",
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
@@ -301,5 +287,13 @@
       "standing": 13,
       "player_name": "みなまき"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 0.1,
+    "weighted_share": 0.1,
+    "consistency": 40.0,
+    "ceiling": 25,
+    "popularity": 0.2,
+    "core_density": 100.0
+  }
 }

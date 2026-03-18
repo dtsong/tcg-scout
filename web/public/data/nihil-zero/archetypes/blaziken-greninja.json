@@ -12,13 +12,6 @@
   ],
   "core_cards": [
     {
-      "card_name": "Water Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 3.0,
-      "decks_with": 2,
-      "category": "Energy"
-    },
-    {
       "card_name": "Ultra Ball",
       "inclusion_pct": 100.0,
       "avg_copies": 3.0,
@@ -87,13 +80,6 @@
       "avg_copies": 2.5,
       "decks_with": 2,
       "category": "Pokemon"
-    },
-    {
-      "card_name": "Fire Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 3.0,
-      "decks_with": 2,
-      "category": "Energy"
     },
     {
       "card_name": "Combusken",
@@ -126,13 +112,6 @@
   ],
   "all_cards": [
     {
-      "card_name": "Water Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 3.0,
-      "decks_with": 2,
-      "category": "Energy"
-    },
-    {
       "card_name": "Ultra Ball",
       "inclusion_pct": 100.0,
       "avg_copies": 3.0,
@@ -201,13 +180,6 @@
       "avg_copies": 2.5,
       "decks_with": 2,
       "category": "Pokemon"
-    },
-    {
-      "card_name": "Fire Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 3.0,
-      "decks_with": 2,
-      "category": "Energy"
     },
     {
       "card_name": "Combusken",
@@ -343,13 +315,6 @@
       "category": "Trainer"
     },
     {
-      "card_name": "Darkness Energy",
-      "inclusion_pct": 50.0,
-      "avg_copies": 4.0,
-      "decks_with": 1,
-      "category": "Energy"
-    },
-    {
       "card_name": "Crispin",
       "inclusion_pct": 50.0,
       "avg_copies": 3.0,
@@ -398,5 +363,13 @@
       "standing": 5,
       "player_name": "アオバト"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 0.1,
+    "weighted_share": 0.1,
+    "consistency": 85.0,
+    "ceiling": 75,
+    "popularity": 0.3,
+    "core_density": 41.2
+  }
 }

@@ -25,13 +25,6 @@
       "category": "Trainer"
     },
     {
-      "card_name": "Psychic Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 4.7,
-      "decks_with": 6,
-      "category": "Energy"
-    },
-    {
       "card_name": "Pokégear 3.0",
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
@@ -116,13 +109,6 @@
       "avg_copies": 2.7,
       "decks_with": 6,
       "category": "Trainer"
-    },
-    {
-      "card_name": "Psychic Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 4.7,
-      "decks_with": 6,
-      "category": "Energy"
     },
     {
       "card_name": "Pokégear 3.0",
@@ -358,5 +344,13 @@
       "standing": 14,
       "player_name": "いぶここ"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 0.4,
+    "weighted_share": 0.4,
+    "consistency": 64.2,
+    "ceiling": 90,
+    "popularity": 1.0,
+    "core_density": 40.0
+  }
 }

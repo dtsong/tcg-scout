@@ -61,13 +61,6 @@
       "category": "Trainer"
     },
     {
-      "card_name": "Fighting Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 8.7,
-      "decks_with": 123,
-      "category": "Energy"
-    },
-    {
       "card_name": "Boss's Orders",
       "inclusion_pct": 100.0,
       "avg_copies": 3.3,
@@ -168,13 +161,6 @@
       "category": "Trainer"
     },
     {
-      "card_name": "Fighting Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 8.7,
-      "decks_with": 123,
-      "category": "Energy"
-    },
-    {
       "card_name": "Boss's Orders",
       "inclusion_pct": 100.0,
       "avg_copies": 3.3,
@@ -231,13 +217,6 @@
       "category": "Energy"
     },
     {
-      "card_name": "Darkness Energy",
-      "inclusion_pct": 65.0,
-      "avg_copies": 1.1,
-      "decks_with": 80,
-      "category": "Energy"
-    },
-    {
       "card_name": "Pokégear 3.0",
       "inclusion_pct": 61.0,
       "avg_copies": 2.2,
@@ -263,7 +242,7 @@
       "inclusion_pct": 30.1,
       "avg_copies": 1.4,
       "decks_with": 37,
-      "category": "Energy"
+      "category": "Trainer"
     },
     {
       "card_name": "Carmine",
@@ -945,5 +924,13 @@
       "standing": 6,
       "player_name": "にゃんこ先生"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 9.1,
+    "weighted_share": 9.1,
+    "consistency": 62.8,
+    "ceiling": 100,
+    "popularity": 20.1,
+    "core_density": 19.2
+  }
 }

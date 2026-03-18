@@ -47,25 +47,11 @@
       "category": "Pokemon"
     },
     {
-      "card_name": "Fire Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 6.2,
-      "decks_with": 4,
-      "category": "Energy"
-    },
-    {
       "card_name": "Fighting Gong",
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
       "decks_with": 4,
       "category": "Trainer"
-    },
-    {
-      "card_name": "Fighting Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 11.2,
-      "decks_with": 4,
-      "category": "Energy"
     },
     {
       "card_name": "Charcadet",
@@ -133,25 +119,11 @@
       "category": "Pokemon"
     },
     {
-      "card_name": "Fire Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 6.2,
-      "decks_with": 4,
-      "category": "Energy"
-    },
-    {
       "card_name": "Fighting Gong",
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
       "decks_with": 4,
       "category": "Trainer"
-    },
-    {
-      "card_name": "Fighting Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 11.2,
-      "decks_with": 4,
-      "category": "Energy"
     },
     {
       "card_name": "Charcadet",
@@ -319,5 +291,13 @@
       "standing": 15,
       "player_name": "きむ"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 0.3,
+    "weighted_share": 0.3,
+    "consistency": 62.5,
+    "ceiling": 100,
+    "popularity": 0.7,
+    "core_density": 38.5
+  }
 }

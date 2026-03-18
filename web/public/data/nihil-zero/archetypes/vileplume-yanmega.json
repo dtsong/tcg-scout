@@ -82,13 +82,6 @@
       "category": "Trainer"
     },
     {
-      "card_name": "Grass Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 9.0,
-      "decks_with": 1,
-      "category": "Energy"
-    },
-    {
       "card_name": "Forest of Vitality",
       "inclusion_pct": 100.0,
       "avg_copies": 3.0,
@@ -135,7 +128,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Energy"
+      "category": "Trainer"
     },
     {
       "card_name": "Bug Catching Set",
@@ -231,13 +224,6 @@
       "category": "Trainer"
     },
     {
-      "card_name": "Grass Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 9.0,
-      "decks_with": 1,
-      "category": "Energy"
-    },
-    {
       "card_name": "Forest of Vitality",
       "inclusion_pct": 100.0,
       "avg_copies": 3.0,
@@ -284,7 +270,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Energy"
+      "category": "Trainer"
     },
     {
       "card_name": "Bug Catching Set",
@@ -315,5 +301,13 @@
       "standing": 13,
       "player_name": "わいけー"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 0.1,
+    "weighted_share": 0.1,
+    "consistency": 40.0,
+    "ceiling": 25,
+    "popularity": 0.2,
+    "core_density": 100.0
+  }
 }

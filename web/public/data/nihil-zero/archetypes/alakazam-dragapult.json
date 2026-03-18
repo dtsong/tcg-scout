@@ -19,13 +19,6 @@
       "category": "Trainer"
     },
     {
-      "card_name": "Psychic Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 1.8,
-      "decks_with": 21,
-      "category": "Energy"
-    },
-    {
       "card_name": "Poké Pad",
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
@@ -45,13 +38,6 @@
       "avg_copies": 3.1,
       "decks_with": 21,
       "category": "Pokemon"
-    },
-    {
-      "card_name": "Fire Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 1.5,
-      "decks_with": 21,
-      "category": "Energy"
     },
     {
       "card_name": "Dreepy",
@@ -168,13 +154,6 @@
       "category": "Trainer"
     },
     {
-      "card_name": "Psychic Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 1.8,
-      "decks_with": 21,
-      "category": "Energy"
-    },
-    {
       "card_name": "Poké Pad",
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
@@ -194,13 +173,6 @@
       "avg_copies": 3.1,
       "decks_with": 21,
       "category": "Pokemon"
-    },
-    {
-      "card_name": "Fire Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 1.5,
-      "decks_with": 21,
-      "category": "Energy"
     },
     {
       "card_name": "Dreepy",
@@ -434,13 +406,6 @@
       "category": "Trainer"
     },
     {
-      "card_name": "Darkness Energy",
-      "inclusion_pct": 14.3,
-      "avg_copies": 1.0,
-      "decks_with": 3,
-      "category": "Energy"
-    },
-    {
       "card_name": "Xerosic's Machinations",
       "inclusion_pct": 9.5,
       "avg_copies": 1.0,
@@ -659,5 +624,13 @@
       "standing": 16,
       "player_name": "くれす"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 1.6,
+    "weighted_share": 1.4,
+    "consistency": 54.0,
+    "ceiling": 100,
+    "popularity": 3.4,
+    "core_density": 38.0
+  }
 }

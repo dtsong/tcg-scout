@@ -336,13 +336,6 @@
       "category": "Trainer"
     },
     {
-      "card_name": "Psychic Energy",
-      "inclusion_pct": 28.6,
-      "avg_copies": 3.5,
-      "decks_with": 2,
-      "category": "Energy"
-    },
-    {
       "card_name": "Kieran",
       "inclusion_pct": 28.6,
       "avg_copies": 1.0,
@@ -392,25 +385,11 @@
       "category": "Pokemon"
     },
     {
-      "card_name": "Metal Energy",
-      "inclusion_pct": 14.3,
-      "avg_copies": 2.0,
-      "decks_with": 1,
-      "category": "Energy"
-    },
-    {
       "card_name": "Iris's Fighting Spirit",
       "inclusion_pct": 14.3,
       "avg_copies": 3.0,
       "decks_with": 1,
       "category": "Trainer"
-    },
-    {
-      "card_name": "Darkness Energy",
-      "inclusion_pct": 14.3,
-      "avg_copies": 1.0,
-      "decks_with": 1,
-      "category": "Energy"
     },
     {
       "card_name": "Crispin",
@@ -463,5 +442,13 @@
       "standing": 15,
       "player_name": "さんきち"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 0.5,
+    "weighted_share": 0.6,
+    "consistency": 68.6,
+    "ceiling": 100,
+    "popularity": 1.1,
+    "core_density": 52.8
+  }
 }

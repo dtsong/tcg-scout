@@ -110,13 +110,6 @@
       "category": "Trainer"
     },
     {
-      "card_name": "Fighting Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 10.0,
-      "decks_with": 1,
-      "category": "Energy"
-    },
-    {
       "card_name": "Explorer's Guidance",
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
@@ -252,13 +245,6 @@
       "category": "Trainer"
     },
     {
-      "card_name": "Fighting Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 10.0,
-      "decks_with": 1,
-      "category": "Energy"
-    },
-    {
       "card_name": "Explorer's Guidance",
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
@@ -301,5 +287,13 @@
       "standing": 7,
       "player_name": "BOSE"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 0.1,
+    "weighted_share": 0.1,
+    "consistency": 70.0,
+    "ceiling": 50,
+    "popularity": 0.2,
+    "core_density": 100.0
+  }
 }

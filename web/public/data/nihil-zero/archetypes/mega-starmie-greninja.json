@@ -12,13 +12,6 @@
   ],
   "core_cards": [
     {
-      "card_name": "Water Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 5.4,
-      "decks_with": 25,
-      "category": "Energy"
-    },
-    {
       "card_name": "Ultra Ball",
       "inclusion_pct": 100.0,
       "avg_copies": 3.8,
@@ -167,13 +160,6 @@
     }
   ],
   "all_cards": [
-    {
-      "card_name": "Water Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 5.4,
-      "decks_with": 25,
-      "category": "Energy"
-    },
     {
       "card_name": "Ultra Ball",
       "inclusion_pct": 100.0,
@@ -557,14 +543,7 @@
       "inclusion_pct": 4.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Energy"
-    },
-    {
-      "card_name": "Darkness Energy",
-      "inclusion_pct": 4.0,
-      "avg_copies": 1.0,
-      "decks_with": 1,
-      "category": "Energy"
+      "category": "Trainer"
     },
     {
       "card_name": "Bloodmoon Ursaluna ex",
@@ -739,5 +718,13 @@
       "standing": 16,
       "player_name": "HAT"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 1.8,
+    "weighted_share": 1.9,
+    "consistency": 64.6,
+    "ceiling": 100,
+    "popularity": 4.1,
+    "core_density": 36.2
+  }
 }

@@ -32,27 +32,6 @@
       "category": "Pokemon"
     },
     {
-      "card_name": "Lightning Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 3.3,
-      "decks_with": 109,
-      "category": "Energy"
-    },
-    {
-      "card_name": "Grass Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 8.0,
-      "decks_with": 109,
-      "category": "Energy"
-    },
-    {
-      "card_name": "Fighting Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 3.2,
-      "decks_with": 109,
-      "category": "Energy"
-    },
-    {
       "card_name": "Crispin",
       "inclusion_pct": 100.0,
       "avg_copies": 3.9,
@@ -120,14 +99,14 @@
       "inclusion_pct": 88.1,
       "avg_copies": 2.0,
       "decks_with": 96,
-      "category": "Energy"
+      "category": "Trainer"
     },
     {
       "card_name": "Energy Retrieval",
       "inclusion_pct": 88.1,
       "avg_copies": 1.6,
       "decks_with": 96,
-      "category": "Energy"
+      "category": "Trainer"
     }
   ],
   "all_cards": [
@@ -153,27 +132,6 @@
       "category": "Pokemon"
     },
     {
-      "card_name": "Lightning Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 3.3,
-      "decks_with": 109,
-      "category": "Energy"
-    },
-    {
-      "card_name": "Grass Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 8.0,
-      "decks_with": 109,
-      "category": "Energy"
-    },
-    {
-      "card_name": "Fighting Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 3.2,
-      "decks_with": 109,
-      "category": "Energy"
-    },
-    {
       "card_name": "Crispin",
       "inclusion_pct": 100.0,
       "avg_copies": 3.9,
@@ -241,14 +199,14 @@
       "inclusion_pct": 88.1,
       "avg_copies": 2.0,
       "decks_with": 96,
-      "category": "Energy"
+      "category": "Trainer"
     },
     {
       "card_name": "Energy Retrieval",
       "inclusion_pct": 88.1,
       "avg_copies": 1.6,
       "decks_with": 96,
-      "category": "Energy"
+      "category": "Trainer"
     },
     {
       "card_name": "Night Stretcher",
@@ -305,13 +263,6 @@
       "avg_copies": 2.5,
       "decks_with": 38,
       "category": "Pokemon"
-    },
-    {
-      "card_name": "Psychic Energy",
-      "inclusion_pct": 29.4,
-      "avg_copies": 1.7,
-      "decks_with": 32,
-      "category": "Energy"
     },
     {
       "card_name": "Lillie's Clefairy ex",
@@ -381,7 +332,7 @@
       "inclusion_pct": 11.0,
       "avg_copies": 1.1,
       "decks_with": 12,
-      "category": "Energy"
+      "category": "Trainer"
     },
     {
       "card_name": "Community Center",
@@ -438,13 +389,6 @@
       "avg_copies": 1.2,
       "decks_with": 6,
       "category": "Pokemon"
-    },
-    {
-      "card_name": "Water Energy",
-      "inclusion_pct": 5.5,
-      "avg_copies": 1.3,
-      "decks_with": 6,
-      "category": "Energy"
     },
     {
       "card_name": "Terapagos ex",
@@ -521,7 +465,7 @@
       "inclusion_pct": 2.8,
       "avg_copies": 1.0,
       "decks_with": 3,
-      "category": "Energy"
+      "category": "Trainer"
     },
     {
       "card_name": "Budew",
@@ -951,5 +895,13 @@
       "standing": 8,
       "player_name": "ルージュラさとう"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 8.1,
+    "weighted_share": 7.9,
+    "consistency": 63.7,
+    "ceiling": 100,
+    "popularity": 17.8,
+    "core_density": 20.3
+  }
 }

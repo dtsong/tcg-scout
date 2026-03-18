@@ -39,13 +39,6 @@
       "category": "Pokemon"
     },
     {
-      "card_name": "Psychic Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 5.7,
-      "decks_with": 14,
-      "category": "Energy"
-    },
-    {
       "card_name": "Poké Pad",
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
@@ -137,13 +130,6 @@
       "avg_copies": 3.0,
       "decks_with": 14,
       "category": "Pokemon"
-    },
-    {
-      "card_name": "Psychic Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 5.7,
-      "decks_with": 14,
-      "category": "Energy"
     },
     {
       "card_name": "Poké Pad",
@@ -507,7 +493,7 @@
       "inclusion_pct": 7.1,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Energy"
+      "category": "Trainer"
     }
   ],
   "results": [
@@ -595,5 +581,13 @@
       "standing": 16,
       "player_name": "なのぴ"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 1.0,
+    "weighted_share": 1.0,
+    "consistency": 63.6,
+    "ceiling": 100,
+    "popularity": 2.3,
+    "core_density": 23.2
+  }
 }

@@ -61,13 +61,6 @@
       "category": "Pokemon"
     },
     {
-      "card_name": "Psychic Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 7.0,
-      "decks_with": 1,
-      "category": "Energy"
-    },
-    {
       "card_name": "Prism Energy",
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
@@ -231,13 +224,6 @@
       "category": "Pokemon"
     },
     {
-      "card_name": "Psychic Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 7.0,
-      "decks_with": 1,
-      "category": "Energy"
-    },
-    {
       "card_name": "Prism Energy",
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
@@ -357,5 +343,13 @@
       "standing": 9,
       "player_name": "ガンチ"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 0.1,
+    "weighted_share": 0.1,
+    "consistency": 60.0,
+    "ceiling": 25,
+    "popularity": 0.2,
+    "core_density": 100.0
+  }
 }

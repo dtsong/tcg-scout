@@ -19,13 +19,6 @@
       "category": "Trainer"
     },
     {
-      "card_name": "Psychic Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 2.8,
-      "decks_with": 337,
-      "category": "Energy"
-    },
-    {
       "card_name": "Poké Pad",
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
@@ -159,13 +152,6 @@
       "avg_copies": 3.5,
       "decks_with": 337,
       "category": "Trainer"
-    },
-    {
-      "card_name": "Psychic Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 2.8,
-      "decks_with": 337,
-      "category": "Energy"
     },
     {
       "card_name": "Poké Pad",
@@ -547,13 +533,6 @@
     },
     {
       "card_name": "Ignition Energy",
-      "inclusion_pct": 0.6,
-      "avg_copies": 1.0,
-      "decks_with": 2,
-      "category": "Energy"
-    },
-    {
-      "card_name": "Fighting Energy",
       "inclusion_pct": 0.6,
       "avg_copies": 1.0,
       "decks_with": 2,
@@ -966,5 +945,13 @@
       "standing": 2,
       "player_name": "チリリン"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 24.9,
+    "weighted_share": 26.0,
+    "consistency": 64.6,
+    "ceiling": 100,
+    "popularity": 55.2,
+    "core_density": 26.8
+  }
 }

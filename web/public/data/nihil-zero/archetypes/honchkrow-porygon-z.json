@@ -378,13 +378,6 @@
       "category": "Pokemon"
     },
     {
-      "card_name": "Water Energy",
-      "inclusion_pct": 0.6,
-      "avg_copies": 1.0,
-      "decks_with": 1,
-      "category": "Energy"
-    },
-    {
       "card_name": "Unfair Stamp",
       "inclusion_pct": 0.6,
       "avg_copies": 1.0,
@@ -452,7 +445,7 @@
       "inclusion_pct": 0.6,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Energy"
+      "category": "Trainer"
     },
     {
       "card_name": "Deluxe Bomb",
@@ -460,13 +453,6 @@
       "avg_copies": 1.0,
       "decks_with": 1,
       "category": "Pokemon"
-    },
-    {
-      "card_name": "Darkness Energy",
-      "inclusion_pct": 0.6,
-      "avg_copies": 1.0,
-      "decks_with": 1,
-      "category": "Energy"
     },
     {
       "card_name": "Brilliant Blender",
@@ -791,5 +777,13 @@
       "standing": 5,
       "player_name": "こはく"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 12.1,
+    "weighted_share": 12.1,
+    "consistency": 64.4,
+    "ceiling": 100,
+    "popularity": 26.7,
+    "core_density": 34.7
+  }
 }

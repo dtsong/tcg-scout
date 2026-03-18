@@ -40,13 +40,6 @@
       "category": "Trainer"
     },
     {
-      "card_name": "Fighting Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 9.0,
-      "decks_with": 4,
-      "category": "Energy"
-    },
-    {
       "card_name": "Boss's Orders",
       "inclusion_pct": 100.0,
       "avg_copies": 2.5,
@@ -82,13 +75,6 @@
       "avg_copies": 4.0,
       "decks_with": 4,
       "category": "Trainer"
-    },
-    {
-      "card_name": "Fighting Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 9.0,
-      "decks_with": 4,
-      "category": "Energy"
     },
     {
       "card_name": "Boss's Orders",
@@ -263,7 +249,7 @@
       "inclusion_pct": 25.0,
       "avg_copies": 2.0,
       "decks_with": 1,
-      "category": "Energy"
+      "category": "Trainer"
     },
     {
       "card_name": "Cornerstone Mask Ogerpon ex",
@@ -312,5 +298,13 @@
       "standing": 14,
       "player_name": "FDえーじ"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 0.3,
+    "weighted_share": 0.2,
+    "consistency": 40.0,
+    "ceiling": 25,
+    "popularity": 0.7,
+    "core_density": 15.6
+  }
 }

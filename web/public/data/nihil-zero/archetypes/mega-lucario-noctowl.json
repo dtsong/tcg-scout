@@ -131,13 +131,6 @@
       "category": "Trainer"
     },
     {
-      "card_name": "Fighting Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 6.0,
-      "decks_with": 1,
-      "category": "Energy"
-    },
-    {
       "card_name": "Fezandipiti ex",
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
@@ -315,13 +308,6 @@
       "category": "Trainer"
     },
     {
-      "card_name": "Fighting Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 6.0,
-      "decks_with": 1,
-      "category": "Energy"
-    },
-    {
       "card_name": "Fezandipiti ex",
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
@@ -385,5 +371,13 @@
       "standing": 2,
       "player_name": "いけの"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 0.1,
+    "weighted_share": 0.1,
+    "consistency": 95.0,
+    "ceiling": 90,
+    "popularity": 0.2,
+    "core_density": 100.0
+  }
 }

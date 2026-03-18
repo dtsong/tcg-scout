@@ -12,13 +12,6 @@
   ],
   "core_cards": [
     {
-      "card_name": "Water Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 5.0,
-      "decks_with": 3,
-      "category": "Energy"
-    },
-    {
       "card_name": "Ultra Ball",
       "inclusion_pct": 100.0,
       "avg_copies": 3.0,
@@ -87,13 +80,6 @@
       "avg_copies": 2.7,
       "decks_with": 3,
       "category": "Pokemon"
-    },
-    {
-      "card_name": "Darkness Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 4.0,
-      "decks_with": 3,
-      "category": "Energy"
     },
     {
       "card_name": "Buddy-Buddy Poffin",
@@ -112,13 +98,6 @@
   ],
   "all_cards": [
     {
-      "card_name": "Water Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 5.0,
-      "decks_with": 3,
-      "category": "Energy"
-    },
-    {
       "card_name": "Ultra Ball",
       "inclusion_pct": 100.0,
       "avg_copies": 3.0,
@@ -187,13 +166,6 @@
       "avg_copies": 2.7,
       "decks_with": 3,
       "category": "Pokemon"
-    },
-    {
-      "card_name": "Darkness Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 4.0,
-      "decks_with": 3,
-      "category": "Energy"
     },
     {
       "card_name": "Buddy-Buddy Poffin",
@@ -355,5 +327,13 @@
       "standing": 14,
       "player_name": "むぎ"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 0.2,
+    "weighted_share": 0.2,
+    "consistency": 66.7,
+    "ceiling": 75,
+    "popularity": 0.5,
+    "core_density": 40.0
+  }
 }

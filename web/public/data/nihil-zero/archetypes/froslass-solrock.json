@@ -82,25 +82,11 @@
       "category": "Trainer"
     },
     {
-      "card_name": "Fighting Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 7.5,
-      "decks_with": 2,
-      "category": "Energy"
-    },
-    {
       "card_name": "Energy Retrieval",
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
       "decks_with": 2,
-      "category": "Energy"
-    },
-    {
-      "card_name": "Darkness Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 3.5,
-      "decks_with": 2,
-      "category": "Energy"
+      "category": "Trainer"
     },
     {
       "card_name": "Crispin",
@@ -203,25 +189,11 @@
       "category": "Trainer"
     },
     {
-      "card_name": "Fighting Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 7.5,
-      "decks_with": 2,
-      "category": "Energy"
-    },
-    {
       "card_name": "Energy Retrieval",
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
       "decks_with": 2,
-      "category": "Energy"
-    },
-    {
-      "card_name": "Darkness Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 3.5,
-      "decks_with": 2,
-      "category": "Energy"
+      "category": "Trainer"
     },
     {
       "card_name": "Crispin",
@@ -326,7 +298,7 @@
       "inclusion_pct": 50.0,
       "avg_copies": 2.0,
       "decks_with": 1,
-      "category": "Energy"
+      "category": "Trainer"
     },
     {
       "card_name": "Cornerstone Mask Ogerpon ex",
@@ -363,5 +335,13 @@
       "standing": 6,
       "player_name": "うなぎくま"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 0.1,
+    "weighted_share": 0.1,
+    "consistency": 77.5,
+    "ceiling": 50,
+    "popularity": 0.3,
+    "core_density": 51.7
+  }
 }

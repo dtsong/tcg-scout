@@ -47,13 +47,6 @@
       "category": "Pokemon"
     },
     {
-      "card_name": "Grass Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 4.8,
-      "decks_with": 65,
-      "category": "Energy"
-    },
-    {
       "card_name": "Festival Grounds",
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
@@ -201,13 +194,6 @@
       "avg_copies": 3.8,
       "decks_with": 65,
       "category": "Pokemon"
-    },
-    {
-      "card_name": "Grass Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 4.8,
-      "decks_with": 65,
-      "category": "Energy"
     },
     {
       "card_name": "Festival Grounds",
@@ -585,14 +571,14 @@
       "inclusion_pct": 1.5,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Energy"
+      "category": "Trainer"
     },
     {
       "card_name": "Energy Retrieval",
       "inclusion_pct": 1.5,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Energy"
+      "category": "Trainer"
     },
     {
       "card_name": "Bloodmoon Ursaluna ex",
@@ -903,5 +889,13 @@
       "standing": 12,
       "player_name": "レン"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 4.8,
+    "weighted_share": 5.2,
+    "consistency": 66.7,
+    "ceiling": 100,
+    "popularity": 10.6,
+    "core_density": 34.4
+  }
 }

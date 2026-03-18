@@ -19,13 +19,6 @@
       "category": "Pokemon"
     },
     {
-      "card_name": "Water Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 2.0,
-      "decks_with": 3,
-      "category": "Energy"
-    },
-    {
       "card_name": "Unfair Stamp",
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
@@ -52,13 +45,6 @@
       "avg_copies": 1.0,
       "decks_with": 3,
       "category": "Pokemon"
-    },
-    {
-      "card_name": "Psychic Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 2.7,
-      "decks_with": 3,
-      "category": "Energy"
     },
     {
       "card_name": "Pokégear 3.0",
@@ -110,13 +96,6 @@
       "category": "Pokemon"
     },
     {
-      "card_name": "Grass Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 8.0,
-      "decks_with": 3,
-      "category": "Energy"
-    },
-    {
       "card_name": "Fezandipiti ex",
       "inclusion_pct": 100.0,
       "avg_copies": 1.3,
@@ -128,7 +107,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
       "decks_with": 3,
-      "category": "Energy"
+      "category": "Trainer"
     },
     {
       "card_name": "Cyrano",
@@ -182,13 +161,6 @@
       "category": "Pokemon"
     },
     {
-      "card_name": "Water Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 2.0,
-      "decks_with": 3,
-      "category": "Energy"
-    },
-    {
       "card_name": "Unfair Stamp",
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
@@ -215,13 +187,6 @@
       "avg_copies": 1.0,
       "decks_with": 3,
       "category": "Pokemon"
-    },
-    {
-      "card_name": "Psychic Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 2.7,
-      "decks_with": 3,
-      "category": "Energy"
     },
     {
       "card_name": "Pokégear 3.0",
@@ -273,13 +238,6 @@
       "category": "Pokemon"
     },
     {
-      "card_name": "Grass Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 8.0,
-      "decks_with": 3,
-      "category": "Energy"
-    },
-    {
       "card_name": "Fezandipiti ex",
       "inclusion_pct": 100.0,
       "avg_copies": 1.3,
@@ -291,7 +249,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
       "decks_with": 3,
-      "category": "Energy"
+      "category": "Trainer"
     },
     {
       "card_name": "Cyrano",
@@ -376,5 +334,13 @@
       "standing": 10,
       "player_name": "だりる"
     }
-  ]
+  ],
+  "radar": {
+    "meta_share": 0.2,
+    "weighted_share": 0.2,
+    "consistency": 68.3,
+    "ceiling": 90,
+    "popularity": 0.5,
+    "core_density": 87.0
+  }
 }
