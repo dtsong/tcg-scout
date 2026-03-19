@@ -27,18 +27,38 @@ When a row is expanded, show card thumbnails in a responsive grid grouped by Pok
 
 ### Translation: tcgdex API + Hardcoded Fallback
 
-At export time, fetch JP card data from the tcgdex API to build a comprehensive JP-EN name mapping. Populate the `cards` table with `name_jp` values. The existing `JP_CARD_NAMES` hardcoded dict in `json_export.py` serves as fallback for cards the API misses. Target: 90%+ translation coverage.
+At export time, fetch JP card data from the tcgdex API to build a comprehensive JP-EN name mapping. Populate the `cards` table `name_jp` column (already exists, currently null). The existing `JP_CARD_NAMES` hardcoded dict in `json_export.py` serves as fallback for cards the API misses. Target: 90%+ translation coverage.
 
-### Archetype Inference: Key Pokemon Matching
+**API details:**
+- Base URL: `https://api.tcgdex.net/v2/jp/sets/{set_id}` to list cards per set
+- Card detail: `https://api.tcgdex.net/v2/jp/cards/{card_id}` for JP name
+- Fetch only rotation-legal sets (filtered by `rotation_legal=1` in cards table)
+- Rate limit: 1 request/second with retry on 429
+- Error handling: log failures, skip unavailable sets, continue pipeline
+- Run as a CLI step before export (`python cli.py fetch-jp-names`)
 
-Extract Pokemon ex/V names from each CL decklist. Translate them to EN via the improved lookup. Match the combination against `SPRITE_ARCHETYPE_MAP` entries by generating a sprite key (sorted, hyphenated stems). Falls back to "Unknown" if no confident match. The inferred archetype name, tier, and sprite filenames are included in the CL JSON export.
+### Archetype Inference: classify_decklist
+
+Reuse the existing `classify_decklist()` from `analysis/archetype_classifier.py` which matches decklist Pokemon cards against `ARCHETYPE_ANCHOR_CARDS` from config. This function accepts a list of dicts with `card_name`, `count`, `category` keys and returns an archetype name or "Unknown".
+
+For CL decklists:
+1. Translate each card's JP name to EN using the improved lookup
+2. Build the cards list with `card_name` (EN), `count`, and `category` keys
+3. Call `classify_decklist(cards)` to get the archetype name
+4. Look up tier from `archetype_stats` for the matched archetype. If the archetype has no entry in `archetype_stats`, set tier to null.
+5. Look up sprite filenames via `_get_sprite_filenames()` from json_export.py
+6. If `classify_decklist` returns "Unknown", set archetype/tier/sprites to null
+
+### Archetype Summary Aggregation
+
+Group placements by inferred archetype, count occurrences, sort by count descending. Exclude "Unknown" from the summary. Include archetypes with count >= 1.
 
 ## Data Flow
 
 ```
 tcgdex API -> cards.name_jp (one-time populate)
                     |
-CL decklist cards --+--> JP-EN translation --> archetype inference
+CL decklist cards --+--> JP-EN translation --> classify_decklist()
                     |                               |
                     v                               v
             export_champions_league() -----> {division}.json
@@ -76,13 +96,12 @@ New fields added to each placement object:
 }
 ```
 
-New top-level field on division object:
+New top-level fields on division object:
 
 ```json
 {
   "event_id": 903703,
-  "event_name": "...",
-  "event_name_en": "Champions League 2026 Fukuoka Masters Day2",
+  "event_name": "チャンピオンズリーグ2026 福岡 マスターリーグDay2",
   "archetype_summary": [
     {
       "archetype": "Dragapult Dusknoir",
@@ -93,6 +112,12 @@ New top-level field on division object:
   "placements": [...]
 }
 ```
+
+Note: `event_name` remains in Japanese (from `cl_events.name`). No `event_name_en` field -- the page header already displays "Champions League" in English.
+
+### Image URL Resolution
+
+Join `cl_decklist_cards.card_name_en` (after translation) to `cards.name_en` to get `cards.image_url`. When multiple cards share the same name (reprints), take the first match ordered by set recency (`set_code` descending). Cards with no EN translation or no matching `cards` row get `image_url: null`.
 
 ### TypeScript Type Changes
 
@@ -112,8 +137,8 @@ export interface CLPlacement {
   player_name: string;
   region: string;
   deck_code: string;
-  archetype?: string;
-  tier?: Tier;
+  archetype?: string | null;
+  tier?: Tier | null;
   sprite_filenames?: string[];
   decklist: CLDecklistCard[];
 }
@@ -129,7 +154,6 @@ export interface CLArchetypeSummary {
 export interface CLDivision {
   event_id: number;
   event_name: string;
-  event_name_en?: string;
   division: string;
   date: string;
   archetype_summary?: CLArchetypeSummary[];
@@ -143,34 +167,41 @@ All new fields are optional for backward compatibility.
 
 ### 1. tcgdex JP Card Fetcher
 
-New function to populate `cards.name_jp` from the tcgdex JP API. Fetches card data for current rotation sets, maps JP names to existing EN card records. Run once during data pipeline, results cached in DB.
+New function `fetch_jp_card_names(conn)` to populate `cards.name_jp`:
+1. Query `SELECT DISTINCT set_code FROM cards WHERE rotation_legal = 1` to get target sets
+2. For each set, fetch `https://api.tcgdex.net/v2/jp/sets/{set_code}` to get JP card list
+3. Match JP cards to EN cards by set_code + set_number
+4. Update `cards.name_jp` for matched records
+5. Log match rate per set
 
-### 2. CL Archetype Inference
+Run as a CLI command before export. Results persist in DB -- only fetches sets where `name_jp` is still null.
 
-New function in `analysis/` or within `json_export.py`:
+### 2. CL Export Enhancement
 
-1. For each CL placement, get the decklist Pokemon cards
-2. Translate JP names to EN using the improved lookup
-3. Generate a sprite key from the EN Pokemon names (lowercase stems, sorted, hyphenated)
-4. Look up the sprite key in `SPRITE_ARCHETYPE_MAP`
-5. If matched, attach archetype name, tier (from latest `archetype_stats`), and sprite filenames
-6. If no match, set archetype to null
-
-### 3. Image URL Resolution
-
-During CL export, for each translated card name, look up the `image_url` from the `cards` table. Attach to the exported decklist card object.
+Modify `export_champions_league()` in `json_export.py`:
+1. Build JP-EN lookup (existing `_build_jp_en_lookup` + new `cards.name_jp` data)
+2. Build EN-to-image-URL lookup from `cards` table
+3. For each placement:
+   a. Translate all card names JP -> EN
+   b. Attach `image_url` for each card via EN name lookup
+   c. Build a cards list for `classify_decklist()` and call it
+   d. Look up tier from `archetype_stats` (null if not found)
+   e. Look up sprite filenames via `_get_sprite_filenames()`
+   f. Attach archetype, tier, sprite_filenames to placement
+4. Compute `archetype_summary` by grouping placements
+5. Write enriched division JSON
 
 ## Frontend Changes
 
 ### Champions Client Component
 
-1. **Archetype summary bar** - Renders `archetype_summary` from division data. Shows sprite icons + archetype name + count for each archetype present.
+1. **Archetype summary bar** - Renders `archetype_summary` from division data. Shows sprite icons (using existing `SpriteRow` component) + archetype name + count for each archetype. Sorted by count descending.
 
-2. **Archetype column** - Added to the placements table. Shows archetype name per row. Rows with unknown archetype show a dash.
+2. **Archetype column** - Added to the placements table. Shows archetype name per row. Rows with null archetype show a dash.
 
-3. **Image grid decklist** - Replaces the current text list when expanded. Responsive grid of card thumbnails grouped by category. Card image loaded from `image_url`, with a styled fallback for missing images. EN name and count displayed below each thumbnail.
+3. **Image grid decklist** - Replaces the current text list when expanded. Responsive grid of card thumbnails grouped by category. Card image loaded from `image_url` with a styled fallback (card-shaped placeholder with JP name) for missing images. EN name (or JP fallback) and count displayed below each thumbnail.
 
 ## Testing
 
-- Python: test archetype inference with known decklists, test JP-EN lookup coverage, test image URL resolution
-- Frontend: test summary bar rendering, test image grid with missing images, test unknown archetype display
+- Python: test `classify_decklist` with CL-style translated cards, test JP-EN lookup builds correctly from `cards.name_jp`, test image URL resolution with name matching, test archetype_summary aggregation
+- Frontend: vitest for summary bar rendering with empty/populated data, image grid with missing images, null archetype display
