@@ -18,6 +18,8 @@ from reports.json_export import (
     _compute_windowed_ace_specs,
     _compute_windowed_meta,
     _compute_windowed_trends,
+    _compute_windowed_winning_edge,
+    _detect_variants,
     _get_sprite_filenames,
     _slugify,
     export_all,
@@ -774,3 +776,178 @@ class TestTop4SegmentedStats:
         for card in data["top4_card_stats"]:
             assert card["inclusion_pct"] == 0
             assert card["delta_vs_field"] < 0
+
+
+# --- _get_sprite_filenames (extended coverage) ---
+
+
+class TestGetSpriteFilenamesMega:
+    def test_mega_archetype(self):
+        result = _get_sprite_filenames("Mega Lucario ex")
+        assert "lucario-mega.png" in result
+
+    def test_mega_with_secondary(self):
+        result = _get_sprite_filenames("Mega Lucario Solrock")
+        assert "lucario-mega.png" in result
+        assert "solrock.png" in result
+
+    def test_hyphenated_pokemon(self):
+        result = _get_sprite_filenames("Chien-Pao ex")
+        assert "chien-pao.png" in result
+
+
+# --- _detect_variants ---
+
+
+class TestDetectVariants:
+    def _make_variant_db(self):
+        """Create a DB with enough placements for variant detection."""
+        import sqlite3
+
+        from db import SCHEMA
+
+        conn = sqlite3.connect(":memory:")
+        conn.row_factory = sqlite3.Row
+        conn.execute("PRAGMA foreign_keys=ON")
+        conn.executescript(SCHEMA)
+        conn.execute(
+            "INSERT INTO tournaments (id, name, date, player_count) VALUES ('t1', 'Test', '2026-01-25', 64)"
+        )
+        # 6 placements for same archetype
+        for i in range(1, 7):
+            conn.execute(
+                "INSERT INTO placements (id, tournament_id, standing, player_name, archetype) "
+                "VALUES (?, 't1', ?, ?, 'Charizard ex')",
+                (i, i, f"Player{i}"),
+            )
+        # All have Charizard ex (core card)
+        for pid in range(1, 7):
+            conn.execute(
+                "INSERT INTO decklist_cards (placement_id, card_id, card_name, count) "
+                "VALUES (?, 'c-zard', 'Charizard ex', 3)",
+                (pid,),
+            )
+            conn.execute(
+                "INSERT INTO decklist_cards (placement_id, card_id, card_name, count) "
+                "VALUES (?, 'c-nest', 'Nest Ball', 4)",
+                (pid,),
+            )
+        # 3 of 6 have Pidgeot ex (50% — within 15-70% variant marker range)
+        for pid in [1, 2, 3]:
+            conn.execute(
+                "INSERT INTO decklist_cards (placement_id, card_id, card_name, count) "
+                "VALUES (?, 'c-pidg', 'Pidgeot ex', 2)",
+                (pid,),
+            )
+        conn.commit()
+        return conn
+
+    def test_detects_variants(self):
+        conn = self._make_variant_db()
+        placement_ids = list(range(1, 7))
+        all_cards = [
+            {"card_name": "Charizard ex", "inclusion_pct": 100.0, "category": "Pokemon"},
+            {"card_name": "Pidgeot ex", "inclusion_pct": 50.0, "category": "Pokemon"},
+            {"card_name": "Nest Ball", "inclusion_pct": 100.0, "category": "Trainer"},
+        ]
+        variants = _detect_variants(conn, "Charizard ex", placement_ids, all_cards)
+        assert len(variants) >= 2
+        names = [v["name"] for v in variants]
+        assert "with Pidgeot ex" in names
+        assert "Standard" in names
+        conn.close()
+
+    def test_too_few_decks_returns_empty(self, db):
+        all_cards = [{"card_name": "Charizard ex", "inclusion_pct": 100.0, "category": "Pokemon"}]
+        result = _detect_variants(db, "Charizard ex", [1, 2, 3], all_cards)
+        assert result == []
+
+    def test_no_markers_returns_empty(self):
+        conn = self._make_variant_db()
+        # All cards are either 100% (core) or not Pokemon — no markers
+        all_cards = [
+            {"card_name": "Charizard ex", "inclusion_pct": 100.0, "category": "Pokemon"},
+            {"card_name": "Nest Ball", "inclusion_pct": 100.0, "category": "Trainer"},
+        ]
+        result = _detect_variants(conn, "Charizard ex", list(range(1, 7)), all_cards)
+        assert result == []
+        conn.close()
+
+
+# --- _compute_windowed_winning_edge ---
+
+
+class TestComputeWindowedWinningEdge:
+    def test_returns_list(self, db):
+        meta_data = {
+            "archetypes": [
+                {"archetype": "Charizard ex", "tier": "S"},
+                {"archetype": "Dragapult ex", "tier": "A"},
+            ]
+        }
+        result = _compute_windowed_winning_edge(db, "2026-01-01", "2026-12-31", meta_data)
+        assert isinstance(result, list)
+
+    def test_empty_when_no_sa_archetypes(self, db):
+        meta_data = {"archetypes": [{"archetype": "Foo", "tier": "Rogue"}]}
+        result = _compute_windowed_winning_edge(db, "2026-01-01", "2026-12-31", meta_data)
+        assert result == []
+
+    def test_cards_have_edge_field(self, db):
+        meta_data = {
+            "archetypes": [
+                {"archetype": "Charizard ex", "tier": "S"},
+                {"archetype": "Dragapult ex", "tier": "S"},
+            ]
+        }
+        result = _compute_windowed_winning_edge(db, "2026-01-01", "2026-12-31", meta_data)
+        for card in result:
+            assert "edge" in card
+            assert "field_pct" in card
+            assert "win_pct" in card
+
+
+# --- export_trends (empty data) ---
+
+
+class TestExportTrendsEdgeCases:
+    def test_empty_db_writes_empty_trends(self, tmp_path):
+        """An empty DB should produce an empty trends file."""
+        import sqlite3
+
+        from db import SCHEMA
+
+        conn = sqlite3.connect(":memory:")
+        conn.row_factory = sqlite3.Row
+        conn.executescript(SCHEMA)
+        export_trends(conn, tmp_path)
+        data = json.loads((tmp_path / "trends.json").read_text())
+        assert data["surging"] == []
+        assert data["declining"] == []
+        conn.close()
+
+    def test_one_sided_data_writes_empty(self, tmp_path):
+        """Data only in early period should produce empty trends."""
+        import sqlite3
+
+        from db import SCHEMA
+
+        conn = sqlite3.connect(":memory:")
+        conn.row_factory = sqlite3.Row
+        conn.executescript(SCHEMA)
+        conn.execute(
+            "INSERT INTO tournaments (id, name, date, player_count) VALUES ('t1', 'Early', '2026-01-15', 64)"
+        )
+        conn.execute(
+            "INSERT INTO placements (tournament_id, standing, player_name, archetype) "
+            "VALUES ('t1', 1, 'Alice', 'Charizard ex')"
+        )
+        conn.execute(
+            "INSERT INTO meta_snapshots (id, generated_at, tournament_count, deck_count) "
+            "VALUES (1, '2026-03-10', 1, 1)"
+        )
+        conn.commit()
+        export_trends(conn, tmp_path)
+        data = json.loads((tmp_path / "trends.json").read_text())
+        assert data["early_decks"] == 0 or data["late_decks"] == 0
+        conn.close()
