@@ -5,6 +5,13 @@ import type { TopPerformerCard } from "@/app/lib/types";
 
 type CategoryFilter = "all" | "Pokemon" | "Trainer" | "Energy";
 
+const categories: { label: string; value: CategoryFilter }[] = [
+  { label: "All", value: "all" },
+  { label: "Pokemon", value: "Pokemon" },
+  { label: "Trainer", value: "Trainer" },
+  { label: "Energy", value: "Energy" },
+];
+
 function DeltaBadge({ delta }: { delta: number }) {
   if (delta === 0) {
     return <span className="text-xs font-mono text-surface-400 tabular-nums">0.0</span>;
@@ -64,17 +71,62 @@ function TopCardRow({ card }: { card: TopPerformerCard }) {
   );
 }
 
+function CardGroup({
+  title,
+  colorClass,
+  cards,
+}: {
+  title: string;
+  colorClass: string;
+  cards: TopPerformerCard[];
+}) {
+  if (cards.length === 0) return null;
+
+  return (
+    <div className="bg-surface-800 border border-surface-600 rounded-lg overflow-hidden">
+      <div className="px-3 py-2 border-b border-surface-600 flex items-center justify-between">
+        <h3 className={`text-xs font-semibold ${colorClass} uppercase tracking-wider`}>
+          {title}
+        </h3>
+        <span className="text-[10px] font-mono text-surface-400">
+          {cards.length}
+        </span>
+      </div>
+      <div className="px-3 py-1.5 border-b border-surface-600/50 flex items-center justify-between">
+        <span className="text-[10px] text-surface-500 uppercase tracking-wider">
+          Copies / Card
+        </span>
+        <div className="flex items-center gap-3">
+          <span className="text-[10px] text-surface-500 uppercase tracking-wider w-10 text-right">
+            Top 4
+          </span>
+          <span className="text-[10px] text-surface-500 uppercase tracking-wider w-12 text-right">
+            Delta
+          </span>
+        </div>
+      </div>
+      <div className="p-1.5 space-y-0.5">
+        {cards.map((card) => (
+          <TopCardRow key={card.card_name} card={card} />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+interface Top4CardStatsProps {
+  cards: TopPerformerCard[];
+  sampleSize: number;
+  lowSample: boolean;
+  deckCount: number;
+}
+
 export function Top4CardStats({
   cards,
   sampleSize,
   lowSample,
   deckCount,
-}: {
-  cards: TopPerformerCard[];
-  sampleSize: number;
-  lowSample: boolean;
-  deckCount: number;
-}) {
+}: Top4CardStatsProps) {
   const [filter, setFilter] = useState<CategoryFilter>("all");
 
   const filtered =
@@ -88,13 +140,6 @@ export function Top4CardStats({
   const overperformers = sorted.filter((c) => c.delta_vs_field > 0);
   const underperformers = sorted.filter((c) => c.delta_vs_field < 0);
   const neutral = sorted.filter((c) => c.delta_vs_field === 0);
-
-  const categories: { label: string; value: CategoryFilter }[] = [
-    { label: "All", value: "all" },
-    { label: "Pokemon", value: "Pokemon" },
-    { label: "Trainer", value: "Trainer" },
-    { label: "Energy", value: "Energy" },
-  ];
 
   return (
     <section>
@@ -129,69 +174,16 @@ export function Top4CardStats({
       </p>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        {/* Overperformers */}
-        {overperformers.length > 0 && (
-          <div className="bg-surface-800 border border-surface-600 rounded-lg overflow-hidden">
-            <div className="px-3 py-2 border-b border-surface-600 flex items-center justify-between">
-              <h3 className="text-xs font-semibold text-emerald-400/80 uppercase tracking-wider">
-                Overperformers
-              </h3>
-              <span className="text-[10px] font-mono text-surface-400">
-                {overperformers.length}
-              </span>
-            </div>
-            <div className="px-3 py-1.5 border-b border-surface-600/50 flex items-center justify-between">
-              <span className="text-[10px] text-surface-500 uppercase tracking-wider">
-                Copies / Card
-              </span>
-              <div className="flex items-center gap-3">
-                <span className="text-[10px] text-surface-500 uppercase tracking-wider w-10 text-right">
-                  Top 4
-                </span>
-                <span className="text-[10px] text-surface-500 uppercase tracking-wider w-12 text-right">
-                  Delta
-                </span>
-              </div>
-            </div>
-            <div className="p-1.5 space-y-0.5">
-              {overperformers.map((card) => (
-                <TopCardRow key={card.card_name} card={card} />
-              ))}
-            </div>
-          </div>
-        )}
-
-        {/* Underperformers */}
-        {underperformers.length > 0 && (
-          <div className="bg-surface-800 border border-surface-600 rounded-lg overflow-hidden">
-            <div className="px-3 py-2 border-b border-surface-600 flex items-center justify-between">
-              <h3 className="text-xs font-semibold text-red-400/80 uppercase tracking-wider">
-                Underperformers
-              </h3>
-              <span className="text-[10px] font-mono text-surface-400">
-                {underperformers.length}
-              </span>
-            </div>
-            <div className="px-3 py-1.5 border-b border-surface-600/50 flex items-center justify-between">
-              <span className="text-[10px] text-surface-500 uppercase tracking-wider">
-                Copies / Card
-              </span>
-              <div className="flex items-center gap-3">
-                <span className="text-[10px] text-surface-500 uppercase tracking-wider w-10 text-right">
-                  Top 4
-                </span>
-                <span className="text-[10px] text-surface-500 uppercase tracking-wider w-12 text-right">
-                  Delta
-                </span>
-              </div>
-            </div>
-            <div className="p-1.5 space-y-0.5">
-              {underperformers.map((card) => (
-                <TopCardRow key={card.card_name} card={card} />
-              ))}
-            </div>
-          </div>
-        )}
+        <CardGroup
+          title="Overperformers"
+          colorClass="text-emerald-400/80"
+          cards={overperformers}
+        />
+        <CardGroup
+          title="Underperformers"
+          colorClass="text-red-400/80"
+          cards={underperformers}
+        />
       </div>
 
       {/* Neutral cards (no delta) - collapsed */}

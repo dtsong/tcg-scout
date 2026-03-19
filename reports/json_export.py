@@ -1454,6 +1454,7 @@ def _compute_card_stats_for_ids(
     conn: sqlite3.Connection,
     placement_ids: list[int],
     category_lookup: dict[str, str] | None = None,
+    include_basic_energy: bool = False,
 ) -> list[dict]:
     """Compute per-card inclusion stats for a set of placement IDs.
 
@@ -1464,17 +1465,23 @@ def _compute_card_stats_for_ids(
 
     total_decks = len(placement_ids)
     placeholders = ",".join("?" * len(placement_ids))
+    if include_basic_energy:
+        energy_clause = ""
+        energy_params: tuple = ()
+    else:
+        energy_clause = f"AND {_basic_energy_exclusion_sql()}"
+        energy_params = tuple(_basic_energy_params())
     rows = conn.execute(
         f"""
         SELECT card_name,
                COUNT(DISTINCT placement_id) AS decks_with,
                SUM(count) AS total_copies
         FROM decklist_cards dc
-        WHERE placement_id IN ({placeholders}) AND {_basic_energy_exclusion_sql()}
+        WHERE placement_id IN ({placeholders}) {energy_clause}
         GROUP BY card_name
         ORDER BY decks_with DESC
         """,
-        (*placement_ids, *_basic_energy_params()),
+        (*placement_ids, *energy_params),
     ).fetchall()
 
     cards = []
@@ -1523,7 +1530,9 @@ def export_archetypes(conn: sqlite3.Connection, output_dir: Path) -> None:
 
         placement_ids = [p["id"] for p in placements]
 
-        all_cards = _compute_card_stats_for_ids(conn, placement_ids, category_lookup)
+        all_cards = _compute_card_stats_for_ids(
+            conn, placement_ids, category_lookup, include_basic_energy=True
+        )
         core_cards = [c for c in all_cards if c["inclusion_pct"] >= 80]
 
         # Top-4 segmented card stats (derived from already-fetched placements)
@@ -1533,7 +1542,9 @@ def export_archetypes(conn: sqlite3.Connection, output_dir: Path) -> None:
         # Build field inclusion lookup for delta computation
         field_inclusion = {c["card_name"]: c["inclusion_pct"] for c in all_cards}
 
-        top4_cards = _compute_card_stats_for_ids(conn, top4_ids, category_lookup)
+        top4_cards = _compute_card_stats_for_ids(
+            conn, top4_ids, category_lookup, include_basic_energy=True
+        )
         top4_names = {c["card_name"] for c in top4_cards}
         for card in top4_cards:
             field_pct = field_inclusion.get(card["card_name"])
