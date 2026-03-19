@@ -1,5 +1,8 @@
 import { getCardDetail, getCardSlugs, getFormats } from "@/app/lib/data";
 import { CardDetailClient } from "./card-detail-client";
+import { notFound } from "next/navigation";
+
+export const dynamicParams = false;
 
 export function generateStaticParams() {
   const formats = getFormats();
@@ -19,7 +22,13 @@ export default async function CardDetailPage({
   params: Promise<{ format: string; slug: string }>;
 }) {
   const { format, slug } = await params;
-  const card = getCardDetail(format, slug);
+
+  let card;
+  try {
+    card = getCardDetail(format, slug);
+  } catch {
+    notFound();
+  }
 
   return <CardDetailClient card={card} format={format} />;
 }
