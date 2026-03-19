@@ -607,6 +607,37 @@ class TestExportChampionsLeagueClassifyError:
         assert len(data["placements"]) == 3
 
 
+class TestExportChampionsLeagueCategorySanitization:
+    def test_unexpected_category_defaults_to_trainer(self, db, tmp_path):
+        """Cards with non-standard category values should be exported as 'Trainer'."""
+        # Insert a card with a Japanese category string
+        db.execute(
+            "INSERT INTO cl_decklist_cards (placement_id, card_name_jp, card_name_en, count, category) "
+            "VALUES (?, ?, ?, ?, ?)",
+            (101, "テストカード", None, 1, "アイテム"),
+        )
+        db.commit()
+        export_champions_league(db, tmp_path)
+        data = json.loads((tmp_path / "champions-league" / "masters.json").read_text())
+        taro = next(p for p in data["placements"] if p["standing"] == 1)
+        weird_card = next(c for c in taro["decklist"] if c["card_name_jp"] == "テストカード")
+        assert weird_card["category"] == "Trainer"
+
+    def test_null_category_defaults_to_trainer(self, db, tmp_path):
+        """Cards with NULL category should be exported as 'Trainer'."""
+        db.execute(
+            "INSERT INTO cl_decklist_cards (placement_id, card_name_jp, card_name_en, count, category) "
+            "VALUES (?, ?, ?, ?, ?)",
+            (101, "ヌルカード", None, 1, None),
+        )
+        db.commit()
+        export_champions_league(db, tmp_path)
+        data = json.loads((tmp_path / "champions-league" / "masters.json").read_text())
+        taro = next(p for p in data["placements"] if p["standing"] == 1)
+        null_card = next(c for c in taro["decklist"] if c["card_name_jp"] == "ヌルカード")
+        assert null_card["category"] == "Trainer"
+
+
 class TestBuildJpEnLookupWithMappings:
     def test_includes_card_mappings(self, db):
         # card_mappings table is created by SCHEMA, insert test data

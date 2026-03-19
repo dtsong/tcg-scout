@@ -1924,7 +1924,15 @@ def export_champions_league(conn: sqlite3.Connection, output_dir: Path) -> None:
                     untranslated_names.add(jp_name)
 
                 raw_cat = card["category"]
-                category = raw_cat if raw_cat in ("Pokemon", "Trainer", "Energy") else "Trainer"
+                if raw_cat in ("Pokemon", "Trainer", "Energy"):
+                    category = raw_cat
+                else:
+                    logger.warning(
+                        "Unexpected card category %r for card %r, defaulting to Trainer",
+                        raw_cat,
+                        jp_name,
+                    )
+                    category = "Trainer"
 
                 decklist.append(
                     {
@@ -1941,7 +1949,7 @@ def export_champions_league(conn: sqlite3.Connection, output_dir: Path) -> None:
                         {
                             "card_name": en_name,
                             "count": card["count"],
-                            "category": card["category"],
+                            "category": category,
                         }
                     )
 
@@ -1969,10 +1977,12 @@ def export_champions_league(conn: sqlite3.Connection, output_dir: Path) -> None:
                 tier = raw_tier if raw_tier in ("S", "A", "B", "C", "Rogue") else None
                 try:
                     sprite_filenames = _get_sprite_filenames(archetype_name)
-                except Exception:
+                except (KeyError, ValueError) as exc:
                     logger.warning(
-                        "Failed to get sprite filenames for archetype %r, using empty list",
+                        "Failed to get sprite filenames for archetype %r: %s",
                         archetype_name,
+                        exc,
+                        exc_info=True,
                     )
                     sprite_filenames = []
             else:
@@ -1997,10 +2007,12 @@ def export_champions_league(conn: sqlite3.Connection, output_dir: Path) -> None:
         for name, count in archetype_counts.items():
             try:
                 sprites = _get_sprite_filenames(name)
-            except Exception:
+            except (KeyError, ValueError) as exc:
                 logger.warning(
-                    "Failed to get sprite filenames for archetype summary %r, using empty list",
+                    "Failed to get sprite filenames for archetype summary %r: %s",
                     name,
+                    exc,
+                    exc_info=True,
                 )
                 sprites = []
             summary_entries.append({"archetype": name, "count": count, "sprite_filenames": sprites})

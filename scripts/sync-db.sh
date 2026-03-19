@@ -19,12 +19,17 @@ usage() {
 
 checkpoint_wal() {
   local db_path="$1"
-  python3 -c "
-import sqlite3
-c = sqlite3.connect('${db_path}')
-c.execute('PRAGMA wal_checkpoint(TRUNCATE)')
+  python3 - "$db_path" <<'PYEOF'
+import sqlite3, sys
+db_path = sys.argv[1]
+c = sqlite3.connect(db_path)
+busy, log, checkpointed = c.execute('PRAGMA wal_checkpoint(TRUNCATE)').fetchone()
 c.close()
-"
+if busy:
+    print(f"ERROR: WAL checkpoint failed for {db_path} (busy={busy})", file=sys.stderr)
+    sys.exit(1)
+print(f"WAL checkpoint OK: {log} pages logged, {checkpointed} checkpointed")
+PYEOF
 }
 
 pull() {
