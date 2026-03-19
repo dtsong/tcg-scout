@@ -767,15 +767,13 @@ class TestTop4SegmentedStats:
         assert iono["inclusion_pct"] == 0
         assert iono["decks_with"] == 0
 
-    def test_no_top4_shows_all_negative_deltas(self, db, tmp_path):
-        """Raging Bolt has only 16th place -- all cards have negative deltas."""
+    def test_no_top4_returns_empty_card_stats(self, db, tmp_path):
+        """Raging Bolt has only 16th place -- top4_card_stats should be empty."""
         export_archetypes(db, tmp_path)
         data = json.loads((tmp_path / "archetypes" / "raging-bolt-ex.json").read_text())
         assert data["top4_sample_size"] == 0
         assert data["top4_low_sample"] is True
-        for card in data["top4_card_stats"]:
-            assert card["inclusion_pct"] == 0
-            assert card["delta_vs_field"] < 0
+        assert data["top4_card_stats"] == []
 
 
 # --- _get_sprite_filenames (extended coverage) ---

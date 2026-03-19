@@ -1523,7 +1523,6 @@ def export_archetypes(conn: sqlite3.Connection, output_dir: Path) -> None:
 
         placement_ids = [p["id"] for p in placements]
 
-        # Get per-card stats using shared helper
         all_cards = _compute_card_stats_for_ids(conn, placement_ids, category_lookup)
         core_cards = [c for c in all_cards if c["inclusion_pct"] >= 80]
 
@@ -1539,26 +1538,30 @@ def export_archetypes(conn: sqlite3.Connection, output_dir: Path) -> None:
         for card in top4_cards:
             field_pct = field_inclusion.get(card["card_name"])
             if field_pct is None:
-                logger.warning(
-                    "Card %r in top-4 but not in field for %s -- data inconsistency",
+                logger.error(
+                    "Card %r found in top-4 but missing from field for archetype %s "
+                    "-- this indicates a data integrity bug (top4_ids should be a subset of all placement_ids)",
                     card["card_name"],
                     archetype_name,
                 )
-                field_pct = 0
+                continue
             card["delta_vs_field"] = round(card["inclusion_pct"] - field_pct, 1)
+        # Remove any cards that were skipped due to data inconsistency
+        top4_cards = [c for c in top4_cards if "delta_vs_field" in c]
 
         # Append field-only cards absent from top-4 (negative deltas)
-        for card in all_cards:
-            if card["card_name"] not in top4_names:
-                top4_cards.append(
-                    {
-                        **card,
-                        "inclusion_pct": 0,
-                        "avg_copies": 0,
-                        "decks_with": 0,
-                        "delta_vs_field": round(-card["inclusion_pct"], 1),
-                    }
-                )
+        if top4_ids:
+            for card in all_cards:
+                if card["card_name"] not in top4_names:
+                    top4_cards.append(
+                        {
+                            **card,
+                            "inclusion_pct": 0,
+                            "avg_copies": 0,
+                            "decks_with": 0,
+                            "delta_vs_field": round(-card["inclusion_pct"], 1),
+                        }
+                    )
 
         # Tournament results — top 16 by standing ASC, date DESC
         # (limited to 16 since each result now includes full decklists)
