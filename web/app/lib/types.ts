@@ -264,16 +264,19 @@ export interface CLDecklistCard {
   image_url: string | null;
 }
 
-export interface CLPlacement {
+interface CLPlacementBase {
   standing: number;
   player_name: string;
   region: string;
   deck_code: string;
-  archetype: string | null;
-  tier: Tier | null;
-  sprite_filenames: string[] | null;
   decklist: CLDecklistCard[];
 }
+
+export type CLPlacement = CLPlacementBase &
+  (
+    | { archetype: string; tier: Tier | null; sprite_filenames: string[] }
+    | { archetype: null; tier: null; sprite_filenames: null }
+  );
 
 export interface CLArchetypeSummary {
   archetype: string;

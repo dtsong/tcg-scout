@@ -102,10 +102,19 @@ def populate_supertypes(conn: sqlite3.Connection, rate_limit: float = 1.0) -> di
             log.warning("[%d/%d] %s (%s) not found", i, total, name, card_id)
             if consecutive_failures >= 10:
                 log.error("10 consecutive failures -- aborting. API may be down.")
-                break
+                conn.commit()
+                summary = {
+                    "total": total,
+                    "updated": updated,
+                    "not_found": not_found,
+                    "errors": errors,
+                    "aborted": True,
+                }
+                log.info("Partial results committed: %s", summary)
+                return summary
 
-        # Commit every 50 successful updates
-        if updated % 50 == 0 and updated > 0:
+        # Commit every 50 successful updates (only right after an update)
+        if category in ("Pokemon", "Trainer", "Energy") and updated % 50 == 0 and updated > 0:
             conn.commit()
 
         # Rate limit (skip on last item)
@@ -119,6 +128,7 @@ def populate_supertypes(conn: sqlite3.Connection, rate_limit: float = 1.0) -> di
         "updated": updated,
         "not_found": not_found,
         "errors": errors,
+        "aborted": False,
     }
     log.info("Done: %s", summary)
     return summary
@@ -143,7 +153,9 @@ def main():
     conn = get_format_connection(args.format)
     conn.execute("PRAGMA busy_timeout = 5000")
     try:
-        populate_supertypes(conn, rate_limit=args.rate_limit)
+        result = populate_supertypes(conn, rate_limit=args.rate_limit)
+        if result.get("aborted"):
+            sys.exit(1)
     finally:
         conn.close()
 

@@ -94,6 +94,36 @@ class TestPopulateSupertypes:
 
         # Should abort after 10 consecutive failures, not process all 18
         assert summary["not_found"] == 10
+        assert summary["aborted"] is True
+
+    def test_consecutive_failures_reset_on_success(self, cards_db):
+        """Counter resets when a successful update occurs mid-stream."""
+        # Add enough cards so we have 20 total with NULL supertype
+        for i in range(17):
+            cards_db.execute(
+                "INSERT INTO cards (id, name_en, supertype) VALUES (?, ?, NULL)",
+                (f"extra-{i:03d}", f"Extra Card {i}"),
+            )
+        cards_db.commit()
+
+        # Successes at calls 6 and 13 keep consecutive failures below 10
+        call_count = [0]
+
+        def flaky_api(card_id):
+            call_count[0] += 1
+            if call_count[0] in (6, 13):
+                return "Pokemon"
+            return None
+
+        with patch(
+            "scripts.populate_supertypes.fetch_card_category",
+            side_effect=flaky_api,
+        ):
+            summary = populate_supertypes(cards_db, rate_limit=0)
+
+        # Should NOT have aborted since consecutive failures reset twice
+        assert summary["aborted"] is False
+        assert summary["updated"] == 2
 
 
 class TestFetchCardCategory:

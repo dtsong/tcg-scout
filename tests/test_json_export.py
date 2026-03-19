@@ -4,6 +4,7 @@ import json
 import sqlite3
 import sys
 from pathlib import Path
+from unittest.mock import patch
 
 import pytest
 
@@ -505,6 +506,9 @@ class TestExportChampionsLeagueEnriched:
         p = data["placements"][0]
         for card in p["decklist"]:
             assert "image_url" in card
+        # Verify that translated cards actually get their image URLs populated
+        charizard = next(c for c in p["decklist"] if c["card_name_en"] == "Charizard ex")
+        assert charizard["image_url"] == "https://images.pokemontcg.io/sv5/001.png"
 
     def test_has_archetype_summary(self, db, tmp_path):
         export_champions_league(db, tmp_path)
@@ -552,10 +556,12 @@ class TestExportChampionsLeagueEnriched:
         """When a placement has a known archetype, tier should be the actual tier string."""
         export_champions_league(db, tmp_path)
         data = json.loads((tmp_path / "champions-league" / "masters.json").read_text())
-        for p in data["placements"]:
-            if p["archetype"] is not None:
-                assert p["tier"] is not None
-                assert p["tier"] in ("S", "A", "B", "C", "Rogue")
+        # Ensure at least one placement has a non-null archetype (prevents vacuous pass)
+        known = [p for p in data["placements"] if p["archetype"] is not None]
+        assert len(known) > 0, "Expected at least one classified placement"
+        for p in known:
+            assert p["tier"] is not None
+            assert p["tier"] in ("S", "A", "B", "C", "Rogue")
 
     def test_archetype_summary_sorted_by_count_desc(self, db, tmp_path):
         """Archetype summary should be sorted by count descending."""
@@ -565,6 +571,40 @@ class TestExportChampionsLeagueEnriched:
         if len(summary) > 1:
             counts = [e["count"] for e in summary]
             assert counts == sorted(counts, reverse=True)
+
+
+class TestExportChampionsLeagueClassifyError:
+    def test_classify_exception_produces_null_archetype(self, db, tmp_path):
+        """When classify_decklist raises ValueError, placement should have null archetype fields."""
+        with patch(
+            "reports.json_export.classify_decklist",
+            side_effect=ValueError("classifier broke"),
+        ):
+            export_champions_league(db, tmp_path)
+        data = json.loads((tmp_path / "champions-league" / "masters.json").read_text())
+        # All placements should still be exported (none dropped)
+        assert len(data["placements"]) == 3
+        # All should have null archetype since classifier always fails
+        for p in data["placements"]:
+            if p["standing"] != 3:  # standing 3 (Jiro) has no translatable cards anyway
+                assert p["archetype"] is None
+                assert p["tier"] is None
+                assert p["sprite_filenames"] is None
+
+    def test_classify_exception_does_not_abort_export(self, db, tmp_path):
+        """Export should complete even when classifier raises for some placements."""
+        call_count = [0]
+
+        def flaky_classify(cards):
+            call_count[0] += 1
+            if call_count[0] == 1:
+                raise KeyError("missing key")
+            return "Charizard ex"
+
+        with patch("reports.json_export.classify_decklist", side_effect=flaky_classify):
+            export_champions_league(db, tmp_path)
+        data = json.loads((tmp_path / "champions-league" / "masters.json").read_text())
+        assert len(data["placements"]) == 3
 
 
 class TestBuildJpEnLookupWithMappings:

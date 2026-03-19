@@ -1816,6 +1816,8 @@ def _build_jp_en_lookup(conn: sqlite3.Connection) -> dict[str, str]:
     rows = conn.execute(
         "SELECT name_jp, name_en FROM cards WHERE name_jp IS NOT NULL AND name_jp != ''"
     ).fetchall()
+    if not rows:
+        logger.warning("cards table returned 0 JP->EN mappings; translations will be degraded")
     for row in rows:
         lookup[row["name_jp"]] = row["name_en"]
 
@@ -1921,12 +1923,15 @@ def export_champions_league(conn: sqlite3.Connection, output_dir: Path) -> None:
                 elif jp_name:
                     untranslated_names.add(jp_name)
 
+                raw_cat = card["category"]
+                category = raw_cat if raw_cat in ("Pokemon", "Trainer", "Energy") else "Trainer"
+
                 decklist.append(
                     {
                         "card_name_jp": jp_name,
                         "card_name_en": en_name,
                         "count": card["count"],
-                        "category": card["category"],
+                        "category": category,
                         "image_url": image_lookup.get(en_name) if en_name else None,
                     }
                 )
@@ -1945,11 +1950,12 @@ def export_champions_league(conn: sqlite3.Connection, output_dir: Path) -> None:
                 archetype_name = (
                     classify_decklist(classifier_cards) if classifier_cards else "Unknown"
                 )
-            except Exception:
-                logger.warning(
-                    "Failed to classify decklist for %s (standing %d), defaulting to Unknown",
+            except (ValueError, KeyError) as exc:
+                logger.error(
+                    "Failed to classify decklist for %s (standing %d): %s",
                     p["player_name"],
                     p["standing"],
+                    exc,
                     exc_info=True,
                 )
                 archetype_name = "Unknown"
@@ -1958,6 +1964,21 @@ def export_champions_league(conn: sqlite3.Connection, output_dir: Path) -> None:
             if is_known:
                 archetype_counts[archetype_name] = archetype_counts.get(archetype_name, 0) + 1
 
+            if is_known:
+                raw_tier = tier_lookup.get(archetype_name)
+                tier = raw_tier if raw_tier in ("S", "A", "B", "C", "Rogue") else None
+                try:
+                    sprite_filenames = _get_sprite_filenames(archetype_name)
+                except Exception:
+                    logger.warning(
+                        "Failed to get sprite filenames for archetype %r, using empty list",
+                        archetype_name,
+                    )
+                    sprite_filenames = []
+            else:
+                tier = None
+                sprite_filenames = None
+
             placement_list.append(
                 {
                     "standing": p["standing"],
@@ -1965,25 +1986,25 @@ def export_champions_league(conn: sqlite3.Connection, output_dir: Path) -> None:
                     "region": p["region"],
                     "deck_code": p["deck_code"],
                     "archetype": archetype_name if is_known else None,
-                    "tier": tier_lookup.get(archetype_name) if is_known else None,
-                    "sprite_filenames": _get_sprite_filenames(archetype_name) if is_known else None,
+                    "tier": tier,
+                    "sprite_filenames": sprite_filenames,
                     "decklist": decklist,
                 }
             )
 
         # Build archetype summary (exclude Unknown, sort by count desc)
-        archetype_summary = sorted(
-            [
-                {
-                    "archetype": name,
-                    "count": count,
-                    "sprite_filenames": _get_sprite_filenames(name),
-                }
-                for name, count in archetype_counts.items()
-            ],
-            key=lambda x: x["count"],
-            reverse=True,
-        )
+        summary_entries = []
+        for name, count in archetype_counts.items():
+            try:
+                sprites = _get_sprite_filenames(name)
+            except Exception:
+                logger.warning(
+                    "Failed to get sprite filenames for archetype summary %r, using empty list",
+                    name,
+                )
+                sprites = []
+            summary_entries.append({"archetype": name, "count": count, "sprite_filenames": sprites})
+        archetype_summary = sorted(summary_entries, key=lambda x: x["count"], reverse=True)
 
         division_data = {
             "event_id": event["id"],
