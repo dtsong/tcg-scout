@@ -1450,16 +1450,15 @@ def export_ace_specs(conn: sqlite3.Connection, output_dir: Path) -> None:
     _write_json(specs, output_dir / "ace-specs.json")
 
 
-def _compute_card_stats_for_ids(
-    conn: sqlite3.Connection, placement_ids: list[int], total_decks: int
-) -> list[dict]:
+def _compute_card_stats_for_ids(conn: sqlite3.Connection, placement_ids: list[int]) -> list[dict]:
     """Compute per-card inclusion stats for a set of placement IDs.
 
     Returns a list of dicts with card_name, inclusion_pct, avg_copies, decks_with, category.
     """
-    if not placement_ids or total_decks == 0:
+    if not placement_ids:
         return []
 
+    total_decks = len(placement_ids)
     placeholders = ",".join("?" * len(placement_ids))
     rows = conn.execute(
         f"""
@@ -1519,10 +1518,9 @@ def export_archetypes(conn: sqlite3.Connection, output_dir: Path) -> None:
             continue
 
         placement_ids = [p["id"] for p in placements]
-        total_decks = len(placement_ids)
 
         # Get per-card stats using shared helper
-        all_cards = _compute_card_stats_for_ids(conn, placement_ids, total_decks)
+        all_cards = _compute_card_stats_for_ids(conn, placement_ids)
         core_cards = [c for c in all_cards if c["inclusion_pct"] >= 80]
 
         # Top-4 segmented card stats (derived from already-fetched placements)
@@ -1532,11 +1530,17 @@ def export_archetypes(conn: sqlite3.Connection, output_dir: Path) -> None:
         # Build field inclusion lookup for delta computation
         field_inclusion = {c["card_name"]: c["inclusion_pct"] for c in all_cards}
 
-        top4_cards = _compute_card_stats_for_ids(conn, top4_ids, top4_total)
+        top4_cards = _compute_card_stats_for_ids(conn, top4_ids)
         for card in top4_cards:
-            card["delta_vs_field"] = round(
-                card["inclusion_pct"] - field_inclusion.get(card["card_name"], 0), 1
-            )
+            field_pct = field_inclusion.get(card["card_name"])
+            if field_pct is None:
+                logger.warning(
+                    "Card %r in top-4 but not in field for %s -- data inconsistency",
+                    card["card_name"],
+                    archetype_name,
+                )
+                field_pct = 0
+            card["delta_vs_field"] = round(card["inclusion_pct"] - field_pct, 1)
 
         # Tournament results — top 16 by standing ASC, date DESC
         # (limited to 16 since each result now includes full decklists)

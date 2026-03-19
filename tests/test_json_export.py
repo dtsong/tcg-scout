@@ -682,28 +682,28 @@ class TestBuildJpEnLookupWithMappings:
 class TestComputeCardStatsForIds:
     def test_returns_cards_for_valid_ids(self, db):
         # Placement IDs 1, 3, 5 are Charizard ex
-        stats = _compute_card_stats_for_ids(db, [1, 3, 5], 3)
+        stats = _compute_card_stats_for_ids(db, [1, 3, 5])
         card_names = [c["card_name"] for c in stats]
         assert "Nest Ball" in card_names
         assert "Ultra Ball" in card_names
 
     def test_inclusion_pct_correct(self, db):
         # All 3 Charizard placements have Nest Ball
-        stats = _compute_card_stats_for_ids(db, [1, 3, 5], 3)
+        stats = _compute_card_stats_for_ids(db, [1, 3, 5])
         nest = next(c for c in stats if c["card_name"] == "Nest Ball")
         assert nest["inclusion_pct"] == 100.0
         assert nest["decks_with"] == 3
 
     def test_avg_copies_correct(self, db):
-        stats = _compute_card_stats_for_ids(db, [1, 3, 5], 3)
+        stats = _compute_card_stats_for_ids(db, [1, 3, 5])
         nest = next(c for c in stats if c["card_name"] == "Nest Ball")
         assert nest["avg_copies"] == 4.0
 
     def test_empty_ids_returns_empty(self, db):
-        assert _compute_card_stats_for_ids(db, [], 0) == []
+        assert _compute_card_stats_for_ids(db, []) == []
 
     def test_has_category(self, db):
-        stats = _compute_card_stats_for_ids(db, [1], 1)
+        stats = _compute_card_stats_for_ids(db, [1])
         for card in stats:
             assert "category" in card
 
