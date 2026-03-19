@@ -7,34 +7,34 @@
   "image_url": null,
   "category": "Trainer",
   "rarity": null,
-  "total_appearances": 67,
+  "total_appearances": 78,
   "usage_pct": 8.7,
   "avg_copies": 1.0,
-  "unique_archetypes": 11,
-  "weighted_score": 109.0,
-  "win_rate_proxy": 1.63,
+  "unique_archetypes": 12,
+  "weighted_score": 123.1,
+  "win_rate_proxy": 1.58,
   "top_archetype": "Mega Lucario",
   "trend_direction": "declining",
   "copy_distribution": [
     {
       "copies": 1,
-      "count": 67
+      "count": 78
     }
   ],
   "archetypes": [
     {
       "name": "Mega Lucario",
       "slug": "mega-lucario",
-      "usage_count": 34,
+      "usage_count": 41,
       "avg_copies": 1.0,
       "tier": "B"
     },
     {
       "name": "Mewtwo Spidops",
       "slug": "mewtwo-spidops",
-      "usage_count": 16,
+      "usage_count": 18,
       "avg_copies": 1.0,
-      "tier": "C"
+      "tier": "B"
     },
     {
       "name": "Mega Lucario Solrock",
@@ -42,6 +42,13 @@
       "usage_count": 4,
       "avg_copies": 1.0,
       "tier": "C"
+    },
+    {
+      "name": "Mega Lucario ex",
+      "slug": "mega-lucario-ex",
+      "usage_count": 3,
+      "avg_copies": 1.0,
+      "tier": "Rogue"
     },
     {
       "name": "Dipplin Thwackey",
@@ -56,13 +63,6 @@
       "usage_count": 2,
       "avg_copies": 1.0,
       "tier": "C"
-    },
-    {
-      "name": "Mega Lucario ex",
-      "slug": "mega-lucario-ex",
-      "usage_count": 2,
-      "avg_copies": 1.0,
-      "tier": "Rogue"
     },
     {
       "name": "Clefairy Ogerpon",
@@ -93,6 +93,13 @@
       "tier": "B"
     },
     {
+      "name": "Mega Diancie Mega Kangaskhan",
+      "slug": "mega-diancie-mega-kangaskhan",
+      "usage_count": 1,
+      "avg_copies": 1.0,
+      "tier": "Rogue"
+    },
+    {
       "name": "Dudunsparce Flygon",
       "slug": "dudunsparce-flygon",
       "usage_count": 1,
@@ -108,115 +115,115 @@
     },
     {
       "week": "2026-03-16",
-      "usage_pct": 3.6,
+      "usage_pct": 6.2,
       "avg_copies": 1.0
     }
   ],
   "synergy_partners": [
     {
       "card_name": "Hariyama",
-      "support": 38,
-      "lift": 8.261,
-      "jaccard": 0.463,
-      "weighted_score": 64.4
+      "support": 46,
+      "lift": 8.485,
+      "jaccard": 0.489,
+      "weighted_score": 74.3
     },
     {
       "card_name": "Makuhita",
-      "support": 38,
-      "lift": 8.261,
-      "jaccard": 0.463,
-      "weighted_score": 64.4
-    },
-    {
-      "card_name": "Team Rocket's Mewtwo ex",
-      "support": 16,
-      "lift": 7.682,
-      "jaccard": 0.213,
-      "weighted_score": 24.4
-    },
-    {
-      "card_name": "Team Rocket's Spidops",
-      "support": 16,
-      "lift": 7.682,
-      "jaccard": 0.213,
-      "weighted_score": 24.4
-    },
-    {
-      "card_name": "Team Rocket's Tarountula",
-      "support": 16,
-      "lift": 7.682,
-      "jaccard": 0.213,
-      "weighted_score": 24.4
+      "support": 46,
+      "lift": 8.485,
+      "jaccard": 0.489,
+      "weighted_score": 74.3
     },
     {
       "card_name": "Mega Lucario ex",
-      "support": 42,
-      "lift": 7.445,
-      "jaccard": 0.467,
-      "weighted_score": 70.3
+      "support": 50,
+      "lift": 7.727,
+      "jaccard": 0.49,
+      "weighted_score": 80.2
     },
     {
       "card_name": "Riolu",
-      "support": 42,
-      "lift": 7.445,
-      "jaccard": 0.467,
-      "weighted_score": 70.3
+      "support": 50,
+      "lift": 7.727,
+      "jaccard": 0.49,
+      "weighted_score": 80.2
+    },
+    {
+      "card_name": "Team Rocket's Mewtwo ex",
+      "support": 18,
+      "lift": 7.098,
+      "jaccard": 0.202,
+      "weighted_score": 27.1
+    },
+    {
+      "card_name": "Team Rocket's Spidops",
+      "support": 18,
+      "lift": 7.098,
+      "jaccard": 0.202,
+      "weighted_score": 27.1
+    },
+    {
+      "card_name": "Team Rocket's Tarountula",
+      "support": 18,
+      "lift": 7.098,
+      "jaccard": 0.202,
+      "weighted_score": 27.1
     },
     {
       "card_name": "Team Rocket's Mimikyu",
-      "support": 16,
-      "lift": 6.828,
-      "jaccard": 0.205,
-      "weighted_score": 24.4
+      "support": 18,
+      "lift": 6.238,
+      "jaccard": 0.194,
+      "weighted_score": 27.1
     },
     {
       "card_name": "Premium Power Pro",
-      "support": 42,
-      "lift": 5.902,
-      "jaccard": 0.393,
-      "weighted_score": 70.3
-    },
-    {
-      "card_name": "Gravity Mountain",
-      "support": 32,
-      "lift": 5.587,
-      "jaccard": 0.317,
-      "weighted_score": 52.5
+      "support": 50,
+      "lift": 6.083,
+      "jaccard": 0.41,
+      "weighted_score": 80.2
     },
     {
       "card_name": "Team Rocket's Factory",
-      "support": 16,
-      "lift": 5.587,
-      "jaccard": 0.19,
-      "weighted_score": 24.4
+      "support": 18,
+      "lift": 5.563,
+      "jaccard": 0.186,
+      "weighted_score": 27.1
+    },
+    {
+      "card_name": "Gravity Mountain",
+      "support": 39,
+      "lift": 5.506,
+      "jaccard": 0.325,
+      "weighted_score": 61.2
+    },
+    {
+      "card_name": "Lunatone",
+      "support": 50,
+      "lift": 5.498,
+      "jaccard": 0.379,
+      "weighted_score": 80.2
+    },
+    {
+      "card_name": "Solrock",
+      "support": 50,
+      "lift": 5.498,
+      "jaccard": 0.379,
+      "weighted_score": 80.2
     },
     {
       "card_name": "Team Rocket's Archer",
-      "support": 16,
-      "lift": 5.422,
-      "jaccard": 0.188,
-      "weighted_score": 24.4
-    },
-    {
-      "card_name": "Team Rocket's Energy",
-      "support": 16,
-      "lift": 5.422,
-      "jaccard": 0.188,
-      "weighted_score": 24.4
+      "support": 18,
+      "lift": 5.278,
+      "jaccard": 0.182,
+      "weighted_score": 27.1
     },
     {
       "card_name": "Team Rocket's Giovanni",
-      "support": 16,
-      "lift": 5.422,
-      "jaccard": 0.188,
-      "weighted_score": 24.4
-    },
-    {
-      "card_name": "Team Rocket's Proton",
-      "support": 16,
-      "lift": 5.422,
-      "jaccard": 0.188,
-      "weighted_score": 24.4
+      "support": 18,
+      "lift": 5.278,
+      "jaccard": 0.182,
+      "weighted_score": 27.1
     }
   ]
 }

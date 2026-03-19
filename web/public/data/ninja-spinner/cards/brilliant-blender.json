@@ -7,27 +7,27 @@
   "image_url": null,
   "category": "Trainer",
   "rarity": null,
-  "total_appearances": 9,
+  "total_appearances": 11,
   "usage_pct": 1.2,
   "avg_copies": 1.0,
   "unique_archetypes": 3,
-  "weighted_score": 13.5,
-  "win_rate_proxy": 1.5,
+  "weighted_score": 16.2,
+  "win_rate_proxy": 1.47,
   "top_archetype": "Ceruledge ex",
   "trend_direction": "stable",
   "copy_distribution": [
     {
       "copies": 1,
-      "count": 9
+      "count": 11
     }
   ],
   "archetypes": [
     {
       "name": "Ceruledge ex",
       "slug": "ceruledge-ex",
-      "usage_count": 6,
+      "usage_count": 8,
       "avg_copies": 1.0,
-      "tier": "Rogue"
+      "tier": "C"
     },
     {
       "name": "Ceruledge Meowth",
@@ -52,101 +52,115 @@
     },
     {
       "week": "2026-03-16",
-      "usage_pct": 0.0,
-      "avg_copies": 0
+      "usage_pct": 0.8,
+      "avg_copies": 1.0
     }
   ],
   "synergy_partners": [
     {
       "card_name": "Ceruledge ex",
-      "support": 9,
-      "lift": 77.2,
-      "jaccard": 0.9,
-      "weighted_score": 13.5
+      "support": 11,
+      "lift": 74.333,
+      "jaccard": 0.917,
+      "weighted_score": 16.2
     },
     {
       "card_name": "Charcadet",
-      "support": 9,
-      "lift": 77.2,
-      "jaccard": 0.9,
-      "weighted_score": 13.5
+      "support": 11,
+      "lift": 74.333,
+      "jaccard": 0.917,
+      "weighted_score": 16.2
     },
     {
       "card_name": "Drilbur",
-      "support": 6,
-      "lift": 73.524,
-      "jaccard": 0.6,
-      "weighted_score": 9.6
+      "support": 7,
+      "lift": 70.955,
+      "jaccard": 0.583,
+      "weighted_score": 11.1
+    },
+    {
+      "card_name": "Prism Tower",
+      "support": 5,
+      "lift": 27.03,
+      "jaccard": 0.238,
+      "weighted_score": 6.8
+    },
+    {
+      "card_name": "Explorer's Guidance",
+      "support": 5,
+      "lift": 13.079,
+      "jaccard": 0.135,
+      "weighted_score": 6.6
     },
     {
       "card_name": "Carmine",
-      "support": 8,
-      "lift": 11.25,
-      "jaccard": 0.129,
-      "weighted_score": 12.3
+      "support": 10,
+      "lift": 11.421,
+      "jaccard": 0.139,
+      "weighted_score": 15.0
     },
     {
       "card_name": "Lunatone",
-      "support": 9,
-      "lift": 8.391,
-      "jaccard": 0.098,
-      "weighted_score": 13.5
+      "support": 11,
+      "lift": 8.577,
+      "jaccard": 0.106,
+      "weighted_score": 16.2
     },
     {
       "card_name": "Solrock",
-      "support": 9,
-      "lift": 8.391,
-      "jaccard": 0.098,
-      "weighted_score": 13.5
+      "support": 11,
+      "lift": 8.577,
+      "jaccard": 0.106,
+      "weighted_score": 16.2
     },
     {
       "card_name": "Briar",
-      "support": 6,
-      "lift": 7.682,
-      "jaccard": 0.086,
-      "weighted_score": 9.6
+      "support": 7,
+      "lift": 7.095,
+      "jaccard": 0.083,
+      "weighted_score": 10.8
     },
     {
       "card_name": "Fighting Gong",
-      "support": 8,
-      "lift": 5.916,
-      "jaccard": 0.068,
-      "weighted_score": 12.3
+      "support": 10,
+      "lift": 6.143,
+      "jaccard": 0.075,
+      "weighted_score": 15.0
     },
     {
       "card_name": "Fezandipiti ex",
-      "support": 7,
-      "lift": 1.368,
-      "jaccard": 0.016,
-      "weighted_score": 10.3
+      "support": 9,
+      "lift": 1.409,
+      "jaccard": 0.017,
+      "weighted_score": 13.0
     },
     {
       "card_name": "Poké Pad",
-      "support": 9,
-      "lift": 1.322,
-      "jaccard": 0.015,
-      "weighted_score": 13.5
+      "support": 11,
+      "lift": 1.3,
+      "jaccard": 0.016,
+      "weighted_score": 16.2
+    },
+    {
+      "card_name": "Meowth ex",
+      "support": 5,
+      "lift": 1.291,
+      "jaccard": 0.016,
+      "weighted_score": 6.6
     },
     {
       "card_name": "Ultra Ball",
-      "support": 9,
-      "lift": 1.266,
+      "support": 11,
+      "lift": 1.242,
       "jaccard": 0.015,
-      "weighted_score": 13.5
+      "weighted_score": 16.2
     },
     {
       "card_name": "Night Stretcher",
-      "support": 9,
-      "lift": 1.19,
+      "support": 11,
+      "lift": 1.172,
       "jaccard": 0.014,
-      "weighted_score": 13.5
-    },
-    {
-      "card_name": "Boss's Orders",
-      "support": 9,
-      "lift": 1.154,
-      "jaccard": 0.013,
-      "weighted_score": 13.5
+      "weighted_score": 16.2
     }
   ]
 }

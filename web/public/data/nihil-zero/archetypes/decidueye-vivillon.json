@@ -33,6 +33,13 @@
       "category": "Trainer"
     },
     {
+      "card_name": "Grass Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.4,
+      "decks_with": 7,
+      "category": "Energy"
+    },
+    {
       "card_name": "Forest of Vitality",
       "inclusion_pct": 100.0,
       "avg_copies": 3.9,
@@ -110,6 +117,13 @@
       "avg_copies": 3.6,
       "decks_with": 7,
       "category": "Trainer"
+    },
+    {
+      "card_name": "Grass Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.4,
+      "decks_with": 7,
+      "category": "Energy"
     },
     {
       "card_name": "Forest of Vitality",
@@ -1235,7 +1249,7 @@
     "consistency": 49.3,
     "ceiling": 75,
     "popularity": 1.1,
-    "core_density": 24.4
+    "core_density": 26.1
   },
   "evolution": [
     {
@@ -1247,7 +1261,7 @@
           "to_pct": 100.0
         },
         {
-          "card": "Psyduck",
+          "card": "Prime Catcher",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -1257,17 +1271,37 @@
           "to_pct": 50.0
         },
         {
-          "card": "Judge",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
           "card": "Enriching Energy",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
         {
+          "card": "Dudunsparce",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
           "card": "Growth Grass Energy",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Iris's Fighting Spirit",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Psyduck",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Judge",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Fennel",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -1280,41 +1314,16 @@
           "card": "Hilda",
           "from_pct": 0.0,
           "to_pct": 50.0
-        },
-        {
-          "card": "Iris's Fighting Spirit",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Prime Catcher",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Fennel",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Dudunsparce",
-          "from_pct": 0.0,
-          "to_pct": 50.0
         }
       ],
       "dropped": [
-        {
-          "card": "Secret Box",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
         {
           "card": "Handheld Fan",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Team Rocket's Petrel",
+          "card": "Secret Box",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -1324,12 +1333,17 @@
           "to_pct": 0.0
         },
         {
-          "card": "Decidueye",
+          "card": "Switch",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Switch",
+          "card": "Team Rocket's Petrel",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Decidueye",
           "from_pct": 100.0,
           "to_pct": 0.0
         }
@@ -1344,11 +1358,6 @@
           "to_pct": 50.0
         },
         {
-          "card": "Max Rod",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
           "card": "Shaymin",
           "from_pct": 0.0,
           "to_pct": 50.0
@@ -1357,11 +1366,16 @@
           "card": "Deerling",
           "from_pct": 0.0,
           "to_pct": 50.0
+        },
+        {
+          "card": "Max Rod",
+          "from_pct": 0.0,
+          "to_pct": 50.0
         }
       ],
       "dropped": [
         {
-          "card": "Colress's Tenacity",
+          "card": "Prime Catcher",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -1376,7 +1390,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "Prime Catcher",
+          "card": "Colress's Tenacity",
           "from_pct": 50.0,
           "to_pct": 0.0
         }
@@ -1386,12 +1400,12 @@
       "week": "2026-02-09",
       "adopted": [
         {
-          "card": "Secret Box",
+          "card": "Vivillon",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Vivillon",
+          "card": "Secret Box",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -1408,7 +1422,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "Dunsparce",
+          "card": "Lana's Aid",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -1418,12 +1432,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "Judge",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Max Rod",
+          "card": "Spewpa",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -1433,12 +1442,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "Enriching Energy",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Growth Grass Energy",
+          "card": "Dunsparce",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -1448,17 +1452,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "Hilda",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Scatterbug",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Lana's Aid",
+          "card": "Enriching Energy",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -1468,17 +1462,37 @@
           "to_pct": 0.0
         },
         {
+          "card": "Ignition Energy",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
           "card": "Dudunsparce",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
-          "card": "Spewpa",
+          "card": "Growth Grass Energy",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
-          "card": "Ignition Energy",
+          "card": "Judge",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Scatterbug",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Hilda",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Max Rod",
           "from_pct": 50.0,
           "to_pct": 0.0
         }
@@ -1488,17 +1502,7 @@
       "week": "2026-02-23",
       "adopted": [
         {
-          "card": "Rabsca",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Morty's Conviction",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Scatterbug",
+          "card": "Prime Catcher",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -1508,12 +1512,12 @@
           "to_pct": 100.0
         },
         {
-          "card": "Ignition Energy",
+          "card": "Spewpa",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Spewpa",
+          "card": "Bloodmoon Ursaluna ex",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -1523,12 +1527,22 @@
           "to_pct": 100.0
         },
         {
-          "card": "Prime Catcher",
+          "card": "Ignition Energy",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Bloodmoon Ursaluna ex",
+          "card": "Morty's Conviction",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Rabsca",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Scatterbug",
           "from_pct": 0.0,
           "to_pct": 100.0
         }
@@ -1707,6 +1721,14 @@
       "decks_with": 1,
       "category": "Energy",
       "delta_vs_field": 71.4
+    },
+    {
+      "card_name": "Grass Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Energy",
+      "delta_vs_field": 0.0
     },
     {
       "card_name": "Forest of Vitality",

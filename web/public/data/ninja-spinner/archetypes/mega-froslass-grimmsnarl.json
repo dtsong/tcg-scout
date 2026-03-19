@@ -3,7 +3,7 @@
   "slug": "mega-froslass-grimmsnarl",
   "tier": "Rogue",
   "meta_share": 0.1,
-  "weighted_share": 0.2,
+  "weighted_share": 0.1,
   "deck_count": 1,
   "best_placement": 3,
   "sprite_filenames": [
@@ -11,6 +11,13 @@
     "grimmsnarl.png"
   ],
   "core_cards": [
+    {
+      "card_name": "Water Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Energy"
+    },
     {
       "card_name": "Ultra Ball",
       "inclusion_pct": 100.0,
@@ -157,6 +164,13 @@
       "avg_copies": 1.0,
       "decks_with": 1,
       "category": "Pokemon"
+    },
+    {
+      "card_name": "Darkness Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 9.0,
+      "decks_with": 1,
+      "category": "Energy"
     },
     {
       "card_name": "Crispin",
@@ -203,6 +217,13 @@
   ],
   "all_cards": [
     {
+      "card_name": "Water Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Energy"
+    },
+    {
       "card_name": "Ultra Ball",
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
@@ -348,6 +369,13 @@
       "avg_copies": 1.0,
       "decks_with": 1,
       "category": "Pokemon"
+    },
+    {
+      "card_name": "Darkness Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 9.0,
+      "decks_with": 1,
+      "category": "Energy"
     },
     {
       "card_name": "Crispin",
@@ -553,11 +581,11 @@
     }
   ],
   "radar": {
-    "meta_share": 0.7,
-    "weighted_share": 0.8,
+    "meta_share": 0.5,
+    "weighted_share": 0.7,
     "consistency": 90.0,
     "ceiling": 75,
-    "popularity": 1.3,
+    "popularity": 1.1,
     "core_density": 100.0
   },
   "evolution": [],
@@ -575,6 +603,14 @@
     }
   ],
   "top4_card_stats": [
+    {
+      "card_name": "Water Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Energy",
+      "delta_vs_field": 0.0
+    },
     {
       "card_name": "Ultra Ball",
       "inclusion_pct": 100.0,
@@ -741,6 +777,14 @@
       "avg_copies": 1.0,
       "decks_with": 1,
       "category": "Pokemon",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Darkness Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 9.0,
+      "decks_with": 1,
+      "category": "Energy",
       "delta_vs_field": 0.0
     },
     {

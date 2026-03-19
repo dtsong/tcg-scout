@@ -68,6 +68,13 @@
       "category": "Pokemon"
     },
     {
+      "card_name": "Grass Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 9.0,
+      "decks_with": 2,
+      "category": "Energy"
+    },
+    {
       "card_name": "Forest of Vitality",
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
@@ -208,6 +215,13 @@
       "avg_copies": 2.0,
       "decks_with": 2,
       "category": "Pokemon"
+    },
+    {
+      "card_name": "Grass Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 9.0,
+      "decks_with": 2,
+      "category": "Energy"
     },
     {
       "card_name": "Forest of Vitality",
@@ -624,12 +638,22 @@
     "consistency": 60.0,
     "ceiling": 50,
     "popularity": 0.3,
-    "core_density": 71.4
+    "core_density": 72.4
   },
   "evolution": [
     {
       "week": "2026-01-26",
       "adopted": [
+        {
+          "card": "Tapu Bulu",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Thwackey",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
         {
           "card": "Psyduck",
           "from_pct": 0.0,
@@ -641,29 +665,19 @@
           "to_pct": 100.0
         },
         {
-          "card": "Thwackey",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
           "card": "Grookey",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Tapu Bulu",
           "from_pct": 0.0,
           "to_pct": 100.0
         }
       ],
       "dropped": [
         {
-          "card": "Petilil",
+          "card": "Lilligant",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Lilligant",
+          "card": "Petilil",
           "from_pct": 100.0,
           "to_pct": 0.0
         },

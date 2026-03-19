@@ -26,6 +26,13 @@
       "category": "Trainer"
     },
     {
+      "card_name": "Psychic Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.0,
+      "decks_with": 26,
+      "category": "Energy"
+    },
+    {
       "card_name": "Poké Pad",
       "inclusion_pct": 100.0,
       "avg_copies": 3.5,
@@ -52,6 +59,13 @@
       "avg_copies": 2.0,
       "decks_with": 26,
       "category": "Pokemon"
+    },
+    {
+      "card_name": "Fire Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.1,
+      "decks_with": 26,
+      "category": "Energy"
     },
     {
       "card_name": "Dreepy",
@@ -129,6 +143,13 @@
       "avg_copies": 1.5,
       "decks_with": 23,
       "category": "Trainer"
+    },
+    {
+      "card_name": "Darkness Energy",
+      "inclusion_pct": 88.5,
+      "avg_copies": 1.6,
+      "decks_with": 23,
+      "category": "Energy"
     }
   ],
   "all_cards": [
@@ -147,6 +168,13 @@
       "category": "Trainer"
     },
     {
+      "card_name": "Psychic Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.0,
+      "decks_with": 26,
+      "category": "Energy"
+    },
+    {
       "card_name": "Poké Pad",
       "inclusion_pct": 100.0,
       "avg_copies": 3.5,
@@ -173,6 +201,13 @@
       "avg_copies": 2.0,
       "decks_with": 26,
       "category": "Pokemon"
+    },
+    {
+      "card_name": "Fire Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.1,
+      "decks_with": 26,
+      "category": "Energy"
     },
     {
       "card_name": "Dreepy",
@@ -250,6 +285,13 @@
       "avg_copies": 1.5,
       "decks_with": 23,
       "category": "Trainer"
+    },
+    {
+      "card_name": "Darkness Energy",
+      "inclusion_pct": 88.5,
+      "avg_copies": 1.6,
+      "decks_with": 23,
+      "category": "Energy"
     },
     {
       "card_name": "Dawn",
@@ -2661,14 +2703,14 @@
     "consistency": 63.3,
     "ceiling": 100,
     "popularity": 4.3,
-    "core_density": 37.0
+    "core_density": 40.8
   },
   "evolution": [
     {
       "week": "2026-02-02",
       "adopted": [
         {
-          "card": "Psyduck",
+          "card": "Shaymin",
           "from_pct": 0.0,
           "to_pct": 75.0
         },
@@ -2678,17 +2720,17 @@
           "to_pct": 75.0
         },
         {
-          "card": "Shaymin",
+          "card": "Psyduck",
           "from_pct": 0.0,
           "to_pct": 75.0
         },
         {
-          "card": "Brock's Scouting",
+          "card": "Lillie's Clefairy ex",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
         {
-          "card": "Lillie's Clefairy ex",
+          "card": "Brock's Scouting",
           "from_pct": 0.0,
           "to_pct": 50.0
         }
@@ -2710,12 +2752,12 @@
           "to_pct": 73.3
         },
         {
-          "card": "Dusknoir",
+          "card": "Rare Candy",
           "from_pct": 25.0,
           "to_pct": 53.3
         },
         {
-          "card": "Rare Candy",
+          "card": "Dusknoir",
           "from_pct": 25.0,
           "to_pct": 53.3
         }
@@ -2753,11 +2795,6 @@
           "to_pct": 100.0
         },
         {
-          "card": "Mega Kangaskhan ex",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
           "card": "Energy Switch",
           "from_pct": 0.0,
           "to_pct": 50.0
@@ -2773,11 +2810,6 @@
           "to_pct": 50.0
         },
         {
-          "card": "Chien-Pao",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
           "card": "Ciphermaniac's Codebreaking",
           "from_pct": 0.0,
           "to_pct": 50.0
@@ -2788,18 +2820,18 @@
           "to_pct": 50.0
         },
         {
+          "card": "Mega Kangaskhan ex",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
           "card": "Harlequin",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
         {
-          "card": "Dusknoir",
-          "from_pct": 33.3,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Dusclops",
-          "from_pct": 33.3,
+          "card": "Chien-Pao",
+          "from_pct": 0.0,
           "to_pct": 50.0
         },
         {
@@ -2809,6 +2841,16 @@
         },
         {
           "card": "Duskull",
+          "from_pct": 33.3,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Dusknoir",
+          "from_pct": 33.3,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Dusclops",
           "from_pct": 33.3,
           "to_pct": 50.0
         }
@@ -2830,16 +2872,6 @@
           "to_pct": 0.0
         },
         {
-          "card": "Chien-Pao",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Lillie's Clefairy ex",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Ciphermaniac's Codebreaking",
           "from_pct": 50.0,
           "to_pct": 0.0
@@ -2850,12 +2882,22 @@
           "to_pct": 0.0
         },
         {
+          "card": "Lillie's Clefairy ex",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
           "card": "Switch",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
           "card": "Harlequin",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Chien-Pao",
           "from_pct": 50.0,
           "to_pct": 0.0
         }
@@ -2934,6 +2976,14 @@
       "delta_vs_field": 0.0
     },
     {
+      "card_name": "Psychic Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.0,
+      "decks_with": 4,
+      "category": "Energy",
+      "delta_vs_field": 0.0
+    },
+    {
       "card_name": "Poké Pad",
       "inclusion_pct": 100.0,
       "avg_copies": 3.0,
@@ -2990,6 +3040,14 @@
       "delta_vs_field": 11.5
     },
     {
+      "card_name": "Fire Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.2,
+      "decks_with": 4,
+      "category": "Energy",
+      "delta_vs_field": 0.0
+    },
+    {
       "card_name": "Fezandipiti ex",
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
@@ -3020,6 +3078,14 @@
       "decks_with": 4,
       "category": "Pokemon",
       "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Darkness Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.5,
+      "decks_with": 4,
+      "category": "Energy",
+      "delta_vs_field": 11.5
     },
     {
       "card_name": "Crispin",

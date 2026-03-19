@@ -61,6 +61,13 @@
       "category": "Pokemon"
     },
     {
+      "card_name": "Psychic Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 7.0,
+      "decks_with": 2,
+      "category": "Energy"
+    },
+    {
       "card_name": "Poké Pad",
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
@@ -173,6 +180,13 @@
       "avg_copies": 3.0,
       "decks_with": 2,
       "category": "Pokemon"
+    },
+    {
+      "card_name": "Psychic Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 7.0,
+      "decks_with": 2,
+      "category": "Energy"
     },
     {
       "card_name": "Poké Pad",
@@ -636,14 +650,19 @@
     "consistency": 75.0,
     "ceiling": 75,
     "popularity": 0.3,
-    "core_density": 48.5
+    "core_density": 50.0
   },
   "evolution": [
     {
       "week": "2026-02-02",
       "adopted": [
         {
-          "card": "Budew",
+          "card": "Conkeldurr",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Scoop Up Cyclone",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -653,17 +672,12 @@
           "to_pct": 100.0
         },
         {
-          "card": "Conkeldurr",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
           "card": "Ciphermaniac's Codebreaking",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Scoop Up Cyclone",
+          "card": "Budew",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -680,42 +694,12 @@
       ],
       "dropped": [
         {
-          "card": "Psyduck",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Walrein",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Smoochum",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Max Rod",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Shaymin",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Boss's Orders",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Hilda",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Haxorus",
+          "card": "Walrein",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -726,6 +710,36 @@
         },
         {
           "card": "N's Vanilluxe",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Haxorus",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Smoochum",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Boss's Orders",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Psyduck",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Hilda",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Max Rod",
           "from_pct": 100.0,
           "to_pct": 0.0
         }
@@ -858,6 +872,14 @@
       "decks_with": 1,
       "category": "Pokemon",
       "delta_vs_field": 50.0
+    },
+    {
+      "card_name": "Psychic Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 7.0,
+      "decks_with": 1,
+      "category": "Energy",
+      "delta_vs_field": 0.0
     },
     {
       "card_name": "Poké Pad",

@@ -40,6 +40,13 @@
       "category": "Trainer"
     },
     {
+      "card_name": "Grass Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 14.7,
+      "decks_with": 3,
+      "category": "Energy"
+    },
+    {
       "card_name": "Forest of Vitality",
       "inclusion_pct": 100.0,
       "avg_copies": 3.0,
@@ -110,6 +117,13 @@
       "avg_copies": 4.0,
       "decks_with": 3,
       "category": "Trainer"
+    },
+    {
+      "card_name": "Grass Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 14.7,
+      "decks_with": 3,
+      "category": "Energy"
     },
     {
       "card_name": "Forest of Vitality",
@@ -194,6 +208,13 @@
       "avg_copies": 2.0,
       "decks_with": 1,
       "category": "Pokemon"
+    },
+    {
+      "card_name": "Water Energy",
+      "inclusion_pct": 33.3,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Energy"
     },
     {
       "card_name": "Tera Orb",
@@ -693,39 +714,14 @@
     "consistency": 45.0,
     "ceiling": 25,
     "popularity": 0.5,
-    "core_density": 27.8
+    "core_density": 28.9
   },
   "evolution": [
     {
       "week": "2026-02-02",
       "adopted": [
         {
-          "card": "Psyduck",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Hero's Cape",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
           "card": "Dwebble",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "N's Plan",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Tatsugiri",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Meowth ex",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -735,7 +731,22 @@
           "to_pct": 100.0
         },
         {
+          "card": "N's Plan",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
           "card": "Buddy-Buddy Poffin",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Meowth ex",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Crustle",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -745,34 +756,24 @@
           "to_pct": 100.0
         },
         {
-          "card": "Crustle",
+          "card": "Hero's Cape",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Psyduck",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Tatsugiri",
           "from_pct": 0.0,
           "to_pct": 100.0
         }
       ],
       "dropped": [
         {
-          "card": "Secret Box",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Energy Switch",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Budew",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Poké Pad",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Dawn",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -782,12 +783,27 @@
           "to_pct": 0.0
         },
         {
-          "card": "Regigigas",
+          "card": "Tera Orb",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Tera Orb",
+          "card": "Secret Box",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Poké Pad",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Budew",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Crispin",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -797,7 +813,12 @@
           "to_pct": 0.0
         },
         {
-          "card": "Crispin",
+          "card": "Regigigas",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Dawn",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -812,12 +833,12 @@
       "week": "2026-02-09",
       "adopted": [
         {
-          "card": "Acerola's Mischief",
+          "card": "Energy Switch",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Energy Switch",
+          "card": "Acerola's Mischief",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -834,27 +855,12 @@
       ],
       "dropped": [
         {
-          "card": "Psyduck",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Air Balloon",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Hero's Cape",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Judge",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Dwebble",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Lana's Aid",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -864,12 +870,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "Tatsugiri",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Lana's Aid",
+          "card": "Air Balloon",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -880,6 +881,26 @@
         },
         {
           "card": "Crustle",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Hero's Cape",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Psyduck",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Judge",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Tatsugiri",
           "from_pct": 100.0,
           "to_pct": 0.0
         }

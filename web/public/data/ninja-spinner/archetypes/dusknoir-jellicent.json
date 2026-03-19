@@ -2,8 +2,8 @@
   "archetype": "Dusknoir Jellicent",
   "slug": "dusknoir-jellicent",
   "tier": "Rogue",
-  "meta_share": 0.8,
-  "weighted_share": 0.6,
+  "meta_share": 0.7,
+  "weighted_share": 0.5,
   "deck_count": 6,
   "best_placement": 5,
   "sprite_filenames": [
@@ -29,6 +29,13 @@
       "card_name": "Telepath Psychic Energy",
       "inclusion_pct": 100.0,
       "avg_copies": 3.8,
+      "decks_with": 6,
+      "category": "Energy"
+    },
+    {
+      "card_name": "Psychic Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 5.8,
       "decks_with": 6,
       "category": "Energy"
     },
@@ -157,6 +164,13 @@
       "card_name": "Telepath Psychic Energy",
       "inclusion_pct": 100.0,
       "avg_copies": 3.8,
+      "decks_with": 6,
+      "category": "Energy"
+    },
+    {
+      "card_name": "Psychic Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 5.8,
       "decks_with": 6,
       "category": "Energy"
     },
@@ -1132,12 +1146,12 @@
     }
   ],
   "radar": {
-    "meta_share": 3.9,
-    "weighted_share": 3.1,
+    "meta_share": 3.4,
+    "weighted_share": 2.7,
     "consistency": 60.0,
     "ceiling": 50,
-    "popularity": 7.9,
-    "core_density": 54.5
+    "popularity": 6.6,
+    "core_density": 55.9
   },
   "evolution": [
     {
@@ -1192,7 +1206,7 @@
     },
     {
       "week": "2026-03-16",
-      "meta_share": 1.4,
+      "meta_share": 0.8,
       "deck_count": 2
     }
   ],

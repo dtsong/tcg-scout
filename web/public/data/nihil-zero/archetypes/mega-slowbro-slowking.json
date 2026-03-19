@@ -61,6 +61,13 @@
       "category": "Pokemon"
     },
     {
+      "card_name": "Psychic Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 5.2,
+      "decks_with": 5,
+      "category": "Energy"
+    },
+    {
       "card_name": "Poké Pad",
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
@@ -201,6 +208,13 @@
       "avg_copies": 3.0,
       "decks_with": 5,
       "category": "Pokemon"
+    },
+    {
+      "card_name": "Psychic Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 5.2,
+      "decks_with": 5,
+      "category": "Energy"
     },
     {
       "card_name": "Poké Pad",
@@ -1146,7 +1160,7 @@
     "consistency": 45.0,
     "ceiling": 50,
     "popularity": 0.8,
-    "core_density": 47.6
+    "core_density": 48.8
   },
   "evolution": [
     {
@@ -1160,7 +1174,7 @@
       ],
       "dropped": [
         {
-          "card": "Psyduck",
+          "card": "Lana's Aid",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -1175,12 +1189,12 @@
           "to_pct": 0.0
         },
         {
-          "card": "Lana's Aid",
+          "card": "Pokégear 3.0",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Pokégear 3.0",
+          "card": "Psyduck",
           "from_pct": 100.0,
           "to_pct": 0.0
         }
@@ -1195,12 +1209,12 @@
           "to_pct": 100.0
         },
         {
-          "card": "Ciphermaniac's Codebreaking",
+          "card": "Spectrier",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Spectrier",
+          "card": "Ciphermaniac's Codebreaking",
           "from_pct": 0.0,
           "to_pct": 100.0
         },

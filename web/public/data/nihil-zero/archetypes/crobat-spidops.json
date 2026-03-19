@@ -138,6 +138,13 @@
       "category": "Trainer"
     },
     {
+      "card_name": "Grass Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 5.3,
+      "decks_with": 3,
+      "category": "Energy"
+    },
+    {
       "card_name": "Buddy-Buddy Poffin",
       "inclusion_pct": 100.0,
       "avg_copies": 2.3,
@@ -273,6 +280,13 @@
       "category": "Trainer"
     },
     {
+      "card_name": "Grass Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 5.3,
+      "decks_with": 3,
+      "category": "Energy"
+    },
+    {
       "card_name": "Buddy-Buddy Poffin",
       "inclusion_pct": 100.0,
       "avg_copies": 2.3,
@@ -320,6 +334,13 @@
       "avg_copies": 1.0,
       "decks_with": 1,
       "category": "Trainer"
+    },
+    {
+      "card_name": "Psychic Energy",
+      "inclusion_pct": 33.3,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Energy"
     },
     {
       "card_name": "Lillie's Clefairy ex",
@@ -776,7 +797,7 @@
     "consistency": 63.3,
     "ceiling": 90,
     "popularity": 0.5,
-    "core_density": 61.3
+    "core_density": 60.6
   },
   "evolution": [
     {
@@ -805,27 +826,17 @@
       "week": "2026-02-09",
       "adopted": [
         {
-          "card": "Secret Box",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Air Balloon",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
           "card": "Energy Switch",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Team Rocket's Petrel",
+          "card": "Energy Search",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Fezandipiti ex",
+          "card": "Secret Box",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -835,7 +846,7 @@
           "to_pct": 100.0
         },
         {
-          "card": "Team Rocket's Mewtwo ex",
+          "card": "Air Balloon",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -845,19 +856,29 @@
           "to_pct": 100.0
         },
         {
-          "card": "Energy Search",
+          "card": "Fezandipiti ex",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Team Rocket's Petrel",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Team Rocket's Mewtwo ex",
           "from_pct": 0.0,
           "to_pct": 100.0
         }
       ],
       "dropped": [
         {
-          "card": "Legacy Energy",
+          "card": "Brave Bangle",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Brave Bangle",
+          "card": "Legacy Energy",
           "from_pct": 100.0,
           "to_pct": 0.0
         }
@@ -1056,6 +1077,14 @@
       "delta_vs_field": 33.3
     },
     {
+      "card_name": "Grass Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 6.0,
+      "decks_with": 1,
+      "category": "Energy",
+      "delta_vs_field": 0.0
+    },
+    {
       "card_name": "Energy Search",
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
@@ -1101,6 +1130,14 @@
       "avg_copies": 0,
       "decks_with": 0,
       "category": "Trainer",
+      "delta_vs_field": -33.3
+    },
+    {
+      "card_name": "Psychic Energy",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Energy",
       "delta_vs_field": -33.3
     },
     {

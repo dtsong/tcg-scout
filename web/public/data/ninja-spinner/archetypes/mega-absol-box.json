@@ -2,8 +2,8 @@
   "archetype": "Mega Absol Box",
   "slug": "mega-absol-box",
   "tier": "Rogue",
-  "meta_share": 0.8,
-  "weighted_share": 0.8,
+  "meta_share": 0.7,
+  "weighted_share": 0.7,
   "deck_count": 6,
   "best_placement": 2,
   "sprite_filenames": [
@@ -45,6 +45,13 @@
       "avg_copies": 1.0,
       "decks_with": 6,
       "category": "Pokemon"
+    },
+    {
+      "card_name": "Psychic Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.5,
+      "decks_with": 6,
+      "category": "Energy"
     },
     {
       "card_name": "Night Stretcher",
@@ -96,6 +103,13 @@
       "category": "Pokemon"
     },
     {
+      "card_name": "Grass Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.0,
+      "decks_with": 6,
+      "category": "Energy"
+    },
+    {
       "card_name": "Fezandipiti ex",
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
@@ -108,6 +122,13 @@
       "avg_copies": 3.8,
       "decks_with": 6,
       "category": "Trainer"
+    },
+    {
+      "card_name": "Darkness Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.0,
+      "decks_with": 6,
+      "category": "Energy"
     },
     {
       "card_name": "Cyrano",
@@ -196,6 +217,13 @@
       "category": "Pokemon"
     },
     {
+      "card_name": "Psychic Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.5,
+      "decks_with": 6,
+      "category": "Energy"
+    },
+    {
       "card_name": "Night Stretcher",
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
@@ -245,6 +273,13 @@
       "category": "Pokemon"
     },
     {
+      "card_name": "Grass Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.0,
+      "decks_with": 6,
+      "category": "Energy"
+    },
+    {
       "card_name": "Fezandipiti ex",
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
@@ -257,6 +292,13 @@
       "avg_copies": 3.8,
       "decks_with": 6,
       "category": "Trainer"
+    },
+    {
+      "card_name": "Darkness Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.0,
+      "decks_with": 6,
+      "category": "Energy"
     },
     {
       "card_name": "Cyrano",
@@ -329,6 +371,13 @@
       "category": "Pokemon"
     },
     {
+      "card_name": "Water Energy",
+      "inclusion_pct": 33.3,
+      "avg_copies": 1.0,
+      "decks_with": 2,
+      "category": "Energy"
+    },
+    {
       "card_name": "Team Rocket's Watchtower",
       "inclusion_pct": 33.3,
       "avg_copies": 1.0,
@@ -371,6 +420,13 @@
       "category": "Pokemon"
     },
     {
+      "card_name": "Lightning Energy",
+      "inclusion_pct": 16.7,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Energy"
+    },
+    {
       "card_name": "Judge",
       "inclusion_pct": 16.7,
       "avg_copies": 1.0,
@@ -390,6 +446,13 @@
       "avg_copies": 1.0,
       "decks_with": 1,
       "category": "Pokemon"
+    },
+    {
+      "card_name": "Fire Energy",
+      "inclusion_pct": 16.7,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Energy"
     },
     {
       "card_name": "Chien-Pao",
@@ -1302,12 +1365,12 @@
     }
   ],
   "radar": {
-    "meta_share": 3.9,
-    "weighted_share": 4.0,
+    "meta_share": 3.4,
+    "weighted_share": 3.4,
     "consistency": 65.8,
     "ceiling": 90,
-    "popularity": 7.9,
-    "core_density": 60.0
+    "popularity": 6.6,
+    "core_density": 58.5
   },
   "evolution": [
     {
@@ -1319,12 +1382,7 @@
           "to_pct": 100.0
         },
         {
-          "card": "Jamming Tower",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Tapu Koko ex",
+          "card": "Team Rocket's Mimikyu",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -1334,7 +1392,12 @@
           "to_pct": 50.0
         },
         {
-          "card": "Team Rocket's Mimikyu",
+          "card": "Jamming Tower",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Tapu Koko ex",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -1398,7 +1461,7 @@
     },
     {
       "week": "2026-03-16",
-      "meta_share": 1.4,
+      "meta_share": 0.8,
       "deck_count": 2
     }
   ],
@@ -1441,6 +1504,14 @@
       "avg_copies": 1.0,
       "decks_with": 2,
       "category": "Pokemon",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Psychic Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 2,
+      "category": "Energy",
       "delta_vs_field": 0.0
     },
     {
@@ -1508,6 +1579,14 @@
       "delta_vs_field": 0.0
     },
     {
+      "card_name": "Grass Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.0,
+      "decks_with": 2,
+      "category": "Energy",
+      "delta_vs_field": 0.0
+    },
+    {
       "card_name": "Fezandipiti ex",
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
@@ -1521,6 +1600,14 @@
       "avg_copies": 3.5,
       "decks_with": 2,
       "category": "Trainer",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Darkness Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.0,
+      "decks_with": 2,
+      "category": "Energy",
       "delta_vs_field": 0.0
     },
     {
@@ -1644,6 +1731,14 @@
       "delta_vs_field": 33.3
     },
     {
+      "card_name": "Fire Energy",
+      "inclusion_pct": 50.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Energy",
+      "delta_vs_field": 33.3
+    },
+    {
       "card_name": "Chi-Yu",
       "inclusion_pct": 50.0,
       "avg_copies": 1.0,
@@ -1660,11 +1755,27 @@
       "delta_vs_field": -33.3
     },
     {
+      "card_name": "Water Energy",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Energy",
+      "delta_vs_field": -33.3
+    },
+    {
       "card_name": "Tapu Koko ex",
       "inclusion_pct": 0,
       "avg_copies": 0,
       "decks_with": 0,
       "category": "Pokemon",
+      "delta_vs_field": -16.7
+    },
+    {
+      "card_name": "Lightning Energy",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Energy",
       "delta_vs_field": -16.7
     },
     {

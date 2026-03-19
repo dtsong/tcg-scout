@@ -2,7 +2,7 @@
   "archetype": "Mega Meganium Mega Venusaur",
   "slug": "mega-meganium-mega-venusaur",
   "tier": "Rogue",
-  "meta_share": 0.4,
+  "meta_share": 0.3,
   "weighted_share": 0.3,
   "deck_count": 3,
   "best_placement": 6,
@@ -87,6 +87,13 @@
       "avg_copies": 2.0,
       "decks_with": 3,
       "category": "Pokemon"
+    },
+    {
+      "card_name": "Grass Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 10.0,
+      "decks_with": 3,
+      "category": "Energy"
     },
     {
       "card_name": "Forest of Vitality",
@@ -222,6 +229,13 @@
       "avg_copies": 2.0,
       "decks_with": 3,
       "category": "Pokemon"
+    },
+    {
+      "card_name": "Grass Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 10.0,
+      "decks_with": 3,
+      "category": "Energy"
     },
     {
       "card_name": "Forest of Vitality",
@@ -785,41 +799,41 @@
     }
   ],
   "radar": {
-    "meta_share": 1.9,
-    "weighted_share": 1.7,
+    "meta_share": 1.7,
+    "weighted_share": 1.4,
     "consistency": 70.0,
     "ceiling": 50,
-    "popularity": 3.9,
-    "core_density": 57.6
+    "popularity": 3.3,
+    "core_density": 58.8
   },
   "evolution": [
     {
       "week": "2026-03-16",
       "adopted": [
         {
-          "card": "Budew",
+          "card": "Rare Candy",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Rare Candy",
+          "card": "Budew",
           "from_pct": 0.0,
           "to_pct": 100.0
         }
       ],
       "dropped": [
         {
+          "card": "Energy Recycler",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
           "card": "Yanmega ex",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
-          "card": "Ciphermaniac's Codebreaking",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Celebi",
+          "card": "Yanma",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -834,27 +848,27 @@
           "to_pct": 0.0
         },
         {
-          "card": "Switch",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Yanma",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Energy Recycler",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Energy Retrieval",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
+          "card": "Ciphermaniac's Codebreaking",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
           "card": "Buddy-Buddy Poffin",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Switch",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Celebi",
           "from_pct": 50.0,
           "to_pct": 0.0
         }
@@ -870,7 +884,7 @@
     },
     {
       "week": "2026-03-16",
-      "meta_share": 0.7,
+      "meta_share": 0.4,
       "deck_count": 1
     }
   ],

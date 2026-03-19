@@ -19,6 +19,13 @@
       "category": "Trainer"
     },
     {
+      "card_name": "Psychic Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.0,
+      "decks_with": 4,
+      "category": "Energy"
+    },
+    {
       "card_name": "Poké Pad",
       "inclusion_pct": 100.0,
       "avg_copies": 3.5,
@@ -54,6 +61,20 @@
       "category": "Trainer"
     },
     {
+      "card_name": "Grass Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.2,
+      "decks_with": 4,
+      "category": "Energy"
+    },
+    {
+      "card_name": "Fire Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.8,
+      "decks_with": 4,
+      "category": "Energy"
+    },
+    {
       "card_name": "Dwebble",
       "inclusion_pct": 100.0,
       "avg_copies": 2.2,
@@ -80,6 +101,13 @@
       "avg_copies": 2.2,
       "decks_with": 4,
       "category": "Pokemon"
+    },
+    {
+      "card_name": "Darkness Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 4,
+      "category": "Energy"
     },
     {
       "card_name": "Crustle",
@@ -119,6 +147,13 @@
       "category": "Trainer"
     },
     {
+      "card_name": "Psychic Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.0,
+      "decks_with": 4,
+      "category": "Energy"
+    },
+    {
       "card_name": "Poké Pad",
       "inclusion_pct": 100.0,
       "avg_copies": 3.5,
@@ -154,6 +189,20 @@
       "category": "Trainer"
     },
     {
+      "card_name": "Grass Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.2,
+      "decks_with": 4,
+      "category": "Energy"
+    },
+    {
+      "card_name": "Fire Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.8,
+      "decks_with": 4,
+      "category": "Energy"
+    },
+    {
       "card_name": "Dwebble",
       "inclusion_pct": 100.0,
       "avg_copies": 2.2,
@@ -180,6 +229,13 @@
       "avg_copies": 2.2,
       "decks_with": 4,
       "category": "Pokemon"
+    },
+    {
+      "card_name": "Darkness Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 4,
+      "category": "Energy"
     },
     {
       "card_name": "Crustle",
@@ -879,14 +935,19 @@
     "consistency": 63.8,
     "ceiling": 50,
     "popularity": 0.7,
-    "core_density": 45.2
+    "core_density": 51.4
   },
   "evolution": [
     {
       "week": "2026-02-23",
       "adopted": [
         {
-          "card": "Brock's Scouting",
+          "card": "Shaymin",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Mist Energy",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -896,7 +957,7 @@
           "to_pct": 100.0
         },
         {
-          "card": "Shaymin",
+          "card": "Brock's Scouting",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -904,26 +965,16 @@
           "card": "Team Rocket's Watchtower",
           "from_pct": 0.0,
           "to_pct": 100.0
-        },
-        {
-          "card": "Mist Energy",
-          "from_pct": 0.0,
-          "to_pct": 100.0
         }
       ],
       "dropped": [
         {
-          "card": "Psyduck",
+          "card": "Jamming Tower",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Budew",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Fezandipiti ex",
+          "card": "Unfair Stamp",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -933,22 +984,27 @@
           "to_pct": 0.0
         },
         {
-          "card": "Unfair Stamp",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Lillie's Clefairy ex",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Jamming Tower",
+          "card": "Switch",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Switch",
+          "card": "Fezandipiti ex",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Budew",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Psyduck",
           "from_pct": 100.0,
           "to_pct": 0.0
         }
@@ -958,17 +1014,22 @@
       "week": "2026-03-02",
       "adopted": [
         {
-          "card": "Psyduck",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
           "card": "Switch",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Judge",
+          "card": "Psyduck",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Unfair Stamp",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Lillie's Clefairy ex",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -978,17 +1039,12 @@
           "to_pct": 50.0
         },
         {
+          "card": "Judge",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
           "card": "Legacy Energy",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Unfair Stamp",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Lillie's Clefairy ex",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -1000,12 +1056,12 @@
       ],
       "dropped": [
         {
-          "card": "Hero's Cape",
+          "card": "Shaymin",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Shaymin",
+          "card": "Hero's Cape",
           "from_pct": 100.0,
           "to_pct": 0.0
         }

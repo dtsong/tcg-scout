@@ -7,22 +7,22 @@
   "image_url": null,
   "category": "Trainer",
   "rarity": null,
-  "total_appearances": 96,
-  "usage_pct": 12.4,
+  "total_appearances": 116,
+  "usage_pct": 13.0,
   "avg_copies": 1.2,
   "unique_archetypes": 10,
-  "weighted_score": 160.7,
+  "weighted_score": 193.5,
   "win_rate_proxy": 1.67,
   "top_archetype": "Dragapult Meowth",
   "trend_direction": "declining",
   "copy_distribution": [
     {
       "copies": 1,
-      "count": 80
+      "count": 96
     },
     {
       "copies": 2,
-      "count": 12
+      "count": 16
     },
     {
       "copies": 3,
@@ -37,21 +37,21 @@
     {
       "name": "Dragapult Meowth",
       "slug": "dragapult-meowth",
-      "usage_count": 50,
+      "usage_count": 61,
       "avg_copies": 1.1,
       "tier": "A"
     },
     {
       "name": "Dragapult Dusknoir",
       "slug": "dragapult-dusknoir",
-      "usage_count": 20,
+      "usage_count": 25,
       "avg_copies": 1.1,
       "tier": "B"
     },
     {
       "name": "Blaziken Dragapult",
       "slug": "blaziken-dragapult",
-      "usage_count": 9,
+      "usage_count": 10,
       "avg_copies": 1.0,
       "tier": "B"
     },
@@ -65,21 +65,21 @@
     {
       "name": "Dragapult ex",
       "slug": "dragapult-ex",
-      "usage_count": 5,
-      "avg_copies": 1.4,
-      "tier": "Rogue"
+      "usage_count": 6,
+      "avg_copies": 1.5,
+      "tier": "C"
     },
     {
       "name": "Dragapult Munkidori",
       "slug": "dragapult-munkidori",
-      "usage_count": 2,
-      "avg_copies": 1.0,
+      "usage_count": 3,
+      "avg_copies": 1.3,
       "tier": "Rogue"
     },
     {
       "name": "Munkidori Toxtricity",
       "slug": "munkidori-toxtricity",
-      "usage_count": 1,
+      "usage_count": 2,
       "avg_copies": 1.0,
       "tier": "Rogue"
     },
@@ -113,115 +113,115 @@
     },
     {
       "week": "2026-03-16",
-      "usage_pct": 5.0,
-      "avg_copies": 1.3
+      "usage_pct": 10.4,
+      "avg_copies": 1.2
     }
   ],
   "synergy_partners": [
     {
       "card_name": "Rosa's Encouragement",
-      "support": 63,
-      "lift": 5.277,
-      "jaccard": 0.488,
-      "weighted_score": 104.9
+      "support": 76,
+      "lift": 5.082,
+      "jaccard": 0.49,
+      "weighted_score": 126.9
     },
     {
       "card_name": "Dusknoir",
-      "support": 66,
-      "lift": 4.246,
-      "jaccard": 0.426,
-      "weighted_score": 110.8
+      "support": 81,
+      "lift": 4.209,
+      "jaccard": 0.443,
+      "weighted_score": 136.5
     },
     {
       "card_name": "Duskull",
-      "support": 66,
-      "lift": 4.246,
-      "jaccard": 0.426,
-      "weighted_score": 110.8
-    },
-    {
-      "card_name": "Dragapult ex",
-      "support": 86,
-      "lift": 4.166,
-      "jaccard": 0.489,
-      "weighted_score": 144.4
+      "support": 81,
+      "lift": 4.209,
+      "jaccard": 0.443,
+      "weighted_score": 136.5
     },
     {
       "card_name": "Dusclops",
-      "support": 63,
-      "lift": 4.153,
-      "jaccard": 0.406,
-      "weighted_score": 106.1
+      "support": 78,
+      "lift": 4.137,
+      "jaccard": 0.426,
+      "weighted_score": 131.8
+    },
+    {
+      "card_name": "Dragapult ex",
+      "support": 105,
+      "lift": 4.078,
+      "jaccard": 0.502,
+      "weighted_score": 176.0
     },
     {
       "card_name": "Drakloak",
-      "support": 86,
-      "lift": 4.141,
-      "jaccard": 0.486,
-      "weighted_score": 144.4
+      "support": 105,
+      "lift": 4.057,
+      "jaccard": 0.5,
+      "weighted_score": 176.0
     },
     {
       "card_name": "Dreepy",
-      "support": 86,
-      "lift": 4.141,
-      "jaccard": 0.486,
-      "weighted_score": 144.4
+      "support": 105,
+      "lift": 4.057,
+      "jaccard": 0.5,
+      "weighted_score": 176.0
     },
     {
       "card_name": "Hoothoot",
-      "support": 36,
-      "lift": 3.619,
-      "jaccard": 0.257,
-      "weighted_score": 61.0
+      "support": 46,
+      "lift": 3.502,
+      "jaccard": 0.269,
+      "weighted_score": 76.8
     },
     {
       "card_name": "Noctowl",
-      "support": 36,
-      "lift": 3.619,
-      "jaccard": 0.257,
-      "weighted_score": 61.0
+      "support": 46,
+      "lift": 3.502,
+      "jaccard": 0.269,
+      "weighted_score": 76.8
+    },
+    {
+      "card_name": "Briar",
+      "support": 29,
+      "lift": 2.788,
+      "jaccard": 0.174,
+      "weighted_score": 48.7
     },
     {
       "card_name": "Mega Froslass ex",
       "support": 6,
-      "lift": 3.217,
-      "jaccard": 0.057,
+      "lift": 2.714,
+      "jaccard": 0.047,
       "weighted_score": 11.2
     },
     {
-      "card_name": "Briar",
-      "support": 23,
-      "lift": 2.761,
-      "jaccard": 0.164,
-      "weighted_score": 38.0
-    },
-    {
       "card_name": "Munkidori",
-      "support": 94,
-      "lift": 2.69,
-      "jaccard": 0.332,
-      "weighted_score": 157.5
+      "support": 114,
+      "lift": 2.625,
+      "jaccard": 0.339,
+      "weighted_score": 190.3
     },
     {
       "card_name": "Team Rocket's Watchtower",
-      "support": 61,
-      "lift": 2.623,
-      "jaccard": 0.275,
-      "weighted_score": 100.8
+      "support": 76,
+      "lift": 2.609,
+      "jaccard": 0.288,
+      "weighted_score": 125.7
     },
     {
       "card_name": "Budew",
-      "support": 91,
-      "lift": 2.532,
-      "jaccard": 0.31,
-      "weighted_score": 154.1
+      "support": 110,
+      "lift": 2.452,
+      "jaccard": 0.313,
+      "weighted_score": 185.7
     },
     {
-      "card_name": "Combusken",
-      "support": 9,
-      "lift": 2.496,
-      "jaccard": 0.078,
-      "weighted_score": 14.3
+      "card_name": "Rare Candy",
+      "support": 97,
+      "lift": 2.438,
+      "jaccard": 0.298,
+      "weighted_score": 160.6
     }
   ]
 }

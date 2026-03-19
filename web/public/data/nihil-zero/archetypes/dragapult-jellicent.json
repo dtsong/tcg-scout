@@ -19,6 +19,13 @@
       "category": "Trainer"
     },
     {
+      "card_name": "Psychic Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.1,
+      "decks_with": 14,
+      "category": "Energy"
+    },
+    {
       "card_name": "Poké Pad",
       "inclusion_pct": 100.0,
       "avg_copies": 3.9,
@@ -75,6 +82,13 @@
       "category": "Pokemon"
     },
     {
+      "card_name": "Fire Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.1,
+      "decks_with": 14,
+      "category": "Energy"
+    },
+    {
       "card_name": "Dreepy",
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
@@ -94,6 +108,13 @@
       "avg_copies": 2.9,
       "decks_with": 14,
       "category": "Pokemon"
+    },
+    {
+      "card_name": "Darkness Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.6,
+      "decks_with": 14,
+      "category": "Energy"
     },
     {
       "card_name": "Crispin",
@@ -140,6 +161,13 @@
       "category": "Trainer"
     },
     {
+      "card_name": "Psychic Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.1,
+      "decks_with": 14,
+      "category": "Energy"
+    },
+    {
       "card_name": "Poké Pad",
       "inclusion_pct": 100.0,
       "avg_copies": 3.9,
@@ -196,6 +224,13 @@
       "category": "Pokemon"
     },
     {
+      "card_name": "Fire Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.1,
+      "decks_with": 14,
+      "category": "Energy"
+    },
+    {
       "card_name": "Dreepy",
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
@@ -215,6 +250,13 @@
       "avg_copies": 2.9,
       "decks_with": 14,
       "category": "Pokemon"
+    },
+    {
+      "card_name": "Darkness Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.6,
+      "decks_with": 14,
+      "category": "Energy"
     },
     {
       "card_name": "Crispin",
@@ -2436,7 +2478,7 @@
     "consistency": 70.4,
     "ceiling": 100,
     "popularity": 2.3,
-    "core_density": 38.6
+    "core_density": 42.6
   },
   "evolution": [
     {
@@ -2465,12 +2507,12 @@
       "week": "2026-02-02",
       "adopted": [
         {
-          "card": "Psyduck",
+          "card": "Telepath Psychic Energy",
           "from_pct": 0.0,
           "to_pct": 66.7
         },
         {
-          "card": "Telepath Psychic Energy",
+          "card": "Psyduck",
           "from_pct": 0.0,
           "to_pct": 66.7
         },
@@ -2487,12 +2529,12 @@
           "to_pct": 0.0
         },
         {
-          "card": "Brock's Scouting",
+          "card": "Shaymin",
           "from_pct": 66.7,
           "to_pct": 0.0
         },
         {
-          "card": "Shaymin",
+          "card": "Brock's Scouting",
           "from_pct": 66.7,
           "to_pct": 0.0
         },
@@ -2507,12 +2549,12 @@
       "week": "2026-02-09",
       "adopted": [
         {
-          "card": "Brock's Scouting",
+          "card": "Meowth ex",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Meowth ex",
+          "card": "Brock's Scouting",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -2544,6 +2586,21 @@
       "week": "2026-03-02",
       "adopted": [
         {
+          "card": "Telepath Psychic Energy",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Girafarig",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Switch",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
           "card": "Briar",
           "from_pct": 0.0,
           "to_pct": 100.0
@@ -2554,22 +2611,7 @@
           "to_pct": 100.0
         },
         {
-          "card": "Telepath Psychic Energy",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
           "card": "Hilda",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Switch",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Girafarig",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -2581,7 +2623,7 @@
       ],
       "dropped": [
         {
-          "card": "Psyduck",
+          "card": "Meowth ex",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -2591,17 +2633,17 @@
           "to_pct": 0.0
         },
         {
-          "card": "Meowth ex",
+          "card": "Psyduck",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Shaymin",
+          "card": "Jamming Tower",
           "from_pct": 66.7,
           "to_pct": 0.0
         },
         {
-          "card": "Jamming Tower",
+          "card": "Shaymin",
           "from_pct": 66.7,
           "to_pct": 0.0
         },
@@ -2677,6 +2719,14 @@
       "delta_vs_field": 0.0
     },
     {
+      "card_name": "Psychic Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.0,
+      "decks_with": 5,
+      "category": "Energy",
+      "delta_vs_field": 0.0
+    },
+    {
       "card_name": "Poké Pad",
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
@@ -2749,6 +2799,14 @@
       "delta_vs_field": 0.0
     },
     {
+      "card_name": "Fire Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.2,
+      "decks_with": 5,
+      "category": "Energy",
+      "delta_vs_field": 0.0
+    },
+    {
       "card_name": "Fezandipiti ex",
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
@@ -2778,6 +2836,14 @@
       "avg_copies": 3.0,
       "decks_with": 5,
       "category": "Pokemon",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Darkness Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.4,
+      "decks_with": 5,
+      "category": "Energy",
       "delta_vs_field": 0.0
     },
     {

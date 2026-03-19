@@ -12,6 +12,13 @@
   ],
   "core_cards": [
     {
+      "card_name": "Water Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.0,
+      "decks_with": 2,
+      "category": "Energy"
+    },
+    {
       "card_name": "Ultra Ball",
       "inclusion_pct": 100.0,
       "avg_copies": 3.5,
@@ -59,6 +66,13 @@
       "avg_copies": 4.0,
       "decks_with": 2,
       "category": "Trainer"
+    },
+    {
+      "card_name": "Lightning Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 8.0,
+      "decks_with": 2,
+      "category": "Energy"
     },
     {
       "card_name": "Eelektrik",
@@ -105,6 +119,13 @@
   ],
   "all_cards": [
     {
+      "card_name": "Water Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.0,
+      "decks_with": 2,
+      "category": "Energy"
+    },
+    {
       "card_name": "Ultra Ball",
       "inclusion_pct": 100.0,
       "avg_copies": 3.5,
@@ -152,6 +173,13 @@
       "avg_copies": 4.0,
       "decks_with": 2,
       "category": "Trainer"
+    },
+    {
+      "card_name": "Lightning Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 8.0,
+      "decks_with": 2,
+      "category": "Energy"
     },
     {
       "card_name": "Eelektrik",
@@ -598,32 +626,12 @@
     "consistency": 50.0,
     "ceiling": 25,
     "popularity": 0.3,
-    "core_density": 40.6
+    "core_density": 44.1
   },
   "evolution": [
     {
       "week": "2026-02-09",
       "adopted": [
-        {
-          "card": "Night Stretcher",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Budew",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Fezandipiti ex",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Dawn",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
         {
           "card": "Unfair Stamp",
           "from_pct": 0.0,
@@ -635,39 +643,34 @@
           "to_pct": 100.0
         },
         {
+          "card": "Night Stretcher",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Fezandipiti ex",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Budew",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
           "card": "Crispin",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Dawn",
           "from_pct": 0.0,
           "to_pct": 100.0
         }
       ],
       "dropped": [
         {
-          "card": "Psyduck",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Zeraora",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Brock's Scouting",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Tatsugiri",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Powerglass",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Hilda",
+          "card": "Prime Catcher",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -682,12 +685,12 @@
           "to_pct": 0.0
         },
         {
-          "card": "Mega Starmie ex",
+          "card": "Brock's Scouting",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "N's Zoroark ex",
+          "card": "Psyduck",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -697,7 +700,32 @@
           "to_pct": 0.0
         },
         {
-          "card": "Prime Catcher",
+          "card": "Mega Starmie ex",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Powerglass",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Zeraora",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Tatsugiri",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "N's Zoroark ex",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Hilda",
           "from_pct": 100.0,
           "to_pct": 0.0
         }

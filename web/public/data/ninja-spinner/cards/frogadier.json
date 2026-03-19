@@ -7,25 +7,25 @@
   "image_url": null,
   "category": "Pokemon",
   "rarity": null,
-  "total_appearances": 4,
-  "usage_pct": 0.5,
+  "total_appearances": 5,
+  "usage_pct": 0.6,
   "avg_copies": 2.0,
   "unique_archetypes": 2,
-  "weighted_score": 7.2,
-  "win_rate_proxy": 1.8,
+  "weighted_score": 8.4,
+  "win_rate_proxy": 1.68,
   "top_archetype": "Dusknoir Greninja",
   "trend_direction": "stable",
   "copy_distribution": [
     {
       "copies": 2,
-      "count": 4
+      "count": 5
     }
   ],
   "archetypes": [
     {
       "name": "Dusknoir Greninja",
       "slug": "dusknoir-greninja",
-      "usage_count": 3,
+      "usage_count": 4,
       "avg_copies": 2.0,
       "tier": "B"
     },
@@ -45,8 +45,115 @@
     },
     {
       "week": "2026-03-16",
-      "usage_pct": 0.0,
-      "avg_copies": 0
+      "usage_pct": 0.4,
+      "avg_copies": 2.0
+    }
+  ],
+  "synergy_partners": [
+    {
+      "card_name": "Grand Tree",
+      "support": 5,
+      "lift": 63.714,
+      "jaccard": 0.357,
+      "weighted_score": 8.4
+    },
+    {
+      "card_name": "Greninja ex",
+      "support": 5,
+      "lift": 26.235,
+      "jaccard": 0.147,
+      "weighted_score": 8.4
+    },
+    {
+      "card_name": "Colress's Tenacity",
+      "support": 5,
+      "lift": 20.744,
+      "jaccard": 0.116,
+      "weighted_score": 8.4
+    },
+    {
+      "card_name": "Ignition Energy",
+      "support": 5,
+      "lift": 15.929,
+      "jaccard": 0.089,
+      "weighted_score": 8.4
+    },
+    {
+      "card_name": "Dusclops",
+      "support": 5,
+      "lift": 6.152,
+      "jaccard": 0.034,
+      "weighted_score": 8.4
+    },
+    {
+      "card_name": "Dusknoir",
+      "support": 5,
+      "lift": 6.027,
+      "jaccard": 0.034,
+      "weighted_score": 8.4
+    },
+    {
+      "card_name": "Duskull",
+      "support": 5,
+      "lift": 6.027,
+      "jaccard": 0.034,
+      "weighted_score": 8.4
+    },
+    {
+      "card_name": "Hilda",
+      "support": 5,
+      "lift": 5.792,
+      "jaccard": 0.032,
+      "weighted_score": 8.4
+    },
+    {
+      "card_name": "Rare Candy",
+      "support": 5,
+      "lift": 2.915,
+      "jaccard": 0.016,
+      "weighted_score": 8.4
+    },
+    {
+      "card_name": "Buddy-Buddy Poffin",
+      "support": 5,
+      "lift": 1.882,
+      "jaccard": 0.011,
+      "weighted_score": 8.4
+    },
+    {
+      "card_name": "Poké Pad",
+      "support": 5,
+      "lift": 1.3,
+      "jaccard": 0.007,
+      "weighted_score": 8.4
+    },
+    {
+      "card_name": "Ultra Ball",
+      "support": 5,
+      "lift": 1.242,
+      "jaccard": 0.007,
+      "weighted_score": 8.4
+    },
+    {
+      "card_name": "Lillie's Determination",
+      "support": 5,
+      "lift": 1.204,
+      "jaccard": 0.007,
+      "weighted_score": 8.4
+    },
+    {
+      "card_name": "Night Stretcher",
+      "support": 5,
+      "lift": 1.172,
+      "jaccard": 0.007,
+      "weighted_score": 8.4
+    },
+    {
+      "card_name": "Boss's Orders",
+      "support": 5,
+      "lift": 1.141,
+      "jaccard": 0.006,
+      "weighted_score": 8.4
     }
   ]
 }

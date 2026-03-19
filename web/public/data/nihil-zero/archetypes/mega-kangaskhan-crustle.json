@@ -96,11 +96,25 @@
       "category": "Trainer"
     },
     {
+      "card_name": "Grass Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.3,
+      "decks_with": 3,
+      "category": "Energy"
+    },
+    {
       "card_name": "Dwebble",
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
       "decks_with": 3,
       "category": "Pokemon"
+    },
+    {
+      "card_name": "Darkness Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.0,
+      "decks_with": 3,
+      "category": "Energy"
     },
     {
       "card_name": "Crustle",
@@ -231,11 +245,25 @@
       "category": "Trainer"
     },
     {
+      "card_name": "Grass Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.3,
+      "decks_with": 3,
+      "category": "Energy"
+    },
+    {
       "card_name": "Dwebble",
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
       "decks_with": 3,
       "category": "Pokemon"
+    },
+    {
+      "card_name": "Darkness Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.0,
+      "decks_with": 3,
+      "category": "Energy"
     },
     {
       "card_name": "Crustle",
@@ -278,6 +306,13 @@
       "avg_copies": 2.3,
       "decks_with": 3,
       "category": "Trainer"
+    },
+    {
+      "card_name": "Psychic Energy",
+      "inclusion_pct": 66.7,
+      "avg_copies": 2.5,
+      "decks_with": 2,
+      "category": "Energy"
     },
     {
       "card_name": "Pokégear 3.0",
@@ -332,6 +367,13 @@
       "card_name": "Prism Energy",
       "inclusion_pct": 33.3,
       "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Energy"
+    },
+    {
+      "card_name": "Lightning Energy",
+      "inclusion_pct": 33.3,
+      "avg_copies": 4.0,
       "decks_with": 1,
       "category": "Energy"
     },
@@ -794,14 +836,14 @@
     "consistency": 70.0,
     "ceiling": 75,
     "popularity": 0.5,
-    "core_density": 63.3
+    "core_density": 61.8
   },
   "evolution": [
     {
       "week": "2026-02-02",
       "adopted": [
         {
-          "card": "Tool Scrapper",
+          "card": "Joltik",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -816,7 +858,7 @@
           "to_pct": 100.0
         },
         {
-          "card": "Joltik",
+          "card": "Tool Scrapper",
           "from_pct": 0.0,
           "to_pct": 100.0
         }
@@ -833,7 +875,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "Tatsugiri",
+          "card": "Switch",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -848,7 +890,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "Switch",
+          "card": "Tatsugiri",
           "from_pct": 100.0,
           "to_pct": 0.0
         }
@@ -870,12 +912,12 @@
       ],
       "dropped": [
         {
-          "card": "Tool Scrapper",
+          "card": "Joltik",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Joltik",
+          "card": "Tool Scrapper",
           "from_pct": 100.0,
           "to_pct": 0.0
         }
@@ -1018,11 +1060,27 @@
       "delta_vs_field": 0.0
     },
     {
+      "card_name": "Grass Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.5,
+      "decks_with": 2,
+      "category": "Energy",
+      "delta_vs_field": 0.0
+    },
+    {
       "card_name": "Dwebble",
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
       "decks_with": 2,
       "category": "Pokemon",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Darkness Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.0,
+      "decks_with": 2,
+      "category": "Energy",
       "delta_vs_field": 0.0
     },
     {
@@ -1106,6 +1164,14 @@
       "delta_vs_field": 16.7
     },
     {
+      "card_name": "Psychic Energy",
+      "inclusion_pct": 50.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Energy",
+      "delta_vs_field": -16.7
+    },
+    {
       "card_name": "Prism Energy",
       "inclusion_pct": 50.0,
       "avg_copies": 2.0,
@@ -1128,6 +1194,14 @@
       "decks_with": 1,
       "category": "Pokemon",
       "delta_vs_field": -16.7
+    },
+    {
+      "card_name": "Lightning Energy",
+      "inclusion_pct": 50.0,
+      "avg_copies": 4.0,
+      "decks_with": 1,
+      "category": "Energy",
+      "delta_vs_field": 16.7
     },
     {
       "card_name": "Joltik",

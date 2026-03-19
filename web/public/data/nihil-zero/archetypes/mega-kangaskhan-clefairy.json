@@ -26,6 +26,13 @@
       "category": "Pokemon"
     },
     {
+      "card_name": "Psychic Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 5.0,
+      "decks_with": 3,
+      "category": "Energy"
+    },
+    {
       "card_name": "Pokégear 3.0",
       "inclusion_pct": 100.0,
       "avg_copies": 3.7,
@@ -80,6 +87,13 @@
       "avg_copies": 2.0,
       "decks_with": 3,
       "category": "Pokemon"
+    },
+    {
+      "card_name": "Darkness Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.3,
+      "decks_with": 3,
+      "category": "Energy"
     },
     {
       "card_name": "Crispin",
@@ -119,6 +133,13 @@
       "category": "Pokemon"
     },
     {
+      "card_name": "Psychic Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 5.0,
+      "decks_with": 3,
+      "category": "Energy"
+    },
+    {
       "card_name": "Pokégear 3.0",
       "inclusion_pct": 100.0,
       "avg_copies": 3.7,
@@ -173,6 +194,13 @@
       "avg_copies": 2.0,
       "decks_with": 3,
       "category": "Pokemon"
+    },
+    {
+      "card_name": "Darkness Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.3,
+      "decks_with": 3,
+      "category": "Energy"
     },
     {
       "card_name": "Crispin",
@@ -273,6 +301,13 @@
       "category": "Pokemon"
     },
     {
+      "card_name": "Water Energy",
+      "inclusion_pct": 33.3,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Energy"
+    },
+    {
       "card_name": "Unfair Stamp",
       "inclusion_pct": 33.3,
       "avg_copies": 1.0,
@@ -313,6 +348,13 @@
       "avg_copies": 1.0,
       "decks_with": 1,
       "category": "Trainer"
+    },
+    {
+      "card_name": "Grass Energy",
+      "inclusion_pct": 33.3,
+      "avg_copies": 7.0,
+      "decks_with": 1,
+      "category": "Energy"
     },
     {
       "card_name": "Energy Switch",
@@ -796,7 +838,7 @@
     "consistency": 51.7,
     "ceiling": 50,
     "popularity": 0.5,
-    "core_density": 35.1
+    "core_density": 36.6
   },
   "evolution": [
     {
@@ -808,42 +850,7 @@
           "to_pct": 50.0
         },
         {
-          "card": "Judge",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
           "card": "Handheld Fan",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Area Zero Underdepths",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Cyrano",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Unfair Stamp",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Chien-Pao",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Xerosic's Machinations",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Black Belt's Training",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -853,12 +860,47 @@
           "to_pct": 50.0
         },
         {
-          "card": "Wellspring Mask Ogerpon ex",
+          "card": "Unfair Stamp",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Area Zero Underdepths",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Black Belt's Training",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Chien-Pao",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
         {
           "card": "Teal Mask Ogerpon ex",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Xerosic's Machinations",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Judge",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Wellspring Mask Ogerpon ex",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Cyrano",
           "from_pct": 0.0,
           "to_pct": 50.0
         }

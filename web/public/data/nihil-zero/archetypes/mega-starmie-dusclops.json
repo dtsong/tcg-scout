@@ -12,6 +12,13 @@
   ],
   "core_cards": [
     {
+      "card_name": "Water Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.4,
+      "decks_with": 7,
+      "category": "Energy"
+    },
+    {
       "card_name": "Ultra Ball",
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
@@ -94,6 +101,13 @@
       "avg_copies": 2.0,
       "decks_with": 7,
       "category": "Pokemon"
+    },
+    {
+      "card_name": "Darkness Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.6,
+      "decks_with": 7,
+      "category": "Energy"
     },
     {
       "card_name": "Budew",
@@ -147,6 +161,13 @@
   ],
   "all_cards": [
     {
+      "card_name": "Water Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.4,
+      "decks_with": 7,
+      "category": "Energy"
+    },
+    {
       "card_name": "Ultra Ball",
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
@@ -229,6 +250,13 @@
       "avg_copies": 2.0,
       "decks_with": 7,
       "category": "Pokemon"
+    },
+    {
+      "card_name": "Darkness Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.6,
+      "decks_with": 7,
+      "category": "Energy"
     },
     {
       "card_name": "Budew",
@@ -1358,7 +1386,7 @@
     "consistency": 70.0,
     "ceiling": 100,
     "popularity": 1.1,
-    "core_density": 52.8
+    "core_density": 55.3
   },
   "evolution": [
     {
@@ -1375,17 +1403,17 @@
           "to_pct": 100.0
         },
         {
-          "card": "Larry's Skill",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
           "card": "Legacy Energy",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Froslass",
+          "card": "Larry's Skill",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Mega Froslass ex",
           "from_pct": 16.7,
           "to_pct": 100.0
         },
@@ -1395,7 +1423,7 @@
           "to_pct": 100.0
         },
         {
-          "card": "Mega Froslass ex",
+          "card": "Froslass",
           "from_pct": 16.7,
           "to_pct": 100.0
         },
@@ -1407,7 +1435,7 @@
       ],
       "dropped": [
         {
-          "card": "Judge",
+          "card": "Mega Signal",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -1417,17 +1445,17 @@
           "to_pct": 0.0
         },
         {
-          "card": "Mega Signal",
+          "card": "Judge",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Mega Kangaskhan ex",
+          "card": "Carmine",
           "from_pct": 83.3,
           "to_pct": 0.0
         },
         {
-          "card": "Carmine",
+          "card": "Mega Kangaskhan ex",
           "from_pct": 83.3,
           "to_pct": 0.0
         },
@@ -1494,6 +1522,14 @@
     }
   ],
   "top4_card_stats": [
+    {
+      "card_name": "Water Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.7,
+      "decks_with": 3,
+      "category": "Energy",
+      "delta_vs_field": 0.0
+    },
     {
       "card_name": "Ultra Ball",
       "inclusion_pct": 100.0,
@@ -1628,6 +1664,14 @@
       "avg_copies": 2.0,
       "decks_with": 3,
       "category": "Pokemon",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Darkness Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.7,
+      "decks_with": 3,
+      "category": "Energy",
       "delta_vs_field": 0.0
     },
     {

@@ -68,6 +68,13 @@
       "category": "Trainer"
     },
     {
+      "card_name": "Fighting Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 9.0,
+      "decks_with": 9,
+      "category": "Energy"
+    },
+    {
       "card_name": "Duskull",
       "inclusion_pct": 100.0,
       "avg_copies": 2.3,
@@ -173,6 +180,13 @@
       "avg_copies": 4.0,
       "decks_with": 9,
       "category": "Trainer"
+    },
+    {
+      "card_name": "Fighting Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 9.0,
+      "decks_with": 9,
+      "category": "Energy"
     },
     {
       "card_name": "Duskull",
@@ -1607,14 +1621,14 @@
     "consistency": 59.4,
     "ceiling": 75,
     "popularity": 1.5,
-    "core_density": 34.1
+    "core_density": 35.6
   },
   "evolution": [
     {
       "week": "2026-01-26",
       "adopted": [
         {
-          "card": "Carmine",
+          "card": "Unfair Stamp",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -1624,7 +1638,7 @@
           "to_pct": 100.0
         },
         {
-          "card": "Unfair Stamp",
+          "card": "Carmine",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -1636,22 +1650,22 @@
       ],
       "dropped": [
         {
-          "card": "Rock Fighting Energy",
-          "from_pct": 80.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Prime Catcher",
           "from_pct": 80.0,
           "to_pct": 0.0
         },
         {
-          "card": "Hilda",
-          "from_pct": 60.0,
+          "card": "Rock Fighting Energy",
+          "from_pct": 80.0,
           "to_pct": 0.0
         },
         {
           "card": "Xerosic's Machinations",
+          "from_pct": 60.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Hilda",
           "from_pct": 60.0,
           "to_pct": 0.0
         }
@@ -1661,17 +1675,7 @@
       "week": "2026-02-02",
       "adopted": [
         {
-          "card": "Judge",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
           "card": "Wally's Compassion",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Meowth ex",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -1681,7 +1685,17 @@
           "to_pct": 50.0
         },
         {
+          "card": "Meowth ex",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
           "card": "Gravity Mountain",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Judge",
           "from_pct": 0.0,
           "to_pct": 50.0
         }
@@ -1703,12 +1717,12 @@
       "week": "2026-02-23",
       "adopted": [
         {
-          "card": "Rock Fighting Energy",
+          "card": "Scoop Up Cyclone",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Scoop Up Cyclone",
+          "card": "Rock Fighting Energy",
           "from_pct": 0.0,
           "to_pct": 100.0
         }
@@ -1717,11 +1731,6 @@
         {
           "card": "Unfair Stamp",
           "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Carmine",
-          "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
@@ -1736,6 +1745,11 @@
         },
         {
           "card": "Switch",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Carmine",
           "from_pct": 50.0,
           "to_pct": 0.0
         }
@@ -1947,6 +1961,14 @@
       "avg_copies": 4.0,
       "decks_with": 1,
       "category": "Trainer",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Fighting Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 8.0,
+      "decks_with": 1,
+      "category": "Energy",
       "delta_vs_field": 0.0
     },
     {

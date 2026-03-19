@@ -2,8 +2,8 @@
   "archetype": "Froslass Grimmsnarl",
   "slug": "froslass-grimmsnarl",
   "tier": "Rogue",
-  "meta_share": 0.8,
-  "weighted_share": 0.6,
+  "meta_share": 0.7,
+  "weighted_share": 0.5,
   "deck_count": 6,
   "best_placement": 5,
   "sprite_filenames": [
@@ -94,6 +94,13 @@
       "avg_copies": 2.2,
       "decks_with": 6,
       "category": "Pokemon"
+    },
+    {
+      "card_name": "Darkness Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 9.0,
+      "decks_with": 6,
+      "category": "Energy"
     },
     {
       "card_name": "Buddy-Buddy Poffin",
@@ -215,6 +222,13 @@
       "avg_copies": 2.2,
       "decks_with": 6,
       "category": "Pokemon"
+    },
+    {
+      "card_name": "Darkness Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 9.0,
+      "decks_with": 6,
+      "category": "Energy"
     },
     {
       "card_name": "Buddy-Buddy Poffin",
@@ -1189,12 +1203,12 @@
     }
   ],
   "radar": {
-    "meta_share": 3.9,
-    "weighted_share": 3.1,
+    "meta_share": 3.4,
+    "weighted_share": 2.7,
     "consistency": 61.7,
     "ceiling": 50,
-    "popularity": 7.9,
-    "core_density": 42.5
+    "popularity": 6.6,
+    "core_density": 43.9
   },
   "evolution": [
     {
@@ -1270,7 +1284,7 @@
     },
     {
       "week": "2026-03-16",
-      "meta_share": 0.7,
+      "meta_share": 0.4,
       "deck_count": 1
     }
   ],

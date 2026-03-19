@@ -39,6 +39,13 @@
       "category": "Pokemon"
     },
     {
+      "card_name": "Psychic Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 5.7,
+      "decks_with": 14,
+      "category": "Energy"
+    },
+    {
       "card_name": "Poké Pad",
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
@@ -130,6 +137,13 @@
       "avg_copies": 3.0,
       "decks_with": 14,
       "category": "Pokemon"
+    },
+    {
+      "card_name": "Psychic Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 5.7,
+      "decks_with": 14,
+      "category": "Energy"
     },
     {
       "card_name": "Poké Pad",
@@ -2566,7 +2580,7 @@
     "consistency": 63.6,
     "ceiling": 100,
     "popularity": 2.3,
-    "core_density": 23.2
+    "core_density": 24.6
   },
   "evolution": [
     {
@@ -2581,11 +2595,6 @@
           "card": "Haxorus",
           "from_pct": 0.0,
           "to_pct": 100.0
-        },
-        {
-          "card": "Psyduck",
-          "from_pct": 0.0,
-          "to_pct": 50.0
         },
         {
           "card": "Air Balloon",
@@ -2603,6 +2612,11 @@
           "to_pct": 50.0
         },
         {
+          "card": "Psyduck",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
           "card": "Dawn",
           "from_pct": 0.0,
           "to_pct": 50.0
@@ -2615,12 +2629,12 @@
           "to_pct": 0.0
         },
         {
-          "card": "Hassel",
+          "card": "Spectrier",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
-          "card": "Zeraora",
+          "card": "Switch",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -2630,12 +2644,12 @@
           "to_pct": 0.0
         },
         {
-          "card": "Max Rod",
+          "card": "Hassel",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
-          "card": "Hilda",
+          "card": "Regigigas",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -2645,17 +2659,17 @@
           "to_pct": 0.0
         },
         {
-          "card": "Spectrier",
+          "card": "Zeraora",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
-          "card": "Regigigas",
+          "card": "Hilda",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
-          "card": "Switch",
+          "card": "Max Rod",
           "from_pct": 50.0,
           "to_pct": 0.0
         }
@@ -2665,17 +2679,12 @@
       "week": "2026-02-09",
       "adopted": [
         {
-          "card": "Boss's Orders",
-          "from_pct": 0.0,
-          "to_pct": 66.7
-        },
-        {
-          "card": "Hilda",
-          "from_pct": 0.0,
-          "to_pct": 66.7
-        },
-        {
           "card": "Spectrier",
+          "from_pct": 0.0,
+          "to_pct": 66.7
+        },
+        {
+          "card": "Boss's Orders",
           "from_pct": 0.0,
           "to_pct": 66.7
         },
@@ -2683,21 +2692,16 @@
           "card": "Regigigas",
           "from_pct": 0.0,
           "to_pct": 66.7
+        },
+        {
+          "card": "Hilda",
+          "from_pct": 0.0,
+          "to_pct": 66.7
         }
       ],
       "dropped": [
         {
-          "card": "Psyduck",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Drayton",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Dawn",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -2708,6 +2712,16 @@
         },
         {
           "card": "N's Vanilluxe",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Psyduck",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Dawn",
           "from_pct": 50.0,
           "to_pct": 0.0
         }
@@ -2749,12 +2763,12 @@
           "to_pct": 50.0
         },
         {
-          "card": "Powerglass",
+          "card": "Haxorus",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
         {
-          "card": "Regigigas",
+          "card": "Powerglass",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -2764,7 +2778,7 @@
           "to_pct": 50.0
         },
         {
-          "card": "Haxorus",
+          "card": "Regigigas",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -2774,22 +2788,7 @@
           "to_pct": 50.0
         },
         {
-          "card": "Psyduck",
-          "from_pct": 33.3,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Yungoos",
-          "from_pct": 33.3,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Counter Gain",
-          "from_pct": 33.3,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Boss's Orders",
+          "card": "Gumshoos",
           "from_pct": 33.3,
           "to_pct": 50.0
         },
@@ -2799,7 +2798,12 @@
           "to_pct": 50.0
         },
         {
-          "card": "Gumshoos",
+          "card": "Counter Gain",
+          "from_pct": 33.3,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Buddy-Buddy Poffin",
           "from_pct": 33.3,
           "to_pct": 50.0
         },
@@ -2809,7 +2813,17 @@
           "to_pct": 50.0
         },
         {
-          "card": "Buddy-Buddy Poffin",
+          "card": "Yungoos",
+          "from_pct": 33.3,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Boss's Orders",
+          "from_pct": 33.3,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Psyduck",
           "from_pct": 33.3,
           "to_pct": 50.0
         }
@@ -2819,6 +2833,21 @@
     {
       "week": "2026-03-02",
       "adopted": [
+        {
+          "card": "Surfer",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Unfair Stamp",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "N's Vanilluxe",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
         {
           "card": "Carmine",
           "from_pct": 0.0,
@@ -2840,16 +2869,6 @@
           "to_pct": 50.0
         },
         {
-          "card": "Max Rod",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Unfair Stamp",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
           "card": "Zoroark",
           "from_pct": 0.0,
           "to_pct": 50.0
@@ -2860,12 +2879,7 @@
           "to_pct": 50.0
         },
         {
-          "card": "Surfer",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "N's Vanilluxe",
+          "card": "Max Rod",
           "from_pct": 0.0,
           "to_pct": 50.0
         }
@@ -2877,22 +2891,22 @@
           "to_pct": 0.0
         },
         {
-          "card": "Tatsugiri",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Spectrier",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Psyduck",
+          "card": "Tatsugiri",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Shaymin",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
-          "card": "Air Balloon",
+          "card": "Counter Gain",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -2902,7 +2916,12 @@
           "to_pct": 0.0
         },
         {
-          "card": "Shaymin",
+          "card": "Air Balloon",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Buddy-Buddy Poffin",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -2912,7 +2931,12 @@
           "to_pct": 0.0
         },
         {
-          "card": "Counter Gain",
+          "card": "Psyduck",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Regigigas",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -2923,16 +2947,6 @@
         },
         {
           "card": "Gumshoos",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Regigigas",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Buddy-Buddy Poffin",
           "from_pct": 50.0,
           "to_pct": 0.0
         }
@@ -3046,6 +3060,14 @@
       "decks_with": 4,
       "category": "Trainer",
       "delta_vs_field": 21.4
+    },
+    {
+      "card_name": "Psychic Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 5.5,
+      "decks_with": 4,
+      "category": "Energy",
+      "delta_vs_field": 0.0
     },
     {
       "card_name": "Poké Pad",

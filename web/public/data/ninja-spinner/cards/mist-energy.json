@@ -7,11 +7,11 @@
   "image_url": null,
   "category": "Energy",
   "rarity": null,
-  "total_appearances": 73,
-  "usage_pct": 9.5,
+  "total_appearances": 77,
+  "usage_pct": 8.6,
   "avg_copies": 2.4,
   "unique_archetypes": 19,
-  "weighted_score": 124.5,
+  "weighted_score": 131.4,
   "win_rate_proxy": 1.71,
   "top_archetype": "Crustle Munkidori",
   "trend_direction": "declining",
@@ -22,22 +22,22 @@
     },
     {
       "copies": 2,
-      "count": 36
+      "count": 37
     },
     {
       "copies": 3,
-      "count": 21
+      "count": 23
     },
     {
       "copies": 4,
-      "count": 7
+      "count": 8
     }
   ],
   "archetypes": [
     {
       "name": "Crustle Munkidori",
       "slug": "crustle-munkidori",
-      "usage_count": 18,
+      "usage_count": 19,
       "avg_copies": 3.0,
       "tier": "C"
     },
@@ -70,24 +70,24 @@
       "tier": "Rogue"
     },
     {
-      "name": "Dubwool Trevenant",
-      "slug": "dubwool-trevenant",
-      "usage_count": 3,
-      "avg_copies": 4.0,
-      "tier": "Rogue"
+      "name": "Ceruledge ex",
+      "slug": "ceruledge-ex",
+      "usage_count": 4,
+      "avg_copies": 2.5,
+      "tier": "C"
     },
     {
       "name": "Trevenant",
       "slug": "trevenant",
-      "usage_count": 2,
-      "avg_copies": 3.5,
+      "usage_count": 3,
+      "avg_copies": 3.7,
       "tier": "Rogue"
     },
     {
-      "name": "Ceruledge ex",
-      "slug": "ceruledge-ex",
-      "usage_count": 2,
-      "avg_copies": 2.5,
+      "name": "Dubwool Trevenant",
+      "slug": "dubwool-trevenant",
+      "usage_count": 3,
+      "avg_copies": 4.0,
       "tier": "Rogue"
     },
     {
@@ -176,115 +176,115 @@
     },
     {
       "week": "2026-03-16",
-      "usage_pct": 6.4,
-      "avg_copies": 2.6
+      "usage_pct": 5.0,
+      "avg_copies": 2.7
     }
   ],
   "synergy_partners": [
     {
       "card_name": "Fezandipiti",
-      "support": 15,
-      "lift": 10.575,
-      "jaccard": 0.205,
-      "weighted_score": 30.0
+      "support": 16,
+      "lift": 11.584,
+      "jaccard": 0.208,
+      "weighted_score": 33.0
     },
     {
       "card_name": "Hop's Bag",
-      "support": 5,
-      "lift": 10.575,
-      "jaccard": 0.068,
-      "weighted_score": 6.9
+      "support": 6,
+      "lift": 11.584,
+      "jaccard": 0.078,
+      "weighted_score": 8.1
     },
     {
       "card_name": "Hop's Choice Band",
-      "support": 5,
-      "lift": 10.575,
-      "jaccard": 0.068,
-      "weighted_score": 6.9
+      "support": 6,
+      "lift": 11.584,
+      "jaccard": 0.078,
+      "weighted_score": 8.1
     },
     {
       "card_name": "Hop's Phantump",
-      "support": 5,
-      "lift": 10.575,
-      "jaccard": 0.068,
-      "weighted_score": 6.9
+      "support": 6,
+      "lift": 11.584,
+      "jaccard": 0.078,
+      "weighted_score": 8.1
     },
     {
       "card_name": "Hop's Snorlax",
-      "support": 5,
-      "lift": 10.575,
-      "jaccard": 0.068,
-      "weighted_score": 6.9
+      "support": 6,
+      "lift": 11.584,
+      "jaccard": 0.078,
+      "weighted_score": 8.1
     },
     {
       "card_name": "Hop's Trevenant",
-      "support": 5,
-      "lift": 10.575,
-      "jaccard": 0.068,
-      "weighted_score": 6.9
+      "support": 6,
+      "lift": 11.584,
+      "jaccard": 0.078,
+      "weighted_score": 8.1
     },
     {
       "card_name": "Postwick",
-      "support": 5,
-      "lift": 10.575,
-      "jaccard": 0.068,
-      "weighted_score": 6.9
+      "support": 6,
+      "lift": 11.584,
+      "jaccard": 0.078,
+      "weighted_score": 8.1
     },
     {
       "card_name": "Crustle",
-      "support": 19,
-      "lift": 9.133,
+      "support": 20,
+      "lift": 10.073,
       "jaccard": 0.25,
-      "weighted_score": 36.2
+      "weighted_score": 39.2
     },
     {
       "card_name": "Dwebble",
-      "support": 19,
-      "lift": 9.133,
+      "support": 20,
+      "lift": 10.073,
       "jaccard": 0.25,
-      "weighted_score": 36.2
+      "weighted_score": 39.2
     },
     {
       "card_name": "Hop's Zacian ex",
-      "support": 5,
-      "lift": 8.813,
-      "jaccard": 0.068,
-      "weighted_score": 6.9
+      "support": 6,
+      "lift": 9.929,
+      "jaccard": 0.077,
+      "weighted_score": 8.1
     },
     {
       "card_name": "Growth Grass Energy",
-      "support": 14,
-      "lift": 7.792,
-      "jaccard": 0.179,
-      "weighted_score": 26.5
+      "support": 15,
+      "lift": 8.688,
+      "jaccard": 0.183,
+      "weighted_score": 29.5
     },
     {
       "card_name": "Xerosic's Machinations",
-      "support": 16,
-      "lift": 7.357,
+      "support": 17,
+      "lift": 7.877,
       "jaccard": 0.2,
-      "weighted_score": 28.4
-    },
-    {
-      "card_name": "Jumbo Ice Cream",
-      "support": 5,
-      "lift": 6.61,
-      "jaccard": 0.066,
-      "weighted_score": 8.2
+      "weighted_score": 31.4
     },
     {
       "card_name": "Cornerstone Mask Ogerpon ex",
-      "support": 17,
-      "lift": 5.618,
-      "jaccard": 0.193,
-      "weighted_score": 32.7
+      "support": 18,
+      "lift": 5.958,
+      "jaccard": 0.191,
+      "weighted_score": 35.7
     },
     {
       "card_name": "Lillie's Pearl",
       "support": 9,
-      "lift": 5.599,
-      "jaccard": 0.111,
+      "lift": 5.792,
+      "jaccard": 0.105,
       "weighted_score": 17.6
+    },
+    {
+      "card_name": "Jumbo Ice Cream",
+      "support": 5,
+      "lift": 5.266,
+      "jaccard": 0.06,
+      "weighted_score": 8.2
     }
   ]
 }

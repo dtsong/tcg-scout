@@ -68,6 +68,13 @@
       "category": "Trainer"
     },
     {
+      "card_name": "Darkness Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 9.1,
+      "decks_with": 224,
+      "category": "Energy"
+    },
+    {
       "card_name": "Buddy-Buddy Poffin",
       "inclusion_pct": 100.0,
       "avg_copies": 2.9,
@@ -180,6 +187,13 @@
       "avg_copies": 4.0,
       "decks_with": 224,
       "category": "Trainer"
+    },
+    {
+      "card_name": "Darkness Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 9.1,
+      "decks_with": 224,
+      "category": "Energy"
     },
     {
       "card_name": "Buddy-Buddy Poffin",
@@ -574,6 +588,13 @@
       "category": "Pokemon"
     },
     {
+      "card_name": "Water Energy",
+      "inclusion_pct": 0.4,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Energy"
+    },
+    {
       "card_name": "Team Rocket's Watchtower",
       "inclusion_pct": 0.4,
       "avg_copies": 1.0,
@@ -586,6 +607,13 @@
       "avg_copies": 1.0,
       "decks_with": 1,
       "category": "Trainer"
+    },
+    {
+      "card_name": "Psychic Energy",
+      "inclusion_pct": 0.4,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Energy"
     },
     {
       "card_name": "Precious Trolley",
@@ -2565,7 +2593,7 @@
     "consistency": 65.1,
     "ceiling": 100,
     "popularity": 36.7,
-    "core_density": 20.3
+    "core_density": 20.7
   },
   "evolution": [
     {
@@ -2764,6 +2792,14 @@
       "avg_copies": 4.0,
       "decks_with": 68,
       "category": "Trainer",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Darkness Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 9.1,
+      "decks_with": 68,
+      "category": "Energy",
       "delta_vs_field": 0.0
     },
     {
@@ -3237,6 +3273,22 @@
       "decks_with": 0,
       "category": "Trainer",
       "delta_vs_field": -0.9
+    },
+    {
+      "card_name": "Water Energy",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Energy",
+      "delta_vs_field": -0.4
+    },
+    {
+      "card_name": "Psychic Energy",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Energy",
+      "delta_vs_field": -0.4
     },
     {
       "card_name": "Precious Trolley",

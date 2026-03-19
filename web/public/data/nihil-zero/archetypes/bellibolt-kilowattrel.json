@@ -33,6 +33,13 @@
       "category": "Trainer"
     },
     {
+      "card_name": "Lightning Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 14.0,
+      "decks_with": 6,
+      "category": "Energy"
+    },
+    {
       "card_name": "Levincia",
       "inclusion_pct": 100.0,
       "avg_copies": 2.7,
@@ -126,6 +133,13 @@
       "category": "Trainer"
     },
     {
+      "card_name": "Lightning Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 14.0,
+      "decks_with": 6,
+      "category": "Energy"
+    },
+    {
       "card_name": "Levincia",
       "inclusion_pct": 100.0,
       "avg_copies": 2.7,
@@ -215,6 +229,13 @@
       "avg_copies": 2.7,
       "decks_with": 3,
       "category": "Trainer"
+    },
+    {
+      "card_name": "Fighting Energy",
+      "inclusion_pct": 50.0,
+      "avg_copies": 2.3,
+      "decks_with": 3,
+      "category": "Energy"
     },
     {
       "card_name": "Energy Switch",
@@ -1018,14 +1039,19 @@
     "consistency": 54.2,
     "ceiling": 50,
     "popularity": 1.0,
-    "core_density": 36.1
+    "core_density": 36.8
   },
   "evolution": [
     {
       "week": "2026-01-26",
       "adopted": [
         {
-          "card": "Hero's Cape",
+          "card": "Switch",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Harlequin",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -1035,7 +1061,7 @@
           "to_pct": 50.0
         },
         {
-          "card": "Switch",
+          "card": "Hero's Cape",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -1043,36 +1069,11 @@
           "card": "Larry's Skill",
           "from_pct": 0.0,
           "to_pct": 50.0
-        },
-        {
-          "card": "Harlequin",
-          "from_pct": 0.0,
-          "to_pct": 50.0
         }
       ],
       "dropped": [
         {
-          "card": "Zeraora",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Carmine",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Air Balloon",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Nighttime Mine",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Max Rod",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -1082,7 +1083,17 @@
           "to_pct": 0.0
         },
         {
-          "card": "Team Rocket's Watchtower",
+          "card": "Air Balloon",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Zekrom ex",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Carmine",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -1092,7 +1103,17 @@
           "to_pct": 0.0
         },
         {
-          "card": "Zekrom ex",
+          "card": "Zeraora",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Max Rod",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Team Rocket's Watchtower",
           "from_pct": 50.0,
           "to_pct": 0.0
         }
@@ -1107,17 +1128,17 @@
           "to_pct": 50.0
         },
         {
-          "card": "Max Rod",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
           "card": "Battle Cage",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
         {
           "card": "Lucian",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Max Rod",
           "from_pct": 0.0,
           "to_pct": 50.0
         }
@@ -1134,7 +1155,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "Hero's Cape",
+          "card": "Prime Catcher",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -1144,27 +1165,27 @@
           "to_pct": 0.0
         },
         {
-          "card": "Naveen",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Switch",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
-          "card": "Larry's Skill",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Prime Catcher",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Harlequin",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Naveen",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Hero's Cape",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Larry's Skill",
           "from_pct": 50.0,
           "to_pct": 0.0
         }

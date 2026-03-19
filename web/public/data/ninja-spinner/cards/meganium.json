@@ -7,32 +7,32 @@
   "image_url": null,
   "category": "Pokemon",
   "rarity": null,
-  "total_appearances": 40,
-  "usage_pct": 5.2,
+  "total_appearances": 47,
+  "usage_pct": 5.3,
   "avg_copies": 2.0,
   "unique_archetypes": 6,
-  "weighted_score": 59.6,
-  "win_rate_proxy": 1.49,
+  "weighted_score": 71.2,
+  "win_rate_proxy": 1.51,
   "top_archetype": "Arboliva Ogerpon",
   "trend_direction": "stable",
   "copy_distribution": [
     {
       "copies": 2,
-      "count": 40
+      "count": 47
     }
   ],
   "archetypes": [
     {
       "name": "Arboliva Ogerpon",
       "slug": "arboliva-ogerpon",
-      "usage_count": 20,
+      "usage_count": 26,
       "avg_copies": 2.0,
       "tier": "C"
     },
     {
       "name": "Mega Venusaur",
       "slug": "mega-venusaur",
-      "usage_count": 6,
+      "usage_count": 7,
       "avg_copies": 2.0,
       "tier": "C"
     },
@@ -62,7 +62,7 @@
       "slug": "noctowl-ogerpon",
       "usage_count": 1,
       "avg_copies": 2.0,
-      "tier": "Rogue"
+      "tier": "C"
     }
   ],
   "weekly_usage": [
@@ -73,115 +73,115 @@
     },
     {
       "week": "2026-03-16",
-      "usage_pct": 3.6,
+      "usage_pct": 4.6,
       "avg_copies": 2.0
     }
   ],
   "synergy_partners": [
     {
       "card_name": "Bayleef",
-      "support": 40,
-      "lift": 19.3,
+      "support": 47,
+      "lift": 18.979,
       "jaccard": 1.0,
-      "weighted_score": 59.6
+      "weighted_score": 71.2
     },
     {
       "card_name": "Celebi",
       "support": 8,
-      "lift": 19.3,
-      "jaccard": 0.2,
+      "lift": 18.979,
+      "jaccard": 0.17,
       "weighted_score": 12.0
     },
     {
       "card_name": "Chikorita",
-      "support": 40,
-      "lift": 19.3,
+      "support": 47,
+      "lift": 18.979,
       "jaccard": 1.0,
-      "weighted_score": 59.6
+      "weighted_score": 71.2
     },
     {
       "card_name": "Mega Meganium ex",
       "support": 11,
-      "lift": 19.3,
-      "jaccard": 0.275,
+      "lift": 18.979,
+      "jaccard": 0.234,
       "weighted_score": 14.9
     },
     {
       "card_name": "Max Rod",
-      "support": 10,
-      "lift": 14.846,
-      "jaccard": 0.233,
-      "weighted_score": 15.3
+      "support": 11,
+      "lift": 14.912,
+      "jaccard": 0.22,
+      "weighted_score": 17.3
     },
     {
       "card_name": "Arboliva ex",
-      "support": 20,
-      "lift": 13.786,
-      "jaccard": 0.417,
-      "weighted_score": 31.1
+      "support": 26,
+      "lift": 13.707,
+      "jaccard": 0.456,
+      "weighted_score": 40.7
     },
     {
       "card_name": "Dolliv",
-      "support": 20,
-      "lift": 13.786,
-      "jaccard": 0.417,
-      "weighted_score": 31.1
+      "support": 26,
+      "lift": 13.707,
+      "jaccard": 0.456,
+      "weighted_score": 40.7
     },
     {
       "card_name": "Smoliv",
-      "support": 20,
-      "lift": 13.786,
-      "jaccard": 0.417,
-      "weighted_score": 31.1
+      "support": 26,
+      "lift": 13.707,
+      "jaccard": 0.456,
+      "weighted_score": 40.7
     },
     {
       "card_name": "Forest of Vitality",
-      "support": 40,
-      "lift": 12.867,
-      "jaccard": 0.667,
-      "weighted_score": 59.6
+      "support": 47,
+      "lift": 12.563,
+      "jaccard": 0.662,
+      "weighted_score": 71.2
     },
     {
       "card_name": "Bulbasaur",
-      "support": 15,
-      "lift": 12.062,
-      "jaccard": 0.306,
-      "weighted_score": 21.6
+      "support": 16,
+      "lift": 11.247,
+      "jaccard": 0.276,
+      "weighted_score": 23.6
     },
     {
       "card_name": "Ivysaur",
-      "support": 15,
-      "lift": 12.062,
-      "jaccard": 0.306,
-      "weighted_score": 21.6
+      "support": 16,
+      "lift": 11.247,
+      "jaccard": 0.276,
+      "weighted_score": 23.6
     },
     {
       "card_name": "Mega Venusaur ex",
-      "support": 15,
-      "lift": 12.062,
-      "jaccard": 0.306,
-      "weighted_score": 21.6
+      "support": 16,
+      "lift": 11.247,
+      "jaccard": 0.276,
+      "weighted_score": 23.6
+    },
+    {
+      "card_name": "Regigigas",
+      "support": 5,
+      "lift": 10.544,
+      "jaccard": 0.098,
+      "weighted_score": 7.4
     },
     {
       "card_name": "Bug Catching Set",
-      "support": 40,
-      "lift": 8.213,
-      "jaccard": 0.426,
-      "weighted_score": 59.6
+      "support": 47,
+      "lift": 7.964,
+      "jaccard": 0.42,
+      "weighted_score": 71.2
     },
     {
       "card_name": "Lana's Aid",
-      "support": 27,
-      "lift": 7.042,
-      "jaccard": 0.31,
-      "weighted_score": 40.4
-    },
-    {
-      "card_name": "Teal Mask Ogerpon ex",
-      "support": 40,
-      "lift": 5.181,
-      "jaccard": 0.268,
-      "weighted_score": 59.6
+      "support": 33,
+      "lift": 7.368,
+      "jaccard": 0.333,
+      "weighted_score": 50.0
     }
   ]
 }

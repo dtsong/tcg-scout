@@ -7,22 +7,22 @@
   "image_url": null,
   "category": "Pokemon",
   "rarity": null,
-  "total_appearances": 40,
-  "usage_pct": 5.2,
+  "total_appearances": 51,
+  "usage_pct": 5.7,
   "avg_copies": 2.5,
   "unique_archetypes": 7,
-  "weighted_score": 70.6,
-  "win_rate_proxy": 1.76,
+  "weighted_score": 88.1,
+  "win_rate_proxy": 1.73,
   "top_archetype": "Raging Bolt ex",
   "trend_direction": "stable",
   "copy_distribution": [
     {
       "copies": 2,
-      "count": 22
+      "count": 27
     },
     {
       "copies": 3,
-      "count": 17
+      "count": 23
     },
     {
       "copies": 4,
@@ -33,29 +33,29 @@
     {
       "name": "Raging Bolt ex",
       "slug": "raging-bolt-ex",
-      "usage_count": 23,
+      "usage_count": 26,
       "avg_copies": 2.7,
       "tier": "C"
     },
     {
-      "name": "Noctowl Ogerpon",
-      "slug": "noctowl-ogerpon",
-      "usage_count": 5,
-      "avg_copies": 2.0,
-      "tier": "Rogue"
-    },
-    {
       "name": "Mega Kangaskhan Ogerpon",
       "slug": "mega-kangaskhan-ogerpon",
-      "usage_count": 5,
-      "avg_copies": 2.2,
+      "usage_count": 9,
+      "avg_copies": 2.4,
       "tier": "B"
+    },
+    {
+      "name": "Noctowl Ogerpon",
+      "slug": "noctowl-ogerpon",
+      "usage_count": 8,
+      "avg_copies": 2.0,
+      "tier": "C"
     },
     {
       "name": "Meowth Ogerpon",
       "slug": "meowth-ogerpon",
-      "usage_count": 4,
-      "avg_copies": 2.3,
+      "usage_count": 5,
+      "avg_copies": 2.2,
       "tier": "Rogue"
     },
     {
@@ -88,115 +88,115 @@
     },
     {
       "week": "2026-03-16",
-      "usage_pct": 2.9,
-      "avg_copies": 2.2
+      "usage_pct": 5.8,
+      "avg_copies": 2.5
     }
   ],
   "synergy_partners": [
     {
       "card_name": "Dusk Ball",
+      "support": 8,
+      "lift": 17.49,
+      "jaccard": 0.157,
+      "weighted_score": 14.1
+    },
+    {
+      "card_name": "Koraidon",
       "support": 5,
-      "lift": 19.3,
-      "jaccard": 0.125,
-      "weighted_score": 9.2
+      "lift": 17.49,
+      "jaccard": 0.098,
+      "weighted_score": 8.7
     },
     {
       "card_name": "Raging Bolt",
-      "support": 22,
-      "lift": 19.3,
-      "jaccard": 0.55,
-      "weighted_score": 37.1
+      "support": 26,
+      "lift": 17.49,
+      "jaccard": 0.51,
+      "weighted_score": 42.5
     },
     {
       "card_name": "Glass Trumpet",
-      "support": 32,
-      "lift": 17.156,
-      "jaccard": 0.727,
-      "weighted_score": 57.7
+      "support": 43,
+      "lift": 14.747,
+      "jaccard": 0.729,
+      "weighted_score": 75.2
     },
     {
       "card_name": "Energy Retrieval",
-      "support": 37,
-      "lift": 11.335,
-      "jaccard": 0.561,
-      "weighted_score": 65.6
+      "support": 48,
+      "lift": 11.194,
+      "jaccard": 0.615,
+      "weighted_score": 83.1
     },
     {
       "card_name": "Iron Leaves ex",
-      "support": 34,
-      "lift": 11.314,
-      "jaccard": 0.531,
-      "weighted_score": 59.4
+      "support": 41,
+      "lift": 10.703,
+      "jaccard": 0.532,
+      "weighted_score": 71.5
     },
     {
-      "card_name": "Tera Orb",
-      "support": 13,
-      "lift": 10.036,
-      "jaccard": 0.25,
-      "weighted_score": 23.4
+      "card_name": "Terapagos ex",
+      "support": 6,
+      "lift": 9.54,
+      "jaccard": 0.107,
+      "weighted_score": 11.1
     },
     {
       "card_name": "Prime Catcher",
-      "support": 11,
-      "lift": 8.492,
-      "jaccard": 0.204,
-      "weighted_score": 20.7
+      "support": 19,
+      "lift": 8.521,
+      "jaccard": 0.268,
+      "weighted_score": 34.3
     },
     {
-      "card_name": "Energy Search",
-      "support": 8,
-      "lift": 7.018,
-      "jaccard": 0.148,
-      "weighted_score": 15.1
+      "card_name": "Tera Orb",
+      "support": 16,
+      "lift": 8.48,
+      "jaccard": 0.235,
+      "weighted_score": 27.3
     },
     {
       "card_name": "Chien-Pao",
-      "support": 18,
-      "lift": 6.812,
-      "jaccard": 0.247,
-      "weighted_score": 33.2
+      "support": 22,
+      "lift": 6.634,
+      "jaccard": 0.253,
+      "weighted_score": 39.6
+    },
+    {
+      "card_name": "Energy Search",
+      "support": 11,
+      "lift": 6.413,
+      "jaccard": 0.157,
+      "weighted_score": 19.0
     },
     {
       "card_name": "Mega Kangaskhan ex",
-      "support": 29,
-      "lift": 5.33,
-      "jaccard": 0.25,
-      "weighted_score": 51.3
+      "support": 37,
+      "lift": 5.438,
+      "jaccard": 0.278,
+      "weighted_score": 64.9
     },
     {
       "card_name": "Teal Mask Ogerpon ex",
-      "support": 39,
-      "lift": 5.052,
-      "jaccard": 0.26,
-      "weighted_score": 69.4
+      "support": 50,
+      "lift": 5.055,
+      "jaccard": 0.287,
+      "weighted_score": 86.9
     },
     {
       "card_name": "Area Zero Underdepths",
-      "support": 37,
-      "lift": 4.891,
-      "jaccard": 0.248,
-      "weighted_score": 66.4
+      "support": 48,
+      "lift": 4.968,
+      "jaccard": 0.279,
+      "weighted_score": 83.9
     },
     {
       "card_name": "Energy Switch",
-      "support": 38,
-      "lift": 4.445,
-      "jaccard": 0.228,
-      "weighted_score": 67.9
-    },
-    {
-      "card_name": "Cyrano",
-      "support": 27,
-      "lift": 3.948,
-      "jaccard": 0.186,
-      "weighted_score": 48.8
-    },
-    {
-      "card_name": "Bug Catching Set",
-      "support": 19,
-      "lift": 3.901,
-      "jaccard": 0.165,
-      "weighted_score": 34.9
+      "support": 47,
+      "lift": 4.237,
+      "jaccard": 0.237,
+      "weighted_score": 81.4
     }
   ]
 }

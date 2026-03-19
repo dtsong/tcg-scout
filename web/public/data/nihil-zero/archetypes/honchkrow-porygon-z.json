@@ -378,6 +378,13 @@
       "category": "Trainer"
     },
     {
+      "card_name": "Water Energy",
+      "inclusion_pct": 0.6,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Energy"
+    },
+    {
       "card_name": "Unfair Stamp",
       "inclusion_pct": 0.6,
       "avg_copies": 1.0,
@@ -453,6 +460,13 @@
       "avg_copies": 1.0,
       "decks_with": 1,
       "category": "Trainer"
+    },
+    {
+      "card_name": "Darkness Energy",
+      "inclusion_pct": 0.6,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Energy"
     },
     {
       "card_name": "Brilliant Blender",
@@ -2272,7 +2286,7 @@
     "consistency": 64.4,
     "ceiling": 100,
     "popularity": 26.7,
-    "core_density": 34.7
+    "core_density": 33.3
   },
   "evolution": [
     {
@@ -2642,6 +2656,14 @@
       "delta_vs_field": -1.2
     },
     {
+      "card_name": "Water Energy",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Energy",
+      "delta_vs_field": -0.6
+    },
+    {
       "card_name": "Unfair Stamp",
       "inclusion_pct": 0,
       "avg_copies": 0,
@@ -2711,6 +2733,14 @@
       "avg_copies": 0,
       "decks_with": 0,
       "category": "Trainer",
+      "delta_vs_field": -0.6
+    },
+    {
+      "card_name": "Darkness Energy",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Energy",
       "delta_vs_field": -0.6
     },
     {

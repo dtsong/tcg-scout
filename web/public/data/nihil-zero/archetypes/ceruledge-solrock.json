@@ -47,11 +47,25 @@
       "category": "Pokemon"
     },
     {
+      "card_name": "Fire Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 6.6,
+      "decks_with": 5,
+      "category": "Energy"
+    },
+    {
       "card_name": "Fighting Gong",
       "inclusion_pct": 100.0,
       "avg_copies": 3.6,
       "decks_with": 5,
       "category": "Trainer"
+    },
+    {
+      "card_name": "Fighting Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 11.0,
+      "decks_with": 5,
+      "category": "Energy"
     },
     {
       "card_name": "Charcadet",
@@ -147,11 +161,25 @@
       "category": "Pokemon"
     },
     {
+      "card_name": "Fire Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 6.6,
+      "decks_with": 5,
+      "category": "Energy"
+    },
+    {
       "card_name": "Fighting Gong",
       "inclusion_pct": 100.0,
       "avg_copies": 3.6,
       "decks_with": 5,
       "category": "Trainer"
+    },
+    {
+      "card_name": "Fighting Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 11.0,
+      "decks_with": 5,
+      "category": "Energy"
     },
     {
       "card_name": "Charcadet",
@@ -868,7 +896,7 @@
     "consistency": 59.0,
     "ceiling": 50,
     "popularity": 0.8,
-    "core_density": 48.3
+    "core_density": 51.6
   },
   "evolution": [
     {
@@ -880,17 +908,7 @@
           "to_pct": 100.0
         },
         {
-          "card": "Rock Fighting Energy",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
           "card": "Explorer's Guidance",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Meowth ex",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -900,7 +918,7 @@
           "to_pct": 50.0
         },
         {
-          "card": "Drilbur",
+          "card": "Meowth ex",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -908,16 +926,21 @@
           "card": "Lucian",
           "from_pct": 0.0,
           "to_pct": 50.0
+        },
+        {
+          "card": "Rock Fighting Energy",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Drilbur",
+          "from_pct": 0.0,
+          "to_pct": 50.0
         }
       ],
       "dropped": [
         {
           "card": "Cornerstone Mask Ogerpon ex",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Judge",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -932,17 +955,22 @@
           "to_pct": 0.0
         },
         {
-          "card": "Team Rocket's Watchtower",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Xerosic's Machinations",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
+          "card": "Judge",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
           "card": "Larry's Skill",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Team Rocket's Watchtower",
           "from_pct": 100.0,
           "to_pct": 0.0
         }
@@ -958,7 +986,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "Rock Fighting Energy",
+          "card": "Jamming Tower",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -973,7 +1001,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "Jamming Tower",
+          "card": "Rock Fighting Energy",
           "from_pct": 50.0,
           "to_pct": 0.0
         }

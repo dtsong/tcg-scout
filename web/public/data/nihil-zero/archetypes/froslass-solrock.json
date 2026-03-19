@@ -82,11 +82,25 @@
       "category": "Trainer"
     },
     {
+      "card_name": "Fighting Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 7.5,
+      "decks_with": 2,
+      "category": "Energy"
+    },
+    {
       "card_name": "Energy Retrieval",
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
       "decks_with": 2,
       "category": "Trainer"
+    },
+    {
+      "card_name": "Darkness Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.5,
+      "decks_with": 2,
+      "category": "Energy"
     },
     {
       "card_name": "Crispin",
@@ -189,11 +203,25 @@
       "category": "Trainer"
     },
     {
+      "card_name": "Fighting Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 7.5,
+      "decks_with": 2,
+      "category": "Energy"
+    },
+    {
       "card_name": "Energy Retrieval",
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
       "decks_with": 2,
       "category": "Trainer"
+    },
+    {
+      "card_name": "Darkness Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.5,
+      "decks_with": 2,
+      "category": "Energy"
     },
     {
       "card_name": "Crispin",
@@ -586,34 +614,24 @@
     "consistency": 77.5,
     "ceiling": 50,
     "popularity": 0.3,
-    "core_density": 51.7
+    "core_density": 54.8
   },
   "evolution": [
     {
       "week": "2026-03-02",
       "adopted": [
         {
-          "card": "Hassel",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Brock's Scouting",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
           "card": "Energy Switch",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Hop's Cramorant",
+          "card": "Unfair Stamp",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Unfair Stamp",
+          "card": "Hop's Cramorant",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -626,11 +644,26 @@
           "card": "Tarragon",
           "from_pct": 0.0,
           "to_pct": 100.0
+        },
+        {
+          "card": "Hassel",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Brock's Scouting",
+          "from_pct": 0.0,
+          "to_pct": 100.0
         }
       ],
       "dropped": [
         {
-          "card": "Psyduck",
+          "card": "Prime Catcher",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Lana's Aid",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -650,17 +683,12 @@
           "to_pct": 0.0
         },
         {
-          "card": "Lana's Aid",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Pokégear 3.0",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Prime Catcher",
+          "card": "Psyduck",
           "from_pct": 100.0,
           "to_pct": 0.0
         }

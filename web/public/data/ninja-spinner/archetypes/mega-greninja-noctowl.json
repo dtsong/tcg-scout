@@ -2,7 +2,7 @@
   "archetype": "Mega Greninja Noctowl",
   "slug": "mega-greninja-noctowl",
   "tier": "Rogue",
-  "meta_share": 0.4,
+  "meta_share": 0.3,
   "weighted_share": 0.3,
   "deck_count": 3,
   "best_placement": 5,
@@ -11,6 +11,13 @@
     "noctowl.png"
   ],
   "core_cards": [
+    {
+      "card_name": "Water Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 6.7,
+      "decks_with": 3,
+      "category": "Energy"
+    },
     {
       "card_name": "Ultra Ball",
       "inclusion_pct": 100.0,
@@ -118,6 +125,13 @@
     }
   ],
   "all_cards": [
+    {
+      "card_name": "Water Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 6.7,
+      "decks_with": 3,
+      "category": "Energy"
+    },
     {
       "card_name": "Ultra Ball",
       "inclusion_pct": 100.0,
@@ -752,12 +766,12 @@
     }
   ],
   "radar": {
-    "meta_share": 1.9,
-    "weighted_share": 1.6,
+    "meta_share": 1.7,
+    "weighted_share": 1.4,
     "consistency": 45.0,
     "ceiling": 50,
-    "popularity": 3.9,
-    "core_density": 45.5
+    "popularity": 3.3,
+    "core_density": 47.1
   },
   "evolution": [
     {
@@ -771,32 +785,17 @@
       ],
       "dropped": [
         {
-          "card": "Night Stretcher",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Latias ex",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Chien-Pao",
-          "from_pct": 50.0,
+          "card": "Night Stretcher",
+          "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
           "card": "Surfer",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Psyduck",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Area Zero Underdepths",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -806,7 +805,12 @@
           "to_pct": 0.0
         },
         {
-          "card": "Fan Rotom",
+          "card": "Wally's Compassion",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Area Zero Underdepths",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -816,7 +820,17 @@
           "to_pct": 0.0
         },
         {
-          "card": "Wally's Compassion",
+          "card": "Fan Rotom",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Chien-Pao",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Psyduck",
           "from_pct": 50.0,
           "to_pct": 0.0
         }
@@ -832,7 +846,7 @@
     },
     {
       "week": "2026-03-16",
-      "meta_share": 0.7,
+      "meta_share": 0.4,
       "deck_count": 1
     }
   ],

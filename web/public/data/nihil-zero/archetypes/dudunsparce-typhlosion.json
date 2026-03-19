@@ -54,6 +54,13 @@
       "category": "Trainer"
     },
     {
+      "card_name": "Fire Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 5.3,
+      "decks_with": 3,
+      "category": "Energy"
+    },
+    {
       "card_name": "Ethan's Typhlosion",
       "inclusion_pct": 100.0,
       "avg_copies": 3.3,
@@ -173,6 +180,13 @@
       "avg_copies": 2.0,
       "decks_with": 3,
       "category": "Trainer"
+    },
+    {
+      "card_name": "Fire Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 5.3,
+      "decks_with": 3,
+      "category": "Energy"
     },
     {
       "card_name": "Ethan's Typhlosion",
@@ -853,14 +867,19 @@
     "consistency": 56.7,
     "ceiling": 50,
     "popularity": 0.5,
-    "core_density": 43.6
+    "core_density": 45.0
   },
   "evolution": [
     {
       "week": "2026-02-02",
       "adopted": [
         {
-          "card": "Judge",
+          "card": "Kieran",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Lillie's Determination",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -870,12 +889,17 @@
           "to_pct": 100.0
         },
         {
+          "card": "Maximum Belt",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
           "card": "Fezandipiti ex",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Kieran",
+          "card": "Judge",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -883,21 +907,21 @@
           "card": "Tool Scrapper",
           "from_pct": 0.0,
           "to_pct": 100.0
-        },
-        {
-          "card": "Maximum Belt",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Lillie's Determination",
-          "from_pct": 0.0,
-          "to_pct": 100.0
         }
       ],
       "dropped": [
         {
+          "card": "Prime Catcher",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
           "card": "Air Balloon",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Naveen",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -915,16 +939,6 @@
           "card": "Team Rocket's Watchtower",
           "from_pct": 100.0,
           "to_pct": 0.0
-        },
-        {
-          "card": "Prime Catcher",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Naveen",
-          "from_pct": 100.0,
-          "to_pct": 0.0
         }
       ]
     },
@@ -932,12 +946,7 @@
       "week": "2026-03-02",
       "adopted": [
         {
-          "card": "Air Balloon",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Tatsugiri",
+          "card": "Prime Catcher",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -947,12 +956,12 @@
           "to_pct": 100.0
         },
         {
-          "card": "Prime Catcher",
+          "card": "Air Balloon",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Black Belt's Training",
+          "card": "Bloodmoon Ursaluna ex",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -962,14 +971,24 @@
           "to_pct": 100.0
         },
         {
-          "card": "Bloodmoon Ursaluna ex",
+          "card": "Black Belt's Training",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Tatsugiri",
           "from_pct": 0.0,
           "to_pct": 100.0
         }
       ],
       "dropped": [
         {
-          "card": "Judge",
+          "card": "Lana's Aid",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Kieran",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -979,12 +998,22 @@
           "to_pct": 0.0
         },
         {
+          "card": "Maximum Belt",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
           "card": "Fezandipiti ex",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Kieran",
+          "card": "Gravity Mountain",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Judge",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -995,21 +1024,6 @@
         },
         {
           "card": "Redeemable Ticket",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Maximum Belt",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Gravity Mountain",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Lana's Aid",
           "from_pct": 100.0,
           "to_pct": 0.0
         },

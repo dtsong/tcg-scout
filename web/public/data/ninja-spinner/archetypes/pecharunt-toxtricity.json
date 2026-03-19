@@ -79,14 +79,14 @@
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Punk Helmet",
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Poké Pad",
@@ -171,6 +171,13 @@
       "avg_copies": 1.0,
       "decks_with": 1,
       "category": "Trainer"
+    },
+    {
+      "card_name": "Darkness Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 10.0,
+      "decks_with": 1,
+      "category": "Energy"
     },
     {
       "card_name": "Buddy-Buddy Poffin",
@@ -270,14 +277,14 @@
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Punk Helmet",
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Poké Pad",
@@ -364,6 +371,13 @@
       "category": "Trainer"
     },
     {
+      "card_name": "Darkness Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 10.0,
+      "decks_with": 1,
+      "category": "Energy"
+    },
+    {
       "card_name": "Buddy-Buddy Poffin",
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
@@ -425,11 +439,6 @@
           "category": "Pokemon"
         },
         {
-          "card_name": "Punk Helmet",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
           "card_name": "Pecharunt ex",
           "count": 1,
           "category": "Pokemon"
@@ -451,11 +460,6 @@
         },
         {
           "card_name": "Yveltal ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Special Red Card",
           "count": 1,
           "category": "Pokemon"
         },
@@ -525,12 +529,22 @@
           "category": "Trainer"
         },
         {
+          "card_name": "Punk Helmet",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
           "card_name": "Hassel",
           "count": 1,
           "category": "Trainer"
         },
         {
           "card_name": "Unfair Stamp",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Special Red Card",
           "count": 1,
           "category": "Trainer"
         },
@@ -543,11 +557,28 @@
     }
   ],
   "radar": {
-    "meta_share": 0.6,
+    "meta_share": 0.5,
     "weighted_share": 0.4,
     "consistency": 50.0,
     "ceiling": 25,
     "popularity": 1.1,
     "core_density": 100.0
-  }
+  },
+  "evolution": [],
+  "variants": [],
+  "weekly_shares": [
+    {
+      "week": "2026-03-09",
+      "meta_share": 0.0,
+      "deck_count": 0
+    },
+    {
+      "week": "2026-03-16",
+      "meta_share": 0.4,
+      "deck_count": 1
+    }
+  ],
+  "top4_card_stats": [],
+  "top4_sample_size": 0,
+  "top4_low_sample": true
 }

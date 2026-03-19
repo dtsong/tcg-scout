@@ -2,8 +2,8 @@
   "archetype": "Dipplin Thwackey",
   "slug": "dipplin-thwackey",
   "tier": "Rogue",
-  "meta_share": 0.9,
-  "weighted_share": 1.0,
+  "meta_share": 0.8,
+  "weighted_share": 0.9,
   "deck_count": 7,
   "best_placement": 2,
   "sprite_filenames": [
@@ -52,6 +52,13 @@
       "avg_copies": 3.7,
       "decks_with": 7,
       "category": "Pokemon"
+    },
+    {
+      "card_name": "Grass Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.7,
+      "decks_with": 7,
+      "category": "Energy"
     },
     {
       "card_name": "Festival Grounds",
@@ -173,6 +180,13 @@
       "avg_copies": 3.7,
       "decks_with": 7,
       "category": "Pokemon"
+    },
+    {
+      "card_name": "Grass Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.7,
+      "decks_with": 7,
+      "category": "Energy"
     },
     {
       "card_name": "Festival Grounds",
@@ -1342,12 +1356,12 @@
     }
   ],
   "radar": {
-    "meta_share": 4.5,
-    "weighted_share": 5.1,
+    "meta_share": 3.9,
+    "weighted_share": 4.5,
     "consistency": 77.1,
     "ceiling": 90,
-    "popularity": 9.2,
-    "core_density": 42.5
+    "popularity": 7.7,
+    "core_density": 43.9
   },
   "evolution": [],
   "variants": [
@@ -1442,6 +1456,14 @@
       "avg_copies": 4.0,
       "decks_with": 3,
       "category": "Pokemon",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Grass Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 5.3,
+      "decks_with": 3,
+      "category": "Energy",
       "delta_vs_field": 0.0
     },
     {

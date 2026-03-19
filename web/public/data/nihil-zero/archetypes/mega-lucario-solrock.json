@@ -61,6 +61,13 @@
       "category": "Trainer"
     },
     {
+      "card_name": "Fighting Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 10.2,
+      "decks_with": 196,
+      "category": "Energy"
+    },
+    {
       "card_name": "Boss's Orders",
       "inclusion_pct": 99.5,
       "avg_copies": 3.2,
@@ -152,6 +159,13 @@
       "avg_copies": 4.0,
       "decks_with": 196,
       "category": "Trainer"
+    },
+    {
+      "card_name": "Fighting Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 10.2,
+      "decks_with": 196,
+      "category": "Energy"
     },
     {
       "card_name": "Boss's Orders",
@@ -313,6 +327,13 @@
       "avg_copies": 2.2,
       "decks_with": 27,
       "category": "Pokemon"
+    },
+    {
+      "card_name": "Darkness Energy",
+      "inclusion_pct": 13.8,
+      "avg_copies": 2.4,
+      "decks_with": 27,
+      "category": "Energy"
     },
     {
       "card_name": "Colress's Tenacity",
@@ -2422,7 +2443,7 @@
     "consistency": 62.7,
     "ceiling": 100,
     "popularity": 32.1,
-    "core_density": 15.7
+    "core_density": 16.5
   },
   "evolution": [
     {
@@ -2446,12 +2467,12 @@
       "week": "2026-02-02",
       "adopted": [
         {
-          "card": "Hariyama",
+          "card": "Makuhita",
           "from_pct": 41.4,
           "to_pct": 50.0
         },
         {
-          "card": "Makuhita",
+          "card": "Hariyama",
           "from_pct": 41.4,
           "to_pct": 50.0
         }
@@ -2473,12 +2494,12 @@
       "week": "2026-02-23",
       "adopted": [
         {
-          "card": "Hariyama",
+          "card": "Makuhita",
           "from_pct": 22.2,
           "to_pct": 50.0
         },
         {
-          "card": "Makuhita",
+          "card": "Hariyama",
           "from_pct": 22.2,
           "to_pct": 50.0
         }
@@ -2606,6 +2627,14 @@
       "avg_copies": 4.0,
       "decks_with": 52,
       "category": "Trainer",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Fighting Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 10.3,
+      "decks_with": 52,
+      "category": "Energy",
       "delta_vs_field": 0.0
     },
     {
@@ -2783,6 +2812,14 @@
       "decks_with": 8,
       "category": "Energy",
       "delta_vs_field": -5.0
+    },
+    {
+      "card_name": "Darkness Energy",
+      "inclusion_pct": 15.4,
+      "avg_copies": 2.5,
+      "decks_with": 8,
+      "category": "Energy",
+      "delta_vs_field": 1.6
     },
     {
       "card_name": "Scoop Up Cyclone",

@@ -75,6 +75,13 @@
       "category": "Trainer"
     },
     {
+      "card_name": "Fighting Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 7.0,
+      "decks_with": 4,
+      "category": "Energy"
+    },
+    {
       "card_name": "Energy Switch",
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
@@ -94,6 +101,13 @@
       "avg_copies": 2.0,
       "decks_with": 4,
       "category": "Trainer"
+    },
+    {
+      "card_name": "Darkness Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.0,
+      "decks_with": 4,
+      "category": "Energy"
     },
     {
       "card_name": "Crispin",
@@ -196,6 +210,13 @@
       "category": "Trainer"
     },
     {
+      "card_name": "Fighting Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 7.0,
+      "decks_with": 4,
+      "category": "Energy"
+    },
+    {
       "card_name": "Energy Switch",
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
@@ -215,6 +236,13 @@
       "avg_copies": 2.0,
       "decks_with": 4,
       "category": "Trainer"
+    },
+    {
+      "card_name": "Darkness Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.0,
+      "decks_with": 4,
+      "category": "Energy"
     },
     {
       "card_name": "Crispin",
@@ -815,14 +843,19 @@
     "consistency": 67.5,
     "ceiling": 100,
     "popularity": 0.7,
-    "core_density": 65.4
+    "core_density": 67.9
   },
   "evolution": [
     {
       "week": "2026-02-02",
       "adopted": [
         {
-          "card": "Diggersby",
+          "card": "Team Rocket's Transceiver",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Lana's Aid",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -832,12 +865,7 @@
           "to_pct": 50.0
         },
         {
-          "card": "Team Rocket's Transceiver",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Lana's Aid",
+          "card": "Diggersby",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -860,17 +888,17 @@
       ],
       "dropped": [
         {
-          "card": "Pokégear 3.0",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Switch",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Diggersby",
+          "card": "Pokégear 3.0",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Lana's Aid",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -880,7 +908,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "Lana's Aid",
+          "card": "Diggersby",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -1023,6 +1051,14 @@
       "delta_vs_field": 0.0
     },
     {
+      "card_name": "Fighting Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 7.0,
+      "decks_with": 2,
+      "category": "Energy",
+      "delta_vs_field": 0.0
+    },
+    {
       "card_name": "Energy Switch",
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
@@ -1044,6 +1080,14 @@
       "avg_copies": 2.0,
       "decks_with": 2,
       "category": "Trainer",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Darkness Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.0,
+      "decks_with": 2,
+      "category": "Energy",
       "delta_vs_field": 0.0
     },
     {

@@ -32,6 +32,27 @@
       "category": "Pokemon"
     },
     {
+      "card_name": "Lightning Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.3,
+      "decks_with": 109,
+      "category": "Energy"
+    },
+    {
+      "card_name": "Grass Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 8.0,
+      "decks_with": 109,
+      "category": "Energy"
+    },
+    {
+      "card_name": "Fighting Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.2,
+      "decks_with": 109,
+      "category": "Energy"
+    },
+    {
       "card_name": "Crispin",
       "inclusion_pct": 100.0,
       "avg_copies": 3.9,
@@ -130,6 +151,27 @@
       "avg_copies": 3.1,
       "decks_with": 109,
       "category": "Pokemon"
+    },
+    {
+      "card_name": "Lightning Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.3,
+      "decks_with": 109,
+      "category": "Energy"
+    },
+    {
+      "card_name": "Grass Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 8.0,
+      "decks_with": 109,
+      "category": "Energy"
+    },
+    {
+      "card_name": "Fighting Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.2,
+      "decks_with": 109,
+      "category": "Energy"
     },
     {
       "card_name": "Crispin",
@@ -265,6 +307,13 @@
       "category": "Trainer"
     },
     {
+      "card_name": "Psychic Energy",
+      "inclusion_pct": 29.4,
+      "avg_copies": 1.7,
+      "decks_with": 32,
+      "category": "Energy"
+    },
+    {
       "card_name": "Lillie's Clefairy ex",
       "inclusion_pct": 29.4,
       "avg_copies": 1.2,
@@ -389,6 +438,13 @@
       "avg_copies": 1.2,
       "decks_with": 6,
       "category": "Pokemon"
+    },
+    {
+      "card_name": "Water Energy",
+      "inclusion_pct": 5.5,
+      "avg_copies": 1.3,
+      "decks_with": 6,
+      "category": "Energy"
     },
     {
       "card_name": "Terapagos ex",
@@ -2745,7 +2801,7 @@
     "consistency": 63.7,
     "ceiling": 100,
     "popularity": 17.8,
-    "core_density": 20.3
+    "core_density": 23.0
   },
   "evolution": [
     {
@@ -2763,12 +2819,7 @@
       "week": "2026-02-16",
       "adopted": [
         {
-          "card": "Fan Rotom",
-          "from_pct": 2.8,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Poké Pad",
+          "card": "Hoothoot",
           "from_pct": 2.8,
           "to_pct": 50.0
         },
@@ -2778,7 +2829,12 @@
           "to_pct": 50.0
         },
         {
-          "card": "Hoothoot",
+          "card": "Poké Pad",
+          "from_pct": 2.8,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Fan Rotom",
           "from_pct": 2.8,
           "to_pct": 50.0
         },
@@ -2820,12 +2876,7 @@
           "to_pct": 16.7
         },
         {
-          "card": "Fan Rotom",
-          "from_pct": 50.0,
-          "to_pct": 8.3
-        },
-        {
-          "card": "Poké Pad",
+          "card": "Hoothoot",
           "from_pct": 50.0,
           "to_pct": 8.3
         },
@@ -2835,7 +2886,12 @@
           "to_pct": 8.3
         },
         {
-          "card": "Hoothoot",
+          "card": "Poké Pad",
+          "from_pct": 50.0,
+          "to_pct": 8.3
+        },
+        {
+          "card": "Fan Rotom",
           "from_pct": 50.0,
           "to_pct": 8.3
         },
@@ -2953,12 +3009,36 @@
       "delta_vs_field": 0.0
     },
     {
+      "card_name": "Lightning Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.1,
+      "decks_with": 25,
+      "category": "Energy",
+      "delta_vs_field": 0.0
+    },
+    {
       "card_name": "Latias ex",
       "inclusion_pct": 100.0,
       "avg_copies": 1.8,
       "decks_with": 25,
       "category": "Pokemon",
       "delta_vs_field": 0.9
+    },
+    {
+      "card_name": "Grass Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 8.2,
+      "decks_with": 25,
+      "category": "Energy",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Fighting Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.0,
+      "decks_with": 25,
+      "category": "Energy",
+      "delta_vs_field": 0.0
     },
     {
       "card_name": "Fezandipiti ex",
@@ -3121,6 +3201,14 @@
       "delta_vs_field": 12.7
     },
     {
+      "card_name": "Psychic Energy",
+      "inclusion_pct": 28.0,
+      "avg_copies": 1.6,
+      "decks_with": 7,
+      "category": "Energy",
+      "delta_vs_field": -1.4
+    },
+    {
       "card_name": "Lillie's Clefairy ex",
       "inclusion_pct": 28.0,
       "avg_copies": 1.3,
@@ -3254,6 +3342,14 @@
       "avg_copies": 1.0,
       "decks_with": 1,
       "category": "Pokemon",
+      "delta_vs_field": -1.5
+    },
+    {
+      "card_name": "Water Energy",
+      "inclusion_pct": 4.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Energy",
       "delta_vs_field": -1.5
     },
     {

@@ -40,6 +40,13 @@
       "category": "Trainer"
     },
     {
+      "card_name": "Psychic Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.8,
+      "decks_with": 4,
+      "category": "Energy"
+    },
+    {
       "card_name": "Poké Pad",
       "inclusion_pct": 100.0,
       "avg_copies": 3.8,
@@ -89,6 +96,13 @@
       "category": "Pokemon"
     },
     {
+      "card_name": "Fire Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.0,
+      "decks_with": 4,
+      "category": "Energy"
+    },
+    {
       "card_name": "Fezandipiti ex",
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
@@ -115,6 +129,13 @@
       "avg_copies": 3.0,
       "decks_with": 4,
       "category": "Pokemon"
+    },
+    {
+      "card_name": "Darkness Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 4,
+      "category": "Energy"
     },
     {
       "card_name": "Crispin",
@@ -182,6 +203,13 @@
       "category": "Trainer"
     },
     {
+      "card_name": "Psychic Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.8,
+      "decks_with": 4,
+      "category": "Energy"
+    },
+    {
       "card_name": "Poké Pad",
       "inclusion_pct": 100.0,
       "avg_copies": 3.8,
@@ -231,6 +259,13 @@
       "category": "Pokemon"
     },
     {
+      "card_name": "Fire Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.0,
+      "decks_with": 4,
+      "category": "Energy"
+    },
+    {
       "card_name": "Fezandipiti ex",
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
@@ -257,6 +292,13 @@
       "avg_copies": 3.0,
       "decks_with": 4,
       "category": "Pokemon"
+    },
+    {
+      "card_name": "Darkness Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 4,
+      "category": "Energy"
     },
     {
       "card_name": "Crispin",
@@ -922,24 +964,34 @@
     "consistency": 60.0,
     "ceiling": 90,
     "popularity": 0.7,
-    "core_density": 69.0
+    "core_density": 71.9
   },
   "evolution": [
     {
       "week": "2026-03-02",
       "adopted": [
         {
-          "card": "Brock's Scouting",
+          "card": "Lillie's Clefairy ex",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Lillie's Clefairy ex",
+          "card": "Brock's Scouting",
           "from_pct": 0.0,
           "to_pct": 100.0
         }
       ],
       "dropped": [
+        {
+          "card": "Kieran",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Rare Candy",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
         {
           "card": "Carmine",
           "from_pct": 100.0,
@@ -951,17 +1003,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "Kieran",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Dawn",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Rare Candy",
           "from_pct": 100.0,
           "to_pct": 0.0
         }
@@ -1051,6 +1093,14 @@
       "delta_vs_field": 0.0
     },
     {
+      "card_name": "Psychic Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.0,
+      "decks_with": 1,
+      "category": "Energy",
+      "delta_vs_field": 0.0
+    },
+    {
       "card_name": "Poké Pad",
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
@@ -1123,6 +1173,14 @@
       "delta_vs_field": 75.0
     },
     {
+      "card_name": "Fire Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Energy",
+      "delta_vs_field": 0.0
+    },
+    {
       "card_name": "Fezandipiti ex",
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
@@ -1152,6 +1210,14 @@
       "avg_copies": 3.0,
       "decks_with": 1,
       "category": "Pokemon",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Darkness Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Energy",
       "delta_vs_field": 0.0
     },
     {

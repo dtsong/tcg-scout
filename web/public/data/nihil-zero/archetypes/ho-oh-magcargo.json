@@ -61,6 +61,13 @@
       "category": "Trainer"
     },
     {
+      "card_name": "Fire Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 12.0,
+      "decks_with": 2,
+      "category": "Energy"
+    },
+    {
       "card_name": "Fezandipiti ex",
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
@@ -173,6 +180,13 @@
       "avg_copies": 1.0,
       "decks_with": 2,
       "category": "Trainer"
+    },
+    {
+      "card_name": "Fire Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 12.0,
+      "decks_with": 2,
+      "category": "Energy"
     },
     {
       "card_name": "Fezandipiti ex",
@@ -588,19 +602,14 @@
     "consistency": 47.5,
     "ceiling": 50,
     "popularity": 0.3,
-    "core_density": 55.2
+    "core_density": 56.7
   },
   "evolution": [
     {
       "week": "2026-02-23",
       "adopted": [
         {
-          "card": "Budew",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Tatsugiri",
+          "card": "Prime Catcher",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -610,7 +619,7 @@
           "to_pct": 100.0
         },
         {
-          "card": "Prime Catcher",
+          "card": "Budew",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -618,21 +627,26 @@
           "card": "Pokégear 3.0",
           "from_pct": 0.0,
           "to_pct": 100.0
+        },
+        {
+          "card": "Tatsugiri",
+          "from_pct": 0.0,
+          "to_pct": 100.0
         }
       ],
       "dropped": [
         {
+          "card": "Meowth ex",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Switch",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
           "card": "Precious Trolley",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Team Rocket's Petrel",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Tool Scrapper",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -647,7 +661,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "Meowth ex",
+          "card": "Team Rocket's Petrel",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -657,7 +671,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "Switch",
+          "card": "Tool Scrapper",
           "from_pct": 100.0,
           "to_pct": 0.0
         }

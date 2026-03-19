@@ -1,9 +1,9 @@
 {
   "archetype": "Genesect Metagross",
   "slug": "genesect-metagross",
-  "tier": "C",
-  "meta_share": 1.0,
-  "weighted_share": 1.0,
+  "tier": "Rogue",
+  "meta_share": 0.9,
+  "weighted_share": 0.9,
   "deck_count": 8,
   "best_placement": 2,
   "sprite_filenames": [
@@ -11,6 +11,13 @@
     "metagross.png"
   ],
   "core_cards": [
+    {
+      "card_name": "Metal Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 8.5,
+      "decks_with": 8,
+      "category": "Energy"
+    },
     {
       "card_name": "Genesect ex",
       "inclusion_pct": 100.0,
@@ -69,6 +76,13 @@
     }
   ],
   "all_cards": [
+    {
+      "card_name": "Metal Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 8.5,
+      "decks_with": 8,
+      "category": "Energy"
+    },
     {
       "card_name": "Genesect ex",
       "inclusion_pct": 100.0,
@@ -152,6 +166,13 @@
       "avg_copies": 2.8,
       "decks_with": 6,
       "category": "Trainer"
+    },
+    {
+      "card_name": "Psychic Energy",
+      "inclusion_pct": 75.0,
+      "avg_copies": 4.8,
+      "decks_with": 6,
+      "category": "Energy"
     },
     {
       "card_name": "Mega Mawile ex",
@@ -1592,24 +1613,19 @@
     }
   ],
   "radar": {
-    "meta_share": 5.2,
-    "weighted_share": 5.1,
+    "meta_share": 4.5,
+    "weighted_share": 4.4,
     "consistency": 64.4,
     "ceiling": 90,
-    "popularity": 10.5,
-    "core_density": 12.3
+    "popularity": 8.8,
+    "core_density": 13.4
   },
   "evolution": [
     {
       "week": "2026-03-16",
       "adopted": [
         {
-          "card": "Dawn",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Deoxys",
+          "card": "Duskull",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -1619,22 +1635,27 @@
           "to_pct": 100.0
         },
         {
+          "card": "Deoxys",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Dawn",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
           "card": "Dusknoir",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Duskull",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Poké Pad",
+          "card": "Unfair Stamp",
           "from_pct": 14.3,
           "to_pct": 100.0
         },
         {
-          "card": "Unfair Stamp",
+          "card": "Poké Pad",
           "from_pct": 14.3,
           "to_pct": 100.0
         },
@@ -1698,7 +1719,7 @@
     },
     {
       "week": "2026-03-16",
-      "meta_share": 0.7,
+      "meta_share": 0.4,
       "deck_count": 1
     }
   ],
@@ -1734,6 +1755,14 @@
       "decks_with": 2,
       "category": "Trainer",
       "delta_vs_field": 12.5
+    },
+    {
+      "card_name": "Metal Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 12.0,
+      "decks_with": 2,
+      "category": "Energy",
+      "delta_vs_field": 0.0
     },
     {
       "card_name": "Meowth ex",
@@ -1837,6 +1866,14 @@
       "avg_copies": 4.0,
       "decks_with": 1,
       "category": "Trainer",
+      "delta_vs_field": -25.0
+    },
+    {
+      "card_name": "Psychic Energy",
+      "inclusion_pct": 50.0,
+      "avg_copies": 4.0,
+      "decks_with": 1,
+      "category": "Energy",
       "delta_vs_field": -25.0
     },
     {

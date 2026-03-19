@@ -259,6 +259,13 @@
       "category": "Trainer"
     },
     {
+      "card_name": "Psychic Energy",
+      "inclusion_pct": 60.0,
+      "avg_copies": 2.0,
+      "decks_with": 3,
+      "category": "Energy"
+    },
+    {
       "card_name": "Pokégear 3.0",
       "inclusion_pct": 60.0,
       "avg_copies": 2.7,
@@ -285,6 +292,13 @@
       "avg_copies": 1.0,
       "decks_with": 3,
       "category": "Pokemon"
+    },
+    {
+      "card_name": "Darkness Energy",
+      "inclusion_pct": 60.0,
+      "avg_copies": 3.0,
+      "decks_with": 3,
+      "category": "Energy"
     },
     {
       "card_name": "Tool Scrapper",
@@ -992,7 +1006,7 @@
     "consistency": 52.0,
     "ceiling": 75,
     "popularity": 0.8,
-    "core_density": 51.5
+    "core_density": 48.6
   },
   "evolution": [
     {
@@ -1021,12 +1035,12 @@
           "to_pct": 0.0
         },
         {
-          "card": "Tool Scrapper",
+          "card": "Morty's Conviction",
           "from_pct": 66.7,
           "to_pct": 0.0
         },
         {
-          "card": "Morty's Conviction",
+          "card": "Tool Scrapper",
           "from_pct": 66.7,
           "to_pct": 0.0
         }
@@ -1041,12 +1055,12 @@
           "to_pct": 100.0
         },
         {
-          "card": "Team Rocket's Petrel",
+          "card": "Mist Energy",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Mist Energy",
+          "card": "Switch",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -1056,29 +1070,29 @@
           "to_pct": 100.0
         },
         {
-          "card": "Switch",
+          "card": "Team Rocket's Petrel",
           "from_pct": 0.0,
           "to_pct": 100.0
         }
       ],
       "dropped": [
         {
-          "card": "Hop's Cramorant",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Munkidori",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Pokégear 3.0",
+          "card": "Hop's Cramorant",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
           "card": "Bloodmoon Ursaluna ex",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Pokégear 3.0",
           "from_pct": 100.0,
           "to_pct": 0.0
         }
@@ -1184,6 +1198,14 @@
       "decks_with": 1,
       "category": "Pokemon",
       "delta_vs_field": 80.0
+    },
+    {
+      "card_name": "Psychic Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Energy",
+      "delta_vs_field": 40.0
     },
     {
       "card_name": "Postwick",
@@ -1312,6 +1334,14 @@
       "decks_with": 1,
       "category": "Trainer",
       "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Darkness Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.0,
+      "decks_with": 1,
+      "category": "Energy",
+      "delta_vs_field": 40.0
     },
     {
       "card_name": "Boss's Orders",

@@ -47,11 +47,25 @@
       "category": "Pokemon"
     },
     {
+      "card_name": "Fire Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 6.2,
+      "decks_with": 4,
+      "category": "Energy"
+    },
+    {
       "card_name": "Fighting Gong",
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
       "decks_with": 4,
       "category": "Trainer"
+    },
+    {
+      "card_name": "Fighting Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 11.2,
+      "decks_with": 4,
+      "category": "Energy"
     },
     {
       "card_name": "Charcadet",
@@ -119,11 +133,25 @@
       "category": "Pokemon"
     },
     {
+      "card_name": "Fire Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 6.2,
+      "decks_with": 4,
+      "category": "Energy"
+    },
+    {
       "card_name": "Fighting Gong",
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
       "decks_with": 4,
       "category": "Trainer"
+    },
+    {
+      "card_name": "Fighting Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 11.2,
+      "decks_with": 4,
+      "category": "Energy"
     },
     {
       "card_name": "Charcadet",
@@ -706,7 +734,7 @@
     "consistency": 62.5,
     "ceiling": 100,
     "popularity": 0.7,
-    "core_density": 38.5
+    "core_density": 42.9
   },
   "evolution": [
     {
@@ -723,16 +751,6 @@
           "to_pct": 100.0
         },
         {
-          "card": "Psyduck",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Battle Cage",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
           "card": "Blowtorch",
           "from_pct": 0.0,
           "to_pct": 50.0
@@ -743,7 +761,17 @@
           "to_pct": 50.0
         },
         {
+          "card": "Battle Cage",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
           "card": "Xerosic's Machinations",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Psyduck",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -760,12 +788,12 @@
           "to_pct": 0.0
         },
         {
-          "card": "Ciphermaniac's Codebreaking",
+          "card": "Jamming Tower",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Jamming Tower",
+          "card": "Ciphermaniac's Codebreaking",
           "from_pct": 100.0,
           "to_pct": 0.0
         }
@@ -781,7 +809,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "Psyduck",
+          "card": "Lillie's Determination",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -791,12 +819,12 @@
           "to_pct": 0.0
         },
         {
-          "card": "Lillie's Determination",
+          "card": "Xerosic's Machinations",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
-          "card": "Xerosic's Machinations",
+          "card": "Psyduck",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -907,11 +935,27 @@
       "delta_vs_field": 0.0
     },
     {
+      "card_name": "Fire Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 7.0,
+      "decks_with": 1,
+      "category": "Energy",
+      "delta_vs_field": 0.0
+    },
+    {
       "card_name": "Fighting Gong",
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
       "decks_with": 1,
       "category": "Trainer",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Fighting Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 14.0,
+      "decks_with": 1,
+      "category": "Energy",
       "delta_vs_field": 0.0
     },
     {

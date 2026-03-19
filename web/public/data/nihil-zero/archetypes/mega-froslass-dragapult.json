@@ -12,6 +12,13 @@
   ],
   "core_cards": [
     {
+      "card_name": "Water Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 7,
+      "category": "Energy"
+    },
+    {
       "card_name": "Ultra Ball",
       "inclusion_pct": 100.0,
       "avg_copies": 3.1,
@@ -24,6 +31,13 @@
       "avg_copies": 2.9,
       "decks_with": 7,
       "category": "Pokemon"
+    },
+    {
+      "card_name": "Psychic Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.1,
+      "decks_with": 7,
+      "category": "Energy"
     },
     {
       "card_name": "Poké Pad",
@@ -89,6 +103,13 @@
       "category": "Pokemon"
     },
     {
+      "card_name": "Fire Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 7,
+      "category": "Energy"
+    },
+    {
       "card_name": "Fezandipiti ex",
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
@@ -122,6 +143,13 @@
       "avg_copies": 2.1,
       "decks_with": 7,
       "category": "Pokemon"
+    },
+    {
+      "card_name": "Darkness Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.6,
+      "decks_with": 7,
+      "category": "Energy"
     },
     {
       "card_name": "Crispin",
@@ -161,6 +189,13 @@
   ],
   "all_cards": [
     {
+      "card_name": "Water Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 7,
+      "category": "Energy"
+    },
+    {
       "card_name": "Ultra Ball",
       "inclusion_pct": 100.0,
       "avg_copies": 3.1,
@@ -173,6 +208,13 @@
       "avg_copies": 2.9,
       "decks_with": 7,
       "category": "Pokemon"
+    },
+    {
+      "card_name": "Psychic Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.1,
+      "decks_with": 7,
+      "category": "Energy"
     },
     {
       "card_name": "Poké Pad",
@@ -238,6 +280,13 @@
       "category": "Pokemon"
     },
     {
+      "card_name": "Fire Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 7,
+      "category": "Energy"
+    },
+    {
       "card_name": "Fezandipiti ex",
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
@@ -271,6 +320,13 @@
       "avg_copies": 2.1,
       "decks_with": 7,
       "category": "Pokemon"
+    },
+    {
+      "card_name": "Darkness Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.6,
+      "decks_with": 7,
+      "category": "Energy"
     },
     {
       "card_name": "Crispin",
@@ -1400,7 +1456,7 @@
     "consistency": 71.4,
     "ceiling": 100,
     "popularity": 1.1,
-    "core_density": 70.0
+    "core_density": 73.5
   },
   "evolution": [
     {
@@ -1424,6 +1480,16 @@
       "week": "2026-02-09",
       "adopted": [
         {
+          "card": "Jamming Tower",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Latias ex",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
           "card": "Psyduck",
           "from_pct": 0.0,
           "to_pct": 50.0
@@ -1435,16 +1501,6 @@
         },
         {
           "card": "Dawn",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Latias ex",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Jamming Tower",
           "from_pct": 0.0,
           "to_pct": 50.0
         }
@@ -1472,6 +1528,16 @@
           "to_pct": 0.0
         },
         {
+          "card": "Jamming Tower",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Latias ex",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
           "card": "Psyduck",
           "from_pct": 50.0,
           "to_pct": 0.0
@@ -1483,16 +1549,6 @@
         },
         {
           "card": "Dawn",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Latias ex",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Jamming Tower",
           "from_pct": 50.0,
           "to_pct": 0.0
         }
@@ -1550,6 +1606,14 @@
   ],
   "top4_card_stats": [
     {
+      "card_name": "Water Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 3,
+      "category": "Energy",
+      "delta_vs_field": 0.0
+    },
+    {
       "card_name": "Ultra Ball",
       "inclusion_pct": 100.0,
       "avg_copies": 3.0,
@@ -1572,6 +1636,14 @@
       "decks_with": 3,
       "category": "Trainer",
       "delta_vs_field": 57.1
+    },
+    {
+      "card_name": "Psychic Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 3,
+      "category": "Energy",
+      "delta_vs_field": 0.0
     },
     {
       "card_name": "Poké Pad",
@@ -1646,6 +1718,14 @@
       "delta_vs_field": 0.0
     },
     {
+      "card_name": "Fire Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 3,
+      "category": "Energy",
+      "delta_vs_field": 0.0
+    },
+    {
       "card_name": "Fezandipiti ex",
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
@@ -1683,6 +1763,14 @@
       "avg_copies": 2.0,
       "decks_with": 3,
       "category": "Pokemon",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Darkness Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.0,
+      "decks_with": 3,
+      "category": "Energy",
       "delta_vs_field": 0.0
     },
     {

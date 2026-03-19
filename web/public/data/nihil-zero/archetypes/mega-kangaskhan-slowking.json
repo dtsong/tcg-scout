@@ -61,6 +61,13 @@
       "category": "Trainer"
     },
     {
+      "card_name": "Psychic Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 5.0,
+      "decks_with": 3,
+      "category": "Energy"
+    },
+    {
       "card_name": "Poké Pad",
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
@@ -180,6 +187,13 @@
       "avg_copies": 1.0,
       "decks_with": 3,
       "category": "Trainer"
+    },
+    {
+      "card_name": "Psychic Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 5.0,
+      "decks_with": 3,
+      "category": "Energy"
     },
     {
       "card_name": "Poké Pad",
@@ -735,12 +749,22 @@
     "consistency": 81.7,
     "ceiling": 75,
     "popularity": 0.5,
-    "core_density": 56.7
+    "core_density": 58.1
   },
   "evolution": [
     {
       "week": "2026-03-02",
       "adopted": [
+        {
+          "card": "Colress's Tenacity",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Lana's Aid",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
         {
           "card": "Conkeldurr",
           "from_pct": 0.0,
@@ -752,7 +776,7 @@
           "to_pct": 50.0
         },
         {
-          "card": "Zoroark",
+          "card": "Spectrier",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -762,22 +786,12 @@
           "to_pct": 50.0
         },
         {
-          "card": "Colress's Tenacity",
+          "card": "Zoroark",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
         {
           "card": "Hilda",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Spectrier",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Lana's Aid",
           "from_pct": 0.0,
           "to_pct": 50.0
         }
@@ -878,6 +892,14 @@
       "avg_copies": 1.0,
       "decks_with": 2,
       "category": "Trainer",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Psychic Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 5.0,
+      "decks_with": 2,
+      "category": "Energy",
       "delta_vs_field": 0.0
     },
     {

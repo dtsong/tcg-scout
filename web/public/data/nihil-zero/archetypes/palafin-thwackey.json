@@ -12,6 +12,13 @@
   ],
   "core_cards": [
     {
+      "card_name": "Water Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 6.5,
+      "decks_with": 2,
+      "category": "Energy"
+    },
+    {
       "card_name": "Thwackey",
       "inclusion_pct": 100.0,
       "avg_copies": 3.0,
@@ -118,6 +125,13 @@
     }
   ],
   "all_cards": [
+    {
+      "card_name": "Water Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 6.5,
+      "decks_with": 2,
+      "category": "Energy"
+    },
     {
       "card_name": "Thwackey",
       "inclusion_pct": 100.0,
@@ -617,29 +631,14 @@
     "consistency": 67.5,
     "ceiling": 50,
     "popularity": 0.3,
-    "core_density": 46.9
+    "core_density": 48.5
   },
   "evolution": [
     {
       "week": "2026-03-02",
       "adopted": [
         {
-          "card": "Psyduck",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Night Stretcher",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Budew",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Tatsugiri",
+          "card": "Prime Catcher",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -649,7 +648,7 @@
           "to_pct": 100.0
         },
         {
-          "card": "Prime Catcher",
+          "card": "Night Stretcher",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -657,21 +656,56 @@
           "card": "Ultra Ball",
           "from_pct": 0.0,
           "to_pct": 100.0
+        },
+        {
+          "card": "Tatsugiri",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Budew",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Psyduck",
+          "from_pct": 0.0,
+          "to_pct": 100.0
         }
       ],
       "dropped": [
+        {
+          "card": "Fidough",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Dachsbun ex",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Maximum Belt",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
         {
           "card": "Seaking",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Brock's Scouting",
+          "card": "Abra",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Fidough",
+          "card": "Strange Timepiece",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Brock's Scouting",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -687,26 +721,6 @@
         },
         {
           "card": "Colress's Tenacity",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Maximum Belt",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Strange Timepiece",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Dachsbun ex",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Abra",
           "from_pct": 100.0,
           "to_pct": 0.0
         }

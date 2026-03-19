@@ -46,6 +46,13 @@
       "category": "Trainer"
     },
     {
+      "card_name": "Fire Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.8,
+      "decks_with": 4,
+      "category": "Energy"
+    },
+    {
       "card_name": "Ethan's Typhlosion",
       "inclusion_pct": 100.0,
       "avg_copies": 3.2,
@@ -130,6 +137,13 @@
       "avg_copies": 1.2,
       "decks_with": 4,
       "category": "Trainer"
+    },
+    {
+      "card_name": "Fire Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.8,
+      "decks_with": 4,
+      "category": "Energy"
     },
     {
       "card_name": "Ethan's Typhlosion",
@@ -361,6 +375,13 @@
       "avg_copies": 4.0,
       "decks_with": 1,
       "category": "Trainer"
+    },
+    {
+      "card_name": "Fighting Energy",
+      "inclusion_pct": 25.0,
+      "avg_copies": 6.0,
+      "decks_with": 1,
+      "category": "Energy"
     },
     {
       "card_name": "Dreepy",
@@ -975,32 +996,12 @@
     "consistency": 56.2,
     "ceiling": 75,
     "popularity": 0.7,
-    "core_density": 27.3
+    "core_density": 28.3
   },
   "evolution": [
     {
       "week": "2026-01-26",
       "adopted": [
-        {
-          "card": "Secret Box",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Budew",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Judge",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Team Rocket's Petrel",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
         {
           "card": "Moltres",
           "from_pct": 0.0,
@@ -1012,39 +1013,34 @@
           "to_pct": 100.0
         },
         {
+          "card": "Secret Box",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
           "card": "Repel",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Budew",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Team Rocket's Petrel",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Judge",
           "from_pct": 0.0,
           "to_pct": 100.0
         }
       ],
       "dropped": [
         {
-          "card": "Carmine",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Air Balloon",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Drakloak",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Dreepy",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Hop's Cramorant",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Kieran",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -1054,12 +1050,27 @@
           "to_pct": 0.0
         },
         {
-          "card": "Tool Scrapper",
+          "card": "Kieran",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Dreepy",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
           "card": "Unfair Stamp",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Hop's Cramorant",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Air Balloon",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -1069,17 +1080,27 @@
           "to_pct": 0.0
         },
         {
+          "card": "Switch",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
           "card": "Maximum Belt",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
-          "card": "Team Rocket's Watchtower",
+          "card": "Carmine",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
-          "card": "Switch",
+          "card": "Lunatone",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Tool Scrapper",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -1089,7 +1110,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "Lunatone",
+          "card": "Team Rocket's Watchtower",
           "from_pct": 50.0,
           "to_pct": 0.0
         }
@@ -1099,11 +1120,6 @@
       "week": "2026-02-09",
       "adopted": [
         {
-          "card": "Chi-Yu",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
           "card": "Unfair Stamp",
           "from_pct": 0.0,
           "to_pct": 100.0
@@ -1112,9 +1128,19 @@
           "card": "Black Belt's Training",
           "from_pct": 0.0,
           "to_pct": 100.0
+        },
+        {
+          "card": "Chi-Yu",
+          "from_pct": 0.0,
+          "to_pct": 100.0
         }
       ],
       "dropped": [
+        {
+          "card": "Moltres",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
         {
           "card": "Secret Box",
           "from_pct": 100.0,
@@ -1122,11 +1148,6 @@
         },
         {
           "card": "Judge",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Moltres",
           "from_pct": 100.0,
           "to_pct": 0.0
         }
@@ -1325,6 +1346,14 @@
       "delta_vs_field": 25.0
     },
     {
+      "card_name": "Fire Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 5.0,
+      "decks_with": 1,
+      "category": "Energy",
+      "delta_vs_field": 0.0
+    },
+    {
       "card_name": "Ethan's Typhlosion",
       "inclusion_pct": 100.0,
       "avg_copies": 3.0,
@@ -1490,6 +1519,14 @@
       "avg_copies": 0,
       "decks_with": 0,
       "category": "Trainer",
+      "delta_vs_field": -25.0
+    },
+    {
+      "card_name": "Fighting Energy",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Energy",
       "delta_vs_field": -25.0
     },
     {

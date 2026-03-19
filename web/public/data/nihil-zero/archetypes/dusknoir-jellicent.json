@@ -26,6 +26,13 @@
       "category": "Energy"
     },
     {
+      "card_name": "Psychic Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 5.6,
+      "decks_with": 27,
+      "category": "Energy"
+    },
+    {
       "card_name": "Poké Pad",
       "inclusion_pct": 100.0,
       "avg_copies": 3.6,
@@ -143,6 +150,13 @@
       "card_name": "Telepath Psychic Energy",
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
+      "decks_with": 27,
+      "category": "Energy"
+    },
+    {
+      "card_name": "Psychic Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 5.6,
       "decks_with": 27,
       "category": "Energy"
     },
@@ -360,6 +374,13 @@
       "card_name": "Mist Energy",
       "inclusion_pct": 11.1,
       "avg_copies": 1.3,
+      "decks_with": 3,
+      "category": "Energy"
+    },
+    {
+      "card_name": "Darkness Energy",
+      "inclusion_pct": 11.1,
+      "avg_copies": 2.0,
       "decks_with": 3,
       "category": "Energy"
     },
@@ -2433,7 +2454,7 @@
     "consistency": 58.3,
     "ceiling": 100,
     "popularity": 4.4,
-    "core_density": 36.2
+    "core_density": 36.7
   },
   "evolution": [
     {
@@ -2525,17 +2546,17 @@
       "week": "2026-02-23",
       "adopted": [
         {
+          "card": "Surfer",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
           "card": "Carmine",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
           "card": "Powerglass",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Surfer",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -2552,12 +2573,12 @@
           "to_pct": 0.0
         },
         {
-          "card": "Hilda",
+          "card": "Ignition Energy",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Ignition Energy",
+          "card": "Hilda",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -2572,12 +2593,12 @@
       "week": "2026-03-02",
       "adopted": [
         {
-          "card": "Hilda",
+          "card": "Ignition Energy",
           "from_pct": 0.0,
           "to_pct": 60.0
         },
         {
-          "card": "Ignition Energy",
+          "card": "Hilda",
           "from_pct": 0.0,
           "to_pct": 60.0
         }
@@ -2666,6 +2687,14 @@
       "card_name": "Telepath Psychic Energy",
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
+      "decks_with": 8,
+      "category": "Energy",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Psychic Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 5.2,
       "decks_with": 8,
       "category": "Energy",
       "delta_vs_field": 0.0
@@ -2844,6 +2873,14 @@
       "avg_copies": 1.0,
       "decks_with": 2,
       "category": "Pokemon",
+      "delta_vs_field": 13.9
+    },
+    {
+      "card_name": "Darkness Energy",
+      "inclusion_pct": 25.0,
+      "avg_copies": 1.5,
+      "decks_with": 2,
+      "category": "Energy",
       "delta_vs_field": 13.9
     },
     {

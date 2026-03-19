@@ -75,6 +75,13 @@
       "category": "Trainer"
     },
     {
+      "card_name": "Metal Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 12.0,
+      "decks_with": 1,
+      "category": "Energy"
+    },
+    {
       "card_name": "Lumiose City",
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
@@ -194,6 +201,13 @@
       "avg_copies": 4.0,
       "decks_with": 1,
       "category": "Trainer"
+    },
+    {
+      "card_name": "Metal Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 12.0,
+      "decks_with": 1,
+      "category": "Energy"
     },
     {
       "card_name": "Lumiose City",
@@ -353,11 +367,11 @@
     }
   ],
   "radar": {
-    "meta_share": 0.7,
-    "weighted_share": 0.6,
+    "meta_share": 0.5,
+    "weighted_share": 0.5,
     "consistency": 65.0,
     "ceiling": 50,
-    "popularity": 1.3,
+    "popularity": 1.1,
     "core_density": 100.0
   },
   "evolution": [],

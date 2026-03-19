@@ -7,25 +7,32 @@
   "image_url": null,
   "category": "Pokemon",
   "rarity": null,
-  "total_appearances": 13,
-  "usage_pct": 1.7,
+  "total_appearances": 16,
+  "usage_pct": 1.8,
   "avg_copies": 2.0,
-  "unique_archetypes": 4,
-  "weighted_score": 22.8,
-  "win_rate_proxy": 1.75,
+  "unique_archetypes": 5,
+  "weighted_score": 27.5,
+  "win_rate_proxy": 1.72,
   "top_archetype": "Latias Slowking",
   "trend_direction": "stable",
   "copy_distribution": [
     {
       "copies": 2,
-      "count": 13
+      "count": 16
     }
   ],
   "archetypes": [
     {
       "name": "Latias Slowking",
       "slug": "latias-slowking",
-      "usage_count": 7,
+      "usage_count": 8,
+      "avg_copies": 2.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Slowking",
+      "slug": "slowking",
+      "usage_count": 3,
       "avg_copies": 2.0,
       "tier": "Rogue"
     },
@@ -37,15 +44,15 @@
       "tier": "Rogue"
     },
     {
-      "name": "Slowking",
-      "slug": "slowking",
-      "usage_count": 2,
+      "name": "Ogerpon Slowking",
+      "slug": "ogerpon-slowking",
+      "usage_count": 1,
       "avg_copies": 2.0,
       "tier": "Rogue"
     },
     {
-      "name": "Ogerpon Slowking",
-      "slug": "ogerpon-slowking",
+      "name": "Metagross Slowking",
+      "slug": "metagross-slowking",
       "usage_count": 1,
       "avg_copies": 2.0,
       "tier": "Rogue"
@@ -59,115 +66,115 @@
     },
     {
       "week": "2026-03-16",
-      "usage_pct": 0.0,
-      "avg_copies": 0
+      "usage_pct": 1.2,
+      "avg_copies": 2.0
     }
   ],
   "synergy_partners": [
     {
       "card_name": "Annihilape",
-      "support": 13,
-      "lift": 59.385,
-      "jaccard": 1.0,
-      "weighted_score": 22.8
+      "support": 15,
+      "lift": 55.75,
+      "jaccard": 0.938,
+      "weighted_score": 25.5
     },
     {
       "card_name": "Slowking",
-      "support": 13,
-      "lift": 59.385,
+      "support": 16,
+      "lift": 55.75,
       "jaccard": 1.0,
-      "weighted_score": 22.8
+      "weighted_score": 27.5
     },
     {
       "card_name": "Academy at Night",
-      "support": 13,
-      "lift": 55.143,
-      "jaccard": 0.929,
-      "weighted_score": 22.8
+      "support": 16,
+      "lift": 52.471,
+      "jaccard": 0.941,
+      "weighted_score": 27.5
     },
     {
       "card_name": "Metagross",
-      "support": 10,
-      "lift": 53.986,
-      "jaccard": 0.714,
-      "weighted_score": 17.1
+      "support": 11,
+      "lift": 51.104,
+      "jaccard": 0.647,
+      "weighted_score": 18.3
     },
     {
       "card_name": "Slowpoke",
-      "support": 13,
-      "lift": 51.467,
-      "jaccard": 0.867,
-      "weighted_score": 22.8
+      "support": 16,
+      "lift": 49.556,
+      "jaccard": 0.889,
+      "weighted_score": 27.5
     },
     {
       "card_name": "Smoochum",
-      "support": 12,
-      "lift": 47.508,
-      "jaccard": 0.75,
-      "weighted_score": 21.3
+      "support": 13,
+      "lift": 45.297,
+      "jaccard": 0.684,
+      "weighted_score": 22.5
     },
     {
       "card_name": "Surfer",
-      "support": 10,
-      "lift": 21.994,
-      "jaccard": 0.333,
-      "weighted_score": 18.6
+      "support": 13,
+      "lift": 23.379,
+      "jaccard": 0.382,
+      "weighted_score": 23.3
     },
     {
       "card_name": "Colress's Tenacity",
-      "support": 12,
-      "lift": 18.753,
-      "jaccard": 0.308,
-      "weighted_score": 21.3
+      "support": 15,
+      "lift": 19.448,
+      "jaccard": 0.341,
+      "weighted_score": 26.0
     },
     {
       "card_name": "Wondrous Patch",
-      "support": 12,
-      "lift": 16.572,
-      "jaccard": 0.273,
-      "weighted_score": 21.3
+      "support": 14,
+      "lift": 15.61,
+      "jaccard": 0.269,
+      "weighted_score": 24.0
+    },
+    {
+      "card_name": "Enriching Energy",
+      "support": 6,
+      "lift": 13.38,
+      "jaccard": 0.171,
+      "weighted_score": 10.9
     },
     {
       "card_name": "Telepath Psychic Energy",
-      "support": 12,
-      "lift": 10.636,
-      "jaccard": 0.176,
-      "weighted_score": 21.3
+      "support": 15,
+      "lift": 11.301,
+      "jaccard": 0.2,
+      "weighted_score": 26.0
     },
     {
       "card_name": "Secret Box",
       "support": 6,
-      "lift": 6.986,
-      "jaccard": 0.103,
+      "lift": 5.575,
+      "jaccard": 0.086,
       "weighted_score": 9.2
     },
     {
       "card_name": "Hilda",
-      "support": 12,
-      "lift": 5.279,
-      "jaccard": 0.088,
-      "weighted_score": 21.3
+      "support": 15,
+      "lift": 5.43,
+      "jaccard": 0.097,
+      "weighted_score": 26.0
+    },
+    {
+      "card_name": "Tatsugiri",
+      "support": 5,
+      "lift": 5.162,
+      "jaccard": 0.077,
+      "weighted_score": 8.4
     },
     {
       "card_name": "Lana's Aid",
-      "support": 5,
-      "lift": 4.012,
-      "jaccard": 0.061,
-      "weighted_score": 8.2
-    },
-    {
-      "card_name": "Lillie's Clefairy ex",
-      "support": 13,
-      "lift": 3.431,
-      "jaccard": 0.058,
-      "weighted_score": 22.8
-    },
-    {
-      "card_name": "Latias ex",
-      "support": 12,
-      "lift": 3.153,
-      "jaccard": 0.053,
-      "weighted_score": 21.3
+      "support": 6,
+      "lift": 3.935,
+      "jaccard": 0.063,
+      "weighted_score": 9.4
     }
   ]
 }

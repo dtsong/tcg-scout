@@ -131,6 +131,13 @@
       "category": "Trainer"
     },
     {
+      "card_name": "Darkness Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 8.3,
+      "decks_with": 3,
+      "category": "Energy"
+    },
+    {
       "card_name": "Buddy-Buddy Poffin",
       "inclusion_pct": 100.0,
       "avg_copies": 3.0,
@@ -271,6 +278,13 @@
       "avg_copies": 2.7,
       "decks_with": 3,
       "category": "Trainer"
+    },
+    {
+      "card_name": "Darkness Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 8.3,
+      "decks_with": 3,
+      "category": "Energy"
     },
     {
       "card_name": "Buddy-Buddy Poffin",
@@ -786,14 +800,14 @@
     "consistency": 71.7,
     "ceiling": 100,
     "popularity": 0.5,
-    "core_density": 66.7
+    "core_density": 67.7
   },
   "evolution": [
     {
       "week": "2026-02-09",
       "adopted": [
         {
-          "card": "Judge",
+          "card": "Yveltal",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -803,12 +817,7 @@
           "to_pct": 100.0
         },
         {
-          "card": "Yveltal",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Tatsugiri",
+          "card": "Judge",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -816,11 +825,16 @@
           "card": "Sableye",
           "from_pct": 0.0,
           "to_pct": 100.0
+        },
+        {
+          "card": "Tatsugiri",
+          "from_pct": 0.0,
+          "to_pct": 100.0
         }
       ],
       "dropped": [
         {
-          "card": "Brock's Scouting",
+          "card": "Drayton",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -830,17 +844,17 @@
           "to_pct": 0.0
         },
         {
-          "card": "Pecharunt ex",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Drayton",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Lucian",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Brock's Scouting",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Pecharunt ex",
           "from_pct": 100.0,
           "to_pct": 0.0
         }
@@ -1045,6 +1059,14 @@
       "decks_with": 2,
       "category": "Trainer",
       "delta_vs_field": 33.3
+    },
+    {
+      "card_name": "Darkness Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 8.0,
+      "decks_with": 2,
+      "category": "Energy",
+      "delta_vs_field": 0.0
     },
     {
       "card_name": "Buddy-Buddy Poffin",

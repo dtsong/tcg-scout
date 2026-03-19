@@ -12,6 +12,13 @@
   ],
   "core_cards": [
     {
+      "card_name": "Water Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 5.4,
+      "decks_with": 25,
+      "category": "Energy"
+    },
+    {
       "card_name": "Ultra Ball",
       "inclusion_pct": 100.0,
       "avg_copies": 3.8,
@@ -160,6 +167,13 @@
     }
   ],
   "all_cards": [
+    {
+      "card_name": "Water Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 5.4,
+      "decks_with": 25,
+      "category": "Energy"
+    },
     {
       "card_name": "Ultra Ball",
       "inclusion_pct": 100.0,
@@ -544,6 +558,13 @@
       "avg_copies": 1.0,
       "decks_with": 1,
       "category": "Trainer"
+    },
+    {
+      "card_name": "Darkness Energy",
+      "inclusion_pct": 4.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Energy"
     },
     {
       "card_name": "Bloodmoon Ursaluna ex",
@@ -2703,7 +2724,7 @@
     "consistency": 64.6,
     "ceiling": 100,
     "popularity": 4.1,
-    "core_density": 36.2
+    "core_density": 36.7
   },
   "evolution": [
     {
@@ -2715,12 +2736,12 @@
           "to_pct": 100.0
         },
         {
-          "card": "Snorunt",
+          "card": "Mega Froslass ex",
           "from_pct": 11.1,
           "to_pct": 66.7
         },
         {
-          "card": "Mega Froslass ex",
+          "card": "Snorunt",
           "from_pct": 11.1,
           "to_pct": 66.7
         },
@@ -2747,7 +2768,7 @@
       "week": "2026-02-23",
       "adopted": [
         {
-          "card": "Judge",
+          "card": "Fezandipiti ex",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -2757,7 +2778,7 @@
           "to_pct": 100.0
         },
         {
-          "card": "Fezandipiti ex",
+          "card": "Judge",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -2773,6 +2794,11 @@
       "week": "2026-03-02",
       "adopted": [
         {
+          "card": "Shaymin",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
           "card": "Air Balloon",
           "from_pct": 0.0,
           "to_pct": 50.0
@@ -2781,21 +2807,16 @@
           "card": "Briar",
           "from_pct": 0.0,
           "to_pct": 50.0
-        },
-        {
-          "card": "Shaymin",
-          "from_pct": 0.0,
-          "to_pct": 50.0
         }
       ],
       "dropped": [
         {
-          "card": "Judge",
+          "card": "Team Rocket's Petrel",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Team Rocket's Petrel",
+          "card": "Judge",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -2857,6 +2878,14 @@
     }
   ],
   "top4_card_stats": [
+    {
+      "card_name": "Water Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 5.7,
+      "decks_with": 9,
+      "category": "Energy",
+      "delta_vs_field": 0.0
+    },
     {
       "card_name": "Ultra Ball",
       "inclusion_pct": 100.0,
@@ -3311,6 +3340,14 @@
       "avg_copies": 0,
       "decks_with": 0,
       "category": "Trainer",
+      "delta_vs_field": -4.0
+    },
+    {
+      "card_name": "Darkness Energy",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Energy",
       "delta_vs_field": -4.0
     },
     {

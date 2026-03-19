@@ -96,6 +96,13 @@
       "category": "Trainer"
     },
     {
+      "card_name": "Darkness Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 7.3,
+      "decks_with": 3,
+      "category": "Energy"
+    },
+    {
       "card_name": "Buddy-Buddy Poffin",
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
@@ -201,6 +208,13 @@
       "avg_copies": 1.0,
       "decks_with": 3,
       "category": "Trainer"
+    },
+    {
+      "card_name": "Darkness Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 7.3,
+      "decks_with": 3,
+      "category": "Energy"
     },
     {
       "card_name": "Buddy-Buddy Poffin",
@@ -803,39 +817,19 @@
     "consistency": 85.0,
     "ceiling": 90,
     "popularity": 0.5,
-    "core_density": 41.7
+    "core_density": 43.2
   },
   "evolution": [
     {
       "week": "2026-02-09",
       "adopted": [
         {
-          "card": "N's Darumaka",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
           "card": "Secret Box",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
         {
-          "card": "Risky Ruins",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Psyduck",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Brock's Scouting",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "N's Darmanitan",
+          "card": "N's Darumaka",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -845,7 +839,27 @@
           "to_pct": 50.0
         },
         {
+          "card": "Risky Ruins",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Brock's Scouting",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Psyduck",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
           "card": "Xerosic's Machinations",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "N's Darmanitan",
           "from_pct": 0.0,
           "to_pct": 50.0
         }
@@ -997,6 +1011,14 @@
       "avg_copies": 1.0,
       "decks_with": 2,
       "category": "Trainer",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Darkness Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 7.0,
+      "decks_with": 2,
+      "category": "Energy",
       "delta_vs_field": 0.0
     },
     {

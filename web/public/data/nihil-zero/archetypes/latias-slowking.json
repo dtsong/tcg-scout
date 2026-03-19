@@ -54,6 +54,13 @@
       "category": "Pokemon"
     },
     {
+      "card_name": "Psychic Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 5.0,
+      "decks_with": 8,
+      "category": "Energy"
+    },
+    {
       "card_name": "Poké Pad",
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
@@ -173,6 +180,13 @@
       "avg_copies": 3.0,
       "decks_with": 8,
       "category": "Pokemon"
+    },
+    {
+      "card_name": "Psychic Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 5.0,
+      "decks_with": 8,
+      "category": "Energy"
     },
     {
       "card_name": "Poké Pad",
@@ -1527,7 +1541,7 @@
     "consistency": 66.2,
     "ceiling": 100,
     "popularity": 1.3,
-    "core_density": 41.5
+    "core_density": 42.9
   },
   "evolution": [
     {
@@ -1546,7 +1560,7 @@
       ],
       "dropped": [
         {
-          "card": "Dusclops",
+          "card": "Haxorus",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -1556,7 +1570,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "Haxorus",
+          "card": "Dusclops",
           "from_pct": 100.0,
           "to_pct": 0.0
         }
@@ -1566,12 +1580,7 @@
       "week": "2026-02-23",
       "adopted": [
         {
-          "card": "Boss's Orders",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Lillie's Clefairy ex",
+          "card": "Surfer",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -1581,34 +1590,24 @@
           "to_pct": 100.0
         },
         {
-          "card": "Powerglass",
+          "card": "Lillie's Clefairy ex",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Surfer",
+          "card": "Boss's Orders",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Powerglass",
           "from_pct": 0.0,
           "to_pct": 100.0
         }
       ],
       "dropped": [
         {
-          "card": "Dusknoir",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Tatsugiri",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Rare Candy",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Regigigas",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -1619,6 +1618,21 @@
         },
         {
           "card": "Duskull",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Regigigas",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Dusknoir",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Tatsugiri",
           "from_pct": 100.0,
           "to_pct": 0.0
         }
@@ -1737,6 +1751,14 @@
       "avg_copies": 3.0,
       "decks_with": 3,
       "category": "Pokemon",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Psychic Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 5.0,
+      "decks_with": 3,
+      "category": "Energy",
       "delta_vs_field": 0.0
     },
     {

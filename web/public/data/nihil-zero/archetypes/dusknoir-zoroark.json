@@ -82,6 +82,13 @@
       "category": "Pokemon"
     },
     {
+      "card_name": "Darkness Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 7.5,
+      "decks_with": 11,
+      "category": "Energy"
+    },
+    {
       "card_name": "Buddy-Buddy Poffin",
       "inclusion_pct": 100.0,
       "avg_copies": 3.9,
@@ -208,6 +215,13 @@
       "avg_copies": 1.5,
       "decks_with": 11,
       "category": "Pokemon"
+    },
+    {
+      "card_name": "Darkness Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 7.5,
+      "decks_with": 11,
+      "category": "Energy"
     },
     {
       "card_name": "Buddy-Buddy Poffin",
@@ -2073,19 +2087,19 @@
     "consistency": 76.4,
     "ceiling": 100,
     "popularity": 1.8,
-    "core_density": 35.3
+    "core_density": 36.5
   },
   "evolution": [
     {
       "week": "2026-01-26",
       "adopted": [
         {
-          "card": "Munkidori",
+          "card": "Unfair Stamp",
           "from_pct": 0.0,
           "to_pct": 75.0
         },
         {
-          "card": "Unfair Stamp",
+          "card": "Munkidori",
           "from_pct": 0.0,
           "to_pct": 75.0
         },
@@ -2101,7 +2115,7 @@
       "week": "2026-02-02",
       "adopted": [
         {
-          "card": "Risky Ruins",
+          "card": "Xerosic's Machinations",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -2116,28 +2130,18 @@
           "to_pct": 50.0
         },
         {
-          "card": "Maximum Belt",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Xerosic's Machinations",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
           "card": "Black Belt's Training",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
         {
-          "card": "Budew",
-          "from_pct": 25.0,
+          "card": "Maximum Belt",
+          "from_pct": 0.0,
           "to_pct": 50.0
         },
         {
-          "card": "Team Rocket's Petrel",
-          "from_pct": 25.0,
+          "card": "Risky Ruins",
+          "from_pct": 0.0,
           "to_pct": 50.0
         },
         {
@@ -2146,7 +2150,7 @@
           "to_pct": 50.0
         },
         {
-          "card": "Tool Scrapper",
+          "card": "Team Rocket's Petrel",
           "from_pct": 25.0,
           "to_pct": 50.0
         },
@@ -2157,6 +2161,16 @@
         },
         {
           "card": "Switch",
+          "from_pct": 25.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Budew",
+          "from_pct": 25.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Tool Scrapper",
           "from_pct": 25.0,
           "to_pct": 50.0
         }
@@ -2172,17 +2186,7 @@
           "to_pct": 100.0
         },
         {
-          "card": "Hero's Cape",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Dawn",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Meowth ex",
+          "card": "Deluxe Bomb",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -2192,12 +2196,52 @@
           "to_pct": 50.0
         },
         {
-          "card": "Deluxe Bomb",
+          "card": "Meowth ex",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Hero's Cape",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Dawn",
           "from_pct": 0.0,
           "to_pct": 50.0
         }
       ],
       "dropped": [
+        {
+          "card": "Unfair Stamp",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Air Balloon",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Switch",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Maximum Belt",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Binding Mochi",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Team Rocket's Petrel",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
         {
           "card": "Risky Ruins",
           "from_pct": 50.0,
@@ -2209,42 +2253,12 @@
           "to_pct": 0.0
         },
         {
-          "card": "Air Balloon",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Team Rocket's Petrel",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Binding Mochi",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Cyrano",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Unfair Stamp",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Maximum Belt",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Xerosic's Machinations",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
-          "card": "Switch",
+          "card": "Cyrano",
           "from_pct": 50.0,
           "to_pct": 0.0
         }
@@ -2259,12 +2273,12 @@
           "to_pct": 100.0
         },
         {
-          "card": "Gravity Gemstone",
+          "card": "Cyrano",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Brock's Scouting",
+          "card": "Gravity Gemstone",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -2274,29 +2288,44 @@
           "to_pct": 100.0
         },
         {
-          "card": "Cyrano",
+          "card": "Brock's Scouting",
           "from_pct": 0.0,
           "to_pct": 100.0
         }
       ],
       "dropped": [
         {
-          "card": "Fezandipiti ex",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Black Belt's Training",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Hero's Cape",
+          "card": "Fezandipiti ex",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Deluxe Bomb",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
-          "card": "Dawn",
+          "card": "Rare Candy",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Ciphermaniac's Codebreaking",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Meowth ex",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Hero's Cape",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -2306,32 +2335,17 @@
           "to_pct": 0.0
         },
         {
-          "card": "Meowth ex",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Rare Candy",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Ciphermaniac's Codebreaking",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Hilda",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Deluxe Bomb",
+          "card": "Dawn",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
           "card": "Janine's Secret Art",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Hilda",
           "from_pct": 50.0,
           "to_pct": 0.0
         }
@@ -2341,17 +2355,7 @@
       "week": "2026-02-23",
       "adopted": [
         {
-          "card": "Fezandipiti ex",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
           "card": "Unfair Stamp",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Meowth ex",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -2366,12 +2370,22 @@
           "to_pct": 100.0
         },
         {
-          "card": "Janine's Secret Art",
+          "card": "Meowth ex",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
           "card": "Black Belt's Training",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Fezandipiti ex",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Janine's Secret Art",
           "from_pct": 0.0,
           "to_pct": 100.0
         }
@@ -2383,12 +2397,12 @@
           "to_pct": 0.0
         },
         {
-          "card": "Gravity Gemstone",
+          "card": "Munkidori",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Brock's Scouting",
+          "card": "Gravity Gemstone",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -2398,12 +2412,12 @@
           "to_pct": 0.0
         },
         {
-          "card": "Judge",
+          "card": "Brock's Scouting",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Munkidori",
+          "card": "Judge",
           "from_pct": 100.0,
           "to_pct": 0.0
         }
@@ -2570,6 +2584,14 @@
       "avg_copies": 1.7,
       "decks_with": 6,
       "category": "Pokemon",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Darkness Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 7.2,
+      "decks_with": 6,
+      "category": "Energy",
       "delta_vs_field": 0.0
     },
     {

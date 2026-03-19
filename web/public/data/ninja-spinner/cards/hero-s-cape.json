@@ -7,25 +7,25 @@
   "image_url": null,
   "category": "Trainer",
   "rarity": null,
-  "total_appearances": 55,
+  "total_appearances": 63,
   "usage_pct": 7.1,
   "avg_copies": 1.0,
-  "unique_archetypes": 25,
-  "weighted_score": 92.1,
-  "win_rate_proxy": 1.67,
+  "unique_archetypes": 27,
+  "weighted_score": 107.0,
+  "win_rate_proxy": 1.7,
   "top_archetype": "Crustle Munkidori",
-  "trend_direction": "declining",
+  "trend_direction": "stable",
   "copy_distribution": [
     {
       "copies": 1,
-      "count": 55
+      "count": 63
     }
   ],
   "archetypes": [
     {
       "name": "Crustle Munkidori",
       "slug": "crustle-munkidori",
-      "usage_count": 18,
+      "usage_count": 19,
       "avg_copies": 1.0,
       "tier": "C"
     },
@@ -46,6 +46,20 @@
     {
       "name": "Mewtwo Spidops",
       "slug": "mewtwo-spidops",
+      "usage_count": 3,
+      "avg_copies": 1.0,
+      "tier": "B"
+    },
+    {
+      "name": "Darmanitan Zoroark",
+      "slug": "darmanitan-zoroark",
+      "usage_count": 3,
+      "avg_copies": 1.0,
+      "tier": "B"
+    },
+    {
+      "name": "Zoroark ex",
+      "slug": "zoroark-ex",
       "usage_count": 2,
       "avg_copies": 1.0,
       "tier": "C"
@@ -58,6 +72,13 @@
       "tier": "B"
     },
     {
+      "name": "Mega Kangaskhan Meowth",
+      "slug": "mega-kangaskhan-meowth",
+      "usage_count": 2,
+      "avg_copies": 1.0,
+      "tier": "Rogue"
+    },
+    {
       "name": "Dragapult Dusknoir",
       "slug": "dragapult-dusknoir",
       "usage_count": 2,
@@ -65,18 +86,11 @@
       "tier": "B"
     },
     {
-      "name": "Darmanitan Zoroark",
-      "slug": "darmanitan-zoroark",
+      "name": "Archaludon ex",
+      "slug": "archaludon-ex",
       "usage_count": 2,
       "avg_copies": 1.0,
-      "tier": "B"
-    },
-    {
-      "name": "Zoroark ex",
-      "slug": "zoroark-ex",
-      "usage_count": 1,
-      "avg_copies": 1.0,
-      "tier": "C"
+      "tier": "Rogue"
     },
     {
       "name": "Pecharunt Zoroark",
@@ -88,6 +102,13 @@
     {
       "name": "Mega Starmie Drakloak",
       "slug": "mega-starmie-drakloak",
+      "usage_count": 1,
+      "avg_copies": 1.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Mega Starmie Crobat",
+      "slug": "mega-starmie-crobat",
       "usage_count": 1,
       "avg_copies": 1.0,
       "tier": "Rogue"
@@ -142,13 +163,6 @@
       "tier": "Rogue"
     },
     {
-      "name": "Mega Kangaskhan Meowth",
-      "slug": "mega-kangaskhan-meowth",
-      "usage_count": 1,
-      "avg_copies": 1.0,
-      "tier": "Rogue"
-    },
-    {
       "name": "Mega Kangaskhan Mega Lucario",
       "slug": "mega-kangaskhan-mega-lucario",
       "usage_count": 1,
@@ -174,7 +188,7 @@
       "slug": "dragapult-ex",
       "usage_count": 1,
       "avg_copies": 1.0,
-      "tier": "Rogue"
+      "tier": "C"
     },
     {
       "name": "Crustle Dragapult",
@@ -188,11 +202,11 @@
       "slug": "ceruledge-ex",
       "usage_count": 1,
       "avg_copies": 1.0,
-      "tier": "Rogue"
+      "tier": "C"
     },
     {
-      "name": "Archaludon ex",
-      "slug": "archaludon-ex",
+      "name": "Archaludon Cinderace",
+      "slug": "archaludon-cinderace",
       "usage_count": 1,
       "avg_copies": 1.0,
       "tier": "Rogue"
@@ -206,115 +220,115 @@
     },
     {
       "week": "2026-03-16",
-      "usage_pct": 3.6,
+      "usage_pct": 5.0,
       "avg_copies": 1.0
     }
   ],
   "synergy_partners": [
     {
       "card_name": "Fezandipiti",
-      "support": 15,
-      "lift": 14.036,
-      "jaccard": 0.273,
-      "weighted_score": 30.0
+      "support": 16,
+      "lift": 14.159,
+      "jaccard": 0.254,
+      "weighted_score": 33.0
     },
     {
       "card_name": "Crustle",
-      "support": 20,
-      "lift": 12.76,
-      "jaccard": 0.351,
-      "weighted_score": 37.4
+      "support": 21,
+      "lift": 12.928,
+      "jaccard": 0.323,
+      "weighted_score": 40.4
     },
     {
       "card_name": "Dwebble",
-      "support": 20,
-      "lift": 12.76,
-      "jaccard": 0.351,
-      "weighted_score": 37.4
+      "support": 21,
+      "lift": 12.928,
+      "jaccard": 0.323,
+      "weighted_score": 40.4
     },
     {
       "card_name": "Growth Grass Energy",
-      "support": 14,
-      "lift": 10.343,
-      "jaccard": 0.233,
-      "weighted_score": 26.5
+      "support": 15,
+      "lift": 10.619,
+      "jaccard": 0.221,
+      "weighted_score": 29.5
     },
     {
       "card_name": "Xerosic's Machinations",
-      "support": 14,
-      "lift": 8.544,
-      "jaccard": 0.219,
-      "weighted_score": 25.7
+      "support": 15,
+      "lift": 8.495,
+      "jaccard": 0.205,
+      "weighted_score": 28.7
     },
     {
       "card_name": "Cornerstone Mask Ogerpon ex",
-      "support": 17,
-      "lift": 7.457,
-      "jaccard": 0.243,
-      "weighted_score": 31.2
+      "support": 18,
+      "lift": 7.282,
+      "jaccard": 0.225,
+      "weighted_score": 34.2
+    },
+    {
+      "card_name": "Jumbo Ice Cream",
+      "support": 5,
+      "lift": 6.436,
+      "jaccard": 0.072,
+      "weighted_score": 9.2
     },
     {
       "card_name": "Morty's Conviction",
-      "support": 15,
-      "lift": 6.016,
-      "jaccard": 0.2,
-      "weighted_score": 30.8
+      "support": 16,
+      "lift": 5.962,
+      "jaccard": 0.188,
+      "weighted_score": 33.8
     },
     {
       "card_name": "Mist Energy",
-      "support": 20,
-      "lift": 3.846,
-      "jaccard": 0.185,
-      "weighted_score": 37.4
+      "support": 21,
+      "lift": 3.861,
+      "jaccard": 0.176,
+      "weighted_score": 40.4
+    },
+    {
+      "card_name": "Pokégear 3.0",
+      "support": 29,
+      "lift": 3.45,
+      "jaccard": 0.19,
+      "weighted_score": 53.4
+    },
+    {
+      "card_name": "Prism Energy",
+      "support": 7,
+      "lift": 3.418,
+      "jaccard": 0.082,
+      "weighted_score": 13.1
+    },
+    {
+      "card_name": "Lana's Aid",
+      "support": 19,
+      "lift": 3.165,
+      "jaccard": 0.147,
+      "weighted_score": 37.7
     },
     {
       "card_name": "Bulbasaur",
       "support": 6,
-      "lift": 3.509,
-      "jaccard": 0.082,
+      "lift": 3.146,
+      "jaccard": 0.071,
       "weighted_score": 8.8
     },
     {
       "card_name": "Ivysaur",
       "support": 6,
-      "lift": 3.509,
-      "jaccard": 0.082,
+      "lift": 3.146,
+      "jaccard": 0.071,
       "weighted_score": 8.8
     },
     {
       "card_name": "Mega Venusaur ex",
       "support": 6,
-      "lift": 3.509,
-      "jaccard": 0.082,
+      "lift": 3.146,
+      "jaccard": 0.071,
       "weighted_score": 8.8
-    },
-    {
-      "card_name": "Lana's Aid",
-      "support": 18,
-      "lift": 3.414,
-      "jaccard": 0.162,
-      "weighted_score": 34.7
-    },
-    {
-      "card_name": "Pokégear 3.0",
-      "support": 25,
-      "lift": 3.342,
-      "jaccard": 0.185,
-      "weighted_score": 45.2
-    },
-    {
-      "card_name": "Prism Energy",
-      "support": 6,
-      "lift": 3.239,
-      "jaccard": 0.08,
-      "weighted_score": 10.1
-    },
-    {
-      "card_name": "Team Rocket's Articuno",
-      "support": 8,
-      "lift": 2.807,
-      "jaccard": 0.092,
-      "weighted_score": 14.1
     }
   ]
 }

@@ -89,6 +89,13 @@
       "category": "Trainer"
     },
     {
+      "card_name": "Fighting Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 10.3,
+      "decks_with": 3,
+      "category": "Energy"
+    },
+    {
       "card_name": "Boss's Orders",
       "inclusion_pct": 100.0,
       "avg_copies": 3.3,
@@ -173,6 +180,13 @@
       "avg_copies": 4.0,
       "decks_with": 3,
       "category": "Trainer"
+    },
+    {
+      "card_name": "Fighting Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 10.3,
+      "decks_with": 3,
+      "category": "Energy"
     },
     {
       "card_name": "Boss's Orders",
@@ -655,7 +669,7 @@
     "consistency": 48.3,
     "ceiling": 50,
     "popularity": 0.5,
-    "core_density": 40.0
+    "core_density": 41.9
   },
   "evolution": [
     {
@@ -667,12 +681,12 @@
           "to_pct": 100.0
         },
         {
-          "card": "Tool Scrapper",
+          "card": "Meowth ex",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Meowth ex",
+          "card": "Switch",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -687,12 +701,27 @@
           "to_pct": 100.0
         },
         {
-          "card": "Switch",
+          "card": "Tool Scrapper",
           "from_pct": 0.0,
           "to_pct": 100.0
         }
       ],
       "dropped": [
+        {
+          "card": "Wally's Compassion",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Kieran",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Scoop Up Cyclone",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
         {
           "card": "Carmine",
           "from_pct": 100.0,
@@ -704,27 +733,12 @@
           "to_pct": 0.0
         },
         {
-          "card": "Judge",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Kieran",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Wally's Compassion",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Scoop Up Cyclone",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Pokégear 3.0",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Judge",
           "from_pct": 100.0,
           "to_pct": 0.0
         }
@@ -734,22 +748,7 @@
       "week": "2026-02-23",
       "adopted": [
         {
-          "card": "Psyduck",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Carmine",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Judge",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Fezandipiti ex",
+          "card": "Prime Catcher",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -759,24 +758,39 @@
           "to_pct": 100.0
         },
         {
+          "card": "Fezandipiti ex",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Carmine",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
           "card": "Genesect",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Prime Catcher",
+          "card": "Psyduck",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Judge",
           "from_pct": 0.0,
           "to_pct": 100.0
         }
       ],
       "dropped": [
         {
-          "card": "Tool Scrapper",
+          "card": "Ciphermaniac's Codebreaking",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Ciphermaniac's Codebreaking",
+          "card": "Switch",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -791,7 +805,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "Switch",
+          "card": "Tool Scrapper",
           "from_pct": 100.0,
           "to_pct": 0.0
         }

@@ -7,12 +7,12 @@
   "image_url": null,
   "category": "Trainer",
   "rarity": null,
-  "total_appearances": 30,
-  "usage_pct": 3.9,
-  "avg_copies": 3.5,
+  "total_appearances": 34,
+  "usage_pct": 3.8,
+  "avg_copies": 3.4,
   "unique_archetypes": 4,
-  "weighted_score": 47.1,
-  "win_rate_proxy": 1.57,
+  "weighted_score": 52.5,
+  "win_rate_proxy": 1.54,
   "top_archetype": "Grimmsnarl Munkidori",
   "trend_direction": "stable",
   "copy_distribution": [
@@ -22,18 +22,18 @@
     },
     {
       "copies": 3,
-      "count": 12
+      "count": 15
     },
     {
       "copies": 4,
-      "count": 16
+      "count": 17
     }
   ],
   "archetypes": [
     {
       "name": "Grimmsnarl Munkidori",
       "slug": "grimmsnarl-munkidori",
-      "usage_count": 22,
+      "usage_count": 26,
       "avg_copies": 3.6,
       "tier": "C"
     },
@@ -67,115 +67,115 @@
     },
     {
       "week": "2026-03-16",
-      "usage_pct": 3.6,
-      "avg_copies": 3.4
+      "usage_pct": 3.5,
+      "avg_copies": 3.3
     }
   ],
   "synergy_partners": [
     {
       "card_name": "Marnie's Grimmsnarl ex",
-      "support": 30,
-      "lift": 25.733,
+      "support": 34,
+      "lift": 26.235,
       "jaccard": 1.0,
-      "weighted_score": 47.1
+      "weighted_score": 52.5
     },
     {
       "card_name": "Marnie's Impidimp",
-      "support": 30,
-      "lift": 25.733,
+      "support": 34,
+      "lift": 26.235,
       "jaccard": 1.0,
-      "weighted_score": 47.1
+      "weighted_score": 52.5
     },
     {
       "card_name": "Marnie's Morgrem",
-      "support": 30,
-      "lift": 25.733,
+      "support": 34,
+      "lift": 26.235,
       "jaccard": 1.0,
-      "weighted_score": 47.1
+      "weighted_score": 52.5
     },
     {
       "card_name": "Froslass",
-      "support": 29,
-      "lift": 18.202,
-      "jaccard": 0.69,
-      "weighted_score": 45.9
+      "support": 33,
+      "lift": 18.821,
+      "jaccard": 0.702,
+      "weighted_score": 51.3
     },
     {
       "card_name": "Snorunt",
-      "support": 29,
-      "lift": 16.961,
-      "jaccard": 0.644,
-      "weighted_score": 45.9
+      "support": 33,
+      "lift": 17.315,
+      "jaccard": 0.647,
+      "weighted_score": 51.3
     },
     {
       "card_name": "Tatsugiri",
-      "support": 26,
-      "lift": 14.545,
-      "jaccard": 0.52,
-      "weighted_score": 39.9
+      "support": 30,
+      "lift": 14.575,
+      "jaccard": 0.517,
+      "weighted_score": 45.3
+    },
+    {
+      "card_name": "Larry's Skill",
+      "support": 5,
+      "lift": 13.118,
+      "jaccard": 0.128,
+      "weighted_score": 8.1
     },
     {
       "card_name": "Yveltal",
-      "support": 11,
-      "lift": 9.436,
-      "jaccard": 0.224,
-      "weighted_score": 19.9
+      "support": 13,
+      "lift": 9.745,
+      "jaccard": 0.232,
+      "weighted_score": 22.6
     },
     {
       "card_name": "Secret Box",
-      "support": 17,
-      "lift": 8.578,
-      "jaccard": 0.266,
-      "weighted_score": 27.4
+      "support": 19,
+      "lift": 8.308,
+      "jaccard": 0.253,
+      "weighted_score": 29.8
     },
     {
       "card_name": "Team Rocket's Petrel",
-      "support": 29,
-      "lift": 4.416,
-      "jaccard": 0.171,
-      "weighted_score": 45.9
+      "support": 33,
+      "lift": 4.463,
+      "jaccard": 0.169,
+      "weighted_score": 51.3
+    },
+    {
+      "card_name": "Morty's Conviction",
+      "support": 6,
+      "lift": 4.142,
+      "jaccard": 0.091,
+      "weighted_score": 9.7
     },
     {
       "card_name": "Air Balloon",
-      "support": 27,
-      "lift": 3.948,
-      "jaccard": 0.151,
-      "weighted_score": 42.9
+      "support": 31,
+      "lift": 4.046,
+      "jaccard": 0.152,
+      "weighted_score": 48.3
     },
     {
       "card_name": "Bloodmoon Ursaluna ex",
       "support": 7,
-      "lift": 3.753,
-      "jaccard": 0.099,
+      "lift": 3.401,
+      "jaccard": 0.086,
       "weighted_score": 9.6
     },
     {
-      "card_name": "Morty's Conviction",
-      "support": 5,
-      "lift": 3.676,
-      "jaccard": 0.083,
-      "weighted_score": 8.2
-    },
-    {
       "card_name": "Shaymin",
-      "support": 15,
-      "lift": 3.063,
-      "jaccard": 0.106,
-      "weighted_score": 25.0
+      "support": 17,
+      "lift": 3.034,
+      "jaccard": 0.104,
+      "weighted_score": 27.7
     },
     {
       "card_name": "Rare Candy",
-      "support": 30,
-      "lift": 2.924,
-      "jaccard": 0.114,
-      "weighted_score": 47.1
-    },
-    {
-      "card_name": "Munkidori",
-      "support": 30,
-      "lift": 2.747,
-      "jaccard": 0.107,
-      "weighted_score": 47.1
+      "support": 34,
+      "lift": 2.915,
+      "jaccard": 0.111,
+      "weighted_score": 52.5
     }
   ]
 }

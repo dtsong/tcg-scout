@@ -47,6 +47,13 @@
       "category": "Trainer"
     },
     {
+      "card_name": "Psychic Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 6.7,
+      "decks_with": 3,
+      "category": "Energy"
+    },
+    {
       "card_name": "Poké Pad",
       "inclusion_pct": 100.0,
       "avg_copies": 3.7,
@@ -173,6 +180,13 @@
       "avg_copies": 1.0,
       "decks_with": 3,
       "category": "Trainer"
+    },
+    {
+      "card_name": "Psychic Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 6.7,
+      "decks_with": 3,
+      "category": "Energy"
     },
     {
       "card_name": "Poké Pad",
@@ -808,7 +822,7 @@
     "consistency": 56.7,
     "ceiling": 90,
     "popularity": 0.5,
-    "core_density": 54.5
+    "core_density": 55.9
   },
   "evolution": [
     {
@@ -827,12 +841,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "Air Balloon",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Dusclops",
+          "card": "Lana's Aid",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -842,17 +851,22 @@
           "to_pct": 0.0
         },
         {
-          "card": "Hilda",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Lana's Aid",
+          "card": "Air Balloon",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
           "card": "Bloodmoon Ursaluna ex",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Hilda",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Dusclops",
           "from_pct": 50.0,
           "to_pct": 0.0
         }
@@ -960,6 +974,14 @@
       "avg_copies": 1.0,
       "decks_with": 1,
       "category": "Trainer",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Psychic Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 7.0,
+      "decks_with": 1,
+      "category": "Energy",
       "delta_vs_field": 0.0
     },
     {

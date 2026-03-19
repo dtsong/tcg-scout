@@ -68,6 +68,13 @@
       "category": "Trainer"
     },
     {
+      "card_name": "Lightning Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 10.0,
+      "decks_with": 2,
+      "category": "Energy"
+    },
+    {
       "card_name": "Judge",
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
@@ -187,6 +194,13 @@
       "avg_copies": 3.5,
       "decks_with": 2,
       "category": "Trainer"
+    },
+    {
+      "card_name": "Lightning Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 10.0,
+      "decks_with": 2,
+      "category": "Energy"
     },
     {
       "card_name": "Judge",
@@ -600,19 +614,19 @@
     "consistency": 47.5,
     "ceiling": 25,
     "popularity": 0.3,
-    "core_density": 58.6
+    "core_density": 60.0
   },
   "evolution": [
     {
       "week": "2026-03-02",
       "adopted": [
         {
-          "card": "Secret Box",
+          "card": "Iono's Wattrel",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Budew",
+          "card": "Secret Box",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -622,39 +636,24 @@
           "to_pct": 100.0
         },
         {
-          "card": "Iono's Wattrel",
+          "card": "Stunfisk",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Stunfisk",
+          "card": "Budew",
           "from_pct": 0.0,
           "to_pct": 100.0
         }
       ],
       "dropped": [
         {
-          "card": "Zeraora",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Fezandipiti ex",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Explorer's Guidance",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Tool Scrapper",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Tapu Koko",
+          "card": "Zekrom ex",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -664,7 +663,22 @@
           "to_pct": 0.0
         },
         {
-          "card": "Zekrom ex",
+          "card": "Fezandipiti ex",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Tool Scrapper",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Zeraora",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Tapu Koko",
           "from_pct": 100.0,
           "to_pct": 0.0
         }

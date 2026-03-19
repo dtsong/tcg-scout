@@ -7,22 +7,22 @@
   "image_url": null,
   "category": "Trainer",
   "rarity": null,
-  "total_appearances": 187,
-  "usage_pct": 24.2,
+  "total_appearances": 224,
+  "usage_pct": 25.1,
   "avg_copies": 1.2,
-  "unique_archetypes": 40,
-  "weighted_score": 298.4,
-  "win_rate_proxy": 1.6,
+  "unique_archetypes": 41,
+  "weighted_score": 355.9,
+  "win_rate_proxy": 1.59,
   "top_archetype": "Dragapult Meowth",
   "trend_direction": "declining",
   "copy_distribution": [
     {
       "copies": 1,
-      "count": 144
+      "count": 176
     },
     {
       "copies": 2,
-      "count": 41
+      "count": 46
     },
     {
       "copies": 3,
@@ -33,57 +33,64 @@
     {
       "name": "Dragapult Meowth",
       "slug": "dragapult-meowth",
-      "usage_count": 45,
+      "usage_count": 56,
       "avg_copies": 1.1,
       "tier": "A"
     },
     {
       "name": "Dragapult Dusknoir",
       "slug": "dragapult-dusknoir",
-      "usage_count": 26,
+      "usage_count": 32,
       "avg_copies": 1.2,
       "tier": "B"
     },
     {
       "name": "Blaziken Dragapult",
       "slug": "blaziken-dragapult",
-      "usage_count": 18,
+      "usage_count": 21,
       "avg_copies": 1.2,
       "tier": "B"
     },
     {
       "name": "Mega Lucario",
       "slug": "mega-lucario",
-      "usage_count": 13,
+      "usage_count": 16,
       "avg_copies": 1.5,
       "tier": "B"
     },
     {
       "name": "Darmanitan Zoroark",
       "slug": "darmanitan-zoroark",
-      "usage_count": 11,
+      "usage_count": 14,
       "avg_copies": 1.1,
       "tier": "B"
     },
     {
       "name": "Garchomp Roserade",
       "slug": "garchomp-roserade",
-      "usage_count": 9,
+      "usage_count": 10,
       "avg_copies": 1.4,
       "tier": "B"
     },
     {
       "name": "Mewtwo Spidops",
       "slug": "mewtwo-spidops",
-      "usage_count": 5,
-      "avg_copies": 1.2,
-      "tier": "C"
+      "usage_count": 7,
+      "avg_copies": 1.1,
+      "tier": "B"
     },
     {
       "name": "Grimmsnarl Munkidori",
       "slug": "grimmsnarl-munkidori",
-      "usage_count": 5,
-      "avg_copies": 1.2,
+      "usage_count": 6,
+      "avg_copies": 1.3,
+      "tier": "C"
+    },
+    {
+      "name": "Dragapult ex",
+      "slug": "dragapult-ex",
+      "usage_count": 6,
+      "avg_copies": 1.5,
       "tier": "C"
     },
     {
@@ -94,18 +101,18 @@
       "tier": "C"
     },
     {
-      "name": "Dragapult ex",
-      "slug": "dragapult-ex",
-      "usage_count": 4,
-      "avg_copies": 1.8,
-      "tier": "Rogue"
-    },
-    {
       "name": "Zoroark ex",
       "slug": "zoroark-ex",
-      "usage_count": 3,
-      "avg_copies": 1.7,
+      "usage_count": 4,
+      "avg_copies": 1.5,
       "tier": "C"
+    },
+    {
+      "name": "Munkidori Toxtricity",
+      "slug": "munkidori-toxtricity",
+      "usage_count": 3,
+      "avg_copies": 1.3,
+      "tier": "Rogue"
     },
     {
       "name": "Mega Sharpedo Toxtricity",
@@ -122,15 +129,22 @@
       "tier": "Rogue"
     },
     {
-      "name": "Pecharunt Zoroark",
-      "slug": "pecharunt-zoroark",
-      "usage_count": 2,
-      "avg_copies": 1.5,
+      "name": "Mega Greninja Dragapult",
+      "slug": "mega-greninja-dragapult",
+      "usage_count": 3,
+      "avg_copies": 1.3,
+      "tier": "C"
+    },
+    {
+      "name": "Archaludon ex",
+      "slug": "archaludon-ex",
+      "usage_count": 3,
+      "avg_copies": 1.3,
       "tier": "Rogue"
     },
     {
-      "name": "Munkidori Toxtricity",
-      "slug": "munkidori-toxtricity",
+      "name": "Pecharunt Zoroark",
+      "slug": "pecharunt-zoroark",
       "usage_count": 2,
       "avg_copies": 1.5,
       "tier": "Rogue"
@@ -148,13 +162,6 @@
       "usage_count": 2,
       "avg_copies": 1.0,
       "tier": "B"
-    },
-    {
-      "name": "Mega Greninja Dragapult",
-      "slug": "mega-greninja-dragapult",
-      "usage_count": 2,
-      "avg_copies": 1.5,
-      "tier": "C"
     },
     {
       "name": "Mega Froslass Mega Starmie",
@@ -185,15 +192,15 @@
       "tier": "Rogue"
     },
     {
-      "name": "Archaludon ex",
-      "slug": "archaludon-ex",
-      "usage_count": 2,
-      "avg_copies": 1.5,
+      "name": "Spidops",
+      "slug": "spidops",
+      "usage_count": 1,
+      "avg_copies": 2.0,
       "tier": "Rogue"
     },
     {
-      "name": "Spidops",
-      "slug": "spidops",
+      "name": "Pecharunt Toxtricity",
+      "slug": "pecharunt-toxtricity",
       "usage_count": 1,
       "avg_copies": 2.0,
       "tier": "Rogue"
@@ -280,7 +287,7 @@
       "slug": "ceruledge-ex",
       "usage_count": 1,
       "avg_copies": 1.0,
-      "tier": "Rogue"
+      "tier": "C"
     },
     {
       "name": "Bronzong Dragapult",
@@ -319,115 +326,115 @@
     },
     {
       "week": "2026-03-16",
-      "usage_pct": 12.9,
+      "usage_pct": 21.2,
       "avg_copies": 1.2
     }
   ],
   "synergy_partners": [
     {
+      "card_name": "Brute Bonnet",
+      "support": 5,
+      "lift": 3.982,
+      "jaccard": 0.022,
+      "weighted_score": 6.0
+    },
+    {
       "card_name": "Team Rocket's Sneasel",
-      "support": 6,
-      "lift": 3.539,
-      "jaccard": 0.032,
-      "weighted_score": 8.6
+      "support": 9,
+      "lift": 3.584,
+      "jaccard": 0.04,
+      "weighted_score": 12.2
     },
     {
       "card_name": "Toxel",
-      "support": 6,
-      "lift": 3.096,
-      "jaccard": 0.032,
-      "weighted_score": 8.5
+      "support": 8,
+      "lift": 3.186,
+      "jaccard": 0.035,
+      "weighted_score": 10.9
     },
     {
       "card_name": "Toxtricity",
-      "support": 6,
-      "lift": 3.096,
-      "jaccard": 0.032,
-      "weighted_score": 8.5
-    },
-    {
-      "card_name": "Combusken",
-      "support": 19,
-      "lift": 2.705,
-      "jaccard": 0.096,
-      "weighted_score": 30.1
+      "support": 8,
+      "lift": 3.186,
+      "jaccard": 0.035,
+      "weighted_score": 10.9
     },
     {
       "card_name": "Rosa's Encouragement",
-      "support": 62,
-      "lift": 2.666,
-      "jaccard": 0.281,
-      "weighted_score": 100.5
+      "support": 78,
+      "lift": 2.701,
+      "jaccard": 0.299,
+      "weighted_score": 127.4
     },
     {
       "card_name": "Risky Ruins",
-      "support": 61,
-      "lift": 2.623,
-      "jaccard": 0.275,
-      "weighted_score": 100.8
+      "support": 76,
+      "lift": 2.609,
+      "jaccard": 0.288,
+      "weighted_score": 125.7
     },
     {
-      "card_name": "Blaziken ex",
-      "support": 19,
-      "lift": 2.615,
-      "jaccard": 0.096,
-      "weighted_score": 30.1
-    },
-    {
-      "card_name": "Torchic",
-      "support": 19,
-      "lift": 2.615,
-      "jaccard": 0.096,
-      "weighted_score": 30.1
+      "card_name": "Combusken",
+      "support": 22,
+      "lift": 2.577,
+      "jaccard": 0.093,
+      "weighted_score": 34.0
     },
     {
       "card_name": "Dragapult ex",
-      "support": 101,
-      "lift": 2.512,
-      "jaccard": 0.401,
-      "weighted_score": 161.3
+      "support": 124,
+      "lift": 2.494,
+      "jaccard": 0.416,
+      "weighted_score": 199.3
     },
     {
       "card_name": "Drakloak",
-      "support": 101,
-      "lift": 2.497,
-      "jaccard": 0.399,
-      "weighted_score": 161.3
+      "support": 124,
+      "lift": 2.481,
+      "jaccard": 0.415,
+      "weighted_score": 199.3
     },
     {
       "card_name": "Dreepy",
-      "support": 101,
-      "lift": 2.497,
-      "jaccard": 0.399,
-      "weighted_score": 161.3
+      "support": 124,
+      "lift": 2.481,
+      "jaccard": 0.415,
+      "weighted_score": 199.3
+    },
+    {
+      "card_name": "Blaziken ex",
+      "support": 22,
+      "lift": 2.434,
+      "jaccard": 0.092,
+      "weighted_score": 34.0
+    },
+    {
+      "card_name": "Torchic",
+      "support": 22,
+      "lift": 2.434,
+      "jaccard": 0.092,
+      "weighted_score": 34.0
     },
     {
       "card_name": "Dusknoir",
-      "support": 68,
-      "lift": 2.246,
-      "jaccard": 0.279,
-      "weighted_score": 107.4
+      "support": 84,
+      "lift": 2.26,
+      "jaccard": 0.292,
+      "weighted_score": 135.6
     },
     {
       "card_name": "Duskull",
-      "support": 68,
-      "lift": 2.246,
-      "jaccard": 0.279,
-      "weighted_score": 107.4
+      "support": 84,
+      "lift": 2.26,
+      "jaccard": 0.292,
+      "weighted_score": 135.6
     },
     {
       "card_name": "Dusclops",
-      "support": 66,
-      "lift": 2.233,
-      "jaccard": 0.272,
-      "weighted_score": 104.2
-    },
-    {
-      "card_name": "Munkidori",
-      "support": 137,
-      "lift": 2.013,
-      "jaccard": 0.414,
-      "weighted_score": 222.2
+      "support": 82,
+      "lift": 2.252,
+      "jaccard": 0.286,
+      "weighted_score": 132.4
     }
   ]
 }

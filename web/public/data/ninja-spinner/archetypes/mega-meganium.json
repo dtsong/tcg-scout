@@ -2,8 +2,8 @@
   "archetype": "Mega Meganium",
   "slug": "mega-meganium",
   "tier": "Rogue",
-  "meta_share": 0.8,
-  "weighted_share": 0.7,
+  "meta_share": 0.7,
+  "weighted_share": 0.6,
   "deck_count": 6,
   "best_placement": 3,
   "sprite_filenames": [
@@ -87,6 +87,13 @@
       "avg_copies": 2.0,
       "decks_with": 6,
       "category": "Pokemon"
+    },
+    {
+      "card_name": "Grass Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 11.2,
+      "decks_with": 6,
+      "category": "Energy"
     },
     {
       "card_name": "Forest of Vitality",
@@ -229,6 +236,13 @@
       "avg_copies": 2.0,
       "decks_with": 6,
       "category": "Pokemon"
+    },
+    {
+      "card_name": "Grass Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 11.2,
+      "decks_with": 6,
+      "category": "Energy"
     },
     {
       "card_name": "Forest of Vitality",
@@ -1164,12 +1178,12 @@
     }
   ],
   "radar": {
-    "meta_share": 3.9,
-    "weighted_share": 3.4,
+    "meta_share": 3.4,
+    "weighted_share": 2.9,
     "consistency": 51.7,
     "ceiling": 75,
-    "popularity": 7.9,
-    "core_density": 62.5
+    "popularity": 6.6,
+    "core_density": 63.6
   },
   "evolution": [
     {
@@ -1188,17 +1202,17 @@
       ],
       "dropped": [
         {
-          "card": "Special Red Card",
-          "from_pct": 60.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Lana's Aid",
           "from_pct": 60.0,
           "to_pct": 0.0
         },
         {
           "card": "Unfair Stamp",
+          "from_pct": 60.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Special Red Card",
           "from_pct": 60.0,
           "to_pct": 0.0
         }
@@ -1225,7 +1239,7 @@
     },
     {
       "week": "2026-03-16",
-      "meta_share": 0.7,
+      "meta_share": 0.4,
       "deck_count": 1
     }
   ],
@@ -1332,6 +1346,14 @@
       "avg_copies": 2.0,
       "decks_with": 1,
       "category": "Pokemon",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Grass Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 12.0,
+      "decks_with": 1,
+      "category": "Energy",
       "delta_vs_field": 0.0
     },
     {

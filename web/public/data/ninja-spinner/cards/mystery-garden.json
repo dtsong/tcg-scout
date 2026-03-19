@@ -7,12 +7,12 @@
   "image_url": null,
   "category": "Trainer",
   "rarity": null,
-  "total_appearances": 12,
+  "total_appearances": 14,
   "usage_pct": 1.6,
-  "avg_copies": 2.8,
-  "unique_archetypes": 4,
-  "weighted_score": 16.4,
-  "win_rate_proxy": 1.37,
+  "avg_copies": 2.9,
+  "unique_archetypes": 5,
+  "weighted_score": 19.1,
+  "win_rate_proxy": 1.36,
   "top_archetype": "Dusknoir Jellicent",
   "trend_direction": "stable",
   "copy_distribution": [
@@ -26,7 +26,7 @@
     },
     {
       "copies": 4,
-      "count": 1
+      "count": 3
     }
   ],
   "archetypes": [
@@ -40,8 +40,8 @@
     {
       "name": "Mega Diancie Dusknoir",
       "slug": "mega-diancie-dusknoir",
-      "usage_count": 4,
-      "avg_copies": 3.0,
+      "usage_count": 5,
+      "avg_copies": 3.2,
       "tier": "Rogue"
     },
     {
@@ -49,6 +49,13 @@
       "slug": "mega-diancie-mega-slowbro",
       "usage_count": 1,
       "avg_copies": 2.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Mega Diancie Mega Kangaskhan",
+      "slug": "mega-diancie-mega-kangaskhan",
+      "usage_count": 1,
+      "avg_copies": 4.0,
       "tier": "Rogue"
     },
     {
@@ -67,115 +74,115 @@
     },
     {
       "week": "2026-03-16",
-      "usage_pct": 2.1,
-      "avg_copies": 2.7
+      "usage_pct": 1.9,
+      "avg_copies": 3.2
     }
   ],
   "synergy_partners": [
     {
       "card_name": "Mega Diancie ex",
-      "support": 11,
-      "lift": 64.333,
-      "jaccard": 0.917,
-      "weighted_score": 14.4
+      "support": 13,
+      "lift": 63.714,
+      "jaccard": 0.929,
+      "weighted_score": 17.1
     },
     {
       "card_name": "Powerglass",
+      "support": 11,
+      "lift": 36.887,
+      "jaccard": 0.5,
+      "weighted_score": 14.7
+    },
+    {
+      "card_name": "Frillish",
       "support": 9,
-      "lift": 36.188,
-      "jaccard": 0.474,
-      "weighted_score": 12.0
+      "lift": 35.839,
+      "jaccard": 0.429,
+      "weighted_score": 12.2
     },
     {
       "card_name": "Jellicent ex",
       "support": 6,
-      "lift": 35.091,
-      "jaccard": 0.353,
+      "lift": 34.753,
+      "jaccard": 0.316,
       "weighted_score": 7.8
     },
     {
-      "card_name": "Frillish",
-      "support": 8,
-      "lift": 34.311,
-      "jaccard": 0.421,
-      "weighted_score": 11.0
-    },
-    {
       "card_name": "Wondrous Patch",
-      "support": 12,
-      "lift": 17.953,
-      "jaccard": 0.279,
-      "weighted_score": 16.4
+      "support": 14,
+      "lift": 17.84,
+      "jaccard": 0.28,
+      "weighted_score": 19.1
     },
     {
       "card_name": "Telepath Psychic Energy",
-      "support": 12,
-      "lift": 11.522,
-      "jaccard": 0.179,
-      "weighted_score": 16.4
+      "support": 14,
+      "lift": 12.054,
+      "jaccard": 0.189,
+      "weighted_score": 19.1
+    },
+    {
+      "card_name": "Prime Catcher",
+      "support": 5,
+      "lift": 8.168,
+      "jaccard": 0.104,
+      "weighted_score": 6.3
+    },
+    {
+      "card_name": "Carmine",
+      "support": 6,
+      "lift": 5.384,
+      "jaccard": 0.076,
+      "weighted_score": 7.8
     },
     {
       "card_name": "Dusclops",
-      "support": 11,
-      "lift": 5.801,
-      "jaccard": 0.089,
-      "weighted_score": 14.9
+      "support": 12,
+      "lift": 5.273,
+      "jaccard": 0.082,
+      "weighted_score": 16.1
     },
     {
       "card_name": "Dusknoir",
-      "support": 11,
-      "lift": 5.661,
-      "jaccard": 0.087,
-      "weighted_score": 14.9
+      "support": 12,
+      "lift": 5.166,
+      "jaccard": 0.08,
+      "weighted_score": 16.1
     },
     {
       "card_name": "Duskull",
-      "support": 11,
-      "lift": 5.661,
-      "jaccard": 0.087,
-      "weighted_score": 14.9
-    },
-    {
-      "card_name": "Lillie's Clefairy ex",
       "support": 12,
-      "lift": 3.431,
-      "jaccard": 0.053,
-      "weighted_score": 16.4
+      "lift": 5.166,
+      "jaccard": 0.08,
+      "weighted_score": 16.1
     },
     {
       "card_name": "Latias ex",
-      "support": 12,
-      "lift": 3.416,
-      "jaccard": 0.053,
-      "weighted_score": 16.4
+      "support": 14,
+      "lift": 3.444,
+      "jaccard": 0.054,
+      "weighted_score": 19.1
+    },
+    {
+      "card_name": "Lillie's Clefairy ex",
+      "support": 14,
+      "lift": 3.444,
+      "jaccard": 0.054,
+      "weighted_score": 19.1
     },
     {
       "card_name": "Judge",
       "support": 8,
-      "lift": 3.342,
-      "jaccard": 0.051,
+      "lift": 2.929,
+      "jaccard": 0.044,
       "weighted_score": 10.5
     },
     {
       "card_name": "Hilda",
       "support": 7,
-      "lift": 3.336,
-      "jaccard": 0.05,
+      "lift": 2.896,
+      "jaccard": 0.043,
       "weighted_score": 10.1
-    },
-    {
-      "card_name": "Rare Candy",
-      "support": 7,
-      "lift": 1.706,
-      "jaccard": 0.026,
-      "weighted_score": 9.0
-    },
-    {
-      "card_name": "Ultra Ball",
-      "support": 12,
-      "lift": 1.266,
-      "jaccard": 0.02,
-      "weighted_score": 16.4
     }
   ]
 }

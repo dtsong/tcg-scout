@@ -3,7 +3,7 @@
   "slug": "hydrapple-ogerpon",
   "tier": "Rogue",
   "meta_share": 0.5,
-  "weighted_share": 0.5,
+  "weighted_share": 0.4,
   "deck_count": 4,
   "best_placement": 5,
   "sprite_filenames": [
@@ -59,6 +59,13 @@
       "avg_copies": 2.8,
       "decks_with": 4,
       "category": "Pokemon"
+    },
+    {
+      "card_name": "Grass Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 11.0,
+      "decks_with": 4,
+      "category": "Energy"
     },
     {
       "card_name": "Forest of Vitality",
@@ -159,6 +166,13 @@
       "avg_copies": 2.8,
       "decks_with": 4,
       "category": "Pokemon"
+    },
+    {
+      "card_name": "Grass Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 11.0,
+      "decks_with": 4,
+      "category": "Energy"
     },
     {
       "card_name": "Forest of Vitality",
@@ -932,12 +946,12 @@
     }
   ],
   "radar": {
-    "meta_share": 2.6,
-    "weighted_share": 2.3,
+    "meta_share": 2.2,
+    "weighted_share": 2.0,
     "consistency": 62.5,
     "ceiling": 50,
-    "popularity": 5.3,
-    "core_density": 35.0
+    "popularity": 4.4,
+    "core_density": 36.6
   },
   "evolution": [],
   "variants": [

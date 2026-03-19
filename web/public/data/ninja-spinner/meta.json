@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-03-18T20:30:46.744802",
-  "tournament_count": 54,
-  "deck_count": 772,
+  "generated_at": "2026-03-19T19:54:20.976459",
+  "tournament_count": 62,
+  "deck_count": 892,
   "date_range": {
     "start": "2026-03-14",
-    "end": "2026-03-18"
+    "end": "2026-03-19"
   },
   "rotation_date": "2026-06-05",
   "tier_thresholds": {
@@ -17,9 +17,9 @@
     {
       "archetype": "Dragapult Meowth",
       "slug": "dragapult-meowth",
-      "meta_share": 9.8,
-      "weighted_share": 10.9,
-      "deck_count": 76,
+      "meta_share": 10.2,
+      "weighted_share": 11.2,
+      "deck_count": 91,
       "best_placement": 1,
       "tier": "A",
       "sprite_filenames": [
@@ -27,14 +27,14 @@
         "meowth.png"
       ],
       "trend": "up",
-      "trend_delta": 4.6
+      "trend_delta": 4.1
     },
     {
       "archetype": "Dragapult Dusknoir",
       "slug": "dragapult-dusknoir",
-      "meta_share": 7.6,
-      "weighted_share": 7.0,
-      "deck_count": 59,
+      "meta_share": 7.5,
+      "weighted_share": 7.1,
+      "deck_count": 67,
       "best_placement": 1,
       "tier": "B",
       "sprite_filenames": [
@@ -42,14 +42,14 @@
         "dusknoir.png"
       ],
       "trend": "up",
-      "trend_delta": 4.6
+      "trend_delta": 2.4
     },
     {
       "archetype": "Mega Lucario",
       "slug": "mega-lucario",
       "meta_share": 6.2,
-      "weighted_share": 6.7,
-      "deck_count": 48,
+      "weighted_share": 6.4,
+      "deck_count": 55,
       "best_placement": 1,
       "tier": "B",
       "sprite_filenames": [
@@ -57,14 +57,14 @@
         "lucario-mega.png"
       ],
       "trend": "down",
-      "trend_delta": -4.1
+      "trend_delta": -2.7
     },
     {
       "archetype": "Darmanitan Zoroark",
       "slug": "darmanitan-zoroark",
-      "meta_share": 4.0,
-      "weighted_share": 3.7,
-      "deck_count": 31,
+      "meta_share": 4.4,
+      "weighted_share": 4.2,
+      "deck_count": 39,
       "best_placement": 1,
       "tier": "B",
       "sprite_filenames": [
@@ -72,29 +72,14 @@
         "zoroark.png"
       ],
       "trend": "stable",
-      "trend_delta": -0.5
-    },
-    {
-      "archetype": "Dusknoir Greninja",
-      "slug": "dusknoir-greninja",
-      "meta_share": 4.7,
-      "weighted_share": 3.6,
-      "deck_count": 36,
-      "best_placement": 1,
-      "tier": "B",
-      "sprite_filenames": [
-        "dusknoir.png",
-        "greninja.png"
-      ],
-      "trend": "up",
-      "trend_delta": 22.2
+      "trend_delta": 0.9
     },
     {
       "archetype": "Mega Kangaskhan Ogerpon",
       "slug": "mega-kangaskhan-ogerpon",
       "meta_share": 3.4,
-      "weighted_share": 3.6,
-      "deck_count": 26,
+      "weighted_share": 3.7,
+      "deck_count": 30,
       "best_placement": 1,
       "tier": "B",
       "sprite_filenames": [
@@ -102,58 +87,73 @@
         "ogerpon.png"
       ],
       "trend": "stable",
-      "trend_delta": 1.1
+      "trend_delta": 0.7
     },
     {
       "archetype": "Blaziken Dragapult",
       "slug": "blaziken-dragapult",
-      "meta_share": 3.2,
+      "meta_share": 3.4,
       "weighted_share": 3.3,
-      "deck_count": 25,
+      "deck_count": 30,
       "best_placement": 1,
       "tier": "B",
       "sprite_filenames": [
         "blaziken.png",
         "dragapult.png"
       ],
-      "trend": "down",
-      "trend_delta": -4.0
+      "trend": "stable",
+      "trend_delta": -2.0
+    },
+    {
+      "archetype": "Dusknoir Greninja",
+      "slug": "dusknoir-greninja",
+      "meta_share": 4.2,
+      "weighted_share": 3.2,
+      "deck_count": 37,
+      "best_placement": 1,
+      "tier": "B",
+      "sprite_filenames": [
+        "dusknoir.png",
+        "greninja.png"
+      ],
+      "trend": "up",
+      "trend_delta": 12.1
     },
     {
       "archetype": "Raging Bolt ex",
       "slug": "raging-bolt-ex",
-      "meta_share": 3.0,
-      "weighted_share": 3.3,
-      "deck_count": 23,
+      "meta_share": 2.9,
+      "weighted_share": 3.2,
+      "deck_count": 26,
       "best_placement": 1,
       "tier": "C",
       "sprite_filenames": [
         "raging-bolt.png"
       ],
-      "trend": "down",
-      "trend_delta": -2.8
+      "trend": "stable",
+      "trend_delta": -1.9
     },
     {
       "archetype": "Mewtwo Spidops",
       "slug": "mewtwo-spidops",
-      "meta_share": 3.0,
-      "weighted_share": 2.9,
-      "deck_count": 23,
+      "meta_share": 3.1,
+      "weighted_share": 3.0,
+      "deck_count": 28,
       "best_placement": 1,
-      "tier": "C",
+      "tier": "B",
       "sprite_filenames": [
         "mewtwo.png",
         "spidops.png"
       ],
       "trend": "stable",
-      "trend_delta": -1.0
+      "trend_delta": -0.1
     },
     {
       "archetype": "Grimmsnarl Munkidori",
       "slug": "grimmsnarl-munkidori",
       "meta_share": 2.9,
       "weighted_share": 2.9,
-      "deck_count": 22,
+      "deck_count": 26,
       "best_placement": 2,
       "tier": "C",
       "sprite_filenames": [
@@ -161,14 +161,14 @@
         "munkidori.png"
       ],
       "trend": "stable",
-      "trend_delta": 0.0
+      "trend_delta": 0.2
     },
     {
       "archetype": "Garchomp Roserade",
       "slug": "garchomp-roserade",
       "meta_share": 3.4,
       "weighted_share": 2.8,
-      "deck_count": 26,
+      "deck_count": 30,
       "best_placement": 3,
       "tier": "B",
       "sprite_filenames": [
@@ -176,44 +176,14 @@
         "roserade.png"
       ],
       "trend": "down",
-      "trend_delta": -4.1
-    },
-    {
-      "archetype": "Crustle Munkidori",
-      "slug": "crustle-munkidori",
-      "meta_share": 2.3,
-      "weighted_share": 2.8,
-      "deck_count": 18,
-      "best_placement": 1,
-      "tier": "C",
-      "sprite_filenames": [
-        "crustle.png",
-        "munkidori.png"
-      ],
-      "trend": "stable",
-      "trend_delta": -1.1
-    },
-    {
-      "archetype": "Clefairy Ogerpon",
-      "slug": "clefairy-ogerpon",
-      "meta_share": 2.3,
-      "weighted_share": 2.7,
-      "deck_count": 18,
-      "best_placement": 1,
-      "tier": "C",
-      "sprite_filenames": [
-        "clefairy.png",
-        "ogerpon.png"
-      ],
-      "trend": "stable",
-      "trend_delta": -0.2
+      "trend_delta": -2.6
     },
     {
       "archetype": "Arboliva Ogerpon",
       "slug": "arboliva-ogerpon",
-      "meta_share": 2.6,
-      "weighted_share": 2.5,
-      "deck_count": 20,
+      "meta_share": 2.9,
+      "weighted_share": 2.8,
+      "deck_count": 26,
       "best_placement": 1,
       "tier": "C",
       "sprite_filenames": [
@@ -221,14 +191,29 @@
         "ogerpon.png"
       ],
       "trend": "stable",
-      "trend_delta": -0.5
+      "trend_delta": 0.8
+    },
+    {
+      "archetype": "Crustle Munkidori",
+      "slug": "crustle-munkidori",
+      "meta_share": 2.1,
+      "weighted_share": 2.6,
+      "deck_count": 19,
+      "best_placement": 1,
+      "tier": "C",
+      "sprite_filenames": [
+        "crustle.png",
+        "munkidori.png"
+      ],
+      "trend": "stable",
+      "trend_delta": -1.4
     },
     {
       "archetype": "Alakazam Dudunsparce",
       "slug": "alakazam-dudunsparce",
-      "meta_share": 2.3,
-      "weighted_share": 2.5,
-      "deck_count": 18,
+      "meta_share": 2.1,
+      "weighted_share": 2.4,
+      "deck_count": 19,
       "best_placement": 1,
       "tier": "C",
       "sprite_filenames": [
@@ -236,44 +221,29 @@
         "dudunsparce.png"
       ],
       "trend": "stable",
-      "trend_delta": 0.6
+      "trend_delta": -0.3
     },
     {
-      "archetype": "Mega Venusaur",
-      "slug": "mega-venusaur",
-      "meta_share": 1.9,
-      "weighted_share": 1.8,
-      "deck_count": 15,
-      "best_placement": 2,
-      "tier": "C",
-      "sprite_filenames": [
-        "ogerpon.png",
-        "venusaur-mega.png"
-      ],
-      "trend": "stable",
-      "trend_delta": -1.5
-    },
-    {
-      "archetype": "Barbaracle Okidogi",
-      "slug": "barbaracle-okidogi",
-      "meta_share": 1.7,
-      "weighted_share": 1.8,
-      "deck_count": 13,
+      "archetype": "Clefairy Ogerpon",
+      "slug": "clefairy-ogerpon",
+      "meta_share": 2.1,
+      "weighted_share": 2.4,
+      "deck_count": 19,
       "best_placement": 1,
       "tier": "C",
       "sprite_filenames": [
-        "barbaracle.png",
-        "okidogi.png"
+        "clefairy.png",
+        "ogerpon.png"
       ],
-      "trend": "down",
-      "trend_delta": -2.1
+      "trend": "stable",
+      "trend_delta": -0.8
     },
     {
       "archetype": "Flareon Noctowl",
       "slug": "flareon-noctowl",
-      "meta_share": 1.3,
-      "weighted_share": 1.8,
-      "deck_count": 10,
+      "meta_share": 1.6,
+      "weighted_share": 2.1,
+      "deck_count": 14,
       "best_placement": 1,
       "tier": "C",
       "sprite_filenames": [
@@ -281,13 +251,57 @@
         "noctowl.png"
       ],
       "trend": "up",
-      "trend_delta": 2.8
+      "trend_delta": 2.7
+    },
+    {
+      "archetype": "Mega Venusaur",
+      "slug": "mega-venusaur",
+      "meta_share": 2.0,
+      "weighted_share": 1.9,
+      "deck_count": 18,
+      "best_placement": 2,
+      "tier": "C",
+      "sprite_filenames": [
+        "ogerpon.png",
+        "venusaur-mega.png"
+      ],
+      "trend": "stable",
+      "trend_delta": -0.7
+    },
+    {
+      "archetype": "Barbaracle Okidogi",
+      "slug": "barbaracle-okidogi",
+      "meta_share": 1.6,
+      "weighted_share": 1.7,
+      "deck_count": 14,
+      "best_placement": 1,
+      "tier": "C",
+      "sprite_filenames": [
+        "barbaracle.png",
+        "okidogi.png"
+      ],
+      "trend": "stable",
+      "trend_delta": -1.7
+    },
+    {
+      "archetype": "Zoroark ex",
+      "slug": "zoroark-ex",
+      "meta_share": 1.4,
+      "weighted_share": 1.3,
+      "deck_count": 12,
+      "best_placement": 2,
+      "tier": "C",
+      "sprite_filenames": [
+        "zoroark.png"
+      ],
+      "trend": "stable",
+      "trend_delta": 0.8
     },
     {
       "archetype": "Mega Froslass Mega Starmie",
       "slug": "mega-froslass-mega-starmie",
-      "meta_share": 1.3,
-      "weighted_share": 1.4,
+      "meta_share": 1.1,
+      "weighted_share": 1.2,
       "deck_count": 10,
       "best_placement": 1,
       "tier": "C",
@@ -296,14 +310,29 @@
         "starmie-mega.png"
       ],
       "trend": "stable",
-      "trend_delta": -0.7
+      "trend_delta": -1.0
+    },
+    {
+      "archetype": "Mega Lucario Solrock",
+      "slug": "mega-lucario-solrock",
+      "meta_share": 1.1,
+      "weighted_share": 1.2,
+      "deck_count": 10,
+      "best_placement": 1,
+      "tier": "C",
+      "sprite_filenames": [
+        "lucario-mega.png",
+        "solrock.png"
+      ],
+      "trend": "stable",
+      "trend_delta": -0.5
     },
     {
       "archetype": "Mega Greninja Dudunsparce",
       "slug": "mega-greninja-dudunsparce",
       "meta_share": 1.2,
       "weighted_share": 1.1,
-      "deck_count": 9,
+      "deck_count": 11,
       "best_placement": 1,
       "tier": "C",
       "sprite_filenames": [
@@ -311,60 +340,119 @@
         "dudunsparce.png"
       ],
       "trend": "stable",
-      "trend_delta": -0.6
+      "trend_delta": -0.1
     },
     {
-      "archetype": "Mega Lucario Solrock",
-      "slug": "mega-lucario-solrock",
-      "meta_share": 1.2,
-      "weighted_share": 1.1,
-      "deck_count": 9,
-      "best_placement": 4,
-      "tier": "C",
-      "sprite_filenames": [
-        "lucario-mega.png",
-        "solrock.png"
-      ],
-      "trend": "stable",
-      "trend_delta": -0.6
-    },
-    {
-      "archetype": "Zoroark ex",
-      "slug": "zoroark-ex",
+      "archetype": "Dragapult ex",
+      "slug": "dragapult-ex",
       "meta_share": 1.0,
       "weighted_share": 1.1,
-      "deck_count": 8,
+      "deck_count": 9,
       "best_placement": 2,
       "tier": "C",
       "sprite_filenames": [
-        "zoroark.png"
+        "dragapult.png"
       ],
       "trend": "stable",
-      "trend_delta": -0.4
+      "trend_delta": -0.3
+    },
+    {
+      "archetype": "Ceruledge ex",
+      "slug": "ceruledge-ex",
+      "meta_share": 1.0,
+      "weighted_share": 1.0,
+      "deck_count": 9,
+      "best_placement": 2,
+      "tier": "C",
+      "sprite_filenames": [
+        "ceruledge.png"
+      ],
+      "trend": "stable",
+      "trend_delta": -0.3
+    },
+    {
+      "archetype": "Mega Greninja Dragapult",
+      "slug": "mega-greninja-dragapult",
+      "meta_share": 1.0,
+      "weighted_share": 1.0,
+      "deck_count": 9,
+      "best_placement": 1,
+      "tier": "C",
+      "sprite_filenames": [
+        "greninja-mega.png",
+        "dragapult.png"
+      ],
+      "trend": "stable",
+      "trend_delta": -0.9
+    },
+    {
+      "archetype": "Arboliva Beedrill",
+      "slug": "arboliva-beedrill",
+      "meta_share": 0.9,
+      "weighted_share": 1.0,
+      "deck_count": 8,
+      "best_placement": 1,
+      "tier": "Rogue",
+      "sprite_filenames": [
+        "arboliva.png",
+        "beedrill.png"
+      ],
+      "trend": "stable",
+      "trend_delta": 0.4
+    },
+    {
+      "archetype": "Noctowl Ogerpon",
+      "slug": "noctowl-ogerpon",
+      "meta_share": 1.0,
+      "weighted_share": 0.9,
+      "deck_count": 9,
+      "best_placement": 1,
+      "tier": "C",
+      "sprite_filenames": [
+        "noctowl.png",
+        "ogerpon.png"
+      ],
+      "trend": "stable",
+      "trend_delta": 0.2
+    },
+    {
+      "archetype": "Ogerpon Ogerpon Wellspring",
+      "slug": "ogerpon-ogerpon-wellspring",
+      "meta_share": 1.0,
+      "weighted_share": 0.9,
+      "deck_count": 9,
+      "best_placement": 3,
+      "tier": "C",
+      "sprite_filenames": [
+        "ogerpon.png",
+        "ogerpon-wellspring.png"
+      ],
+      "trend": "stable",
+      "trend_delta": -0.3
     },
     {
       "archetype": "Genesect Metagross",
       "slug": "genesect-metagross",
-      "meta_share": 1.0,
-      "weighted_share": 1.0,
+      "meta_share": 0.9,
+      "weighted_share": 0.9,
       "deck_count": 8,
       "best_placement": 2,
-      "tier": "C",
+      "tier": "Rogue",
       "sprite_filenames": [
         "genesect.png",
         "metagross.png"
       ],
       "trend": "stable",
-      "trend_delta": -0.4
+      "trend_delta": -0.7
     },
     {
       "archetype": "Honchkrow Porygon2",
       "slug": "honchkrow-porygon2",
-      "meta_share": 1.0,
-      "weighted_share": 1.0,
+      "meta_share": 0.9,
+      "weighted_share": 0.9,
       "deck_count": 8,
       "best_placement": 1,
-      "tier": "C",
+      "tier": "Rogue",
       "sprite_filenames": [
         "honchkrow.png",
         "porygon2.png"
@@ -373,25 +461,25 @@
       "trend_delta": -1.3
     },
     {
-      "archetype": "Mega Greninja Dragapult",
-      "slug": "mega-greninja-dragapult",
-      "meta_share": 1.0,
-      "weighted_share": 1.0,
+      "archetype": "Latias Slowking",
+      "slug": "latias-slowking",
+      "meta_share": 0.9,
+      "weighted_share": 0.9,
       "deck_count": 8,
-      "best_placement": 1,
-      "tier": "C",
+      "best_placement": 2,
+      "tier": "Rogue",
       "sprite_filenames": [
-        "greninja-mega.png",
-        "dragapult.png"
+        "latias.png",
+        "slowking.png"
       ],
       "trend": "stable",
-      "trend_delta": -1.3
+      "trend_delta": -0.7
     },
     {
       "archetype": "Dipplin Thwackey",
       "slug": "dipplin-thwackey",
-      "meta_share": 0.9,
-      "weighted_share": 1.0,
+      "meta_share": 0.8,
+      "weighted_share": 0.9,
       "deck_count": 7,
       "best_placement": 2,
       "tier": "Rogue",
@@ -403,83 +491,10 @@
       "trend_delta": -1.1
     },
     {
-      "archetype": "Dragapult ex",
-      "slug": "dragapult-ex",
-      "meta_share": 0.9,
-      "weighted_share": 1.0,
-      "deck_count": 7,
-      "best_placement": 2,
-      "tier": "Rogue",
-      "sprite_filenames": [
-        "dragapult.png"
-      ],
-      "trend": "stable",
-      "trend_delta": -1.1
-    },
-    {
-      "archetype": "Latias Slowking",
-      "slug": "latias-slowking",
-      "meta_share": 0.9,
-      "weighted_share": 1.0,
-      "deck_count": 7,
-      "best_placement": 2,
-      "tier": "Rogue",
-      "sprite_filenames": [
-        "latias.png",
-        "slowking.png"
-      ],
-      "trend": "stable",
-      "trend_delta": -1.1
-    },
-    {
-      "archetype": "Ogerpon Ogerpon Wellspring",
-      "slug": "ogerpon-ogerpon-wellspring",
-      "meta_share": 1.0,
-      "weighted_share": 0.9,
-      "deck_count": 8,
-      "best_placement": 3,
-      "tier": "C",
-      "sprite_filenames": [
-        "ogerpon.png",
-        "ogerpon-wellspring.png"
-      ],
-      "trend": "stable",
-      "trend_delta": -0.4
-    },
-    {
-      "archetype": "Ceruledge ex",
-      "slug": "ceruledge-ex",
-      "meta_share": 0.9,
-      "weighted_share": 0.9,
-      "deck_count": 7,
-      "best_placement": 2,
-      "tier": "Rogue",
-      "sprite_filenames": [
-        "ceruledge.png"
-      ],
-      "trend": "stable",
-      "trend_delta": -1.1
-    },
-    {
-      "archetype": "Arboliva Beedrill",
-      "slug": "arboliva-beedrill",
-      "meta_share": 0.8,
-      "weighted_share": 0.9,
-      "deck_count": 6,
-      "best_placement": 1,
-      "tier": "Rogue",
-      "sprite_filenames": [
-        "arboliva.png",
-        "beedrill.png"
-      ],
-      "trend": "stable",
-      "trend_delta": -0.1
-    },
-    {
       "archetype": "Mega Absol Box",
       "slug": "mega-absol-box",
-      "meta_share": 0.8,
-      "weighted_share": 0.8,
+      "meta_share": 0.7,
+      "weighted_share": 0.7,
       "deck_count": 6,
       "best_placement": 2,
       "tier": "Rogue",
@@ -488,28 +503,13 @@
         "kangaskhan-mega.png"
       ],
       "trend": "stable",
-      "trend_delta": 0.8
-    },
-    {
-      "archetype": "Noctowl Ogerpon",
-      "slug": "noctowl-ogerpon",
-      "meta_share": 0.8,
-      "weighted_share": 0.8,
-      "deck_count": 6,
-      "best_placement": 1,
-      "tier": "Rogue",
-      "sprite_filenames": [
-        "noctowl.png",
-        "ogerpon.png"
-      ],
-      "trend": "stable",
-      "trend_delta": -0.9
+      "trend_delta": 0.1
     },
     {
       "archetype": "Mega Kangaskhan Dragapult",
       "slug": "mega-kangaskhan-dragapult",
-      "meta_share": 0.7,
-      "weighted_share": 0.8,
+      "meta_share": 0.6,
+      "weighted_share": 0.7,
       "deck_count": 5,
       "best_placement": 1,
       "tier": "Rogue",
@@ -518,13 +518,13 @@
         "dragapult.png"
       ],
       "trend": "stable",
-      "trend_delta": 0.1
+      "trend_delta": -0.2
     },
     {
       "archetype": "Mega Meganium",
       "slug": "mega-meganium",
-      "meta_share": 0.8,
-      "weighted_share": 0.7,
+      "meta_share": 0.7,
+      "weighted_share": 0.6,
       "deck_count": 6,
       "best_placement": 3,
       "tier": "Rogue",
@@ -533,13 +533,28 @@
         "ogerpon.png"
       ],
       "trend": "stable",
-      "trend_delta": -0.1
+      "trend_delta": -0.4
+    },
+    {
+      "archetype": "Meowth Ogerpon",
+      "slug": "meowth-ogerpon",
+      "meta_share": 0.6,
+      "weighted_share": 0.6,
+      "deck_count": 5,
+      "best_placement": 1,
+      "tier": "Rogue",
+      "sprite_filenames": [
+        "meowth.png",
+        "ogerpon.png"
+      ],
+      "trend": "stable",
+      "trend_delta": -0.2
     },
     {
       "archetype": "Dusknoir Jellicent",
       "slug": "dusknoir-jellicent",
-      "meta_share": 0.8,
-      "weighted_share": 0.6,
+      "meta_share": 0.7,
+      "weighted_share": 0.5,
       "deck_count": 6,
       "best_placement": 5,
       "tier": "Rogue",
@@ -548,13 +563,13 @@
         "jellicent.png"
       ],
       "trend": "stable",
-      "trend_delta": 0.8
+      "trend_delta": 0.1
     },
     {
       "archetype": "Froslass Grimmsnarl",
       "slug": "froslass-grimmsnarl",
-      "meta_share": 0.8,
-      "weighted_share": 0.6,
+      "meta_share": 0.7,
+      "weighted_share": 0.5,
       "deck_count": 6,
       "best_placement": 5,
       "tier": "Rogue",
@@ -563,13 +578,27 @@
         "grimmsnarl.png"
       ],
       "trend": "stable",
-      "trend_delta": -0.1
+      "trend_delta": -0.4
+    },
+    {
+      "archetype": "Mega Lucario ex",
+      "slug": "mega-lucario-ex",
+      "meta_share": 0.6,
+      "weighted_share": 0.5,
+      "deck_count": 5,
+      "best_placement": 5,
+      "tier": "Rogue",
+      "sprite_filenames": [
+        "lucario-mega.png"
+      ],
+      "trend": "stable",
+      "trend_delta": -0.2
     },
     {
       "archetype": "Mega Sharpedo Toxtricity",
       "slug": "mega-sharpedo-toxtricity",
-      "meta_share": 0.7,
-      "weighted_share": 0.6,
+      "meta_share": 0.6,
+      "weighted_share": 0.5,
       "deck_count": 5,
       "best_placement": 2,
       "tier": "Rogue",
@@ -581,25 +610,10 @@
       "trend_delta": -0.8
     },
     {
-      "archetype": "Meowth Ogerpon",
-      "slug": "meowth-ogerpon",
-      "meta_share": 0.5,
-      "weighted_share": 0.6,
-      "deck_count": 4,
-      "best_placement": 1,
-      "tier": "Rogue",
-      "sprite_filenames": [
-        "meowth.png",
-        "ogerpon.png"
-      ],
-      "trend": "stable",
-      "trend_delta": -0.6
-    },
-    {
       "archetype": "Mega Slowbro Slowking",
       "slug": "mega-slowbro-slowking",
-      "meta_share": 0.4,
-      "weighted_share": 0.6,
+      "meta_share": 0.3,
+      "weighted_share": 0.5,
       "deck_count": 3,
       "best_placement": 1,
       "tier": "Rogue",
@@ -611,10 +625,39 @@
       "trend_delta": -0.5
     },
     {
+      "archetype": "Mega Diancie Dusknoir",
+      "slug": "mega-diancie-dusknoir",
+      "meta_share": 0.6,
+      "weighted_share": 0.4,
+      "deck_count": 5,
+      "best_placement": 7,
+      "tier": "Rogue",
+      "sprite_filenames": [
+        "diancie-mega.png",
+        "dusknoir.png"
+      ],
+      "trend": "stable",
+      "trend_delta": 0.3
+    },
+    {
+      "archetype": "Archaludon ex",
+      "slug": "archaludon-ex",
+      "meta_share": 0.5,
+      "weighted_share": 0.4,
+      "deck_count": 4,
+      "best_placement": 3,
+      "tier": "Rogue",
+      "sprite_filenames": [
+        "archaludon.png"
+      ],
+      "trend": "stable",
+      "trend_delta": -0.1
+    },
+    {
       "archetype": "Hydrapple Ogerpon",
       "slug": "hydrapple-ogerpon",
       "meta_share": 0.5,
-      "weighted_share": 0.5,
+      "weighted_share": 0.4,
       "deck_count": 4,
       "best_placement": 5,
       "tier": "Rogue",
@@ -626,24 +669,10 @@
       "trend_delta": -0.6
     },
     {
-      "archetype": "Mega Lucario ex",
-      "slug": "mega-lucario-ex",
-      "meta_share": 0.5,
-      "weighted_share": 0.5,
-      "deck_count": 4,
-      "best_placement": 5,
-      "tier": "Rogue",
-      "sprite_filenames": [
-        "lucario-mega.png"
-      ],
-      "trend": "stable",
-      "trend_delta": -0.6
-    },
-    {
       "archetype": "Typhlosion",
       "slug": "typhlosion",
-      "meta_share": 0.4,
-      "weighted_share": 0.5,
+      "meta_share": 0.3,
+      "weighted_share": 0.4,
       "deck_count": 3,
       "best_placement": 2,
       "tier": "Rogue",
@@ -651,41 +680,27 @@
         "typhlosion.png"
       ],
       "trend": "stable",
-      "trend_delta": 1.3
+      "trend_delta": 0.6
     },
     {
-      "archetype": "Mega Diancie Dusknoir",
-      "slug": "mega-diancie-dusknoir",
-      "meta_share": 0.5,
-      "weighted_share": 0.4,
-      "deck_count": 4,
-      "best_placement": 7,
-      "tier": "Rogue",
-      "sprite_filenames": [
-        "diancie-mega.png",
-        "dusknoir.png"
-      ],
-      "trend": "stable",
-      "trend_delta": 0.2
-    },
-    {
-      "archetype": "Archaludon ex",
-      "slug": "archaludon-ex",
-      "meta_share": 0.4,
-      "weighted_share": 0.4,
+      "archetype": "Dragapult Munkidori",
+      "slug": "dragapult-munkidori",
+      "meta_share": 0.3,
+      "weighted_share": 0.3,
       "deck_count": 3,
       "best_placement": 3,
       "tier": "Rogue",
       "sprite_filenames": [
-        "archaludon.png"
+        "dragapult.png",
+        "munkidori.png"
       ],
       "trend": "stable",
-      "trend_delta": -0.5
+      "trend_delta": 0.1
     },
     {
       "archetype": "Dragapult Noctowl",
       "slug": "dragapult-noctowl",
-      "meta_share": 0.4,
+      "meta_share": 0.3,
       "weighted_share": 0.3,
       "deck_count": 3,
       "best_placement": 3,
@@ -695,12 +710,12 @@
         "noctowl.png"
       ],
       "trend": "stable",
-      "trend_delta": 0.4
+      "trend_delta": 0.1
     },
     {
       "archetype": "Dubwool Trevenant",
       "slug": "dubwool-trevenant",
-      "meta_share": 0.4,
+      "meta_share": 0.3,
       "weighted_share": 0.3,
       "deck_count": 3,
       "best_placement": 5,
@@ -710,12 +725,27 @@
         "trevenant.png"
       ],
       "trend": "stable",
-      "trend_delta": 0.4
+      "trend_delta": 0.1
+    },
+    {
+      "archetype": "Empoleon Metagross",
+      "slug": "empoleon-metagross",
+      "meta_share": 0.3,
+      "weighted_share": 0.3,
+      "deck_count": 3,
+      "best_placement": 8,
+      "tier": "Rogue",
+      "sprite_filenames": [
+        "empoleon.png",
+        "metagross.png"
+      ],
+      "trend": "stable",
+      "trend_delta": 0.1
     },
     {
       "archetype": "Mega Greninja Noctowl",
       "slug": "mega-greninja-noctowl",
-      "meta_share": 0.4,
+      "meta_share": 0.3,
       "weighted_share": 0.3,
       "deck_count": 3,
       "best_placement": 5,
@@ -725,12 +755,12 @@
         "noctowl.png"
       ],
       "trend": "stable",
-      "trend_delta": 0.4
+      "trend_delta": 0.1
     },
     {
       "archetype": "Mega Meganium Mega Venusaur",
       "slug": "mega-meganium-mega-venusaur",
-      "meta_share": 0.4,
+      "meta_share": 0.3,
       "weighted_share": 0.3,
       "deck_count": 3,
       "best_placement": 6,
@@ -740,19 +770,107 @@
         "venusaur-mega.png"
       ],
       "trend": "stable",
-      "trend_delta": 0.4
+      "trend_delta": 0.1
     },
     {
-      "archetype": "Dragapult Munkidori",
-      "slug": "dragapult-munkidori",
+      "archetype": "Trevenant",
+      "slug": "trevenant",
       "meta_share": 0.3,
       "weighted_share": 0.3,
+      "deck_count": 3,
+      "best_placement": 5,
+      "tier": "Rogue",
+      "sprite_filenames": [
+        "trevenant.png"
+      ],
+      "trend": "stable",
+      "trend_delta": 0.1
+    },
+    {
+      "archetype": "Munkidori Toxtricity",
+      "slug": "munkidori-toxtricity",
+      "meta_share": 0.3,
+      "weighted_share": 0.2,
+      "deck_count": 3,
+      "best_placement": 9,
+      "tier": "Rogue",
+      "sprite_filenames": [
+        "munkidori.png",
+        "toxtricity.png"
+      ],
+      "trend": "stable",
+      "trend_delta": 0.1
+    },
+    {
+      "archetype": "Slowking",
+      "slug": "slowking",
+      "meta_share": 0.3,
+      "weighted_share": 0.2,
+      "deck_count": 3,
+      "best_placement": 10,
+      "tier": "Rogue",
+      "sprite_filenames": [
+        "slowking.png"
+      ],
+      "trend": "stable",
+      "trend_delta": 0.1
+    },
+    {
+      "archetype": "Ceruledge Meowth",
+      "slug": "ceruledge-meowth",
+      "meta_share": 0.2,
+      "weighted_share": 0.2,
       "deck_count": 2,
-      "best_placement": 3,
+      "best_placement": 11,
+      "tier": "Rogue",
+      "sprite_filenames": [
+        "ceruledge.png",
+        "meowth.png"
+      ],
+      "trend": "stable",
+      "trend_delta": -0.3
+    },
+    {
+      "archetype": "Dipplin Rillaboom",
+      "slug": "dipplin-rillaboom",
+      "meta_share": 0.2,
+      "weighted_share": 0.2,
+      "deck_count": 2,
+      "best_placement": 5,
+      "tier": "Rogue",
+      "sprite_filenames": [
+        "dipplin.png",
+        "rillaboom.png"
+      ],
+      "trend": "stable",
+      "trend_delta": 0.2
+    },
+    {
+      "archetype": "Dragapult Latias",
+      "slug": "dragapult-latias",
+      "meta_share": 0.2,
+      "weighted_share": 0.2,
+      "deck_count": 2,
+      "best_placement": 8,
       "tier": "Rogue",
       "sprite_filenames": [
         "dragapult.png",
-        "munkidori.png"
+        "latias.png"
+      ],
+      "trend": "stable",
+      "trend_delta": 0.2
+    },
+    {
+      "archetype": "Honchkrow Porygon-Z",
+      "slug": "honchkrow-porygon-z",
+      "meta_share": 0.2,
+      "weighted_share": 0.2,
+      "deck_count": 2,
+      "best_placement": 12,
+      "tier": "Rogue",
+      "sprite_filenames": [
+        "honchkrow.png",
+        "porygon-z.png"
       ],
       "trend": "stable",
       "trend_delta": -0.3
@@ -760,8 +878,8 @@
     {
       "archetype": "Mega Dragonite Blaziken",
       "slug": "mega-dragonite-blaziken",
-      "meta_share": 0.3,
-      "weighted_share": 0.3,
+      "meta_share": 0.2,
+      "weighted_share": 0.2,
       "deck_count": 2,
       "best_placement": 4,
       "tier": "Rogue",
@@ -775,8 +893,8 @@
     {
       "archetype": "Mega Gengar Zoroark",
       "slug": "mega-gengar-zoroark",
-      "meta_share": 0.3,
-      "weighted_share": 0.3,
+      "meta_share": 0.2,
+      "weighted_share": 0.2,
       "deck_count": 2,
       "best_placement": 3,
       "tier": "Rogue",
@@ -788,84 +906,9 @@
       "trend_delta": -0.3
     },
     {
-      "archetype": "Pecharunt Zoroark",
-      "slug": "pecharunt-zoroark",
-      "meta_share": 0.3,
-      "weighted_share": 0.3,
-      "deck_count": 2,
-      "best_placement": 3,
-      "tier": "Rogue",
-      "sprite_filenames": [
-        "pecharunt.png",
-        "zoroark.png"
-      ],
-      "trend": "stable",
-      "trend_delta": -0.3
-    },
-    {
-      "archetype": "Ceruledge Meowth",
-      "slug": "ceruledge-meowth",
-      "meta_share": 0.3,
-      "weighted_share": 0.2,
-      "deck_count": 2,
-      "best_placement": 11,
-      "tier": "Rogue",
-      "sprite_filenames": [
-        "ceruledge.png",
-        "meowth.png"
-      ],
-      "trend": "stable",
-      "trend_delta": -0.3
-    },
-    {
-      "archetype": "Dragapult Latias",
-      "slug": "dragapult-latias",
-      "meta_share": 0.3,
-      "weighted_share": 0.2,
-      "deck_count": 2,
-      "best_placement": 8,
-      "tier": "Rogue",
-      "sprite_filenames": [
-        "dragapult.png",
-        "latias.png"
-      ],
-      "trend": "stable",
-      "trend_delta": 0.6
-    },
-    {
-      "archetype": "Empoleon Metagross",
-      "slug": "empoleon-metagross",
-      "meta_share": 0.3,
-      "weighted_share": 0.2,
-      "deck_count": 2,
-      "best_placement": 10,
-      "tier": "Rogue",
-      "sprite_filenames": [
-        "empoleon.png",
-        "metagross.png"
-      ],
-      "trend": "stable",
-      "trend_delta": -0.3
-    },
-    {
-      "archetype": "Honchkrow Porygon-Z",
-      "slug": "honchkrow-porygon-z",
-      "meta_share": 0.3,
-      "weighted_share": 0.2,
-      "deck_count": 2,
-      "best_placement": 12,
-      "tier": "Rogue",
-      "sprite_filenames": [
-        "honchkrow.png",
-        "porygon-z.png"
-      ],
-      "trend": "stable",
-      "trend_delta": -0.3
-    },
-    {
       "archetype": "Mega Greninja Mega Kangaskhan",
       "slug": "mega-greninja-mega-kangaskhan",
-      "meta_share": 0.3,
+      "meta_share": 0.2,
       "weighted_share": 0.2,
       "deck_count": 2,
       "best_placement": 5,
@@ -880,7 +923,7 @@
     {
       "archetype": "Mega Greninja Mega Starmie",
       "slug": "mega-greninja-mega-starmie",
-      "meta_share": 0.3,
+      "meta_share": 0.2,
       "weighted_share": 0.2,
       "deck_count": 2,
       "best_placement": 12,
@@ -893,62 +936,61 @@
       "trend_delta": -0.3
     },
     {
-      "archetype": "Munkidori Toxtricity",
-      "slug": "munkidori-toxtricity",
-      "meta_share": 0.3,
+      "archetype": "Mega Kangaskhan Meowth",
+      "slug": "mega-kangaskhan-meowth",
+      "meta_share": 0.2,
       "weighted_share": 0.2,
       "deck_count": 2,
-      "best_placement": 9,
+      "best_placement": 8,
       "tier": "Rogue",
       "sprite_filenames": [
-        "munkidori.png",
-        "toxtricity.png"
+        "kangaskhan-mega.png",
+        "meowth.png"
       ],
       "trend": "stable",
-      "trend_delta": -0.3
+      "trend_delta": 0.2
     },
     {
-      "archetype": "Slowking",
-      "slug": "slowking",
-      "meta_share": 0.3,
+      "archetype": "Pecharunt Zoroark",
+      "slug": "pecharunt-zoroark",
+      "meta_share": 0.2,
       "weighted_share": 0.2,
       "deck_count": 2,
-      "best_placement": 13,
-      "tier": "Rogue",
-      "sprite_filenames": [
-        "slowking.png"
-      ],
-      "trend": "stable",
-      "trend_delta": -0.3
-    },
-    {
-      "archetype": "Trevenant",
-      "slug": "trevenant",
-      "meta_share": 0.3,
-      "weighted_share": 0.2,
-      "deck_count": 2,
-      "best_placement": 5,
-      "tier": "Rogue",
-      "sprite_filenames": [
-        "trevenant.png"
-      ],
-      "trend": "stable",
-      "trend_delta": -0.3
-    },
-    {
-      "archetype": "Aegislash Dudunsparce",
-      "slug": "aegislash-dudunsparce",
-      "meta_share": 0.1,
-      "weighted_share": 0.2,
-      "deck_count": 1,
       "best_placement": 3,
       "tier": "Rogue",
       "sprite_filenames": [
-        "aegislash.png",
-        "dudunsparce.png"
+        "pecharunt.png",
+        "zoroark.png"
       ],
       "trend": "stable",
-      "trend_delta": -0.2
+      "trend_delta": -0.3
+    },
+    {
+      "archetype": "Unknown",
+      "slug": "unknown",
+      "meta_share": 0.2,
+      "weighted_share": 0.2,
+      "deck_count": 2,
+      "best_placement": 15,
+      "tier": "Rogue",
+      "sprite_filenames": [],
+      "trend": "new",
+      "trend_delta": 0.8
+    },
+    {
+      "archetype": "Archaludon Cinderace",
+      "slug": "archaludon-cinderace",
+      "meta_share": 0.1,
+      "weighted_share": 0.2,
+      "deck_count": 1,
+      "best_placement": 2,
+      "tier": "Rogue",
+      "sprite_filenames": [
+        "archaludon.png",
+        "cinderace.png"
+      ],
+      "trend": "new",
+      "trend_delta": 0.4
     },
     {
       "archetype": "Bronzong Dragapult",
@@ -976,21 +1018,6 @@
       "sprite_filenames": [
         "clefairy.png",
         "meowth.png"
-      ],
-      "trend": "stable",
-      "trend_delta": -0.2
-    },
-    {
-      "archetype": "Clefairy Noctowl",
-      "slug": "clefairy-noctowl",
-      "meta_share": 0.1,
-      "weighted_share": 0.2,
-      "deck_count": 1,
-      "best_placement": 4,
-      "tier": "Rogue",
-      "sprite_filenames": [
-        "clefairy.png",
-        "noctowl.png"
       ],
       "trend": "stable",
       "trend_delta": -0.2
@@ -1026,65 +1053,6 @@
       "trend_delta": -0.2
     },
     {
-      "archetype": "Mega Clefable Aromatisse",
-      "slug": "mega-clefable-aromatisse",
-      "meta_share": 0.1,
-      "weighted_share": 0.2,
-      "deck_count": 1,
-      "best_placement": 4,
-      "tier": "Rogue",
-      "sprite_filenames": [
-        "clefable-mega.png",
-        "aromatisse.png"
-      ],
-      "trend": "stable",
-      "trend_delta": -0.2
-    },
-    {
-      "archetype": "Mega Froslass Grimmsnarl",
-      "slug": "mega-froslass-grimmsnarl",
-      "meta_share": 0.1,
-      "weighted_share": 0.2,
-      "deck_count": 1,
-      "best_placement": 3,
-      "tier": "Rogue",
-      "sprite_filenames": [
-        "froslass-mega.png",
-        "grimmsnarl.png"
-      ],
-      "trend": "stable",
-      "trend_delta": -0.2
-    },
-    {
-      "archetype": "Mega Greninja",
-      "slug": "mega-greninja",
-      "meta_share": 0.1,
-      "weighted_share": 0.2,
-      "deck_count": 1,
-      "best_placement": 3,
-      "tier": "Rogue",
-      "sprite_filenames": [
-        "greninja-mega.png"
-      ],
-      "trend": "stable",
-      "trend_delta": -0.2
-    },
-    {
-      "archetype": "Mega Greninja Meowth",
-      "slug": "mega-greninja-meowth",
-      "meta_share": 0.1,
-      "weighted_share": 0.2,
-      "deck_count": 1,
-      "best_placement": 4,
-      "tier": "Rogue",
-      "sprite_filenames": [
-        "greninja-mega.png",
-        "meowth.png"
-      ],
-      "trend": "stable",
-      "trend_delta": -0.2
-    },
-    {
       "archetype": "Mega Kangaskhan Raging Bolt",
       "slug": "mega-kangaskhan-raging-bolt",
       "meta_share": 0.1,
@@ -1095,36 +1063,6 @@
       "sprite_filenames": [
         "kangaskhan-mega.png",
         "raging-bolt.png"
-      ],
-      "trend": "stable",
-      "trend_delta": -0.2
-    },
-    {
-      "archetype": "Mega Lopunny Dudunsparce",
-      "slug": "mega-lopunny-dudunsparce",
-      "meta_share": 0.1,
-      "weighted_share": 0.2,
-      "deck_count": 1,
-      "best_placement": 3,
-      "tier": "Rogue",
-      "sprite_filenames": [
-        "lopunny-mega.png",
-        "dudunsparce.png"
-      ],
-      "trend": "new",
-      "trend_delta": 0.7
-    },
-    {
-      "archetype": "Mega Lucario Meowth",
-      "slug": "mega-lucario-meowth",
-      "meta_share": 0.1,
-      "weighted_share": 0.2,
-      "deck_count": 1,
-      "best_placement": 4,
-      "tier": "Rogue",
-      "sprite_filenames": [
-        "lucario-mega.png",
-        "meowth.png"
       ],
       "trend": "stable",
       "trend_delta": -0.2
@@ -1155,6 +1093,21 @@
       "sprite_filenames": [
         "aegislash.png",
         "dragapult.png"
+      ],
+      "trend": "stable",
+      "trend_delta": -0.2
+    },
+    {
+      "archetype": "Aegislash Dudunsparce",
+      "slug": "aegislash-dudunsparce",
+      "meta_share": 0.1,
+      "weighted_share": 0.1,
+      "deck_count": 1,
+      "best_placement": 3,
+      "tier": "Rogue",
+      "sprite_filenames": [
+        "aegislash.png",
+        "dudunsparce.png"
       ],
       "trend": "stable",
       "trend_delta": -0.2
@@ -1247,7 +1200,7 @@
         "kilowattrel.png"
       ],
       "trend": "new",
-      "trend_delta": 0.7
+      "trend_delta": 0.4
     },
     {
       "archetype": "Blaziken Clefairy",
@@ -1277,7 +1230,7 @@
         "hydreigon.png"
       ],
       "trend": "new",
-      "trend_delta": 0.7
+      "trend_delta": 0.4
     },
     {
       "archetype": "Ceruledge Solrock",
@@ -1290,6 +1243,21 @@
       "sprite_filenames": [
         "ceruledge.png",
         "solrock.png"
+      ],
+      "trend": "stable",
+      "trend_delta": -0.2
+    },
+    {
+      "archetype": "Clefairy Noctowl",
+      "slug": "clefairy-noctowl",
+      "meta_share": 0.1,
+      "weighted_share": 0.1,
+      "deck_count": 1,
+      "best_placement": 4,
+      "tier": "Rogue",
+      "sprite_filenames": [
+        "clefairy.png",
+        "noctowl.png"
       ],
       "trend": "stable",
       "trend_delta": -0.2
@@ -1320,21 +1288,6 @@
       "sprite_filenames": [
         "decidueye.png",
         "yanmega.png"
-      ],
-      "trend": "stable",
-      "trend_delta": -0.2
-    },
-    {
-      "archetype": "Dipplin Rillaboom",
-      "slug": "dipplin-rillaboom",
-      "meta_share": 0.1,
-      "weighted_share": 0.1,
-      "deck_count": 1,
-      "best_placement": 5,
-      "tier": "Rogue",
-      "sprite_filenames": [
-        "dipplin.png",
-        "rillaboom.png"
       ],
       "trend": "stable",
       "trend_delta": -0.2
@@ -1426,7 +1379,7 @@
         "jellicent.png"
       ],
       "trend": "new",
-      "trend_delta": 0.7
+      "trend_delta": 0.4
     },
     {
       "archetype": "Jellicent Metagross",
@@ -1456,7 +1409,7 @@
         "noctowl.png"
       ],
       "trend": "new",
-      "trend_delta": 0.7
+      "trend_delta": 0.4
     },
     {
       "archetype": "Latias Ogerpon",
@@ -1489,6 +1442,36 @@
       "trend_delta": -0.2
     },
     {
+      "archetype": "Mega Clefable Aromatisse",
+      "slug": "mega-clefable-aromatisse",
+      "meta_share": 0.1,
+      "weighted_share": 0.1,
+      "deck_count": 1,
+      "best_placement": 4,
+      "tier": "Rogue",
+      "sprite_filenames": [
+        "clefable-mega.png",
+        "aromatisse.png"
+      ],
+      "trend": "stable",
+      "trend_delta": -0.2
+    },
+    {
+      "archetype": "Mega Diancie Mega Kangaskhan",
+      "slug": "mega-diancie-mega-kangaskhan",
+      "meta_share": 0.1,
+      "weighted_share": 0.1,
+      "deck_count": 1,
+      "best_placement": 6,
+      "tier": "Rogue",
+      "sprite_filenames": [
+        "diancie-mega.png",
+        "kangaskhan-mega.png"
+      ],
+      "trend": "new",
+      "trend_delta": 0.4
+    },
+    {
       "archetype": "Mega Diancie Mega Slowbro",
       "slug": "mega-diancie-mega-slowbro",
       "meta_share": 0.1,
@@ -1502,6 +1485,21 @@
       ],
       "trend": "stable",
       "trend_delta": -0.2
+    },
+    {
+      "archetype": "Mega Dragalge Dudunsparce",
+      "slug": "mega-dragalge-dudunsparce",
+      "meta_share": 0.1,
+      "weighted_share": 0.1,
+      "deck_count": 1,
+      "best_placement": 3,
+      "tier": "Rogue",
+      "sprite_filenames": [
+        "dragalge-mega.png",
+        "dudunsparce.png"
+      ],
+      "trend": "new",
+      "trend_delta": 0.4
     },
     {
       "archetype": "Mega Dragalge Zoroark",
@@ -1531,7 +1529,22 @@
         "bronzong.png"
       ],
       "trend": "new",
-      "trend_delta": 0.7
+      "trend_delta": 0.4
+    },
+    {
+      "archetype": "Mega Froslass Glaceon",
+      "slug": "mega-froslass-glaceon",
+      "meta_share": 0.1,
+      "weighted_share": 0.1,
+      "deck_count": 1,
+      "best_placement": 13,
+      "tier": "Rogue",
+      "sprite_filenames": [
+        "froslass-mega.png",
+        "glaceon.png"
+      ],
+      "trend": "new",
+      "trend_delta": 0.4
     },
     {
       "archetype": "Mega Froslass Greninja",
@@ -1544,6 +1557,21 @@
       "sprite_filenames": [
         "froslass-mega.png",
         "greninja.png"
+      ],
+      "trend": "stable",
+      "trend_delta": -0.2
+    },
+    {
+      "archetype": "Mega Froslass Grimmsnarl",
+      "slug": "mega-froslass-grimmsnarl",
+      "meta_share": 0.1,
+      "weighted_share": 0.1,
+      "deck_count": 1,
+      "best_placement": 3,
+      "tier": "Rogue",
+      "sprite_filenames": [
+        "froslass-mega.png",
+        "grimmsnarl.png"
       ],
       "trend": "stable",
       "trend_delta": -0.2
@@ -1564,6 +1592,20 @@
       "trend_delta": -0.2
     },
     {
+      "archetype": "Mega Greninja",
+      "slug": "mega-greninja",
+      "meta_share": 0.1,
+      "weighted_share": 0.1,
+      "deck_count": 1,
+      "best_placement": 3,
+      "tier": "Rogue",
+      "sprite_filenames": [
+        "greninja-mega.png"
+      ],
+      "trend": "stable",
+      "trend_delta": -0.2
+    },
+    {
       "archetype": "Mega Greninja Dusknoir",
       "slug": "mega-greninja-dusknoir",
       "meta_share": 0.1,
@@ -1574,6 +1616,21 @@
       "sprite_filenames": [
         "greninja-mega.png",
         "dusknoir.png"
+      ],
+      "trend": "stable",
+      "trend_delta": -0.2
+    },
+    {
+      "archetype": "Mega Greninja Meowth",
+      "slug": "mega-greninja-meowth",
+      "meta_share": 0.1,
+      "weighted_share": 0.1,
+      "deck_count": 1,
+      "best_placement": 4,
+      "tier": "Rogue",
+      "sprite_filenames": [
+        "greninja-mega.png",
+        "meowth.png"
       ],
       "trend": "stable",
       "trend_delta": -0.2
@@ -1591,7 +1648,7 @@
         "munkidori.png"
       ],
       "trend": "new",
-      "trend_delta": 0.7
+      "trend_delta": 0.4
     },
     {
       "archetype": "Mega Kangaskhan Arboliva",
@@ -1607,6 +1664,21 @@
       ],
       "trend": "stable",
       "trend_delta": -0.2
+    },
+    {
+      "archetype": "Mega Kangaskhan Clefairy",
+      "slug": "mega-kangaskhan-clefairy",
+      "meta_share": 0.1,
+      "weighted_share": 0.1,
+      "deck_count": 1,
+      "best_placement": 4,
+      "tier": "Rogue",
+      "sprite_filenames": [
+        "kangaskhan-mega.png",
+        "clefairy.png"
+      ],
+      "trend": "new",
+      "trend_delta": 0.4
     },
     {
       "archetype": "Mega Kangaskhan Latias",
@@ -1634,21 +1706,6 @@
       "sprite_filenames": [
         "kangaskhan-mega.png",
         "lucario-mega.png"
-      ],
-      "trend": "stable",
-      "trend_delta": -0.2
-    },
-    {
-      "archetype": "Mega Kangaskhan Meowth",
-      "slug": "mega-kangaskhan-meowth",
-      "meta_share": 0.1,
-      "weighted_share": 0.1,
-      "deck_count": 1,
-      "best_placement": 16,
-      "tier": "Rogue",
-      "sprite_filenames": [
-        "kangaskhan-mega.png",
-        "meowth.png"
       ],
       "trend": "stable",
       "trend_delta": -0.2
@@ -1682,6 +1739,21 @@
       ],
       "trend": "stable",
       "trend_delta": -0.2
+    },
+    {
+      "archetype": "Mega Lopunny Dudunsparce",
+      "slug": "mega-lopunny-dudunsparce",
+      "meta_share": 0.1,
+      "weighted_share": 0.1,
+      "deck_count": 1,
+      "best_placement": 3,
+      "tier": "Rogue",
+      "sprite_filenames": [
+        "lopunny-mega.png",
+        "dudunsparce.png"
+      ],
+      "trend": "new",
+      "trend_delta": 0.4
     },
     {
       "archetype": "Mega Lopunny Mega Starmie",
@@ -1729,6 +1801,21 @@
       "trend_delta": -0.2
     },
     {
+      "archetype": "Mega Lucario Meowth",
+      "slug": "mega-lucario-meowth",
+      "meta_share": 0.1,
+      "weighted_share": 0.1,
+      "deck_count": 1,
+      "best_placement": 4,
+      "tier": "Rogue",
+      "sprite_filenames": [
+        "lucario-mega.png",
+        "meowth.png"
+      ],
+      "trend": "stable",
+      "trend_delta": -0.2
+    },
+    {
       "archetype": "Mega Lucario Togekiss",
       "slug": "mega-lucario-togekiss",
       "meta_share": 0.1,
@@ -1741,7 +1828,7 @@
         "togekiss.png"
       ],
       "trend": "new",
-      "trend_delta": 0.7
+      "trend_delta": 0.4
     },
     {
       "archetype": "Mega Skarmory Metagross",
@@ -1774,6 +1861,36 @@
       "trend_delta": -0.2
     },
     {
+      "archetype": "Mega Starmie Crobat",
+      "slug": "mega-starmie-crobat",
+      "meta_share": 0.1,
+      "weighted_share": 0.1,
+      "deck_count": 1,
+      "best_placement": 3,
+      "tier": "Rogue",
+      "sprite_filenames": [
+        "starmie-mega.png",
+        "crobat.png"
+      ],
+      "trend": "new",
+      "trend_delta": 0.4
+    },
+    {
+      "archetype": "Metagross Slowking",
+      "slug": "metagross-slowking",
+      "meta_share": 0.1,
+      "weighted_share": 0.1,
+      "deck_count": 1,
+      "best_placement": 3,
+      "tier": "Rogue",
+      "sprite_filenames": [
+        "metagross.png",
+        "slowking.png"
+      ],
+      "trend": "new",
+      "trend_delta": 0.4
+    },
+    {
       "archetype": "Munkidori Solrock",
       "slug": "munkidori-solrock",
       "meta_share": 0.1,
@@ -1804,6 +1921,21 @@
       "trend_delta": -0.2
     },
     {
+      "archetype": "Pecharunt Toxtricity",
+      "slug": "pecharunt-toxtricity",
+      "meta_share": 0.1,
+      "weighted_share": 0.1,
+      "deck_count": 1,
+      "best_placement": 11,
+      "tier": "Rogue",
+      "sprite_filenames": [
+        "pecharunt.png",
+        "toxtricity.png"
+      ],
+      "trend": "new",
+      "trend_delta": 0.4
+    },
+    {
       "archetype": "Spidops",
       "slug": "spidops",
       "meta_share": 0.1,
@@ -1815,19 +1947,7 @@
         "spidops.png"
       ],
       "trend": "new",
-      "trend_delta": 0.7
-    },
-    {
-      "archetype": "Unknown",
-      "slug": "unknown",
-      "meta_share": 0.1,
-      "weighted_share": 0.1,
-      "deck_count": 1,
-      "best_placement": 15,
-      "tier": "Rogue",
-      "sprite_filenames": [],
-      "trend": "new",
-      "trend_delta": 0.7
+      "trend_delta": 0.4
     }
   ],
   "format": {
