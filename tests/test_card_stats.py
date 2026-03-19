@@ -151,6 +151,53 @@ class TestClassifyCard:
         assert _classify_card("Pikachu") == "Pokemon"
 
 
+class TestClassifyCardWithSupertype:
+    def test_heuristic_misclassifies_trainer_cards(self):
+        """Cards like Wally's Compassion are misclassified by heuristic."""
+        assert _classify_card("Wally's Compassion") == "Pokemon"
+        assert _classify_card("Premium Power Pro") == "Pokemon"
+        assert _classify_card("Scoop Up Cyclone") == "Pokemon"
+        assert _classify_card("Precious Trolley") == "Pokemon"
+        assert _classify_card("Morty's Conviction") == "Pokemon"
+
+    def test_supertype_from_db_overrides_heuristic(self, db):
+        """Cards with supertype in cards table should use that over heuristic."""
+        # Insert a card that would be misclassified by heuristic
+        db.execute(
+            "INSERT OR REPLACE INTO cards (id, name_en, set_code, supertype) VALUES (?, ?, ?, ?)",
+            ("test-001", "Wally's Compassion", "test", "Trainer"),
+        )
+        # Also insert it into a decklist so it appears in stats
+        db.execute(
+            "INSERT OR IGNORE INTO decklist_cards (placement_id, card_id, card_name, count) "
+            "VALUES (?, ?, ?, ?)",
+            (1, "test-001", "Wally's Compassion", 2),
+        )
+        db.commit()
+
+        cards = compute_card_stats(db)
+        wallys = [c for c in cards if c["card_name"] == "Wally's Compassion"]
+        assert len(wallys) == 1
+        assert wallys[0]["category"] == "Trainer"
+
+    def test_detail_uses_supertype_from_db(self, db):
+        """compute_card_detail also respects supertype from cards table."""
+        db.execute(
+            "INSERT OR REPLACE INTO cards (id, name_en, set_code, supertype) VALUES (?, ?, ?, ?)",
+            ("test-002", "Precious Trolley", "test", "Trainer"),
+        )
+        db.execute(
+            "INSERT OR IGNORE INTO decklist_cards (placement_id, card_id, card_name, count) "
+            "VALUES (?, ?, ?, ?)",
+            (1, "test-002", "Precious Trolley", 1),
+        )
+        db.commit()
+
+        detail = compute_card_detail(db, "Precious Trolley")
+        assert detail is not None
+        assert detail["category"] == "Trainer"
+
+
 class TestComputeTrendDirection:
     def test_stable(self):
         data = [
