@@ -3,6 +3,7 @@
 import { Fragment, useState } from "react";
 import { cn } from "@/app/lib/utils";
 import type { MatchupMatrixData } from "@/app/lib/types";
+import { Tooltip } from "@/app/components/tooltip";
 
 function cellColor(value: number): string {
   if (value === 0) return "";
@@ -69,15 +70,14 @@ export function MatchupHeatMatrix({ data }: { data: MatchupMatrixData }) {
                 {shortName(rowName)}
               </span>
             </div>
-            {data.archetypes.map((_, j) => {
+            {data.archetypes.map((colName, j) => {
               const value = data.matrix[i][j];
               const samples = data.sample_sizes[i][j];
               const isDiag = i === j;
               const isHovered = hovered?.row === i || hovered?.col === j;
               const text = isDiag ? "-" : cellText(value, samples);
-              return (
+              const cell = (
                 <div
-                  key={`cell-${i}-${j}`}
                   className={cn(
                     "h-10 w-10 flex items-center justify-center text-[9px] font-mono tabular-nums transition-opacity",
                     isDiag ? "bg-surface-600" : cellColor(value),
@@ -92,33 +92,34 @@ export function MatchupHeatMatrix({ data }: { data: MatchupMatrixData }) {
                   )}
                   onMouseEnter={() => setHovered({ row: i, col: j })}
                   onMouseLeave={() => setHovered(null)}
-                  title={
-                    isDiag
-                      ? rowName
-                      : `${rowName} vs ${data.archetypes[j]}: ${value > 0 ? "+" : ""}${value.toFixed(1)} advantage (${samples} events)`
-                  }
                 >
                   {text}
                 </div>
+              );
+              if (isDiag) return cell;
+              return (
+                <Tooltip
+                  key={`cell-${i}-${j}`}
+                  content={
+                    samples < 10 ? (
+                      `Not enough data (${samples} tournaments, minimum 10 required)`
+                    ) : (
+                      <>
+                        <strong>{rowName}</strong> vs <strong>{colName}</strong>
+                        {": "}
+                        {value > 0 ? "+" : ""}{value.toFixed(1)} standing advantage ({samples} tournaments)
+                      </>
+                    )
+                  }
+                >
+                  {cell}
+                </Tooltip>
               );
             })}
           </Fragment>
         ))}
       </div>
 
-      {hovered && hovered.row !== hovered.col && (
-        <div className="mt-2 text-xs text-surface-400">
-          {data.archetypes[hovered.row]} vs {data.archetypes[hovered.col]}:{" "}
-          <span className={cn(
-            "font-mono",
-            data.matrix[hovered.row][hovered.col] > 0 ? "text-emerald-300" : data.matrix[hovered.row][hovered.col] < 0 ? "text-red-300" : "text-slate-300"
-          )}>
-            {data.matrix[hovered.row][hovered.col] > 0 ? "+" : ""}
-            {data.matrix[hovered.row][hovered.col].toFixed(1)}
-          </span>{" "}
-          standing advantage ({data.sample_sizes[hovered.row][hovered.col]} events)
-        </div>
-      )}
     </div>
   );
 }

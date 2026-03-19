@@ -9,6 +9,7 @@ import { DateFilter } from "@/app/components/date-filter";
 import { WelcomeGuide } from "@/app/components/welcome-guide";
 import { useDateFilter, fetchWindowedData } from "@/app/components/date-filter-provider";
 import { formatPct, daysUntil } from "@/app/lib/utils";
+import { InfoIcon } from "@/app/components/tooltip";
 import { MetaTimeline } from "@/app/components/meta-timeline";
 import type { MetaData, TrendsData, WinningEdgeCard, AceSpec, TimelineData, TimeWindow, MetaEvolutionMovement } from "@/app/lib/types";
 
@@ -149,6 +150,7 @@ export function DashboardClient({
               <h3 className="font-display text-sm font-semibold text-slate-200 flex items-center gap-2">
                 <TrendingUp className="w-4 h-4 text-signal-up" />
                 Surging Cards
+                <InfoIcon tooltip="Change in usage between the first and second half of the selected time period. +23% means this card appeared in 23 percentage points more decks recently compared to earlier in the same window." />
               </h3>
               <Link href={`/${format}/trends`} className="text-xs text-accent hover:text-accent/80">
                 More
@@ -175,6 +177,7 @@ export function DashboardClient({
               <h3 className="font-display text-sm font-semibold text-slate-200 flex items-center gap-2">
                 <TrendingDown className="w-4 h-4 text-signal-down" />
                 Declining Cards
+                <InfoIcon tooltip="Change in usage between the first and second half of the selected time period. -18% means this card appeared in 18 percentage points fewer decks recently compared to earlier in the same window." />
               </h3>
               <Link href={`/${format}/trends`} className="text-xs text-accent hover:text-accent/80">
                 More
@@ -201,6 +204,7 @@ export function DashboardClient({
               <h3 className="font-display text-sm font-semibold text-slate-200 flex items-center gap-2">
                 <Trophy className="w-4 h-4 text-tier-s" />
                 Winning Edge
+                <InfoIcon tooltip="How much more often a card appears in 1st-place decks compared to all S/A/B-tier decks in the field. +11% means this card shows up 11 percentage points more in winning decks than in the average S/A/B-tier deck." />
               </h3>
               <Link href={`/${format}/trends`} className="text-xs text-accent hover:text-accent/80">
                 More
@@ -227,6 +231,7 @@ export function DashboardClient({
               <h3 className="font-display text-sm font-semibold text-slate-200 flex items-center gap-2">
                 <ShoppingCart className="w-4 h-4 text-tier-rogue" />
                 ACE SPECs
+                <InfoIcon tooltip="Percentage of all tournament decks that include each ACE SPEC. Since each deck can only run one ACE SPEC, these percentages show the meta-wide popularity of each choice." />
               </h3>
               <Link href={`/${format}/buylist`} className="text-xs text-accent hover:text-accent/80">
                 Buy List

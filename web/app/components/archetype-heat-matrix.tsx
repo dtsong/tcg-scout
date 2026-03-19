@@ -3,6 +3,7 @@
 import { Fragment, useMemo, useState } from "react";
 import { cn } from "@/app/lib/utils";
 import { SpriteRow } from "@/app/components/sprite-row";
+import { Tooltip } from "@/app/components/tooltip";
 
 interface MatrixEntry {
   archetype: string;
@@ -78,13 +79,12 @@ export function ArchetypeHeatMatrix({
                 {rowArch.archetype}
               </a>
             </div>
-            {data.archetypes.map((_, j) => {
+            {data.archetypes.map((colArch, j) => {
               const value = data.matrix[i][j];
               const isDiag = i === j;
               const isHovered = hovered?.row === i || hovered?.col === j;
-              return (
+              const cell = (
                 <div
-                  key={`cell-${i}-${j}`}
                   className={cn(
                     "h-9 w-9 flex items-center justify-center text-[9px] font-mono tabular-nums transition-opacity",
                     cellColor(value, isDiag),
@@ -93,29 +93,30 @@ export function ArchetypeHeatMatrix({
                   )}
                   onMouseEnter={() => setHovered({ row: i, col: j })}
                   onMouseLeave={() => setHovered(null)}
-                  title={
-                    isDiag
-                      ? rowArch.archetype
-                      : `${rowArch.archetype} & ${data.archetypes[j].archetype}: ${(value * 100).toFixed(0)}% shared`
-                  }
                 >
                   {isDiag ? "-" : value > 0 ? `${(value * 100).toFixed(0)}` : ""}
                 </div>
+              );
+              if (isDiag) return cell;
+              return (
+                <Tooltip
+                  key={`cell-${i}-${j}`}
+                  content={
+                    <>
+                      <strong>{rowArch.archetype}</strong> &amp; <strong>{colArch.archetype}</strong>
+                      {": "}
+                      {(value * 100).toFixed(0)}% card overlap (Jaccard)
+                    </>
+                  }
+                >
+                  {cell}
+                </Tooltip>
               );
             })}
           </Fragment>
         ))}
       </div>
 
-      {hovered && hovered.row !== hovered.col && (
-        <div className="mt-2 text-xs text-surface-400">
-          {data.archetypes[hovered.row].archetype} &amp; {data.archetypes[hovered.col].archetype}:{" "}
-          <span className="text-slate-300 font-mono">
-            {(data.matrix[hovered.row][hovered.col] * 100).toFixed(1)}%
-          </span>{" "}
-          shared cards
-        </div>
-      )}
     </div>
   );
 }
