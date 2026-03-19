@@ -170,7 +170,10 @@ def classify_card(card_name: str, category_lookup: dict[str, str] | None = None)
     # Check against authoritative Pokemon name set from tcgdex
     if _POKEMON_NAMES:
         base_name = lower.removesuffix(" ex")
-        if base_name in _POKEMON_NAMES or lower in _POKEMON_NAMES:
+        candidates = [lower, base_name]
+        if base_name.startswith("mega "):
+            candidates.append(base_name.removeprefix("mega "))
+        if any(c in _POKEMON_NAMES for c in candidates):
             return "Pokemon"
         # Unknown card not matching any known Pokemon — default to Trainer
         return "Trainer"
