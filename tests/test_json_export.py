@@ -487,6 +487,47 @@ class TestExportWindowed:
                 assert "date_range" in data
 
 
+class TestExportChampionsLeagueEnriched:
+    def test_placements_have_archetype_fields(self, db, tmp_path):
+        export_champions_league(db, tmp_path)
+        data = json.loads((tmp_path / "champions-league" / "masters.json").read_text())
+        for p in data["placements"]:
+            assert "archetype" in p
+            assert "tier" in p
+            assert "sprite_filenames" in p
+
+    def test_decklist_cards_have_image_url(self, db, tmp_path):
+        export_champions_league(db, tmp_path)
+        data = json.loads((tmp_path / "champions-league" / "masters.json").read_text())
+        p = data["placements"][0]
+        for card in p["decklist"]:
+            assert "image_url" in card
+
+    def test_has_archetype_summary(self, db, tmp_path):
+        export_champions_league(db, tmp_path)
+        data = json.loads((tmp_path / "champions-league" / "masters.json").read_text())
+        assert "archetype_summary" in data
+        assert isinstance(data["archetype_summary"], list)
+
+    def test_unknown_archetype_fields_are_null(self, db, tmp_path):
+        """When classify_decklist returns Unknown, archetype fields should be null."""
+        export_champions_league(db, tmp_path)
+        data = json.loads((tmp_path / "champions-league" / "masters.json").read_text())
+        # Check that placements with Unknown archetype have null fields
+        for p in data["placements"]:
+            if p["archetype"] is None:
+                assert p["tier"] is None
+                assert p["sprite_filenames"] is None
+
+    def test_archetype_summary_excludes_unknown(self, db, tmp_path):
+        """Unknown archetypes should not appear in archetype_summary."""
+        export_champions_league(db, tmp_path)
+        data = json.loads((tmp_path / "champions-league" / "masters.json").read_text())
+        for entry in data["archetype_summary"]:
+            assert entry["archetype"] != "Unknown"
+            assert entry["archetype"] is not None
+
+
 class TestBuildJpEnLookupWithMappings:
     def test_includes_card_mappings(self, db):
         # card_mappings table is created by SCHEMA, insert test data

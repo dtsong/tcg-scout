@@ -1665,10 +1665,30 @@ def _build_jp_en_lookup(conn: sqlite3.Connection) -> dict[str, str]:
 
 def export_champions_league(conn: sqlite3.Connection, output_dir: Path) -> None:
     """Export Champions League data by division with JP→EN translations."""
+    from analysis.archetype_classifier import classify_decklist
+
     cl_dir = output_dir / "champions-league"
     cl_dir.mkdir(parents=True, exist_ok=True)
 
     jp_en_lookup = _build_jp_en_lookup(conn)
+
+    # Build image URL lookup: {name_en: image_url} (most recent set first)
+    image_rows = conn.execute(
+        "SELECT name_en, image_url FROM cards WHERE image_url IS NOT NULL ORDER BY set_code DESC"
+    ).fetchall()
+    image_lookup: dict[str, str] = {}
+    for row in image_rows:
+        if row["name_en"] not in image_lookup:
+            image_lookup[row["name_en"]] = row["image_url"]
+
+    # Build tier lookup from latest snapshot
+    tier_lookup: dict[str, str] = {}
+    tier_rows = conn.execute(
+        "SELECT archetype, tier FROM archetype_stats "
+        "WHERE snapshot_id = (SELECT MAX(id) FROM meta_snapshots)"
+    ).fetchall()
+    for row in tier_rows:
+        tier_lookup[row["archetype"]] = row["tier"]
 
     events = conn.execute(
         "SELECT DISTINCT id, name, division, date FROM cl_events ORDER BY division"
@@ -1695,6 +1715,8 @@ def export_champions_league(conn: sqlite3.Connection, output_dir: Path) -> None:
         ).fetchall()
 
         placement_list = []
+        archetype_counts: dict[str, int] = {}
+
         for p in placements:
             decklist_rows = conn.execute(
                 """
@@ -1708,6 +1730,7 @@ def export_champions_league(conn: sqlite3.Connection, output_dir: Path) -> None:
             ).fetchall()
 
             decklist = []
+            classifier_cards = []
             for card in decklist_rows:
                 jp_name = card["card_name_jp"]
                 # Use existing EN name, or look up from cards table / fallback dict
@@ -1723,8 +1746,25 @@ def export_champions_league(conn: sqlite3.Connection, output_dir: Path) -> None:
                         "card_name_en": en_name,
                         "count": card["count"],
                         "category": card["category"],
+                        "image_url": image_lookup.get(en_name) if en_name else None,
                     }
                 )
+
+                if en_name:
+                    classifier_cards.append(
+                        {
+                            "card_name": en_name,
+                            "count": card["count"],
+                            "category": card["category"],
+                        }
+                    )
+
+            # Classify archetype
+            archetype_name = classify_decklist(classifier_cards) if classifier_cards else "Unknown"
+            is_known = archetype_name != "Unknown"
+
+            if is_known:
+                archetype_counts[archetype_name] = archetype_counts.get(archetype_name, 0) + 1
 
             placement_list.append(
                 {
@@ -1732,15 +1772,33 @@ def export_champions_league(conn: sqlite3.Connection, output_dir: Path) -> None:
                     "player_name": p["player_name"],
                     "region": p["region"],
                     "deck_code": p["deck_code"],
+                    "archetype": archetype_name if is_known else None,
+                    "tier": tier_lookup.get(archetype_name) if is_known else None,
+                    "sprite_filenames": _get_sprite_filenames(archetype_name) if is_known else None,
                     "decklist": decklist,
                 }
             )
+
+        # Build archetype summary (exclude Unknown, sort by count desc)
+        archetype_summary = sorted(
+            [
+                {
+                    "archetype": name,
+                    "count": count,
+                    "sprite_filenames": _get_sprite_filenames(name),
+                }
+                for name, count in archetype_counts.items()
+            ],
+            key=lambda x: x["count"],
+            reverse=True,
+        )
 
         division_data = {
             "event_id": event["id"],
             "event_name": event["name"],
             "division": division,
             "date": event["date"],
+            "archetype_summary": archetype_summary,
             "placements": placement_list,
         }
 
