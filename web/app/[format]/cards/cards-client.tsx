@@ -157,6 +157,8 @@ export function CardsClient({
         columns={columns}
         searchKey={(row) => row.card_name}
         searchPlaceholder="Search cards..."
+        pageSizes={[25, 50, 100]}
+        defaultPageSize={10}
       />
     </div>
   );

@@ -92,6 +92,32 @@ export function ArchetypesClient({
         <MetaBarChart data={archetypes} />
       </div>
 
+      {/* Matchup Performance Matrix */}
+      {matchupMatrix && matchupMatrix.archetypes.length > 0 && (
+        <div className="bg-surface-800 border border-surface-600 rounded-lg p-4 sm:p-6">
+          <h2 className="font-display text-sm font-semibold text-slate-200 mb-1">
+            Performance Advantage
+          </h2>
+          <p className="text-xs text-surface-400 mb-4">
+            Standing advantage when archetypes co-occur in tournaments (positive = outperforms, min 10 events)
+          </p>
+          <MatchupHeatMatrix data={matchupMatrix} />
+        </div>
+      )}
+
+      {/* Archetype Card Overlap Matrix */}
+      {overlapMatrix && overlapMatrix.archetypes.length > 0 && (
+        <div className="bg-surface-800 border border-surface-600 rounded-lg p-4 sm:p-6">
+          <h2 className="font-display text-sm font-semibold text-slate-200 mb-1">
+            Card Overlap Matrix
+          </h2>
+          <p className="text-xs text-surface-400 mb-4">
+            Jaccard similarity of card pools between top archetypes (higher = more shared cards)
+          </p>
+          <ArchetypeHeatMatrix data={overlapMatrix} format={format} />
+        </div>
+      )}
+
       <div className="bg-surface-800 border border-surface-600 rounded-lg overflow-hidden">
         <DataTable
           data={archetypes}
@@ -170,32 +196,6 @@ export function ArchetypesClient({
           ]}
         />
       </div>
-
-      {/* Matchup Performance Matrix */}
-      {matchupMatrix && matchupMatrix.archetypes.length > 0 && (
-        <div className="bg-surface-800 border border-surface-600 rounded-lg p-4 sm:p-6">
-          <h2 className="font-display text-sm font-semibold text-slate-200 mb-1">
-            Performance Advantage
-          </h2>
-          <p className="text-xs text-surface-400 mb-4">
-            Standing advantage when archetypes co-occur in tournaments (positive = outperforms, min 10 events)
-          </p>
-          <MatchupHeatMatrix data={matchupMatrix} />
-        </div>
-      )}
-
-      {/* Archetype Card Overlap Matrix */}
-      {overlapMatrix && overlapMatrix.archetypes.length > 0 && (
-        <div className="bg-surface-800 border border-surface-600 rounded-lg p-4 sm:p-6">
-          <h2 className="font-display text-sm font-semibold text-slate-200 mb-1">
-            Card Overlap Matrix
-          </h2>
-          <p className="text-xs text-surface-400 mb-4">
-            Jaccard similarity of card pools between top archetypes (higher = more shared cards)
-          </p>
-          <ArchetypeHeatMatrix data={overlapMatrix} format={format} />
-        </div>
-      )}
 
       </div>
     </div>
