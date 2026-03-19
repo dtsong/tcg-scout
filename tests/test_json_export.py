@@ -737,13 +737,22 @@ class TestTop4SegmentedStats:
         for card in data["top4_card_stats"]:
             assert "delta_vs_field" in card
 
-    def test_delta_vs_field_calculation(self, db, tmp_path):
-        """Cards present in all decks should have delta ~0."""
+    def test_delta_vs_field_zero(self, db, tmp_path):
+        """Cards present in all decks should have delta 0."""
         export_archetypes(db, tmp_path)
         data = json.loads((tmp_path / "archetypes" / "charizard-ex.json").read_text())
         nest = next(c for c in data["top4_card_stats"] if c["card_name"] == "Nest Ball")
         # 100% in top4, 100% in field -> delta = 0
         assert nest["delta_vs_field"] == 0.0
+
+    def test_delta_vs_field_positive(self, db, tmp_path):
+        """Card in top-4 more than field should have positive delta."""
+        export_archetypes(db, tmp_path)
+        data = json.loads((tmp_path / "archetypes" / "charizard-ex.json").read_text())
+        # Arven is in placements 1 (1st) and 3 (4th) but not 5 (9th)
+        # top-4 inclusion: 2/2 = 100%, field inclusion: 2/3 = 66.7%
+        arven = next(c for c in data["top4_card_stats"] if c["card_name"] == "Arven")
+        assert arven["delta_vs_field"] == 33.3
 
     def test_no_top4_exports_gracefully(self, db, tmp_path):
         """Raging Bolt has only 16th place -- no top-4 placements."""

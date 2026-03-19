@@ -1511,7 +1511,7 @@ def export_archetypes(conn: sqlite3.Connection, output_dir: Path) -> None:
 
         # Get all placements for this archetype
         placements = conn.execute(
-            "SELECT id FROM placements WHERE archetype = ?",
+            "SELECT id, standing FROM placements WHERE archetype = ?",
             (archetype_name,),
         ).fetchall()
 
@@ -1525,12 +1525,8 @@ def export_archetypes(conn: sqlite3.Connection, output_dir: Path) -> None:
         all_cards = _compute_card_stats_for_ids(conn, placement_ids, total_decks)
         core_cards = [c for c in all_cards if c["inclusion_pct"] >= 80]
 
-        # Top-4 segmented card stats
-        top4_placements = conn.execute(
-            "SELECT p.id FROM placements p WHERE p.archetype = ? AND p.standing <= 4",
-            (archetype_name,),
-        ).fetchall()
-        top4_ids = [p["id"] for p in top4_placements]
+        # Top-4 segmented card stats (derived from already-fetched placements)
+        top4_ids = [p["id"] for p in placements if p["standing"] <= 4]
         top4_total = len(top4_ids)
 
         # Build field inclusion lookup for delta computation
