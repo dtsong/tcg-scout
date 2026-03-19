@@ -12,7 +12,13 @@ from pathlib import Path
 from analysis.archetype import _COMPOSITE_SPRITE_FILENAMES, SPRITE_ARCHETYPE_MAP
 from analysis.archetype_classifier import classify_decklist
 from analysis.buylist import generate_buylist
-from analysis.card_stats import BASIC_ENERGY_NAMES, compute_card_detail, compute_card_stats
+from analysis.card_stats import (
+    BASIC_ENERGY_NAMES,
+    build_category_lookup,
+    classify_card,
+    compute_card_detail,
+    compute_card_stats,
+)
 from analysis.evolution import compute_archetype_evolution, compute_meta_evolution
 from analysis.matchup import compute_matchup_matrix
 from analysis.meta import get_latest_snapshot
@@ -373,100 +379,6 @@ def _get_sprite_filenames(archetype_name: str) -> list[str]:
         i += 1
 
     return filenames[:2]  # Max 2 sprites per archetype
-
-
-def _classify_card(card_name: str) -> str:
-    """Classify a card as Pokemon, Trainer, or Energy by name heuristics."""
-    lower = card_name.lower()
-    # Trainer items that contain "energy" in the name
-    if lower in ("energy switch", "energy search", "energy retrieval", "energy recycler"):
-        return "Trainer"
-    if "energy" in lower:
-        return "Energy"
-    # Common trainer keywords
-    trainer_keywords = (
-        "ball",
-        "catcher",
-        "switch",
-        "rope",
-        "rod",
-        "stretcher",
-        "candy",
-        "cape",
-        "belt",
-        "brace",
-        "stamp",
-        "drum",
-        "tree",
-        "laser",
-        "box",
-        "headset",
-        "amulet",
-        "aroma",
-        "pod",
-        "crystal",
-        "pad",
-        "vital",
-        "tower",
-        "gong",
-        "scrapper",
-        "vacuum",
-        "balloon",
-        "board",
-        "poffin",
-        "determination",
-        "fighting spirit",
-        "watchtower",
-    )
-    # Trainer supporter names (people)
-    trainer_names = (
-        "boss",
-        "iono",
-        "professor",
-        "judge",
-        "pepper",
-        "cynthia",
-        "biwa",
-        "roxanne",
-        "avery",
-        "lillie",
-        "crispin",
-        "dawn",
-        "iris",
-        "marnie",
-        "team rocket",
-        "petrel",
-        "arven",
-        "penny",
-        "jacq",
-        "turo",
-        "sada",
-        "kieran",
-        "carmine",
-        "briar",
-        "drayton",
-        "lacey",
-        "hassel",
-        "morty",
-        "wally",
-        "premium power",
-        "precious",
-        "pokegear",
-        "scoop up",
-        "may's",
-        "brock",
-        "kofu",
-        "hilda",
-        "cipher",
-        "steven's",
-    )
-    for kw in trainer_keywords:
-        if kw in lower:
-            return "Trainer"
-    for name in trainer_names:
-        if name in lower:
-            return "Trainer"
-    return "Pokemon"
 
 
 def _compute_weighted_shares(conn: sqlite3.Connection, snapshot: dict) -> dict[str, float]:
@@ -1545,6 +1457,7 @@ def export_archetypes(conn: sqlite3.Connection, output_dir: Path) -> None:
         return
 
     weighted_shares = _compute_weighted_shares(conn, snapshot)
+    category_lookup = build_category_lookup(conn)
 
     arch_dir = output_dir / "archetypes"
     arch_dir.mkdir(parents=True, exist_ok=True)
@@ -1593,7 +1506,7 @@ def export_archetypes(conn: sqlite3.Connection, output_dir: Path) -> None:
                 "inclusion_pct": inclusion,
                 "avg_copies": avg_copies,
                 "decks_with": row["decks_with"],
-                "category": _classify_card(row["card_name"]),
+                "category": classify_card(row["card_name"], category_lookup),
             }
             all_cards.append(card_data)
             if inclusion >= 80:
@@ -1635,7 +1548,7 @@ def export_archetypes(conn: sqlite3.Connection, output_dir: Path) -> None:
                     {
                         "card_name": dl["card_name"],
                         "count": dl["count"],
-                        "category": _classify_card(dl["card_name"]),
+                        "category": classify_card(dl["card_name"], category_lookup),
                     }
                     for dl in dl_rows
                 ]

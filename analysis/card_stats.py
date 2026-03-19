@@ -1,14 +1,33 @@
 """Card-level statistics analysis for individual card intelligence."""
 
+import json
+import logging
 import re
 import sqlite3
 from collections import defaultdict
 from datetime import date, timedelta
+from pathlib import Path
 
 from config import (
     PLACEMENT_WEIGHT_DEFAULT,
     PLACEMENT_WEIGHTS,
 )
+
+_log = logging.getLogger(__name__)
+
+# Authoritative Pokemon name set from tcgdex API (cached at build time)
+_POKEMON_NAMES_FILE = Path(__file__).parent / "pokemon_names.json"
+_POKEMON_NAMES: set[str] = set()
+if _POKEMON_NAMES_FILE.exists():
+    try:
+        _POKEMON_NAMES = set(json.loads(_POKEMON_NAMES_FILE.read_text()))
+    except (json.JSONDecodeError, OSError, TypeError) as exc:
+        _log.error(
+            "Failed to load %s: %s - classification will be degraded "
+            "(unknown cards will default to Trainer instead of using name set)",
+            _POKEMON_NAMES_FILE,
+            exc,
+        )
 
 # Basic energy card names to exclude from all analytics (canonical definition;
 # also imported by json_export.py, synergy.py, evolution.py)
@@ -39,8 +58,28 @@ def _slugify(name: str) -> str:
     return slug.strip("-")
 
 
-def _classify_card(card_name: str) -> str:
-    """Classify a card as Pokemon, Trainer, or Energy by name heuristics."""
+def build_category_lookup(conn: sqlite3.Connection) -> dict[str, str]:
+    """Pre-load {card_name: category} from the cards table.
+
+    Uses the authoritative supertype column populated by tcgdex API.
+    """
+    rows = conn.execute(
+        "SELECT name_en, supertype FROM cards WHERE supertype IS NOT NULL"
+    ).fetchall()
+    return {row["name_en"]: row["supertype"] for row in rows}
+
+
+def classify_card(card_name: str, category_lookup: dict[str, str] | None = None) -> str:
+    """Classify a card as Pokemon, Trainer, or Energy.
+
+    Priority: DB lookup -> energy/trainer heuristics -> authoritative Pokemon
+    name set from tcgdex -> default to Trainer (trainers have more diverse names).
+    """
+    if category_lookup is not None:
+        db_cat = category_lookup.get(card_name)
+        if db_cat in ("Pokemon", "Trainer", "Energy"):
+            return db_cat
+
     lower = card_name.lower()
     if lower in ("energy switch", "energy search", "energy retrieval", "energy recycler"):
         return "Trainer"
@@ -127,7 +166,19 @@ def _classify_card(card_name: str) -> str:
     for name in trainer_names:
         if name in lower:
             return "Trainer"
-    return "Pokemon"
+
+    # Check against authoritative Pokemon name set from tcgdex
+    if _POKEMON_NAMES:
+        base_name = lower.removesuffix(" ex")
+        candidates = [lower, base_name]
+        if base_name.startswith("mega "):
+            candidates.append(base_name.removeprefix("mega "))
+        if any(c in _POKEMON_NAMES for c in candidates):
+            return "Pokemon"
+        # Unknown card not matching any known Pokemon — default to Trainer
+        return "Trainer"
+
+    return "Trainer"
 
 
 def _card_slug(card_name: str) -> str:
@@ -220,7 +271,9 @@ def compute_card_stats(conn: sqlite3.Connection) -> list[dict]:
         meta = card_meta.get(name, {})
         supertype = meta.get("supertype")
         category = (
-            supertype if supertype in ("Pokemon", "Trainer", "Energy") else _classify_card(name)
+            supertype
+            if supertype in ("Pokemon", "Trainer", "Energy")
+            else classify_card(name, None)
         )
 
         ws = weighted_scores.get(name, 0.0)
@@ -287,7 +340,9 @@ def compute_card_detail(conn: sqlite3.Connection, card_name: str) -> dict | None
     supertype = meta["supertype"] if meta else None
     rarity = meta["rarity"] if meta else None
     category = (
-        supertype if supertype in ("Pokemon", "Trainer", "Energy") else _classify_card(card_name)
+        supertype
+        if supertype in ("Pokemon", "Trainer", "Energy")
+        else classify_card(card_name, build_category_lookup(conn))
     )
 
     # Weighted score

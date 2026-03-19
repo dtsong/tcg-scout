@@ -7,8 +7,9 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from analysis.card_stats import (
     _card_slug,
-    _classify_card,
     _compute_trend_direction,
+    build_category_lookup,
+    classify_card,
     compute_card_detail,
     compute_card_stats,
     generate_card_verdict,
@@ -121,44 +122,44 @@ class TestComputeCardDetail:
 
 class TestClassifyCard:
     def test_energy_switch_is_trainer(self):
-        assert _classify_card("Energy Switch") == "Trainer"
+        assert classify_card("Energy Switch") == "Trainer"
 
     def test_energy_search_is_trainer(self):
-        assert _classify_card("Energy Search") == "Trainer"
+        assert classify_card("Energy Search") == "Trainer"
 
     def test_energy_retrieval_is_trainer(self):
-        assert _classify_card("Energy Retrieval") == "Trainer"
+        assert classify_card("Energy Retrieval") == "Trainer"
 
     def test_basic_energy_is_energy(self):
-        assert _classify_card("Double Turbo Energy") == "Energy"
+        assert classify_card("Double Turbo Energy") == "Energy"
 
     def test_pokemon_ex(self):
-        assert _classify_card("Charizard ex") == "Pokemon"
+        assert classify_card("Charizard ex") == "Pokemon"
 
     def test_supporter_boss(self):
-        assert _classify_card("Boss's Orders") == "Trainer"
+        assert classify_card("Boss's Orders") == "Trainer"
 
     def test_supporter_iono(self):
-        assert _classify_card("Iono") == "Trainer"
+        assert classify_card("Iono") == "Trainer"
 
     def test_item_nest_ball(self):
-        assert _classify_card("Nest Ball") == "Trainer"
+        assert classify_card("Nest Ball") == "Trainer"
 
     def test_item_rare_candy(self):
-        assert _classify_card("Rare Candy") == "Trainer"
+        assert classify_card("Rare Candy") == "Trainer"
 
     def test_unknown_pokemon(self):
-        assert _classify_card("Pikachu") == "Pokemon"
+        assert classify_card("Pikachu") == "Pokemon"
 
 
 class TestClassifyCardWithSupertype:
     def test_heuristic_classifies_trainer_cards_correctly(self):
         """Trainer cards with non-obvious names are classified correctly."""
-        assert _classify_card("Wally's Compassion") == "Trainer"
-        assert _classify_card("Premium Power Pro") == "Trainer"
-        assert _classify_card("Scoop Up Cyclone") == "Trainer"
-        assert _classify_card("Precious Trolley") == "Trainer"
-        assert _classify_card("Morty's Conviction") == "Trainer"
+        assert classify_card("Wally's Compassion") == "Trainer"
+        assert classify_card("Premium Power Pro") == "Trainer"
+        assert classify_card("Scoop Up Cyclone") == "Trainer"
+        assert classify_card("Precious Trolley") == "Trainer"
+        assert classify_card("Morty's Conviction") == "Trainer"
 
     def test_supertype_from_db_overrides_heuristic(self, db):
         """DB supertype should override heuristic even when they disagree."""
@@ -196,6 +197,62 @@ class TestClassifyCardWithSupertype:
         detail = compute_card_detail(db, "Precious Trolley")
         assert detail is not None
         assert detail["category"] == "Trainer"
+
+
+class TestBuildCategoryLookup:
+    def test_loads_from_db(self, db):
+        db.execute("UPDATE cards SET supertype = 'Pokemon' WHERE name_en = 'Charizard ex'")
+        db.execute("UPDATE cards SET supertype = 'Trainer' WHERE name_en = 'Rare Candy'")
+        db.commit()
+        lookup = build_category_lookup(db)
+        assert lookup["Charizard ex"] == "Pokemon"
+        assert lookup["Rare Candy"] == "Trainer"
+
+    def test_classify_card_uses_lookup(self):
+        lookup = {"Sacred Ash": "Trainer", "Unfair Stamp": "Trainer"}
+        # Without lookup, "Sacred Ash" would be misclassified as Pokemon
+        assert classify_card("Sacred Ash", lookup) == "Trainer"
+        assert classify_card("Unfair Stamp", lookup) == "Trainer"
+
+    def test_classify_card_falls_back_to_heuristic(self):
+        # Non-empty lookup that doesn't contain the queried card
+        lookup = {"Unrelated Card": "Pokemon"}
+        assert classify_card("Nest Ball", lookup) == "Trainer"
+        assert classify_card("Charizard ex", lookup) == "Pokemon"
+
+    def test_classify_card_empty_lookup_falls_through(self):
+        # Empty dict is not None — should still enter lookup branch
+        lookup = {}
+        assert classify_card("Nest Ball", lookup) == "Trainer"
+        assert classify_card("Charizard ex", lookup) == "Pokemon"
+
+    def test_classify_card_without_lookup(self):
+        assert classify_card("Nest Ball") == "Trainer"
+        assert classify_card("Charizard ex") == "Pokemon"
+
+
+class TestPokemonNamesFallback:
+    """Test the _POKEMON_NAMES fallback classification path."""
+
+    def test_pokemon_in_name_set_classified_correctly(self, monkeypatch):
+        monkeypatch.setattr("analysis.card_stats._POKEMON_NAMES", {"pikachu", "charizard"})
+        # Not matched by any heuristic, but in the name set
+        assert classify_card("Pikachu") == "Pokemon"
+
+    def test_unknown_card_defaults_to_trainer(self, monkeypatch):
+        monkeypatch.setattr("analysis.card_stats._POKEMON_NAMES", {"pikachu"})
+        # Not in name set, not matched by heuristics
+        assert classify_card("Sacred Ash") == "Trainer"
+
+    def test_ex_suffix_stripped_for_lookup(self, monkeypatch):
+        monkeypatch.setattr("analysis.card_stats._POKEMON_NAMES", {"charizard"})
+        # "charizard ex" -> base "charizard" found in set
+        assert classify_card("Charizard ex") == "Pokemon"
+
+    def test_empty_name_set_falls_through_to_trainer_default(self, monkeypatch):
+        monkeypatch.setattr("analysis.card_stats._POKEMON_NAMES", set())
+        # Without the name set, unknown cards also default to Trainer
+        assert classify_card("Sacred Ash") == "Trainer"
 
 
 class TestComputeTrendDirection:
