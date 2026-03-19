@@ -199,6 +199,7 @@ export default async function ArchetypeDetailPage({
           sampleSize={arch.top4_sample_size ?? 0}
           lowSample={arch.top4_low_sample ?? true}
           deckCount={arch.deck_count}
+          format={format}
         />
       )}
 

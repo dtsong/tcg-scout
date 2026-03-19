@@ -1,7 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import type { TopPerformerCard } from "@/app/lib/types";
+import { slugify } from "@/app/lib/utils";
 
 type CategoryFilter = "all" | "Pokemon" | "Trainer" | "Energy";
 
@@ -29,7 +31,7 @@ function DeltaBadge({ delta }: { delta: number }) {
   );
 }
 
-function TopCardRow({ card }: { card: TopPerformerCard }) {
+function TopCardRow({ card, format }: { card: TopPerformerCard; format: string }) {
   const copies =
     card.avg_copies % 1 === 0
       ? card.avg_copies.toString()
@@ -54,9 +56,13 @@ function TopCardRow({ card }: { card: TopPerformerCard }) {
           <span className="font-mono text-xs w-7 h-6 flex items-center justify-center rounded bg-surface-700 text-slate-300 shrink-0 tabular-nums">
             {copies}
           </span>
-          <span className="text-sm text-slate-300 truncate">
+          <Link
+            href={`/${format}/cards/${slugify(card.card_name)}`}
+            className="text-sm text-slate-300 hover:text-accent transition-colors truncate"
+            onClick={(e) => e.stopPropagation()}
+          >
             {card.card_name}
-          </span>
+          </Link>
         </div>
         <div className="flex items-center gap-3 shrink-0">
           <span className="text-xs font-mono text-surface-400 tabular-nums w-10 text-right">
@@ -75,10 +81,12 @@ function CardGroup({
   title,
   colorClass,
   cards,
+  format,
 }: {
   title: string;
   colorClass: string;
   cards: TopPerformerCard[];
+  format: string;
 }) {
   if (cards.length === 0) return null;
 
@@ -107,7 +115,7 @@ function CardGroup({
       </div>
       <div className="p-1.5 space-y-0.5">
         {cards.map((card) => (
-          <TopCardRow key={card.card_name} card={card} />
+          <TopCardRow key={card.card_name} card={card} format={format} />
         ))}
       </div>
     </div>
@@ -119,6 +127,7 @@ interface Top4CardStatsProps {
   sampleSize: number;
   lowSample: boolean;
   deckCount: number;
+  format: string;
 }
 
 export function Top4CardStats({
@@ -126,6 +135,7 @@ export function Top4CardStats({
   sampleSize,
   lowSample,
   deckCount,
+  format,
 }: Top4CardStatsProps) {
   const [filter, setFilter] = useState<CategoryFilter>("all");
 
@@ -178,11 +188,13 @@ export function Top4CardStats({
           title="Overperformers"
           colorClass="text-emerald-400/80"
           cards={overperformers}
+          format={format}
         />
         <CardGroup
           title="Underperformers"
           colorClass="text-red-400/80"
           cards={underperformers}
+          format={format}
         />
       </div>
 

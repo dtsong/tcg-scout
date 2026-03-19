@@ -28,6 +28,7 @@ const defaultProps = {
   sampleSize: 8,
   lowSample: false,
   deckCount: 50,
+  format: "nihil-zero",
 };
 
 describe("Top4CardStats", () => {
