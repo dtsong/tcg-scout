@@ -3,246 +3,348 @@
   "event_name": "チャンピオンズリーグ2026 福岡 ジュニアリーグ",
   "division": "juniors",
   "date": "2026-02-22",
+  "archetype_summary": [
+    {
+      "archetype": "Dragapult Dusknoir",
+      "count": 6,
+      "sprite_filenames": [
+        "dragapult.png",
+        "dusknoir.png"
+      ]
+    },
+    {
+      "archetype": "Flareon Noctowl",
+      "count": 2,
+      "sprite_filenames": [
+        "flareon.png",
+        "noctowl.png"
+      ]
+    },
+    {
+      "archetype": "Grimmsnarl Munkidori",
+      "count": 2,
+      "sprite_filenames": [
+        "grimmsnarl.png",
+        "munkidori.png"
+      ]
+    },
+    {
+      "archetype": "Mega Lucario Solrock",
+      "count": 2,
+      "sprite_filenames": [
+        "lucario-mega.png",
+        "solrock.png"
+      ]
+    },
+    {
+      "archetype": "Alakazam Dudunsparce",
+      "count": 2,
+      "sprite_filenames": [
+        "alakazam.png",
+        "dudunsparce.png"
+      ]
+    },
+    {
+      "archetype": "Mega Kangaskhan ex",
+      "count": 1,
+      "sprite_filenames": [
+        "kangaskhan-mega.png"
+      ]
+    },
+    {
+      "archetype": "Mega Froslass Grimmsnarl",
+      "count": 1,
+      "sprite_filenames": [
+        "froslass-mega.png",
+        "grimmsnarl.png"
+      ]
+    }
+  ],
   "placements": [
     {
       "standing": 1,
       "player_name": "ゆう",
       "region": "群馬県",
       "deck_code": "UySpMp-liahAC-yy3p3R",
+      "archetype": "Flareon Noctowl",
+      "tier": "C",
+      "sprite_filenames": [
+        "flareon.png",
+        "noctowl.png"
+      ],
       "decklist": [
         {
           "card_name_jp": "基本水エネルギー",
           "card_name_en": "Basic Water Energy",
           "count": 2,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "基本水エネルギー",
           "card_name_en": "Basic Water Energy",
           "count": 2,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "基本炎エネルギー",
           "card_name_en": "Basic Fire Energy",
           "count": 2,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "基本炎エネルギー",
           "card_name_en": "Basic Fire Energy",
           "count": 2,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "基本草エネルギー",
           "card_name_en": "Basic Grass Energy",
           "count": 1,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "基本草エネルギー",
           "card_name_en": "Basic Grass Energy",
           "count": 1,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "基本超エネルギー",
           "card_name_en": "Basic Psychic Energy",
           "count": 2,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "基本超エネルギー",
           "card_name_en": "Basic Psychic Energy",
           "count": 2,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "基本雷エネルギー",
           "card_name_en": "Basic Lightning Energy",
           "count": 2,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "基本雷エネルギー",
           "card_name_en": "Basic Lightning Energy",
           "count": 2,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "イーブイ",
-          "card_name_en": null,
+          "card_name_en": "Eevee",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/sv/svp/043/high.png"
         },
         {
           "card_name_jp": "イーブイex",
-          "card_name_en": null,
+          "card_name_en": "Eevee ex",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/sv/svp/174/high.png"
         },
         {
           "card_name_jp": "オーガポン いどのめんex",
-          "card_name_en": null,
+          "card_name_en": "Ogerpon ex",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": null
         },
         {
           "card_name_jp": "カプ・コケコex",
-          "card_name_en": null,
+          "card_name_en": "Tapu Koko ex",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": null
         },
         {
           "card_name_jp": "キチキギスex",
-          "card_name_en": null,
+          "card_name_en": "Fezandipiti ex",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/142/high.png"
         },
         {
           "card_name_jp": "スピンロトム",
-          "card_name_en": null,
+          "card_name_en": "Fan Rotom",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/171/high.png"
         },
         {
           "card_name_jp": "パオジアン",
-          "card_name_en": null,
+          "card_name_en": "Chien-Pao",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/sv/svp/152/high.png"
         },
         {
           "card_name_jp": "ブースターex",
-          "card_name_en": null,
+          "card_name_en": "Flareon ex",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": null
         },
         {
           "card_name_jp": "ホーホー",
-          "card_name_en": null,
+          "card_name_en": "Hoothoot",
           "count": 4,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": null
         },
         {
           "card_name_jp": "ヨルノズク",
-          "card_name_en": null,
+          "card_name_en": "Noctowl",
           "count": 4,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/sv/svp/141/high.png"
         },
         {
           "card_name_jp": "ラティアスex",
-          "card_name_en": null,
+          "card_name_en": "Latias ex",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": null
         },
         {
           "card_name_jp": "リーフィアex",
-          "card_name_en": null,
+          "card_name_en": "Leafeon ex",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": null
         },
         {
           "card_name_jp": "リーリエのピッピex",
-          "card_name_en": null,
+          "card_name_en": "Lillie's Clefairy ex",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/sv/svp/195/high.png"
         },
         {
           "card_name_jp": "ロケット団のミミッキュ",
-          "card_name_en": null,
+          "card_name_en": "Team Rocket's Mimikyu",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/097/high.png"
         },
         {
           "card_name_jp": "Nの筋書き",
-          "card_name_en": null,
+          "card_name_en": "N's Scenario",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "きらめく結晶(ACE SPEC)",
-          "card_name_en": null,
+          "card_name_en": "Sparkling Crystal",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "なかよしポフィン",
           "card_name_en": "Buddy-Buddy Poffin",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/184/high.png"
         },
         {
           "card_name_jp": "アカマツ",
-          "card_name_en": null,
+          "card_name_en": "Akamatsu",
           "count": 3,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "エネルギー転送",
-          "card_name_en": null,
+          "card_name_en": "Energy Search",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "ガラスのラッパ",
-          "card_name_en": null,
+          "card_name_en": "Glass Trumpet",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/189/high.png"
         },
         {
           "card_name_jp": "シアノ",
-          "card_name_en": null,
+          "card_name_en": "Ciano",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "スグリ",
-          "card_name_en": null,
+          "card_name_en": "Kieran",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "ゼロの大空洞",
-          "card_name_en": null,
+          "card_name_en": "Area Zero Underdepths",
           "count": 3,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "テラスタルオーブ",
-          "card_name_en": null,
+          "card_name_en": "Tera Orb",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "ハイパーボール",
           "card_name_en": "Ultra Ball",
           "count": 3,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/213/high.png"
         },
         {
           "card_name_jp": "ボスの指令",
           "card_name_en": "Boss's Orders",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/183/high.png"
         },
         {
           "card_name_jp": "ポケパッド",
-          "card_name_en": null,
+          "card_name_en": "Poke Pad",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "リーリエの決心",
-          "card_name_en": null,
+          "card_name_en": "Lillie's Resolve",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "夜のタンカ",
           "card_name_en": "Night Stretcher",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/196/high.png"
         }
       ]
     },
@@ -251,180 +353,214 @@
       "player_name": "たなぼた",
       "region": "北海道",
       "deck_code": "n96gL6-9NpI2r-HNNgnL",
+      "archetype": "Mega Kangaskhan ex",
+      "tier": null,
+      "sprite_filenames": [
+        "kangaskhan-mega.png"
+      ],
       "decklist": [
         {
           "card_name_jp": "基本水エネルギー",
           "card_name_en": "Basic Water Energy",
           "count": 3,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "基本水エネルギー",
           "card_name_en": "Basic Water Energy",
           "count": 3,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "基本炎エネルギー",
           "card_name_en": "Basic Fire Energy",
           "count": 1,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "基本炎エネルギー",
           "card_name_en": "Basic Fire Energy",
           "count": 1,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "基本草エネルギー",
           "card_name_en": "Basic Grass Energy",
           "count": 7,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "基本草エネルギー",
           "card_name_en": "Basic Grass Energy",
           "count": 7,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "基本超エネルギー",
           "card_name_en": "Basic Psychic Energy",
           "count": 2,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "基本超エネルギー",
           "card_name_en": "Basic Psychic Energy",
           "count": 2,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "オーガポン いどのめんex",
-          "card_name_en": null,
+          "card_name_en": "Ogerpon ex",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": null
         },
         {
           "card_name_jp": "オーガポン かまどのめんex",
-          "card_name_en": null,
+          "card_name_en": "Ogerpon ex",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": null
         },
         {
           "card_name_jp": "オーガポン みどりのめんex",
-          "card_name_en": null,
+          "card_name_en": "Ogerpon ex",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": null
         },
         {
           "card_name_jp": "キチキギスex",
-          "card_name_en": null,
+          "card_name_en": "Fezandipiti ex",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/142/high.png"
         },
         {
           "card_name_jp": "ニャースex",
-          "card_name_en": null,
+          "card_name_en": "Meowth ex",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": null
         },
         {
           "card_name_jp": "メガガルーラex",
-          "card_name_en": null,
+          "card_name_en": "Mega Kangaskhan ex",
           "count": 3,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me01/104/high.png"
         },
         {
           "card_name_jp": "ラティアスex",
-          "card_name_en": null,
+          "card_name_en": "Latias ex",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": null
         },
         {
           "card_name_jp": "リーリエのピッピex",
-          "card_name_en": null,
+          "card_name_en": "Lillie's Clefairy ex",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/sv/svp/195/high.png"
         },
         {
           "card_name_jp": "Nの筋書き",
-          "card_name_en": null,
+          "card_name_en": "N's Scenario",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "きらめく結晶(ACE SPEC)",
-          "card_name_en": null,
+          "card_name_en": "Sparkling Crystal",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "アカマツ",
-          "card_name_en": null,
+          "card_name_en": "Akamatsu",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "エキサイトスタジアム",
-          "card_name_en": null,
+          "card_name_en": "Excite Stadium",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "エネルギー回収",
           "card_name_en": "Energy Retrieval",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "ジャッジマン",
           "card_name_en": "Judge",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "ゼロの大空洞",
-          "card_name_en": null,
+          "card_name_en": "Area Zero Underdepths",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "テラスタルオーブ",
-          "card_name_en": null,
+          "card_name_en": "Tera Orb",
           "count": 3,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "ハイパーボール",
           "card_name_en": "Ultra Ball",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/213/high.png"
         },
         {
           "card_name_jp": "ボスの指令",
           "card_name_en": "Boss's Orders",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/183/high.png"
         },
         {
           "card_name_jp": "リーリエの決心",
-          "card_name_en": null,
+          "card_name_en": "Lillie's Resolve",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "夜のタンカ",
           "card_name_en": "Night Stretcher",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/196/high.png"
         },
         {
           "card_name_jp": "鬼の仮面",
-          "card_name_en": null,
+          "card_name_en": "Ogre Mask",
           "count": 3,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         }
       ]
     },
@@ -433,156 +569,187 @@
       "player_name": "ルカリオ",
       "region": "東京都",
       "deck_code": "UyMyMM-9g5Jzk-RMERyp",
+      "archetype": "Grimmsnarl Munkidori",
+      "tier": "B",
+      "sprite_filenames": [
+        "grimmsnarl.png",
+        "munkidori.png"
+      ],
       "decklist": [
         {
           "card_name_jp": "基本悪エネルギー",
           "card_name_en": "Basic Darkness Energy",
           "count": 9,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "基本悪エネルギー",
           "card_name_en": "Basic Darkness Energy",
           "count": 9,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "コダック",
-          "card_name_en": null,
+          "card_name_en": "Psyduck",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/039/high.png"
         },
         {
           "card_name_jp": "シェイミ",
-          "card_name_en": null,
+          "card_name_en": "Shaymin",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": null
         },
         {
           "card_name_jp": "シャリタツ",
-          "card_name_en": null,
+          "card_name_en": "Tatsugiri",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/sv/svp/118/high.png"
         },
         {
           "card_name_jp": "スボミー",
-          "card_name_en": null,
+          "card_name_en": "Budew",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/016/high.png"
         },
         {
           "card_name_jp": "マシマシラ",
-          "card_name_en": null,
+          "card_name_en": "Munkidori",
           "count": 4,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/099/high.png"
         },
         {
           "card_name_jp": "マリィのオーロンゲex",
-          "card_name_en": null,
+          "card_name_en": "Marnie's Grimmsnarl ex",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/287/high.png"
         },
         {
           "card_name_jp": "マリィのギモー",
-          "card_name_en": null,
+          "card_name_en": "Marnie's Morgrem",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": null
         },
         {
           "card_name_jp": "マリィのベロバー",
-          "card_name_en": null,
+          "card_name_en": "Marnie's Impidimp",
           "count": 3,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": null
         },
         {
           "card_name_jp": "ユキメノコ",
-          "card_name_en": null,
+          "card_name_en": "Froslass",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/sv/svp/117/high.png"
         },
         {
           "card_name_jp": "ユキワラシ",
-          "card_name_en": null,
+          "card_name_en": "Snorunt",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/046/high.png"
         },
         {
           "card_name_jp": "なかよしポフィン",
           "card_name_en": "Buddy-Buddy Poffin",
           "count": 3,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/184/high.png"
         },
         {
           "card_name_jp": "ふうせん",
-          "card_name_en": null,
+          "card_name_en": "Air Balloon",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/181/high.png"
         },
         {
           "card_name_jp": "ふしぎなアメ",
           "card_name_en": "Rare Candy",
           "count": 3,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me01/125/high.png"
         },
         {
           "card_name_jp": "アオキの手際",
-          "card_name_en": null,
+          "card_name_en": "Aoki's Skill",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "シークレットボックス(ACE SPEC)",
-          "card_name_en": null,
+          "card_name_en": "Secret Box",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "ジャッジマン",
           "card_name_en": "Judge",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "スパイクタウンジム",
-          "card_name_en": null,
+          "card_name_en": "Spikemuth Gym",
           "count": 3,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "ボスの指令",
           "card_name_en": "Boss's Orders",
           "count": 3,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/183/high.png"
         },
         {
           "card_name_jp": "ポケパッド",
-          "card_name_en": null,
+          "card_name_en": "Poke Pad",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "リーリエの決心",
-          "card_name_en": null,
+          "card_name_en": "Lillie's Resolve",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "ロケット団のラムダ",
-          "card_name_en": null,
+          "card_name_en": "Team Rocket's Lambda",
           "count": 3,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "ロケット団の監視塔",
-          "card_name_en": null,
+          "card_name_en": "Team Rocket's Watchtower",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/210/high.png"
         },
         {
           "card_name_jp": "夜のタンカ",
           "card_name_en": "Night Stretcher",
           "count": 3,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/196/high.png"
         }
       ]
     },
@@ -591,198 +758,236 @@
       "player_name": "いぶき",
       "region": "岡山県",
       "deck_code": "kVvwFb-Al80fZ-V5Fkkk",
+      "archetype": "Dragapult Dusknoir",
+      "tier": "A",
+      "sprite_filenames": [
+        "dragapult.png",
+        "dusknoir.png"
+      ],
       "decklist": [
         {
           "card_name_jp": "基本悪エネルギー",
           "card_name_en": "Basic Darkness Energy",
           "count": 1,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "基本悪エネルギー",
           "card_name_en": "Basic Darkness Energy",
           "count": 1,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "基本炎エネルギー",
           "card_name_en": "Basic Fire Energy",
           "count": 3,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "基本炎エネルギー",
           "card_name_en": "Basic Fire Energy",
           "count": 3,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "基本超エネルギー",
           "card_name_en": "Basic Psychic Energy",
           "count": 3,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "基本超エネルギー",
           "card_name_en": "Basic Psychic Energy",
           "count": 3,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "ガチグマ アカツキex",
-          "card_name_en": null,
+          "card_name_en": "Ursaluna ex",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": null
         },
         {
           "card_name_jp": "キチキギスex",
-          "card_name_en": null,
+          "card_name_en": "Fezandipiti ex",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/142/high.png"
         },
         {
           "card_name_jp": "サマヨール",
-          "card_name_en": null,
+          "card_name_en": "Dusclops",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": null
         },
         {
           "card_name_jp": "シェイミ",
-          "card_name_en": null,
+          "card_name_en": "Shaymin",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": null
         },
         {
           "card_name_jp": "スボミー",
-          "card_name_en": null,
+          "card_name_en": "Budew",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/016/high.png"
         },
         {
           "card_name_jp": "ドラパルトex",
-          "card_name_en": null,
+          "card_name_en": "Dragapult ex",
           "count": 3,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/160/high.png"
         },
         {
           "card_name_jp": "ドラメシヤ",
-          "card_name_en": null,
+          "card_name_en": "Dreepy",
           "count": 4,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/158/high.png"
         },
         {
           "card_name_jp": "ドロンチ",
-          "card_name_en": null,
+          "card_name_en": "Drakloak",
           "count": 4,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/159/high.png"
         },
         {
           "card_name_jp": "ニャースex",
-          "card_name_en": null,
+          "card_name_en": "Meowth ex",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": null
         },
         {
           "card_name_jp": "マシマシラ",
-          "card_name_en": null,
+          "card_name_en": "Munkidori",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/099/high.png"
         },
         {
           "card_name_jp": "ヨノワール",
-          "card_name_en": null,
+          "card_name_en": "Dusknoir",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": null
         },
         {
           "card_name_jp": "ヨマワル",
-          "card_name_en": null,
+          "card_name_en": "Duskull",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": null
         },
         {
           "card_name_jp": "ラティアスex",
-          "card_name_en": null,
+          "card_name_en": "Latias ex",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": null
         },
         {
           "card_name_jp": "なかよしポフィン",
           "card_name_en": "Buddy-Buddy Poffin",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/184/high.png"
         },
         {
           "card_name_jp": "ふしぎなアメ",
           "card_name_en": "Rare Candy",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me01/125/high.png"
         },
         {
           "card_name_jp": "アカマツ",
-          "card_name_en": null,
+          "card_name_en": "Akamatsu",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "アンフェアスタンプ(ACE SPEC)",
-          "card_name_en": null,
+          "card_name_en": "Unfair Stamp",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "ジャミングタワー",
-          "card_name_en": null,
+          "card_name_en": "Jamming Tower",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/261/high.png"
         },
         {
           "card_name_jp": "タケシのスカウト",
-          "card_name_en": null,
+          "card_name_en": "Brock's Scout",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "ハイパーボール",
           "card_name_en": "Ultra Ball",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/213/high.png"
         },
         {
           "card_name_jp": "ヒカリ",
-          "card_name_en": null,
+          "card_name_en": "Dawn",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02/087/high.png"
         },
         {
           "card_name_jp": "ボスの指令",
           "card_name_en": "Boss's Orders",
           "count": 3,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/183/high.png"
         },
         {
           "card_name_jp": "ポケパッド",
-          "card_name_en": null,
+          "card_name_en": "Poke Pad",
           "count": 3,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "リーリエの決心",
-          "card_name_en": null,
+          "card_name_en": "Lillie's Resolve",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "ロケット団のラムダ",
-          "card_name_en": null,
+          "card_name_en": "Team Rocket's Lambda",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "夜のタンカ",
           "card_name_en": "Night Stretcher",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/196/high.png"
         }
       ]
     },
@@ -791,150 +996,180 @@
       "player_name": "とおる",
       "region": "滋賀県",
       "deck_code": "kkk5VV-agSDcT-b1VkkF",
+      "archetype": "Mega Lucario Solrock",
+      "tier": "C",
+      "sprite_filenames": [
+        "lucario-mega.png",
+        "solrock.png"
+      ],
       "decklist": [
         {
           "card_name_jp": "ロック闘エネルギー",
-          "card_name_en": null,
+          "card_name_en": "Rock Fighting Energy",
           "count": 1,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "基本闘エネルギー",
           "card_name_en": "Basic Fighting Energy",
           "count": 9,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "基本闘エネルギー",
           "card_name_en": "Basic Fighting Energy",
           "count": 9,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "キチキギスex",
-          "card_name_en": null,
+          "card_name_en": "Fezandipiti ex",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/142/high.png"
         },
         {
           "card_name_jp": "ソルロック",
-          "card_name_en": null,
+          "card_name_en": "Solrock",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/106/high.png"
         },
         {
           "card_name_jp": "ハリテヤマ",
-          "card_name_en": null,
+          "card_name_en": "Hariyama",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me01/073/high.png"
         },
         {
           "card_name_jp": "マクノシタ",
-          "card_name_en": null,
+          "card_name_en": "Makuhita",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me01/072/high.png"
         },
         {
           "card_name_jp": "メガルカリオex",
-          "card_name_en": null,
+          "card_name_en": "Mega Lucario ex",
           "count": 3,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/113/high.png"
         },
         {
           "card_name_jp": "リオル",
-          "card_name_en": null,
+          "card_name_en": "Riolu",
           "count": 3,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/112/high.png"
         },
         {
           "card_name_jp": "ルナトーン",
-          "card_name_en": null,
+          "card_name_en": "Lunatone",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/105/high.png"
         },
         {
           "card_name_jp": "ふうせん",
-          "card_name_en": null,
+          "card_name_en": "Air Balloon",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/181/high.png"
         },
         {
           "card_name_jp": "グラビティーマウンテン",
-          "card_name_en": null,
+          "card_name_en": "Gravity Mountain",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "ハイパーボール",
           "card_name_en": "Ultra Ball",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/213/high.png"
         },
         {
           "card_name_jp": "バトルコロシアム",
-          "card_name_en": null,
+          "card_name_en": "Battle Colosseum",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "パワープロテイン",
-          "card_name_en": null,
+          "card_name_en": "Power Protein",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "ファイトゴング",
-          "card_name_en": null,
+          "card_name_en": "Fighting Gong",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/187/high.png"
         },
         {
           "card_name_jp": "ボスの指令",
           "card_name_en": "Boss's Orders",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/183/high.png"
         },
         {
           "card_name_jp": "ポケパッド",
-          "card_name_en": null,
+          "card_name_en": "Poke Pad",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "ポケモンいれかえ",
           "card_name_en": "Switch",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02/123/high.png"
         },
         {
           "card_name_jp": "マキシマムベルト(ACE SPEC)",
-          "card_name_en": null,
+          "card_name_en": "Maximum Belt",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "マツバの確信",
-          "card_name_en": null,
+          "card_name_en": "Morty's Conviction",
           "count": 3,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "ミツルの思いやり",
-          "card_name_en": null,
+          "card_name_en": "Wally's Compassion",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me01/132/high.png"
         },
         {
           "card_name_jp": "リーリエの決心",
-          "card_name_en": null,
+          "card_name_en": "Lillie's Resolve",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "夜のタンカ",
           "card_name_en": "Night Stretcher",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/196/high.png"
         }
       ]
     },
@@ -943,180 +1178,215 @@
       "player_name": "レイタ",
       "region": "埼玉県",
       "deck_code": "L69nng-o0mFW8-n9gLng",
+      "archetype": "Dragapult Dusknoir",
+      "tier": "A",
+      "sprite_filenames": [
+        "dragapult.png",
+        "dusknoir.png"
+      ],
       "decklist": [
         {
           "card_name_jp": "基本悪エネルギー",
           "card_name_en": "Basic Darkness Energy",
           "count": 1,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "基本悪エネルギー",
           "card_name_en": "Basic Darkness Energy",
           "count": 1,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "基本炎エネルギー",
           "card_name_en": "Basic Fire Energy",
           "count": 3,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "基本炎エネルギー",
           "card_name_en": "Basic Fire Energy",
           "count": 3,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "基本超エネルギー",
           "card_name_en": "Basic Psychic Energy",
           "count": 4,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "基本超エネルギー",
           "card_name_en": "Basic Psychic Energy",
           "count": 4,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "キチキギスex",
-          "card_name_en": null,
+          "card_name_en": "Fezandipiti ex",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/142/high.png"
         },
         {
           "card_name_jp": "サマヨール",
-          "card_name_en": null,
+          "card_name_en": "Dusclops",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": null
         },
         {
           "card_name_jp": "スボミー",
-          "card_name_en": null,
+          "card_name_en": "Budew",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/016/high.png"
         },
         {
           "card_name_jp": "ドラパルトex",
-          "card_name_en": null,
+          "card_name_en": "Dragapult ex",
           "count": 3,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/160/high.png"
         },
         {
           "card_name_jp": "ドラメシヤ",
-          "card_name_en": null,
+          "card_name_en": "Dreepy",
           "count": 4,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/158/high.png"
         },
         {
           "card_name_jp": "ドロンチ",
-          "card_name_en": null,
+          "card_name_en": "Drakloak",
           "count": 4,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/159/high.png"
         },
         {
           "card_name_jp": "ニャースex",
-          "card_name_en": null,
+          "card_name_en": "Meowth ex",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": null
         },
         {
           "card_name_jp": "マシマシラ",
-          "card_name_en": null,
+          "card_name_en": "Munkidori",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/099/high.png"
         },
         {
           "card_name_jp": "ヨノワール",
-          "card_name_en": null,
+          "card_name_en": "Dusknoir",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": null
         },
         {
           "card_name_jp": "ヨマワル",
-          "card_name_en": null,
+          "card_name_en": "Duskull",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": null
         },
         {
           "card_name_jp": "ラティアスex",
-          "card_name_en": null,
+          "card_name_en": "Latias ex",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": null
         },
         {
           "card_name_jp": "なかよしポフィン",
           "card_name_en": "Buddy-Buddy Poffin",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/184/high.png"
         },
         {
           "card_name_jp": "ふしぎなアメ",
           "card_name_en": "Rare Candy",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me01/125/high.png"
         },
         {
           "card_name_jp": "アカマツ",
-          "card_name_en": null,
+          "card_name_en": "Akamatsu",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "アンフェアスタンプ(ACE SPEC)",
-          "card_name_en": null,
+          "card_name_en": "Unfair Stamp",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "ジャミングタワー",
-          "card_name_en": null,
+          "card_name_en": "Jamming Tower",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/261/high.png"
         },
         {
           "card_name_jp": "ハイパーボール",
           "card_name_en": "Ultra Ball",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/213/high.png"
         },
         {
           "card_name_jp": "ヒカリ",
-          "card_name_en": null,
+          "card_name_en": "Dawn",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02/087/high.png"
         },
         {
           "card_name_jp": "ボスの指令",
           "card_name_en": "Boss's Orders",
           "count": 3,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/183/high.png"
         },
         {
           "card_name_jp": "ポケパッド",
-          "card_name_en": null,
+          "card_name_en": "Poke Pad",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "リーリエの決心",
-          "card_name_en": null,
+          "card_name_en": "Lillie's Resolve",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "ロケット団の監視塔",
-          "card_name_en": null,
+          "card_name_en": "Team Rocket's Watchtower",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/210/high.png"
         },
         {
           "card_name_jp": "夜のタンカ",
           "card_name_en": "Night Stretcher",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/196/high.png"
         }
       ]
     },
@@ -1125,174 +1395,208 @@
       "player_name": "あつし",
       "region": "大阪府",
       "deck_code": "nNgLnL-F511eV-99nLnn",
+      "archetype": "Mega Froslass Grimmsnarl",
+      "tier": "Rogue",
+      "sprite_filenames": [
+        "froslass-mega.png",
+        "grimmsnarl.png"
+      ],
       "decklist": [
         {
           "card_name_jp": "基本悪エネルギー",
           "card_name_en": "Basic Darkness Energy",
           "count": 8,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "基本悪エネルギー",
           "card_name_en": "Basic Darkness Energy",
           "count": 8,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "基本水エネルギー",
           "card_name_en": "Basic Water Energy",
           "count": 1,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "基本水エネルギー",
           "card_name_en": "Basic Water Energy",
           "count": 1,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "イベルタル",
-          "card_name_en": null,
+          "card_name_en": "Yveltal",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me01/088/high.png"
         },
         {
           "card_name_jp": "コダック",
-          "card_name_en": null,
+          "card_name_en": "Psyduck",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/039/high.png"
         },
         {
           "card_name_jp": "シャリタツ",
-          "card_name_en": null,
+          "card_name_en": "Tatsugiri",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/sv/svp/118/high.png"
         },
         {
           "card_name_jp": "マシマシラ",
-          "card_name_en": null,
+          "card_name_en": "Munkidori",
           "count": 4,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/099/high.png"
         },
         {
           "card_name_jp": "マリィのオーロンゲex",
-          "card_name_en": null,
+          "card_name_en": "Marnie's Grimmsnarl ex",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/287/high.png"
         },
         {
           "card_name_jp": "マリィのギモー",
-          "card_name_en": null,
+          "card_name_en": "Marnie's Morgrem",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": null
         },
         {
           "card_name_jp": "マリィのベロバー",
-          "card_name_en": null,
+          "card_name_en": "Marnie's Impidimp",
           "count": 3,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": null
         },
         {
           "card_name_jp": "メガユキメノコex",
-          "card_name_en": null,
+          "card_name_en": "Mega Froslass ex",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/047/high.png"
         },
         {
           "card_name_jp": "ユキメノコ",
-          "card_name_en": null,
+          "card_name_en": "Froslass",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/sv/svp/117/high.png"
         },
         {
           "card_name_jp": "ユキワラシ",
-          "card_name_en": null,
+          "card_name_en": "Snorunt",
           "count": 3,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/046/high.png"
         },
         {
           "card_name_jp": "なかよしポフィン",
           "card_name_en": "Buddy-Buddy Poffin",
           "count": 3,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/184/high.png"
         },
         {
           "card_name_jp": "ふうせん",
-          "card_name_en": null,
+          "card_name_en": "Air Balloon",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/181/high.png"
         },
         {
           "card_name_jp": "ふしぎなアメ",
           "card_name_en": "Rare Candy",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me01/125/high.png"
         },
         {
           "card_name_jp": "エネルギー転送",
-          "card_name_en": null,
+          "card_name_en": "Energy Search",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "シークレットボックス(ACE SPEC)",
-          "card_name_en": null,
+          "card_name_en": "Secret Box",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "ジャッジマン",
           "card_name_en": "Judge",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "スパイクタウンジム",
-          "card_name_en": null,
+          "card_name_en": "Spikemuth Gym",
           "count": 3,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "ハイダイ",
-          "card_name_en": null,
+          "card_name_en": "Kofu",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "ハイパーボール",
           "card_name_en": "Ultra Ball",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/213/high.png"
         },
         {
           "card_name_jp": "ボスの指令",
           "card_name_en": "Boss's Orders",
           "count": 3,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/183/high.png"
         },
         {
           "card_name_jp": "ポケパッド",
-          "card_name_en": null,
+          "card_name_en": "Poke Pad",
           "count": 3,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "リーリエの決心",
-          "card_name_en": null,
+          "card_name_en": "Lillie's Resolve",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "ロケット団のラムダ",
-          "card_name_en": null,
+          "card_name_en": "Team Rocket's Lambda",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "夜のタンカ",
           "card_name_en": "Night Stretcher",
           "count": 3,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/196/high.png"
         }
       ]
     },
@@ -1301,174 +1605,208 @@
       "player_name": "ヨウタ",
       "region": "愛知県",
       "deck_code": "MMXpXy-U9okSn-UyRypy",
+      "archetype": "Dragapult Dusknoir",
+      "tier": "A",
+      "sprite_filenames": [
+        "dragapult.png",
+        "dusknoir.png"
+      ],
       "decklist": [
         {
           "card_name_jp": "基本炎エネルギー",
           "card_name_en": "Basic Fire Energy",
           "count": 3,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "基本炎エネルギー",
           "card_name_en": "Basic Fire Energy",
           "count": 3,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "基本超エネルギー",
           "card_name_en": "Basic Psychic Energy",
           "count": 4,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "基本超エネルギー",
           "card_name_en": "Basic Psychic Energy",
           "count": 4,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "キチキギスex",
-          "card_name_en": null,
+          "card_name_en": "Fezandipiti ex",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/142/high.png"
         },
         {
           "card_name_jp": "サマヨール",
-          "card_name_en": null,
+          "card_name_en": "Dusclops",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": null
         },
         {
           "card_name_jp": "シェイミ",
-          "card_name_en": null,
+          "card_name_en": "Shaymin",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": null
         },
         {
           "card_name_jp": "スボミー",
-          "card_name_en": null,
+          "card_name_en": "Budew",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/016/high.png"
         },
         {
           "card_name_jp": "ドラパルトex",
-          "card_name_en": null,
+          "card_name_en": "Dragapult ex",
           "count": 3,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/160/high.png"
         },
         {
           "card_name_jp": "ドラメシヤ",
-          "card_name_en": null,
+          "card_name_en": "Dreepy",
           "count": 4,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/158/high.png"
         },
         {
           "card_name_jp": "ドロンチ",
-          "card_name_en": null,
+          "card_name_en": "Drakloak",
           "count": 4,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/159/high.png"
         },
         {
           "card_name_jp": "ニャースex",
-          "card_name_en": null,
+          "card_name_en": "Meowth ex",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": null
         },
         {
           "card_name_jp": "ヨノワール",
-          "card_name_en": null,
+          "card_name_en": "Dusknoir",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": null
         },
         {
           "card_name_jp": "ヨマワル",
-          "card_name_en": null,
+          "card_name_en": "Duskull",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": null
         },
         {
           "card_name_jp": "ラティアスex",
-          "card_name_en": null,
+          "card_name_en": "Latias ex",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": null
         },
         {
           "card_name_jp": "リーリエのピッピex",
-          "card_name_en": null,
+          "card_name_en": "Lillie's Clefairy ex",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/sv/svp/195/high.png"
         },
         {
           "card_name_jp": "なかよしポフィン",
           "card_name_en": "Buddy-Buddy Poffin",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/184/high.png"
         },
         {
           "card_name_jp": "ふしぎなアメ",
           "card_name_en": "Rare Candy",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me01/125/high.png"
         },
         {
           "card_name_jp": "アカマツ",
-          "card_name_en": null,
+          "card_name_en": "Akamatsu",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "アンフェアスタンプ(ACE SPEC)",
-          "card_name_en": null,
+          "card_name_en": "Unfair Stamp",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "ジャミングタワー",
-          "card_name_en": null,
+          "card_name_en": "Jamming Tower",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/261/high.png"
         },
         {
           "card_name_jp": "ハイパーボール",
           "card_name_en": "Ultra Ball",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/213/high.png"
         },
         {
           "card_name_jp": "ヒカリ",
-          "card_name_en": null,
+          "card_name_en": "Dawn",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02/087/high.png"
         },
         {
           "card_name_jp": "ブライア",
-          "card_name_en": null,
+          "card_name_en": "Briar",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "ボスの指令",
           "card_name_en": "Boss's Orders",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/183/high.png"
         },
         {
           "card_name_jp": "ポケパッド",
-          "card_name_en": null,
+          "card_name_en": "Poke Pad",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "リーリエの決心",
-          "card_name_en": null,
+          "card_name_en": "Lillie's Resolve",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "夜のタンカ",
           "card_name_en": "Night Stretcher",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/196/high.png"
         }
       ]
     },
@@ -1477,156 +1815,187 @@
       "player_name": "まひぞう",
       "region": "愛知県",
       "deck_code": "NgnNLg-0dZcau-nnnP9Q",
+      "archetype": "Alakazam Dudunsparce",
+      "tier": "B",
+      "sprite_filenames": [
+        "alakazam.png",
+        "dudunsparce.png"
+      ],
       "decklist": [
         {
           "card_name_jp": "テレパス超エネルギー",
-          "card_name_en": null,
+          "card_name_en": "Telepathy Psychic Energy",
           "count": 2,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "リッチエネルギー",
-          "card_name_en": null,
+          "card_name_en": "Rich Energy",
           "count": 1,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "基本超エネルギー",
           "card_name_en": "Basic Psychic Energy",
           "count": 3,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "基本超エネルギー",
           "card_name_en": "Basic Psychic Energy",
           "count": 3,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "キチキギスex",
-          "card_name_en": null,
+          "card_name_en": "Fezandipiti ex",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/142/high.png"
         },
         {
           "card_name_jp": "ケーシィ",
-          "card_name_en": null,
+          "card_name_en": "Abra",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me01/054/high.png"
         },
         {
           "card_name_jp": "コダック",
-          "card_name_en": null,
+          "card_name_en": "Psyduck",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/039/high.png"
         },
         {
           "card_name_jp": "シェイミ",
-          "card_name_en": null,
+          "card_name_en": "Shaymin",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": null
         },
         {
           "card_name_jp": "スピンロトム",
-          "card_name_en": null,
+          "card_name_en": "Fan Rotom",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/171/high.png"
         },
         {
           "card_name_jp": "ノココッチ",
-          "card_name_en": null,
+          "card_name_en": "Dudunsparce",
           "count": 3,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": null
         },
         {
           "card_name_jp": "ノコッチ",
-          "card_name_en": null,
+          "card_name_en": "Dunsparce",
           "count": 4,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": null
         },
         {
           "card_name_jp": "フーディン",
-          "card_name_en": null,
+          "card_name_en": "Alakazam",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me01/056/high.png"
         },
         {
           "card_name_jp": "ユンゲラー",
-          "card_name_en": null,
+          "card_name_en": "Kadabra",
           "count": 4,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me01/055/high.png"
         },
         {
           "card_name_jp": "せいなるはい",
-          "card_name_en": null,
+          "card_name_en": "Sacred Ash",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "なかよしポフィン",
           "card_name_en": "Buddy-Buddy Poffin",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/184/high.png"
         },
         {
           "card_name_jp": "ふしぎなアメ",
           "card_name_en": "Rare Candy",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me01/125/high.png"
         },
         {
           "card_name_jp": "スイレンのお世話",
-          "card_name_en": null,
+          "card_name_en": "Lana's Care",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "トウコ",
-          "card_name_en": null,
+          "card_name_en": "Hilda",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "バトルコロシアム",
-          "card_name_en": null,
+          "card_name_en": "Battle Colosseum",
           "count": 3,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "ヒカリ",
-          "card_name_en": null,
+          "card_name_en": "Dawn",
           "count": 3,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02/087/high.png"
         },
         {
           "card_name_jp": "ボスの指令",
           "card_name_en": "Boss's Orders",
           "count": 3,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/183/high.png"
         },
         {
           "card_name_jp": "ポケパッド",
-          "card_name_en": null,
+          "card_name_en": "Poke Pad",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "ワンダーパッチ",
-          "card_name_en": null,
+          "card_name_en": "Wonder Patch",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "夜のタンカ",
           "card_name_en": "Night Stretcher",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/196/high.png"
         },
         {
           "card_name_jp": "改造ハンマー",
-          "card_name_en": null,
+          "card_name_en": "Crushing Hammer",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         }
       ]
     },
@@ -1635,150 +2004,180 @@
       "player_name": "ツキミヌス",
       "region": "大阪府",
       "deck_code": "xc48JG-juxNbu-88Y8c8",
+      "archetype": "Grimmsnarl Munkidori",
+      "tier": "B",
+      "sprite_filenames": [
+        "grimmsnarl.png",
+        "munkidori.png"
+      ],
       "decklist": [
         {
           "card_name_jp": "基本悪エネルギー",
           "card_name_en": "Basic Darkness Energy",
           "count": 9,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "基本悪エネルギー",
           "card_name_en": "Basic Darkness Energy",
           "count": 9,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "シェイミ",
-          "card_name_en": null,
+          "card_name_en": "Shaymin",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": null
         },
         {
           "card_name_jp": "シャリタツ",
-          "card_name_en": null,
+          "card_name_en": "Tatsugiri",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/sv/svp/118/high.png"
         },
         {
           "card_name_jp": "スボミー",
-          "card_name_en": null,
+          "card_name_en": "Budew",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/016/high.png"
         },
         {
           "card_name_jp": "マシマシラ",
-          "card_name_en": null,
+          "card_name_en": "Munkidori",
           "count": 4,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/099/high.png"
         },
         {
           "card_name_jp": "マリィのオーロンゲex",
-          "card_name_en": null,
+          "card_name_en": "Marnie's Grimmsnarl ex",
           "count": 3,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/287/high.png"
         },
         {
           "card_name_jp": "マリィのギモー",
-          "card_name_en": null,
+          "card_name_en": "Marnie's Morgrem",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": null
         },
         {
           "card_name_jp": "マリィのベロバー",
-          "card_name_en": null,
+          "card_name_en": "Marnie's Impidimp",
           "count": 3,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": null
         },
         {
           "card_name_jp": "ユキメノコ",
-          "card_name_en": null,
+          "card_name_en": "Froslass",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/sv/svp/117/high.png"
         },
         {
           "card_name_jp": "ユキワラシ",
-          "card_name_en": null,
+          "card_name_en": "Snorunt",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/046/high.png"
         },
         {
           "card_name_jp": "なかよしポフィン",
           "card_name_en": "Buddy-Buddy Poffin",
           "count": 3,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/184/high.png"
         },
         {
           "card_name_jp": "ふうせん",
-          "card_name_en": null,
+          "card_name_en": "Air Balloon",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/181/high.png"
         },
         {
           "card_name_jp": "ふしぎなアメ",
           "card_name_en": "Rare Candy",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me01/125/high.png"
         },
         {
           "card_name_jp": "シークレットボックス(ACE SPEC)",
-          "card_name_en": null,
+          "card_name_en": "Secret Box",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "ジャッジマン",
           "card_name_en": "Judge",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "スパイクタウンジム",
-          "card_name_en": null,
+          "card_name_en": "Spikemuth Gym",
           "count": 3,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "ツールスクラッパー",
-          "card_name_en": null,
+          "card_name_en": "Tool Scrapper",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/212/high.png"
         },
         {
           "card_name_jp": "ボスの指令",
           "card_name_en": "Boss's Orders",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/183/high.png"
         },
         {
           "card_name_jp": "ポケパッド",
-          "card_name_en": null,
+          "card_name_en": "Poke Pad",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "マツバの確信",
-          "card_name_en": null,
+          "card_name_en": "Morty's Conviction",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "リーリエの決心",
-          "card_name_en": null,
+          "card_name_en": "Lillie's Resolve",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "ロケット団のラムダ",
-          "card_name_en": null,
+          "card_name_en": "Team Rocket's Lambda",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "夜のタンカ",
           "card_name_en": "Night Stretcher",
           "count": 3,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/196/high.png"
         }
       ]
     },
@@ -1787,186 +2186,222 @@
       "player_name": "れお",
       "region": "東京都",
       "deck_code": "MMMMyy-QTwJ4N-Mp3Ryy",
+      "archetype": "Dragapult Dusknoir",
+      "tier": "A",
+      "sprite_filenames": [
+        "dragapult.png",
+        "dusknoir.png"
+      ],
       "decklist": [
         {
           "card_name_jp": "基本悪エネルギー",
           "card_name_en": "Basic Darkness Energy",
           "count": 2,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "基本悪エネルギー",
           "card_name_en": "Basic Darkness Energy",
           "count": 2,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "基本炎エネルギー",
           "card_name_en": "Basic Fire Energy",
           "count": 3,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "基本炎エネルギー",
           "card_name_en": "Basic Fire Energy",
           "count": 3,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "基本超エネルギー",
           "card_name_en": "Basic Psychic Energy",
           "count": 3,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "基本超エネルギー",
           "card_name_en": "Basic Psychic Energy",
           "count": 3,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "ガチグマ アカツキex",
-          "card_name_en": null,
+          "card_name_en": "Ursaluna ex",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": null
         },
         {
           "card_name_jp": "キチキギスex",
-          "card_name_en": null,
+          "card_name_en": "Fezandipiti ex",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/142/high.png"
         },
         {
           "card_name_jp": "サマヨール",
-          "card_name_en": null,
+          "card_name_en": "Dusclops",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": null
         },
         {
           "card_name_jp": "スボミー",
-          "card_name_en": null,
+          "card_name_en": "Budew",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/016/high.png"
         },
         {
           "card_name_jp": "ドラパルトex",
-          "card_name_en": null,
+          "card_name_en": "Dragapult ex",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/160/high.png"
         },
         {
           "card_name_jp": "ドラメシヤ",
-          "card_name_en": null,
+          "card_name_en": "Dreepy",
           "count": 4,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/158/high.png"
         },
         {
           "card_name_jp": "ドロンチ",
-          "card_name_en": null,
+          "card_name_en": "Drakloak",
           "count": 4,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/159/high.png"
         },
         {
           "card_name_jp": "ニャースex",
-          "card_name_en": null,
+          "card_name_en": "Meowth ex",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": null
         },
         {
           "card_name_jp": "マシマシラ",
-          "card_name_en": null,
+          "card_name_en": "Munkidori",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/099/high.png"
         },
         {
           "card_name_jp": "ヨノワール",
-          "card_name_en": null,
+          "card_name_en": "Dusknoir",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": null
         },
         {
           "card_name_jp": "ヨマワル",
-          "card_name_en": null,
+          "card_name_en": "Duskull",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": null
         },
         {
           "card_name_jp": "ラティアスex",
-          "card_name_en": null,
+          "card_name_en": "Latias ex",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": null
         },
         {
           "card_name_jp": "なかよしポフィン",
           "card_name_en": "Buddy-Buddy Poffin",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/184/high.png"
         },
         {
           "card_name_jp": "ふしぎなアメ",
           "card_name_en": "Rare Candy",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me01/125/high.png"
         },
         {
           "card_name_jp": "アカマツ",
-          "card_name_en": null,
+          "card_name_en": "Akamatsu",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "アンフェアスタンプ(ACE SPEC)",
-          "card_name_en": null,
+          "card_name_en": "Unfair Stamp",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "ジャミングタワー",
-          "card_name_en": null,
+          "card_name_en": "Jamming Tower",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/261/high.png"
         },
         {
           "card_name_jp": "ゼロの大空洞",
-          "card_name_en": null,
+          "card_name_en": "Area Zero Underdepths",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "ハイパーボール",
           "card_name_en": "Ultra Ball",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/213/high.png"
         },
         {
           "card_name_jp": "ヒカリ",
-          "card_name_en": null,
+          "card_name_en": "Dawn",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02/087/high.png"
         },
         {
           "card_name_jp": "ボスの指令",
           "card_name_en": "Boss's Orders",
           "count": 3,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/183/high.png"
         },
         {
           "card_name_jp": "ポケパッド",
-          "card_name_en": null,
+          "card_name_en": "Poke Pad",
           "count": 3,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "リーリエの決心",
-          "card_name_en": null,
+          "card_name_en": "Lillie's Resolve",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "夜のタンカ",
           "card_name_en": "Night Stretcher",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/196/high.png"
         }
       ]
     },
@@ -1975,222 +2410,264 @@
       "player_name": "タロ",
       "region": "奈良県",
       "deck_code": "kk5VFk-66dbTi-VVFvbd",
+      "archetype": "Flareon Noctowl",
+      "tier": "C",
+      "sprite_filenames": [
+        "flareon.png",
+        "noctowl.png"
+      ],
       "decklist": [
         {
           "card_name_jp": "ミストエネルギー",
-          "card_name_en": null,
+          "card_name_en": "Mist Energy",
           "count": 1,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "基本悪エネルギー",
           "card_name_en": "Basic Darkness Energy",
           "count": 1,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "基本悪エネルギー",
           "card_name_en": "Basic Darkness Energy",
           "count": 1,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "基本水エネルギー",
           "card_name_en": "Basic Water Energy",
           "count": 1,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "基本水エネルギー",
           "card_name_en": "Basic Water Energy",
           "count": 1,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "基本炎エネルギー",
           "card_name_en": "Basic Fire Energy",
           "count": 2,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "基本炎エネルギー",
           "card_name_en": "Basic Fire Energy",
           "count": 2,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "基本草エネルギー",
           "card_name_en": "Basic Grass Energy",
           "count": 2,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "基本草エネルギー",
           "card_name_en": "Basic Grass Energy",
           "count": 2,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "基本超エネルギー",
           "card_name_en": "Basic Psychic Energy",
           "count": 3,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "基本超エネルギー",
           "card_name_en": "Basic Psychic Energy",
           "count": 3,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "基本雷エネルギー",
           "card_name_en": "Basic Lightning Energy",
           "count": 1,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "基本雷エネルギー",
           "card_name_en": "Basic Lightning Energy",
           "count": 1,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "イーブイ",
-          "card_name_en": null,
+          "card_name_en": "Eevee",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/sv/svp/043/high.png"
         },
         {
           "card_name_jp": "イーブイex",
-          "card_name_en": null,
+          "card_name_en": "Eevee ex",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/sv/svp/174/high.png"
         },
         {
           "card_name_jp": "エーフィex",
-          "card_name_en": null,
+          "card_name_en": "Espeon ex",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": null
         },
         {
           "card_name_jp": "スピンロトム",
-          "card_name_en": null,
+          "card_name_en": "Fan Rotom",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/171/high.png"
         },
         {
           "card_name_jp": "ブースターex",
-          "card_name_en": null,
+          "card_name_en": "Flareon ex",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": null
         },
         {
           "card_name_jp": "ホーホー",
-          "card_name_en": null,
+          "card_name_en": "Hoothoot",
           "count": 4,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": null
         },
         {
           "card_name_jp": "マシマシラ",
-          "card_name_en": null,
+          "card_name_en": "Munkidori",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/099/high.png"
         },
         {
           "card_name_jp": "ヨルノズク",
-          "card_name_en": null,
+          "card_name_en": "Noctowl",
           "count": 4,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/sv/svp/141/high.png"
         },
         {
           "card_name_jp": "リーフィアex",
-          "card_name_en": null,
+          "card_name_en": "Leafeon ex",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": null
         },
         {
           "card_name_jp": "リーリエのピッピex",
-          "card_name_en": null,
+          "card_name_en": "Lillie's Clefairy ex",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/sv/svp/195/high.png"
         },
         {
           "card_name_jp": "なかよしポフィン",
           "card_name_en": "Buddy-Buddy Poffin",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/184/high.png"
         },
         {
           "card_name_jp": "ふうせん",
-          "card_name_en": null,
+          "card_name_en": "Air Balloon",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/181/high.png"
         },
         {
           "card_name_jp": "アカマツ",
-          "card_name_en": null,
+          "card_name_en": "Akamatsu",
           "count": 3,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "アンフェアスタンプ(ACE SPEC)",
-          "card_name_en": null,
+          "card_name_en": "Unfair Stamp",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "ゼロの大空洞",
-          "card_name_en": null,
+          "card_name_en": "Area Zero Underdepths",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "テラスタルオーブ",
-          "card_name_en": null,
+          "card_name_en": "Tera Orb",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "トウコ",
-          "card_name_en": null,
+          "card_name_en": "Hilda",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "ハイパーボール",
           "card_name_en": "Ultra Ball",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/213/high.png"
         },
         {
           "card_name_jp": "ボスの指令",
           "card_name_en": "Boss's Orders",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/183/high.png"
         },
         {
           "card_name_jp": "ポケパッド",
-          "card_name_en": null,
+          "card_name_en": "Poke Pad",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "ポケモンいれかえ",
           "card_name_en": "Switch",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02/123/high.png"
         },
         {
           "card_name_jp": "リーリエの決心",
-          "card_name_en": null,
+          "card_name_en": "Lillie's Resolve",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "夜のタンカ",
           "card_name_en": "Night Stretcher",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/196/high.png"
         }
       ]
     },
@@ -2199,186 +2676,222 @@
       "player_name": "ひゅうが",
       "region": "長崎県",
       "deck_code": "UR3RMX-kmPy4o-pMSy2y",
+      "archetype": "Dragapult Dusknoir",
+      "tier": "A",
+      "sprite_filenames": [
+        "dragapult.png",
+        "dusknoir.png"
+      ],
       "decklist": [
         {
           "card_name_jp": "基本悪エネルギー",
           "card_name_en": "Basic Darkness Energy",
           "count": 1,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "基本悪エネルギー",
           "card_name_en": "Basic Darkness Energy",
           "count": 1,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "基本炎エネルギー",
           "card_name_en": "Basic Fire Energy",
           "count": 3,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "基本炎エネルギー",
           "card_name_en": "Basic Fire Energy",
           "count": 3,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "基本超エネルギー",
           "card_name_en": "Basic Psychic Energy",
           "count": 3,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "基本超エネルギー",
           "card_name_en": "Basic Psychic Energy",
           "count": 3,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "キチキギスex",
-          "card_name_en": null,
+          "card_name_en": "Fezandipiti ex",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/142/high.png"
         },
         {
           "card_name_jp": "サマヨール",
-          "card_name_en": null,
+          "card_name_en": "Dusclops",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": null
         },
         {
           "card_name_jp": "シェイミ",
-          "card_name_en": null,
+          "card_name_en": "Shaymin",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": null
         },
         {
           "card_name_jp": "スボミー",
-          "card_name_en": null,
+          "card_name_en": "Budew",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/016/high.png"
         },
         {
           "card_name_jp": "ドラパルトex",
-          "card_name_en": null,
+          "card_name_en": "Dragapult ex",
           "count": 3,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/160/high.png"
         },
         {
           "card_name_jp": "ドラメシヤ",
-          "card_name_en": null,
+          "card_name_en": "Dreepy",
           "count": 4,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/158/high.png"
         },
         {
           "card_name_jp": "ドロンチ",
-          "card_name_en": null,
+          "card_name_en": "Drakloak",
           "count": 4,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/159/high.png"
         },
         {
           "card_name_jp": "ニャースex",
-          "card_name_en": null,
+          "card_name_en": "Meowth ex",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": null
         },
         {
           "card_name_jp": "マシマシラ",
-          "card_name_en": null,
+          "card_name_en": "Munkidori",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/099/high.png"
         },
         {
           "card_name_jp": "ヨノワール",
-          "card_name_en": null,
+          "card_name_en": "Dusknoir",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": null
         },
         {
           "card_name_jp": "ヨマワル",
-          "card_name_en": null,
+          "card_name_en": "Duskull",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": null
         },
         {
           "card_name_jp": "ラティアスex",
-          "card_name_en": null,
+          "card_name_en": "Latias ex",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": null
         },
         {
           "card_name_jp": "なかよしポフィン",
           "card_name_en": "Buddy-Buddy Poffin",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/184/high.png"
         },
         {
           "card_name_jp": "ふしぎなアメ",
           "card_name_en": "Rare Candy",
           "count": 3,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me01/125/high.png"
         },
         {
           "card_name_jp": "アカマツ",
-          "card_name_en": null,
+          "card_name_en": "Akamatsu",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "アンフェアスタンプ(ACE SPEC)",
-          "card_name_en": null,
+          "card_name_en": "Unfair Stamp",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "ジャッジマン",
           "card_name_en": "Judge",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "ジャミングタワー",
-          "card_name_en": null,
+          "card_name_en": "Jamming Tower",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/261/high.png"
         },
         {
           "card_name_jp": "タケシのスカウト",
-          "card_name_en": null,
+          "card_name_en": "Brock's Scout",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "ハイパーボール",
           "card_name_en": "Ultra Ball",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/213/high.png"
         },
         {
           "card_name_jp": "ボスの指令",
           "card_name_en": "Boss's Orders",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/183/high.png"
         },
         {
           "card_name_jp": "ポケパッド",
-          "card_name_en": null,
+          "card_name_en": "Poke Pad",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "リーリエの決心",
-          "card_name_en": null,
+          "card_name_en": "Lillie's Resolve",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "夜のタンカ",
           "card_name_en": "Night Stretcher",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/196/high.png"
         }
       ]
     },
@@ -2387,156 +2900,187 @@
       "player_name": "さや",
       "region": "大阪府",
       "deck_code": "kVkkkb-9xY6uz-kdFvkk",
+      "archetype": "Mega Lucario Solrock",
+      "tier": "C",
+      "sprite_filenames": [
+        "lucario-mega.png",
+        "solrock.png"
+      ],
       "decklist": [
         {
           "card_name_jp": "ロック闘エネルギー",
-          "card_name_en": null,
+          "card_name_en": "Rock Fighting Energy",
           "count": 2,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "基本闘エネルギー",
           "card_name_en": "Basic Fighting Energy",
           "count": 9,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "基本闘エネルギー",
           "card_name_en": "Basic Fighting Energy",
           "count": 9,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "ソルロック",
-          "card_name_en": null,
+          "card_name_en": "Solrock",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/106/high.png"
         },
         {
           "card_name_jp": "ハリテヤマ",
-          "card_name_en": null,
+          "card_name_en": "Hariyama",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me01/073/high.png"
         },
         {
           "card_name_jp": "マクノシタ",
-          "card_name_en": null,
+          "card_name_en": "Makuhita",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me01/072/high.png"
         },
         {
           "card_name_jp": "メガルカリオex",
-          "card_name_en": null,
+          "card_name_en": "Mega Lucario ex",
           "count": 3,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/113/high.png"
         },
         {
           "card_name_jp": "リオル",
-          "card_name_en": null,
+          "card_name_en": "Riolu",
           "count": 4,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/112/high.png"
         },
         {
           "card_name_jp": "ルナトーン",
-          "card_name_en": null,
+          "card_name_en": "Lunatone",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/105/high.png"
         },
         {
           "card_name_jp": "ふうせん",
-          "card_name_en": null,
+          "card_name_en": "Air Balloon",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/181/high.png"
         },
         {
           "card_name_jp": "グラビティーマウンテン",
-          "card_name_en": null,
+          "card_name_en": "Gravity Mountain",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "ジャッジマン",
           "card_name_en": "Judge",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "スグリ",
-          "card_name_en": null,
+          "card_name_en": "Kieran",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "トウコ",
-          "card_name_en": null,
+          "card_name_en": "Hilda",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "ハイパーボール",
           "card_name_en": "Ultra Ball",
           "count": 3,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/213/high.png"
         },
         {
           "card_name_jp": "パワープロテイン",
-          "card_name_en": null,
+          "card_name_en": "Power Protein",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "ピュール",
-          "card_name_en": null,
+          "card_name_en": "Puelle",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "ファイトゴング",
-          "card_name_en": null,
+          "card_name_en": "Fighting Gong",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/187/high.png"
         },
         {
           "card_name_jp": "ボスの指令",
           "card_name_en": "Boss's Orders",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/183/high.png"
         },
         {
           "card_name_jp": "ポケパッド",
-          "card_name_en": null,
+          "card_name_en": "Poke Pad",
           "count": 3,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "ポケモンいれかえ",
           "card_name_en": "Switch",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02/123/high.png"
         },
         {
           "card_name_jp": "マキシマムベルト(ACE SPEC)",
-          "card_name_en": null,
+          "card_name_en": "Maximum Belt",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "ミツルの思いやり",
-          "card_name_en": null,
+          "card_name_en": "Wally's Compassion",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me01/132/high.png"
         },
         {
           "card_name_jp": "リーリエの決心",
-          "card_name_en": null,
+          "card_name_en": "Lillie's Resolve",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "夜のタンカ",
           "card_name_en": "Night Stretcher",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/196/high.png"
         }
       ]
     },
@@ -2545,186 +3089,222 @@
       "player_name": "こうき",
       "region": "東京都",
       "deck_code": "LgnnQ9-aDnPB6-ngnLgg",
+      "archetype": "Dragapult Dusknoir",
+      "tier": "A",
+      "sprite_filenames": [
+        "dragapult.png",
+        "dusknoir.png"
+      ],
       "decklist": [
         {
           "card_name_jp": "基本悪エネルギー",
           "card_name_en": "Basic Darkness Energy",
           "count": 1,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "基本悪エネルギー",
           "card_name_en": "Basic Darkness Energy",
           "count": 1,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "基本炎エネルギー",
           "card_name_en": "Basic Fire Energy",
           "count": 3,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "基本炎エネルギー",
           "card_name_en": "Basic Fire Energy",
           "count": 3,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "基本超エネルギー",
           "card_name_en": "Basic Psychic Energy",
           "count": 3,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "基本超エネルギー",
           "card_name_en": "Basic Psychic Energy",
           "count": 3,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "キチキギスex",
-          "card_name_en": null,
+          "card_name_en": "Fezandipiti ex",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/142/high.png"
         },
         {
           "card_name_jp": "サマヨール",
-          "card_name_en": null,
+          "card_name_en": "Dusclops",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": null
         },
         {
           "card_name_jp": "シェイミ",
-          "card_name_en": null,
+          "card_name_en": "Shaymin",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": null
         },
         {
           "card_name_jp": "スボミー",
-          "card_name_en": null,
+          "card_name_en": "Budew",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/016/high.png"
         },
         {
           "card_name_jp": "ドラパルトex",
-          "card_name_en": null,
+          "card_name_en": "Dragapult ex",
           "count": 3,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/160/high.png"
         },
         {
           "card_name_jp": "ドラメシヤ",
-          "card_name_en": null,
+          "card_name_en": "Dreepy",
           "count": 4,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/158/high.png"
         },
         {
           "card_name_jp": "ドロンチ",
-          "card_name_en": null,
+          "card_name_en": "Drakloak",
           "count": 4,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/159/high.png"
         },
         {
           "card_name_jp": "ニャースex",
-          "card_name_en": null,
+          "card_name_en": "Meowth ex",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": null
         },
         {
           "card_name_jp": "マシマシラ",
-          "card_name_en": null,
+          "card_name_en": "Munkidori",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/099/high.png"
         },
         {
           "card_name_jp": "ヨノワール",
-          "card_name_en": null,
+          "card_name_en": "Dusknoir",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": null
         },
         {
           "card_name_jp": "ヨマワル",
-          "card_name_en": null,
+          "card_name_en": "Duskull",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": null
         },
         {
           "card_name_jp": "ラティアスex",
-          "card_name_en": null,
+          "card_name_en": "Latias ex",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": null
         },
         {
           "card_name_jp": "なかよしポフィン",
           "card_name_en": "Buddy-Buddy Poffin",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/184/high.png"
         },
         {
           "card_name_jp": "ふしぎなアメ",
           "card_name_en": "Rare Candy",
           "count": 3,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me01/125/high.png"
         },
         {
           "card_name_jp": "アカマツ",
-          "card_name_en": null,
+          "card_name_en": "Akamatsu",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "アンフェアスタンプ(ACE SPEC)",
-          "card_name_en": null,
+          "card_name_en": "Unfair Stamp",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "ジャミングタワー",
-          "card_name_en": null,
+          "card_name_en": "Jamming Tower",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/261/high.png"
         },
         {
           "card_name_jp": "ハイパーボール",
           "card_name_en": "Ultra Ball",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/213/high.png"
         },
         {
           "card_name_jp": "ヒカリ",
-          "card_name_en": null,
+          "card_name_en": "Dawn",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02/087/high.png"
         },
         {
           "card_name_jp": "ボスの指令",
           "card_name_en": "Boss's Orders",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/183/high.png"
         },
         {
           "card_name_jp": "ポケパッド",
-          "card_name_en": null,
+          "card_name_en": "Poke Pad",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "ポケモンいれかえ",
           "card_name_en": "Switch",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02/123/high.png"
         },
         {
           "card_name_jp": "リーリエの決心",
-          "card_name_en": null,
+          "card_name_en": "Lillie's Resolve",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "夜のタンカ",
           "card_name_en": "Night Stretcher",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/196/high.png"
         }
       ]
     },
@@ -2733,156 +3313,187 @@
       "player_name": "れん",
       "region": "福岡県",
       "deck_code": "k15kVv-3XIMTk-VFbVkV",
+      "archetype": "Alakazam Dudunsparce",
+      "tier": "B",
+      "sprite_filenames": [
+        "alakazam.png",
+        "dudunsparce.png"
+      ],
       "decklist": [
         {
           "card_name_jp": "テレパス超エネルギー",
-          "card_name_en": null,
+          "card_name_en": "Telepathy Psychic Energy",
           "count": 2,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "リッチエネルギー",
-          "card_name_en": null,
+          "card_name_en": "Rich Energy",
           "count": 1,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "基本超エネルギー",
           "card_name_en": "Basic Psychic Energy",
           "count": 3,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "基本超エネルギー",
           "card_name_en": "Basic Psychic Energy",
           "count": 3,
-          "category": "Energy"
+          "category": "Energy",
+          "image_url": null
         },
         {
           "card_name_jp": "キチキギスex",
-          "card_name_en": null,
+          "card_name_en": "Fezandipiti ex",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/142/high.png"
         },
         {
           "card_name_jp": "ケーシィ",
-          "card_name_en": null,
+          "card_name_en": "Abra",
           "count": 4,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me01/054/high.png"
         },
         {
           "card_name_jp": "コダック",
-          "card_name_en": null,
+          "card_name_en": "Psyduck",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/039/high.png"
         },
         {
           "card_name_jp": "シェイミ",
-          "card_name_en": null,
+          "card_name_en": "Shaymin",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": null
         },
         {
           "card_name_jp": "スピンロトム",
-          "card_name_en": null,
+          "card_name_en": "Fan Rotom",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/171/high.png"
         },
         {
           "card_name_jp": "ノココッチ",
-          "card_name_en": null,
+          "card_name_en": "Dudunsparce",
           "count": 3,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": null
         },
         {
           "card_name_jp": "ノコッチ",
-          "card_name_en": null,
+          "card_name_en": "Dunsparce",
           "count": 4,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": null
         },
         {
           "card_name_jp": "フーディン",
-          "card_name_en": null,
+          "card_name_en": "Alakazam",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me01/056/high.png"
         },
         {
           "card_name_jp": "ユンゲラー",
-          "card_name_en": null,
+          "card_name_en": "Kadabra",
           "count": 4,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "image_url": "https://assets.tcgdex.net/en/me/me01/055/high.png"
         },
         {
           "card_name_jp": "せいなるはい",
-          "card_name_en": null,
+          "card_name_en": "Sacred Ash",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "なかよしポフィン",
           "card_name_en": "Buddy-Buddy Poffin",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/184/high.png"
         },
         {
           "card_name_jp": "ふしぎなアメ",
           "card_name_en": "Rare Candy",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me01/125/high.png"
         },
         {
           "card_name_jp": "スイレンのお世話",
-          "card_name_en": null,
+          "card_name_en": "Lana's Care",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "トウコ",
-          "card_name_en": null,
+          "card_name_en": "Hilda",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "バトルコロシアム",
-          "card_name_en": null,
+          "card_name_en": "Battle Colosseum",
           "count": 3,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "ヒカリ",
-          "card_name_en": null,
+          "card_name_en": "Dawn",
           "count": 3,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02/087/high.png"
         },
         {
           "card_name_jp": "ボスの指令",
           "card_name_en": "Boss's Orders",
           "count": 3,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/183/high.png"
         },
         {
           "card_name_jp": "ポケパッド",
-          "card_name_en": null,
+          "card_name_en": "Poke Pad",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "ワンダーパッチ",
-          "card_name_en": null,
+          "card_name_en": "Wonder Patch",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         },
         {
           "card_name_jp": "夜のタンカ",
           "card_name_en": "Night Stretcher",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": "https://assets.tcgdex.net/en/me/me02.5/196/high.png"
         },
         {
           "card_name_jp": "改造ハンマー",
-          "card_name_en": null,
+          "card_name_en": "Crushing Hammer",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "image_url": null
         }
       ]
     }

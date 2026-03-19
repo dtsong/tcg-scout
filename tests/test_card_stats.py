@@ -151,6 +151,53 @@ class TestClassifyCard:
         assert _classify_card("Pikachu") == "Pokemon"
 
 
+class TestClassifyCardWithSupertype:
+    def test_heuristic_classifies_trainer_cards_correctly(self):
+        """Trainer cards with non-obvious names are classified correctly."""
+        assert _classify_card("Wally's Compassion") == "Trainer"
+        assert _classify_card("Premium Power Pro") == "Trainer"
+        assert _classify_card("Scoop Up Cyclone") == "Trainer"
+        assert _classify_card("Precious Trolley") == "Trainer"
+        assert _classify_card("Morty's Conviction") == "Trainer"
+
+    def test_supertype_from_db_overrides_heuristic(self, db):
+        """DB supertype should override heuristic even when they disagree."""
+        # "Eevee" would be classified as Pokemon by heuristic, but we mark it as Trainer
+        # to prove the DB value takes precedence
+        db.execute(
+            "INSERT OR REPLACE INTO cards (id, name_en, set_code, supertype) VALUES (?, ?, ?, ?)",
+            ("test-001", "Mysterious Card", "test", "Trainer"),
+        )
+        db.execute(
+            "INSERT OR IGNORE INTO decklist_cards (placement_id, card_id, card_name, count) "
+            "VALUES (?, ?, ?, ?)",
+            (1, "test-001", "Mysterious Card", 2),
+        )
+        db.commit()
+
+        cards = compute_card_stats(db)
+        card = next(c for c in cards if c["card_name"] == "Mysterious Card")
+        # Heuristic would return "Pokemon" (no trainer keywords match), but DB says "Trainer"
+        assert card["category"] == "Trainer"
+
+    def test_detail_uses_supertype_from_db(self, db):
+        """compute_card_detail also respects supertype from cards table."""
+        db.execute(
+            "INSERT OR REPLACE INTO cards (id, name_en, set_code, supertype) VALUES (?, ?, ?, ?)",
+            ("test-002", "Precious Trolley", "test", "Trainer"),
+        )
+        db.execute(
+            "INSERT OR IGNORE INTO decklist_cards (placement_id, card_id, card_name, count) "
+            "VALUES (?, ?, ?, ?)",
+            (1, "test-002", "Precious Trolley", 1),
+        )
+        db.commit()
+
+        detail = compute_card_detail(db, "Precious Trolley")
+        assert detail is not None
+        assert detail["category"] == "Trainer"
+
+
 class TestComputeTrendDirection:
     def test_stable(self):
         data = [

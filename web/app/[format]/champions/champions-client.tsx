@@ -1,9 +1,15 @@
 "use client";
 
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import { ChevronDown, ChevronRight } from "lucide-react";
 import { cn } from "@/app/lib/utils";
-import type { CLDivision, CLPlacement } from "@/app/lib/types";
+import { SpriteRow } from "@/app/components/sprite-row";
+import { TierBadge } from "@/app/components/tier-badge";
+import type {
+  CLArchetypeSummary,
+  CLDivision,
+  CLPlacement,
+} from "@/app/lib/types";
 
 const divisionTabs = [
   { key: "juniors", label: "Juniors" },
@@ -15,6 +21,7 @@ type DivisionKey = (typeof divisionTabs)[number]["key"];
 
 function PlacementRow({ placement }: { placement: CLPlacement }) {
   const [expanded, setExpanded] = useState(false);
+  const [failedImages, setFailedImages] = useState<Record<string, boolean>>({});
 
   const grouped = {
     Pokemon: placement.decklist.filter((c) => c.category === "Pokemon"),
@@ -23,7 +30,7 @@ function PlacementRow({ placement }: { placement: CLPlacement }) {
   };
 
   return (
-    <>
+    <Fragment>
       <tr
         className="border-b border-surface-700 hover:bg-surface-700/50 transition-colors cursor-pointer"
         onClick={() => setExpanded(!expanded)}
@@ -42,39 +49,69 @@ function PlacementRow({ placement }: { placement: CLPlacement }) {
           </div>
         </td>
         <td className="px-4 py-3 text-sm text-surface-300 hidden sm:table-cell">
+          <div className="flex items-center gap-2">
+            {placement.sprite_filenames && placement.sprite_filenames.length > 0 && (
+              <SpriteRow filenames={placement.sprite_filenames} size={20} />
+            )}
+            {placement.archetype ? (
+              <span>{placement.archetype}</span>
+            ) : (
+              <span className="text-surface-400">-</span>
+            )}
+            {placement.tier && <TierBadge tier={placement.tier} className="w-5 h-5 text-[10px]" />}
+          </div>
+        </td>
+        <td className="px-4 py-3 text-sm text-surface-300 hidden sm:table-cell">
           {placement.region}
         </td>
       </tr>
       {expanded && placement.decklist.length > 0 && (
         <tr>
-          <td colSpan={3} className="bg-surface-700/30 px-4 py-4">
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl">
+          <td colSpan={4} className="bg-surface-700/30 px-4 py-4">
+            <div className="space-y-6">
               {(["Pokemon", "Trainer", "Energy"] as const).map((cat) => {
                 const cards = grouped[cat];
                 if (cards.length === 0) return null;
                 const total = cards.reduce((s, c) => s + c.count, 0);
                 return (
                   <div key={cat}>
-                    <h4 className="text-xs text-surface-300 uppercase tracking-wider mb-2">
+                    <h4 className="text-xs text-surface-300 uppercase tracking-wider mb-3">
                       {cat}{" "}
                       <span className="text-surface-400">({total})</span>
                     </h4>
-                    <div className="space-y-1">
-                      {cards.map((card, i) => (
-                        <div key={i} className="flex items-start justify-between text-sm">
-                          <span className="text-slate-300">
-                            {card.card_name_en || card.card_name_jp}
-                            {card.card_name_en && card.card_name_en !== card.card_name_jp && (
-                              <span className="text-surface-400 text-xs ml-1.5">
-                                {card.card_name_jp}
+                    <div className="grid grid-cols-4 sm:grid-cols-6 lg:grid-cols-8 gap-3">
+                      {cards.map((card, i) => {
+                        const imageKey = `${cat}-${i}`;
+                        return (
+                        <div key={i} className="flex flex-col items-center text-center">
+                          {card.image_url && !failedImages[imageKey] ? (
+                            <img
+                              src={card.image_url.replace("/high.png", "/low.png")}
+                              alt={card.card_name_en || card.card_name_jp}
+                              className="w-[72px] h-[100px] object-cover rounded"
+                              loading="lazy"
+                              decoding="async"
+                              onError={() => {
+                                console.warn(`Failed to load card image: ${card.image_url}`);
+                                setFailedImages((prev) => ({ ...prev, [imageKey]: true }));
+                              }}
+                            />
+                          ) : (
+                            <div className="w-[72px] h-[100px] rounded bg-surface-600 border border-surface-500 flex items-center justify-center p-1">
+                              <span className="text-[10px] text-surface-300 leading-tight text-center break-words">
+                                {card.card_name_en || card.card_name_jp}
                               </span>
-                            )}
+                            </div>
+                          )}
+                          <span className="text-[10px] text-slate-300 mt-1 leading-tight line-clamp-2">
+                            {card.card_name_en || card.card_name_jp}
                           </span>
-                          <span className="font-mono text-xs text-surface-300 ml-2 tabular-nums">
+                          <span className="font-mono text-[10px] text-surface-400">
                             x{card.count}
                           </span>
                         </div>
-                      ))}
+                        );
+                      })}
                     </div>
                   </div>
                 );
@@ -83,7 +120,37 @@ function PlacementRow({ placement }: { placement: CLPlacement }) {
           </td>
         </tr>
       )}
-    </>
+    </Fragment>
+  );
+}
+
+function ArchetypeSummaryBar({
+  summary,
+}: {
+  summary: CLArchetypeSummary[];
+}) {
+  if (!summary || summary.length === 0) return null;
+
+  return (
+    <div className="bg-surface-800 border border-surface-600 rounded-lg px-4 py-3">
+      <h3 className="text-xs text-surface-300 uppercase tracking-wider mb-2">
+        Archetype Distribution
+      </h3>
+      <div className="flex flex-wrap gap-x-4 gap-y-2">
+        {summary.map((entry) => (
+          <div
+            key={entry.archetype}
+            className="flex items-center gap-1.5 text-sm text-slate-200"
+          >
+            {entry.sprite_filenames && entry.sprite_filenames.length > 0 && (
+              <SpriteRow filenames={entry.sprite_filenames} size={20} />
+            )}
+            <span>{entry.archetype}</span>
+            <span className="text-surface-400 text-xs">x{entry.count}</span>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }
 
@@ -127,6 +194,11 @@ export function ChampionsClient({
         ))}
       </div>
 
+      {/* Archetype Summary Bar */}
+      {division.archetype_summary && division.archetype_summary.length > 0 && (
+        <ArchetypeSummaryBar summary={division.archetype_summary} />
+      )}
+
       {/* Placements Table */}
       <div className="bg-surface-800 border border-surface-600 rounded-lg overflow-hidden">
         <div className="overflow-x-auto">
@@ -135,6 +207,7 @@ export function ChampionsClient({
               <tr className="border-b border-surface-600 text-xs text-surface-300 uppercase tracking-wider">
                 <th className="text-left px-4 py-3 w-16">#</th>
                 <th className="text-left px-4 py-3">Player</th>
+                <th className="text-left px-4 py-3 hidden sm:table-cell">Archetype</th>
                 <th className="text-left px-4 py-3 hidden sm:table-cell">Region</th>
               </tr>
             </thead>

@@ -10,6 +10,7 @@ from datetime import date, timedelta
 from pathlib import Path
 
 from analysis.archetype import _COMPOSITE_SPRITE_FILENAMES, SPRITE_ARCHETYPE_MAP
+from analysis.archetype_classifier import classify_decklist
 from analysis.buylist import generate_buylist
 from analysis.card_stats import BASIC_ENERGY_NAMES, compute_card_detail, compute_card_stats
 from analysis.evolution import compute_archetype_evolution, compute_meta_evolution
@@ -74,8 +75,106 @@ ACE_SPEC_CARDS = {
     "Hyper Aroma",
 }
 
-# Fallback JP→EN card name map for common cards not in the cards table
+# Base JP→EN card name map. Entries here are overridden by the cards table and card_mappings table at runtime in _build_jp_en_lookup.
 JP_CARD_NAMES: dict[str, str] = {
+    # --- Pokemon ---
+    "イシズマイ": "Dwebble",
+    "イベルタル": "Yveltal",
+    "イワパレス": "Crustle",
+    "イーブイ": "Eevee",
+    "イーブイex": "Eevee ex",
+    "エンペルトex": "Empoleon ex",
+    "エーフィex": "Espeon ex",
+    "オリーニョ": "Dolliv",
+    "オリーヴァex": "Arboliva ex",
+    "オーガポン いしずえのめんex": "Ogerpon ex",
+    "オーガポン いどのめんex": "Ogerpon ex",
+    "オーガポン かまどのめんex": "Ogerpon ex",
+    "オーガポン みどりのめんex": "Ogerpon ex",
+    "カプ・コケコex": "Tapu Koko ex",
+    "ガチグマ アカツキex": "Ursaluna ex",
+    "キチキギス": "Fezandipiti",
+    "キチキギスex": "Fezandipiti ex",
+    "キュレム": "Kyurem",
+    "ケーシィ": "Abra",
+    "ゲノセクト": "Genesect",
+    "ゲノセクトex": "Genesect ex",
+    "コダック": "Psyduck",
+    "コノヨザル": "Annihilape",
+    "サマヨール": "Dusclops",
+    "シェイミ": "Shaymin",
+    "シャリタツ": "Tatsugiri",
+    "シロナのガバイト": "Cynthia's Gabite",
+    "シロナのガブリアスex": "Cynthia's Garchomp ex",
+    "シロナのフカマル": "Cynthia's Gible",
+    "シロナのミカルゲ": "Cynthia's Spiritomb",
+    "シロナのロズレイド": "Cynthia's Roserade",
+    "シロナのロゼリア": "Cynthia's Roselia",
+    "スピンロトム": "Fan Rotom",
+    "スボミー": "Budew",
+    "ソルロック": "Solrock",
+    "ゾロアーク": "Zoroark",
+    "タケルライコ": "Raging Bolt",
+    "タケルライコex": "Raging Bolt ex",
+    "ダイゴのダンバル": "Steven's Beldum",
+    "ダイゴのメタグロスex": "Steven's Metagross ex",
+    "ダイゴのメタング": "Steven's Metang",
+    "チコリータ": "Chikorita",
+    "テツノイサハex": "Iron Leaves ex",
+    "テラパゴスex": "Terapagos ex",
+    "ドラパルトex": "Dragapult ex",
+    "ドラメシヤ": "Dreepy",
+    "ドロンチ": "Drakloak",
+    "ニャースex": "Meowth ex",
+    "ノココッチ": "Dudunsparce",
+    "ノコッチ": "Dunsparce",
+    "ハリテヤマ": "Hariyama",
+    "バチュル": "Joltik",
+    "パオジアン": "Chien-Pao",
+    "フーディン": "Alakazam",
+    "ブースターex": "Flareon ex",
+    "ベイリーフ": "Bayleef",
+    "ホーホー": "Hoothoot",
+    "ポッチャマ": "Piplup",
+    "マクノシタ": "Makuhita",
+    "マシマシラ": "Munkidori",
+    "マリィのオーロンゲex": "Marnie's Grimmsnarl ex",
+    "マリィのギモー": "Marnie's Morgrem",
+    "マリィのベロバー": "Marnie's Impidimp",
+    "ミニーブ": "Smoliv",
+    "ムチュール": "Smoochum",
+    "メガアブソルex": "Mega Absol ex",
+    "メガエアームドex": "Mega Skarmory ex",
+    "メガガルーラex": "Mega Kangaskhan ex",
+    "メガジガルデex": "Mega Zygarde ex",
+    "メガニウム": "Meganium",
+    "メガヤドランex": "Mega Slowbro ex",
+    "メガユキメノコex": "Mega Froslass ex",
+    "メガルカリオex": "Mega Lucario ex",
+    "ヤドキング": "Slowking",
+    "ヤドン": "Slowpoke",
+    "ユキメノコ": "Froslass",
+    "ユキワラシ": "Snorunt",
+    "ユンゲラー": "Kadabra",
+    "ヨノワール": "Dusknoir",
+    "ヨマワル": "Duskull",
+    "ヨルノズク": "Noctowl",
+    "ラティアスex": "Latias ex",
+    "リオル": "Riolu",
+    "リーフィアex": "Leafeon ex",
+    "リーリエのピッピex": "Lillie's Clefairy ex",
+    "ルナトーン": "Lunatone",
+    "ロケット団のタマンチュラ": "Team Rocket's Tarountula",
+    "ロケット団のドンカラス": "Team Rocket's Honchkrow",
+    "ロケット団のフリーザー": "Team Rocket's Articuno",
+    "ロケット団のポリゴン": "Team Rocket's Porygon",
+    "ロケット団のポリゴン2": "Team Rocket's Porygon2",
+    "ロケット団のミミッキュ": "Team Rocket's Mimikyu",
+    "ロケット団のミュウツーex": "Team Rocket's Mewtwo ex",
+    "ロケット団のヤミカラス": "Team Rocket's Murkrow",
+    "ロケット団のワナイダー": "Team Rocket's Spidops",
+    "ローブシン": "Conkeldurr",
+    # --- Trainers ---
     "ネストボール": "Nest Ball",
     "ハイパーボール": "Ultra Ball",
     "なかよしポフィン": "Buddy-Buddy Poffin",
@@ -98,6 +197,81 @@ JP_CARD_NAMES: dict[str, str] = {
     "セイボリー": "Avery",
     "ともだちてちょう": "Pal Pad",
     "リーリエのおねがい": "Lillie's Determination",
+    "Nの筋書き": "N's Scenario",
+    "からておうの稽古": "Karate Chop Training",
+    "きらめく結晶(ACE SPEC)": "Sparkling Crystal",
+    "せいなるはい": "Sacred Ash",
+    "ふうせん": "Air Balloon",
+    "むしとりセット": "Bug Catching Set",
+    "アオキの手際": "Aoki's Skill",
+    "アカマツ": "Akamatsu",
+    "アクロマの執念": "Colress's Tenacity",
+    "アンフェアスタンプ(ACE SPEC)": "Unfair Stamp",
+    "エキサイトスタジアム": "Excite Stadium",
+    "エネルギーつけかえ": "Energy Switch",
+    "エネルギーリサイクル": "Energy Recycler",
+    "エネルギー転送": "Energy Search",
+    "ガラスのラッパ": "Glass Trumpet",
+    "クセロシキのたくらみ": "Xerosic's Scheme",
+    "クラウン": "Crown",
+    "グラビティーマウンテン": "Gravity Mountain",
+    "サーファー": "Surfer",
+    "シアノ": "Ciano",
+    "シークレットボックス(ACE SPEC)": "Secret Box",
+    "ジャミングタワー": "Jamming Tower",
+    "ジャンボアイス": "Jumbo Ice",
+    "スイレンのお世話": "Lana's Care",
+    "スグリ": "Kieran",
+    "スパイクタウンジム": "Spikemuth Gym",
+    "ゼイユ": "Carmine",
+    "ゼロの大空洞": "Area Zero Underdepths",
+    "タケシのスカウト": "Brock's Scout",
+    "ツールスクラッパー": "Tool Scrapper",
+    "テラスタルオーブ": "Tera Orb",
+    "テレパス超エネルギー": "Telepathy Psychic Energy",
+    "トウコ": "Hilda",
+    "パワープロテイン": "Power Protein",
+    "ヒカリ": "Dawn",
+    "ヒーローマント(ACE SPEC)": "Hero's Cape",
+    "ピュール": "Puelle",
+    "ファイトゴング": "Fighting Gong",
+    "ブライア": "Briar",
+    "プレシャスキャリー(ACE SPEC)": "Precious Carry",
+    "ポケギア3.0": "Pokegear 3.0",
+    "ポケパッド": "Poke Pad",
+    "ポケモン回収サイクロン(ACE SPEC)": "Scoop Up Cyclone",
+    "マキシマムベルト(ACE SPEC)": "Maximum Belt",
+    "マツバの確信": "Morty's Conviction",
+    "ミストエネルギー": "Mist Energy",
+    "ミツルの思いやり": "Wally's Compassion",
+    "ミラクルインカム(ACE SPEC)": "Miracle Income",
+    "メイのはげまし": "May's Encouragement",
+    "ラッキーメット": "Lucky Helmet",
+    "ロケット団のアテナ": "Team Rocket's Ariana",
+    "ロケット団のアポロ": "Team Rocket's Archer",
+    "ロケット団のサカキ": "Team Rocket's Giovanni",
+    "ロケット団のファクトリー": "Team Rocket's Factory",
+    "ロケット団のラムダ": "Team Rocket's Lambda",
+    "ロケット団のランス": "Team Rocket's Lance",
+    "ロケット団のレシーバー": "Team Rocket's Receiver",
+    "ロケット団の監視塔": "Team Rocket's Watchtower",
+    "ロケット団エネルギー": "Team Rocket Energy",
+    "ロトりぼう": "Rotom Phone",
+    "ワンダーパッチ": "Wonder Patch",
+    "公民館": "Community Center",
+    "危ない廃墟": "Dangerous Ruins",
+    "夜のアカデミー": "Night Academy",
+    "改造ハンマー": "Crushing Hammer",
+    "暗号マニアの解読": "Cipher Admin's Decryption",
+    "活力の森": "Vitality Forest",
+    "鬼の仮面": "Ogre Mask",
+    "ハイダイ": "Kofu",
+    "リーリエの決心": "Lillie's Resolve",
+    "シロナのパワーウエイト": "Cynthia's Power Weight",
+    "バトルコロシアム": "Battle Colosseum",
+    "プリズムエネルギー": "Prism Energy",
+    "MBD": "MBD",
+    # --- Energy ---
     "基本炎エネルギー": "Basic Fire Energy",
     "基本水エネルギー": "Basic Water Energy",
     "基本雷エネルギー": "Basic Lightning Energy",
@@ -112,6 +286,9 @@ JP_CARD_NAMES: dict[str, str] = {
     "ルミナスエネルギー": "Luminous Energy",
     "レガシーエネルギー": "Legacy Energy",
     "ネオアッパーエネルギー": "Neo Upper Energy",
+    "イグニッションエネルギー": "Ignition Energy",
+    "リッチエネルギー": "Rich Energy",
+    "ロック闘エネルギー": "Rock Fighting Energy",
 }
 
 
@@ -233,6 +410,7 @@ def _classify_card(card_name: str) -> str:
         "tower",
         "gong",
         "scrapper",
+        "vacuum",
         "balloon",
         "board",
         "poffin",
@@ -269,6 +447,18 @@ def _classify_card(card_name: str) -> str:
         "drayton",
         "lacey",
         "hassel",
+        "morty",
+        "wally",
+        "premium power",
+        "precious",
+        "pokegear",
+        "scoop up",
+        "may's",
+        "brock",
+        "kofu",
+        "hilda",
+        "cipher",
+        "steven's",
     )
     for kw in trainer_keywords:
         if kw in lower:
@@ -276,15 +466,15 @@ def _classify_card(card_name: str) -> str:
     for name in trainer_names:
         if name in lower:
             return "Trainer"
-    # Check DB supertype as last resort (most are empty but try)
     return "Pokemon"
 
 
 def _compute_weighted_shares(conn: sqlite3.Connection, snapshot: dict) -> dict[str, float]:
     """Compute performance-weighted meta share for each archetype.
 
-    Weights placements by finish position (top 16 differentiated for 64-player CLs).
-    CL results not included here since cl_placements lack archetype classification.
+    Weights placements by finish position (top 16 differentiated for 64-player City Leagues).
+    Champions League results excluded from scoring -- archetype is classified at
+    export time (export_champions_league) rather than stored in cl_placements.
     """
     rows = conn.execute(
         """
@@ -1634,23 +1824,67 @@ def _compute_archetype_weekly_shares(conn: sqlite3.Connection, archetype_name: s
 
 
 def _build_jp_en_lookup(conn: sqlite3.Connection) -> dict[str, str]:
-    """Build JP→EN card name lookup from the cards table + fallback dict."""
+    """Build JP→EN card name lookup from hardcoded fallbacks, the cards table, and the card_mappings table."""
     lookup = dict(JP_CARD_NAMES)  # Start with hardcoded fallbacks
     rows = conn.execute(
         "SELECT name_jp, name_en FROM cards WHERE name_jp IS NOT NULL AND name_jp != ''"
     ).fetchall()
+    if not rows:
+        logger.warning("cards table returned 0 JP->EN mappings; translations will be degraded")
     for row in rows:
         lookup[row["name_jp"]] = row["name_en"]
-    logger.info("JP→EN lookup: %d entries (%d from cards table)", len(lookup), len(rows))
+
+    # From card_mappings table (scraped from Limitless)
+    mapping_count = 0
+    try:
+        for row in conn.execute(
+            "SELECT card_name_jp, card_name_en FROM card_mappings "
+            "WHERE card_name_jp IS NOT NULL AND card_name_en IS NOT NULL"
+        ):
+            lookup[row["card_name_jp"]] = row["card_name_en"]
+            mapping_count += 1
+    except sqlite3.OperationalError as exc:
+        if "no such table" in str(exc):
+            logger.info("card_mappings table not found, skipping")
+        else:
+            raise
+
+    logger.info(
+        "JP→EN lookup: %d entries (%d from cards table, %d from card_mappings)",
+        len(lookup),
+        len(rows),
+        mapping_count,
+    )
     return lookup
 
 
 def export_champions_league(conn: sqlite3.Connection, output_dir: Path) -> None:
     """Export Champions League data by division with JP→EN translations."""
+
     cl_dir = output_dir / "champions-league"
     cl_dir.mkdir(parents=True, exist_ok=True)
 
     jp_en_lookup = _build_jp_en_lookup(conn)
+
+    # Build image URL lookup: {name_en: image_url} (most recent set first)
+    image_rows = conn.execute(
+        "SELECT name_en, image_url FROM cards WHERE image_url IS NOT NULL ORDER BY set_code DESC"
+    ).fetchall()
+    image_lookup: dict[str, str] = {}
+    for row in image_rows:
+        if row["name_en"] not in image_lookup:
+            image_lookup[row["name_en"]] = row["image_url"]
+
+    # Build tier lookup from latest snapshot
+    tier_lookup: dict[str, str] = {}
+    tier_rows = conn.execute(
+        "SELECT archetype, tier FROM archetype_stats "
+        "WHERE snapshot_id = (SELECT MAX(id) FROM meta_snapshots)"
+    ).fetchall()
+    for row in tier_rows:
+        tier_lookup[row["archetype"]] = row["tier"]
+    if not tier_lookup:
+        logger.warning("No tier data found (meta_snapshots may be empty)")
 
     events = conn.execute(
         "SELECT DISTINCT id, name, division, date FROM cl_events ORDER BY division"
@@ -1677,6 +1911,8 @@ def export_champions_league(conn: sqlite3.Connection, output_dir: Path) -> None:
         ).fetchall()
 
         placement_list = []
+        archetype_counts: dict[str, int] = {}
+
         for p in placements:
             decklist_rows = conn.execute(
                 """
@@ -1690,23 +1926,82 @@ def export_champions_league(conn: sqlite3.Connection, output_dir: Path) -> None:
             ).fetchall()
 
             decklist = []
+            classifier_cards = []
             for card in decklist_rows:
                 jp_name = card["card_name_jp"]
-                # Use existing EN name, or look up from cards table / fallback dict
+                # Use existing EN name, or translate via jp_en_lookup
                 en_name = card["card_name_en"] or jp_en_lookup.get(jp_name)
                 if en_name:
                     translated_count += 1
                 elif jp_name:
                     untranslated_names.add(jp_name)
 
+                raw_cat = card["category"]
+                normalized_cat = raw_cat.strip().title() if raw_cat else None
+                if normalized_cat in ("Pokemon", "Trainer", "Energy"):
+                    category = normalized_cat
+                else:
+                    logger.warning(
+                        "Unexpected card category %r for card %r, defaulting to Trainer",
+                        raw_cat,
+                        jp_name,
+                    )
+                    category = "Trainer"
+
                 decklist.append(
                     {
                         "card_name_jp": jp_name,
                         "card_name_en": en_name,
                         "count": card["count"],
-                        "category": card["category"],
+                        "category": category,
+                        "image_url": image_lookup.get(en_name) if en_name else None,
                     }
                 )
+
+                if en_name:
+                    classifier_cards.append(
+                        {
+                            "card_name": en_name,
+                            "count": card["count"],
+                            "category": category,
+                        }
+                    )
+
+            # Classify archetype from EN-translated cards (untranslated-only decklists yield "Unknown")
+            try:
+                archetype_name = (
+                    classify_decklist(classifier_cards) if classifier_cards else "Unknown"
+                )
+            except (ValueError, KeyError) as exc:
+                logger.error(
+                    "Failed to classify decklist for %s (standing %d): %s",
+                    p["player_name"],
+                    p["standing"],
+                    exc,
+                    exc_info=True,
+                )
+                archetype_name = "Unknown"
+            is_known = archetype_name != "Unknown"
+
+            if is_known:
+                archetype_counts[archetype_name] = archetype_counts.get(archetype_name, 0) + 1
+
+            if is_known:
+                raw_tier = tier_lookup.get(archetype_name)
+                tier = raw_tier if raw_tier in ("S", "A", "B", "C", "Rogue") else None
+                try:
+                    sprite_filenames = _get_sprite_filenames(archetype_name)
+                except (KeyError, ValueError) as exc:
+                    logger.warning(
+                        "Failed to get sprite filenames for archetype %r: %s",
+                        archetype_name,
+                        exc,
+                        exc_info=True,
+                    )
+                    sprite_filenames = []
+            else:
+                tier = None
+                sprite_filenames = None
 
             placement_list.append(
                 {
@@ -1714,15 +2009,35 @@ def export_champions_league(conn: sqlite3.Connection, output_dir: Path) -> None:
                     "player_name": p["player_name"],
                     "region": p["region"],
                     "deck_code": p["deck_code"],
+                    "archetype": archetype_name if is_known else None,
+                    "tier": tier,
+                    "sprite_filenames": sprite_filenames,
                     "decklist": decklist,
                 }
             )
+
+        # Build archetype summary (exclude Unknown, sort by count desc)
+        summary_entries = []
+        for name, count in archetype_counts.items():
+            try:
+                sprites = _get_sprite_filenames(name)
+            except (KeyError, ValueError) as exc:
+                logger.warning(
+                    "Failed to get sprite filenames for archetype summary %r: %s",
+                    name,
+                    exc,
+                    exc_info=True,
+                )
+                sprites = []
+            summary_entries.append({"archetype": name, "count": count, "sprite_filenames": sprites})
+        archetype_summary = sorted(summary_entries, key=lambda x: x["count"], reverse=True)
 
         division_data = {
             "event_id": event["id"],
             "event_name": event["name"],
             "division": division,
             "date": event["date"],
+            "archetype_summary": archetype_summary,
             "placements": placement_list,
         }
 

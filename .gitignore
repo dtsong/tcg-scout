@@ -17,6 +17,7 @@ node_modules/
 # Data
 data/*.db
 data/*.sqlite
+*.db
 
 # Reports output
 reports/output/
@@ -33,3 +34,4 @@ Thumbs.db
 
 # uv
 uv.lock
+.superpowers/

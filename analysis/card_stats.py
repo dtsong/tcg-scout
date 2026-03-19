@@ -108,6 +108,18 @@ def _classify_card(card_name: str) -> str:
         "lacey",
         "hassel",
         "balloon",
+        "morty",
+        "wally",
+        "premium power",
+        "precious",
+        "pokegear",
+        "scoop up",
+        "may's",
+        "brock",
+        "kofu",
+        "hilda",
+        "cipher",
+        "steven's",
     )
     for kw in trainer_keywords:
         if kw in lower:

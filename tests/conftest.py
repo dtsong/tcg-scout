@@ -80,13 +80,31 @@ def db() -> sqlite3.Connection:
         decklist_rows,
     )
 
-    # --- Cards table (for JP→EN translation) ---
+    # --- Cards table (for JP→EN translation + image URLs) ---
     conn.executemany(
-        "INSERT INTO cards (id, name_en, name_jp, set_code) VALUES (?, ?, ?, ?)",
+        "INSERT INTO cards (id, name_en, name_jp, set_code, image_url) VALUES (?, ?, ?, ?, ?)",
         [
-            ("sv5-001", "Charizard ex", "リザードンex", "sv5"),
-            ("sv5-002", "Dragapult ex", "ドラパルトex", "sv5"),
-            ("sv5-003", "Rare Candy", "ふしぎなアメ", "sv5"),
+            (
+                "sv5-001",
+                "Charizard ex",
+                "リザードンex",
+                "sv5",
+                "https://images.pokemontcg.io/sv5/001.png",
+            ),
+            (
+                "sv5-002",
+                "Dragapult ex",
+                "ドラパルトex",
+                "sv5",
+                "https://images.pokemontcg.io/sv5/002.png",
+            ),
+            (
+                "sv5-003",
+                "Rare Candy",
+                "ふしぎなアメ",
+                "sv5",
+                "https://images.pokemontcg.io/sv5/003.png",
+            ),
         ],
     )
 
@@ -103,6 +121,7 @@ def db() -> sqlite3.Connection:
         [
             (101, 900001, 1, "Taro", "Tokyo", "deck-abc"),
             (102, 900001, 2, "Hanako", "Osaka", "deck-xyz"),
+            (103, 900001, 3, "Jiro", "Nagoya", "deck-unk"),
         ],
     )
 
@@ -115,6 +134,8 @@ def db() -> sqlite3.Connection:
             (101, "ネストボール", None, 4, "Trainer"),
             (102, "ドラパルトex", None, 2, "Pokemon"),
             (102, "謎のカード", None, 1, "Trainer"),  # untranslatable
+            (103, "謎のカードA", None, 2, "Trainer"),  # unclassifiable placement
+            (103, "謎のカードB", None, 1, "Trainer"),
         ],
     )
 

@@ -260,10 +260,11 @@ export interface CLDecklistCard {
   card_name_jp: string;
   card_name_en: string | null;
   count: number;
-  category: string;
+  category: "Pokemon" | "Trainer" | "Energy";
+  image_url: string | null;
 }
 
-export interface CLPlacement {
+interface CLPlacementBase {
   standing: number;
   player_name: string;
   region: string;
@@ -271,10 +272,23 @@ export interface CLPlacement {
   decklist: CLDecklistCard[];
 }
 
+export type CLPlacement = CLPlacementBase &
+  (
+    | { archetype: string; tier: Tier | null; sprite_filenames: string[] }
+    | { archetype: null; tier: null; sprite_filenames: null }
+  );
+
+export interface CLArchetypeSummary {
+  archetype: string;
+  count: number;
+  sprite_filenames: string[];
+}
+
 export interface CLDivision {
   event_id: number;
   event_name: string;
   division: string;
   date: string;
+  archetype_summary?: CLArchetypeSummary[];
   placements: CLPlacement[];
 }

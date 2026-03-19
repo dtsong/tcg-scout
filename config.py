@@ -138,6 +138,7 @@ TCGDEX_API_URL = "https://api.tcgdex.net/v2/en"
 # Primary anchor -> secondary anchor -> archetype name.
 # If primary matches but no secondary does, uses "_default".
 ARCHETYPE_ANCHOR_CARDS: dict[str, dict[str, str] | str] = {
+    # --- Standard archetypes ---
     "Charizard ex": {
         "_default": "Charizard ex",
         "Dusknoir": "Charizard Dusknoir",
@@ -161,23 +162,85 @@ ARCHETYPE_ANCHOR_CARDS: dict[str, dict[str, str] | str] = {
     "Froslass ex": {
         "_default": "Froslass ex",
         "Munkidori": "Froslass Munkidori",
+        "Grimmsnarl ex": "Froslass Grimmsnarl",
         "Grimmsnarl": "Froslass Grimmsnarl",
     },
     "Alakazam ex": {
         "_default": "Alakazam ex",
         "Dudunsparce": "Alakazam Dudunsparce",
     },
-    "Lucario ex": {
+    # --- Mega Evolution archetypes (CL card names include "Mega" prefix) ---
+    "Mega Froslass ex": {
+        "_default": "Mega Froslass ex",
+        "Grimmsnarl ex": "Mega Froslass Grimmsnarl",
+        "Marnie's Grimmsnarl ex": "Mega Froslass Grimmsnarl",
+        "Grimmsnarl": "Mega Froslass Grimmsnarl",
+    },
+    "Mega Absol ex": {
+        "_default": "Mega Absol ex",
+        "Mega Kangaskhan ex": "Mega Absol Box",
+    },
+    "Mega Kangaskhan ex": "Mega Kangaskhan ex",
+    "Mega Lucario ex": {
         "_default": "Mega Lucario ex",
         "Solrock": "Mega Lucario Solrock",
+        "Hariyama": "Mega Lucario",
     },
-    "Starmie ex": {
+    "Mega Starmie ex": {
         "_default": "Mega Starmie ex",
         "Greninja ex": "Mega Starmie Greninja",
         "Dusknoir": "Mega Starmie Dusknoir",
     },
-    "Venusaur ex": {
+    "Mega Venusaur ex": {
         "_default": "Mega Venusaur ex",
         "Ogerpon ex": "Mega Venusaur",
     },
+    "Mega Slowbro ex": "Mega Slowbro ex",
+    "Mega Skarmory ex": "Mega Skarmory ex",
+    # --- Trainer-owned Pokemon (CL uses "Trainer's Pokemon" naming) ---
+    "Marnie's Grimmsnarl ex": {
+        "_default": "Grimmsnarl ex",
+        "Munkidori": "Grimmsnarl Munkidori",
+        "Froslass": "Froslass Grimmsnarl",
+    },
+    "Cynthia's Garchomp ex": {
+        "_default": "Garchomp Roserade",
+        "Cynthia's Roserade": "Garchomp Roserade",
+    },
+    # --- Team Rocket archetypes ---
+    "Team Rocket's Mewtwo ex": {
+        "_default": "Mewtwo Spidops",
+        "Team Rocket's Spidops": "Mewtwo Spidops",
+    },
+    "Team Rocket's Honchkrow": {
+        "_default": "Honchkrow Porygon-Z",
+    },
+    # --- Non-ex variants (CL decklists may use non-ex forms) ---
+    "Flareon ex": {
+        "_default": "Flareon ex",
+        "Noctowl": "Flareon Noctowl",
+    },
+    "Empoleon ex": {
+        "_default": "Empoleon ex",
+        "Steven's Metagross ex": "Empoleon Metagross",
+    },
+    "Alakazam": {
+        "_default": "Alakazam ex",
+        "Dudunsparce": "Alakazam Dudunsparce",
+    },
+    "Froslass": {
+        "_default": "Froslass ex",
+        "Munkidori": "Froslass Munkidori",
+        "Grimmsnarl ex": "Froslass Grimmsnarl",
+        "Marnie's Grimmsnarl ex": "Froslass Grimmsnarl",
+        "Grimmsnarl": "Froslass Grimmsnarl",
+    },
+    "Zoroark": "Zoroark ex",
+    # --- Support/rogue archetypes ---
+    "Arboliva ex": {
+        "_default": "Arboliva ex",
+        "Meganium": "Arboliva Meganium",
+    },
+    "Crustle": "Crustle",
+    "Dwebble": "Crustle",
 }

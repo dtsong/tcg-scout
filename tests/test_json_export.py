@@ -1,8 +1,12 @@
 """Tests for reports/json_export.py — JSON data exports for the web dashboard."""
 
 import json
+import sqlite3
 import sys
 from pathlib import Path
+from unittest.mock import patch
+
+import pytest
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
@@ -213,7 +217,7 @@ class TestExportChampionsLeague:
         assert cl_file.exists()
         data = json.loads(cl_file.read_text())
         assert data["division"] == "masters"
-        assert len(data["placements"]) == 2
+        assert len(data["placements"]) == 3
 
         # First placement: リザードンex should translate via cards table
         p1 = data["placements"][0]
@@ -485,3 +489,187 @@ class TestExportWindowed:
                 assert "archetypes" in data
                 assert "tournament_count" in data
                 assert "date_range" in data
+
+
+class TestExportChampionsLeagueEnriched:
+    def test_placements_have_archetype_fields(self, db, tmp_path):
+        export_champions_league(db, tmp_path)
+        data = json.loads((tmp_path / "champions-league" / "masters.json").read_text())
+        for p in data["placements"]:
+            assert "archetype" in p
+            assert "tier" in p
+            assert "sprite_filenames" in p
+
+    def test_decklist_cards_have_image_url(self, db, tmp_path):
+        export_champions_league(db, tmp_path)
+        data = json.loads((tmp_path / "champions-league" / "masters.json").read_text())
+        p = data["placements"][0]
+        for card in p["decklist"]:
+            assert "image_url" in card
+        # Verify that translated cards actually get their image URLs populated
+        charizard = next(c for c in p["decklist"] if c["card_name_en"] == "Charizard ex")
+        assert charizard["image_url"] == "https://images.pokemontcg.io/sv5/001.png"
+
+    def test_has_archetype_summary(self, db, tmp_path):
+        export_champions_league(db, tmp_path)
+        data = json.loads((tmp_path / "champions-league" / "masters.json").read_text())
+        assert "archetype_summary" in data
+        assert isinstance(data["archetype_summary"], list)
+
+    def test_unknown_archetype_fields_are_null(self, db, tmp_path):
+        """Placement with only untranslatable trainers should have null archetype fields."""
+        export_champions_league(db, tmp_path)
+        data = json.loads((tmp_path / "champions-league" / "masters.json").read_text())
+        # Jiro (standing 3) has only untranslatable trainer cards
+        jiro = next(p for p in data["placements"] if p["standing"] == 3)
+        assert jiro["archetype"] is None
+        assert jiro["tier"] is None
+        assert jiro["sprite_filenames"] is None
+
+    def test_archetype_summary_excludes_unknown(self, db, tmp_path):
+        """Unknown archetypes should not appear in archetype_summary."""
+        export_champions_league(db, tmp_path)
+        data = json.loads((tmp_path / "champions-league" / "masters.json").read_text())
+        archetype_names = [entry["archetype"] for entry in data["archetype_summary"]]
+        assert "Unknown" not in archetype_names
+        # Known archetypes should still be present
+        assert len(archetype_names) > 0
+
+    def test_known_placement_has_correct_archetype(self, db, tmp_path):
+        """Placement with translatable Pokemon should classify to the correct archetype."""
+        export_champions_league(db, tmp_path)
+        data = json.loads((tmp_path / "champions-league" / "masters.json").read_text())
+        taro = next(p for p in data["placements"] if p["standing"] == 1)
+        assert taro["archetype"] == "Charizard ex"
+
+    def test_archetype_summary_has_required_fields(self, db, tmp_path):
+        """Each summary entry should have archetype, count, and sprite_filenames."""
+        export_champions_league(db, tmp_path)
+        data = json.loads((tmp_path / "champions-league" / "masters.json").read_text())
+        for entry in data["archetype_summary"]:
+            assert isinstance(entry["archetype"], str)
+            assert isinstance(entry["count"], int)
+            assert entry["count"] > 0
+            assert isinstance(entry["sprite_filenames"], list)
+
+    def test_known_archetype_has_tier_value(self, db, tmp_path):
+        """When a placement has a known archetype, tier should be the actual tier string."""
+        export_champions_league(db, tmp_path)
+        data = json.loads((tmp_path / "champions-league" / "masters.json").read_text())
+        # Ensure at least one placement has a non-null archetype (prevents vacuous pass)
+        known = [p for p in data["placements"] if p["archetype"] is not None]
+        assert len(known) > 0, "Expected at least one classified placement"
+        for p in known:
+            assert p["tier"] is not None
+            assert p["tier"] in ("S", "A", "B", "C", "Rogue")
+
+    def test_archetype_summary_sorted_by_count_desc(self, db, tmp_path):
+        """Archetype summary should be sorted by count descending."""
+        export_champions_league(db, tmp_path)
+        data = json.loads((tmp_path / "champions-league" / "masters.json").read_text())
+        summary = data["archetype_summary"]
+        if len(summary) > 1:
+            counts = [e["count"] for e in summary]
+            assert counts == sorted(counts, reverse=True)
+
+
+class TestExportChampionsLeagueClassifyError:
+    def test_classify_exception_produces_null_archetype(self, db, tmp_path):
+        """When classify_decklist raises ValueError, placement should have null archetype fields."""
+        with patch(
+            "reports.json_export.classify_decklist",
+            side_effect=ValueError("classifier broke"),
+        ):
+            export_champions_league(db, tmp_path)
+        data = json.loads((tmp_path / "champions-league" / "masters.json").read_text())
+        # All placements should still be exported (none dropped)
+        assert len(data["placements"]) == 3
+        # All should have null archetype since classifier always fails
+        for p in data["placements"]:
+            if p["standing"] != 3:  # standing 3 (Jiro) has no translatable cards anyway
+                assert p["archetype"] is None
+                assert p["tier"] is None
+                assert p["sprite_filenames"] is None
+
+    def test_classify_exception_does_not_abort_export(self, db, tmp_path):
+        """Export should complete even when classifier raises for some placements."""
+        call_count = [0]
+
+        def flaky_classify(cards):
+            call_count[0] += 1
+            if call_count[0] == 1:
+                raise KeyError("missing key")
+            return "Charizard ex"
+
+        with patch("reports.json_export.classify_decklist", side_effect=flaky_classify):
+            export_champions_league(db, tmp_path)
+        data = json.loads((tmp_path / "champions-league" / "masters.json").read_text())
+        assert len(data["placements"]) == 3
+
+
+class TestExportChampionsLeagueCategorySanitization:
+    def test_unexpected_category_defaults_to_trainer(self, db, tmp_path):
+        """Cards with non-standard category values should be exported as 'Trainer'."""
+        # Insert a card with a Japanese category string
+        db.execute(
+            "INSERT INTO cl_decklist_cards (placement_id, card_name_jp, card_name_en, count, category) "
+            "VALUES (?, ?, ?, ?, ?)",
+            (101, "テストカード", None, 1, "アイテム"),
+        )
+        db.commit()
+        export_champions_league(db, tmp_path)
+        data = json.loads((tmp_path / "champions-league" / "masters.json").read_text())
+        taro = next(p for p in data["placements"] if p["standing"] == 1)
+        weird_card = next(c for c in taro["decklist"] if c["card_name_jp"] == "テストカード")
+        assert weird_card["category"] == "Trainer"
+
+    def test_null_category_defaults_to_trainer(self, db, tmp_path):
+        """Cards with NULL category should be exported as 'Trainer'."""
+        db.execute(
+            "INSERT INTO cl_decklist_cards (placement_id, card_name_jp, card_name_en, count, category) "
+            "VALUES (?, ?, ?, ?, ?)",
+            (101, "ヌルカード", None, 1, None),
+        )
+        db.commit()
+        export_champions_league(db, tmp_path)
+        data = json.loads((tmp_path / "champions-league" / "masters.json").read_text())
+        taro = next(p for p in data["placements"] if p["standing"] == 1)
+        null_card = next(c for c in taro["decklist"] if c["card_name_jp"] == "ヌルカード")
+        assert null_card["category"] == "Trainer"
+
+
+class TestBuildJpEnLookupWithMappings:
+    def test_includes_card_mappings(self, db):
+        # card_mappings table is created by SCHEMA, insert test data
+        db.execute(
+            "INSERT INTO card_mappings (jp_card_id, en_card_id, card_name_jp, card_name_en, jp_set_id, en_set_id) "
+            "VALUES (?, ?, ?, ?, ?, ?)",
+            ("SV8a-221", "me02.5-100", "ドラパルトex", "Dragapult ex", "SV8a", "me02.5"),
+        )
+        db.commit()
+        lookup = _build_jp_en_lookup(db)
+        assert lookup["ドラパルトex"] == "Dragapult ex"
+
+    def test_card_mappings_table_missing(self):
+        """Lookup works even if card_mappings table doesn't exist."""
+        conn = sqlite3.connect(":memory:")
+        conn.row_factory = sqlite3.Row
+        # Minimal schema without card_mappings
+        conn.execute("CREATE TABLE cards (id TEXT, name_en TEXT, name_jp TEXT, set_code TEXT)")
+        lookup = _build_jp_en_lookup(conn)
+        # Should still have hardcoded entries
+        assert "ネストボール" in lookup
+        conn.close()
+
+    def test_non_table_operational_error_is_reraised(self):
+        """OperationalErrors unrelated to missing table should propagate."""
+        conn = sqlite3.connect(":memory:")
+        conn.row_factory = sqlite3.Row
+        conn.execute("CREATE TABLE cards (id TEXT, name_en TEXT, name_jp TEXT, set_code TEXT)")
+        # Create card_mappings with wrong columns so the SELECT for
+        # card_name_jp/card_name_en triggers "no such column", not "no such table"
+        conn.execute("CREATE TABLE card_mappings (id TEXT)")
+
+        with pytest.raises(sqlite3.OperationalError, match="no such column"):
+            _build_jp_en_lookup(conn)
+        conn.close()
