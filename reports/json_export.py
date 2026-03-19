@@ -14,8 +14,8 @@ from analysis.archetype_classifier import classify_decklist
 from analysis.buylist import generate_buylist
 from analysis.card_stats import (
     BASIC_ENERGY_NAMES,
-    _classify_card,
     build_category_lookup,
+    classify_card,
     compute_card_detail,
     compute_card_stats,
 )
@@ -1506,7 +1506,7 @@ def export_archetypes(conn: sqlite3.Connection, output_dir: Path) -> None:
                 "inclusion_pct": inclusion,
                 "avg_copies": avg_copies,
                 "decks_with": row["decks_with"],
-                "category": _classify_card(row["card_name"], category_lookup),
+                "category": classify_card(row["card_name"], category_lookup),
             }
             all_cards.append(card_data)
             if inclusion >= 80:
@@ -1548,7 +1548,7 @@ def export_archetypes(conn: sqlite3.Connection, output_dir: Path) -> None:
                     {
                         "card_name": dl["card_name"],
                         "count": dl["count"],
-                        "category": _classify_card(dl["card_name"], category_lookup),
+                        "category": classify_card(dl["card_name"], category_lookup),
                     }
                     for dl in dl_rows
                 ]

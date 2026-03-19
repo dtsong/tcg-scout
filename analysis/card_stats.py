@@ -22,8 +22,9 @@ if _POKEMON_NAMES_FILE.exists():
     try:
         _POKEMON_NAMES = set(json.loads(_POKEMON_NAMES_FILE.read_text()))
     except (json.JSONDecodeError, OSError, TypeError) as exc:
-        _log.warning(
-            "Failed to load %s: %s — classification will use heuristics only",
+        _log.error(
+            "Failed to load %s: %s - classification will be degraded "
+            "(unknown cards will default to Trainer instead of using name set)",
             _POKEMON_NAMES_FILE,
             exc,
         )
@@ -68,7 +69,7 @@ def build_category_lookup(conn: sqlite3.Connection) -> dict[str, str]:
     return {row["name_en"]: row["supertype"] for row in rows}
 
 
-def _classify_card(card_name: str, category_lookup: dict[str, str] | None = None) -> str:
+def classify_card(card_name: str, category_lookup: dict[str, str] | None = None) -> str:
     """Classify a card as Pokemon, Trainer, or Energy.
 
     Priority: DB lookup -> energy/trainer heuristics -> authoritative Pokemon
@@ -174,7 +175,7 @@ def _classify_card(card_name: str, category_lookup: dict[str, str] | None = None
         # Unknown card not matching any known Pokemon — default to Trainer
         return "Trainer"
 
-    return "Pokemon"
+    return "Trainer"
 
 
 def _card_slug(card_name: str) -> str:
@@ -269,7 +270,7 @@ def compute_card_stats(conn: sqlite3.Connection) -> list[dict]:
         category = (
             supertype
             if supertype in ("Pokemon", "Trainer", "Energy")
-            else _classify_card(name, None)
+            else classify_card(name, None)
         )
 
         ws = weighted_scores.get(name, 0.0)
@@ -338,7 +339,7 @@ def compute_card_detail(conn: sqlite3.Connection, card_name: str) -> dict | None
     category = (
         supertype
         if supertype in ("Pokemon", "Trainer", "Energy")
-        else _classify_card(card_name, build_category_lookup(conn))
+        else classify_card(card_name, build_category_lookup(conn))
     )
 
     # Weighted score
