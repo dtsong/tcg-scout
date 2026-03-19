@@ -43,7 +43,7 @@ class TestClassifyDecklist:
 
     def test_mega_archetype(self):
         cards = [
-            {"card_name": "Lucario ex", "count": 3, "category": "Pokemon"},
+            {"card_name": "Mega Lucario ex", "count": 3, "category": "Pokemon"},
             {"card_name": "Solrock", "count": 2, "category": "Pokemon"},
         ]
         assert classify_decklist(cards) == "Mega Lucario Solrock"

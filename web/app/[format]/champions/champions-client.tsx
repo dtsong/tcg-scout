@@ -86,9 +86,11 @@ function PlacementRow({ placement }: { placement: CLPlacement }) {
                         <div key={i} className="flex flex-col items-center text-center">
                           {card.image_url && !failedImages[imageKey] ? (
                             <img
-                              src={card.image_url}
+                              src={card.image_url.replace("/high.png", "/low.png")}
                               alt={card.card_name_en || card.card_name_jp}
                               className="w-[72px] h-[100px] object-cover rounded"
+                              loading="lazy"
+                              decoding="async"
                               onError={() => {
                                 console.warn(`Failed to load card image: ${card.image_url}`);
                                 setFailedImages((prev) => ({ ...prev, [imageKey]: true }));

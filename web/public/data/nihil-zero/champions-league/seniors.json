@@ -5,10 +5,26 @@
   "date": "2026-02-22",
   "archetype_summary": [
     {
+      "archetype": "Garchomp Roserade",
+      "count": 4,
+      "sprite_filenames": [
+        "garchomp.png",
+        "roserade.png"
+      ]
+    },
+    {
       "archetype": "Dragapult ex",
       "count": 2,
       "sprite_filenames": [
         "dragapult.png"
+      ]
+    },
+    {
+      "archetype": "Alakazam Dudunsparce",
+      "count": 2,
+      "sprite_filenames": [
+        "alakazam.png",
+        "dudunsparce.png"
       ]
     },
     {
@@ -20,6 +36,13 @@
       ]
     },
     {
+      "archetype": "Mega Slowbro ex",
+      "count": 1,
+      "sprite_filenames": [
+        "slowbro-mega.png"
+      ]
+    },
+    {
       "archetype": "Raging Bolt ex",
       "count": 1,
       "sprite_filenames": [
@@ -27,10 +50,33 @@
       ]
     },
     {
+      "archetype": "Mega Skarmory ex",
+      "count": 1,
+      "sprite_filenames": [
+        "skarmory-mega.png"
+      ]
+    },
+    {
+      "archetype": "Mega Lucario Solrock",
+      "count": 1,
+      "sprite_filenames": [
+        "lucario-mega.png",
+        "solrock.png"
+      ]
+    },
+    {
       "archetype": "Terapagos ex",
       "count": 1,
       "sprite_filenames": [
         "terapagos.png"
+      ]
+    },
+    {
+      "archetype": "Grimmsnarl Munkidori",
+      "count": 1,
+      "sprite_filenames": [
+        "grimmsnarl.png",
+        "munkidori.png"
       ]
     }
   ],
@@ -242,9 +288,11 @@
       "player_name": "さく",
       "region": "岡山県",
       "deck_code": "5kbFkV-JKMYPO-vkkFkk",
-      "archetype": null,
+      "archetype": "Mega Slowbro ex",
       "tier": null,
-      "sprite_filenames": null,
+      "sprite_filenames": [
+        "slowbro-mega.png"
+      ],
       "decklist": [
         {
           "card_name_jp": "テレパス超エネルギー",
@@ -435,9 +483,12 @@
       "player_name": "0-3(笑)",
       "region": "神奈川県",
       "deck_code": "Vkkkkb-CUaq0F-dFFbkf",
-      "archetype": null,
-      "tier": null,
-      "sprite_filenames": null,
+      "archetype": "Garchomp Roserade",
+      "tier": "B",
+      "sprite_filenames": [
+        "garchomp.png",
+        "roserade.png"
+      ],
       "decklist": [
         {
           "card_name_jp": "ロック闘エネルギー",
@@ -614,9 +665,12 @@
       "player_name": "オサビ",
       "region": "大阪府",
       "deck_code": "yRyypp-Bk68QQ-yyXpyy",
-      "archetype": null,
-      "tier": null,
-      "sprite_filenames": null,
+      "archetype": "Alakazam Dudunsparce",
+      "tier": "B",
+      "sprite_filenames": [
+        "alakazam.png",
+        "dudunsparce.png"
+      ],
       "decklist": [
         {
           "card_name_jp": "テレパス超エネルギー",
@@ -1218,9 +1272,11 @@
       "player_name": "Remingtong",
       "region": "福岡県",
       "deck_code": "kkkfVd-4k2K4O-bkFkwF",
-      "archetype": null,
+      "archetype": "Mega Skarmory ex",
       "tier": null,
-      "sprite_filenames": null,
+      "sprite_filenames": [
+        "skarmory-mega.png"
+      ],
       "decklist": [
         {
           "card_name_jp": "基本超エネルギー",
@@ -1432,9 +1488,12 @@
       "player_name": "AYATO",
       "region": "神奈川県",
       "deck_code": "dFFFkF-cAIQeJ-Vb5kkk",
-      "archetype": null,
-      "tier": null,
-      "sprite_filenames": null,
+      "archetype": "Mega Lucario Solrock",
+      "tier": "C",
+      "sprite_filenames": [
+        "lucario-mega.png",
+        "solrock.png"
+      ],
       "decklist": [
         {
           "card_name_jp": "基本闘エネルギー",
@@ -1869,9 +1928,12 @@
       "player_name": "かいとった引きだけ",
       "region": "愛知県",
       "deck_code": "cYc888-C0higX-J8Gx88",
-      "archetype": null,
-      "tier": null,
-      "sprite_filenames": null,
+      "archetype": "Alakazam Dudunsparce",
+      "tier": "B",
+      "sprite_filenames": [
+        "alakazam.png",
+        "dudunsparce.png"
+      ],
       "decklist": [
         {
           "card_name_jp": "テレパス超エネルギー",
@@ -2055,9 +2117,12 @@
       "player_name": "りゅー",
       "region": "愛知県",
       "deck_code": "nnng9n-Ez8Dcn-Q9nL9L",
-      "archetype": null,
-      "tier": null,
-      "sprite_filenames": null,
+      "archetype": "Garchomp Roserade",
+      "tier": "B",
+      "sprite_filenames": [
+        "garchomp.png",
+        "roserade.png"
+      ],
       "decklist": [
         {
           "card_name_jp": "ロック闘エネルギー",
@@ -2451,9 +2516,12 @@
       "player_name": "ウルトラかいせい",
       "region": "大阪府",
       "deck_code": "G8ccx8-9gfg1P-J84D8G",
-      "archetype": null,
-      "tier": null,
-      "sprite_filenames": null,
+      "archetype": "Garchomp Roserade",
+      "tier": "B",
+      "sprite_filenames": [
+        "garchomp.png",
+        "roserade.png"
+      ],
       "decklist": [
         {
           "card_name_jp": "ロック闘エネルギー",
@@ -2833,9 +2901,12 @@
       "player_name": "えいす",
       "region": "沖縄県",
       "deck_code": "MRyySy-6t6Jwl-yUpyX3",
-      "archetype": null,
-      "tier": null,
-      "sprite_filenames": null,
+      "archetype": "Garchomp Roserade",
+      "tier": "B",
+      "sprite_filenames": [
+        "garchomp.png",
+        "roserade.png"
+      ],
       "decklist": [
         {
           "card_name_jp": "ロック闘エネルギー",
@@ -3012,9 +3083,12 @@
       "player_name": "あおと",
       "region": "愛知県",
       "deck_code": "D8c8cc-JISb1P-4DGc88",
-      "archetype": null,
-      "tier": null,
-      "sprite_filenames": null,
+      "archetype": "Grimmsnarl Munkidori",
+      "tier": "B",
+      "sprite_filenames": [
+        "grimmsnarl.png",
+        "munkidori.png"
+      ],
       "decklist": [
         {
           "card_name_jp": "基本悪エネルギー",

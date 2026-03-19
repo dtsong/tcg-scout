@@ -19,11 +19,65 @@
       ]
     },
     {
+      "archetype": "Mewtwo Spidops",
+      "count": 2,
+      "sprite_filenames": [
+        "mewtwo.png",
+        "spidops.png"
+      ]
+    },
+    {
+      "archetype": "Mega Lucario Solrock",
+      "count": 2,
+      "sprite_filenames": [
+        "lucario-mega.png",
+        "solrock.png"
+      ]
+    },
+    {
+      "archetype": "Mega Absol Box",
+      "count": 1,
+      "sprite_filenames": [
+        "absol-mega.png",
+        "kangaskhan-mega.png"
+      ]
+    },
+    {
+      "archetype": "Arboliva Meganium",
+      "count": 1,
+      "sprite_filenames": [
+        "arboliva.png",
+        "meganium.png"
+      ]
+    },
+    {
+      "archetype": "Crustle",
+      "count": 1,
+      "sprite_filenames": [
+        "crustle.png"
+      ]
+    },
+    {
       "archetype": "Dragapult Dusknoir",
       "count": 1,
       "sprite_filenames": [
         "dragapult.png",
         "dusknoir.png"
+      ]
+    },
+    {
+      "archetype": "Honchkrow Porygon-Z",
+      "count": 1,
+      "sprite_filenames": [
+        "honchkrow.png",
+        "porygon-z.png"
+      ]
+    },
+    {
+      "archetype": "Mega Kangaskhan ex",
+      "count": 1,
+      "sprite_filenames": [
+        "kangaskhan-mega.png"
       ]
     },
     {
@@ -40,9 +94,12 @@
       "player_name": "たか",
       "region": "愛知県",
       "deck_code": "dvFFkV-BQpx90-vkkbkF",
-      "archetype": null,
-      "tier": null,
-      "sprite_filenames": null,
+      "archetype": "Mega Absol Box",
+      "tier": "Rogue",
+      "sprite_filenames": [
+        "absol-mega.png",
+        "kangaskhan-mega.png"
+      ],
       "decklist": [
         {
           "card_name_jp": "ミストエネルギー",
@@ -275,9 +332,12 @@
       "player_name": "わたよ",
       "region": "福岡県",
       "deck_code": "FFkVkv-clLM5g-kkFfdb",
-      "archetype": null,
+      "archetype": "Arboliva Meganium",
       "tier": null,
-      "sprite_filenames": null,
+      "sprite_filenames": [
+        "arboliva.png",
+        "meganium.png"
+      ],
       "decklist": [
         {
           "card_name_jp": "基本草エネルギー",
@@ -928,9 +988,11 @@
       "player_name": "n",
       "region": "埼玉県",
       "deck_code": "8acJG8-XSegrR-G88ccY",
-      "archetype": null,
+      "archetype": "Crustle",
       "tier": null,
-      "sprite_filenames": null,
+      "sprite_filenames": [
+        "crustle.png"
+      ],
       "decklist": [
         {
           "card_name_jp": "プリズムエネルギー",
@@ -1589,9 +1651,12 @@
       "player_name": "ジャンタルマンタル",
       "region": "大阪府",
       "deck_code": "FkkbFf-kZKCE8-5kfVFk",
-      "archetype": null,
-      "tier": null,
-      "sprite_filenames": null,
+      "archetype": "Honchkrow Porygon-Z",
+      "tier": "C",
+      "sprite_filenames": [
+        "honchkrow.png",
+        "porygon-z.png"
+      ],
       "decklist": [
         {
           "card_name_jp": "イグニッションエネルギー",
@@ -1747,9 +1812,12 @@
       "player_name": "ぐっち",
       "region": "大阪府",
       "deck_code": "8xGccc-bMdHI1-K8ca8x",
-      "archetype": null,
-      "tier": null,
-      "sprite_filenames": null,
+      "archetype": "Mewtwo Spidops",
+      "tier": "B",
+      "sprite_filenames": [
+        "mewtwo.png",
+        "spidops.png"
+      ],
       "decklist": [
         {
           "card_name_jp": "ロケット団エネルギー",
@@ -2358,9 +2426,11 @@
       "player_name": "ヒナタ",
       "region": "兵庫県",
       "deck_code": "2Uyypp-w55Guv-pppyyR",
-      "archetype": null,
+      "archetype": "Mega Kangaskhan ex",
       "tier": null,
-      "sprite_filenames": null,
+      "sprite_filenames": [
+        "kangaskhan-mega.png"
+      ],
       "decklist": [
         {
           "card_name_jp": "ミストエネルギー",
@@ -2558,9 +2628,12 @@
       "player_name": "かもかも",
       "region": "京都府",
       "deck_code": "8c8x8G-9B2cqG-xxc8cG",
-      "archetype": null,
-      "tier": null,
-      "sprite_filenames": null,
+      "archetype": "Mewtwo Spidops",
+      "tier": "B",
+      "sprite_filenames": [
+        "mewtwo.png",
+        "spidops.png"
+      ],
       "decklist": [
         {
           "card_name_jp": "ロケット団エネルギー",
@@ -2744,9 +2817,12 @@
       "player_name": "sora",
       "region": "佐賀県",
       "deck_code": "ypp3RM-LKL5j8-ypMS2y",
-      "archetype": null,
-      "tier": null,
-      "sprite_filenames": null,
+      "archetype": "Mega Lucario Solrock",
+      "tier": "C",
+      "sprite_filenames": [
+        "lucario-mega.png",
+        "solrock.png"
+      ],
       "decklist": [
         {
           "card_name_jp": "基本悪エネルギー",
@@ -3188,9 +3264,12 @@
       "player_name": "Lulu",
       "region": "広島県",
       "deck_code": "FbfbkF-vjF0yU-kkk5kV",
-      "archetype": null,
-      "tier": null,
-      "sprite_filenames": null,
+      "archetype": "Mega Lucario Solrock",
+      "tier": "C",
+      "sprite_filenames": [
+        "lucario-mega.png",
+        "solrock.png"
+      ],
       "decklist": [
         {
           "card_name_jp": "ロック闘エネルギー",

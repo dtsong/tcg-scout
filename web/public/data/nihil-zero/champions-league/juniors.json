@@ -11,6 +11,53 @@
         "dragapult.png",
         "dusknoir.png"
       ]
+    },
+    {
+      "archetype": "Flareon Noctowl",
+      "count": 2,
+      "sprite_filenames": [
+        "flareon.png",
+        "noctowl.png"
+      ]
+    },
+    {
+      "archetype": "Grimmsnarl Munkidori",
+      "count": 2,
+      "sprite_filenames": [
+        "grimmsnarl.png",
+        "munkidori.png"
+      ]
+    },
+    {
+      "archetype": "Mega Lucario Solrock",
+      "count": 2,
+      "sprite_filenames": [
+        "lucario-mega.png",
+        "solrock.png"
+      ]
+    },
+    {
+      "archetype": "Alakazam Dudunsparce",
+      "count": 2,
+      "sprite_filenames": [
+        "alakazam.png",
+        "dudunsparce.png"
+      ]
+    },
+    {
+      "archetype": "Mega Kangaskhan ex",
+      "count": 1,
+      "sprite_filenames": [
+        "kangaskhan-mega.png"
+      ]
+    },
+    {
+      "archetype": "Mega Froslass Grimmsnarl",
+      "count": 1,
+      "sprite_filenames": [
+        "froslass-mega.png",
+        "grimmsnarl.png"
+      ]
     }
   ],
   "placements": [
@@ -19,9 +66,12 @@
       "player_name": "ゆう",
       "region": "群馬県",
       "deck_code": "UySpMp-liahAC-yy3p3R",
-      "archetype": null,
-      "tier": null,
-      "sprite_filenames": null,
+      "archetype": "Flareon Noctowl",
+      "tier": "C",
+      "sprite_filenames": [
+        "flareon.png",
+        "noctowl.png"
+      ],
       "decklist": [
         {
           "card_name_jp": "基本水エネルギー",
@@ -303,9 +353,11 @@
       "player_name": "たなぼた",
       "region": "北海道",
       "deck_code": "n96gL6-9NpI2r-HNNgnL",
-      "archetype": null,
+      "archetype": "Mega Kangaskhan ex",
       "tier": null,
-      "sprite_filenames": null,
+      "sprite_filenames": [
+        "kangaskhan-mega.png"
+      ],
       "decklist": [
         {
           "card_name_jp": "基本水エネルギー",
@@ -517,9 +569,12 @@
       "player_name": "ルカリオ",
       "region": "東京都",
       "deck_code": "UyMyMM-9g5Jzk-RMERyp",
-      "archetype": null,
-      "tier": null,
-      "sprite_filenames": null,
+      "archetype": "Grimmsnarl Munkidori",
+      "tier": "B",
+      "sprite_filenames": [
+        "grimmsnarl.png",
+        "munkidori.png"
+      ],
       "decklist": [
         {
           "card_name_jp": "基本悪エネルギー",
@@ -941,9 +996,12 @@
       "player_name": "とおる",
       "region": "滋賀県",
       "deck_code": "kkk5VV-agSDcT-b1VkkF",
-      "archetype": null,
-      "tier": null,
-      "sprite_filenames": null,
+      "archetype": "Mega Lucario Solrock",
+      "tier": "C",
+      "sprite_filenames": [
+        "lucario-mega.png",
+        "solrock.png"
+      ],
       "decklist": [
         {
           "card_name_jp": "ロック闘エネルギー",
@@ -1337,9 +1395,12 @@
       "player_name": "あつし",
       "region": "大阪府",
       "deck_code": "nNgLnL-F511eV-99nLnn",
-      "archetype": null,
-      "tier": null,
-      "sprite_filenames": null,
+      "archetype": "Mega Froslass Grimmsnarl",
+      "tier": "Rogue",
+      "sprite_filenames": [
+        "froslass-mega.png",
+        "grimmsnarl.png"
+      ],
       "decklist": [
         {
           "card_name_jp": "基本悪エネルギー",
@@ -1754,9 +1815,12 @@
       "player_name": "まひぞう",
       "region": "愛知県",
       "deck_code": "NgnNLg-0dZcau-nnnP9Q",
-      "archetype": null,
-      "tier": null,
-      "sprite_filenames": null,
+      "archetype": "Alakazam Dudunsparce",
+      "tier": "B",
+      "sprite_filenames": [
+        "alakazam.png",
+        "dudunsparce.png"
+      ],
       "decklist": [
         {
           "card_name_jp": "テレパス超エネルギー",
@@ -1940,9 +2004,12 @@
       "player_name": "ツキミヌス",
       "region": "大阪府",
       "deck_code": "xc48JG-juxNbu-88Y8c8",
-      "archetype": null,
-      "tier": null,
-      "sprite_filenames": null,
+      "archetype": "Grimmsnarl Munkidori",
+      "tier": "B",
+      "sprite_filenames": [
+        "grimmsnarl.png",
+        "munkidori.png"
+      ],
       "decklist": [
         {
           "card_name_jp": "基本悪エネルギー",
@@ -2343,9 +2410,12 @@
       "player_name": "タロ",
       "region": "奈良県",
       "deck_code": "kk5VFk-66dbTi-VVFvbd",
-      "archetype": null,
-      "tier": null,
-      "sprite_filenames": null,
+      "archetype": "Flareon Noctowl",
+      "tier": "C",
+      "sprite_filenames": [
+        "flareon.png",
+        "noctowl.png"
+      ],
       "decklist": [
         {
           "card_name_jp": "ミストエネルギー",
@@ -2830,9 +2900,12 @@
       "player_name": "さや",
       "region": "大阪府",
       "deck_code": "kVkkkb-9xY6uz-kdFvkk",
-      "archetype": null,
-      "tier": null,
-      "sprite_filenames": null,
+      "archetype": "Mega Lucario Solrock",
+      "tier": "C",
+      "sprite_filenames": [
+        "lucario-mega.png",
+        "solrock.png"
+      ],
       "decklist": [
         {
           "card_name_jp": "ロック闘エネルギー",
@@ -3240,9 +3313,12 @@
       "player_name": "れん",
       "region": "福岡県",
       "deck_code": "k15kVv-3XIMTk-VFbVkV",
-      "archetype": null,
-      "tier": null,
-      "sprite_filenames": null,
+      "archetype": "Alakazam Dudunsparce",
+      "tier": "B",
+      "sprite_filenames": [
+        "alakazam.png",
+        "dudunsparce.png"
+      ],
       "decklist": [
         {
           "card_name_jp": "テレパス超エネルギー",
