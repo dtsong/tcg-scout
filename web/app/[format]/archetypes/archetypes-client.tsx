@@ -11,6 +11,7 @@ import { useDateFilter, fetchWindowedData } from "@/app/components/date-filter-p
 import { formatPct, formatPlacement } from "@/app/lib/utils";
 import { ArchetypeHeatMatrix } from "@/app/components/archetype-heat-matrix";
 import { TrendingUp, TrendingDown, Minus, Sparkles } from "lucide-react";
+import { InfoIcon } from "@/app/components/tooltip";
 import { MatchupHeatMatrix } from "@/app/components/matchup-heat-matrix";
 import type { ArchetypeSummary, MetaData, MatchupMatrixData, OverlapMatrixData, Tier, TimeWindow } from "@/app/lib/types";
 
@@ -95,12 +96,29 @@ export function ArchetypesClient({
       {/* Matchup Performance Matrix */}
       {matchupMatrix && matchupMatrix.archetypes.length > 0 && (
         <div className="bg-surface-800 border border-surface-600 rounded-lg p-4 sm:p-6">
-          <h2 className="font-display text-sm font-semibold text-slate-200 mb-1">
+          <h2 className="font-display text-sm font-semibold text-slate-200 mb-1 flex items-center gap-1.5">
             Performance Advantage
+            <InfoIcon tooltip="Shows how archetypes perform relative to each other when they appear in the same tournaments. A value of +2.0 means the row archetype finishes ~2 standings higher on average. Only matchups with 10+ shared events are shown. Green = favorable, red = unfavorable." />
           </h2>
-          <p className="text-xs text-surface-400 mb-4">
+          <p className="text-xs text-surface-400 mb-2">
             Standing advantage when archetypes co-occur in tournaments (positive = outperforms, min 10 events)
           </p>
+          <div className="flex items-center gap-3 text-[10px] text-surface-400 mb-4">
+            <div className="flex items-center gap-1.5">
+              <div className="flex h-3 w-16 rounded-sm overflow-hidden">
+                <div className="flex-1 bg-red-500/40" />
+                <div className="flex-1 bg-red-500/25" />
+                <div className="flex-1 bg-red-500/10" />
+                <div className="flex-1 bg-surface-700/50" />
+                <div className="flex-1 bg-emerald-500/10" />
+                <div className="flex-1 bg-emerald-500/25" />
+                <div className="flex-1 bg-emerald-500/40" />
+              </div>
+              <span>Unfavorable</span>
+              <span className="text-surface-500">/</span>
+              <span>Favorable</span>
+            </div>
+          </div>
           <MatchupHeatMatrix data={matchupMatrix} />
         </div>
       )}
@@ -108,12 +126,27 @@ export function ArchetypesClient({
       {/* Archetype Card Overlap Matrix */}
       {overlapMatrix && overlapMatrix.archetypes.length > 0 && (
         <div className="bg-surface-800 border border-surface-600 rounded-lg p-4 sm:p-6">
-          <h2 className="font-display text-sm font-semibold text-slate-200 mb-1">
+          <h2 className="font-display text-sm font-semibold text-slate-200 mb-1 flex items-center gap-1.5">
             Card Overlap Matrix
+            <InfoIcon tooltip="Shows how similar two archetypes' card pools are using the Jaccard index (shared cards / total unique cards between both decks). Higher values mean more cards in common, which can indicate shared engines or tech choices. Values are percentages (0-100)." />
           </h2>
-          <p className="text-xs text-surface-400 mb-4">
+          <p className="text-xs text-surface-400 mb-2">
             Jaccard similarity of card pools between top archetypes (higher = more shared cards)
           </p>
+          <div className="flex items-center gap-3 text-[10px] text-surface-400 mb-4">
+            <div className="flex items-center gap-1.5">
+              <div className="flex h-3 w-16 rounded-sm overflow-hidden">
+                <div className="flex-1 bg-surface-700/50" />
+                <div className="flex-1 bg-blue-900/30" />
+                <div className="flex-1 bg-blue-800/40" />
+                <div className="flex-1 bg-blue-600/40" />
+                <div className="flex-1 bg-blue-500/50" />
+              </div>
+              <span>Low overlap</span>
+              <span className="text-surface-500">/</span>
+              <span>High overlap</span>
+            </div>
+          </div>
           <ArchetypeHeatMatrix data={overlapMatrix} format={format} />
         </div>
       )}

@@ -3,6 +3,7 @@
 import { Fragment, useState } from "react";
 import { cn } from "@/app/lib/utils";
 import type { MatchupMatrixData } from "@/app/lib/types";
+import { Tooltip } from "@/app/components/tooltip";
 
 function cellColor(value: number): string {
   if (value === 0) return "";
@@ -69,13 +70,13 @@ export function MatchupHeatMatrix({ data }: { data: MatchupMatrixData }) {
                 {shortName(rowName)}
               </span>
             </div>
-            {data.archetypes.map((_, j) => {
+            {data.archetypes.map((colName, j) => {
               const value = data.matrix[i][j];
               const samples = data.sample_sizes[i][j];
               const isDiag = i === j;
               const isHovered = hovered?.row === i || hovered?.col === j;
               const text = isDiag ? "-" : cellText(value, samples);
-              return (
+              const cell = (
                 <div
                   key={`cell-${i}-${j}`}
                   className={cn(
@@ -92,14 +93,28 @@ export function MatchupHeatMatrix({ data }: { data: MatchupMatrixData }) {
                   )}
                   onMouseEnter={() => setHovered({ row: i, col: j })}
                   onMouseLeave={() => setHovered(null)}
-                  title={
-                    isDiag
-                      ? rowName
-                      : `${rowName} vs ${data.archetypes[j]}: ${value > 0 ? "+" : ""}${value.toFixed(1)} advantage (${samples} events)`
-                  }
                 >
                   {text}
                 </div>
+              );
+              if (isDiag) return cell;
+              return (
+                <Tooltip
+                  key={`cell-${i}-${j}`}
+                  content={
+                    samples < 10 ? (
+                      <>Not enough data ({samples} events, minimum 10 required)</>
+                    ) : (
+                      <>
+                        <strong>{rowName}</strong> vs <strong>{colName}</strong>
+                        {" -- "}
+                        {value > 0 ? "+" : ""}{value.toFixed(1)} avg standing advantage across {samples} events
+                      </>
+                    )
+                  }
+                >
+                  {cell}
+                </Tooltip>
               );
             })}
           </Fragment>
