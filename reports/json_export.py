@@ -1450,7 +1450,11 @@ def export_ace_specs(conn: sqlite3.Connection, output_dir: Path) -> None:
     _write_json(specs, output_dir / "ace-specs.json")
 
 
-def _compute_card_stats_for_ids(conn: sqlite3.Connection, placement_ids: list[int]) -> list[dict]:
+def _compute_card_stats_for_ids(
+    conn: sqlite3.Connection,
+    placement_ids: list[int],
+    category_lookup: dict[str, str] | None = None,
+) -> list[dict]:
     """Compute per-card inclusion stats for a set of placement IDs.
 
     Returns a list of dicts with card_name, inclusion_pct, avg_copies, decks_with, category.
@@ -1483,7 +1487,7 @@ def _compute_card_stats_for_ids(conn: sqlite3.Connection, placement_ids: list[in
                 "inclusion_pct": inclusion,
                 "avg_copies": avg_copies,
                 "decks_with": row["decks_with"],
-                "category": _classify_card(row["card_name"]),
+                "category": classify_card(row["card_name"], category_lookup),
             }
         )
     return cards
@@ -1520,7 +1524,7 @@ def export_archetypes(conn: sqlite3.Connection, output_dir: Path) -> None:
         placement_ids = [p["id"] for p in placements]
 
         # Get per-card stats using shared helper
-        all_cards = _compute_card_stats_for_ids(conn, placement_ids)
+        all_cards = _compute_card_stats_for_ids(conn, placement_ids, category_lookup)
         core_cards = [c for c in all_cards if c["inclusion_pct"] >= 80]
 
         # Top-4 segmented card stats (derived from already-fetched placements)
@@ -1530,7 +1534,7 @@ def export_archetypes(conn: sqlite3.Connection, output_dir: Path) -> None:
         # Build field inclusion lookup for delta computation
         field_inclusion = {c["card_name"]: c["inclusion_pct"] for c in all_cards}
 
-        top4_cards = _compute_card_stats_for_ids(conn, top4_ids)
+        top4_cards = _compute_card_stats_for_ids(conn, top4_ids, category_lookup)
         top4_names = {c["card_name"] for c in top4_cards}
         for card in top4_cards:
             field_pct = field_inclusion.get(card["card_name"])
