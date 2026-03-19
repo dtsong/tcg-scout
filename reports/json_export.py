@@ -1827,8 +1827,11 @@ def _build_jp_en_lookup(conn: sqlite3.Connection) -> dict[str, str]:
         ):
             lookup[row["card_name_jp"]] = row["card_name_en"]
             mapping_count += 1
-    except sqlite3.OperationalError:
-        pass  # Table may not exist in test DBs without full schema
+    except sqlite3.OperationalError as exc:
+        if "no such table" in str(exc):
+            logger.info("card_mappings table not found, skipping")
+        else:
+            raise
 
     logger.info(
         "JP→EN lookup: %d entries (%d from cards table, %d from card_mappings)",
@@ -1865,6 +1868,8 @@ def export_champions_league(conn: sqlite3.Connection, output_dir: Path) -> None:
     ).fetchall()
     for row in tier_rows:
         tier_lookup[row["archetype"]] = row["tier"]
+    if not tier_lookup:
+        logger.warning("No tier data found (meta_snapshots may be empty)")
 
     events = conn.execute(
         "SELECT DISTINCT id, name, division, date FROM cl_events ORDER BY division"
