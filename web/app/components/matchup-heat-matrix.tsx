@@ -78,7 +78,6 @@ export function MatchupHeatMatrix({ data }: { data: MatchupMatrixData }) {
               const text = isDiag ? "-" : cellText(value, samples);
               const cell = (
                 <div
-                  key={`cell-${i}-${j}`}
                   className={cn(
                     "h-10 w-10 flex items-center justify-center text-[9px] font-mono tabular-nums transition-opacity",
                     isDiag ? "bg-surface-600" : cellColor(value),
@@ -103,12 +102,12 @@ export function MatchupHeatMatrix({ data }: { data: MatchupMatrixData }) {
                   key={`cell-${i}-${j}`}
                   content={
                     samples < 10 ? (
-                      <>Not enough data ({samples} events, minimum 10 required)</>
+                      `Not enough data (${samples} tournaments, minimum 10 required)`
                     ) : (
                       <>
                         <strong>{rowName}</strong> vs <strong>{colName}</strong>
-                        {" -- "}
-                        {value > 0 ? "+" : ""}{value.toFixed(1)} avg standing advantage across {samples} events
+                        {": "}
+                        {value > 0 ? "+" : ""}{value.toFixed(1)} standing advantage ({samples} tournaments)
                       </>
                     )
                   }
@@ -121,19 +120,6 @@ export function MatchupHeatMatrix({ data }: { data: MatchupMatrixData }) {
         ))}
       </div>
 
-      {hovered && hovered.row !== hovered.col && (
-        <div className="mt-2 text-xs text-surface-400">
-          {data.archetypes[hovered.row]} vs {data.archetypes[hovered.col]}:{" "}
-          <span className={cn(
-            "font-mono",
-            data.matrix[hovered.row][hovered.col] > 0 ? "text-emerald-300" : data.matrix[hovered.row][hovered.col] < 0 ? "text-red-300" : "text-slate-300"
-          )}>
-            {data.matrix[hovered.row][hovered.col] > 0 ? "+" : ""}
-            {data.matrix[hovered.row][hovered.col].toFixed(1)}
-          </span>{" "}
-          standing advantage ({data.sample_sizes[hovered.row][hovered.col]} events)
-        </div>
-      )}
     </div>
   );
 }

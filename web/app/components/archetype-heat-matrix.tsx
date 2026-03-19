@@ -85,7 +85,6 @@ export function ArchetypeHeatMatrix({
               const isHovered = hovered?.row === i || hovered?.col === j;
               const cell = (
                 <div
-                  key={`cell-${i}-${j}`}
                   className={cn(
                     "h-9 w-9 flex items-center justify-center text-[9px] font-mono tabular-nums transition-opacity",
                     cellColor(value, isDiag),
@@ -105,8 +104,8 @@ export function ArchetypeHeatMatrix({
                   content={
                     <>
                       <strong>{rowArch.archetype}</strong> &amp; <strong>{colArch.archetype}</strong>
-                      {" -- "}
-                      {(value * 100).toFixed(0)}% of cards shared between these decks
+                      {": "}
+                      {(value * 100).toFixed(0)}% card overlap (Jaccard)
                     </>
                   }
                 >
@@ -118,15 +117,6 @@ export function ArchetypeHeatMatrix({
         ))}
       </div>
 
-      {hovered && hovered.row !== hovered.col && (
-        <div className="mt-2 text-xs text-surface-400">
-          {data.archetypes[hovered.row].archetype} &amp; {data.archetypes[hovered.col].archetype}:{" "}
-          <span className="text-slate-300 font-mono">
-            {(data.matrix[hovered.row][hovered.col] * 100).toFixed(1)}%
-          </span>{" "}
-          shared cards
-        </div>
-      )}
     </div>
   );
 }

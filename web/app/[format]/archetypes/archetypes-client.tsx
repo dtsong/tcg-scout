@@ -10,10 +10,31 @@ import { DateFilter } from "@/app/components/date-filter";
 import { useDateFilter, fetchWindowedData } from "@/app/components/date-filter-provider";
 import { formatPct, formatPlacement } from "@/app/lib/utils";
 import { ArchetypeHeatMatrix } from "@/app/components/archetype-heat-matrix";
-import { TrendingUp, TrendingDown, Minus, Sparkles } from "lucide-react";
 import { InfoIcon } from "@/app/components/tooltip";
 import { MatchupHeatMatrix } from "@/app/components/matchup-heat-matrix";
+import { TrendingUp, TrendingDown, Minus, Sparkles } from "lucide-react";
 import type { ArchetypeSummary, MetaData, MatchupMatrixData, OverlapMatrixData, Tier, TimeWindow } from "@/app/lib/types";
+
+function MatrixLegend({ swatches, lowLabel, highLabel }: {
+  swatches: string[];
+  lowLabel: string;
+  highLabel: string;
+}) {
+  return (
+    <div className="flex items-center gap-3 text-[10px] text-surface-400 mb-4">
+      <div className="flex items-center gap-1.5">
+        <div className="flex h-3 w-16 rounded-sm overflow-hidden">
+          {swatches.map((bg, i) => (
+            <div key={i} className={`flex-1 ${bg}`} />
+          ))}
+        </div>
+        <span>{lowLabel}</span>
+        <span className="text-surface-500">/</span>
+        <span>{highLabel}</span>
+      </div>
+    </div>
+  );
+}
 
 function TrendArrow({ trend, delta }: { trend?: string; delta?: number }) {
   if (!trend || trend === "stable") return <Minus className="w-3.5 h-3.5 text-surface-500" />;
@@ -98,27 +119,16 @@ export function ArchetypesClient({
         <div className="bg-surface-800 border border-surface-600 rounded-lg p-4 sm:p-6">
           <h2 className="font-display text-sm font-semibold text-slate-200 mb-1 flex items-center gap-1.5">
             Performance Advantage
-            <InfoIcon tooltip="Shows how archetypes perform relative to each other when they appear in the same tournaments. A value of +2.0 means the row archetype finishes ~2 standings higher on average. Only matchups with 10+ shared events are shown. Green = favorable, red = unfavorable." />
+            <InfoIcon tooltip="Shows how archetypes perform relative to each other when they appear in the same tournaments. A value of +2.0 means the row archetype finishes 2 standings better (lower place number) on average. Cells are blank when fewer than 10 shared tournaments exist. Green = favorable, red = unfavorable." />
           </h2>
           <p className="text-xs text-surface-400 mb-2">
-            Standing advantage when archetypes co-occur in tournaments (positive = outperforms, min 10 events)
+            Standing advantage when archetypes co-occur in tournaments (positive = outperforms, min 10 tournaments)
           </p>
-          <div className="flex items-center gap-3 text-[10px] text-surface-400 mb-4">
-            <div className="flex items-center gap-1.5">
-              <div className="flex h-3 w-16 rounded-sm overflow-hidden">
-                <div className="flex-1 bg-red-500/40" />
-                <div className="flex-1 bg-red-500/25" />
-                <div className="flex-1 bg-red-500/10" />
-                <div className="flex-1 bg-surface-700/50" />
-                <div className="flex-1 bg-emerald-500/10" />
-                <div className="flex-1 bg-emerald-500/25" />
-                <div className="flex-1 bg-emerald-500/40" />
-              </div>
-              <span>Unfavorable</span>
-              <span className="text-surface-500">/</span>
-              <span>Favorable</span>
-            </div>
-          </div>
+          <MatrixLegend
+            swatches={["bg-red-500/40", "bg-red-500/25", "bg-red-500/10", "bg-surface-700/50", "bg-emerald-500/10", "bg-emerald-500/25", "bg-emerald-500/40"]}
+            lowLabel="Unfavorable"
+            highLabel="Favorable"
+          />
           <MatchupHeatMatrix data={matchupMatrix} />
         </div>
       )}
@@ -128,25 +138,16 @@ export function ArchetypesClient({
         <div className="bg-surface-800 border border-surface-600 rounded-lg p-4 sm:p-6">
           <h2 className="font-display text-sm font-semibold text-slate-200 mb-1 flex items-center gap-1.5">
             Card Overlap Matrix
-            <InfoIcon tooltip="Shows how similar two archetypes' card pools are using the Jaccard index (shared cards / total unique cards between both decks). Higher values mean more cards in common, which can indicate shared engines or tech choices. Values are percentages (0-100)." />
+            <InfoIcon tooltip="Shows how similar two archetypes' core card pools are using the Jaccard index. Based on cards appearing in 30%+ of each archetype's decks. Higher values mean more shared staples. Values are percentages (0-100)." />
           </h2>
           <p className="text-xs text-surface-400 mb-2">
-            Jaccard similarity of card pools between top archetypes (higher = more shared cards)
+            Jaccard similarity of core card pools between top archetypes (higher = more shared cards)
           </p>
-          <div className="flex items-center gap-3 text-[10px] text-surface-400 mb-4">
-            <div className="flex items-center gap-1.5">
-              <div className="flex h-3 w-16 rounded-sm overflow-hidden">
-                <div className="flex-1 bg-surface-700/50" />
-                <div className="flex-1 bg-blue-900/30" />
-                <div className="flex-1 bg-blue-800/40" />
-                <div className="flex-1 bg-blue-600/40" />
-                <div className="flex-1 bg-blue-500/50" />
-              </div>
-              <span>Low overlap</span>
-              <span className="text-surface-500">/</span>
-              <span>High overlap</span>
-            </div>
-          </div>
+          <MatrixLegend
+            swatches={["bg-surface-700/50", "bg-blue-900/30", "bg-blue-800/40", "bg-blue-600/40", "bg-blue-500/50"]}
+            lowLabel="Low overlap"
+            highLabel="High overlap"
+          />
           <ArchetypeHeatMatrix data={overlapMatrix} format={format} />
         </div>
       )}

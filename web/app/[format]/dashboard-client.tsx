@@ -150,7 +150,7 @@ export function DashboardClient({
               <h3 className="font-display text-sm font-semibold text-slate-200 flex items-center gap-2">
                 <TrendingUp className="w-4 h-4 text-signal-up" />
                 Surging Cards
-                <InfoIcon tooltip="Change in usage rate between the first and second half of the data window. +23% means this card appeared in 23 percentage points more decks in recent tournaments compared to earlier ones." />
+                <InfoIcon tooltip="Change in usage between the first and second half of the selected time period. +23% means this card appeared in 23 percentage points more decks recently compared to earlier in the same window." />
               </h3>
               <Link href={`/${format}/trends`} className="text-xs text-accent hover:text-accent/80">
                 More
@@ -177,7 +177,7 @@ export function DashboardClient({
               <h3 className="font-display text-sm font-semibold text-slate-200 flex items-center gap-2">
                 <TrendingDown className="w-4 h-4 text-signal-down" />
                 Declining Cards
-                <InfoIcon tooltip="Change in usage rate between the first and second half of the data window. -18% means this card appeared in 18 percentage points fewer decks in recent tournaments compared to earlier ones." />
+                <InfoIcon tooltip="Change in usage between the first and second half of the selected time period. -18% means this card appeared in 18 percentage points fewer decks recently compared to earlier in the same window." />
               </h3>
               <Link href={`/${format}/trends`} className="text-xs text-accent hover:text-accent/80">
                 More
@@ -204,7 +204,7 @@ export function DashboardClient({
               <h3 className="font-display text-sm font-semibold text-slate-200 flex items-center gap-2">
                 <Trophy className="w-4 h-4 text-tier-s" />
                 Winning Edge
-                <InfoIcon tooltip="How much more often a card appears in 1st-place decks vs the overall field (S/A/B tiers only). +11% means this card shows up 11 percentage points more in winning decks than in the average deck." />
+                <InfoIcon tooltip="How much more often a card appears in 1st-place decks compared to all S/A/B-tier decks in the field. +11% means this card shows up 11 percentage points more in winning decks than in the average S/A/B-tier deck." />
               </h3>
               <Link href={`/${format}/trends`} className="text-xs text-accent hover:text-accent/80">
                 More
