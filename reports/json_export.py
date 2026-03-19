@@ -1693,6 +1693,98 @@ def export_archetypes(conn: sqlite3.Connection, output_dir: Path) -> None:
         _write_json(arch_data, arch_dir / f"{slug}.json")
 
 
+def export_card_analysis(conn: sqlite3.Connection, output_dir: Path) -> None:
+    """Export cross-archetype card analysis aggregating top-4 deltas."""
+    snapshot = get_latest_snapshot(conn)
+    if not snapshot:
+        return
+
+    category_lookup = build_category_lookup(conn)
+
+    archetype_tiers = {}
+    for arch in snapshot["archetypes"]:
+        archetype_tiers[arch["archetype"]] = arch["tier"]
+
+    card_archetypes: dict[str, list[dict]] = defaultdict(list)
+
+    for arch in snapshot["archetypes"]:
+        archetype_name = arch["archetype"]
+        placements = conn.execute(
+            "SELECT id, standing FROM placements WHERE archetype = ?",
+            (archetype_name,),
+        ).fetchall()
+
+        placement_ids = [p["id"] for p in placements]
+        top4_ids = [p["id"] for p in placements if p["standing"] <= 4]
+
+        if len(placement_ids) < 4 or len(top4_ids) < 2:
+            continue
+
+        all_cards = _compute_card_stats_for_ids(conn, placement_ids, category_lookup)
+        field_inclusion = {c["card_name"]: c["inclusion_pct"] for c in all_cards}
+
+        top4_cards = _compute_card_stats_for_ids(conn, top4_ids, category_lookup)
+
+        for card in top4_cards:
+            field_pct = field_inclusion.get(card["card_name"], 0)
+            delta = round(card["inclusion_pct"] - field_pct, 1)
+            if delta == 0:
+                continue
+            card_archetypes[card["card_name"]].append(
+                {
+                    "archetype": archetype_name,
+                    "slug": _slugify(archetype_name),
+                    "tier": archetype_tiers.get(archetype_name, "Rogue"),
+                    "delta_vs_field": delta,
+                    "top4_inclusion_pct": card["inclusion_pct"],
+                    "field_inclusion_pct": field_pct,
+                    "avg_copies": card["avg_copies"],
+                    "top4_sample_size": len(top4_ids),
+                }
+            )
+
+        top4_names = {c["card_name"] for c in top4_cards}
+        for card in all_cards:
+            if card["card_name"] not in top4_names and card["inclusion_pct"] > 0:
+                delta = round(-card["inclusion_pct"], 1)
+                card_archetypes[card["card_name"]].append(
+                    {
+                        "archetype": archetype_name,
+                        "slug": _slugify(archetype_name),
+                        "tier": archetype_tiers.get(archetype_name, "Rogue"),
+                        "delta_vs_field": delta,
+                        "top4_inclusion_pct": 0,
+                        "field_inclusion_pct": card["inclusion_pct"],
+                        "avg_copies": 0,
+                        "top4_sample_size": len(top4_ids),
+                    }
+                )
+
+    cards = []
+    for card_name, archetypes in card_archetypes.items():
+        deltas = [a["delta_vs_field"] for a in archetypes]
+        avg_delta = round(sum(deltas) / len(deltas), 1)
+        max_entry = max(archetypes, key=lambda a: a["delta_vs_field"])
+        cards.append(
+            {
+                "card_name": card_name,
+                "category": classify_card(card_name, category_lookup),
+                "archetypes": sorted(archetypes, key=lambda a: a["delta_vs_field"], reverse=True),
+                "avg_delta": avg_delta,
+                "archetype_count": len(archetypes),
+                "max_delta": max_entry["delta_vs_field"],
+                "best_archetype": max_entry["archetype"],
+            }
+        )
+
+    cards.sort(key=lambda c: c["avg_delta"], reverse=True)
+
+    _write_json(
+        {"cards": cards, "generated_at": snapshot["generated_at"]},
+        output_dir / "card-analysis.json",
+    )
+
+
 def _detect_variants(
     conn: sqlite3.Connection,
     archetype_name: str,
@@ -2295,6 +2387,7 @@ def export_all(
     export_winning_edge(conn, out)
     export_ace_specs(conn, out)
     export_archetypes(conn, out)
+    export_card_analysis(conn, out)
     export_champions_league(conn, out)
     export_images(conn, out)
     export_timeline(conn, out)
