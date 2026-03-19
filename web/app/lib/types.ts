@@ -130,6 +130,10 @@ export interface ArchetypeRadar {
   core_density: number;
 }
 
+export interface TopPerformerCard extends ArchetypeCard {
+  delta_vs_field: number;
+}
+
 export interface ArchetypeDetail {
   archetype: string;
   slug: string;
@@ -146,6 +150,9 @@ export interface ArchetypeDetail {
   evolution?: EvolutionEvent[];
   variants?: ArchetypeVariant[];
   weekly_shares?: { week: string; meta_share: number; deck_count: number }[];
+  top4_card_stats?: TopPerformerCard[];
+  top4_sample_size?: number;
+  top4_low_sample?: boolean;
 }
 
 export interface ArchetypeVariant {

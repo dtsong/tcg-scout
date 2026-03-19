@@ -13,6 +13,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from config import get_format_config
 from reports.json_export import (
     _build_jp_en_lookup,
+    _compute_card_stats_for_ids,
     _compute_weighted_shares,
     _compute_windowed_ace_specs,
     _compute_windowed_meta,
@@ -673,3 +674,81 @@ class TestBuildJpEnLookupWithMappings:
         with pytest.raises(sqlite3.OperationalError, match="no such column"):
             _build_jp_en_lookup(conn)
         conn.close()
+
+
+# --- _compute_card_stats_for_ids ---
+
+
+class TestComputeCardStatsForIds:
+    def test_returns_cards_for_valid_ids(self, db):
+        # Placement IDs 1, 3, 5 are Charizard ex
+        stats = _compute_card_stats_for_ids(db, [1, 3, 5], 3)
+        card_names = [c["card_name"] for c in stats]
+        assert "Nest Ball" in card_names
+        assert "Ultra Ball" in card_names
+
+    def test_inclusion_pct_correct(self, db):
+        # All 3 Charizard placements have Nest Ball
+        stats = _compute_card_stats_for_ids(db, [1, 3, 5], 3)
+        nest = next(c for c in stats if c["card_name"] == "Nest Ball")
+        assert nest["inclusion_pct"] == 100.0
+        assert nest["decks_with"] == 3
+
+    def test_avg_copies_correct(self, db):
+        stats = _compute_card_stats_for_ids(db, [1, 3, 5], 3)
+        nest = next(c for c in stats if c["card_name"] == "Nest Ball")
+        assert nest["avg_copies"] == 4.0
+
+    def test_empty_ids_returns_empty(self, db):
+        assert _compute_card_stats_for_ids(db, [], 0) == []
+
+    def test_has_category(self, db):
+        stats = _compute_card_stats_for_ids(db, [1], 1)
+        for card in stats:
+            assert "category" in card
+
+
+# --- Top-4 segmented stats in export_archetypes ---
+
+
+class TestTop4SegmentedStats:
+    def test_top4_fields_present(self, db, tmp_path):
+        export_archetypes(db, tmp_path)
+        data = json.loads((tmp_path / "archetypes" / "charizard-ex.json").read_text())
+        assert "top4_card_stats" in data
+        assert "top4_sample_size" in data
+        assert "top4_low_sample" in data
+
+    def test_top4_sample_size_correct(self, db, tmp_path):
+        """Charizard has placements at 1st and 4th (standings <= 4)."""
+        export_archetypes(db, tmp_path)
+        data = json.loads((tmp_path / "archetypes" / "charizard-ex.json").read_text())
+        assert data["top4_sample_size"] == 2
+
+    def test_top4_low_sample_flag(self, db, tmp_path):
+        """With only 2 top-4 decks, low_sample should be True."""
+        export_archetypes(db, tmp_path)
+        data = json.loads((tmp_path / "archetypes" / "charizard-ex.json").read_text())
+        assert data["top4_low_sample"] is True
+
+    def test_delta_vs_field_present(self, db, tmp_path):
+        export_archetypes(db, tmp_path)
+        data = json.loads((tmp_path / "archetypes" / "charizard-ex.json").read_text())
+        for card in data["top4_card_stats"]:
+            assert "delta_vs_field" in card
+
+    def test_delta_vs_field_calculation(self, db, tmp_path):
+        """Cards present in all decks should have delta ~0."""
+        export_archetypes(db, tmp_path)
+        data = json.loads((tmp_path / "archetypes" / "charizard-ex.json").read_text())
+        nest = next(c for c in data["top4_card_stats"] if c["card_name"] == "Nest Ball")
+        # 100% in top4, 100% in field -> delta = 0
+        assert nest["delta_vs_field"] == 0.0
+
+    def test_no_top4_exports_gracefully(self, db, tmp_path):
+        """Raging Bolt has only 16th place -- no top-4 placements."""
+        export_archetypes(db, tmp_path)
+        data = json.loads((tmp_path / "archetypes" / "raging-bolt-ex.json").read_text())
+        assert data["top4_card_stats"] == []
+        assert data["top4_sample_size"] == 0
+        assert data["top4_low_sample"] is True
