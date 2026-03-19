@@ -11,7 +11,7 @@ from pathlib import Path
 
 from analysis.archetype import _COMPOSITE_SPRITE_FILENAMES, SPRITE_ARCHETYPE_MAP
 from analysis.buylist import generate_buylist
-from analysis.card_stats import compute_card_detail, compute_card_stats
+from analysis.card_stats import BASIC_ENERGY_NAMES, compute_card_detail, compute_card_stats
 from analysis.evolution import compute_archetype_evolution, compute_meta_evolution
 from analysis.matchup import compute_matchup_matrix
 from analysis.meta import get_latest_snapshot
@@ -36,26 +36,8 @@ logger = logging.getLogger(__name__)
 # Default output directory (web/public/data/)
 DEFAULT_OUTPUT_DIR = Path(__file__).parent.parent / "web" / "public" / "data"
 
-# Basic energy card names to exclude from all analytics
-BASIC_ENERGY_NAMES = {
-    "Basic Fire Energy",
-    "Basic Water Energy",
-    "Basic Lightning Energy",
-    "Basic Psychic Energy",
-    "Basic Fighting Energy",
-    "Basic Darkness Energy",
-    "Basic Metal Energy",
-    "Basic Grass Energy",
-    # DB stores without "Basic" prefix
-    "Fire Energy",
-    "Water Energy",
-    "Lightning Energy",
-    "Psychic Energy",
-    "Fighting Energy",
-    "Darkness Energy",
-    "Metal Energy",
-    "Grass Energy",
-}
+
+# BASIC_ENERGY_NAMES imported from analysis.card_stats (canonical definition)
 
 
 def _basic_energy_exclusion_sql() -> str:
@@ -1583,13 +1565,13 @@ def _detect_variants(
     for r in rows:
         placement_markers[r["placement_id"]].add(r["card_name"])
 
-    # Cluster by primary distinguishing card (most common single marker)
+    # Cluster by primary distinguishing card (alphabetically first marker)
     variant_counts: dict[str, int] = defaultdict(int)
     for pid in placement_ids:
         marker_set = placement_markers.get(pid, set())
         if marker_set:
-            # Use the most common marker for this deck as its variant key
-            primary = sorted(marker_set)[0]  # deterministic
+            # Use alphabetically first marker as variant key (deterministic tie-breaking)
+            primary = sorted(marker_set)[0]
             variant_counts[primary] += 1
         else:
             variant_counts["Standard"] += 1
@@ -2023,10 +2005,16 @@ def export_all(
     export_champions_league(conn, out)
     export_images(conn, out)
     export_timeline(conn, out)
-    export_cards(conn, out)
-    export_archetype_overlap(conn, out)
-    export_matchup_matrix(conn, out)
-    export_meta_evolution(conn, out)
+    for export_fn, name in [
+        (export_cards, "cards"),
+        (export_archetype_overlap, "archetype overlap"),
+        (export_matchup_matrix, "matchup matrix"),
+        (export_meta_evolution, "meta evolution"),
+    ]:
+        try:
+            export_fn(conn, out)
+        except (sqlite3.OperationalError, ValueError) as exc:
+            logger.warning("Skipping %s export (data unavailable): %s", name, exc)
     export_windowed(conn, out, format_slug=slug)
 
     logger.info("Export complete")
@@ -2048,14 +2036,12 @@ def export_formats(output_dir: Path | None = None) -> None:
         tournament_count = 0
         deck_count = 0
         if meta_path.exists():
-            import json as _json
-
             try:
-                meta = _json.loads(meta_path.read_text(encoding="utf-8"))
+                meta = json.loads(meta_path.read_text(encoding="utf-8"))
                 tournament_count = meta.get("tournament_count", 0)
                 deck_count = meta.get("deck_count", 0)
-            except Exception:
-                pass
+            except (json.JSONDecodeError, OSError) as exc:
+                logger.warning("Failed to read meta.json for %s: %s", slug, exc)
 
         formats.append(
             {

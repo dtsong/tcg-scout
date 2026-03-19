@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
-import { ArrowRight, TrendingUp, TrendingDown, Trophy, ShoppingCart, Calendar } from "lucide-react";
+import { ArrowRight, TrendingUp, TrendingDown, Trophy, ShoppingCart, Calendar, Zap } from "lucide-react";
 import { TierBadge } from "@/app/components/tier-badge";
 import { StatCard } from "@/app/components/stat-card";
 import { DateFilter } from "@/app/components/date-filter";
@@ -11,7 +11,6 @@ import { useDateFilter, fetchWindowedData } from "@/app/components/date-filter-p
 import { formatPct, daysUntil } from "@/app/lib/utils";
 import { MetaTimeline } from "@/app/components/meta-timeline";
 import type { MetaData, TrendsData, WinningEdgeCard, AceSpec, TimelineData, TimeWindow, MetaEvolutionMovement } from "@/app/lib/types";
-import { Zap } from "lucide-react";
 
 interface DashboardClientProps {
   format: string;

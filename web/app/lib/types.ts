@@ -203,9 +203,13 @@ export interface SynergyPartner {
   weighted_score: number;
 }
 
-export interface SynergyPair extends SynergyPartner {
+export interface SynergyPair {
   card_a: string;
   card_b: string;
+  support: number;
+  lift: number;
+  jaccard: number;
+  weighted_score: number;
   archetypes?: string[];
 }
 
@@ -240,6 +244,16 @@ export interface MetaEvolutionMovement {
   to_pct: number;
   delta: number;
   week: string;
+}
+
+export interface OverlapMatrixData {
+  archetypes: {
+    archetype: string;
+    slug: string;
+    sprite_filenames?: string[];
+    weighted_share: number;
+  }[];
+  matrix: number[][];
 }
 
 export interface CLDecklistCard {

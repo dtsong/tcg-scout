@@ -7,11 +7,13 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from analysis.card_stats import (
     _card_slug,
+    _classify_card,
     _compute_trend_direction,
     compute_card_detail,
     compute_card_stats,
     generate_card_verdict,
 )
+from db import SCHEMA
 
 
 class TestCardSlug:
@@ -59,6 +61,15 @@ class TestComputeCardStats:
         for i in range(len(cards) - 1):
             assert cards[i]["total_appearances"] >= cards[i + 1]["total_appearances"]
 
+    def test_empty_db_returns_empty(self):
+        import sqlite3
+
+        conn = sqlite3.connect(":memory:")
+        conn.row_factory = sqlite3.Row
+        conn.executescript(SCHEMA)
+        assert compute_card_stats(conn) == []
+        conn.close()
+
 
 class TestComputeCardDetail:
     def test_returns_detail(self, db):
@@ -69,6 +80,15 @@ class TestComputeCardDetail:
     def test_returns_none_for_unknown(self, db):
         detail = compute_card_detail(db, "Nonexistent Card")
         assert detail is None
+
+    def test_empty_db_returns_none(self):
+        import sqlite3
+
+        conn = sqlite3.connect(":memory:")
+        conn.row_factory = sqlite3.Row
+        conn.executescript(SCHEMA)
+        assert compute_card_detail(conn, "Any Card") is None
+        conn.close()
 
     def test_has_archetypes(self, db):
         detail = compute_card_detail(db, "Nest Ball")
@@ -97,6 +117,38 @@ class TestComputeCardDetail:
     def test_has_trend_direction(self, db):
         detail = compute_card_detail(db, "Nest Ball")
         assert detail["trend_direction"] in ("surging", "stable", "declining")
+
+
+class TestClassifyCard:
+    def test_energy_switch_is_trainer(self):
+        assert _classify_card("Energy Switch") == "Trainer"
+
+    def test_energy_search_is_trainer(self):
+        assert _classify_card("Energy Search") == "Trainer"
+
+    def test_energy_retrieval_is_trainer(self):
+        assert _classify_card("Energy Retrieval") == "Trainer"
+
+    def test_basic_energy_is_energy(self):
+        assert _classify_card("Double Turbo Energy") == "Energy"
+
+    def test_pokemon_ex(self):
+        assert _classify_card("Charizard ex") == "Pokemon"
+
+    def test_supporter_boss(self):
+        assert _classify_card("Boss's Orders") == "Trainer"
+
+    def test_supporter_iono(self):
+        assert _classify_card("Iono") == "Trainer"
+
+    def test_item_nest_ball(self):
+        assert _classify_card("Nest Ball") == "Trainer"
+
+    def test_item_rare_candy(self):
+        assert _classify_card("Rare Candy") == "Trainer"
+
+    def test_unknown_pokemon(self):
+        assert _classify_card("Pikachu") == "Pokemon"
 
 
 class TestComputeTrendDirection:

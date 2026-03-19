@@ -26,8 +26,11 @@ export default async function CardDetailPage({
   let card;
   try {
     card = getCardDetail(format, slug);
-  } catch {
-    notFound();
+  } catch (err) {
+    if ((err as NodeJS.ErrnoException).code === "ENOENT") {
+      notFound();
+    }
+    throw err;
   }
 
   return <CardDetailClient card={card} format={format} />;

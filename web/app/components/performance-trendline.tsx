@@ -17,6 +17,7 @@ interface WeeklyShare {
 }
 
 export function PerformanceTrendline({ data }: { data: WeeklyShare[] }) {
+  if (data.length === 0) return null;
   const avg = data.reduce((sum, d) => sum + d.meta_share, 0) / data.length;
 
   return (

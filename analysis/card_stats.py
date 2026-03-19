@@ -10,7 +10,8 @@ from config import (
     PLACEMENT_WEIGHTS,
 )
 
-# Basic energy card names to exclude (mirrors json_export.py)
+# Basic energy card names to exclude from all analytics (canonical definition;
+# also imported by json_export.py, synergy.py, evolution.py)
 BASIC_ENERGY_NAMES = {
     "Basic Fire Energy",
     "Basic Water Energy",

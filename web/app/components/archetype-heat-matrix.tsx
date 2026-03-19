@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { Fragment, useMemo, useState } from "react";
 import { cn } from "@/app/lib/utils";
 import { SpriteRow } from "@/app/components/sprite-row";
 
@@ -65,9 +65,8 @@ export function ArchetypeHeatMatrix({
 
         {/* Data rows */}
         {data.archetypes.map((rowArch, i) => (
-          <>
+          <Fragment key={i}>
             <div
-              key={`label-${i}`}
               className="flex items-center gap-1.5 pr-2 h-9"
             >
               <SpriteRow filenames={rowArch.sprite_filenames?.slice(0, 1) ?? []} size={16} />
@@ -104,7 +103,7 @@ export function ArchetypeHeatMatrix({
                 </div>
               );
             })}
-          </>
+          </Fragment>
         ))}
       </div>
 

@@ -12,8 +12,7 @@ import { formatPct, formatPlacement } from "@/app/lib/utils";
 import { ArchetypeHeatMatrix } from "@/app/components/archetype-heat-matrix";
 import { TrendingUp, TrendingDown, Minus, Sparkles } from "lucide-react";
 import { MatchupHeatMatrix } from "@/app/components/matchup-heat-matrix";
-import type { ArchetypeSummary, MetaData, MatchupMatrixData, Tier, TimeWindow } from "@/app/lib/types";
-import type { OverlapMatrixData } from "@/app/lib/data";
+import type { ArchetypeSummary, MetaData, MatchupMatrixData, OverlapMatrixData, Tier, TimeWindow } from "@/app/lib/types";
 
 function TrendArrow({ trend, delta }: { trend?: string; delta?: number }) {
   if (!trend || trend === "stable") return <Minus className="w-3.5 h-3.5 text-surface-500" />;

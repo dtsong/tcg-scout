@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import { cn } from "@/app/lib/utils";
 import type { MatchupMatrixData } from "@/app/lib/types";
 
@@ -58,9 +58,8 @@ export function MatchupHeatMatrix({ data }: { data: MatchupMatrixData }) {
 
         {/* Data rows */}
         {data.archetypes.map((rowName, i) => (
-          <>
+          <Fragment key={i}>
             <div
-              key={`label-${i}`}
               className="flex items-center pr-2 h-10"
             >
               <span
@@ -103,7 +102,7 @@ export function MatchupHeatMatrix({ data }: { data: MatchupMatrixData }) {
                 </div>
               );
             })}
-          </>
+          </Fragment>
         ))}
       </div>
 

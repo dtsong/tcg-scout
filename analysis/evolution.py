@@ -100,7 +100,7 @@ def compute_archetype_evolution(
             from_pct = prev_rates.get(card, 0.0)
             to_pct = curr_rates.get(card, 0.0)
 
-            # Adoption: crossed from below low threshold to above high threshold
+            # Adoption: crossed from below high threshold to at/above high threshold
             if from_pct < adoption_threshold_high and to_pct >= adoption_threshold_high:
                 adopted.append(
                     {

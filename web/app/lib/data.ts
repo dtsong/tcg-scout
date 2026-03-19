@@ -16,6 +16,7 @@ import type {
   SynergyPair,
   MetaEvolutionMovement,
   MatchupMatrixData,
+  OverlapMatrixData,
 } from "./types";
 
 const DATA_DIR = path.join(process.cwd(), "public", "data");
@@ -83,10 +84,16 @@ export function getCLDivision(format: string, division: string): CLDivision {
   return readJson(`${format}/champions-league/${division}.json`);
 }
 
+function isFileNotFound(err: unknown): boolean {
+  return (err as NodeJS.ErrnoException).code === "ENOENT";
+}
+
 export function getTimeline(format: string): TimelineData | null {
   try {
     return readJson(`${format}/timeline.json`);
-  } catch {
+  } catch (err) {
+    if (isFileNotFound(err)) return null;
+    console.error(`Failed to load timeline for ${format}:`, err);
     return null;
   }
 }
@@ -94,7 +101,9 @@ export function getTimeline(format: string): TimelineData | null {
 export function getCardIndex(format: string): CardSummary[] {
   try {
     return readJson(`${format}/cards/index.json`);
-  } catch {
+  } catch (err) {
+    if (isFileNotFound(err)) return [];
+    console.error(`Failed to load card index for ${format}:`, err);
     return [];
   }
 }
@@ -106,7 +115,9 @@ export function getCardDetail(format: string, slug: string): CardDetail {
 export function getSynergyPairs(format: string): SynergyPair[] {
   try {
     return readJson(`${format}/cards/synergy.json`);
-  } catch {
+  } catch (err) {
+    if (isFileNotFound(err)) return [];
+    console.error(`Failed to load synergy pairs for ${format}:`, err);
     return [];
   }
 }
@@ -120,20 +131,12 @@ export function getCardSlugs(format: string): string[] {
     .map((f) => f.replace(".json", ""));
 }
 
-export interface OverlapMatrixData {
-  archetypes: {
-    archetype: string;
-    slug: string;
-    sprite_filenames?: string[];
-    weighted_share: number;
-  }[];
-  matrix: number[][];
-}
-
 export function getMetaEvolution(format: string): MetaEvolutionMovement[] {
   try {
     return readJson(`${format}/meta-evolution.json`);
-  } catch {
+  } catch (err) {
+    if (isFileNotFound(err)) return [];
+    console.error(`Failed to load meta evolution for ${format}:`, err);
     return [];
   }
 }
@@ -141,7 +144,9 @@ export function getMetaEvolution(format: string): MetaEvolutionMovement[] {
 export function getMatchupMatrix(format: string): MatchupMatrixData | null {
   try {
     return readJson(`${format}/matchup.json`);
-  } catch {
+  } catch (err) {
+    if (isFileNotFound(err)) return null;
+    console.error(`Failed to load matchup matrix for ${format}:`, err);
     return null;
   }
 }
@@ -149,7 +154,9 @@ export function getMatchupMatrix(format: string): MatchupMatrixData | null {
 export function getArchetypeOverlap(format: string): OverlapMatrixData | null {
   try {
     return readJson(`${format}/archetype-overlap.json`);
-  } catch {
+  } catch (err) {
+    if (isFileNotFound(err)) return null;
+    console.error(`Failed to load archetype overlap for ${format}:`, err);
     return null;
   }
 }

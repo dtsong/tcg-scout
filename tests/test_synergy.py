@@ -17,14 +17,14 @@ class TestComputeSynergyPairs:
 
     def test_pair_has_required_fields(self, db):
         result = compute_synergy_pairs(db, min_cooccurrences=2)
-        if result["pairs"]:
-            pair = result["pairs"][0]
-            assert "card_a" in pair
-            assert "card_b" in pair
-            assert "support" in pair
-            assert "lift" in pair
-            assert "jaccard" in pair
-            assert "weighted_score" in pair
+        assert len(result["pairs"]) > 0, "Expected at least one pair from fixture data"
+        pair = result["pairs"][0]
+        assert "card_a" in pair
+        assert "card_b" in pair
+        assert "support" in pair
+        assert "lift" in pair
+        assert "jaccard" in pair
+        assert "weighted_score" in pair
 
     def test_card_a_less_than_card_b(self, db):
         result = compute_synergy_pairs(db, min_cooccurrences=2)
@@ -41,11 +41,11 @@ class TestComputeSynergyPairs:
         result = compute_synergy_pairs(db, min_cooccurrences=2)
         per_card = result["per_card"]
         # Nest Ball appears in all decks, should have partners
-        if "Nest Ball" in per_card:
-            partners = per_card["Nest Ball"]
-            assert len(partners) > 0
-            assert "card_name" in partners[0]
-            assert "lift" in partners[0]
+        assert "Nest Ball" in per_card, "Nest Ball should be in per_card from fixture data"
+        partners = per_card["Nest Ball"]
+        assert len(partners) > 0
+        assert "card_name" in partners[0]
+        assert "lift" in partners[0]
 
     def test_excludes_basic_energy(self, db):
         result = compute_synergy_pairs(db, min_cooccurrences=1)
@@ -56,8 +56,8 @@ class TestComputeSynergyPairs:
     def test_pair_archetypes(self, db):
         result = compute_synergy_pairs(db, min_cooccurrences=2)
         for pair in result["pairs"]:
-            if "archetypes" in pair:
-                assert isinstance(pair["archetypes"], list)
+            assert "archetypes" in pair, "Every pair should have an archetypes field"
+            assert isinstance(pair["archetypes"], list)
 
     def test_empty_db(self):
         import sqlite3
