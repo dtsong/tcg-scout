@@ -2,7 +2,7 @@
   "archetype": "Froslass Grimmsnarl",
   "slug": "froslass-grimmsnarl",
   "tier": "Rogue",
-  "meta_share": 0.7,
+  "meta_share": 0.8,
   "weighted_share": 0.6,
   "deck_count": 6,
   "best_placement": 5,
@@ -1189,11 +1189,89 @@
     }
   ],
   "radar": {
-    "meta_share": 3.5,
-    "weighted_share": 2.8,
+    "meta_share": 3.9,
+    "weighted_share": 3.1,
     "consistency": 61.7,
     "ceiling": 50,
-    "popularity": 6.8,
+    "popularity": 7.9,
     "core_density": 42.5
-  }
+  },
+  "evolution": [
+    {
+      "week": "2026-03-16",
+      "adopted": [
+        {
+          "card": "Yveltal",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Kofu",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Fezandipiti ex",
+          "from_pct": 20.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Bloodmoon Ursaluna ex",
+          "from_pct": 40.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Judge",
+          "from_pct": 40.0,
+          "to_pct": 100.0
+        }
+      ],
+      "dropped": [
+        {
+          "card": "Air Balloon",
+          "from_pct": 80.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Special Red Card",
+          "from_pct": 80.0,
+          "to_pct": 0.0
+        }
+      ]
+    }
+  ],
+  "variants": [
+    {
+      "name": "with Bloodmoon Ursaluna ex",
+      "deck_count": 3,
+      "pct": 50.0
+    },
+    {
+      "name": "with Fezandipiti ex",
+      "deck_count": 1,
+      "pct": 16.7
+    },
+    {
+      "name": "with Shaymin",
+      "deck_count": 1,
+      "pct": 16.7
+    },
+    {
+      "name": "with Special Red Card",
+      "deck_count": 1,
+      "pct": 16.7
+    }
+  ],
+  "weekly_shares": [
+    {
+      "week": "2026-03-09",
+      "meta_share": 0.8,
+      "deck_count": 5
+    },
+    {
+      "week": "2026-03-16",
+      "meta_share": 0.7,
+      "deck_count": 1
+    }
+  ]
 }

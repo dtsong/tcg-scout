@@ -2566,5 +2566,136 @@
     "ceiling": 100,
     "popularity": 36.7,
     "core_density": 20.3
-  }
+  },
+  "evolution": [
+    {
+      "week": "2026-01-26",
+      "adopted": [
+        {
+          "card": "Energy Switch",
+          "from_pct": 33.3,
+          "to_pct": 69.2
+        },
+        {
+          "card": "Tool Scrapper",
+          "from_pct": 33.3,
+          "to_pct": 53.8
+        }
+      ],
+      "dropped": [
+        {
+          "card": "Fezandipiti ex",
+          "from_pct": 66.7,
+          "to_pct": 15.4
+        }
+      ]
+    },
+    {
+      "week": "2026-02-02",
+      "adopted": [
+        {
+          "card": "Unfair Stamp",
+          "from_pct": 23.1,
+          "to_pct": 76.9
+        },
+        {
+          "card": "Tatsugiri",
+          "from_pct": 38.5,
+          "to_pct": 65.4
+        },
+        {
+          "card": "Ultra Ball",
+          "from_pct": 30.8,
+          "to_pct": 57.7
+        }
+      ],
+      "dropped": []
+    },
+    {
+      "week": "2026-02-16",
+      "adopted": [
+        {
+          "card": "Psyduck",
+          "from_pct": 41.5,
+          "to_pct": 57.1
+        }
+      ],
+      "dropped": []
+    },
+    {
+      "week": "2026-02-23",
+      "adopted": [],
+      "dropped": [
+        {
+          "card": "Psyduck",
+          "from_pct": 57.1,
+          "to_pct": 15.2
+        }
+      ]
+    }
+  ],
+  "variants": [
+    {
+      "name": "with Bloodmoon Ursaluna ex",
+      "deck_count": 50,
+      "pct": 22.3
+    },
+    {
+      "name": "with Psyduck",
+      "deck_count": 41,
+      "pct": 18.3
+    },
+    {
+      "name": "with Morty's Conviction",
+      "deck_count": 40,
+      "pct": 17.9
+    },
+    {
+      "name": "Standard",
+      "deck_count": 39,
+      "pct": 17.4
+    },
+    {
+      "name": "with Shaymin",
+      "deck_count": 35,
+      "pct": 15.6
+    }
+  ],
+  "weekly_shares": [
+    {
+      "week": "2026-01-19",
+      "meta_share": 0.4,
+      "deck_count": 3
+    },
+    {
+      "week": "2026-01-26",
+      "meta_share": 1.2,
+      "deck_count": 13
+    },
+    {
+      "week": "2026-02-02",
+      "meta_share": 2.3,
+      "deck_count": 26
+    },
+    {
+      "week": "2026-02-09",
+      "meta_share": 5.1,
+      "deck_count": 82
+    },
+    {
+      "week": "2026-02-16",
+      "meta_share": 5.5,
+      "deck_count": 7
+    },
+    {
+      "week": "2026-02-23",
+      "meta_share": 3.8,
+      "deck_count": 33
+    },
+    {
+      "week": "2026-03-02",
+      "meta_share": 4.7,
+      "deck_count": 60
+    }
+  ]
 }

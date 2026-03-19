@@ -964,11 +964,46 @@
     }
   ],
   "radar": {
-    "meta_share": 2.4,
-    "weighted_share": 2.8,
+    "meta_share": 2.6,
+    "weighted_share": 3.1,
     "consistency": 72.5,
     "ceiling": 100,
-    "popularity": 4.5,
+    "popularity": 5.3,
     "core_density": 35.1
-  }
+  },
+  "evolution": [],
+  "variants": [
+    {
+      "name": "with Hoothoot",
+      "deck_count": 1,
+      "pct": 25.0
+    },
+    {
+      "name": "with Brock's Scouting",
+      "deck_count": 1,
+      "pct": 25.0
+    },
+    {
+      "name": "with Bug Catching Set",
+      "deck_count": 1,
+      "pct": 25.0
+    },
+    {
+      "name": "with Ciphermaniac's Codebreaking",
+      "deck_count": 1,
+      "pct": 25.0
+    }
+  ],
+  "weekly_shares": [
+    {
+      "week": "2026-03-09",
+      "meta_share": 0.6,
+      "deck_count": 4
+    },
+    {
+      "week": "2026-03-16",
+      "meta_share": 0.0,
+      "deck_count": 0
+    }
+  ]
 }

@@ -2434,5 +2434,215 @@
     "ceiling": 100,
     "popularity": 4.4,
     "core_density": 36.2
-  }
+  },
+  "evolution": [
+    {
+      "week": "2026-01-26",
+      "adopted": [
+        {
+          "card": "Secret Box",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        }
+      ],
+      "dropped": [
+        {
+          "card": "Mist Energy",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Prime Catcher",
+          "from_pct": 100.0,
+          "to_pct": 16.7
+        },
+        {
+          "card": "Bloodmoon Ursaluna ex",
+          "from_pct": 100.0,
+          "to_pct": 16.7
+        },
+        {
+          "card": "Munkidori",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Morty's Conviction",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Team Rocket's Watchtower",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        }
+      ]
+    },
+    {
+      "week": "2026-02-02",
+      "adopted": [
+        {
+          "card": "Mega Diancie ex",
+          "from_pct": 33.3,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Powerglass",
+          "from_pct": 16.7,
+          "to_pct": 77.8
+        }
+      ],
+      "dropped": []
+    },
+    {
+      "week": "2026-02-09",
+      "adopted": [
+        {
+          "card": "Ignition Energy",
+          "from_pct": 22.2,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Flutter Mane",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Unfair Stamp",
+          "from_pct": 44.4,
+          "to_pct": 50.0
+        }
+      ],
+      "dropped": [
+        {
+          "card": "Powerglass",
+          "from_pct": 77.8,
+          "to_pct": 0.0
+        }
+      ]
+    },
+    {
+      "week": "2026-02-23",
+      "adopted": [
+        {
+          "card": "Powerglass",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Surfer",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Carmine",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Secret Box",
+          "from_pct": 25.0,
+          "to_pct": 100.0
+        }
+      ],
+      "dropped": [
+        {
+          "card": "Rare Candy",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Ignition Energy",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Hilda",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Unfair Stamp",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        }
+      ]
+    },
+    {
+      "week": "2026-03-02",
+      "adopted": [
+        {
+          "card": "Ignition Energy",
+          "from_pct": 0.0,
+          "to_pct": 60.0
+        },
+        {
+          "card": "Hilda",
+          "from_pct": 0.0,
+          "to_pct": 60.0
+        }
+      ],
+      "dropped": [
+        {
+          "card": "Flutter Mane",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        }
+      ]
+    }
+  ],
+  "variants": [
+    {
+      "name": "with Colress's Tenacity",
+      "deck_count": 10,
+      "pct": 37.0
+    },
+    {
+      "name": "with Mega Diancie ex",
+      "deck_count": 8,
+      "pct": 29.6
+    },
+    {
+      "name": "with Fezandipiti ex",
+      "deck_count": 6,
+      "pct": 22.2
+    }
+  ],
+  "weekly_shares": [
+    {
+      "week": "2026-01-19",
+      "meta_share": 0.3,
+      "deck_count": 2
+    },
+    {
+      "week": "2026-01-26",
+      "meta_share": 0.6,
+      "deck_count": 6
+    },
+    {
+      "week": "2026-02-02",
+      "meta_share": 0.8,
+      "deck_count": 9
+    },
+    {
+      "week": "2026-02-09",
+      "meta_share": 0.2,
+      "deck_count": 4
+    },
+    {
+      "week": "2026-02-16",
+      "meta_share": 0.0,
+      "deck_count": 0
+    },
+    {
+      "week": "2026-02-23",
+      "meta_share": 0.1,
+      "deck_count": 1
+    },
+    {
+      "week": "2026-03-02",
+      "meta_share": 0.4,
+      "deck_count": 5
+    }
+  ]
 }

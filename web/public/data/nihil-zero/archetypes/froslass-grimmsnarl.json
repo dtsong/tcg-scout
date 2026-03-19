@@ -2518,5 +2518,197 @@
     "ceiling": 100,
     "popularity": 30.3,
     "core_density": 22.9
-  }
+  },
+  "evolution": [
+    {
+      "week": "2026-01-26",
+      "adopted": [
+        {
+          "card": "Tool Scrapper",
+          "from_pct": 3.8,
+          "to_pct": 57.1
+        },
+        {
+          "card": "Morty's Conviction",
+          "from_pct": 23.1,
+          "to_pct": 55.1
+        },
+        {
+          "card": "Tatsugiri",
+          "from_pct": 38.5,
+          "to_pct": 65.3
+        }
+      ],
+      "dropped": []
+    },
+    {
+      "week": "2026-02-02",
+      "adopted": [
+        {
+          "card": "Unfair Stamp",
+          "from_pct": 16.3,
+          "to_pct": 62.3
+        }
+      ],
+      "dropped": []
+    },
+    {
+      "week": "2026-02-16",
+      "adopted": [
+        {
+          "card": "Iris's Fighting Spirit",
+          "from_pct": 14.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Bloodmoon Ursaluna ex",
+          "from_pct": 16.3,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Secret Box",
+          "from_pct": 27.9,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Ultra Ball",
+          "from_pct": 32.6,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Judge",
+          "from_pct": 32.6,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Tool Scrapper",
+          "from_pct": 34.9,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Energy Switch",
+          "from_pct": 48.8,
+          "to_pct": 100.0
+        }
+      ],
+      "dropped": [
+        {
+          "card": "Unfair Stamp",
+          "from_pct": 72.1,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Tatsugiri",
+          "from_pct": 60.5,
+          "to_pct": 0.0
+        }
+      ]
+    },
+    {
+      "week": "2026-02-23",
+      "adopted": [
+        {
+          "card": "Unfair Stamp",
+          "from_pct": 0.0,
+          "to_pct": 83.3
+        },
+        {
+          "card": "Tatsugiri",
+          "from_pct": 0.0,
+          "to_pct": 83.3
+        },
+        {
+          "card": "Yveltal",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        }
+      ],
+      "dropped": [
+        {
+          "card": "Ultra Ball",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Tool Scrapper",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Iris's Fighting Spirit",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Secret Box",
+          "from_pct": 100.0,
+          "to_pct": 16.7
+        },
+        {
+          "card": "Judge",
+          "from_pct": 100.0,
+          "to_pct": 16.7
+        },
+        {
+          "card": "Bloodmoon Ursaluna ex",
+          "from_pct": 100.0,
+          "to_pct": 16.7
+        }
+      ]
+    }
+  ],
+  "variants": [
+    {
+      "name": "with Morty's Conviction",
+      "deck_count": 59,
+      "pct": 31.9
+    },
+    {
+      "name": "with Shaymin",
+      "deck_count": 44,
+      "pct": 23.8
+    },
+    {
+      "name": "with Bloodmoon Ursaluna ex",
+      "deck_count": 40,
+      "pct": 21.6
+    }
+  ],
+  "weekly_shares": [
+    {
+      "week": "2026-01-19",
+      "meta_share": 3.8,
+      "deck_count": 26
+    },
+    {
+      "week": "2026-01-26",
+      "meta_share": 4.7,
+      "deck_count": 49
+    },
+    {
+      "week": "2026-02-02",
+      "meta_share": 4.7,
+      "deck_count": 53
+    },
+    {
+      "week": "2026-02-09",
+      "meta_share": 2.7,
+      "deck_count": 43
+    },
+    {
+      "week": "2026-02-16",
+      "meta_share": 0.8,
+      "deck_count": 1
+    },
+    {
+      "week": "2026-02-23",
+      "meta_share": 0.7,
+      "deck_count": 6
+    },
+    {
+      "week": "2026-03-02",
+      "meta_share": 0.5,
+      "deck_count": 7
+    }
+  ]
 }

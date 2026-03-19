@@ -17,9 +17,12 @@ from reports.json_export import (
     _slugify,
     export_all,
     export_archetypes,
+    export_cards,
     export_champions_league,
     export_formats,
+    export_matchup_matrix,
     export_meta,
+    export_meta_evolution,
     export_trends,
     export_windowed,
 )
@@ -368,6 +371,98 @@ class TestComputeWindowedAceSpecs:
         """ACE spec query should return a list."""
         result = _compute_windowed_ace_specs(db, "2026-01-01", "2026-03-31")
         assert isinstance(result, list)
+
+
+class TestExportCards:
+    def test_generates_card_index(self, db, tmp_path):
+        export_cards(db, tmp_path)
+        index_file = tmp_path / "cards" / "index.json"
+        assert index_file.exists()
+        data = json.loads(index_file.read_text())
+        assert isinstance(data, list)
+        assert len(data) > 0
+
+    def test_index_entries_have_required_fields(self, db, tmp_path):
+        export_cards(db, tmp_path)
+        data = json.loads((tmp_path / "cards" / "index.json").read_text())
+        entry = data[0]
+        assert "card_name" in entry
+        assert "card_slug" in entry
+        assert "usage_pct" in entry
+        assert "avg_copies" in entry
+        assert "category" in entry
+        assert "trend_direction" in entry
+
+    def test_generates_detail_files(self, db, tmp_path):
+        export_cards(db, tmp_path)
+        cards_dir = tmp_path / "cards"
+        detail_files = [f for f in cards_dir.glob("*.json") if f.name != "index.json"]
+        # Cards with 3+ appearances should get detail files
+        assert len(detail_files) > 0
+
+    def test_detail_file_has_archetypes(self, db, tmp_path):
+        export_cards(db, tmp_path)
+        cards_dir = tmp_path / "cards"
+        detail_files = [f for f in cards_dir.glob("*.json") if f.name != "index.json"]
+        assert len(detail_files) > 0
+        data = json.loads(detail_files[0].read_text())
+        assert "archetypes" in data
+        assert "weekly_usage" in data
+        assert "copy_distribution" in data
+
+
+class TestExportCardsSynergy:
+    def test_generates_synergy_file(self, db, tmp_path):
+        export_cards(db, tmp_path)
+        synergy_file = tmp_path / "cards" / "synergy.json"
+        assert synergy_file.exists()
+        data = json.loads(synergy_file.read_text())
+        assert isinstance(data, list)
+
+    def test_synergy_pair_has_required_fields(self, db, tmp_path):
+        export_cards(db, tmp_path)
+        data = json.loads((tmp_path / "cards" / "synergy.json").read_text())
+        assert len(data) > 0, "Expected at least one synergy pair from fixture data"
+        pair = data[0]
+        assert "card_a" in pair
+        assert "card_b" in pair
+        assert "lift" in pair
+
+
+class TestExportMetaEvolution:
+    def test_writes_file(self, db, tmp_path):
+        export_meta_evolution(db, tmp_path)
+        out_file = tmp_path / "meta-evolution.json"
+        assert out_file.exists()
+        data = json.loads(out_file.read_text())
+        assert isinstance(data, list)
+
+    def test_movements_have_required_fields(self, db, tmp_path):
+        export_meta_evolution(db, tmp_path)
+        data = json.loads((tmp_path / "meta-evolution.json").read_text())
+        for m in data:
+            assert "card" in m
+            assert "archetype" in m
+            assert "direction" in m
+            assert m["direction"] in ("adopted", "dropped")
+
+
+class TestExportMatchupMatrix:
+    def test_writes_file(self, db, tmp_path):
+        export_matchup_matrix(db, tmp_path)
+        out_file = tmp_path / "matchup.json"
+        assert out_file.exists()
+        data = json.loads(out_file.read_text())
+        assert "archetypes" in data
+        assert "matrix" in data
+        assert "sample_sizes" in data
+
+    def test_matrix_dimensions_match(self, db, tmp_path):
+        export_matchup_matrix(db, tmp_path)
+        data = json.loads((tmp_path / "matchup.json").read_text())
+        n = len(data["archetypes"])
+        assert len(data["matrix"]) == n
+        assert len(data["sample_sizes"]) == n
 
 
 class TestExportWindowed:

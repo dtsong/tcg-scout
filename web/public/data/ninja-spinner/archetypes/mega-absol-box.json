@@ -2,8 +2,8 @@
   "archetype": "Mega Absol Box",
   "slug": "mega-absol-box",
   "tier": "Rogue",
-  "meta_share": 0.7,
-  "weighted_share": 0.7,
+  "meta_share": 0.8,
+  "weighted_share": 0.8,
   "deck_count": 6,
   "best_placement": 2,
   "sprite_filenames": [
@@ -1302,11 +1302,104 @@
     }
   ],
   "radar": {
-    "meta_share": 3.5,
-    "weighted_share": 3.6,
+    "meta_share": 3.9,
+    "weighted_share": 4.0,
     "consistency": 65.8,
     "ceiling": 90,
-    "popularity": 6.8,
+    "popularity": 7.9,
     "core_density": 60.0
-  }
+  },
+  "evolution": [
+    {
+      "week": "2026-03-16",
+      "adopted": [
+        {
+          "card": "Lillie's Determination",
+          "from_pct": 25.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Tapu Koko ex",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Pecharunt ex",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Jamming Tower",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Team Rocket's Mimikyu",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Yveltal",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        }
+      ],
+      "dropped": [
+        {
+          "card": "Wellspring Mask Ogerpon ex",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Team Rocket's Watchtower",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        }
+      ]
+    }
+  ],
+  "variants": [
+    {
+      "name": "with Pecharunt ex",
+      "deck_count": 1,
+      "pct": 16.7
+    },
+    {
+      "name": "with Tapu Koko ex",
+      "deck_count": 1,
+      "pct": 16.7
+    },
+    {
+      "name": "with Wellspring Mask Ogerpon ex",
+      "deck_count": 1,
+      "pct": 16.7
+    },
+    {
+      "name": "Standard",
+      "deck_count": 1,
+      "pct": 16.7
+    },
+    {
+      "name": "with Chi-Yu",
+      "deck_count": 1,
+      "pct": 16.7
+    },
+    {
+      "name": "with Chien-Pao",
+      "deck_count": 1,
+      "pct": 16.7
+    }
+  ],
+  "weekly_shares": [
+    {
+      "week": "2026-03-09",
+      "meta_share": 0.6,
+      "deck_count": 4
+    },
+    {
+      "week": "2026-03-16",
+      "meta_share": 1.4,
+      "deck_count": 2
+    }
+  ]
 }

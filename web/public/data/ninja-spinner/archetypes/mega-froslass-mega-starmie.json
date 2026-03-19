@@ -2,8 +2,8 @@
   "archetype": "Mega Froslass Mega Starmie",
   "slug": "mega-froslass-mega-starmie",
   "tier": "C",
-  "meta_share": 1.2,
-  "weighted_share": 1.2,
+  "meta_share": 1.3,
+  "weighted_share": 1.4,
   "deck_count": 10,
   "best_placement": 1,
   "sprite_filenames": [
@@ -1647,11 +1647,83 @@
     }
   ],
   "radar": {
-    "meta_share": 5.8,
-    "weighted_share": 6.2,
+    "meta_share": 6.5,
+    "weighted_share": 6.8,
     "consistency": 72.0,
     "ceiling": 100,
-    "popularity": 11.4,
+    "popularity": 13.2,
     "core_density": 30.4
-  }
+  },
+  "evolution": [
+    {
+      "week": "2026-03-16",
+      "adopted": [
+        {
+          "card": "Dudunsparce",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Dunsparce",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Pokégear 3.0",
+          "from_pct": 11.1,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Shaymin",
+          "from_pct": 11.1,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Wally's Compassion",
+          "from_pct": 22.2,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Air Balloon",
+          "from_pct": 44.4,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Ignition Energy",
+          "from_pct": 44.4,
+          "to_pct": 100.0
+        }
+      ],
+      "dropped": []
+    }
+  ],
+  "variants": [
+    {
+      "name": "with Budew",
+      "deck_count": 7,
+      "pct": 70.0
+    },
+    {
+      "name": "with Gravity Mountain",
+      "deck_count": 2,
+      "pct": 20.0
+    },
+    {
+      "name": "with Psyduck",
+      "deck_count": 1,
+      "pct": 10.0
+    }
+  ],
+  "weekly_shares": [
+    {
+      "week": "2026-03-09",
+      "meta_share": 1.4,
+      "deck_count": 9
+    },
+    {
+      "week": "2026-03-16",
+      "meta_share": 0.7,
+      "deck_count": 1
+    }
+  ]
 }

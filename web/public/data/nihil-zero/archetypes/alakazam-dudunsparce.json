@@ -2761,5 +2761,99 @@
     "ceiling": 100,
     "popularity": 55.2,
     "core_density": 26.8
-  }
+  },
+  "evolution": [
+    {
+      "week": "2026-02-02",
+      "adopted": [
+        {
+          "card": "Fezandipiti ex",
+          "from_pct": 48.6,
+          "to_pct": 69.2
+        }
+      ],
+      "dropped": []
+    },
+    {
+      "week": "2026-02-23",
+      "adopted": [
+        {
+          "card": "Enhanced Hammer",
+          "from_pct": 37.5,
+          "to_pct": 80.6
+        }
+      ],
+      "dropped": []
+    },
+    {
+      "week": "2026-03-02",
+      "adopted": [
+        {
+          "card": "Genesect",
+          "from_pct": 44.8,
+          "to_pct": 70.7
+        },
+        {
+          "card": "Lucky Helmet",
+          "from_pct": 35.8,
+          "to_pct": 58.6
+        }
+      ],
+      "dropped": []
+    }
+  ],
+  "variants": [
+    {
+      "name": "Standard",
+      "deck_count": 191,
+      "pct": 56.7
+    },
+    {
+      "name": "with Togekiss",
+      "deck_count": 72,
+      "pct": 21.4
+    },
+    {
+      "name": "with Genesect",
+      "deck_count": 71,
+      "pct": 21.1
+    }
+  ],
+  "weekly_shares": [
+    {
+      "week": "2026-01-19",
+      "meta_share": 3.8,
+      "deck_count": 26
+    },
+    {
+      "week": "2026-01-26",
+      "meta_share": 3.6,
+      "deck_count": 37
+    },
+    {
+      "week": "2026-02-02",
+      "meta_share": 3.5,
+      "deck_count": 39
+    },
+    {
+      "week": "2026-02-09",
+      "meta_share": 6.3,
+      "deck_count": 102
+    },
+    {
+      "week": "2026-02-16",
+      "meta_share": 6.2,
+      "deck_count": 8
+    },
+    {
+      "week": "2026-02-23",
+      "meta_share": 7.6,
+      "deck_count": 67
+    },
+    {
+      "week": "2026-03-02",
+      "meta_share": 4.5,
+      "deck_count": 58
+    }
+  ]
 }

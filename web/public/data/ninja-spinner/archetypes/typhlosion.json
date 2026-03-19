@@ -2,8 +2,8 @@
   "archetype": "Typhlosion",
   "slug": "typhlosion",
   "tier": "Rogue",
-  "meta_share": 0.3,
-  "weighted_share": 0.4,
+  "meta_share": 0.4,
+  "weighted_share": 0.5,
   "deck_count": 3,
   "best_placement": 2,
   "sprite_filenames": [
@@ -843,11 +843,47 @@
     }
   ],
   "radar": {
-    "meta_share": 1.7,
-    "weighted_share": 2.1,
+    "meta_share": 1.9,
+    "weighted_share": 2.3,
     "consistency": 73.3,
     "ceiling": 90,
-    "popularity": 3.4,
+    "popularity": 3.9,
     "core_density": 74.2
-  }
+  },
+  "evolution": [
+    {
+      "week": "2026-03-16",
+      "adopted": [
+        {
+          "card": "Lana's Aid",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Pokégear 3.0",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Moltres",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        }
+      ],
+      "dropped": []
+    }
+  ],
+  "variants": [],
+  "weekly_shares": [
+    {
+      "week": "2026-03-09",
+      "meta_share": 0.2,
+      "deck_count": 1
+    },
+    {
+      "week": "2026-03-16",
+      "meta_share": 1.4,
+      "deck_count": 2
+    }
+  ]
 }

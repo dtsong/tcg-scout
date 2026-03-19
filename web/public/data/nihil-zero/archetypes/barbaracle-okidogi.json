@@ -2355,5 +2355,126 @@
     "ceiling": 100,
     "popularity": 20.1,
     "core_density": 19.2
-  }
+  },
+  "evolution": [
+    {
+      "week": "2026-01-26",
+      "adopted": [
+        {
+          "card": "Prime Catcher",
+          "from_pct": 0.0,
+          "to_pct": 65.0
+        },
+        {
+          "card": "Carmine",
+          "from_pct": 14.3,
+          "to_pct": 55.0
+        }
+      ],
+      "dropped": [
+        {
+          "card": "Premium Power Pro",
+          "from_pct": 57.1,
+          "to_pct": 5.0
+        }
+      ]
+    },
+    {
+      "week": "2026-02-02",
+      "adopted": [
+        {
+          "card": "Pokégear 3.0",
+          "from_pct": 10.0,
+          "to_pct": 53.3
+        },
+        {
+          "card": "Legacy Energy",
+          "from_pct": 35.0,
+          "to_pct": 73.3
+        },
+        {
+          "card": "Cornerstone Mask Ogerpon ex",
+          "from_pct": 25.0,
+          "to_pct": 60.0
+        }
+      ],
+      "dropped": [
+        {
+          "card": "Prime Catcher",
+          "from_pct": 65.0,
+          "to_pct": 13.3
+        }
+      ]
+    },
+    {
+      "week": "2026-02-09",
+      "adopted": [
+        {
+          "card": "Morty's Conviction",
+          "from_pct": 20.0,
+          "to_pct": 56.8
+        }
+      ],
+      "dropped": []
+    }
+  ],
+  "variants": [
+    {
+      "name": "with Cornerstone Mask Ogerpon ex",
+      "deck_count": 63,
+      "pct": 51.2
+    },
+    {
+      "name": "Standard",
+      "deck_count": 19,
+      "pct": 15.4
+    },
+    {
+      "name": "with Morty's Conviction",
+      "deck_count": 16,
+      "pct": 13.0
+    },
+    {
+      "name": "with Explorer's Guidance",
+      "deck_count": 13,
+      "pct": 10.6
+    }
+  ],
+  "weekly_shares": [
+    {
+      "week": "2026-01-19",
+      "meta_share": 1.0,
+      "deck_count": 7
+    },
+    {
+      "week": "2026-01-26",
+      "meta_share": 1.9,
+      "deck_count": 20
+    },
+    {
+      "week": "2026-02-02",
+      "meta_share": 1.3,
+      "deck_count": 15
+    },
+    {
+      "week": "2026-02-09",
+      "meta_share": 2.3,
+      "deck_count": 37
+    },
+    {
+      "week": "2026-02-16",
+      "meta_share": 3.1,
+      "deck_count": 4
+    },
+    {
+      "week": "2026-02-23",
+      "meta_share": 1.6,
+      "deck_count": 14
+    },
+    {
+      "week": "2026-03-02",
+      "meta_share": 2.0,
+      "deck_count": 26
+    }
+  ]
 }

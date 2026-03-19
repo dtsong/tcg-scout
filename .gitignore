@@ -11,6 +11,9 @@ build/
 .venv/
 *.egg
 
+# Node
+node_modules/
+
 # Data
 data/*.db
 data/*.sqlite

@@ -2091,5 +2091,172 @@
     "ceiling": 90,
     "popularity": 5.1,
     "core_density": 23.3
-  }
+  },
+  "evolution": [
+    {
+      "week": "2026-01-26",
+      "adopted": [
+        {
+          "card": "Judge",
+          "from_pct": 0.0,
+          "to_pct": 57.1
+        },
+        {
+          "card": "Explorer's Guidance",
+          "from_pct": 33.3,
+          "to_pct": 71.4
+        },
+        {
+          "card": "Blowtorch",
+          "from_pct": 33.3,
+          "to_pct": 71.4
+        }
+      ],
+      "dropped": [
+        {
+          "card": "Cornerstone Mask Ogerpon ex",
+          "from_pct": 66.7,
+          "to_pct": 0.0
+        }
+      ]
+    },
+    {
+      "week": "2026-02-09",
+      "adopted": [
+        {
+          "card": "Psyduck",
+          "from_pct": 0.0,
+          "to_pct": 57.1
+        },
+        {
+          "card": "Naveen",
+          "from_pct": 25.0,
+          "to_pct": 71.4
+        },
+        {
+          "card": "Mist Energy",
+          "from_pct": 25.0,
+          "to_pct": 57.1
+        },
+        {
+          "card": "Judge",
+          "from_pct": 25.0,
+          "to_pct": 57.1
+        }
+      ],
+      "dropped": []
+    },
+    {
+      "week": "2026-02-23",
+      "adopted": [
+        {
+          "card": "Meowth ex",
+          "from_pct": 28.6,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Explorer's Guidance",
+          "from_pct": 14.3,
+          "to_pct": 66.7
+        }
+      ],
+      "dropped": [
+        {
+          "card": "Naveen",
+          "from_pct": 71.4,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Psyduck",
+          "from_pct": 57.1,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Jamming Tower",
+          "from_pct": 57.1,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Judge",
+          "from_pct": 57.1,
+          "to_pct": 0.0
+        }
+      ]
+    },
+    {
+      "week": "2026-03-02",
+      "adopted": [
+        {
+          "card": "Fezandipiti ex",
+          "from_pct": 33.3,
+          "to_pct": 85.7
+        },
+        {
+          "card": "Briar",
+          "from_pct": 33.3,
+          "to_pct": 85.7
+        }
+      ],
+      "dropped": []
+    }
+  ],
+  "variants": [
+    {
+      "name": "with Blowtorch",
+      "deck_count": 14,
+      "pct": 45.2
+    },
+    {
+      "name": "with Battle Cage",
+      "deck_count": 5,
+      "pct": 16.1
+    },
+    {
+      "name": "with Explorer's Guidance",
+      "deck_count": 4,
+      "pct": 12.9
+    },
+    {
+      "name": "with Ciphermaniac's Codebreaking",
+      "deck_count": 4,
+      "pct": 12.9
+    }
+  ],
+  "weekly_shares": [
+    {
+      "week": "2026-01-19",
+      "meta_share": 0.4,
+      "deck_count": 3
+    },
+    {
+      "week": "2026-01-26",
+      "meta_share": 0.7,
+      "deck_count": 7
+    },
+    {
+      "week": "2026-02-02",
+      "meta_share": 0.4,
+      "deck_count": 4
+    },
+    {
+      "week": "2026-02-09",
+      "meta_share": 0.4,
+      "deck_count": 7
+    },
+    {
+      "week": "2026-02-16",
+      "meta_share": 0.0,
+      "deck_count": 0
+    },
+    {
+      "week": "2026-02-23",
+      "meta_share": 0.3,
+      "deck_count": 3
+    },
+    {
+      "week": "2026-03-02",
+      "meta_share": 0.5,
+      "deck_count": 7
+    }
+  ]
 }

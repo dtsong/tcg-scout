@@ -1,0 +1,184 @@
+{
+  "card_name": "Blaziken ex",
+  "card_slug": "blaziken-ex",
+  "card_id": null,
+  "set_code": null,
+  "set_number": null,
+  "image_url": null,
+  "category": "Pokemon",
+  "rarity": null,
+  "total_appearances": 30,
+  "usage_pct": 3.9,
+  "avg_copies": 2.0,
+  "unique_archetypes": 5,
+  "weighted_score": 47.3,
+  "win_rate_proxy": 1.58,
+  "top_archetype": "Blaziken Dragapult",
+  "trend_direction": "declining",
+  "copy_distribution": [
+    {
+      "copies": 2,
+      "count": 29
+    },
+    {
+      "copies": 3,
+      "count": 1
+    }
+  ],
+  "archetypes": [
+    {
+      "name": "Blaziken Dragapult",
+      "slug": "blaziken-dragapult",
+      "usage_count": 25,
+      "avg_copies": 2.0,
+      "tier": "B"
+    },
+    {
+      "name": "Mega Dragonite Blaziken",
+      "slug": "mega-dragonite-blaziken",
+      "usage_count": 2,
+      "avg_copies": 2.5,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Mega Greninja Dudunsparce",
+      "slug": "mega-greninja-dudunsparce",
+      "usage_count": 1,
+      "avg_copies": 2.0,
+      "tier": "C"
+    },
+    {
+      "name": "Blaziken Hydreigon",
+      "slug": "blaziken-hydreigon",
+      "usage_count": 1,
+      "avg_copies": 2.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Blaziken Clefairy",
+      "slug": "blaziken-clefairy",
+      "usage_count": 1,
+      "avg_copies": 2.0,
+      "tier": "Rogue"
+    }
+  ],
+  "weekly_usage": [
+    {
+      "week": "2026-03-09",
+      "usage_pct": 4.6,
+      "avg_copies": 2.0
+    },
+    {
+      "week": "2026-03-16",
+      "usage_pct": 0.7,
+      "avg_copies": 2.0
+    }
+  ],
+  "synergy_partners": [
+    {
+      "card_name": "Combusken",
+      "support": 29,
+      "lift": 25.733,
+      "jaccard": 0.967,
+      "weighted_score": 46.1
+    },
+    {
+      "card_name": "Torchic",
+      "support": 30,
+      "lift": 25.733,
+      "jaccard": 1.0,
+      "weighted_score": 47.3
+    },
+    {
+      "card_name": "Dawn",
+      "support": 25,
+      "lift": 4.595,
+      "jaccard": 0.172,
+      "weighted_score": 39.9
+    },
+    {
+      "card_name": "Jamming Tower",
+      "support": 11,
+      "lift": 3.878,
+      "jaccard": 0.12,
+      "weighted_score": 19.3
+    },
+    {
+      "card_name": "Dragapult ex",
+      "support": 25,
+      "lift": 3.876,
+      "jaccard": 0.146,
+      "weighted_score": 40.5
+    },
+    {
+      "card_name": "Drakloak",
+      "support": 25,
+      "lift": 3.852,
+      "jaccard": 0.145,
+      "weighted_score": 40.5
+    },
+    {
+      "card_name": "Dreepy",
+      "support": 25,
+      "lift": 3.852,
+      "jaccard": 0.145,
+      "weighted_score": 40.5
+    },
+    {
+      "card_name": "Lillie's Clefairy ex",
+      "support": 27,
+      "lift": 3.088,
+      "jaccard": 0.118,
+      "weighted_score": 42.9
+    },
+    {
+      "card_name": "Rare Candy",
+      "support": 30,
+      "lift": 2.924,
+      "jaccard": 0.114,
+      "weighted_score": 47.3
+    },
+    {
+      "card_name": "Shaymin",
+      "support": 13,
+      "lift": 2.655,
+      "jaccard": 0.091,
+      "weighted_score": 21.1
+    },
+    {
+      "card_name": "Team Rocket's Watchtower",
+      "support": 19,
+      "lift": 2.615,
+      "jaccard": 0.096,
+      "weighted_score": 30.1
+    },
+    {
+      "card_name": "Budew",
+      "support": 28,
+      "lift": 2.493,
+      "jaccard": 0.096,
+      "weighted_score": 44.6
+    },
+    {
+      "card_name": "Crispin",
+      "support": 29,
+      "lift": 2.423,
+      "jaccard": 0.094,
+      "weighted_score": 46.1
+    },
+    {
+      "card_name": "Risky Ruins",
+      "support": 9,
+      "lift": 2.413,
+      "jaccard": 0.077,
+      "weighted_score": 14.3
+    },
+    {
+      "card_name": "Munkidori",
+      "support": 25,
+      "lift": 2.289,
+      "jaccard": 0.087,
+      "weighted_score": 38.4
+    }
+  ]
+}

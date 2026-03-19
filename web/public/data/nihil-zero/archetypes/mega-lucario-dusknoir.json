@@ -1608,5 +1608,207 @@
     "ceiling": 75,
     "popularity": 1.5,
     "core_density": 34.1
-  }
+  },
+  "evolution": [
+    {
+      "week": "2026-01-26",
+      "adopted": [
+        {
+          "card": "Carbink",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Unfair Stamp",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Carmine",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Shaymin",
+          "from_pct": 20.0,
+          "to_pct": 100.0
+        }
+      ],
+      "dropped": [
+        {
+          "card": "Rock Fighting Energy",
+          "from_pct": 80.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Prime Catcher",
+          "from_pct": 80.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Xerosic's Machinations",
+          "from_pct": 60.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Hilda",
+          "from_pct": 60.0,
+          "to_pct": 0.0
+        }
+      ]
+    },
+    {
+      "week": "2026-02-02",
+      "adopted": [
+        {
+          "card": "Gravity Mountain",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Ciphermaniac's Codebreaking",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Wally's Compassion",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Judge",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Meowth ex",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        }
+      ],
+      "dropped": [
+        {
+          "card": "Carbink",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Shaymin",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        }
+      ]
+    },
+    {
+      "week": "2026-02-23",
+      "adopted": [
+        {
+          "card": "Scoop Up Cyclone",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Rock Fighting Energy",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        }
+      ],
+      "dropped": [
+        {
+          "card": "Unfair Stamp",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Wally's Compassion",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Switch",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Carmine",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Meowth ex",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        }
+      ]
+    }
+  ],
+  "variants": [
+    {
+      "name": "with Ciphermaniac's Codebreaking",
+      "deck_count": 2,
+      "pct": 22.2
+    },
+    {
+      "name": "with Gravity Mountain",
+      "deck_count": 2,
+      "pct": 22.2
+    },
+    {
+      "name": "with Brock's Scouting",
+      "deck_count": 2,
+      "pct": 22.2
+    },
+    {
+      "name": "Standard",
+      "deck_count": 1,
+      "pct": 11.1
+    },
+    {
+      "name": "with Shaymin",
+      "deck_count": 1,
+      "pct": 11.1
+    },
+    {
+      "name": "with Hilda",
+      "deck_count": 1,
+      "pct": 11.1
+    }
+  ],
+  "weekly_shares": [
+    {
+      "week": "2026-01-19",
+      "meta_share": 0.7,
+      "deck_count": 5
+    },
+    {
+      "week": "2026-01-26",
+      "meta_share": 0.1,
+      "deck_count": 1
+    },
+    {
+      "week": "2026-02-02",
+      "meta_share": 0.2,
+      "deck_count": 2
+    },
+    {
+      "week": "2026-02-09",
+      "meta_share": 0.0,
+      "deck_count": 0
+    },
+    {
+      "week": "2026-02-16",
+      "meta_share": 0.0,
+      "deck_count": 0
+    },
+    {
+      "week": "2026-02-23",
+      "meta_share": 0.1,
+      "deck_count": 1
+    },
+    {
+      "week": "2026-03-02",
+      "meta_share": 0.0,
+      "deck_count": 0
+    }
+  ]
 }

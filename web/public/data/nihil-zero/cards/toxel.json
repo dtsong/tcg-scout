@@ -1,0 +1,255 @@
+{
+  "card_name": "Toxel",
+  "card_slug": "toxel",
+  "card_id": "svp-119",
+  "set_code": "svp",
+  "set_number": "119",
+  "image_url": "https://assets.tcgdex.net/en/sv/svp/119/high.png",
+  "category": "Pokemon",
+  "rarity": "",
+  "total_appearances": 72,
+  "usage_pct": 1.1,
+  "avg_copies": 3.1,
+  "unique_archetypes": 11,
+  "weighted_score": 108.1,
+  "win_rate_proxy": 1.5,
+  "top_archetype": "Mega Sharpedo Toxtricity",
+  "trend_direction": "stable",
+  "copy_distribution": [
+    {
+      "copies": 2,
+      "count": 25
+    },
+    {
+      "copies": 3,
+      "count": 17
+    },
+    {
+      "copies": 4,
+      "count": 30
+    }
+  ],
+  "archetypes": [
+    {
+      "name": "Mega Sharpedo Toxtricity",
+      "slug": "mega-sharpedo-toxtricity",
+      "usage_count": 37,
+      "avg_copies": 2.4,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Munkidori Toxtricity",
+      "slug": "munkidori-toxtricity",
+      "usage_count": 13,
+      "avg_copies": 4.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Mega Absol Toxtricity",
+      "slug": "mega-absol-toxtricity",
+      "usage_count": 12,
+      "avg_copies": 4.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Toxtricity Yveltal",
+      "slug": "toxtricity-yveltal",
+      "usage_count": 2,
+      "avg_copies": 3.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Pecharunt Toxtricity",
+      "slug": "pecharunt-toxtricity",
+      "usage_count": 2,
+      "avg_copies": 4.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Toxtricity",
+      "slug": "toxtricity",
+      "usage_count": 1,
+      "avg_copies": 4.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Mega Sharpedo Pecharunt",
+      "slug": "mega-sharpedo-pecharunt",
+      "usage_count": 1,
+      "avg_copies": 2.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Mega Kangaskhan Mega Sharpedo",
+      "slug": "mega-kangaskhan-mega-sharpedo",
+      "usage_count": 1,
+      "avg_copies": 3.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Hydreigon Toxtricity",
+      "slug": "hydreigon-toxtricity",
+      "usage_count": 1,
+      "avg_copies": 2.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Fezandipiti Toxtricity",
+      "slug": "fezandipiti-toxtricity",
+      "usage_count": 1,
+      "avg_copies": 4.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Arbok Toxtricity",
+      "slug": "arbok-toxtricity",
+      "usage_count": 1,
+      "avg_copies": 3.0,
+      "tier": "Rogue"
+    }
+  ],
+  "weekly_usage": [
+    {
+      "week": "2026-01-19",
+      "usage_pct": 2.0,
+      "avg_copies": 3.2
+    },
+    {
+      "week": "2026-01-26",
+      "usage_pct": 1.4,
+      "avg_copies": 3.0
+    },
+    {
+      "week": "2026-02-02",
+      "usage_pct": 0.6,
+      "avg_copies": 2.9
+    },
+    {
+      "week": "2026-02-09",
+      "usage_pct": 1.0,
+      "avg_copies": 3.1
+    },
+    {
+      "week": "2026-02-16",
+      "usage_pct": 1.6,
+      "avg_copies": 3.0
+    },
+    {
+      "week": "2026-02-23",
+      "usage_pct": 1.0,
+      "avg_copies": 3.3
+    },
+    {
+      "week": "2026-03-02",
+      "usage_pct": 0.7,
+      "avg_copies": 2.8
+    }
+  ],
+  "synergy_partners": [
+    {
+      "card_name": "Toxtricity",
+      "support": 72,
+      "lift": 93.833,
+      "jaccard": 1.0,
+      "weighted_score": 108.1
+    },
+    {
+      "card_name": "Carvanha",
+      "support": 39,
+      "lift": 91.487,
+      "jaccard": 0.534,
+      "weighted_score": 59.7
+    },
+    {
+      "card_name": "Mega Sharpedo ex",
+      "support": 39,
+      "lift": 91.487,
+      "jaccard": 0.534,
+      "weighted_score": 59.7
+    },
+    {
+      "card_name": "Yveltal ex",
+      "support": 15,
+      "lift": 87.969,
+      "jaccard": 0.205,
+      "weighted_score": 22.8
+    },
+    {
+      "card_name": "Brute Bonnet",
+      "support": 28,
+      "lift": 87.578,
+      "jaccard": 0.378,
+      "weighted_score": 42.1
+    },
+    {
+      "card_name": "Pecharunt",
+      "support": 15,
+      "lift": 52.13,
+      "jaccard": 0.179,
+      "weighted_score": 22.3
+    },
+    {
+      "card_name": "Mega Absol ex",
+      "support": 40,
+      "lift": 34.753,
+      "jaccard": 0.286,
+      "weighted_score": 59.5
+    },
+    {
+      "card_name": "Lumiose City",
+      "support": 6,
+      "lift": 29.632,
+      "jaccard": 0.071,
+      "weighted_score": 8.8
+    },
+    {
+      "card_name": "Mega Signal",
+      "support": 33,
+      "lift": 22.602,
+      "jaccard": 0.188,
+      "weighted_score": 53.2
+    },
+    {
+      "card_name": "Nighttime Mine",
+      "support": 6,
+      "lift": 19.414,
+      "jaccard": 0.063,
+      "weighted_score": 9.0
+    },
+    {
+      "card_name": "Energy Recycler",
+      "support": 38,
+      "lift": 16.508,
+      "jaccard": 0.152,
+      "weighted_score": 56.0
+    },
+    {
+      "card_name": "Pecharunt ex",
+      "support": 72,
+      "lift": 16.358,
+      "jaccard": 0.174,
+      "weighted_score": 108.1
+    },
+    {
+      "card_name": "Hassel",
+      "support": 13,
+      "lift": 15.441,
+      "jaccard": 0.094,
+      "weighted_score": 19.8
+    },
+    {
+      "card_name": "Buneary",
+      "support": 6,
+      "lift": 15.216,
+      "jaccard": 0.058,
+      "weighted_score": 11.4
+    },
+    {
+      "card_name": "Mega Lopunny ex",
+      "support": 6,
+      "lift": 15.216,
+      "jaccard": 0.058,
+      "weighted_score": 11.4
+    }
+  ]
+}

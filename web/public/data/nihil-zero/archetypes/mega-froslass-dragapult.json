@@ -1401,5 +1401,151 @@
     "ceiling": 100,
     "popularity": 1.1,
     "core_density": 70.0
-  }
+  },
+  "evolution": [
+    {
+      "week": "2026-02-02",
+      "adopted": [
+        {
+          "card": "Meowth ex",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        }
+      ],
+      "dropped": [
+        {
+          "card": "Rosa's Encouragement",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        }
+      ]
+    },
+    {
+      "week": "2026-02-09",
+      "adopted": [
+        {
+          "card": "Latias ex",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Psyduck",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Jamming Tower",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Judge",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Dawn",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        }
+      ],
+      "dropped": []
+    },
+    {
+      "week": "2026-03-02",
+      "adopted": [
+        {
+          "card": "Rosa's Encouragement",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Team Rocket's Articuno",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        }
+      ],
+      "dropped": [
+        {
+          "card": "Meowth ex",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Latias ex",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Psyduck",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Jamming Tower",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Judge",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Dawn",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        }
+      ]
+    }
+  ],
+  "variants": [
+    {
+      "name": "with Meowth ex",
+      "deck_count": 4,
+      "pct": 57.1
+    },
+    {
+      "name": "with Rosa's Encouragement",
+      "deck_count": 3,
+      "pct": 42.9
+    }
+  ],
+  "weekly_shares": [
+    {
+      "week": "2026-01-19",
+      "meta_share": 0.0,
+      "deck_count": 0
+    },
+    {
+      "week": "2026-01-26",
+      "meta_share": 0.1,
+      "deck_count": 1
+    },
+    {
+      "week": "2026-02-02",
+      "meta_share": 0.2,
+      "deck_count": 2
+    },
+    {
+      "week": "2026-02-09",
+      "meta_share": 0.1,
+      "deck_count": 2
+    },
+    {
+      "week": "2026-02-16",
+      "meta_share": 0.0,
+      "deck_count": 0
+    },
+    {
+      "week": "2026-02-23",
+      "meta_share": 0.0,
+      "deck_count": 0
+    },
+    {
+      "week": "2026-03-02",
+      "meta_share": 0.2,
+      "deck_count": 2
+    }
+  ]
 }

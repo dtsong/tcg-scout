@@ -2408,5 +2408,138 @@
     "ceiling": 100,
     "popularity": 17.8,
     "core_density": 17.5
-  }
+  },
+  "evolution": [
+    {
+      "week": "2026-01-26",
+      "adopted": [
+        {
+          "card": "Explorer's Guidance",
+          "from_pct": 40.0,
+          "to_pct": 54.1
+        }
+      ],
+      "dropped": []
+    },
+    {
+      "week": "2026-02-02",
+      "adopted": [
+        {
+          "card": "Iron Defender",
+          "from_pct": 32.4,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Legacy Energy",
+          "from_pct": 45.9,
+          "to_pct": 55.0
+        }
+      ],
+      "dropped": []
+    },
+    {
+      "week": "2026-02-09",
+      "adopted": [
+        {
+          "card": "Meowth ex",
+          "from_pct": 35.0,
+          "to_pct": 87.5
+        },
+        {
+          "card": "Handheld Fan",
+          "from_pct": 40.0,
+          "to_pct": 50.0
+        }
+      ],
+      "dropped": [
+        {
+          "card": "Legacy Energy",
+          "from_pct": 55.0,
+          "to_pct": 12.5
+        }
+      ]
+    },
+    {
+      "week": "2026-02-23",
+      "adopted": [
+        {
+          "card": "Hero's Cape",
+          "from_pct": 43.8,
+          "to_pct": 66.7
+        }
+      ],
+      "dropped": [
+        {
+          "card": "Handheld Fan",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        }
+      ]
+    },
+    {
+      "week": "2026-03-02",
+      "adopted": [
+        {
+          "card": "Larry's Skill",
+          "from_pct": 33.3,
+          "to_pct": 50.0
+        }
+      ],
+      "dropped": []
+    }
+  ],
+  "variants": [
+    {
+      "name": "with Explorer's Guidance",
+      "deck_count": 66,
+      "pct": 60.6
+    },
+    {
+      "name": "with Handheld Fan",
+      "deck_count": 13,
+      "pct": 11.9
+    },
+    {
+      "name": "with Munkidori",
+      "deck_count": 12,
+      "pct": 11.0
+    }
+  ],
+  "weekly_shares": [
+    {
+      "week": "2026-01-19",
+      "meta_share": 3.6,
+      "deck_count": 25
+    },
+    {
+      "week": "2026-01-26",
+      "meta_share": 3.6,
+      "deck_count": 37
+    },
+    {
+      "week": "2026-02-02",
+      "meta_share": 1.8,
+      "deck_count": 20
+    },
+    {
+      "week": "2026-02-09",
+      "meta_share": 1.0,
+      "deck_count": 16
+    },
+    {
+      "week": "2026-02-16",
+      "meta_share": 0.0,
+      "deck_count": 0
+    },
+    {
+      "week": "2026-02-23",
+      "meta_share": 0.3,
+      "deck_count": 3
+    },
+    {
+      "week": "2026-03-02",
+      "meta_share": 0.6,
+      "deck_count": 8
+    }
+  ]
 }

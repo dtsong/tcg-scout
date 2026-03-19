@@ -2423,5 +2423,142 @@
     "ceiling": 100,
     "popularity": 32.1,
     "core_density": 15.7
-  }
+  },
+  "evolution": [
+    {
+      "week": "2026-01-26",
+      "adopted": [
+        {
+          "card": "Wally's Compassion",
+          "from_pct": 33.3,
+          "to_pct": 65.5
+        }
+      ],
+      "dropped": [
+        {
+          "card": "Cornerstone Mask Ogerpon ex",
+          "from_pct": 50.0,
+          "to_pct": 10.3
+        }
+      ]
+    },
+    {
+      "week": "2026-02-02",
+      "adopted": [
+        {
+          "card": "Makuhita",
+          "from_pct": 41.4,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Hariyama",
+          "from_pct": 41.4,
+          "to_pct": 50.0
+        }
+      ],
+      "dropped": []
+    },
+    {
+      "week": "2026-02-16",
+      "adopted": [
+        {
+          "card": "Maximum Belt",
+          "from_pct": 44.8,
+          "to_pct": 77.8
+        }
+      ],
+      "dropped": []
+    },
+    {
+      "week": "2026-02-23",
+      "adopted": [
+        {
+          "card": "Makuhita",
+          "from_pct": 22.2,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Hariyama",
+          "from_pct": 22.2,
+          "to_pct": 50.0
+        }
+      ],
+      "dropped": []
+    },
+    {
+      "week": "2026-03-02",
+      "adopted": [
+        {
+          "card": "Ciphermaniac's Codebreaking",
+          "from_pct": 28.6,
+          "to_pct": 52.2
+        },
+        {
+          "card": "Rock Fighting Energy",
+          "from_pct": 42.9,
+          "to_pct": 52.2
+        }
+      ],
+      "dropped": []
+    }
+  ],
+  "variants": [
+    {
+      "name": "with Hariyama",
+      "deck_count": 73,
+      "pct": 37.2
+    },
+    {
+      "name": "with Pokégear 3.0",
+      "deck_count": 48,
+      "pct": 24.5
+    },
+    {
+      "name": "with Ciphermaniac's Codebreaking",
+      "deck_count": 31,
+      "pct": 15.8
+    },
+    {
+      "name": "Standard",
+      "deck_count": 25,
+      "pct": 12.8
+    }
+  ],
+  "weekly_shares": [
+    {
+      "week": "2026-01-19",
+      "meta_share": 0.9,
+      "deck_count": 6
+    },
+    {
+      "week": "2026-01-26",
+      "meta_share": 2.8,
+      "deck_count": 29
+    },
+    {
+      "week": "2026-02-02",
+      "meta_share": 3.0,
+      "deck_count": 34
+    },
+    {
+      "week": "2026-02-09",
+      "meta_share": 4.1,
+      "deck_count": 67
+    },
+    {
+      "week": "2026-02-16",
+      "meta_share": 7.0,
+      "deck_count": 9
+    },
+    {
+      "week": "2026-02-23",
+      "meta_share": 3.2,
+      "deck_count": 28
+    },
+    {
+      "week": "2026-03-02",
+      "meta_share": 1.8,
+      "deck_count": 23
+    }
+  ]
 }

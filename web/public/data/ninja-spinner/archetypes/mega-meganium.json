@@ -2,8 +2,8 @@
   "archetype": "Mega Meganium",
   "slug": "mega-meganium",
   "tier": "Rogue",
-  "meta_share": 0.7,
-  "weighted_share": 0.6,
+  "meta_share": 0.8,
+  "weighted_share": 0.7,
   "deck_count": 6,
   "best_placement": 3,
   "sprite_filenames": [
@@ -1164,11 +1164,79 @@
     }
   ],
   "radar": {
-    "meta_share": 3.5,
-    "weighted_share": 3.0,
+    "meta_share": 3.9,
+    "weighted_share": 3.4,
     "consistency": 51.7,
     "ceiling": 75,
-    "popularity": 6.8,
+    "popularity": 7.9,
     "core_density": 62.5
-  }
+  },
+  "evolution": [
+    {
+      "week": "2026-03-16",
+      "adopted": [
+        {
+          "card": "Max Rod",
+          "from_pct": 40.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Dawn",
+          "from_pct": 40.0,
+          "to_pct": 100.0
+        }
+      ],
+      "dropped": [
+        {
+          "card": "Lana's Aid",
+          "from_pct": 60.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Unfair Stamp",
+          "from_pct": 60.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Special Red Card",
+          "from_pct": 60.0,
+          "to_pct": 0.0
+        }
+      ]
+    }
+  ],
+  "variants": [
+    {
+      "name": "with Lana's Aid",
+      "deck_count": 3,
+      "pct": 50.0
+    },
+    {
+      "name": "Standard",
+      "deck_count": 1,
+      "pct": 16.7
+    },
+    {
+      "name": "with Special Red Card",
+      "deck_count": 1,
+      "pct": 16.7
+    },
+    {
+      "name": "with Budew",
+      "deck_count": 1,
+      "pct": 16.7
+    }
+  ],
+  "weekly_shares": [
+    {
+      "week": "2026-03-09",
+      "meta_share": 0.8,
+      "deck_count": 5
+    },
+    {
+      "week": "2026-03-16",
+      "meta_share": 0.7,
+      "deck_count": 1
+    }
+  ]
 }

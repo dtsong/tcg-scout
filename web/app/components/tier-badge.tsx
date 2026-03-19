@@ -1,12 +1,40 @@
 import { cn } from "@/app/lib/utils";
 import type { Tier } from "@/app/lib/types";
 
-const tierConfig: Record<Tier, { bg: string; border: string; text: string }> = {
-  S: { bg: "bg-tier-s/10", border: "border-l-tier-s", text: "text-tier-s" },
-  A: { bg: "bg-tier-a/10", border: "border-l-tier-a", text: "text-tier-a" },
-  B: { bg: "bg-tier-b/10", border: "border-l-tier-b", text: "text-tier-b" },
-  C: { bg: "bg-tier-c/10", border: "border-l-tier-c", text: "text-tier-c" },
-  Rogue: { bg: "bg-tier-rogue/10", border: "border-l-tier-rogue", text: "text-tier-rogue" },
+const tierConfig: Record<
+  Tier,
+  { bg: string; ring: string; text: string; label: string }
+> = {
+  S: {
+    bg: "bg-gradient-to-br from-amber-400/20 to-amber-600/10",
+    ring: "ring-amber-400/50",
+    text: "text-amber-400",
+    label: "S",
+  },
+  A: {
+    bg: "bg-gradient-to-br from-teal-400/20 to-teal-600/10",
+    ring: "ring-teal-400/50",
+    text: "text-teal-400",
+    label: "A",
+  },
+  B: {
+    bg: "bg-gradient-to-br from-blue-400/20 to-blue-600/10",
+    ring: "ring-blue-400/50",
+    text: "text-blue-400",
+    label: "B",
+  },
+  C: {
+    bg: "bg-gradient-to-br from-slate-400/20 to-slate-500/10",
+    ring: "ring-slate-400/40",
+    text: "text-slate-400",
+    label: "C",
+  },
+  Rogue: {
+    bg: "bg-gradient-to-br from-purple-400/20 to-purple-600/10",
+    ring: "ring-purple-400/40",
+    text: "text-purple-400",
+    label: "R",
+  },
 };
 
 export function TierBadge({ tier, className }: { tier: Tier; className?: string }) {
@@ -14,14 +42,14 @@ export function TierBadge({ tier, className }: { tier: Tier; className?: string 
   return (
     <span
       className={cn(
-        "inline-flex items-center px-2.5 py-0.5 text-xs font-semibold font-display border-l-2 rounded-r-sm",
+        "inline-flex items-center justify-center w-7 h-7 text-xs font-bold font-display rounded-full ring-1",
         config.bg,
-        config.border,
+        config.ring,
         config.text,
         className,
       )}
     >
-      {tier}
+      {config.label}
     </span>
   );
 }

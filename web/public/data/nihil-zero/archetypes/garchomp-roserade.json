@@ -2654,5 +2654,67 @@
     "ceiling": 100,
     "popularity": 47.8,
     "core_density": 16.9
-  }
+  },
+  "evolution": [
+    {
+      "week": "2026-02-16",
+      "adopted": [
+        {
+          "card": "Hilda",
+          "from_pct": 42.0,
+          "to_pct": 85.7
+        }
+      ],
+      "dropped": []
+    }
+  ],
+  "variants": [
+    {
+      "name": "with Battle Cage",
+      "deck_count": 173,
+      "pct": 59.2
+    },
+    {
+      "name": "with Hilda",
+      "deck_count": 54,
+      "pct": 18.5
+    }
+  ],
+  "weekly_shares": [
+    {
+      "week": "2026-01-19",
+      "meta_share": 5.8,
+      "deck_count": 40
+    },
+    {
+      "week": "2026-01-26",
+      "meta_share": 4.2,
+      "deck_count": 44
+    },
+    {
+      "week": "2026-02-02",
+      "meta_share": 3.8,
+      "deck_count": 43
+    },
+    {
+      "week": "2026-02-09",
+      "meta_share": 4.3,
+      "deck_count": 69
+    },
+    {
+      "week": "2026-02-16",
+      "meta_share": 5.5,
+      "deck_count": 7
+    },
+    {
+      "week": "2026-02-23",
+      "meta_share": 3.9,
+      "deck_count": 34
+    },
+    {
+      "week": "2026-03-02",
+      "meta_share": 4.3,
+      "deck_count": 55
+    }
+  ]
 }

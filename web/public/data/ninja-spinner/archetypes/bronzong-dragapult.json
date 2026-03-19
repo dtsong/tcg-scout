@@ -534,11 +534,25 @@
     }
   ],
   "radar": {
-    "meta_share": 0.6,
-    "weighted_share": 0.9,
+    "meta_share": 0.7,
+    "weighted_share": 1.0,
     "consistency": 95.0,
     "ceiling": 90,
-    "popularity": 1.1,
+    "popularity": 1.3,
     "core_density": 100.0
-  }
+  },
+  "evolution": [],
+  "variants": [],
+  "weekly_shares": [
+    {
+      "week": "2026-03-09",
+      "meta_share": 0.2,
+      "deck_count": 1
+    },
+    {
+      "week": "2026-03-16",
+      "meta_share": 0.0,
+      "deck_count": 0
+    }
+  ]
 }

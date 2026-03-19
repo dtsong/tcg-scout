@@ -11,7 +11,11 @@ from pathlib import Path
 
 from analysis.archetype import _COMPOSITE_SPRITE_FILENAMES, SPRITE_ARCHETYPE_MAP
 from analysis.buylist import generate_buylist
+from analysis.card_stats import BASIC_ENERGY_NAMES, compute_card_detail, compute_card_stats
+from analysis.evolution import compute_archetype_evolution, compute_meta_evolution
+from analysis.matchup import compute_matchup_matrix
 from analysis.meta import get_latest_snapshot
+from analysis.synergy import compute_archetype_overlap_matrix, compute_synergy_pairs
 from config import (
     DATASET_END,
     DATASET_START,
@@ -32,26 +36,8 @@ logger = logging.getLogger(__name__)
 # Default output directory (web/public/data/)
 DEFAULT_OUTPUT_DIR = Path(__file__).parent.parent / "web" / "public" / "data"
 
-# Basic energy card names to exclude from all analytics
-BASIC_ENERGY_NAMES = {
-    "Basic Fire Energy",
-    "Basic Water Energy",
-    "Basic Lightning Energy",
-    "Basic Psychic Energy",
-    "Basic Fighting Energy",
-    "Basic Darkness Energy",
-    "Basic Metal Energy",
-    "Basic Grass Energy",
-    # DB stores without "Basic" prefix
-    "Fire Energy",
-    "Water Energy",
-    "Lightning Energy",
-    "Psychic Energy",
-    "Fighting Energy",
-    "Darkness Energy",
-    "Metal Energy",
-    "Grass Energy",
-}
+
+# BASIC_ENERGY_NAMES imported from analysis.card_stats (canonical definition)
 
 
 def _basic_energy_exclusion_sql() -> str:
@@ -321,6 +307,73 @@ def _compute_weighted_shares(conn: sqlite3.Connection, snapshot: dict) -> dict[s
         return {}
 
     return {arch: round(w / total_weight * 100, 2) for arch, w in weighted_sums.items()}
+
+
+def _compute_archetype_trends(conn: sqlite3.Connection) -> dict[str, dict]:
+    """Compute trend direction for each archetype by comparing recent vs earlier periods.
+
+    Returns {archetype_name: {"trend": "up"|"down"|"new"|"stable", "trend_delta": float}}.
+    """
+    rows = conn.execute(
+        """
+        SELECT t.date, p.archetype
+        FROM placements p
+        JOIN tournaments t ON t.id = p.tournament_id
+        ORDER BY t.date
+        """
+    ).fetchall()
+
+    if not rows:
+        return {}
+
+    # Group by ISO week
+    week_counts: dict[str, dict[str, int]] = defaultdict(lambda: defaultdict(int))
+    week_totals: dict[str, int] = defaultdict(int)
+
+    for row in rows:
+        d = date.fromisoformat(row["date"])
+        monday = d - timedelta(days=d.weekday())
+        wk = monday.isoformat()
+        week_counts[wk][row["archetype"]] += 1
+        week_totals[wk] += 1
+
+    weeks = sorted(week_counts.keys())
+    if len(weeks) < 2:
+        return {}
+
+    # Split into recent (last 1/3) vs earlier (first 2/3)
+    split = max(1, len(weeks) * 2 // 3)
+    early_weeks = weeks[:split]
+    recent_weeks = weeks[split:]
+
+    all_archetypes = set()
+    for wk_data in week_counts.values():
+        all_archetypes.update(wk_data.keys())
+
+    early_total = sum(week_totals[w] for w in early_weeks) or 1
+    recent_total = sum(week_totals[w] for w in recent_weeks) or 1
+
+    result = {}
+    for arch in all_archetypes:
+        early_count = sum(week_counts[w].get(arch, 0) for w in early_weeks)
+        recent_count = sum(week_counts[w].get(arch, 0) for w in recent_weeks)
+
+        early_pct = early_count / early_total * 100
+        recent_pct = recent_count / recent_total * 100
+        delta = round(recent_pct - early_pct, 1)
+
+        if early_count == 0 and recent_count > 0:
+            trend = "new"
+        elif delta > 2.0:
+            trend = "up"
+        elif delta < -2.0:
+            trend = "down"
+        else:
+            trend = "stable"
+
+        result[arch] = {"trend": trend, "trend_delta": delta}
+
+    return result
 
 
 def _get_latest_tournament_date(conn: sqlite3.Connection) -> str | None:
@@ -890,10 +943,14 @@ def export_meta(
         "SELECT MIN(date) as earliest, MAX(date) as latest FROM tournaments"
     ).fetchone()
 
+    # Compute trend data: compare recent vs earlier meta shares
+    trend_data = _compute_archetype_trends(conn)
+
     archetypes = []
     for arch in snapshot["archetypes"]:
         name = arch["archetype"]
         ws = weighted_shares.get(name, 0.0)
+        trend_info = trend_data.get(name, {"trend": "stable", "trend_delta": 0.0})
         archetypes.append(
             {
                 "archetype": name,
@@ -904,6 +961,8 @@ def export_meta(
                 "best_placement": arch["best_placement"],
                 "tier": arch["tier"],
                 "sprite_filenames": _get_sprite_filenames(name),
+                "trend": trend_info["trend"],
+                "trend_delta": trend_info["trend_delta"],
             }
         )
 
@@ -1436,6 +1495,15 @@ def export_archetypes(conn: sqlite3.Connection, output_dir: Path) -> None:
             "core_density": round(core_density_score, 1),
         }
 
+        # Evolution events
+        evolution = compute_archetype_evolution(conn, archetype_name)
+
+        # Variant detection: group decklists by distinguishing Pokemon
+        variants = _detect_variants(conn, archetype_name, placement_ids, all_cards)
+
+        # Weekly meta shares for performance trendline
+        weekly_shares = _compute_archetype_weekly_shares(conn, archetype_name)
+
         arch_data = {
             "archetype": archetype_name,
             "slug": slug,
@@ -1449,9 +1517,120 @@ def export_archetypes(conn: sqlite3.Connection, output_dir: Path) -> None:
             "all_cards": all_cards,
             "results": results,
             "radar": radar,
+            "evolution": evolution,
+            "variants": variants,
+            "weekly_shares": weekly_shares,
         }
 
         _write_json(arch_data, arch_dir / f"{slug}.json")
+
+
+def _detect_variants(
+    conn: sqlite3.Connection,
+    archetype_name: str,
+    placement_ids: list[int],
+    all_cards: list[dict],
+) -> list[dict]:
+    """Detect sub-variants within an archetype based on distinguishing Pokemon."""
+    total_decks = len(placement_ids)
+    if total_decks < 4:
+        return []
+
+    # Find Pokemon cards with 15-70% inclusion (variant markers)
+    markers = [
+        c["card_name"]
+        for c in all_cards
+        if c["category"] == "Pokemon" and 15 <= c["inclusion_pct"] <= 70
+    ]
+
+    if not markers:
+        return []
+
+    # For each placement, check which markers are present
+    placeholders = ",".join("?" * len(placement_ids))
+    marker_placeholders = ",".join("?" * len(markers))
+
+    rows = conn.execute(
+        f"""
+        SELECT placement_id, card_name
+        FROM decklist_cards
+        WHERE placement_id IN ({placeholders})
+          AND card_name IN ({marker_placeholders})
+        """,
+        (*placement_ids, *markers),
+    ).fetchall()
+
+    # Group placements by their marker set
+    placement_markers: dict[int, set[str]] = defaultdict(set)
+    for r in rows:
+        placement_markers[r["placement_id"]].add(r["card_name"])
+
+    # Cluster by primary distinguishing card (alphabetically first marker)
+    variant_counts: dict[str, int] = defaultdict(int)
+    for pid in placement_ids:
+        marker_set = placement_markers.get(pid, set())
+        if marker_set:
+            # Use alphabetically first marker as variant key (deterministic tie-breaking)
+            primary = sorted(marker_set)[0]
+            variant_counts[primary] += 1
+        else:
+            variant_counts["Standard"] += 1
+
+    # Only include variants with 10%+ representation
+    variants = []
+    for name, count in sorted(variant_counts.items(), key=lambda x: x[1], reverse=True):
+        pct = round(count / total_decks * 100, 1)
+        if pct >= 10:
+            label = f"with {name}" if name != "Standard" else "Standard"
+            variants.append(
+                {
+                    "name": label,
+                    "deck_count": count,
+                    "pct": pct,
+                }
+            )
+
+    return variants if len(variants) >= 2 else []
+
+
+def _compute_archetype_weekly_shares(conn: sqlite3.Connection, archetype_name: str) -> list[dict]:
+    """Compute weekly meta share for a specific archetype."""
+    rows = conn.execute(
+        """
+        SELECT t.date, p.archetype
+        FROM placements p
+        JOIN tournaments t ON t.id = p.tournament_id
+        ORDER BY t.date
+        """
+    ).fetchall()
+
+    if not rows:
+        return []
+
+    week_arch_count: dict[str, int] = defaultdict(int)
+    week_total: dict[str, int] = defaultdict(int)
+
+    for r in rows:
+        d = date.fromisoformat(r["date"])
+        monday = d - timedelta(days=d.weekday())
+        wk = monday.isoformat()
+        week_total[wk] += 1
+        if r["archetype"] == archetype_name:
+            week_arch_count[wk] += 1
+
+    result = []
+    for wk in sorted(week_total):
+        total = week_total[wk]
+        count = week_arch_count.get(wk, 0)
+        result.append(
+            {
+                "week": wk,
+                "meta_share": round(count / total * 100, 1) if total > 0 else 0,
+                "deck_count": count,
+            }
+        )
+
+    return result
 
 
 def _build_jp_en_lookup(conn: sqlite3.Connection) -> dict[str, str]:
@@ -1698,6 +1877,111 @@ def export_timeline(conn: sqlite3.Connection, output_dir: Path) -> None:
     _write_json(timeline, output_dir / "timeline.json")
 
 
+def export_cards(conn: sqlite3.Connection, output_dir: Path) -> None:
+    """Export card index, individual card detail JSON files, and synergy data."""
+    cards = compute_card_stats(conn)
+    if not cards:
+        logger.warning("No card stats to export")
+        return
+
+    cards_dir = output_dir / "cards"
+    cards_dir.mkdir(parents=True, exist_ok=True)
+
+    # Compute synergy data
+    synergy_data = compute_synergy_pairs(conn)
+    per_card_synergy = synergy_data.get("per_card", {})
+
+    # Export synergy pairs file
+    if synergy_data["pairs"]:
+        _write_json(synergy_data["pairs"], cards_dir / "synergy.json")
+        logger.info("Exported %d synergy pairs", len(synergy_data["pairs"]))
+
+    index_entries = []
+    detail_count = 0
+    min_appearances_for_detail = 3
+
+    for card in cards:
+        name = card["card_name"]
+
+        # For index: compute trend direction from the detail if available
+        trend_direction = "stable"
+        if card["total_appearances"] >= min_appearances_for_detail:
+            detail = compute_card_detail(conn, name)
+            if detail:
+                trend_direction = detail["trend_direction"]
+
+                # Attach synergy partners to detail
+                if name in per_card_synergy:
+                    detail["synergy_partners"] = per_card_synergy[name]
+
+                # Write individual detail file
+                _write_json(detail, cards_dir / f"{detail['card_slug']}.json")
+                detail_count += 1
+
+        index_entries.append(
+            {
+                "card_name": name,
+                "card_slug": card["card_slug"],
+                "card_id": card.get("card_id"),
+                "set_code": card.get("set_code"),
+                "set_number": card.get("set_number"),
+                "image_url": card.get("image_url"),
+                "category": card["category"],
+                "rarity": card.get("rarity"),
+                "usage_pct": card["usage_pct"],
+                "avg_copies": card["avg_copies"],
+                "top_archetype": None,
+                "trend_direction": trend_direction,
+            }
+        )
+
+    # Populate top_archetype from detail data where available
+    for entry in index_entries:
+        if entry["top_archetype"] is None:
+            row = conn.execute(
+                """
+                SELECT p.archetype, COUNT(*) as cnt
+                FROM decklist_cards dc
+                JOIN placements p ON p.id = dc.placement_id
+                WHERE dc.card_name = ?
+                GROUP BY p.archetype
+                ORDER BY cnt DESC
+                LIMIT 1
+                """,
+                (entry["card_name"],),
+            ).fetchone()
+            if row:
+                entry["top_archetype"] = row["archetype"]
+
+    _write_json(index_entries, cards_dir / "index.json")
+    logger.info(
+        "Exported card index (%d cards) and %d detail files", len(index_entries), detail_count
+    )
+
+
+def export_meta_evolution(conn: sqlite3.Connection, output_dir: Path) -> None:
+    """Export format-wide meta evolution — top card movements across all archetypes."""
+    movements = compute_meta_evolution(conn)
+    _write_json(movements, output_dir / "meta-evolution.json")
+    logger.info("Exported %d meta evolution movements", len(movements))
+
+
+def export_matchup_matrix(conn: sqlite3.Connection, output_dir: Path) -> None:
+    """Export archetype performance matchup matrix."""
+    data = compute_matchup_matrix(conn)
+    if data["archetypes"]:
+        _write_json(data, output_dir / "matchup.json")
+        logger.info("Exported matchup matrix (%d archetypes)", len(data["archetypes"]))
+
+
+def export_archetype_overlap(conn: sqlite3.Connection, output_dir: Path) -> None:
+    """Export archetype card overlap matrix for heat map visualization."""
+    data = compute_archetype_overlap_matrix(conn)
+    if data["archetypes"]:
+        _write_json(data, output_dir / "archetype-overlap.json")
+        logger.info("Exported archetype overlap matrix (%d archetypes)", len(data["archetypes"]))
+
+
 def export_all(
     conn: sqlite3.Connection, output_dir: Path | None = None, format_slug: str | None = None
 ) -> Path:
@@ -1721,6 +2005,16 @@ def export_all(
     export_champions_league(conn, out)
     export_images(conn, out)
     export_timeline(conn, out)
+    for export_fn, name in [
+        (export_cards, "cards"),
+        (export_archetype_overlap, "archetype overlap"),
+        (export_matchup_matrix, "matchup matrix"),
+        (export_meta_evolution, "meta evolution"),
+    ]:
+        try:
+            export_fn(conn, out)
+        except (sqlite3.OperationalError, ValueError) as exc:
+            logger.warning("Skipping %s export (data unavailable): %s", name, exc)
     export_windowed(conn, out, format_slug=slug)
 
     logger.info("Export complete")
@@ -1742,14 +2036,12 @@ def export_formats(output_dir: Path | None = None) -> None:
         tournament_count = 0
         deck_count = 0
         if meta_path.exists():
-            import json as _json
-
             try:
-                meta = _json.loads(meta_path.read_text(encoding="utf-8"))
+                meta = json.loads(meta_path.read_text(encoding="utf-8"))
                 tournament_count = meta.get("tournament_count", 0)
                 deck_count = meta.get("deck_count", 0)
-            except Exception:
-                pass
+            except (json.JSONDecodeError, OSError) as exc:
+                logger.warning("Failed to read meta.json for %s: %s", slug, exc)
 
         formats.append(
             {

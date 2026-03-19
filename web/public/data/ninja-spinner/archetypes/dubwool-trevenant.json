@@ -2,7 +2,7 @@
   "archetype": "Dubwool Trevenant",
   "slug": "dubwool-trevenant",
   "tier": "Rogue",
-  "meta_share": 0.3,
+  "meta_share": 0.4,
   "weighted_share": 0.3,
   "deck_count": 3,
   "best_placement": 5,
@@ -814,11 +814,63 @@
     }
   ],
   "radar": {
-    "meta_share": 1.7,
-    "weighted_share": 1.6,
+    "meta_share": 1.9,
+    "weighted_share": 1.7,
     "consistency": 60.0,
     "ceiling": 50,
-    "popularity": 3.4,
+    "popularity": 3.9,
     "core_density": 80.0
-  }
+  },
+  "evolution": [
+    {
+      "week": "2026-03-16",
+      "adopted": [
+        {
+          "card": "Pokégear 3.0",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Special Red Card",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        }
+      ],
+      "dropped": [
+        {
+          "card": "Shaymin",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Patrat",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Surfer",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Hilda",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        }
+      ]
+    }
+  ],
+  "variants": [],
+  "weekly_shares": [
+    {
+      "week": "2026-03-09",
+      "meta_share": 0.3,
+      "deck_count": 2
+    },
+    {
+      "week": "2026-03-16",
+      "meta_share": 0.7,
+      "deck_count": 1
+    }
+  ]
 }

@@ -1,0 +1,167 @@
+{
+  "card_name": "Charcadet",
+  "card_slug": "charcadet",
+  "card_id": null,
+  "set_code": null,
+  "set_number": null,
+  "image_url": null,
+  "category": "Pokemon",
+  "rarity": null,
+  "total_appearances": 10,
+  "usage_pct": 1.3,
+  "avg_copies": 4.0,
+  "unique_archetypes": 3,
+  "weighted_score": 15.9,
+  "win_rate_proxy": 1.59,
+  "top_archetype": "Ceruledge ex",
+  "trend_direction": "stable",
+  "copy_distribution": [
+    {
+      "copies": 1,
+      "count": 1
+    },
+    {
+      "copies": 3,
+      "count": 1
+    },
+    {
+      "copies": 4,
+      "count": 9
+    }
+  ],
+  "archetypes": [
+    {
+      "name": "Ceruledge ex",
+      "slug": "ceruledge-ex",
+      "usage_count": 7,
+      "avg_copies": 3.5,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Ceruledge Meowth",
+      "slug": "ceruledge-meowth",
+      "usage_count": 2,
+      "avg_copies": 4.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Ceruledge Solrock",
+      "slug": "ceruledge-solrock",
+      "usage_count": 1,
+      "avg_copies": 4.0,
+      "tier": "Rogue"
+    }
+  ],
+  "weekly_usage": [
+    {
+      "week": "2026-03-09",
+      "usage_pct": 1.7,
+      "avg_copies": 3.6
+    },
+    {
+      "week": "2026-03-16",
+      "usage_pct": 0.0,
+      "avg_copies": 0
+    }
+  ],
+  "synergy_partners": [
+    {
+      "card_name": "Brilliant Blender",
+      "support": 9,
+      "lift": 77.2,
+      "jaccard": 0.9,
+      "weighted_score": 13.5
+    },
+    {
+      "card_name": "Ceruledge ex",
+      "support": 10,
+      "lift": 77.2,
+      "jaccard": 1.0,
+      "weighted_score": 14.7
+    },
+    {
+      "card_name": "Drilbur",
+      "support": 7,
+      "lift": 77.2,
+      "jaccard": 0.7,
+      "weighted_score": 10.8
+    },
+    {
+      "card_name": "Prism Tower",
+      "support": 5,
+      "lift": 32.167,
+      "jaccard": 0.294,
+      "weighted_score": 6.8
+    },
+    {
+      "card_name": "Carmine",
+      "support": 9,
+      "lift": 11.39,
+      "jaccard": 0.145,
+      "weighted_score": 13.5
+    },
+    {
+      "card_name": "Lunatone",
+      "support": 10,
+      "lift": 8.391,
+      "jaccard": 0.109,
+      "weighted_score": 14.7
+    },
+    {
+      "card_name": "Solrock",
+      "support": 10,
+      "lift": 8.391,
+      "jaccard": 0.109,
+      "weighted_score": 14.7
+    },
+    {
+      "card_name": "Briar",
+      "support": 7,
+      "lift": 8.066,
+      "jaccard": 0.1,
+      "weighted_score": 10.8
+    },
+    {
+      "card_name": "Fighting Gong",
+      "support": 9,
+      "lift": 5.99,
+      "jaccard": 0.077,
+      "weighted_score": 13.5
+    },
+    {
+      "card_name": "Poké Pad",
+      "support": 10,
+      "lift": 1.322,
+      "jaccard": 0.017,
+      "weighted_score": 14.7
+    },
+    {
+      "card_name": "Ultra Ball",
+      "support": 10,
+      "lift": 1.266,
+      "jaccard": 0.016,
+      "weighted_score": 14.7
+    },
+    {
+      "card_name": "Fezandipiti ex",
+      "support": 7,
+      "lift": 1.231,
+      "jaccard": 0.016,
+      "weighted_score": 10.3
+    },
+    {
+      "card_name": "Night Stretcher",
+      "support": 10,
+      "lift": 1.19,
+      "jaccard": 0.015,
+      "weighted_score": 14.7
+    },
+    {
+      "card_name": "Boss's Orders",
+      "support": 10,
+      "lift": 1.154,
+      "jaccard": 0.015,
+      "weighted_score": 14.7
+    }
+  ]
+}

@@ -1,0 +1,200 @@
+"""Archetype evolution tracking — week-over-week decklist changes."""
+
+import sqlite3
+from collections import defaultdict
+from datetime import date, timedelta
+
+from analysis.card_stats import BASIC_ENERGY_NAMES
+
+
+def compute_archetype_evolution(
+    conn: sqlite3.Connection,
+    archetype: str,
+    adoption_threshold_low: float = 20.0,
+    adoption_threshold_high: float = 50.0,
+) -> list[dict]:
+    """Compute weekly card inclusion rate changes for an archetype.
+
+    Tracks card adoption/drop events: cards moving across thresholds.
+
+    Returns a list of weekly evolution events:
+    [
+        {
+            "week": "2026-02-17",
+            "adopted": [{"card": "Card Name", "from_pct": 15.0, "to_pct": 55.0}],
+            "dropped": [{"card": "Card Name", "from_pct": 60.0, "to_pct": 10.0}],
+        },
+        ...
+    ]
+    """
+    energy_names = sorted(BASIC_ENERGY_NAMES)
+    energy_placeholders = ",".join("?" * len(energy_names))
+
+    # Get all placements for this archetype with tournament dates
+    rows = conn.execute(
+        """
+        SELECT p.id AS placement_id, t.date
+        FROM placements p
+        JOIN tournaments t ON t.id = p.tournament_id
+        WHERE p.archetype = ?
+        ORDER BY t.date
+        """,
+        (archetype,),
+    ).fetchall()
+
+    if not rows:
+        return []
+
+    # Group placements by ISO week
+    week_placements: dict[str, list[int]] = defaultdict(list)
+    for r in rows:
+        d = date.fromisoformat(r["date"])
+        monday = d - timedelta(days=d.weekday())
+        week_placements[monday.isoformat()].append(r["placement_id"])
+
+    weeks = sorted(week_placements.keys())
+    if len(weeks) < 2:
+        return []
+
+    # For each week, compute per-card inclusion rates
+    week_card_rates: dict[str, dict[str, float]] = {}
+
+    for wk in weeks:
+        pids = week_placements[wk]
+        total = len(pids)
+        if total == 0:
+            week_card_rates[wk] = {}
+            continue
+
+        placeholders = ",".join("?" * len(pids))
+        card_rows = conn.execute(
+            f"""
+            SELECT dc.card_name, COUNT(DISTINCT dc.placement_id) AS cnt
+            FROM decklist_cards dc
+            WHERE dc.placement_id IN ({placeholders})
+              AND dc.card_name NOT IN ({energy_placeholders})
+            GROUP BY dc.card_name
+            """,
+            (*pids, *energy_names),
+        ).fetchall()
+
+        rates = {}
+        for cr in card_rows:
+            rates[cr["card_name"]] = round(cr["cnt"] / total * 100, 1)
+        week_card_rates[wk] = rates
+
+    # Detect adoption/drop events between consecutive weeks
+    evolution = []
+    for i in range(1, len(weeks)):
+        prev_week = weeks[i - 1]
+        curr_week = weeks[i]
+        prev_rates = week_card_rates[prev_week]
+        curr_rates = week_card_rates[curr_week]
+
+        all_cards = set(prev_rates.keys()) | set(curr_rates.keys())
+
+        adopted = []
+        dropped = []
+
+        for card in all_cards:
+            from_pct = prev_rates.get(card, 0.0)
+            to_pct = curr_rates.get(card, 0.0)
+
+            # Adoption: crossed from below high threshold to at/above high threshold
+            if from_pct < adoption_threshold_high and to_pct >= adoption_threshold_high:
+                adopted.append(
+                    {
+                        "card": card,
+                        "from_pct": from_pct,
+                        "to_pct": to_pct,
+                    }
+                )
+
+            # Drop: crossed from above high threshold to below low threshold
+            if from_pct >= adoption_threshold_high and to_pct < adoption_threshold_low:
+                dropped.append(
+                    {
+                        "card": card,
+                        "from_pct": from_pct,
+                        "to_pct": to_pct,
+                    }
+                )
+
+        # Sort by magnitude of change
+        adopted.sort(key=lambda e: e["to_pct"] - e["from_pct"], reverse=True)
+        dropped.sort(key=lambda e: e["from_pct"] - e["to_pct"], reverse=True)
+
+        if adopted or dropped:
+            evolution.append(
+                {
+                    "week": curr_week,
+                    "adopted": adopted,
+                    "dropped": dropped,
+                }
+            )
+
+    return evolution
+
+
+def compute_meta_evolution(conn: sqlite3.Connection, top_n: int = 5) -> list[dict]:
+    """Compute format-wide "what changed this week" — top card movements across all archetypes.
+
+    Returns a list of the most significant card movements:
+    [
+        {
+            "card": "Card Name",
+            "archetype": "Archetype Name",
+            "direction": "adopted" | "dropped",
+            "from_pct": 15.0,
+            "to_pct": 55.0,
+            "week": "2026-03-03",
+        },
+        ...
+    ]
+    """
+    # Get all archetypes from latest snapshot
+    arch_rows = conn.execute(
+        """
+        SELECT archetype FROM archetype_stats
+        WHERE snapshot_id = (SELECT MAX(id) FROM meta_snapshots)
+          AND tier IN ('S', 'A', 'B')
+        ORDER BY deck_count DESC
+        """
+    ).fetchall()
+
+    if not arch_rows:
+        return []
+
+    all_movements = []
+    for ar in arch_rows:
+        evolution = compute_archetype_evolution(conn, ar["archetype"])
+        for event in evolution:
+            for card in event["adopted"]:
+                all_movements.append(
+                    {
+                        "card": card["card"],
+                        "archetype": ar["archetype"],
+                        "direction": "adopted",
+                        "from_pct": card["from_pct"],
+                        "to_pct": card["to_pct"],
+                        "delta": round(card["to_pct"] - card["from_pct"], 1),
+                        "week": event["week"],
+                    }
+                )
+            for card in event["dropped"]:
+                all_movements.append(
+                    {
+                        "card": card["card"],
+                        "archetype": ar["archetype"],
+                        "direction": "dropped",
+                        "from_pct": card["from_pct"],
+                        "to_pct": card["to_pct"],
+                        "delta": round(card["from_pct"] - card["to_pct"], 1),
+                        "week": event["week"],
+                    }
+                )
+
+    # Sort by recency then magnitude
+    all_movements.sort(key=lambda m: (m["week"], m["delta"]), reverse=True)
+
+    return all_movements[:top_n]

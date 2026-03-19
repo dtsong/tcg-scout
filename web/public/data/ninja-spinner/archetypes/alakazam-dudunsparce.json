@@ -2,8 +2,8 @@
   "archetype": "Alakazam Dudunsparce",
   "slug": "alakazam-dudunsparce",
   "tier": "C",
-  "meta_share": 2.1,
-  "weighted_share": 2.3,
+  "meta_share": 2.3,
+  "weighted_share": 2.5,
   "deck_count": 18,
   "best_placement": 1,
   "sprite_filenames": [
@@ -2592,11 +2592,41 @@
     }
   ],
   "radar": {
-    "meta_share": 10.5,
-    "weighted_share": 11.4,
+    "meta_share": 11.7,
+    "weighted_share": 12.6,
     "consistency": 68.9,
     "ceiling": 100,
-    "popularity": 20.5,
+    "popularity": 23.7,
     "core_density": 41.9
-  }
+  },
+  "evolution": [],
+  "variants": [
+    {
+      "name": "with Fezandipiti ex",
+      "deck_count": 12,
+      "pct": 66.7
+    },
+    {
+      "name": "with Genesect",
+      "deck_count": 3,
+      "pct": 16.7
+    },
+    {
+      "name": "Standard",
+      "deck_count": 2,
+      "pct": 11.1
+    }
+  ],
+  "weekly_shares": [
+    {
+      "week": "2026-03-09",
+      "meta_share": 2.2,
+      "deck_count": 14
+    },
+    {
+      "week": "2026-03-16",
+      "meta_share": 2.9,
+      "deck_count": 4
+    }
+  ]
 }

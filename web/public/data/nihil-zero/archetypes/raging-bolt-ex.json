@@ -2746,5 +2746,190 @@
     "ceiling": 100,
     "popularity": 17.8,
     "core_density": 20.3
-  }
+  },
+  "evolution": [
+    {
+      "week": "2026-02-09",
+      "adopted": [],
+      "dropped": [
+        {
+          "card": "Battle Cage",
+          "from_pct": 50.0,
+          "to_pct": 19.4
+        }
+      ]
+    },
+    {
+      "week": "2026-02-16",
+      "adopted": [
+        {
+          "card": "Noctowl",
+          "from_pct": 2.8,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Hoothoot",
+          "from_pct": 2.8,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Fan Rotom",
+          "from_pct": 2.8,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Poké Pad",
+          "from_pct": 2.8,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Energy Search",
+          "from_pct": 5.6,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Raging Bolt",
+          "from_pct": 36.1,
+          "to_pct": 75.0
+        },
+        {
+          "card": "Lillie's Clefairy ex",
+          "from_pct": 16.7,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Battle Cage",
+          "from_pct": 19.4,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Ciphermaniac's Codebreaking",
+          "from_pct": 33.3,
+          "to_pct": 50.0
+        }
+      ],
+      "dropped": []
+    },
+    {
+      "week": "2026-02-23",
+      "adopted": [],
+      "dropped": [
+        {
+          "card": "Raging Bolt",
+          "from_pct": 75.0,
+          "to_pct": 16.7
+        },
+        {
+          "card": "Noctowl",
+          "from_pct": 50.0,
+          "to_pct": 8.3
+        },
+        {
+          "card": "Hoothoot",
+          "from_pct": 50.0,
+          "to_pct": 8.3
+        },
+        {
+          "card": "Fan Rotom",
+          "from_pct": 50.0,
+          "to_pct": 8.3
+        },
+        {
+          "card": "Poké Pad",
+          "from_pct": 50.0,
+          "to_pct": 8.3
+        },
+        {
+          "card": "Battle Cage",
+          "from_pct": 50.0,
+          "to_pct": 12.5
+        },
+        {
+          "card": "Energy Search",
+          "from_pct": 50.0,
+          "to_pct": 16.7
+        }
+      ]
+    },
+    {
+      "week": "2026-03-02",
+      "adopted": [
+        {
+          "card": "Raging Bolt",
+          "from_pct": 16.7,
+          "to_pct": 53.8
+        },
+        {
+          "card": "Bug Catching Set",
+          "from_pct": 41.7,
+          "to_pct": 51.3
+        }
+      ],
+      "dropped": []
+    }
+  ],
+  "variants": [
+    {
+      "name": "with Bug Catching Set",
+      "deck_count": 33,
+      "pct": 30.3
+    },
+    {
+      "name": "with Battle Cage",
+      "deck_count": 20,
+      "pct": 18.3
+    },
+    {
+      "name": "with Ciphermaniac's Codebreaking",
+      "deck_count": 15,
+      "pct": 13.8
+    },
+    {
+      "name": "with Cyrano",
+      "deck_count": 13,
+      "pct": 11.9
+    },
+    {
+      "name": "with Chien-Pao",
+      "deck_count": 12,
+      "pct": 11.0
+    }
+  ],
+  "weekly_shares": [
+    {
+      "week": "2026-01-19",
+      "meta_share": 0.0,
+      "deck_count": 0
+    },
+    {
+      "week": "2026-01-26",
+      "meta_share": 0.0,
+      "deck_count": 0
+    },
+    {
+      "week": "2026-02-02",
+      "meta_share": 0.5,
+      "deck_count": 6
+    },
+    {
+      "week": "2026-02-09",
+      "meta_share": 2.2,
+      "deck_count": 36
+    },
+    {
+      "week": "2026-02-16",
+      "meta_share": 3.1,
+      "deck_count": 4
+    },
+    {
+      "week": "2026-02-23",
+      "meta_share": 2.7,
+      "deck_count": 24
+    },
+    {
+      "week": "2026-03-02",
+      "meta_share": 3.0,
+      "deck_count": 39
+    }
+  ]
 }

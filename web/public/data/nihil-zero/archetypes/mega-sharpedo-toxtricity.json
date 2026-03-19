@@ -2732,5 +2732,250 @@
     "ceiling": 100,
     "popularity": 6.1,
     "core_density": 20.3
-  }
+  },
+  "evolution": [
+    {
+      "week": "2026-01-26",
+      "adopted": [
+        {
+          "card": "Tool Scrapper",
+          "from_pct": 25.0,
+          "to_pct": 71.4
+        }
+      ],
+      "dropped": [
+        {
+          "card": "Yveltal ex",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Ciphermaniac's Codebreaking",
+          "from_pct": 50.0,
+          "to_pct": 14.3
+        },
+        {
+          "card": "Brock's Scouting",
+          "from_pct": 50.0,
+          "to_pct": 14.3
+        }
+      ]
+    },
+    {
+      "week": "2026-02-02",
+      "adopted": [
+        {
+          "card": "Yveltal",
+          "from_pct": 42.9,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Wally's Compassion",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Energy Switch",
+          "from_pct": 28.6,
+          "to_pct": 75.0
+        },
+        {
+          "card": "Tatsugiri",
+          "from_pct": 42.9,
+          "to_pct": 75.0
+        },
+        {
+          "card": "Unfair Stamp",
+          "from_pct": 28.6,
+          "to_pct": 50.0
+        }
+      ],
+      "dropped": []
+    },
+    {
+      "week": "2026-02-09",
+      "adopted": [
+        {
+          "card": "Team Rocket's Petrel",
+          "from_pct": 25.0,
+          "to_pct": 77.8
+        }
+      ],
+      "dropped": []
+    },
+    {
+      "week": "2026-02-16",
+      "adopted": [
+        {
+          "card": "Lumiose City",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Team Rocket's Venture Bomb",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Carmine",
+          "from_pct": 33.3,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Tatsugiri",
+          "from_pct": 44.4,
+          "to_pct": 100.0
+        }
+      ],
+      "dropped": [
+        {
+          "card": "Judge",
+          "from_pct": 88.9,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Team Rocket's Petrel",
+          "from_pct": 77.8,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Fezandipiti ex",
+          "from_pct": 77.8,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Gravity Mountain",
+          "from_pct": 66.7,
+          "to_pct": 0.0
+        }
+      ]
+    },
+    {
+      "week": "2026-02-23",
+      "adopted": [
+        {
+          "card": "Judge",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Yveltal",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Team Rocket's Watchtower",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Tool Scrapper",
+          "from_pct": 0.0,
+          "to_pct": 66.7
+        }
+      ],
+      "dropped": [
+        {
+          "card": "Lumiose City",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Team Rocket's Venture Bomb",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Carmine",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        }
+      ]
+    },
+    {
+      "week": "2026-03-02",
+      "adopted": [
+        {
+          "card": "Gravity Mountain",
+          "from_pct": 33.3,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Buneary",
+          "from_pct": 33.3,
+          "to_pct": 80.0
+        },
+        {
+          "card": "Mega Lopunny ex",
+          "from_pct": 33.3,
+          "to_pct": 80.0
+        },
+        {
+          "card": "Explorer's Guidance",
+          "from_pct": 33.3,
+          "to_pct": 60.0
+        }
+      ],
+      "dropped": []
+    }
+  ],
+  "variants": [
+    {
+      "name": "with Fezandipiti ex",
+      "deck_count": 15,
+      "pct": 40.5
+    },
+    {
+      "name": "with Brock's Scouting",
+      "deck_count": 7,
+      "pct": 18.9
+    },
+    {
+      "name": "with Buneary",
+      "deck_count": 6,
+      "pct": 16.2
+    },
+    {
+      "name": "with Ciphermaniac's Codebreaking",
+      "deck_count": 4,
+      "pct": 10.8
+    }
+  ],
+  "weekly_shares": [
+    {
+      "week": "2026-01-19",
+      "meta_share": 1.2,
+      "deck_count": 8
+    },
+    {
+      "week": "2026-01-26",
+      "meta_share": 0.7,
+      "deck_count": 7
+    },
+    {
+      "week": "2026-02-02",
+      "meta_share": 0.4,
+      "deck_count": 4
+    },
+    {
+      "week": "2026-02-09",
+      "meta_share": 0.6,
+      "deck_count": 9
+    },
+    {
+      "week": "2026-02-16",
+      "meta_share": 0.8,
+      "deck_count": 1
+    },
+    {
+      "week": "2026-02-23",
+      "meta_share": 0.3,
+      "deck_count": 3
+    },
+    {
+      "week": "2026-03-02",
+      "meta_share": 0.4,
+      "deck_count": 5
+    }
+  ]
 }

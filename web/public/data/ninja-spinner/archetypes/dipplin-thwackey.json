@@ -2,8 +2,8 @@
   "archetype": "Dipplin Thwackey",
   "slug": "dipplin-thwackey",
   "tier": "Rogue",
-  "meta_share": 0.8,
-  "weighted_share": 0.9,
+  "meta_share": 0.9,
+  "weighted_share": 1.0,
   "deck_count": 7,
   "best_placement": 2,
   "sprite_filenames": [
@@ -1342,11 +1342,46 @@
     }
   ],
   "radar": {
-    "meta_share": 4.1,
-    "weighted_share": 4.7,
+    "meta_share": 4.5,
+    "weighted_share": 5.1,
     "consistency": 77.1,
     "ceiling": 90,
-    "popularity": 8.0,
+    "popularity": 9.2,
     "core_density": 42.5
-  }
+  },
+  "evolution": [],
+  "variants": [
+    {
+      "name": "with Lilligant",
+      "deck_count": 2,
+      "pct": 28.6
+    },
+    {
+      "name": "with Brock's Scouting",
+      "deck_count": 2,
+      "pct": 28.6
+    },
+    {
+      "name": "with Budew",
+      "deck_count": 2,
+      "pct": 28.6
+    },
+    {
+      "name": "with Sacred Ash",
+      "deck_count": 1,
+      "pct": 14.3
+    }
+  ],
+  "weekly_shares": [
+    {
+      "week": "2026-03-09",
+      "meta_share": 1.1,
+      "deck_count": 7
+    },
+    {
+      "week": "2026-03-16",
+      "meta_share": 0.0,
+      "deck_count": 0
+    }
+  ]
 }

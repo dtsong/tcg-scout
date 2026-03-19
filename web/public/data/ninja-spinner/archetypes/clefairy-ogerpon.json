@@ -2,8 +2,8 @@
   "archetype": "Clefairy Ogerpon",
   "slug": "clefairy-ogerpon",
   "tier": "C",
-  "meta_share": 2.1,
-  "weighted_share": 2.4,
+  "meta_share": 2.3,
+  "weighted_share": 2.7,
   "deck_count": 18,
   "best_placement": 1,
   "sprite_filenames": [
@@ -2572,11 +2572,74 @@
     }
   ],
   "radar": {
-    "meta_share": 10.5,
-    "weighted_share": 12.2,
+    "meta_share": 11.7,
+    "weighted_share": 13.4,
     "consistency": 69.2,
     "ceiling": 100,
-    "popularity": 20.5,
+    "popularity": 23.7,
     "core_density": 29.8
-  }
+  },
+  "evolution": [
+    {
+      "week": "2026-03-16",
+      "adopted": [
+        {
+          "card": "Enamorus",
+          "from_pct": 6.7,
+          "to_pct": 66.7
+        },
+        {
+          "card": "Black Belt's Training",
+          "from_pct": 20.0,
+          "to_pct": 66.7
+        },
+        {
+          "card": "Chien-Pao",
+          "from_pct": 46.7,
+          "to_pct": 66.7
+        }
+      ],
+      "dropped": [
+        {
+          "card": "Mist Energy",
+          "from_pct": 73.3,
+          "to_pct": 0.0
+        }
+      ]
+    }
+  ],
+  "variants": [
+    {
+      "name": "with Brock's Scouting",
+      "deck_count": 10,
+      "pct": 55.6
+    },
+    {
+      "name": "with Battle Cage",
+      "deck_count": 3,
+      "pct": 16.7
+    },
+    {
+      "name": "with Iron Leaves ex",
+      "deck_count": 2,
+      "pct": 11.1
+    },
+    {
+      "name": "with Meowth ex",
+      "deck_count": 2,
+      "pct": 11.1
+    }
+  ],
+  "weekly_shares": [
+    {
+      "week": "2026-03-09",
+      "meta_share": 2.4,
+      "deck_count": 15
+    },
+    {
+      "week": "2026-03-16",
+      "meta_share": 2.1,
+      "deck_count": 3
+    }
+  ]
 }

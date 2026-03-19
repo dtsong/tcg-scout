@@ -2,8 +2,8 @@
   "archetype": "Mega Kangaskhan Dragapult",
   "slug": "mega-kangaskhan-dragapult",
   "tier": "Rogue",
-  "meta_share": 0.6,
-  "weighted_share": 0.7,
+  "meta_share": 0.7,
+  "weighted_share": 0.8,
   "deck_count": 5,
   "best_placement": 1,
   "sprite_filenames": [
@@ -1146,11 +1146,46 @@
     }
   ],
   "radar": {
-    "meta_share": 2.9,
-    "weighted_share": 3.4,
+    "meta_share": 3.2,
+    "weighted_share": 3.8,
     "consistency": 78.0,
     "ceiling": 100,
-    "popularity": 5.7,
+    "popularity": 6.6,
     "core_density": 67.6
-  }
+  },
+  "evolution": [],
+  "variants": [
+    {
+      "name": "with Shaymin",
+      "deck_count": 2,
+      "pct": 40.0
+    },
+    {
+      "name": "with Psyduck",
+      "deck_count": 1,
+      "pct": 20.0
+    },
+    {
+      "name": "with Dusclops",
+      "deck_count": 1,
+      "pct": 20.0
+    },
+    {
+      "name": "with Maractus",
+      "deck_count": 1,
+      "pct": 20.0
+    }
+  ],
+  "weekly_shares": [
+    {
+      "week": "2026-03-09",
+      "meta_share": 0.6,
+      "deck_count": 4
+    },
+    {
+      "week": "2026-03-16",
+      "meta_share": 0.7,
+      "deck_count": 1
+    }
+  ]
 }

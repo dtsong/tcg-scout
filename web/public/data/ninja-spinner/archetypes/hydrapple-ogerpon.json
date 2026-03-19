@@ -3,7 +3,7 @@
   "slug": "hydrapple-ogerpon",
   "tier": "Rogue",
   "meta_share": 0.5,
-  "weighted_share": 0.4,
+  "weighted_share": 0.5,
   "deck_count": 4,
   "best_placement": 5,
   "sprite_filenames": [
@@ -932,11 +932,46 @@
     }
   ],
   "radar": {
-    "meta_share": 2.4,
-    "weighted_share": 2.1,
+    "meta_share": 2.6,
+    "weighted_share": 2.3,
     "consistency": 62.5,
     "ceiling": 50,
-    "popularity": 4.5,
+    "popularity": 5.3,
     "core_density": 35.0
-  }
+  },
+  "evolution": [],
+  "variants": [
+    {
+      "name": "with Budew",
+      "deck_count": 1,
+      "pct": 25.0
+    },
+    {
+      "name": "with Ciphermaniac's Codebreaking",
+      "deck_count": 1,
+      "pct": 25.0
+    },
+    {
+      "name": "with Meowth ex",
+      "deck_count": 1,
+      "pct": 25.0
+    },
+    {
+      "name": "with Morty's Conviction",
+      "deck_count": 1,
+      "pct": 25.0
+    }
+  ],
+  "weekly_shares": [
+    {
+      "week": "2026-03-09",
+      "meta_share": 0.6,
+      "deck_count": 4
+    },
+    {
+      "week": "2026-03-16",
+      "meta_share": 0.0,
+      "deck_count": 0
+    }
+  ]
 }

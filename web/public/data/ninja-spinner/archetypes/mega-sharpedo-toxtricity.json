@@ -2,8 +2,8 @@
   "archetype": "Mega Sharpedo Toxtricity",
   "slug": "mega-sharpedo-toxtricity",
   "tier": "Rogue",
-  "meta_share": 0.6,
-  "weighted_share": 0.5,
+  "meta_share": 0.7,
+  "weighted_share": 0.6,
   "deck_count": 5,
   "best_placement": 2,
   "sprite_filenames": [
@@ -1117,11 +1117,51 @@
     }
   ],
   "radar": {
-    "meta_share": 2.9,
-    "weighted_share": 2.7,
+    "meta_share": 3.2,
+    "weighted_share": 2.9,
     "consistency": 53.0,
     "ceiling": 90,
-    "popularity": 5.7,
+    "popularity": 6.6,
     "core_density": 50.0
-  }
+  },
+  "evolution": [],
+  "variants": [
+    {
+      "name": "with Academy at Night",
+      "deck_count": 1,
+      "pct": 20.0
+    },
+    {
+      "name": "with Dudunsparce",
+      "deck_count": 1,
+      "pct": 20.0
+    },
+    {
+      "name": "with Explorer's Guidance",
+      "deck_count": 1,
+      "pct": 20.0
+    },
+    {
+      "name": "with Psyduck",
+      "deck_count": 1,
+      "pct": 20.0
+    },
+    {
+      "name": "with Fezandipiti ex",
+      "deck_count": 1,
+      "pct": 20.0
+    }
+  ],
+  "weekly_shares": [
+    {
+      "week": "2026-03-09",
+      "meta_share": 0.8,
+      "deck_count": 5
+    },
+    {
+      "week": "2026-03-16",
+      "meta_share": 0.0,
+      "deck_count": 0
+    }
+  ]
 }

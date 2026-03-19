@@ -2873,5 +2873,72 @@
     "ceiling": 100,
     "popularity": 8.3,
     "core_density": 35.0
-  }
+  },
+  "evolution": [
+    {
+      "week": "2026-02-09",
+      "adopted": [
+        {
+          "card": "Mega Froslass ex",
+          "from_pct": 30.0,
+          "to_pct": 78.6
+        },
+        {
+          "card": "Snorunt",
+          "from_pct": 30.0,
+          "to_pct": 78.6
+        }
+      ],
+      "dropped": []
+    }
+  ],
+  "variants": [
+    {
+      "name": "with Mega Froslass ex",
+      "deck_count": 29,
+      "pct": 56.9
+    },
+    {
+      "name": "Standard",
+      "deck_count": 17,
+      "pct": 33.3
+    }
+  ],
+  "weekly_shares": [
+    {
+      "week": "2026-01-19",
+      "meta_share": 0.0,
+      "deck_count": 0
+    },
+    {
+      "week": "2026-01-26",
+      "meta_share": 0.4,
+      "deck_count": 4
+    },
+    {
+      "week": "2026-02-02",
+      "meta_share": 0.9,
+      "deck_count": 10
+    },
+    {
+      "week": "2026-02-09",
+      "meta_share": 0.9,
+      "deck_count": 14
+    },
+    {
+      "week": "2026-02-16",
+      "meta_share": 0.0,
+      "deck_count": 0
+    },
+    {
+      "week": "2026-02-23",
+      "meta_share": 1.7,
+      "deck_count": 15
+    },
+    {
+      "week": "2026-03-02",
+      "meta_share": 0.6,
+      "deck_count": 8
+    }
+  ]
 }

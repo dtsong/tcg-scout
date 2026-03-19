@@ -2389,5 +2389,175 @@
     "ceiling": 75,
     "popularity": 2.1,
     "core_density": 24.6
-  }
+  },
+  "evolution": [
+    {
+      "week": "2026-02-09",
+      "adopted": [
+        {
+          "card": "Budew",
+          "from_pct": 33.3,
+          "to_pct": 60.0
+        }
+      ],
+      "dropped": []
+    },
+    {
+      "week": "2026-02-23",
+      "adopted": [
+        {
+          "card": "Super Potion",
+          "from_pct": 0.0,
+          "to_pct": 66.7
+        },
+        {
+          "card": "Mega Mawile ex",
+          "from_pct": 40.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Team Rocket's Transceiver",
+          "from_pct": 40.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Empoleon ex",
+          "from_pct": 40.0,
+          "to_pct": 66.7
+        },
+        {
+          "card": "Piplup",
+          "from_pct": 40.0,
+          "to_pct": 66.7
+        },
+        {
+          "card": "Jumbo Ice Cream",
+          "from_pct": 40.0,
+          "to_pct": 66.7
+        },
+        {
+          "card": "Brock's Scouting",
+          "from_pct": 40.0,
+          "to_pct": 66.7
+        }
+      ],
+      "dropped": []
+    },
+    {
+      "week": "2026-03-02",
+      "adopted": [
+        {
+          "card": "Fezandipiti ex",
+          "from_pct": 33.3,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Dialga",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Unfair Stamp",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Psyduck",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Team Rocket's Watchtower",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Harlequin",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Spectrier",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Switch",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Mega Diancie ex",
+          "from_pct": 33.3,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Xerosic's Machinations",
+          "from_pct": 33.3,
+          "to_pct": 50.0
+        }
+      ],
+      "dropped": [
+        {
+          "card": "Judge",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        }
+      ]
+    }
+  ],
+  "variants": [
+    {
+      "name": "with Brock's Scouting",
+      "deck_count": 6,
+      "pct": 46.2
+    },
+    {
+      "name": "with Budew",
+      "deck_count": 3,
+      "pct": 23.1
+    },
+    {
+      "name": "with Battle Cage",
+      "deck_count": 3,
+      "pct": 23.1
+    }
+  ],
+  "weekly_shares": [
+    {
+      "week": "2026-01-19",
+      "meta_share": 0.0,
+      "deck_count": 0
+    },
+    {
+      "week": "2026-01-26",
+      "meta_share": 0.0,
+      "deck_count": 0
+    },
+    {
+      "week": "2026-02-02",
+      "meta_share": 0.3,
+      "deck_count": 3
+    },
+    {
+      "week": "2026-02-09",
+      "meta_share": 0.3,
+      "deck_count": 5
+    },
+    {
+      "week": "2026-02-16",
+      "meta_share": 0.0,
+      "deck_count": 0
+    },
+    {
+      "week": "2026-02-23",
+      "meta_share": 0.3,
+      "deck_count": 3
+    },
+    {
+      "week": "2026-03-02",
+      "meta_share": 0.2,
+      "deck_count": 2
+    }
+  ]
 }

@@ -1,0 +1,177 @@
+{
+  "card_name": "Marnie's Morgrem",
+  "card_slug": "marnie-s-morgrem",
+  "card_id": null,
+  "set_code": null,
+  "set_number": null,
+  "image_url": null,
+  "category": "Trainer",
+  "rarity": null,
+  "total_appearances": 30,
+  "usage_pct": 3.9,
+  "avg_copies": 2.0,
+  "unique_archetypes": 4,
+  "weighted_score": 47.1,
+  "win_rate_proxy": 1.57,
+  "top_archetype": "Grimmsnarl Munkidori",
+  "trend_direction": "stable",
+  "copy_distribution": [
+    {
+      "copies": 2,
+      "count": 29
+    },
+    {
+      "copies": 3,
+      "count": 1
+    }
+  ],
+  "archetypes": [
+    {
+      "name": "Grimmsnarl Munkidori",
+      "slug": "grimmsnarl-munkidori",
+      "usage_count": 22,
+      "avg_copies": 2.0,
+      "tier": "C"
+    },
+    {
+      "name": "Froslass Grimmsnarl",
+      "slug": "froslass-grimmsnarl",
+      "usage_count": 6,
+      "avg_copies": 2.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Mega Froslass Grimmsnarl",
+      "slug": "mega-froslass-grimmsnarl",
+      "usage_count": 1,
+      "avg_copies": 2.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Dusknoir Grimmsnarl",
+      "slug": "dusknoir-grimmsnarl",
+      "usage_count": 1,
+      "avg_copies": 2.0,
+      "tier": "Rogue"
+    }
+  ],
+  "weekly_usage": [
+    {
+      "week": "2026-03-09",
+      "usage_pct": 4.0,
+      "avg_copies": 2.0
+    },
+    {
+      "week": "2026-03-16",
+      "usage_pct": 3.6,
+      "avg_copies": 2.0
+    }
+  ],
+  "synergy_partners": [
+    {
+      "card_name": "Marnie's Grimmsnarl ex",
+      "support": 30,
+      "lift": 25.733,
+      "jaccard": 1.0,
+      "weighted_score": 47.1
+    },
+    {
+      "card_name": "Marnie's Impidimp",
+      "support": 30,
+      "lift": 25.733,
+      "jaccard": 1.0,
+      "weighted_score": 47.1
+    },
+    {
+      "card_name": "Spikemuth Gym",
+      "support": 30,
+      "lift": 25.733,
+      "jaccard": 1.0,
+      "weighted_score": 47.1
+    },
+    {
+      "card_name": "Froslass",
+      "support": 29,
+      "lift": 18.202,
+      "jaccard": 0.69,
+      "weighted_score": 45.9
+    },
+    {
+      "card_name": "Snorunt",
+      "support": 29,
+      "lift": 16.961,
+      "jaccard": 0.644,
+      "weighted_score": 45.9
+    },
+    {
+      "card_name": "Tatsugiri",
+      "support": 26,
+      "lift": 14.545,
+      "jaccard": 0.52,
+      "weighted_score": 39.9
+    },
+    {
+      "card_name": "Yveltal",
+      "support": 11,
+      "lift": 9.436,
+      "jaccard": 0.224,
+      "weighted_score": 19.9
+    },
+    {
+      "card_name": "Secret Box",
+      "support": 17,
+      "lift": 8.578,
+      "jaccard": 0.266,
+      "weighted_score": 27.4
+    },
+    {
+      "card_name": "Team Rocket's Petrel",
+      "support": 29,
+      "lift": 4.416,
+      "jaccard": 0.171,
+      "weighted_score": 45.9
+    },
+    {
+      "card_name": "Air Balloon",
+      "support": 27,
+      "lift": 3.948,
+      "jaccard": 0.151,
+      "weighted_score": 42.9
+    },
+    {
+      "card_name": "Bloodmoon Ursaluna ex",
+      "support": 7,
+      "lift": 3.753,
+      "jaccard": 0.099,
+      "weighted_score": 9.6
+    },
+    {
+      "card_name": "Morty's Conviction",
+      "support": 5,
+      "lift": 3.676,
+      "jaccard": 0.083,
+      "weighted_score": 8.2
+    },
+    {
+      "card_name": "Shaymin",
+      "support": 15,
+      "lift": 3.063,
+      "jaccard": 0.106,
+      "weighted_score": 25.0
+    },
+    {
+      "card_name": "Rare Candy",
+      "support": 30,
+      "lift": 2.924,
+      "jaccard": 0.114,
+      "weighted_score": 47.1
+    },
+    {
+      "card_name": "Munkidori",
+      "support": 30,
+      "lift": 2.747,
+      "jaccard": 0.107,
+      "weighted_score": 47.1
+    }
+  ]
+}

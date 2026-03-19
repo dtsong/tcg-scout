@@ -3,6 +3,9 @@ import { TierBadge } from "@/app/components/tier-badge";
 import { SpriteRow } from "@/app/components/sprite-row";
 import { StatCard } from "@/app/components/stat-card";
 import { ArchetypeRadar } from "@/app/components/archetype-radar";
+import { EvolutionTimeline } from "@/app/components/evolution-timeline";
+import { PerformanceTrendline } from "@/app/components/performance-trendline";
+import { VariantBreakdown } from "@/app/components/variant-breakdown";
 import { formatPct, formatPlacement } from "@/app/lib/utils";
 import type { ArchetypeCard } from "@/app/lib/types";
 import { ResultsTable } from "./results-table";
@@ -44,24 +47,27 @@ function CardRow({ card, isCore }: { card: ArchetypeCard; isCore: boolean }) {
     ? card.avg_copies.toString()
     : card.avg_copies.toFixed(1);
   return (
-    <div
-      className={`flex items-center justify-between py-2 px-3 rounded transition-colors hover:bg-surface-700/40 ${
-        isCore ? "" : "opacity-50"
-      }`}
-    >
-      <div className="flex items-center gap-2.5 min-w-0">
-        <span
-          className="font-mono text-xs w-7 h-6 flex items-center justify-center rounded bg-surface-700 text-slate-300 shrink-0 tabular-nums"
-        >
-          {copies}
-        </span>
-        <span className="text-sm text-slate-200 truncate">{card.card_name}</span>
-      </div>
-      {card.inclusion_pct < 100 && (
-        <span className="text-xs font-mono text-surface-400 ml-3 shrink-0 tabular-nums">
+    <div className="relative py-2 px-3 rounded transition-colors hover:bg-surface-700/40 overflow-hidden">
+      {/* Inclusion progress bar background */}
+      <div
+        className={`absolute inset-y-0 left-0 ${isCore ? "bg-accent/8" : "bg-surface-600/30"}`}
+        style={{ width: `${card.inclusion_pct}%` }}
+      />
+      <div className="relative flex items-center justify-between">
+        <div className="flex items-center gap-2.5 min-w-0">
+          <span className="font-mono text-xs w-7 h-6 flex items-center justify-center rounded bg-surface-700 text-slate-300 shrink-0 tabular-nums">
+            {copies}
+          </span>
+          <span className={`text-sm truncate ${isCore ? "text-slate-200" : "text-slate-400"}`}>
+            {card.card_name}
+          </span>
+        </div>
+        <span className={`text-xs font-mono ml-3 shrink-0 tabular-nums ${
+          card.inclusion_pct >= 80 ? "text-accent/70" : "text-surface-400"
+        }`}>
           {card.inclusion_pct.toFixed(0)}%
         </span>
-      )}
+      </div>
     </div>
   );
 }
@@ -133,6 +139,16 @@ export default async function ArchetypeDetailPage({
         </div>
       </div>
 
+      {/* Performance Trendline */}
+      {arch.weekly_shares && arch.weekly_shares.length >= 3 && (
+        <PerformanceTrendline data={arch.weekly_shares} />
+      )}
+
+      {/* Variants */}
+      {arch.variants && arch.variants.length >= 2 && (
+        <VariantBreakdown variants={arch.variants} deckCount={arch.deck_count} />
+      )}
+
       {/* Radar */}
       {arch.radar && <ArchetypeRadar radar={arch.radar} />}
 
@@ -166,6 +182,11 @@ export default async function ArchetypeDetailPage({
           />
         </div>
       </section>
+
+      {/* List Evolution */}
+      {arch.evolution && arch.evolution.length > 0 && (
+        <EvolutionTimeline evolution={arch.evolution} />
+      )}
 
       {/* Results */}
       {arch.results && arch.results.length > 0 && (
