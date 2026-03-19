@@ -12,7 +12,7 @@ vi.mock("fs", () => ({
 }));
 
 import fs from "fs";
-import { getMeta, getTrends, getArchetypeSlugs, getFormats } from "../data";
+import { getMeta, getTrends, getArchetypeSlugs, getFormats, getCardAnalysis } from "../data";
 
 beforeEach(() => {
   vi.clearAllMocks();
@@ -162,5 +162,14 @@ describe("getArchetypeSlugs", () => {
 
     const result = getArchetypeSlugs("nihil-zero");
     expect(result).toEqual(["charizard-ex"]);
+  });
+});
+
+describe("getCardAnalysis", () => {
+  it("returns null when file does not exist", () => {
+    vi.mocked(fs.readFileSync).mockImplementation(() => {
+      throw Object.assign(new Error("ENOENT"), { code: "ENOENT" });
+    });
+    expect(getCardAnalysis("test-format")).toBeNull();
   });
 });

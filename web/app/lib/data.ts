@@ -17,6 +17,7 @@ import type {
   MetaEvolutionMovement,
   MatchupMatrixData,
   OverlapMatrixData,
+  CardAnalysisData,
 } from "./types";
 
 const DATA_DIR = path.join(process.cwd(), "public", "data");
@@ -157,6 +158,16 @@ export function getArchetypeOverlap(format: string): OverlapMatrixData | null {
   } catch (err) {
     if (isFileNotFound(err)) return null;
     console.error(`Failed to load archetype overlap for ${format}:`, err);
+    return null;
+  }
+}
+
+export function getCardAnalysis(format: string): CardAnalysisData | null {
+  try {
+    return readJson(`${format}/card-analysis.json`);
+  } catch (err) {
+    if (isFileNotFound(err)) return null;
+    console.error(`Failed to load card analysis for ${format}:`, err);
     return null;
   }
 }

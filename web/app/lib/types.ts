@@ -134,6 +134,32 @@ export interface TopPerformerCard extends ArchetypeCard {
   delta_vs_field: number;
 }
 
+export interface CardAnalysisArchetype {
+  archetype: string;
+  slug: string;
+  tier: Tier;
+  delta_vs_field: number;
+  top4_inclusion_pct: number;
+  field_inclusion_pct: number;
+  avg_copies: number;
+  top4_sample_size: number;
+}
+
+export interface CardAnalysisEntry {
+  card_name: string;
+  category: "Pokemon" | "Trainer" | "Energy";
+  archetypes: CardAnalysisArchetype[];
+  avg_delta: number;
+  archetype_count: number;
+  max_delta: number;
+  best_archetype: string;
+}
+
+export interface CardAnalysisData {
+  cards: CardAnalysisEntry[];
+  generated_at: string;
+}
+
 export interface ArchetypeDetail {
   archetype: string;
   slug: string;
