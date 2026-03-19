@@ -2704,5 +2704,156 @@
     "ceiling": 100,
     "popularity": 4.1,
     "core_density": 36.2
-  }
+  },
+  "evolution": [
+    {
+      "week": "2026-02-02",
+      "adopted": [
+        {
+          "card": "Judge",
+          "from_pct": 22.2,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Mega Froslass ex",
+          "from_pct": 11.1,
+          "to_pct": 66.7
+        },
+        {
+          "card": "Snorunt",
+          "from_pct": 11.1,
+          "to_pct": 66.7
+        },
+        {
+          "card": "Surfer",
+          "from_pct": 22.2,
+          "to_pct": 66.7
+        }
+      ],
+      "dropped": []
+    },
+    {
+      "week": "2026-02-16",
+      "adopted": [
+        {
+          "card": "Switch",
+          "from_pct": 40.0,
+          "to_pct": 100.0
+        }
+      ],
+      "dropped": []
+    },
+    {
+      "week": "2026-02-23",
+      "adopted": [
+        {
+          "card": "Team Rocket's Petrel",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Fezandipiti ex",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Judge",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Dawn",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        }
+      ],
+      "dropped": []
+    },
+    {
+      "week": "2026-03-02",
+      "adopted": [
+        {
+          "card": "Air Balloon",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Shaymin",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Briar",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        }
+      ],
+      "dropped": [
+        {
+          "card": "Team Rocket's Petrel",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Judge",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Dawn",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        }
+      ]
+    }
+  ],
+  "variants": [
+    {
+      "name": "with Fezandipiti ex",
+      "deck_count": 17,
+      "pct": 68.0
+    },
+    {
+      "name": "with Latias ex",
+      "deck_count": 6,
+      "pct": 24.0
+    }
+  ],
+  "weekly_shares": [
+    {
+      "week": "2026-01-19",
+      "meta_share": 0.6,
+      "deck_count": 4
+    },
+    {
+      "week": "2026-01-26",
+      "meta_share": 0.9,
+      "deck_count": 9
+    },
+    {
+      "week": "2026-02-02",
+      "meta_share": 0.3,
+      "deck_count": 3
+    },
+    {
+      "week": "2026-02-09",
+      "meta_share": 0.3,
+      "deck_count": 5
+    },
+    {
+      "week": "2026-02-16",
+      "meta_share": 0.8,
+      "deck_count": 1
+    },
+    {
+      "week": "2026-02-23",
+      "meta_share": 0.1,
+      "deck_count": 1
+    },
+    {
+      "week": "2026-03-02",
+      "meta_share": 0.2,
+      "deck_count": 2
+    }
+  ]
 }

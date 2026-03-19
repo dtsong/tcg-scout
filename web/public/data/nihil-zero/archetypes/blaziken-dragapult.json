@@ -3132,5 +3132,120 @@
     "ceiling": 100,
     "popularity": 42.4,
     "core_density": 24.1
-  }
+  },
+  "evolution": [
+    {
+      "week": "2026-01-26",
+      "adopted": [
+        {
+          "card": "Crispin",
+          "from_pct": 20.0,
+          "to_pct": 88.9
+        },
+        {
+          "card": "Jamming Tower",
+          "from_pct": 0.0,
+          "to_pct": 61.1
+        },
+        {
+          "card": "Meowth ex",
+          "from_pct": 40.0,
+          "to_pct": 83.3
+        }
+      ],
+      "dropped": []
+    },
+    {
+      "week": "2026-02-09",
+      "adopted": [
+        {
+          "card": "Psyduck",
+          "from_pct": 43.9,
+          "to_pct": 71.4
+        }
+      ],
+      "dropped": []
+    },
+    {
+      "week": "2026-02-23",
+      "adopted": [
+        {
+          "card": "Team Rocket's Watchtower",
+          "from_pct": 28.6,
+          "to_pct": 50.0
+        }
+      ],
+      "dropped": []
+    },
+    {
+      "week": "2026-03-02",
+      "adopted": [
+        {
+          "card": "Shaymin",
+          "from_pct": 39.6,
+          "to_pct": 55.7
+        }
+      ],
+      "dropped": []
+    }
+  ],
+  "variants": [
+    {
+      "name": "with Psyduck",
+      "deck_count": 106,
+      "pct": 40.9
+    },
+    {
+      "name": "with Hilda",
+      "deck_count": 43,
+      "pct": 16.6
+    },
+    {
+      "name": "with Area Zero Underdepths",
+      "deck_count": 43,
+      "pct": 16.6
+    },
+    {
+      "name": "Standard",
+      "deck_count": 28,
+      "pct": 10.8
+    }
+  ],
+  "weekly_shares": [
+    {
+      "week": "2026-01-19",
+      "meta_share": 0.7,
+      "deck_count": 5
+    },
+    {
+      "week": "2026-01-26",
+      "meta_share": 1.7,
+      "deck_count": 18
+    },
+    {
+      "week": "2026-02-02",
+      "meta_share": 3.6,
+      "deck_count": 41
+    },
+    {
+      "week": "2026-02-09",
+      "meta_share": 4.3,
+      "deck_count": 70
+    },
+    {
+      "week": "2026-02-16",
+      "meta_share": 5.5,
+      "deck_count": 7
+    },
+    {
+      "week": "2026-02-23",
+      "meta_share": 5.5,
+      "deck_count": 48
+    },
+    {
+      "week": "2026-03-02",
+      "meta_share": 5.5,
+      "deck_count": 70
+    }
+  ]
 }

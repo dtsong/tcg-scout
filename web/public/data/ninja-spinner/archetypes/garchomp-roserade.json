@@ -2,8 +2,8 @@
   "archetype": "Garchomp Roserade",
   "slug": "garchomp-roserade",
   "tier": "B",
-  "meta_share": 3.0,
-  "weighted_share": 2.5,
+  "meta_share": 3.4,
+  "weighted_share": 2.8,
   "deck_count": 26,
   "best_placement": 3,
   "sprite_filenames": [
@@ -2461,11 +2461,36 @@
     }
   ],
   "radar": {
-    "meta_share": 15.2,
-    "weighted_share": 12.6,
+    "meta_share": 16.9,
+    "weighted_share": 13.9,
     "consistency": 51.2,
     "ceiling": 75,
-    "popularity": 29.5,
+    "popularity": 34.2,
     "core_density": 28.6
-  }
+  },
+  "evolution": [],
+  "variants": [
+    {
+      "name": "with Battle Cage",
+      "deck_count": 15,
+      "pct": 57.7
+    },
+    {
+      "name": "with Psyduck",
+      "deck_count": 3,
+      "pct": 11.5
+    }
+  ],
+  "weekly_shares": [
+    {
+      "week": "2026-03-09",
+      "meta_share": 4.1,
+      "deck_count": 26
+    },
+    {
+      "week": "2026-03-16",
+      "meta_share": 0.0,
+      "deck_count": 0
+    }
+  ]
 }

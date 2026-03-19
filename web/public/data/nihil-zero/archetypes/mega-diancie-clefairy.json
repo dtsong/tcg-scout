@@ -904,5 +904,205 @@
     "ceiling": 90,
     "popularity": 0.8,
     "core_density": 37.1
-  }
+  },
+  "evolution": [
+    {
+      "week": "2026-02-23",
+      "adopted": [
+        {
+          "card": "Night Stretcher",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Mega Absol ex",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Unfair Stamp",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Colress's Tenacity",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Carmine",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        }
+      ],
+      "dropped": [
+        {
+          "card": "Judge",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Iris's Fighting Spirit",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Psyduck",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        }
+      ]
+    },
+    {
+      "week": "2026-03-02",
+      "adopted": [
+        {
+          "card": "Frillish",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Mega Kangaskhan ex",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Team Rocket's Petrel",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Energy Search",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Fezandipiti ex",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Secret Box",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Lillie's Pearl",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Bronzor",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Mega Signal",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Poké Pad",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Bronzong",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Energy Switch",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Harlequin",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        }
+      ],
+      "dropped": [
+        {
+          "card": "Hero's Cape",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Colress's Tenacity",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Carmine",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        }
+      ]
+    }
+  ],
+  "variants": [
+    {
+      "name": "with Fezandipiti ex",
+      "deck_count": 1,
+      "pct": 20.0
+    },
+    {
+      "name": "with Bronzong",
+      "deck_count": 1,
+      "pct": 20.0
+    },
+    {
+      "name": "with Mega Absol ex",
+      "deck_count": 1,
+      "pct": 20.0
+    },
+    {
+      "name": "with Colress's Tenacity",
+      "deck_count": 1,
+      "pct": 20.0
+    },
+    {
+      "name": "with Psyduck",
+      "deck_count": 1,
+      "pct": 20.0
+    }
+  ],
+  "weekly_shares": [
+    {
+      "week": "2026-01-19",
+      "meta_share": 0.0,
+      "deck_count": 0
+    },
+    {
+      "week": "2026-01-26",
+      "meta_share": 0.0,
+      "deck_count": 0
+    },
+    {
+      "week": "2026-02-02",
+      "meta_share": 0.0,
+      "deck_count": 0
+    },
+    {
+      "week": "2026-02-09",
+      "meta_share": 0.1,
+      "deck_count": 1
+    },
+    {
+      "week": "2026-02-16",
+      "meta_share": 0.0,
+      "deck_count": 0
+    },
+    {
+      "week": "2026-02-23",
+      "meta_share": 0.2,
+      "deck_count": 2
+    },
+    {
+      "week": "2026-03-02",
+      "meta_share": 0.2,
+      "deck_count": 2
+    }
+  ]
 }

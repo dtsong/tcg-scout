@@ -2,8 +2,8 @@
   "archetype": "Mega Slowbro Slowking",
   "slug": "mega-slowbro-slowking",
   "tier": "Rogue",
-  "meta_share": 0.3,
-  "weighted_share": 0.5,
+  "meta_share": 0.4,
+  "weighted_share": 0.6,
   "deck_count": 3,
   "best_placement": 1,
   "sprite_filenames": [
@@ -800,11 +800,25 @@
     }
   ],
   "radar": {
-    "meta_share": 1.7,
-    "weighted_share": 2.6,
+    "meta_share": 1.9,
+    "weighted_share": 2.8,
     "consistency": 93.3,
     "ceiling": 100,
-    "popularity": 3.4,
+    "popularity": 3.9,
     "core_density": 62.5
-  }
+  },
+  "evolution": [],
+  "variants": [],
+  "weekly_shares": [
+    {
+      "week": "2026-03-09",
+      "meta_share": 0.5,
+      "deck_count": 3
+    },
+    {
+      "week": "2026-03-16",
+      "meta_share": 0.0,
+      "deck_count": 0
+    }
+  ]
 }

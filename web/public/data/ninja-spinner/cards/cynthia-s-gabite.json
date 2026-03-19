@@ -1,0 +1,156 @@
+{
+  "card_name": "Cynthia's Gabite",
+  "card_slug": "cynthia-s-gabite",
+  "card_id": null,
+  "set_code": null,
+  "set_number": null,
+  "image_url": null,
+  "category": "Trainer",
+  "rarity": null,
+  "total_appearances": 25,
+  "usage_pct": 3.2,
+  "avg_copies": 4.0,
+  "unique_archetypes": 1,
+  "weighted_score": 33.3,
+  "win_rate_proxy": 1.33,
+  "top_archetype": "Garchomp Roserade",
+  "trend_direction": "declining",
+  "copy_distribution": [
+    {
+      "copies": 3,
+      "count": 1
+    },
+    {
+      "copies": 4,
+      "count": 24
+    }
+  ],
+  "archetypes": [
+    {
+      "name": "Garchomp Roserade",
+      "slug": "garchomp-roserade",
+      "usage_count": 25,
+      "avg_copies": 4.0,
+      "tier": "B"
+    }
+  ],
+  "weekly_usage": [
+    {
+      "week": "2026-03-09",
+      "usage_pct": 4.0,
+      "avg_copies": 4.0
+    },
+    {
+      "week": "2026-03-16",
+      "usage_pct": 0.0,
+      "avg_copies": 0
+    }
+  ],
+  "synergy_partners": [
+    {
+      "card_name": "Cynthia's Garchomp ex",
+      "support": 25,
+      "lift": 30.88,
+      "jaccard": 1.0,
+      "weighted_score": 33.3
+    },
+    {
+      "card_name": "Cynthia's Gible",
+      "support": 25,
+      "lift": 30.88,
+      "jaccard": 1.0,
+      "weighted_score": 33.3
+    },
+    {
+      "card_name": "Cynthia's Power Weight",
+      "support": 25,
+      "lift": 30.88,
+      "jaccard": 1.0,
+      "weighted_score": 33.3
+    },
+    {
+      "card_name": "Cynthia's Roselia",
+      "support": 25,
+      "lift": 30.88,
+      "jaccard": 1.0,
+      "weighted_score": 33.3
+    },
+    {
+      "card_name": "Cynthia's Roserade",
+      "support": 25,
+      "lift": 30.88,
+      "jaccard": 1.0,
+      "weighted_score": 33.3
+    },
+    {
+      "card_name": "Cynthia's Spiritomb",
+      "support": 24,
+      "lift": 30.88,
+      "jaccard": 0.96,
+      "weighted_score": 32.1
+    },
+    {
+      "card_name": "Rock Fighting Energy",
+      "support": 23,
+      "lift": 12.913,
+      "jaccard": 0.404,
+      "weighted_score": 30.9
+    },
+    {
+      "card_name": "Surfer",
+      "support": 9,
+      "lift": 10.293,
+      "jaccard": 0.209,
+      "weighted_score": 12.4
+    },
+    {
+      "card_name": "Neo Upper Energy",
+      "support": 10,
+      "lift": 7.918,
+      "jaccard": 0.185,
+      "weighted_score": 13.9
+    },
+    {
+      "card_name": "Premium Power Pro",
+      "support": 17,
+      "lift": 6.402,
+      "jaccard": 0.189,
+      "weighted_score": 22.9
+    },
+    {
+      "card_name": "Fighting Gong",
+      "support": 24,
+      "lift": 6.389,
+      "jaccard": 0.205,
+      "weighted_score": 32.1
+    },
+    {
+      "card_name": "Battle Cage",
+      "support": 15,
+      "lift": 5.386,
+      "jaccard": 0.156,
+      "weighted_score": 20.2
+    },
+    {
+      "card_name": "Hilda",
+      "support": 19,
+      "lift": 4.346,
+      "jaccard": 0.135,
+      "weighted_score": 25.0
+    },
+    {
+      "card_name": "Judge",
+      "support": 16,
+      "lift": 3.208,
+      "jaccard": 0.098,
+      "weighted_score": 22.2
+    },
+    {
+      "card_name": "Team Rocket's Petrel",
+      "support": 12,
+      "lift": 2.193,
+      "jaccard": 0.066,
+      "weighted_score": 15.8
+    }
+  ]
+}

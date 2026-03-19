@@ -2867,5 +2867,170 @@
     "ceiling": 100,
     "popularity": 35.0,
     "core_density": 8.8
-  }
+  },
+  "evolution": [
+    {
+      "week": "2026-01-26",
+      "adopted": [
+        {
+          "card": "Pokégear 3.0",
+          "from_pct": 0.0,
+          "to_pct": 65.2
+        },
+        {
+          "card": "Wally's Compassion",
+          "from_pct": 41.2,
+          "to_pct": 91.3
+        },
+        {
+          "card": "Hero's Cape",
+          "from_pct": 5.9,
+          "to_pct": 50.0
+        }
+      ],
+      "dropped": []
+    },
+    {
+      "week": "2026-02-09",
+      "adopted": [
+        {
+          "card": "Meowth ex",
+          "from_pct": 38.5,
+          "to_pct": 56.8
+        },
+        {
+          "card": "Fezandipiti ex",
+          "from_pct": 34.6,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Night Stretcher",
+          "from_pct": 46.2,
+          "to_pct": 50.0
+        }
+      ],
+      "dropped": []
+    },
+    {
+      "week": "2026-02-16",
+      "adopted": [
+        {
+          "card": "Crustle",
+          "from_pct": 9.1,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Dwebble",
+          "from_pct": 9.1,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Dawn",
+          "from_pct": 36.4,
+          "to_pct": 66.7
+        },
+        {
+          "card": "Hero's Cape",
+          "from_pct": 34.1,
+          "to_pct": 50.0
+        }
+      ],
+      "dropped": []
+    },
+    {
+      "week": "2026-02-23",
+      "adopted": [
+        {
+          "card": "Bayleef",
+          "from_pct": 16.7,
+          "to_pct": 58.3
+        },
+        {
+          "card": "Chikorita",
+          "from_pct": 16.7,
+          "to_pct": 58.3
+        },
+        {
+          "card": "Meganium",
+          "from_pct": 16.7,
+          "to_pct": 58.3
+        },
+        {
+          "card": "Meowth ex",
+          "from_pct": 33.3,
+          "to_pct": 66.7
+        },
+        {
+          "card": "Fezandipiti ex",
+          "from_pct": 33.3,
+          "to_pct": 58.3
+        },
+        {
+          "card": "Poké Pad",
+          "from_pct": 33.3,
+          "to_pct": 50.0
+        }
+      ],
+      "dropped": []
+    }
+  ],
+  "variants": [
+    {
+      "name": "with Bayleef",
+      "deck_count": 100,
+      "pct": 46.7
+    },
+    {
+      "name": "with Pokégear 3.0",
+      "deck_count": 57,
+      "pct": 26.6
+    },
+    {
+      "name": "with Crustle",
+      "deck_count": 22,
+      "pct": 10.3
+    },
+    {
+      "name": "with Meowth ex",
+      "deck_count": 22,
+      "pct": 10.3
+    }
+  ],
+  "weekly_shares": [
+    {
+      "week": "2026-01-19",
+      "meta_share": 2.5,
+      "deck_count": 17
+    },
+    {
+      "week": "2026-01-26",
+      "meta_share": 4.4,
+      "deck_count": 46
+    },
+    {
+      "week": "2026-02-02",
+      "meta_share": 4.6,
+      "deck_count": 52
+    },
+    {
+      "week": "2026-02-09",
+      "meta_share": 2.7,
+      "deck_count": 44
+    },
+    {
+      "week": "2026-02-16",
+      "meta_share": 4.7,
+      "deck_count": 6
+    },
+    {
+      "week": "2026-02-23",
+      "meta_share": 2.7,
+      "deck_count": 24
+    },
+    {
+      "week": "2026-03-02",
+      "meta_share": 2.0,
+      "deck_count": 25
+    }
+  ]
 }

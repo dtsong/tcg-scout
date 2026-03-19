@@ -601,5 +601,112 @@
     "ceiling": 25,
     "popularity": 0.3,
     "core_density": 58.6
-  }
+  },
+  "evolution": [
+    {
+      "week": "2026-03-02",
+      "adopted": [
+        {
+          "card": "Iono's Kilowattrel",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Budew",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Iono's Wattrel",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Secret Box",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Stunfisk",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        }
+      ],
+      "dropped": [
+        {
+          "card": "Tapu Koko",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Zeraora",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Explorer's Guidance",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Maximum Belt",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Fezandipiti ex",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Zekrom ex",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Tool Scrapper",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        }
+      ]
+    }
+  ],
+  "variants": [],
+  "weekly_shares": [
+    {
+      "week": "2026-01-19",
+      "meta_share": 0.0,
+      "deck_count": 0
+    },
+    {
+      "week": "2026-01-26",
+      "meta_share": 0.0,
+      "deck_count": 0
+    },
+    {
+      "week": "2026-02-02",
+      "meta_share": 0.1,
+      "deck_count": 1
+    },
+    {
+      "week": "2026-02-09",
+      "meta_share": 0.0,
+      "deck_count": 0
+    },
+    {
+      "week": "2026-02-16",
+      "meta_share": 0.0,
+      "deck_count": 0
+    },
+    {
+      "week": "2026-02-23",
+      "meta_share": 0.0,
+      "deck_count": 0
+    },
+    {
+      "week": "2026-03-02",
+      "meta_share": 0.1,
+      "deck_count": 1
+    }
+  ]
 }

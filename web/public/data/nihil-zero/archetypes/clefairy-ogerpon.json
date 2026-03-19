@@ -2578,5 +2578,171 @@
     "ceiling": 100,
     "popularity": 10.8,
     "core_density": 16.9
-  }
+  },
+  "evolution": [
+    {
+      "week": "2026-02-02",
+      "adopted": [
+        {
+          "card": "Terapagos ex",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Switch",
+          "from_pct": 25.0,
+          "to_pct": 50.0
+        }
+      ],
+      "dropped": []
+    },
+    {
+      "week": "2026-02-09",
+      "adopted": [],
+      "dropped": [
+        {
+          "card": "Lively Stadium",
+          "from_pct": 75.0,
+          "to_pct": 18.2
+        },
+        {
+          "card": "Terapagos ex",
+          "from_pct": 50.0,
+          "to_pct": 18.2
+        },
+        {
+          "card": "Switch",
+          "from_pct": 50.0,
+          "to_pct": 18.2
+        }
+      ]
+    },
+    {
+      "week": "2026-02-23",
+      "adopted": [
+        {
+          "card": "Ciphermaniac's Codebreaking",
+          "from_pct": 0.0,
+          "to_pct": 85.7
+        },
+        {
+          "card": "Unfair Stamp",
+          "from_pct": 27.3,
+          "to_pct": 92.9
+        },
+        {
+          "card": "Mist Energy",
+          "from_pct": 0.0,
+          "to_pct": 57.1
+        },
+        {
+          "card": "Psyduck",
+          "from_pct": 18.2,
+          "to_pct": 71.4
+        },
+        {
+          "card": "Cyrano",
+          "from_pct": 9.1,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Chien-Pao",
+          "from_pct": 9.1,
+          "to_pct": 50.0
+        }
+      ],
+      "dropped": [
+        {
+          "card": "Tera Orb",
+          "from_pct": 90.9,
+          "to_pct": 14.3
+        },
+        {
+          "card": "Prime Catcher",
+          "from_pct": 54.5,
+          "to_pct": 7.1
+        }
+      ]
+    },
+    {
+      "week": "2026-03-02",
+      "adopted": [
+        {
+          "card": "Wellspring Mask Ogerpon ex",
+          "from_pct": 21.4,
+          "to_pct": 60.6
+        },
+        {
+          "card": "Pokégear 3.0",
+          "from_pct": 14.3,
+          "to_pct": 51.5
+        },
+        {
+          "card": "Meowth ex",
+          "from_pct": 28.6,
+          "to_pct": 54.5
+        }
+      ],
+      "dropped": []
+    }
+  ],
+  "variants": [
+    {
+      "name": "with Bloodmoon Ursaluna ex",
+      "deck_count": 17,
+      "pct": 25.8
+    },
+    {
+      "name": "with Ciphermaniac's Codebreaking",
+      "deck_count": 16,
+      "pct": 24.2
+    },
+    {
+      "name": "with Brock's Scouting",
+      "deck_count": 14,
+      "pct": 21.2
+    },
+    {
+      "name": "with Chien-Pao",
+      "deck_count": 9,
+      "pct": 13.6
+    }
+  ],
+  "weekly_shares": [
+    {
+      "week": "2026-01-19",
+      "meta_share": 0.0,
+      "deck_count": 0
+    },
+    {
+      "week": "2026-01-26",
+      "meta_share": 0.4,
+      "deck_count": 4
+    },
+    {
+      "week": "2026-02-02",
+      "meta_share": 0.4,
+      "deck_count": 4
+    },
+    {
+      "week": "2026-02-09",
+      "meta_share": 0.7,
+      "deck_count": 11
+    },
+    {
+      "week": "2026-02-16",
+      "meta_share": 0.0,
+      "deck_count": 0
+    },
+    {
+      "week": "2026-02-23",
+      "meta_share": 1.6,
+      "deck_count": 14
+    },
+    {
+      "week": "2026-03-02",
+      "meta_share": 2.6,
+      "deck_count": 33
+    }
+  ]
 }

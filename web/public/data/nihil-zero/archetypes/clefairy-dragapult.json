@@ -908,5 +908,165 @@
     "ceiling": 100,
     "popularity": 0.7,
     "core_density": 53.1
-  }
+  },
+  "evolution": [
+    {
+      "week": "2026-02-23",
+      "adopted": [
+        {
+          "card": "Risky Ruins",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Bloodmoon Ursaluna ex",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Team Rocket's Petrel",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Psyduck",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Team Rocket's Watchtower",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Shaymin",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Xerosic's Machinations",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        }
+      ],
+      "dropped": [
+        {
+          "card": "Rare Candy",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Duskull",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Dusknoir",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Dusclops",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        }
+      ]
+    },
+    {
+      "week": "2026-03-02",
+      "adopted": [
+        {
+          "card": "Moltres",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        }
+      ],
+      "dropped": [
+        {
+          "card": "Risky Ruins",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Team Rocket's Petrel",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Dawn",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Team Rocket's Watchtower",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Shaymin",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Xerosic's Machinations",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        }
+      ]
+    }
+  ],
+  "variants": [
+    {
+      "name": "with Bloodmoon Ursaluna ex",
+      "deck_count": 2,
+      "pct": 50.0
+    },
+    {
+      "name": "with Shaymin",
+      "deck_count": 1,
+      "pct": 25.0
+    },
+    {
+      "name": "with Dusclops",
+      "deck_count": 1,
+      "pct": 25.0
+    }
+  ],
+  "weekly_shares": [
+    {
+      "week": "2026-01-19",
+      "meta_share": 0.0,
+      "deck_count": 0
+    },
+    {
+      "week": "2026-01-26",
+      "meta_share": 0.0,
+      "deck_count": 0
+    },
+    {
+      "week": "2026-02-02",
+      "meta_share": 0.1,
+      "deck_count": 1
+    },
+    {
+      "week": "2026-02-09",
+      "meta_share": 0.0,
+      "deck_count": 0
+    },
+    {
+      "week": "2026-02-16",
+      "meta_share": 0.0,
+      "deck_count": 0
+    },
+    {
+      "week": "2026-02-23",
+      "meta_share": 0.2,
+      "deck_count": 2
+    },
+    {
+      "week": "2026-03-02",
+      "meta_share": 0.1,
+      "deck_count": 1
+    }
+  ]
 }

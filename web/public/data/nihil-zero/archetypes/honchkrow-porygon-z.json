@@ -2273,5 +2273,88 @@
     "ceiling": 100,
     "popularity": 26.7,
     "core_density": 34.7
-  }
+  },
+  "evolution": [
+    {
+      "week": "2026-02-02",
+      "adopted": [
+        {
+          "card": "Tool Scrapper",
+          "from_pct": 38.9,
+          "to_pct": 58.5
+        }
+      ],
+      "dropped": []
+    },
+    {
+      "week": "2026-03-02",
+      "adopted": [
+        {
+          "card": "Roto-Stick",
+          "from_pct": 45.5,
+          "to_pct": 57.1
+        }
+      ],
+      "dropped": []
+    }
+  ],
+  "variants": [
+    {
+      "name": "Standard",
+      "deck_count": 66,
+      "pct": 40.5
+    },
+    {
+      "name": "with Brave Bangle",
+      "deck_count": 50,
+      "pct": 30.7
+    },
+    {
+      "name": "with Roto-Stick",
+      "deck_count": 25,
+      "pct": 15.3
+    },
+    {
+      "name": "with Punk Helmet",
+      "deck_count": 22,
+      "pct": 13.5
+    }
+  ],
+  "weekly_shares": [
+    {
+      "week": "2026-01-19",
+      "meta_share": 4.9,
+      "deck_count": 34
+    },
+    {
+      "week": "2026-01-26",
+      "meta_share": 3.5,
+      "deck_count": 36
+    },
+    {
+      "week": "2026-02-02",
+      "meta_share": 3.6,
+      "deck_count": 41
+    },
+    {
+      "week": "2026-02-09",
+      "meta_share": 1.8,
+      "deck_count": 29
+    },
+    {
+      "week": "2026-02-16",
+      "meta_share": 3.9,
+      "deck_count": 5
+    },
+    {
+      "week": "2026-02-23",
+      "meta_share": 1.2,
+      "deck_count": 11
+    },
+    {
+      "week": "2026-03-02",
+      "meta_share": 0.5,
+      "deck_count": 7
+    }
+  ]
 }

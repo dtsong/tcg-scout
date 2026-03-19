@@ -1,0 +1,52 @@
+{
+  "card_name": "Frogadier",
+  "card_slug": "frogadier",
+  "card_id": null,
+  "set_code": null,
+  "set_number": null,
+  "image_url": null,
+  "category": "Pokemon",
+  "rarity": null,
+  "total_appearances": 4,
+  "usage_pct": 0.5,
+  "avg_copies": 2.0,
+  "unique_archetypes": 2,
+  "weighted_score": 7.2,
+  "win_rate_proxy": 1.8,
+  "top_archetype": "Dusknoir Greninja",
+  "trend_direction": "stable",
+  "copy_distribution": [
+    {
+      "copies": 2,
+      "count": 4
+    }
+  ],
+  "archetypes": [
+    {
+      "name": "Dusknoir Greninja",
+      "slug": "dusknoir-greninja",
+      "usage_count": 3,
+      "avg_copies": 2.0,
+      "tier": "B"
+    },
+    {
+      "name": "Mega Froslass Greninja",
+      "slug": "mega-froslass-greninja",
+      "usage_count": 1,
+      "avg_copies": 2.0,
+      "tier": "Rogue"
+    }
+  ],
+  "weekly_usage": [
+    {
+      "week": "2026-03-09",
+      "usage_pct": 0.6,
+      "avg_copies": 2.0
+    },
+    {
+      "week": "2026-03-16",
+      "usage_pct": 0.0,
+      "avg_copies": 0
+    }
+  ]
+}

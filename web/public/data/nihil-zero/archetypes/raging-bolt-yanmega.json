@@ -1384,5 +1384,72 @@
     "ceiling": 100,
     "popularity": 1.3,
     "core_density": 70.4
-  }
+  },
+  "evolution": [
+    {
+      "week": "2026-03-02",
+      "adopted": [
+        {
+          "card": "Mega Kangaskhan ex",
+          "from_pct": 0.0,
+          "to_pct": 66.7
+        },
+        {
+          "card": "Switch",
+          "from_pct": 0.0,
+          "to_pct": 66.7
+        }
+      ],
+      "dropped": []
+    }
+  ],
+  "variants": [
+    {
+      "name": "Standard",
+      "deck_count": 6,
+      "pct": 75.0
+    },
+    {
+      "name": "with Mega Kangaskhan ex",
+      "deck_count": 2,
+      "pct": 25.0
+    }
+  ],
+  "weekly_shares": [
+    {
+      "week": "2026-01-19",
+      "meta_share": 0.0,
+      "deck_count": 0
+    },
+    {
+      "week": "2026-01-26",
+      "meta_share": 0.0,
+      "deck_count": 0
+    },
+    {
+      "week": "2026-02-02",
+      "meta_share": 0.0,
+      "deck_count": 0
+    },
+    {
+      "week": "2026-02-09",
+      "meta_share": 0.3,
+      "deck_count": 5
+    },
+    {
+      "week": "2026-02-16",
+      "meta_share": 0.0,
+      "deck_count": 0
+    },
+    {
+      "week": "2026-02-23",
+      "meta_share": 0.0,
+      "deck_count": 0
+    },
+    {
+      "week": "2026-03-02",
+      "meta_share": 0.2,
+      "deck_count": 3
+    }
+  ]
 }

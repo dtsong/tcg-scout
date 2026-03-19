@@ -11,6 +11,11 @@ import type {
   CLDivision,
   FormatInfo,
   TimelineData,
+  CardSummary,
+  CardDetail,
+  SynergyPair,
+  MetaEvolutionMovement,
+  MatchupMatrixData,
 } from "./types";
 
 const DATA_DIR = path.join(process.cwd(), "public", "data");
@@ -81,6 +86,69 @@ export function getCLDivision(format: string, division: string): CLDivision {
 export function getTimeline(format: string): TimelineData | null {
   try {
     return readJson(`${format}/timeline.json`);
+  } catch {
+    return null;
+  }
+}
+
+export function getCardIndex(format: string): CardSummary[] {
+  try {
+    return readJson(`${format}/cards/index.json`);
+  } catch {
+    return [];
+  }
+}
+
+export function getCardDetail(format: string, slug: string): CardDetail {
+  return readJson(`${format}/cards/${slug}.json`);
+}
+
+export function getSynergyPairs(format: string): SynergyPair[] {
+  try {
+    return readJson(`${format}/cards/synergy.json`);
+  } catch {
+    return [];
+  }
+}
+
+export function getCardSlugs(format: string): string[] {
+  const dir = path.join(DATA_DIR, format, "cards");
+  if (!fs.existsSync(dir)) return [];
+  const reserved = new Set(["index.json", "synergy.json"]);
+  return fs.readdirSync(dir)
+    .filter((f) => f.endsWith(".json") && !reserved.has(f))
+    .map((f) => f.replace(".json", ""));
+}
+
+export interface OverlapMatrixData {
+  archetypes: {
+    archetype: string;
+    slug: string;
+    sprite_filenames?: string[];
+    weighted_share: number;
+  }[];
+  matrix: number[][];
+}
+
+export function getMetaEvolution(format: string): MetaEvolutionMovement[] {
+  try {
+    return readJson(`${format}/meta-evolution.json`);
+  } catch {
+    return [];
+  }
+}
+
+export function getMatchupMatrix(format: string): MatchupMatrixData | null {
+  try {
+    return readJson(`${format}/matchup.json`);
+  } catch {
+    return null;
+  }
+}
+
+export function getArchetypeOverlap(format: string): OverlapMatrixData | null {
+  try {
+    return readJson(`${format}/archetype-overlap.json`);
   } catch {
     return null;
   }

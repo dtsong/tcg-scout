@@ -1,0 +1,152 @@
+{
+  "card_name": "Flareon ex",
+  "card_slug": "flareon-ex",
+  "card_id": null,
+  "set_code": null,
+  "set_number": null,
+  "image_url": null,
+  "category": "Pokemon",
+  "rarity": null,
+  "total_appearances": 6,
+  "usage_pct": 0.8,
+  "avg_copies": 2.0,
+  "unique_archetypes": 1,
+  "weighted_score": 10.4,
+  "win_rate_proxy": 1.73,
+  "top_archetype": "Flareon Noctowl",
+  "trend_direction": "stable",
+  "copy_distribution": [
+    {
+      "copies": 2,
+      "count": 6
+    }
+  ],
+  "archetypes": [
+    {
+      "name": "Flareon Noctowl",
+      "slug": "flareon-noctowl",
+      "usage_count": 6,
+      "avg_copies": 2.0,
+      "tier": "C"
+    }
+  ],
+  "weekly_usage": [
+    {
+      "week": "2026-03-09",
+      "usage_pct": 0.8,
+      "avg_copies": 2.0
+    },
+    {
+      "week": "2026-03-16",
+      "usage_pct": 0.7,
+      "avg_copies": 2.0
+    }
+  ],
+  "synergy_partners": [
+    {
+      "card_name": "Eevee ex",
+      "support": 5,
+      "lift": 128.667,
+      "jaccard": 0.833,
+      "weighted_score": 8.9
+    },
+    {
+      "card_name": "Leafeon ex",
+      "support": 6,
+      "lift": 110.286,
+      "jaccard": 0.857,
+      "weighted_score": 10.4
+    },
+    {
+      "card_name": "Eevee",
+      "support": 6,
+      "lift": 96.5,
+      "jaccard": 0.75,
+      "weighted_score": 10.4
+    },
+    {
+      "card_name": "Sparkling Crystal",
+      "support": 5,
+      "lift": 71.481,
+      "jaccard": 0.5,
+      "weighted_score": 9.2
+    },
+    {
+      "card_name": "Tera Orb",
+      "support": 6,
+      "lift": 30.88,
+      "jaccard": 0.24,
+      "weighted_score": 10.4
+    },
+    {
+      "card_name": "Fan Rotom",
+      "support": 6,
+      "lift": 22.057,
+      "jaccard": 0.171,
+      "weighted_score": 10.4
+    },
+    {
+      "card_name": "Wellspring Mask Ogerpon ex",
+      "support": 5,
+      "lift": 12.614,
+      "jaccard": 0.096,
+      "weighted_score": 8.9
+    },
+    {
+      "card_name": "Hoothoot",
+      "support": 6,
+      "lift": 9.65,
+      "jaccard": 0.075,
+      "weighted_score": 10.4
+    },
+    {
+      "card_name": "Noctowl",
+      "support": 6,
+      "lift": 9.65,
+      "jaccard": 0.075,
+      "weighted_score": 10.4
+    },
+    {
+      "card_name": "Switch",
+      "support": 6,
+      "lift": 6.176,
+      "jaccard": 0.048,
+      "weighted_score": 10.4
+    },
+    {
+      "card_name": "Area Zero Underdepths",
+      "support": 6,
+      "lift": 5.288,
+      "jaccard": 0.041,
+      "weighted_score": 10.4
+    },
+    {
+      "card_name": "Cyrano",
+      "support": 5,
+      "lift": 4.874,
+      "jaccard": 0.038,
+      "weighted_score": 8.4
+    },
+    {
+      "card_name": "Lillie's Clefairy ex",
+      "support": 6,
+      "lift": 3.431,
+      "jaccard": 0.027,
+      "weighted_score": 10.4
+    },
+    {
+      "card_name": "Latias ex",
+      "support": 5,
+      "lift": 2.847,
+      "jaccard": 0.022,
+      "weighted_score": 8.4
+    },
+    {
+      "card_name": "Crispin",
+      "support": 6,
+      "lift": 2.506,
+      "jaccard": 0.019,
+      "weighted_score": 10.4
+    }
+  ]
+}

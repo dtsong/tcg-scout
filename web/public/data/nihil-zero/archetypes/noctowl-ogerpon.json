@@ -3140,5 +3140,218 @@
     "ceiling": 100,
     "popularity": 17.3,
     "core_density": 17.2
-  }
+  },
+  "evolution": [
+    {
+      "week": "2026-01-26",
+      "adopted": [
+        {
+          "card": "Tapu Koko ex",
+          "from_pct": 20.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Mega Kangaskhan ex",
+          "from_pct": 20.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Glass Trumpet",
+          "from_pct": 40.0,
+          "to_pct": 62.5
+        }
+      ],
+      "dropped": [
+        {
+          "card": "Energy Search",
+          "from_pct": 80.0,
+          "to_pct": 12.5
+        },
+        {
+          "card": "Terapagos ex",
+          "from_pct": 60.0,
+          "to_pct": 12.5
+        }
+      ]
+    },
+    {
+      "week": "2026-02-02",
+      "adopted": [
+        {
+          "card": "Energy Search",
+          "from_pct": 12.5,
+          "to_pct": 80.0
+        },
+        {
+          "card": "Energy Retrieval",
+          "from_pct": 25.0,
+          "to_pct": 80.0
+        },
+        {
+          "card": "Terapagos ex",
+          "from_pct": 12.5,
+          "to_pct": 60.0
+        },
+        {
+          "card": "Raging Bolt ex",
+          "from_pct": 37.5,
+          "to_pct": 80.0
+        },
+        {
+          "card": "Iron Leaves ex",
+          "from_pct": 25.0,
+          "to_pct": 60.0
+        },
+        {
+          "card": "Meowth ex",
+          "from_pct": 37.5,
+          "to_pct": 50.0
+        }
+      ],
+      "dropped": [
+        {
+          "card": "Tapu Koko ex",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        }
+      ]
+    },
+    {
+      "week": "2026-02-16",
+      "adopted": [
+        {
+          "card": "Lillie's Clefairy ex",
+          "from_pct": 42.1,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Cyrano",
+          "from_pct": 10.5,
+          "to_pct": 66.7
+        },
+        {
+          "card": "Terapagos ex",
+          "from_pct": 26.3,
+          "to_pct": 66.7
+        },
+        {
+          "card": "Switch",
+          "from_pct": 31.6,
+          "to_pct": 66.7
+        },
+        {
+          "card": "Sparkling Crystal",
+          "from_pct": 31.6,
+          "to_pct": 66.7
+        },
+        {
+          "card": "Wellspring Mask Ogerpon ex",
+          "from_pct": 36.8,
+          "to_pct": 66.7
+        }
+      ],
+      "dropped": []
+    },
+    {
+      "week": "2026-02-23",
+      "adopted": [
+        {
+          "card": "Raging Bolt",
+          "from_pct": 0.0,
+          "to_pct": 77.1
+        },
+        {
+          "card": "Jamming Tower",
+          "from_pct": 0.0,
+          "to_pct": 65.7
+        },
+        {
+          "card": "Unfair Stamp",
+          "from_pct": 33.3,
+          "to_pct": 85.7
+        }
+      ],
+      "dropped": [
+        {
+          "card": "Switch",
+          "from_pct": 66.7,
+          "to_pct": 2.9
+        },
+        {
+          "card": "Sparkling Crystal",
+          "from_pct": 66.7,
+          "to_pct": 5.7
+        },
+        {
+          "card": "Cyrano",
+          "from_pct": 66.7,
+          "to_pct": 11.4
+        },
+        {
+          "card": "Wellspring Mask Ogerpon ex",
+          "from_pct": 66.7,
+          "to_pct": 14.3
+        }
+      ]
+    }
+  ],
+  "variants": [
+    {
+      "name": "with Iron Leaves ex",
+      "deck_count": 43,
+      "pct": 40.6
+    },
+    {
+      "name": "with Battle Cage",
+      "deck_count": 19,
+      "pct": 17.9
+    },
+    {
+      "name": "with Chien-Pao",
+      "deck_count": 18,
+      "pct": 17.0
+    },
+    {
+      "name": "with Cyrano",
+      "deck_count": 12,
+      "pct": 11.3
+    }
+  ],
+  "weekly_shares": [
+    {
+      "week": "2026-01-19",
+      "meta_share": 0.7,
+      "deck_count": 5
+    },
+    {
+      "week": "2026-01-26",
+      "meta_share": 0.8,
+      "deck_count": 8
+    },
+    {
+      "week": "2026-02-02",
+      "meta_share": 0.9,
+      "deck_count": 10
+    },
+    {
+      "week": "2026-02-09",
+      "meta_share": 1.2,
+      "deck_count": 19
+    },
+    {
+      "week": "2026-02-16",
+      "meta_share": 2.3,
+      "deck_count": 3
+    },
+    {
+      "week": "2026-02-23",
+      "meta_share": 4.0,
+      "deck_count": 35
+    },
+    {
+      "week": "2026-03-02",
+      "meta_share": 2.0,
+      "deck_count": 26
+    }
+  ]
 }

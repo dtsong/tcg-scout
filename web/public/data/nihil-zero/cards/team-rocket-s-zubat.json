@@ -1,0 +1,203 @@
+{
+  "card_name": "Team Rocket's Zubat",
+  "card_slug": "team-rocket-s-zubat",
+  "card_id": null,
+  "set_code": null,
+  "set_number": null,
+  "image_url": null,
+  "category": "Trainer",
+  "rarity": null,
+  "total_appearances": 34,
+  "usage_pct": 0.5,
+  "avg_copies": 2.2,
+  "unique_archetypes": 3,
+  "weighted_score": 57.3,
+  "win_rate_proxy": 1.69,
+  "top_archetype": "Crobat Dragapult",
+  "trend_direction": "stable",
+  "copy_distribution": [
+    {
+      "copies": 1,
+      "count": 1
+    },
+    {
+      "copies": 2,
+      "count": 27
+    },
+    {
+      "copies": 3,
+      "count": 5
+    },
+    {
+      "copies": 4,
+      "count": 1
+    }
+  ],
+  "archetypes": [
+    {
+      "name": "Crobat Dragapult",
+      "slug": "crobat-dragapult",
+      "usage_count": 28,
+      "avg_copies": 2.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Mega Starmie Crobat",
+      "slug": "mega-starmie-crobat",
+      "usage_count": 3,
+      "avg_copies": 3.3,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Crobat Spidops",
+      "slug": "crobat-spidops",
+      "usage_count": 3,
+      "avg_copies": 2.7,
+      "tier": "Rogue"
+    }
+  ],
+  "weekly_usage": [
+    {
+      "week": "2026-01-19",
+      "usage_pct": 1.2,
+      "avg_copies": 2.4
+    },
+    {
+      "week": "2026-01-26",
+      "usage_pct": 1.2,
+      "avg_copies": 2.2
+    },
+    {
+      "week": "2026-02-02",
+      "usage_pct": 0.4,
+      "avg_copies": 2.0
+    },
+    {
+      "week": "2026-02-09",
+      "usage_pct": 0.4,
+      "avg_copies": 2.0
+    },
+    {
+      "week": "2026-02-16",
+      "usage_pct": 0.0,
+      "avg_copies": 0
+    },
+    {
+      "week": "2026-02-23",
+      "usage_pct": 0.2,
+      "avg_copies": 2.0
+    },
+    {
+      "week": "2026-03-02",
+      "usage_pct": 0.1,
+      "avg_copies": 2.0
+    }
+  ],
+  "synergy_partners": [
+    {
+      "card_name": "Team Rocket's Crobat ex",
+      "support": 34,
+      "lift": 198.706,
+      "jaccard": 1.0,
+      "weighted_score": 57.3
+    },
+    {
+      "card_name": "Team Rocket's Golbat",
+      "support": 34,
+      "lift": 198.706,
+      "jaccard": 1.0,
+      "weighted_score": 57.3
+    },
+    {
+      "card_name": "Neo Upper Energy",
+      "support": 22,
+      "lift": 19.343,
+      "jaccard": 0.092,
+      "weighted_score": 37.1
+    },
+    {
+      "card_name": "Bloodmoon Ursaluna ex",
+      "support": 14,
+      "lift": 5.575,
+      "jaccard": 0.027,
+      "weighted_score": 26.1
+    },
+    {
+      "card_name": "Jamming Tower",
+      "support": 26,
+      "lift": 3.986,
+      "jaccard": 0.02,
+      "weighted_score": 43.7
+    },
+    {
+      "card_name": "Hilda",
+      "support": 28,
+      "lift": 3.888,
+      "jaccard": 0.019,
+      "weighted_score": 47.2
+    },
+    {
+      "card_name": "Dragapult ex",
+      "support": 28,
+      "lift": 3.469,
+      "jaccard": 0.017,
+      "weighted_score": 47.4
+    },
+    {
+      "card_name": "Drakloak",
+      "support": 28,
+      "lift": 3.46,
+      "jaccard": 0.017,
+      "weighted_score": 47.4
+    },
+    {
+      "card_name": "Dreepy",
+      "support": 28,
+      "lift": 3.46,
+      "jaccard": 0.017,
+      "weighted_score": 47.4
+    },
+    {
+      "card_name": "Team Rocket's Energy",
+      "support": 7,
+      "lift": 2.953,
+      "jaccard": 0.014,
+      "weighted_score": 11.4
+    },
+    {
+      "card_name": "Latias ex",
+      "support": 28,
+      "lift": 2.689,
+      "jaccard": 0.013,
+      "weighted_score": 47.4
+    },
+    {
+      "card_name": "Meowth ex",
+      "support": 28,
+      "lift": 2.337,
+      "jaccard": 0.012,
+      "weighted_score": 45.4
+    },
+    {
+      "card_name": "Budew",
+      "support": 29,
+      "lift": 2.085,
+      "jaccard": 0.01,
+      "weighted_score": 48.6
+    },
+    {
+      "card_name": "Crispin",
+      "support": 25,
+      "lift": 1.985,
+      "jaccard": 0.01,
+      "weighted_score": 38.6
+    },
+    {
+      "card_name": "Team Rocket's Articuno",
+      "support": 5,
+      "lift": 1.967,
+      "jaccard": 0.009,
+      "weighted_score": 8.7
+    }
+  ]
+}

@@ -2,477 +2,327 @@
   "archetype": "Mega Kangaskhan Meowth",
   "slug": "mega-kangaskhan-meowth",
   "tier": "Rogue",
-  "meta_share": 0.2,
-  "weighted_share": 0.2,
-  "deck_count": 2,
-  "best_placement": 8,
+  "meta_share": 0.1,
+  "weighted_share": 0.1,
+  "deck_count": 1,
+  "best_placement": 16,
   "sprite_filenames": [
     "kangaskhan-mega.png",
     "meowth.png"
   ],
   "core_cards": [
     {
-      "card_name": "Wellspring Mask Ogerpon ex",
-      "inclusion_pct": 100.0,
-      "avg_copies": 2.0,
-      "decks_with": 2,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Ultra Ball",
-      "inclusion_pct": 100.0,
-      "avg_copies": 4.0,
-      "decks_with": 2,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Teal Mask Ogerpon ex",
-      "inclusion_pct": 100.0,
-      "avg_copies": 2.0,
-      "decks_with": 2,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Special Red Card",
-      "inclusion_pct": 100.0,
-      "avg_copies": 1.0,
-      "decks_with": 2,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Psyduck",
-      "inclusion_pct": 100.0,
-      "avg_copies": 1.0,
-      "decks_with": 2,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Night Stretcher",
-      "inclusion_pct": 100.0,
-      "avg_copies": 1.0,
-      "decks_with": 2,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Munkidori",
-      "inclusion_pct": 100.0,
-      "avg_copies": 2.5,
-      "decks_with": 2,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Meowth ex",
-      "inclusion_pct": 100.0,
-      "avg_copies": 3.0,
-      "decks_with": 2,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Mega Kangaskhan ex",
-      "inclusion_pct": 100.0,
-      "avg_copies": 2.0,
-      "decks_with": 2,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Lillie's Clefairy ex",
-      "inclusion_pct": 100.0,
-      "avg_copies": 2.0,
-      "decks_with": 2,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Latias ex",
-      "inclusion_pct": 100.0,
-      "avg_copies": 2.0,
-      "decks_with": 2,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Hero's Cape",
-      "inclusion_pct": 100.0,
-      "avg_copies": 1.0,
-      "decks_with": 2,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Fezandipiti ex",
-      "inclusion_pct": 100.0,
-      "avg_copies": 1.0,
-      "decks_with": 2,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Energy Switch",
-      "inclusion_pct": 100.0,
-      "avg_copies": 3.5,
-      "decks_with": 2,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Cyrano",
-      "inclusion_pct": 100.0,
-      "avg_copies": 2.5,
-      "decks_with": 2,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Crispin",
-      "inclusion_pct": 100.0,
-      "avg_copies": 4.0,
-      "decks_with": 2,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Ciphermaniac's Codebreaking",
-      "inclusion_pct": 100.0,
-      "avg_copies": 1.0,
-      "decks_with": 2,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Brock's Scouting",
-      "inclusion_pct": 100.0,
-      "avg_copies": 1.0,
-      "decks_with": 2,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Boss's Orders",
-      "inclusion_pct": 100.0,
-      "avg_copies": 3.0,
-      "decks_with": 2,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Area Zero Underdepths",
-      "inclusion_pct": 100.0,
-      "avg_copies": 3.5,
-      "decks_with": 2,
-      "category": "Pokemon"
-    }
-  ],
-  "all_cards": [
-    {
-      "card_name": "Wellspring Mask Ogerpon ex",
-      "inclusion_pct": 100.0,
-      "avg_copies": 2.0,
-      "decks_with": 2,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Ultra Ball",
-      "inclusion_pct": 100.0,
-      "avg_copies": 4.0,
-      "decks_with": 2,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Teal Mask Ogerpon ex",
-      "inclusion_pct": 100.0,
-      "avg_copies": 2.0,
-      "decks_with": 2,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Special Red Card",
-      "inclusion_pct": 100.0,
-      "avg_copies": 1.0,
-      "decks_with": 2,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Psyduck",
-      "inclusion_pct": 100.0,
-      "avg_copies": 1.0,
-      "decks_with": 2,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Night Stretcher",
-      "inclusion_pct": 100.0,
-      "avg_copies": 1.0,
-      "decks_with": 2,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Munkidori",
-      "inclusion_pct": 100.0,
-      "avg_copies": 2.5,
-      "decks_with": 2,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Meowth ex",
-      "inclusion_pct": 100.0,
-      "avg_copies": 3.0,
-      "decks_with": 2,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Mega Kangaskhan ex",
-      "inclusion_pct": 100.0,
-      "avg_copies": 2.0,
-      "decks_with": 2,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Lillie's Clefairy ex",
-      "inclusion_pct": 100.0,
-      "avg_copies": 2.0,
-      "decks_with": 2,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Latias ex",
-      "inclusion_pct": 100.0,
-      "avg_copies": 2.0,
-      "decks_with": 2,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Hero's Cape",
-      "inclusion_pct": 100.0,
-      "avg_copies": 1.0,
-      "decks_with": 2,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Fezandipiti ex",
-      "inclusion_pct": 100.0,
-      "avg_copies": 1.0,
-      "decks_with": 2,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Energy Switch",
-      "inclusion_pct": 100.0,
-      "avg_copies": 3.5,
-      "decks_with": 2,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Cyrano",
-      "inclusion_pct": 100.0,
-      "avg_copies": 2.5,
-      "decks_with": 2,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Crispin",
-      "inclusion_pct": 100.0,
-      "avg_copies": 4.0,
-      "decks_with": 2,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Ciphermaniac's Codebreaking",
-      "inclusion_pct": 100.0,
-      "avg_copies": 1.0,
-      "decks_with": 2,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Brock's Scouting",
-      "inclusion_pct": 100.0,
-      "avg_copies": 1.0,
-      "decks_with": 2,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Boss's Orders",
-      "inclusion_pct": 100.0,
-      "avg_copies": 3.0,
-      "decks_with": 2,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Area Zero Underdepths",
-      "inclusion_pct": 100.0,
-      "avg_copies": 3.5,
-      "decks_with": 2,
-      "category": "Pokemon"
-    },
-    {
       "card_name": "Xerosic's Machinations",
-      "inclusion_pct": 50.0,
+      "inclusion_pct": 100.0,
       "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Wellspring Mask Ogerpon ex",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Ultra Ball",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Teal Mask Ogerpon ex",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Special Red Card",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Psyduck",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Night Stretcher",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Munkidori",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Meowth ex",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Mega Kangaskhan ex",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
       "decks_with": 1,
       "category": "Pokemon"
     },
     {
       "card_name": "Mega Absol ex",
-      "inclusion_pct": 50.0,
+      "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
       "category": "Pokemon"
     },
     {
-      "card_name": "Lillie's Determination",
-      "inclusion_pct": 50.0,
+      "card_name": "Lillie's Clefairy ex",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Latias ex",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Hero's Cape",
+      "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
       "category": "Trainer"
     },
     {
-      "card_name": "Iron Leaves ex",
-      "inclusion_pct": 50.0,
+      "card_name": "Fezandipiti ex",
+      "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
       "category": "Pokemon"
     },
     {
-      "card_name": "Bloodmoon Ursaluna ex",
-      "inclusion_pct": 50.0,
+      "card_name": "Energy Switch",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Cyrano",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Crispin",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Ciphermaniac's Codebreaking",
+      "inclusion_pct": 100.0,
       "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Brock's Scouting",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Boss's Orders",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Area Zero Underdepths",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    }
+  ],
+  "all_cards": [
+    {
+      "card_name": "Xerosic's Machinations",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Wellspring Mask Ogerpon ex",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Ultra Ball",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Teal Mask Ogerpon ex",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Special Red Card",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Psyduck",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Night Stretcher",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Munkidori",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Meowth ex",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Mega Kangaskhan ex",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Mega Absol ex",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Lillie's Clefairy ex",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Latias ex",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Hero's Cape",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Fezandipiti ex",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Energy Switch",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Cyrano",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Crispin",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Ciphermaniac's Codebreaking",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Brock's Scouting",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Boss's Orders",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Area Zero Underdepths",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.0,
       "decks_with": 1,
       "category": "Pokemon"
     }
   ],
   "results": [
-    {
-      "tournament_name": "City League Tōkyō",
-      "date": "2026-03-18",
-      "standing": 8,
-      "player_name": "ホシタニ",
-      "decklist": [
-        {
-          "card_name": "Area Zero Underdepths",
-          "count": 4,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Cyrano",
-          "count": 3,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Meowth ex",
-          "count": 3,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Mega Kangaskhan ex",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Latias ex",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Teal Mask Ogerpon ex",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Wellspring Mask Ogerpon ex",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Munkidori",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Fezandipiti ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Psyduck",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Brock's Scouting",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Ciphermaniac's Codebreaking",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Iron Leaves ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Bloodmoon Ursaluna ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Special Red Card",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Ultra Ball",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Crispin",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Boss's Orders",
-          "count": 3,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Energy Switch",
-          "count": 3,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Lillie's Clefairy ex",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Night Stretcher",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Lillie's Determination",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Hero's Cape",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Grass Energy",
-          "count": 7,
-          "category": "Energy"
-        },
-        {
-          "card_name": "Psychic Energy",
-          "count": 3,
-          "category": "Energy"
-        },
-        {
-          "card_name": "Water Energy",
-          "count": 2,
-          "category": "Energy"
-        },
-        {
-          "card_name": "Darkness Energy",
-          "count": 2,
-          "category": "Energy"
-        }
-      ]
-    },
     {
       "tournament_name": "City League Kanagawa",
       "date": "2026-03-14",
@@ -613,11 +463,25 @@
     }
   ],
   "radar": {
-    "meta_share": 1.1,
-    "weighted_share": 1.0,
-    "consistency": 45.0,
-    "ceiling": 50,
-    "popularity": 2.3,
-    "core_density": 80.0
-  }
+    "meta_share": 0.7,
+    "weighted_share": 0.5,
+    "consistency": 25.0,
+    "ceiling": 25,
+    "popularity": 1.3,
+    "core_density": 100.0
+  },
+  "evolution": [],
+  "variants": [],
+  "weekly_shares": [
+    {
+      "week": "2026-03-09",
+      "meta_share": 0.2,
+      "deck_count": 1
+    },
+    {
+      "week": "2026-03-16",
+      "meta_share": 0.0,
+      "deck_count": 0
+    }
+  ]
 }

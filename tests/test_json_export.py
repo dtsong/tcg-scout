@@ -17,6 +17,7 @@ from reports.json_export import (
     _slugify,
     export_all,
     export_archetypes,
+    export_cards,
     export_champions_league,
     export_formats,
     export_meta,
@@ -368,6 +369,44 @@ class TestComputeWindowedAceSpecs:
         """ACE spec query should return a list."""
         result = _compute_windowed_ace_specs(db, "2026-01-01", "2026-03-31")
         assert isinstance(result, list)
+
+
+class TestExportCards:
+    def test_generates_card_index(self, db, tmp_path):
+        export_cards(db, tmp_path)
+        index_file = tmp_path / "cards" / "index.json"
+        assert index_file.exists()
+        data = json.loads(index_file.read_text())
+        assert isinstance(data, list)
+        assert len(data) > 0
+
+    def test_index_entries_have_required_fields(self, db, tmp_path):
+        export_cards(db, tmp_path)
+        data = json.loads((tmp_path / "cards" / "index.json").read_text())
+        entry = data[0]
+        assert "card_name" in entry
+        assert "card_slug" in entry
+        assert "usage_pct" in entry
+        assert "avg_copies" in entry
+        assert "category" in entry
+        assert "trend_direction" in entry
+
+    def test_generates_detail_files(self, db, tmp_path):
+        export_cards(db, tmp_path)
+        cards_dir = tmp_path / "cards"
+        detail_files = [f for f in cards_dir.glob("*.json") if f.name != "index.json"]
+        # Cards with 3+ appearances should get detail files
+        assert len(detail_files) > 0
+
+    def test_detail_file_has_archetypes(self, db, tmp_path):
+        export_cards(db, tmp_path)
+        cards_dir = tmp_path / "cards"
+        detail_files = [f for f in cards_dir.glob("*.json") if f.name != "index.json"]
+        assert len(detail_files) > 0
+        data = json.loads(detail_files[0].read_text())
+        assert "archetypes" in data
+        assert "weekly_usage" in data
+        assert "copy_distribution" in data
 
 
 class TestExportWindowed:

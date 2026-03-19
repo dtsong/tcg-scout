@@ -2633,5 +2633,109 @@
     "ceiling": 100,
     "popularity": 100.0,
     "core_density": 17.8
-  }
+  },
+  "evolution": [
+    {
+      "week": "2026-01-26",
+      "adopted": [
+        {
+          "card": "Tool Scrapper",
+          "from_pct": 20.0,
+          "to_pct": 64.2
+        },
+        {
+          "card": "Wally's Compassion",
+          "from_pct": 36.5,
+          "to_pct": 72.3
+        },
+        {
+          "card": "Carmine",
+          "from_pct": 47.1,
+          "to_pct": 64.8
+        }
+      ],
+      "dropped": []
+    },
+    {
+      "week": "2026-02-16",
+      "adopted": [
+        {
+          "card": "Maximum Belt",
+          "from_pct": 48.9,
+          "to_pct": 71.4
+        }
+      ],
+      "dropped": []
+    },
+    {
+      "week": "2026-02-23",
+      "adopted": [
+        {
+          "card": "Rock Fighting Energy",
+          "from_pct": 42.9,
+          "to_pct": 57.6
+        },
+        {
+          "card": "Carmine",
+          "from_pct": 42.9,
+          "to_pct": 50.8
+        }
+      ],
+      "dropped": []
+    }
+  ],
+  "variants": [
+    {
+      "name": "with Wally's Compassion",
+      "deck_count": 321,
+      "pct": 52.5
+    },
+    {
+      "name": "Standard",
+      "deck_count": 181,
+      "pct": 29.6
+    },
+    {
+      "name": "with Battle Cage",
+      "deck_count": 109,
+      "pct": 17.8
+    }
+  ],
+  "weekly_shares": [
+    {
+      "week": "2026-01-19",
+      "meta_share": 12.4,
+      "deck_count": 85
+    },
+    {
+      "week": "2026-01-26",
+      "meta_share": 15.3,
+      "deck_count": 159
+    },
+    {
+      "week": "2026-02-02",
+      "meta_share": 10.1,
+      "deck_count": 114
+    },
+    {
+      "week": "2026-02-09",
+      "meta_share": 8.6,
+      "deck_count": 139
+    },
+    {
+      "week": "2026-02-16",
+      "meta_share": 5.5,
+      "deck_count": 7
+    },
+    {
+      "week": "2026-02-23",
+      "meta_share": 6.7,
+      "deck_count": 59
+    },
+    {
+      "week": "2026-03-02",
+      "meta_share": 3.8,
+      "deck_count": 48
+    }
+  ]
 }

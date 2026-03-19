@@ -23,6 +23,8 @@ export interface ArchetypeSummary {
   tier: Tier;
   weighted_share?: number;
   sprite_filenames?: string[];
+  trend?: "up" | "down" | "new" | "stable";
+  trend_delta?: number;
 }
 
 export interface MetaData {
@@ -141,6 +143,21 @@ export interface ArchetypeDetail {
   all_cards: ArchetypeCard[];
   results?: ArchetypeResult[];
   radar?: ArchetypeRadar;
+  evolution?: EvolutionEvent[];
+  variants?: ArchetypeVariant[];
+  weekly_shares?: { week: string; meta_share: number; deck_count: number }[];
+}
+
+export interface ArchetypeVariant {
+  name: string;
+  deck_count: number;
+  pct: number;
+}
+
+export interface MatchupMatrixData {
+  archetypes: string[];
+  matrix: number[][];
+  sample_sizes: number[][];
 }
 
 export interface TimelineWeek {
@@ -153,6 +170,76 @@ export interface TimelineWeek {
 export interface TimelineData {
   weeks: TimelineWeek[];
   archetype_order: string[];
+}
+
+export interface CardSummary {
+  card_name: string;
+  card_slug: string;
+  card_id: string | null;
+  set_code: string | null;
+  set_number: string | null;
+  image_url: string | null;
+  category: "Pokemon" | "Trainer" | "Energy";
+  rarity: string | null;
+  usage_pct: number;
+  avg_copies: number;
+  top_archetype: string | null;
+  trend_direction: "surging" | "stable" | "declining";
+}
+
+export interface CardArchetype {
+  name: string;
+  slug: string;
+  usage_count: number;
+  avg_copies: number;
+  tier: Tier;
+}
+
+export interface SynergyPartner {
+  card_name: string;
+  support: number;
+  lift: number;
+  jaccard: number;
+  weighted_score: number;
+}
+
+export interface SynergyPair extends SynergyPartner {
+  card_a: string;
+  card_b: string;
+  archetypes?: string[];
+}
+
+export interface CardDetail extends CardSummary {
+  total_appearances: number;
+  unique_archetypes: number;
+  weighted_score: number;
+  win_rate_proxy: number;
+  copy_distribution: { copies: number; count: number }[];
+  archetypes: CardArchetype[];
+  weekly_usage: { week: string; usage_pct: number; avg_copies: number }[];
+  synergy_partners?: SynergyPartner[];
+}
+
+export interface EvolutionCard {
+  card: string;
+  from_pct: number;
+  to_pct: number;
+}
+
+export interface EvolutionEvent {
+  week: string;
+  adopted: EvolutionCard[];
+  dropped: EvolutionCard[];
+}
+
+export interface MetaEvolutionMovement {
+  card: string;
+  archetype: string;
+  direction: "adopted" | "dropped";
+  from_pct: number;
+  to_pct: number;
+  delta: number;
+  week: string;
 }
 
 export interface CLDecklistCard {

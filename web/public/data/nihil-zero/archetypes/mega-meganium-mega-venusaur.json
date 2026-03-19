@@ -2586,5 +2586,209 @@
     "ceiling": 100,
     "popularity": 5.6,
     "core_density": 31.6
-  }
+  },
+  "evolution": [
+    {
+      "week": "2026-01-26",
+      "adopted": [
+        {
+          "card": "Regigigas",
+          "from_pct": 0.0,
+          "to_pct": 66.7
+        },
+        {
+          "card": "Morty's Conviction",
+          "from_pct": 0.0,
+          "to_pct": 66.7
+        }
+      ],
+      "dropped": [
+        {
+          "card": "Genesect",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Judge",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Air Balloon",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Rare Candy",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Team Rocket's Petrel",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Pokégear 3.0",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        }
+      ]
+    },
+    {
+      "week": "2026-02-02",
+      "adopted": [
+        {
+          "card": "Judge",
+          "from_pct": 0.0,
+          "to_pct": 75.0
+        },
+        {
+          "card": "Growth Grass Energy",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Celebi",
+          "from_pct": 33.3,
+          "to_pct": 75.0
+        },
+        {
+          "card": "Dawn",
+          "from_pct": 33.3,
+          "to_pct": 75.0
+        },
+        {
+          "card": "Meowth ex",
+          "from_pct": 33.3,
+          "to_pct": 50.0
+        }
+      ],
+      "dropped": [
+        {
+          "card": "Morty's Conviction",
+          "from_pct": 66.7,
+          "to_pct": 0.0
+        }
+      ]
+    },
+    {
+      "week": "2026-02-09",
+      "adopted": [],
+      "dropped": [
+        {
+          "card": "Growth Grass Energy",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        }
+      ]
+    },
+    {
+      "week": "2026-02-23",
+      "adopted": [
+        {
+          "card": "Iris's Fighting Spirit",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Morty's Conviction",
+          "from_pct": 23.8,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Regigigas",
+          "from_pct": 38.1,
+          "to_pct": 50.0
+        }
+      ],
+      "dropped": []
+    },
+    {
+      "week": "2026-03-02",
+      "adopted": [
+        {
+          "card": "Unfair Stamp",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Psyduck",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Pokégear 3.0",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        }
+      ],
+      "dropped": [
+        {
+          "card": "Max Rod",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Judge",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Iris's Fighting Spirit",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        }
+      ]
+    }
+  ],
+  "variants": [
+    {
+      "name": "with Celebi",
+      "deck_count": 21,
+      "pct": 61.8
+    },
+    {
+      "name": "with Lana's Aid",
+      "deck_count": 4,
+      "pct": 11.8
+    }
+  ],
+  "weekly_shares": [
+    {
+      "week": "2026-01-19",
+      "meta_share": 0.3,
+      "deck_count": 2
+    },
+    {
+      "week": "2026-01-26",
+      "meta_share": 0.3,
+      "deck_count": 3
+    },
+    {
+      "week": "2026-02-02",
+      "meta_share": 0.4,
+      "deck_count": 4
+    },
+    {
+      "week": "2026-02-09",
+      "meta_share": 1.3,
+      "deck_count": 21
+    },
+    {
+      "week": "2026-02-16",
+      "meta_share": 0.0,
+      "deck_count": 0
+    },
+    {
+      "week": "2026-02-23",
+      "meta_share": 0.2,
+      "deck_count": 2
+    },
+    {
+      "week": "2026-03-02",
+      "meta_share": 0.2,
+      "deck_count": 2
+    }
+  ]
 }

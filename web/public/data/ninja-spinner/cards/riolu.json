@@ -1,0 +1,209 @@
+{
+  "card_name": "Riolu",
+  "card_slug": "riolu",
+  "card_id": null,
+  "set_code": null,
+  "set_number": null,
+  "image_url": null,
+  "category": "Pokemon",
+  "rarity": null,
+  "total_appearances": 65,
+  "usage_pct": 8.4,
+  "avg_copies": 3.6,
+  "unique_archetypes": 8,
+  "weighted_score": 110.2,
+  "win_rate_proxy": 1.7,
+  "top_archetype": "Mega Lucario",
+  "trend_direction": "declining",
+  "copy_distribution": [
+    {
+      "copies": 2,
+      "count": 3
+    },
+    {
+      "copies": 3,
+      "count": 23
+    },
+    {
+      "copies": 4,
+      "count": 40
+    }
+  ],
+  "archetypes": [
+    {
+      "name": "Mega Lucario",
+      "slug": "mega-lucario",
+      "usage_count": 47,
+      "avg_copies": 3.6,
+      "tier": "B"
+    },
+    {
+      "name": "Mega Lucario Solrock",
+      "slug": "mega-lucario-solrock",
+      "usage_count": 9,
+      "avg_copies": 3.8,
+      "tier": "C"
+    },
+    {
+      "name": "Mega Lucario ex",
+      "slug": "mega-lucario-ex",
+      "usage_count": 4,
+      "avg_copies": 2.8,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Mega Lucario Togekiss",
+      "slug": "mega-lucario-togekiss",
+      "usage_count": 1,
+      "avg_copies": 3.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Mega Lucario Meowth",
+      "slug": "mega-lucario-meowth",
+      "usage_count": 1,
+      "avg_copies": 4.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Mega Lucario Lunatone",
+      "slug": "mega-lucario-lunatone",
+      "usage_count": 1,
+      "avg_copies": 4.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Mega Lucario Dusknoir",
+      "slug": "mega-lucario-dusknoir",
+      "usage_count": 1,
+      "avg_copies": 3.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Mega Kangaskhan Mega Lucario",
+      "slug": "mega-kangaskhan-mega-lucario",
+      "usage_count": 1,
+      "avg_copies": 2.0,
+      "tier": "Rogue"
+    }
+  ],
+  "weekly_usage": [
+    {
+      "week": "2026-03-09",
+      "usage_pct": 9.5,
+      "avg_copies": 3.6
+    },
+    {
+      "week": "2026-03-16",
+      "usage_pct": 4.3,
+      "avg_copies": 3.5
+    }
+  ],
+  "synergy_partners": [
+    {
+      "card_name": "Hariyama",
+      "support": 53,
+      "lift": 11.877,
+      "jaccard": 0.815,
+      "weighted_score": 90.4
+    },
+    {
+      "card_name": "Makuhita",
+      "support": 53,
+      "lift": 11.877,
+      "jaccard": 0.815,
+      "weighted_score": 90.4
+    },
+    {
+      "card_name": "Mega Lucario ex",
+      "support": 65,
+      "lift": 11.877,
+      "jaccard": 1.0,
+      "weighted_score": 108.7
+    },
+    {
+      "card_name": "Premium Power Pro",
+      "support": 64,
+      "lift": 9.27,
+      "jaccard": 0.771,
+      "weighted_score": 107.5
+    },
+    {
+      "card_name": "Gravity Mountain",
+      "support": 51,
+      "lift": 9.178,
+      "jaccard": 0.637,
+      "weighted_score": 85.5
+    },
+    {
+      "card_name": "Lunatone",
+      "support": 65,
+      "lift": 8.391,
+      "jaccard": 0.707,
+      "weighted_score": 108.7
+    },
+    {
+      "card_name": "Solrock",
+      "support": 65,
+      "lift": 8.391,
+      "jaccard": 0.707,
+      "weighted_score": 108.7
+    },
+    {
+      "card_name": "Maximum Belt",
+      "support": 42,
+      "lift": 7.445,
+      "jaccard": 0.467,
+      "weighted_score": 70.3
+    },
+    {
+      "card_name": "Fighting Gong",
+      "support": 64,
+      "lift": 6.553,
+      "jaccard": 0.547,
+      "weighted_score": 107.5
+    },
+    {
+      "card_name": "Rock Fighting Energy",
+      "support": 30,
+      "lift": 6.478,
+      "jaccard": 0.333,
+      "weighted_score": 47.0
+    },
+    {
+      "card_name": "Explorer's Guidance",
+      "support": 11,
+      "lift": 5.68,
+      "jaccard": 0.143,
+      "weighted_score": 20.0
+    },
+    {
+      "card_name": "Carmine",
+      "support": 26,
+      "lift": 5.062,
+      "jaccard": 0.26,
+      "weighted_score": 43.9
+    },
+    {
+      "card_name": "Switch",
+      "support": 53,
+      "lift": 5.036,
+      "jaccard": 0.387,
+      "weighted_score": 88.9
+    },
+    {
+      "card_name": "Wally's Compassion",
+      "support": 28,
+      "lift": 4.751,
+      "jaccard": 0.262,
+      "weighted_score": 47.5
+    },
+    {
+      "card_name": "Genesect",
+      "support": 8,
+      "lift": 4.525,
+      "jaccard": 0.103,
+      "weighted_score": 14.4
+    }
+  ]
+}

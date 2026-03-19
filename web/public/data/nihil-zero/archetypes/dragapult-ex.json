@@ -2888,5 +2888,126 @@
     "ceiling": 100,
     "popularity": 36.2,
     "core_density": 20.7
-  }
+  },
+  "evolution": [
+    {
+      "week": "2026-01-26",
+      "adopted": [
+        {
+          "card": "Lillie's Clefairy ex",
+          "from_pct": 26.7,
+          "to_pct": 66.7
+        },
+        {
+          "card": "Psyduck",
+          "from_pct": 40.0,
+          "to_pct": 66.7
+        },
+        {
+          "card": "Meowth ex",
+          "from_pct": 33.3,
+          "to_pct": 55.6
+        }
+      ],
+      "dropped": []
+    },
+    {
+      "week": "2026-02-02",
+      "adopted": [
+        {
+          "card": "Risky Ruins",
+          "from_pct": 33.3,
+          "to_pct": 65.1
+        }
+      ],
+      "dropped": []
+    },
+    {
+      "week": "2026-02-16",
+      "adopted": [
+        {
+          "card": "Rare Candy",
+          "from_pct": 41.8,
+          "to_pct": 50.0
+        }
+      ],
+      "dropped": []
+    },
+    {
+      "week": "2026-02-23",
+      "adopted": [
+        {
+          "card": "Shaymin",
+          "from_pct": 37.5,
+          "to_pct": 63.3
+        }
+      ],
+      "dropped": []
+    },
+    {
+      "week": "2026-03-02",
+      "adopted": [
+        {
+          "card": "Team Rocket's Petrel",
+          "from_pct": 36.7,
+          "to_pct": 52.0
+        }
+      ],
+      "dropped": []
+    }
+  ],
+  "variants": [
+    {
+      "name": "with Psyduck",
+      "deck_count": 128,
+      "pct": 57.9
+    },
+    {
+      "name": "with Bloodmoon Ursaluna ex",
+      "deck_count": 47,
+      "pct": 21.3
+    },
+    {
+      "name": "with Risky Ruins",
+      "deck_count": 30,
+      "pct": 13.6
+    }
+  ],
+  "weekly_shares": [
+    {
+      "week": "2026-01-19",
+      "meta_share": 2.2,
+      "deck_count": 15
+    },
+    {
+      "week": "2026-01-26",
+      "meta_share": 0.9,
+      "deck_count": 9
+    },
+    {
+      "week": "2026-02-02",
+      "meta_share": 3.8,
+      "deck_count": 43
+    },
+    {
+      "week": "2026-02-09",
+      "meta_share": 5.6,
+      "deck_count": 91
+    },
+    {
+      "week": "2026-02-16",
+      "meta_share": 6.2,
+      "deck_count": 8
+    },
+    {
+      "week": "2026-02-23",
+      "meta_share": 3.4,
+      "deck_count": 30
+    },
+    {
+      "week": "2026-03-02",
+      "meta_share": 2.0,
+      "deck_count": 25
+    }
+  ]
 }

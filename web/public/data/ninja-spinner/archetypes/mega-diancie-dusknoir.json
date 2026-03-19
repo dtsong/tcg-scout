@@ -855,11 +855,109 @@
     }
   ],
   "radar": {
-    "meta_share": 2.4,
-    "weighted_share": 1.8,
+    "meta_share": 2.6,
+    "weighted_share": 2.0,
     "consistency": 47.5,
     "ceiling": 50,
-    "popularity": 4.5,
+    "popularity": 5.3,
     "core_density": 50.0
-  }
+  },
+  "evolution": [
+    {
+      "week": "2026-03-16",
+      "adopted": [
+        {
+          "card": "Frillish",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Farigiraf ex",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Team Rocket's Petrel",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Girafarig",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Secret Box",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Surfer",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Tatsugiri",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Special Red Card",
+          "from_pct": 33.3,
+          "to_pct": 100.0
+        }
+      ],
+      "dropped": [
+        {
+          "card": "Prime Catcher",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Carmine",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Judge",
+          "from_pct": 66.7,
+          "to_pct": 0.0
+        }
+      ]
+    }
+  ],
+  "variants": [
+    {
+      "name": "with Farigiraf ex",
+      "deck_count": 1,
+      "pct": 25.0
+    },
+    {
+      "name": "with Mega Signal",
+      "deck_count": 1,
+      "pct": 25.0
+    },
+    {
+      "name": "with Special Red Card",
+      "deck_count": 1,
+      "pct": 25.0
+    },
+    {
+      "name": "with Wally's Compassion",
+      "deck_count": 1,
+      "pct": 25.0
+    }
+  ],
+  "weekly_shares": [
+    {
+      "week": "2026-03-09",
+      "meta_share": 0.5,
+      "deck_count": 3
+    },
+    {
+      "week": "2026-03-16",
+      "meta_share": 0.7,
+      "deck_count": 1
+    }
+  ]
 }

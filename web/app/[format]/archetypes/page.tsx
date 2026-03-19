@@ -1,4 +1,4 @@
-import { getMeta, formatHasData } from "@/app/lib/data";
+import { getMeta, getArchetypeOverlap, getMatchupMatrix, formatHasData } from "@/app/lib/data";
 import { ArchetypesClient } from "./archetypes-client";
 import Link from "next/link";
 
@@ -19,11 +19,15 @@ export default async function ArchetypesPage({
   }
 
   const meta = getMeta(format);
+  const overlap = getArchetypeOverlap(format);
+  const matchup = getMatchupMatrix(format);
   return (
     <ArchetypesClient
       archetypes={meta.archetypes}
       format={format}
       dateRange={meta.date_range}
+      overlapMatrix={overlap}
+      matchupMatrix={matchup}
     />
   );
 }

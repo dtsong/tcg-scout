@@ -976,5 +976,215 @@
     "ceiling": 75,
     "popularity": 0.7,
     "core_density": 27.3
-  }
+  },
+  "evolution": [
+    {
+      "week": "2026-01-26",
+      "adopted": [
+        {
+          "card": "Team Rocket's Petrel",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Budew",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Repel",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Secret Box",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Judge",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Moltres",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Blowtorch",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        }
+      ],
+      "dropped": [
+        {
+          "card": "Larry's Skill",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Dreepy",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Drakloak",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Kieran",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Air Balloon",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Hop's Cramorant",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Lunatone",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Fighting Gong",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Unfair Stamp",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Maximum Belt",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Team Rocket's Watchtower",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Switch",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Solrock",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Tool Scrapper",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Carmine",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        }
+      ]
+    },
+    {
+      "week": "2026-02-09",
+      "adopted": [
+        {
+          "card": "Unfair Stamp",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Black Belt's Training",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Chi-Yu",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        }
+      ],
+      "dropped": [
+        {
+          "card": "Secret Box",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Judge",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Moltres",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        }
+      ]
+    }
+  ],
+  "variants": [
+    {
+      "name": "with Blowtorch",
+      "deck_count": 2,
+      "pct": 50.0
+    },
+    {
+      "name": "with Drakloak",
+      "deck_count": 1,
+      "pct": 25.0
+    },
+    {
+      "name": "with Larry's Skill",
+      "deck_count": 1,
+      "pct": 25.0
+    }
+  ],
+  "weekly_shares": [
+    {
+      "week": "2026-01-19",
+      "meta_share": 0.3,
+      "deck_count": 2
+    },
+    {
+      "week": "2026-01-26",
+      "meta_share": 0.1,
+      "deck_count": 1
+    },
+    {
+      "week": "2026-02-02",
+      "meta_share": 0.0,
+      "deck_count": 0
+    },
+    {
+      "week": "2026-02-09",
+      "meta_share": 0.1,
+      "deck_count": 1
+    },
+    {
+      "week": "2026-02-16",
+      "meta_share": 0.0,
+      "deck_count": 0
+    },
+    {
+      "week": "2026-02-23",
+      "meta_share": 0.0,
+      "deck_count": 0
+    },
+    {
+      "week": "2026-03-02",
+      "meta_share": 0.0,
+      "deck_count": 0
+    }
+  ]
 }

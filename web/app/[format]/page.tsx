@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getMeta, getAceSpecs, getTrends, getWinningEdge, getTimeline, formatHasData } from "@/app/lib/data";
+import { getMeta, getAceSpecs, getTrends, getWinningEdge, getTimeline, getMetaEvolution, formatHasData } from "@/app/lib/data";
 import { DashboardClient } from "./dashboard-client";
 
 export default async function Dashboard({
@@ -30,6 +30,7 @@ export default async function Dashboard({
   const trends = getTrends(format);
   const winningEdge = getWinningEdge(format);
   const timeline = getTimeline(format);
+  const metaEvolution = getMetaEvolution(format);
 
   return (
     <DashboardClient
@@ -39,6 +40,7 @@ export default async function Dashboard({
       winningEdge={winningEdge}
       aceSpecs={aceSpecs}
       timeline={timeline}
+      metaEvolution={metaEvolution}
     />
   );
 }

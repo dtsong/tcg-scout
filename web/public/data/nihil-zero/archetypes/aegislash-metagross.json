@@ -551,5 +551,87 @@
     "ceiling": 75,
     "popularity": 0.3,
     "core_density": 70.8
-  }
+  },
+  "evolution": [
+    {
+      "week": "2026-01-26",
+      "adopted": [
+        {
+          "card": "Air Balloon",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Team Rocket's Petrel",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Dawn",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Battle Cage",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        }
+      ],
+      "dropped": [
+        {
+          "card": "Lana's Aid",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Fezandipiti ex",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Brock's Scouting",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        }
+      ]
+    }
+  ],
+  "variants": [],
+  "weekly_shares": [
+    {
+      "week": "2026-01-19",
+      "meta_share": 0.1,
+      "deck_count": 1
+    },
+    {
+      "week": "2026-01-26",
+      "meta_share": 0.1,
+      "deck_count": 1
+    },
+    {
+      "week": "2026-02-02",
+      "meta_share": 0.0,
+      "deck_count": 0
+    },
+    {
+      "week": "2026-02-09",
+      "meta_share": 0.0,
+      "deck_count": 0
+    },
+    {
+      "week": "2026-02-16",
+      "meta_share": 0.0,
+      "deck_count": 0
+    },
+    {
+      "week": "2026-02-23",
+      "meta_share": 0.0,
+      "deck_count": 0
+    },
+    {
+      "week": "2026-03-02",
+      "meta_share": 0.0,
+      "deck_count": 0
+    }
+  ]
 }

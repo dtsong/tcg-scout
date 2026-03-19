@@ -2855,5 +2855,164 @@
     "ceiling": 100,
     "popularity": 10.6,
     "core_density": 34.4
-  }
+  },
+  "evolution": [
+    {
+      "week": "2026-01-26",
+      "adopted": [
+        {
+          "card": "Tool Scrapper",
+          "from_pct": 42.1,
+          "to_pct": 70.6
+        }
+      ],
+      "dropped": []
+    },
+    {
+      "week": "2026-02-02",
+      "adopted": [
+        {
+          "card": "Sacred Ash",
+          "from_pct": 17.6,
+          "to_pct": 54.5
+        },
+        {
+          "card": "Unfair Stamp",
+          "from_pct": 29.4,
+          "to_pct": 54.5
+        }
+      ],
+      "dropped": []
+    },
+    {
+      "week": "2026-02-09",
+      "adopted": [
+        {
+          "card": "Maximum Belt",
+          "from_pct": 45.5,
+          "to_pct": 83.3
+        }
+      ],
+      "dropped": [
+        {
+          "card": "Unfair Stamp",
+          "from_pct": 54.5,
+          "to_pct": 16.7
+        }
+      ]
+    },
+    {
+      "week": "2026-02-23",
+      "adopted": [
+        {
+          "card": "Brock's Scouting",
+          "from_pct": 33.3,
+          "to_pct": 66.7
+        }
+      ],
+      "dropped": [
+        {
+          "card": "Switch",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        }
+      ]
+    },
+    {
+      "week": "2026-03-02",
+      "adopted": [
+        {
+          "card": "Unfair Stamp",
+          "from_pct": 0.0,
+          "to_pct": 88.9
+        },
+        {
+          "card": "Switch",
+          "from_pct": 0.0,
+          "to_pct": 66.7
+        },
+        {
+          "card": "Seaking",
+          "from_pct": 33.3,
+          "to_pct": 66.7
+        },
+        {
+          "card": "Sacred Ash",
+          "from_pct": 33.3,
+          "to_pct": 66.7
+        },
+        {
+          "card": "Budew",
+          "from_pct": 33.3,
+          "to_pct": 55.6
+        }
+      ],
+      "dropped": [
+        {
+          "card": "Maximum Belt",
+          "from_pct": 66.7,
+          "to_pct": 11.1
+        }
+      ]
+    }
+  ],
+  "variants": [
+    {
+      "name": "with Brock's Scouting",
+      "deck_count": 24,
+      "pct": 36.9
+    },
+    {
+      "name": "Standard",
+      "deck_count": 17,
+      "pct": 26.2
+    },
+    {
+      "name": "with Budew",
+      "deck_count": 13,
+      "pct": 20.0
+    },
+    {
+      "name": "with Sacred Ash",
+      "deck_count": 11,
+      "pct": 16.9
+    }
+  ],
+  "weekly_shares": [
+    {
+      "week": "2026-01-19",
+      "meta_share": 2.8,
+      "deck_count": 19
+    },
+    {
+      "week": "2026-01-26",
+      "meta_share": 1.6,
+      "deck_count": 17
+    },
+    {
+      "week": "2026-02-02",
+      "meta_share": 1.0,
+      "deck_count": 11
+    },
+    {
+      "week": "2026-02-09",
+      "meta_share": 0.4,
+      "deck_count": 6
+    },
+    {
+      "week": "2026-02-16",
+      "meta_share": 0.0,
+      "deck_count": 0
+    },
+    {
+      "week": "2026-02-23",
+      "meta_share": 0.3,
+      "deck_count": 3
+    },
+    {
+      "week": "2026-03-02",
+      "meta_share": 0.7,
+      "deck_count": 9
+    }
+  ]
 }

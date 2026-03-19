@@ -2885,5 +2885,104 @@
     "ceiling": 100,
     "popularity": 10.3,
     "core_density": 27.9
-  }
+  },
+  "evolution": [
+    {
+      "week": "2026-01-26",
+      "adopted": [
+        {
+          "card": "Jumbo Ice Cream",
+          "from_pct": 20.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Mega Mawile ex",
+          "from_pct": 20.0,
+          "to_pct": 88.9
+        },
+        {
+          "card": "Meowth ex",
+          "from_pct": 40.0,
+          "to_pct": 100.0
+        }
+      ],
+      "dropped": [
+        {
+          "card": "Team Rocket's Mimikyu",
+          "from_pct": 80.0,
+          "to_pct": 11.1
+        }
+      ]
+    },
+    {
+      "week": "2026-02-23",
+      "adopted": [
+        {
+          "card": "Mega Mawile ex",
+          "from_pct": 45.5,
+          "to_pct": 66.7
+        }
+      ],
+      "dropped": []
+    }
+  ],
+  "variants": [
+    {
+      "name": "with Mega Mawile ex",
+      "deck_count": 23,
+      "pct": 36.5
+    },
+    {
+      "name": "with Battle Cage",
+      "deck_count": 18,
+      "pct": 28.6
+    },
+    {
+      "name": "with Brock's Scouting",
+      "deck_count": 11,
+      "pct": 17.5
+    },
+    {
+      "name": "Standard",
+      "deck_count": 10,
+      "pct": 15.9
+    }
+  ],
+  "weekly_shares": [
+    {
+      "week": "2026-01-19",
+      "meta_share": 0.7,
+      "deck_count": 5
+    },
+    {
+      "week": "2026-01-26",
+      "meta_share": 0.9,
+      "deck_count": 9
+    },
+    {
+      "week": "2026-02-02",
+      "meta_share": 1.2,
+      "deck_count": 13
+    },
+    {
+      "week": "2026-02-09",
+      "meta_share": 1.4,
+      "deck_count": 22
+    },
+    {
+      "week": "2026-02-16",
+      "meta_share": 0.0,
+      "deck_count": 0
+    },
+    {
+      "week": "2026-02-23",
+      "meta_share": 0.3,
+      "deck_count": 3
+    },
+    {
+      "week": "2026-03-02",
+      "meta_share": 0.9,
+      "deck_count": 11
+    }
+  ]
 }

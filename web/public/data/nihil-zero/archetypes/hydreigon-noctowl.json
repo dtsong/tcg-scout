@@ -764,5 +764,97 @@
     "ceiling": 50,
     "popularity": 0.5,
     "core_density": 53.3
-  }
+  },
+  "evolution": [
+    {
+      "week": "2026-02-09",
+      "adopted": [
+        {
+          "card": "Meowth ex",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Salvatore",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Night Stretcher",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Boss's Orders",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        }
+      ],
+      "dropped": [
+        {
+          "card": "Redeemable Ticket",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Binding Mochi",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Dawn",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Switch",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Bloodmoon Ursaluna ex",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        }
+      ]
+    }
+  ],
+  "variants": [],
+  "weekly_shares": [
+    {
+      "week": "2026-01-19",
+      "meta_share": 0.3,
+      "deck_count": 2
+    },
+    {
+      "week": "2026-01-26",
+      "meta_share": 0.0,
+      "deck_count": 0
+    },
+    {
+      "week": "2026-02-02",
+      "meta_share": 0.0,
+      "deck_count": 0
+    },
+    {
+      "week": "2026-02-09",
+      "meta_share": 0.1,
+      "deck_count": 1
+    },
+    {
+      "week": "2026-02-16",
+      "meta_share": 0.0,
+      "deck_count": 0
+    },
+    {
+      "week": "2026-02-23",
+      "meta_share": 0.0,
+      "deck_count": 0
+    },
+    {
+      "week": "2026-03-02",
+      "meta_share": 0.0,
+      "deck_count": 0
+    }
+  ]
 }

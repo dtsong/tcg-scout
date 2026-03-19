@@ -1,9 +1,9 @@
 {
   "archetype": "Ogerpon Ogerpon Wellspring",
   "slug": "ogerpon-ogerpon-wellspring",
-  "tier": "Rogue",
-  "meta_share": 0.9,
-  "weighted_share": 0.8,
+  "tier": "C",
+  "meta_share": 1.0,
+  "weighted_share": 0.9,
   "deck_count": 8,
   "best_placement": 3,
   "sprite_filenames": [
@@ -1433,11 +1433,79 @@
     }
   ],
   "radar": {
-    "meta_share": 4.7,
-    "weighted_share": 4.1,
+    "meta_share": 5.2,
+    "weighted_share": 4.5,
     "consistency": 60.0,
     "ceiling": 75,
-    "popularity": 9.1,
+    "popularity": 10.5,
     "core_density": 59.4
-  }
+  },
+  "evolution": [
+    {
+      "week": "2026-03-16",
+      "adopted": [
+        {
+          "card": "Tapu Koko ex",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Mega Lopunny ex",
+          "from_pct": 14.3,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Buneary",
+          "from_pct": 14.3,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Briar",
+          "from_pct": 28.6,
+          "to_pct": 100.0
+        }
+      ],
+      "dropped": [
+        {
+          "card": "Black Belt's Training",
+          "from_pct": 57.1,
+          "to_pct": 0.0
+        }
+      ]
+    }
+  ],
+  "variants": [
+    {
+      "name": "Standard",
+      "deck_count": 3,
+      "pct": 37.5
+    },
+    {
+      "name": "with Buneary",
+      "deck_count": 2,
+      "pct": 25.0
+    },
+    {
+      "name": "with Bloodmoon Ursaluna ex",
+      "deck_count": 2,
+      "pct": 25.0
+    },
+    {
+      "name": "with Special Red Card",
+      "deck_count": 1,
+      "pct": 12.5
+    }
+  ],
+  "weekly_shares": [
+    {
+      "week": "2026-03-09",
+      "meta_share": 1.1,
+      "deck_count": 7
+    },
+    {
+      "week": "2026-03-16",
+      "meta_share": 0.7,
+      "deck_count": 1
+    }
+  ]
 }

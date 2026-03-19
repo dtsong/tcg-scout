@@ -2786,5 +2786,144 @@
     "ceiling": 90,
     "popularity": 2.9,
     "core_density": 32.1
-  }
+  },
+  "evolution": [
+    {
+      "week": "2026-02-23",
+      "adopted": [
+        {
+          "card": "Area Zero Underdepths",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Lillie's Clefairy ex",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Chien-Pao",
+          "from_pct": 0.0,
+          "to_pct": 80.0
+        },
+        {
+          "card": "Ciphermaniac's Codebreaking",
+          "from_pct": 0.0,
+          "to_pct": 80.0
+        },
+        {
+          "card": "Energy Switch",
+          "from_pct": 0.0,
+          "to_pct": 80.0
+        },
+        {
+          "card": "Budew",
+          "from_pct": 33.3,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Brock's Scouting",
+          "from_pct": 33.3,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Meowth ex",
+          "from_pct": 33.3,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Shaymin",
+          "from_pct": 0.0,
+          "to_pct": 60.0
+        },
+        {
+          "card": "Dawn",
+          "from_pct": 33.3,
+          "to_pct": 60.0
+        }
+      ],
+      "dropped": [
+        {
+          "card": "Rare Candy",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Jamming Tower",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Rosa's Encouragement",
+          "from_pct": 66.7,
+          "to_pct": 0.0
+        }
+      ]
+    },
+    {
+      "week": "2026-03-02",
+      "adopted": [
+        {
+          "card": "Judge",
+          "from_pct": 40.0,
+          "to_pct": 50.0
+        }
+      ],
+      "dropped": []
+    }
+  ],
+  "variants": [
+    {
+      "name": "with Chien-Pao",
+      "deck_count": 11,
+      "pct": 61.1
+    },
+    {
+      "name": "with Bloodmoon Ursaluna ex",
+      "deck_count": 3,
+      "pct": 16.7
+    },
+    {
+      "name": "Standard",
+      "deck_count": 2,
+      "pct": 11.1
+    }
+  ],
+  "weekly_shares": [
+    {
+      "week": "2026-01-19",
+      "meta_share": 0.4,
+      "deck_count": 3
+    },
+    {
+      "week": "2026-01-26",
+      "meta_share": 0.0,
+      "deck_count": 0
+    },
+    {
+      "week": "2026-02-02",
+      "meta_share": 0.0,
+      "deck_count": 0
+    },
+    {
+      "week": "2026-02-09",
+      "meta_share": 0.0,
+      "deck_count": 0
+    },
+    {
+      "week": "2026-02-16",
+      "meta_share": 0.0,
+      "deck_count": 0
+    },
+    {
+      "week": "2026-02-23",
+      "meta_share": 0.6,
+      "deck_count": 5
+    },
+    {
+      "week": "2026-03-02",
+      "meta_share": 0.8,
+      "deck_count": 10
+    }
+  ]
 }

@@ -10,7 +10,8 @@ import { WelcomeGuide } from "@/app/components/welcome-guide";
 import { useDateFilter, fetchWindowedData } from "@/app/components/date-filter-provider";
 import { formatPct, daysUntil } from "@/app/lib/utils";
 import { MetaTimeline } from "@/app/components/meta-timeline";
-import type { MetaData, TrendsData, WinningEdgeCard, AceSpec, TimelineData, TimeWindow } from "@/app/lib/types";
+import type { MetaData, TrendsData, WinningEdgeCard, AceSpec, TimelineData, TimeWindow, MetaEvolutionMovement } from "@/app/lib/types";
+import { Zap } from "lucide-react";
 
 interface DashboardClientProps {
   format: string;
@@ -19,6 +20,7 @@ interface DashboardClientProps {
   winningEdge: WinningEdgeCard[];
   aceSpecs: AceSpec[];
   timeline?: TimelineData | null;
+  metaEvolution?: MetaEvolutionMovement[];
 }
 
 export function DashboardClient({
@@ -28,6 +30,7 @@ export function DashboardClient({
   winningEdge: initialWinningEdge,
   aceSpecs: initialAceSpecs,
   timeline,
+  metaEvolution = [],
 }: DashboardClientProps) {
   const { activeWindow, customRange, setWindow } = useDateFilter();
 
@@ -245,6 +248,38 @@ export function DashboardClient({
             </div>
           </section>
         </div>
+
+        {/* What Changed This Week */}
+        {metaEvolution.length > 0 && (
+          <div className="mt-6">
+            <section className="bg-surface-800 border border-surface-600 rounded-lg p-5">
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="font-display text-sm font-semibold text-slate-200 flex items-center gap-2">
+                  <Zap className="w-4 h-4 text-amber-400" />
+                  What Changed This Week
+                </h3>
+              </div>
+              <div className="space-y-3">
+                {metaEvolution.map((m, i) => (
+                  <div key={i} className="flex items-center justify-between">
+                    <div className="flex items-center gap-2 min-w-0 mr-2">
+                      {m.direction === "adopted" ? (
+                        <TrendingUp className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                      ) : (
+                        <TrendingDown className="w-3.5 h-3.5 text-red-400 shrink-0" />
+                      )}
+                      <span className="text-sm text-slate-300 truncate">{m.card}</span>
+                      <span className="text-[10px] text-surface-400 shrink-0">in {m.archetype}</span>
+                    </div>
+                    <span className="font-mono text-xs text-surface-300 whitespace-nowrap">
+                      {m.from_pct.toFixed(0)}% &rarr; {m.to_pct.toFixed(0)}%
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </section>
+          </div>
+        )}
 
         {/* Meta Timeline */}
         {timeline && timeline.weeks.length > 0 && (

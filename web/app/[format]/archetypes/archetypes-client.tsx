@@ -9,16 +9,32 @@ import { DataTable } from "@/app/components/data-table";
 import { DateFilter } from "@/app/components/date-filter";
 import { useDateFilter, fetchWindowedData } from "@/app/components/date-filter-provider";
 import { formatPct, formatPlacement } from "@/app/lib/utils";
-import type { ArchetypeSummary, MetaData, Tier, TimeWindow } from "@/app/lib/types";
+import { ArchetypeHeatMatrix } from "@/app/components/archetype-heat-matrix";
+import { TrendingUp, TrendingDown, Minus, Sparkles } from "lucide-react";
+import { MatchupHeatMatrix } from "@/app/components/matchup-heat-matrix";
+import type { ArchetypeSummary, MetaData, MatchupMatrixData, Tier, TimeWindow } from "@/app/lib/types";
+import type { OverlapMatrixData } from "@/app/lib/data";
+
+function TrendArrow({ trend, delta }: { trend?: string; delta?: number }) {
+  if (!trend || trend === "stable") return <Minus className="w-3.5 h-3.5 text-surface-500" />;
+  if (trend === "new") return <Sparkles className="w-3.5 h-3.5 text-amber-400" />;
+  if (trend === "up") return <TrendingUp className="w-3.5 h-3.5 text-emerald-400" />;
+  if (trend === "down") return <TrendingDown className="w-3.5 h-3.5 text-red-400" />;
+  return null;
+}
 
 export function ArchetypesClient({
   archetypes: initialArchetypes,
   format,
   dateRange,
+  overlapMatrix,
+  matchupMatrix,
 }: {
   archetypes: ArchetypeSummary[];
   format: string;
   dateRange: { start: string; end: string };
+  overlapMatrix?: OverlapMatrixData | null;
+  matchupMatrix?: MatchupMatrixData | null;
 }) {
   const { activeWindow, customRange, setWindow } = useDateFilter();
   const [archetypes, setArchetypes] = useState(initialArchetypes);
@@ -57,7 +73,7 @@ export function ArchetypesClient({
           Archetypes
         </h1>
         <p className="text-sm text-surface-300 mt-1">
-          {archetypes.length} archetypes tracked across all tiers
+          {archetypes.length} archetypes across {archetypes.reduce((sum, a) => sum + a.deck_count, 0).toLocaleString()} decklists
         </p>
       </div>
 
@@ -144,9 +160,44 @@ export function ArchetypesClient({
               ),
               sortValue: (a) => a.best_placement,
             },
+            {
+              key: "trend",
+              header: "Trend",
+              align: "right",
+              render: (a) => <TrendArrow trend={a.trend} delta={a.trend_delta} />,
+              sortValue: (a) =>
+                a.trend === "new" ? 3 : a.trend === "up" ? 2 : a.trend === "down" ? 0 : 1,
+            },
           ]}
         />
       </div>
+
+      {/* Matchup Performance Matrix */}
+      {matchupMatrix && matchupMatrix.archetypes.length > 0 && (
+        <div className="bg-surface-800 border border-surface-600 rounded-lg p-4 sm:p-6">
+          <h2 className="font-display text-sm font-semibold text-slate-200 mb-1">
+            Performance Advantage
+          </h2>
+          <p className="text-xs text-surface-400 mb-4">
+            Standing advantage when archetypes co-occur in tournaments (positive = outperforms, min 10 events)
+          </p>
+          <MatchupHeatMatrix data={matchupMatrix} />
+        </div>
+      )}
+
+      {/* Archetype Card Overlap Matrix */}
+      {overlapMatrix && overlapMatrix.archetypes.length > 0 && (
+        <div className="bg-surface-800 border border-surface-600 rounded-lg p-4 sm:p-6">
+          <h2 className="font-display text-sm font-semibold text-slate-200 mb-1">
+            Card Overlap Matrix
+          </h2>
+          <p className="text-xs text-surface-400 mb-4">
+            Jaccard similarity of card pools between top archetypes (higher = more shared cards)
+          </p>
+          <ArchetypeHeatMatrix data={overlapMatrix} format={format} />
+        </div>
+      )}
+
       </div>
     </div>
   );

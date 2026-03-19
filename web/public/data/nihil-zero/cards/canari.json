@@ -1,0 +1,143 @@
+{
+  "card_name": "Canari",
+  "card_slug": "canari",
+  "card_id": "me02.5-185",
+  "set_code": "me02.5",
+  "set_number": "185",
+  "image_url": "https://assets.tcgdex.net/en/me/me02.5/185/high.png",
+  "category": "Pokemon",
+  "rarity": "",
+  "total_appearances": 6,
+  "usage_pct": 0.1,
+  "avg_copies": 2.2,
+  "unique_archetypes": 2,
+  "weighted_score": 7.2,
+  "win_rate_proxy": 1.2,
+  "top_archetype": "Bellibolt Kilowattrel",
+  "trend_direction": "stable",
+  "copy_distribution": [
+    {
+      "copies": 1,
+      "count": 1
+    },
+    {
+      "copies": 2,
+      "count": 3
+    },
+    {
+      "copies": 3,
+      "count": 2
+    }
+  ],
+  "archetypes": [
+    {
+      "name": "Bellibolt Kilowattrel",
+      "slug": "bellibolt-kilowattrel",
+      "usage_count": 4,
+      "avg_copies": 2.3,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Mega Eelektross Mega Manectric",
+      "slug": "mega-eelektross-mega-manectric",
+      "usage_count": 2,
+      "avg_copies": 2.0,
+      "tier": "Rogue"
+    }
+  ],
+  "weekly_usage": [
+    {
+      "week": "2026-01-19",
+      "usage_pct": 0.1,
+      "avg_copies": 2.0
+    },
+    {
+      "week": "2026-01-26",
+      "usage_pct": 0.1,
+      "avg_copies": 3.0
+    },
+    {
+      "week": "2026-02-02",
+      "usage_pct": 0.1,
+      "avg_copies": 2.0
+    },
+    {
+      "week": "2026-02-09",
+      "usage_pct": 0.1,
+      "avg_copies": 2.0
+    },
+    {
+      "week": "2026-02-16",
+      "usage_pct": 0.0,
+      "avg_copies": 0
+    },
+    {
+      "week": "2026-02-23",
+      "usage_pct": 0.0,
+      "avg_copies": 0
+    },
+    {
+      "week": "2026-03-02",
+      "usage_pct": 0.1,
+      "avg_copies": 2.0
+    }
+  ],
+  "synergy_partners": [
+    {
+      "card_name": "Iono's Kilowattrel",
+      "support": 5,
+      "lift": 804.286,
+      "jaccard": 0.625,
+      "weighted_score": 6.0
+    },
+    {
+      "card_name": "Iono's Wattrel",
+      "support": 5,
+      "lift": 804.286,
+      "jaccard": 0.625,
+      "weighted_score": 6.0
+    },
+    {
+      "card_name": "Buddy-Buddy Poffin",
+      "support": 6,
+      "lift": 1.669,
+      "jaccard": 0.001,
+      "weighted_score": 7.2
+    },
+    {
+      "card_name": "Ultra Ball",
+      "support": 6,
+      "lift": 1.255,
+      "jaccard": 0.001,
+      "weighted_score": 7.2
+    },
+    {
+      "card_name": "Poké Pad",
+      "support": 6,
+      "lift": 1.116,
+      "jaccard": 0.001,
+      "weighted_score": 7.2
+    },
+    {
+      "card_name": "Boss's Orders",
+      "support": 6,
+      "lift": 1.085,
+      "jaccard": 0.001,
+      "weighted_score": 7.2
+    },
+    {
+      "card_name": "Night Stretcher",
+      "support": 6,
+      "lift": 1.056,
+      "jaccard": 0.001,
+      "weighted_score": 7.2
+    },
+    {
+      "card_name": "Lillie's Determination",
+      "support": 5,
+      "lift": 0.957,
+      "jaccard": 0.001,
+      "weighted_score": 6.0
+    }
+  ]
+}

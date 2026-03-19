@@ -2,7 +2,7 @@
   "archetype": "Dusknoir Jellicent",
   "slug": "dusknoir-jellicent",
   "tier": "Rogue",
-  "meta_share": 0.7,
+  "meta_share": 0.8,
   "weighted_share": 0.6,
   "deck_count": 6,
   "best_placement": 5,
@@ -1132,11 +1132,78 @@
     }
   ],
   "radar": {
-    "meta_share": 3.5,
-    "weighted_share": 2.8,
+    "meta_share": 3.9,
+    "weighted_share": 3.1,
     "consistency": 60.0,
     "ceiling": 50,
-    "popularity": 6.8,
+    "popularity": 7.9,
     "core_density": 54.5
-  }
+  },
+  "evolution": [
+    {
+      "week": "2026-03-16",
+      "adopted": [
+        {
+          "card": "Prime Catcher",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Carmine",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Bloodmoon Ursaluna ex",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Fezandipiti ex",
+          "from_pct": 25.0,
+          "to_pct": 50.0
+        }
+      ],
+      "dropped": []
+    }
+  ],
+  "variants": [
+    {
+      "name": "with Fezandipiti ex",
+      "deck_count": 2,
+      "pct": 33.3
+    },
+    {
+      "name": "with Bloodmoon Ursaluna ex",
+      "deck_count": 1,
+      "pct": 16.7
+    },
+    {
+      "name": "with Colress's Tenacity",
+      "deck_count": 1,
+      "pct": 16.7
+    },
+    {
+      "name": "with Powerglass",
+      "deck_count": 1,
+      "pct": 16.7
+    },
+    {
+      "name": "with Pokégear 3.0",
+      "deck_count": 1,
+      "pct": 16.7
+    }
+  ],
+  "weekly_shares": [
+    {
+      "week": "2026-03-09",
+      "meta_share": 0.6,
+      "deck_count": 4
+    },
+    {
+      "week": "2026-03-16",
+      "meta_share": 1.4,
+      "deck_count": 2
+    }
+  ]
 }
