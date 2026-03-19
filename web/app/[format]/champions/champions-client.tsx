@@ -21,6 +21,7 @@ type DivisionKey = (typeof divisionTabs)[number]["key"];
 
 function PlacementRow({ placement }: { placement: CLPlacement }) {
   const [expanded, setExpanded] = useState(false);
+  const [failedImages, setFailedImages] = useState<Record<number, boolean>>({});
 
   const grouped = {
     Pokemon: placement.decklist.filter((c) => c.category === "Pokemon"),
@@ -81,11 +82,12 @@ function PlacementRow({ placement }: { placement: CLPlacement }) {
                     <div className="grid grid-cols-4 sm:grid-cols-6 lg:grid-cols-8 gap-3">
                       {cards.map((card, i) => (
                         <div key={i} className="flex flex-col items-center text-center">
-                          {card.image_url ? (
+                          {card.image_url && !failedImages[i] ? (
                             <img
                               src={card.image_url}
                               alt={card.card_name_en || card.card_name_jp}
                               className="w-[72px] h-[100px] object-cover rounded"
+                              onError={() => setFailedImages((prev) => ({ ...prev, [i]: true }))}
                             />
                           ) : (
                             <div className="w-[72px] h-[100px] rounded bg-surface-600 border border-surface-500 flex items-center justify-center p-1">

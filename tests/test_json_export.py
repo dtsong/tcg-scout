@@ -1,8 +1,11 @@
 """Tests for reports/json_export.py — JSON data exports for the web dashboard."""
 
 import json
+import sqlite3
 import sys
 from pathlib import Path
+
+import pytest
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
@@ -213,7 +216,7 @@ class TestExportChampionsLeague:
         assert cl_file.exists()
         data = json.loads(cl_file.read_text())
         assert data["division"] == "masters"
-        assert len(data["placements"]) == 2
+        assert len(data["placements"]) == 3
 
         # First placement: リザードンex should translate via cards table
         p1 = data["placements"][0]
@@ -510,22 +513,58 @@ class TestExportChampionsLeagueEnriched:
         assert isinstance(data["archetype_summary"], list)
 
     def test_unknown_archetype_fields_are_null(self, db, tmp_path):
-        """When classify_decklist returns Unknown, archetype fields should be null."""
+        """Placement with only untranslatable trainers should have null archetype fields."""
         export_champions_league(db, tmp_path)
         data = json.loads((tmp_path / "champions-league" / "masters.json").read_text())
-        # Check that placements with Unknown archetype have null fields
-        for p in data["placements"]:
-            if p["archetype"] is None:
-                assert p["tier"] is None
-                assert p["sprite_filenames"] is None
+        # Jiro (standing 3) has only untranslatable trainer cards
+        jiro = next(p for p in data["placements"] if p["standing"] == 3)
+        assert jiro["archetype"] is None
+        assert jiro["tier"] is None
+        assert jiro["sprite_filenames"] is None
 
     def test_archetype_summary_excludes_unknown(self, db, tmp_path):
         """Unknown archetypes should not appear in archetype_summary."""
         export_champions_league(db, tmp_path)
         data = json.loads((tmp_path / "champions-league" / "masters.json").read_text())
+        archetype_names = [entry["archetype"] for entry in data["archetype_summary"]]
+        assert "Unknown" not in archetype_names
+        # Known archetypes should still be present
+        assert len(archetype_names) > 0
+
+    def test_known_placement_has_correct_archetype(self, db, tmp_path):
+        """Placement with translatable Pokemon should classify to the correct archetype."""
+        export_champions_league(db, tmp_path)
+        data = json.loads((tmp_path / "champions-league" / "masters.json").read_text())
+        taro = next(p for p in data["placements"] if p["standing"] == 1)
+        assert taro["archetype"] == "Charizard ex"
+
+    def test_archetype_summary_has_required_fields(self, db, tmp_path):
+        """Each summary entry should have archetype, count, and sprite_filenames."""
+        export_champions_league(db, tmp_path)
+        data = json.loads((tmp_path / "champions-league" / "masters.json").read_text())
         for entry in data["archetype_summary"]:
-            assert entry["archetype"] != "Unknown"
-            assert entry["archetype"] is not None
+            assert isinstance(entry["archetype"], str)
+            assert isinstance(entry["count"], int)
+            assert entry["count"] > 0
+            assert isinstance(entry["sprite_filenames"], list)
+
+    def test_known_archetype_has_tier_value(self, db, tmp_path):
+        """When a placement has a known archetype, tier should be the actual tier string."""
+        export_champions_league(db, tmp_path)
+        data = json.loads((tmp_path / "champions-league" / "masters.json").read_text())
+        for p in data["placements"]:
+            if p["archetype"] is not None:
+                assert p["tier"] is not None
+                assert p["tier"] in ("S", "A", "B", "C", "Rogue")
+
+    def test_archetype_summary_sorted_by_count_desc(self, db, tmp_path):
+        """Archetype summary should be sorted by count descending."""
+        export_champions_league(db, tmp_path)
+        data = json.loads((tmp_path / "champions-league" / "masters.json").read_text())
+        summary = data["archetype_summary"]
+        if len(summary) > 1:
+            counts = [e["count"] for e in summary]
+            assert counts == sorted(counts, reverse=True)
 
 
 class TestBuildJpEnLookupWithMappings:
@@ -542,8 +581,6 @@ class TestBuildJpEnLookupWithMappings:
 
     def test_card_mappings_table_missing(self):
         """Lookup works even if card_mappings table doesn't exist."""
-        import sqlite3
-
         conn = sqlite3.connect(":memory:")
         conn.row_factory = sqlite3.Row
         # Minimal schema without card_mappings
@@ -551,4 +588,17 @@ class TestBuildJpEnLookupWithMappings:
         lookup = _build_jp_en_lookup(conn)
         # Should still have hardcoded entries
         assert "ネストボール" in lookup
+        conn.close()
+
+    def test_non_table_operational_error_is_reraised(self):
+        """OperationalErrors unrelated to missing table should propagate."""
+        conn = sqlite3.connect(":memory:")
+        conn.row_factory = sqlite3.Row
+        conn.execute("CREATE TABLE cards (id TEXT, name_en TEXT, name_jp TEXT, set_code TEXT)")
+        # Create card_mappings with wrong columns so the SELECT for
+        # card_name_jp/card_name_en triggers "no such column", not "no such table"
+        conn.execute("CREATE TABLE card_mappings (id TEXT)")
+
+        with pytest.raises(sqlite3.OperationalError, match="no such column"):
+            _build_jp_en_lookup(conn)
         conn.close()

@@ -10,6 +10,7 @@ from datetime import date, timedelta
 from pathlib import Path
 
 from analysis.archetype import _COMPOSITE_SPRITE_FILENAMES, SPRITE_ARCHETYPE_MAP
+from analysis.archetype_classifier import classify_decklist
 from analysis.buylist import generate_buylist
 from analysis.card_stats import BASIC_ENERGY_NAMES, compute_card_detail, compute_card_stats
 from analysis.evolution import compute_archetype_evolution, compute_meta_evolution
@@ -74,7 +75,7 @@ ACE_SPEC_CARDS = {
     "Hyper Aroma",
 }
 
-# Fallback JP→EN card name map for common cards not in the cards table
+# Base JP→EN card name map. Entries here are overridden by the cards table and card_mappings table at runtime in _build_jp_en_lookup.
 JP_CARD_NAMES: dict[str, str] = {
     # --- Pokemon ---
     "イシズマイ": "Dwebble",
@@ -1810,7 +1811,7 @@ def _compute_archetype_weekly_shares(conn: sqlite3.Connection, archetype_name: s
 
 
 def _build_jp_en_lookup(conn: sqlite3.Connection) -> dict[str, str]:
-    """Build JP→EN card name lookup from the cards table + fallback dict."""
+    """Build JP→EN card name lookup from hardcoded fallbacks, the cards table, and the card_mappings table."""
     lookup = dict(JP_CARD_NAMES)  # Start with hardcoded fallbacks
     rows = conn.execute(
         "SELECT name_jp, name_en FROM cards WHERE name_jp IS NOT NULL AND name_jp != ''"
@@ -1844,7 +1845,6 @@ def _build_jp_en_lookup(conn: sqlite3.Connection) -> dict[str, str]:
 
 def export_champions_league(conn: sqlite3.Connection, output_dir: Path) -> None:
     """Export Champions League data by division with JP→EN translations."""
-    from analysis.archetype_classifier import classify_decklist
 
     cl_dir = output_dir / "champions-league"
     cl_dir.mkdir(parents=True, exist_ok=True)
@@ -1914,7 +1914,7 @@ def export_champions_league(conn: sqlite3.Connection, output_dir: Path) -> None:
             classifier_cards = []
             for card in decklist_rows:
                 jp_name = card["card_name_jp"]
-                # Use existing EN name, or look up from cards table / fallback dict
+                # Use existing EN name, or translate via jp_en_lookup
                 en_name = card["card_name_en"] or jp_en_lookup.get(jp_name)
                 if en_name:
                     translated_count += 1
@@ -1940,8 +1940,19 @@ def export_champions_league(conn: sqlite3.Connection, output_dir: Path) -> None:
                         }
                     )
 
-            # Classify archetype
-            archetype_name = classify_decklist(classifier_cards) if classifier_cards else "Unknown"
+            # Classify archetype from EN-translated cards (untranslated-only decklists yield "Unknown")
+            try:
+                archetype_name = (
+                    classify_decklist(classifier_cards) if classifier_cards else "Unknown"
+                )
+            except Exception:
+                logger.warning(
+                    "Failed to classify decklist for %s (standing %d), defaulting to Unknown",
+                    p["player_name"],
+                    p["standing"],
+                    exc_info=True,
+                )
+                archetype_name = "Unknown"
             is_known = archetype_name != "Unknown"
 
             if is_known:

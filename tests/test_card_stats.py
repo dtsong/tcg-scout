@@ -161,24 +161,24 @@ class TestClassifyCardWithSupertype:
         assert _classify_card("Morty's Conviction") == "Trainer"
 
     def test_supertype_from_db_overrides_heuristic(self, db):
-        """Cards with supertype in cards table should use that over heuristic."""
-        # Insert a card that would be misclassified by heuristic
+        """DB supertype should override heuristic even when they disagree."""
+        # "Eevee" would be classified as Pokemon by heuristic, but we mark it as Trainer
+        # to prove the DB value takes precedence
         db.execute(
             "INSERT OR REPLACE INTO cards (id, name_en, set_code, supertype) VALUES (?, ?, ?, ?)",
-            ("test-001", "Wally's Compassion", "test", "Trainer"),
+            ("test-001", "Mysterious Card", "test", "Trainer"),
         )
-        # Also insert it into a decklist so it appears in stats
         db.execute(
             "INSERT OR IGNORE INTO decklist_cards (placement_id, card_id, card_name, count) "
             "VALUES (?, ?, ?, ?)",
-            (1, "test-001", "Wally's Compassion", 2),
+            (1, "test-001", "Mysterious Card", 2),
         )
         db.commit()
 
         cards = compute_card_stats(db)
-        wallys = [c for c in cards if c["card_name"] == "Wally's Compassion"]
-        assert len(wallys) == 1
-        assert wallys[0]["category"] == "Trainer"
+        card = next(c for c in cards if c["card_name"] == "Mysterious Card")
+        # Heuristic would return "Pokemon" (no trainer keywords match), but DB says "Trainer"
+        assert card["category"] == "Trainer"
 
     def test_detail_uses_supertype_from_db(self, db):
         """compute_card_detail also respects supertype from cards table."""

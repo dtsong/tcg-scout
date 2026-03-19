@@ -13,6 +13,7 @@ import logging
 import sqlite3
 import sys
 import time
+import urllib.error
 import urllib.request
 from pathlib import Path
 
@@ -45,15 +46,18 @@ def fetch_card_category(card_id: str) -> str | None:
         else:
             log.warning("HTTP %d fetching card %s: %s", e.code, card_id, e.reason)
         return None
-    except Exception as e:
-        log.warning("Error fetching card %s: %s", card_id, e)
+    except urllib.error.URLError as e:
+        log.warning("Network error fetching card %s: %s", card_id, e)
+        return None
+    except json.JSONDecodeError as e:
+        log.warning("Invalid JSON from tcgdex for card %s: %s", card_id, e)
         return None
 
 
 def populate_supertypes(conn: sqlite3.Connection, rate_limit: float = 1.0) -> dict:
     """Populate supertype for all cards missing it.
 
-    Returns a summary dict with counts.
+    Returns a dict with keys: total, updated, not_found, errors.
     """
     rows = conn.execute(
         "SELECT id, name_en FROM cards WHERE supertype IS NULL OR supertype = ''"
@@ -65,6 +69,7 @@ def populate_supertypes(conn: sqlite3.Connection, rate_limit: float = 1.0) -> di
     updated = 0
     not_found = 0
     errors = 0
+    consecutive_failures = 0
 
     for i, row in enumerate(rows, 1):
         card_id = row["id"]
@@ -73,23 +78,33 @@ def populate_supertypes(conn: sqlite3.Connection, rate_limit: float = 1.0) -> di
         category = fetch_card_category(card_id)
 
         if category in ("Pokemon", "Trainer", "Energy"):
-            conn.execute(
-                "UPDATE cards SET supertype = ? WHERE id = ?",
-                (category, card_id),
-            )
-            updated += 1
-            log.info("[%d/%d] %s (%s) -> %s", i, total, name, card_id, category)
+            try:
+                conn.execute(
+                    "UPDATE cards SET supertype = ? WHERE id = ?",
+                    (category, card_id),
+                )
+                updated += 1
+                consecutive_failures = 0
+                log.info("[%d/%d] %s (%s) -> %s", i, total, name, card_id, category)
+            except sqlite3.Error as e:
+                log.error("[%d/%d] Failed to update %s (%s): %s", i, total, name, card_id, e)
+                errors += 1
         elif category is not None:
             # Unexpected category value
             log.warning(
                 "[%d/%d] %s (%s) unexpected category: %s", i, total, name, card_id, category
             )
             errors += 1
+            consecutive_failures = 0
         else:
             not_found += 1
+            consecutive_failures += 1
             log.warning("[%d/%d] %s (%s) not found", i, total, name, card_id)
+            if consecutive_failures >= 10:
+                log.error("10 consecutive failures -- aborting. API may be down.")
+                break
 
-        # Commit periodically
+        # Commit every 50 successful updates
         if updated % 50 == 0 and updated > 0:
             conn.commit()
 

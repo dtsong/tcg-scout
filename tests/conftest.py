@@ -103,6 +103,7 @@ def db() -> sqlite3.Connection:
         [
             (101, 900001, 1, "Taro", "Tokyo", "deck-abc"),
             (102, 900001, 2, "Hanako", "Osaka", "deck-xyz"),
+            (103, 900001, 3, "Jiro", "Nagoya", "deck-unk"),
         ],
     )
 
@@ -115,6 +116,8 @@ def db() -> sqlite3.Connection:
             (101, "ネストボール", None, 4, "Trainer"),
             (102, "ドラパルトex", None, 2, "Pokemon"),
             (102, "謎のカード", None, 1, "Trainer"),  # untranslatable
+            (103, "謎のカードA", None, 2, "Trainer"),  # unclassifiable placement
+            (103, "謎のカードB", None, 1, "Trainer"),
         ],
     )
 
