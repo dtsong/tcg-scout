@@ -152,13 +152,13 @@ class TestClassifyCard:
 
 
 class TestClassifyCardWithSupertype:
-    def test_heuristic_misclassifies_trainer_cards(self):
-        """Cards like Wally's Compassion are misclassified by heuristic."""
-        assert _classify_card("Wally's Compassion") == "Pokemon"
-        assert _classify_card("Premium Power Pro") == "Pokemon"
-        assert _classify_card("Scoop Up Cyclone") == "Pokemon"
-        assert _classify_card("Precious Trolley") == "Pokemon"
-        assert _classify_card("Morty's Conviction") == "Pokemon"
+    def test_heuristic_classifies_trainer_cards_correctly(self):
+        """Trainer cards with non-obvious names are classified correctly."""
+        assert _classify_card("Wally's Compassion") == "Trainer"
+        assert _classify_card("Premium Power Pro") == "Trainer"
+        assert _classify_card("Scoop Up Cyclone") == "Trainer"
+        assert _classify_card("Precious Trolley") == "Trainer"
+        assert _classify_card("Morty's Conviction") == "Trainer"
 
     def test_supertype_from_db_overrides_heuristic(self, db):
         """Cards with supertype in cards table should use that over heuristic."""
