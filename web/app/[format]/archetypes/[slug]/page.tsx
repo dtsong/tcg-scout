@@ -8,6 +8,7 @@ import { PerformanceTrendline } from "@/app/components/performance-trendline";
 import { VariantBreakdown } from "@/app/components/variant-breakdown";
 import { formatPct, formatPlacement } from "@/app/lib/utils";
 import type { ArchetypeCard } from "@/app/lib/types";
+import { Top4CardStats } from "@/app/components/top4-card-stats";
 import { ResultsTable } from "./results-table";
 
 export function generateStaticParams() {
@@ -190,6 +191,16 @@ export default async function ArchetypeDetailPage({
           />
         </div>
       </section>
+
+      {/* Top 4 Card Analysis */}
+      {arch.top4_card_stats && arch.top4_card_stats.length > 0 && (
+        <Top4CardStats
+          cards={arch.top4_card_stats}
+          sampleSize={arch.top4_sample_size ?? 0}
+          lowSample={arch.top4_low_sample ?? true}
+          deckCount={arch.deck_count}
+        />
+      )}
 
       {/* List Evolution */}
       {arch.evolution && arch.evolution.length > 0 && (
