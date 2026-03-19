@@ -9,6 +9,7 @@ from analysis.card_stats import (
     _card_slug,
     _classify_card,
     _compute_trend_direction,
+    build_category_lookup,
     compute_card_detail,
     compute_card_stats,
     generate_card_verdict,
@@ -196,6 +197,31 @@ class TestClassifyCardWithSupertype:
         detail = compute_card_detail(db, "Precious Trolley")
         assert detail is not None
         assert detail["category"] == "Trainer"
+
+
+class TestBuildCategoryLookup:
+    def test_loads_from_db(self, db):
+        db.execute("UPDATE cards SET supertype = 'Pokemon' WHERE name_en = 'Charizard ex'")
+        db.execute("UPDATE cards SET supertype = 'Trainer' WHERE name_en = 'Rare Candy'")
+        db.commit()
+        lookup = build_category_lookup(db)
+        assert lookup["Charizard ex"] == "Pokemon"
+        assert lookup["Rare Candy"] == "Trainer"
+
+    def test_classify_card_uses_lookup(self):
+        lookup = {"Sacred Ash": "Trainer", "Unfair Stamp": "Trainer"}
+        # Without lookup, "Sacred Ash" would be misclassified as Pokemon
+        assert _classify_card("Sacred Ash", lookup) == "Trainer"
+        assert _classify_card("Unfair Stamp", lookup) == "Trainer"
+
+    def test_classify_card_falls_back_to_heuristic(self):
+        lookup = {}
+        assert _classify_card("Nest Ball", lookup) == "Trainer"
+        assert _classify_card("Charizard ex", lookup) == "Pokemon"
+
+    def test_classify_card_without_lookup(self):
+        assert _classify_card("Nest Ball") == "Trainer"
+        assert _classify_card("Charizard ex") == "Pokemon"
 
 
 class TestComputeTrendDirection:

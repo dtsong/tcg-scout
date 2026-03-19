@@ -72,7 +72,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
       "decks_with": 2,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Fezandipiti ex",
@@ -135,7 +135,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 3.0,
       "decks_with": 2,
-      "category": "Pokemon"
+      "category": "Trainer"
     }
   ],
   "all_cards": [
@@ -200,7 +200,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
       "decks_with": 2,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Fezandipiti ex",
@@ -263,7 +263,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 3.0,
       "decks_with": 2,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Wellspring Mask Ogerpon ex",
@@ -277,7 +277,7 @@
       "inclusion_pct": 50.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Sparkling Crystal",
@@ -326,7 +326,7 @@
       "inclusion_pct": 50.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Trainer"
+      "category": "Pokemon"
     },
     {
       "card_name": "Judge",
@@ -347,14 +347,14 @@
       "inclusion_pct": 50.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Brock's Scouting",
       "inclusion_pct": 50.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Briar",
@@ -399,28 +399,13 @@
           "category": "Pokemon"
         },
         {
-          "card_name": "Area Zero Underdepths",
-          "count": 3,
-          "category": "Pokemon"
-        },
-        {
           "card_name": "Fan Rotom",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Glass Trumpet",
           "count": 2,
           "category": "Pokemon"
         },
         {
           "card_name": "Munkidori",
           "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Brock's Scouting",
-          "count": 1,
           "category": "Pokemon"
         },
         {
@@ -469,7 +454,17 @@
           "category": "Trainer"
         },
         {
+          "card_name": "Area Zero Underdepths",
+          "count": 3,
+          "category": "Trainer"
+        },
+        {
           "card_name": "Crispin",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Glass Trumpet",
           "count": 2,
           "category": "Trainer"
         },
@@ -490,6 +485,11 @@
         },
         {
           "card_name": "Judge",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Brock's Scouting",
           "count": 1,
           "category": "Trainer"
         },
@@ -532,11 +532,6 @@
           "category": "Pokemon"
         },
         {
-          "card_name": "Area Zero Underdepths",
-          "count": 3,
-          "category": "Pokemon"
-        },
-        {
           "card_name": "Fan Rotom",
           "count": 2,
           "category": "Pokemon"
@@ -552,11 +547,6 @@
           "category": "Pokemon"
         },
         {
-          "card_name": "Glass Trumpet",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
           "card_name": "Wellspring Mask Ogerpon ex",
           "count": 2,
           "category": "Pokemon"
@@ -567,12 +557,7 @@
           "category": "Pokemon"
         },
         {
-          "card_name": "Cyrano",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Tera Orb",
+          "card_name": "Lillie's Clefairy ex",
           "count": 1,
           "category": "Pokemon"
         },
@@ -612,6 +597,11 @@
           "category": "Trainer"
         },
         {
+          "card_name": "Area Zero Underdepths",
+          "count": 3,
+          "category": "Trainer"
+        },
+        {
           "card_name": "Crispin",
           "count": 3,
           "category": "Trainer"
@@ -627,8 +617,8 @@
           "category": "Trainer"
         },
         {
-          "card_name": "Lillie's Clefairy ex",
-          "count": 1,
+          "card_name": "Glass Trumpet",
+          "count": 2,
           "category": "Trainer"
         },
         {
@@ -643,6 +633,16 @@
         },
         {
           "card_name": "Sparkling Crystal",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Cyrano",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Tera Orb",
           "count": 1,
           "category": "Trainer"
         },
@@ -692,12 +692,22 @@
       "week": "2026-01-26",
       "adopted": [
         {
-          "card": "Cyrano",
+          "card": "Briar",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
           "card": "Tera Orb",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Wellspring Mask Ogerpon ex",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Cyrano",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -717,44 +727,19 @@
           "to_pct": 100.0
         },
         {
-          "card": "Wellspring Mask Ogerpon ex",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
           "card": "Sparkling Crystal",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Briar",
           "from_pct": 0.0,
           "to_pct": 100.0
         }
       ],
       "dropped": [
         {
-          "card": "Mega Kangaskhan ex",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Air Balloon",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Munkidori",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Prime Catcher",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Judge",
+          "card": "Air Balloon",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -765,6 +750,21 @@
         },
         {
           "card": "Meowth ex",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Prime Catcher",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Mega Kangaskhan ex",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Judge",
           "from_pct": 100.0,
           "to_pct": 0.0
         }

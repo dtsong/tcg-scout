@@ -242,7 +242,7 @@
       "inclusion_pct": 50.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "N's Zorua",
@@ -277,7 +277,7 @@
       "inclusion_pct": 50.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Meowth ex",
@@ -291,7 +291,7 @@
       "inclusion_pct": 50.0,
       "avg_copies": 2.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Fezandipiti ex",
@@ -340,7 +340,7 @@
       "inclusion_pct": 50.0,
       "avg_copies": 2.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Air Balloon",
@@ -383,17 +383,7 @@
           "category": "Pokemon"
         },
         {
-          "card_name": "Battle Cage",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
           "card_name": "Frogadier",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Hilda",
           "count": 2,
           "category": "Pokemon"
         },
@@ -409,11 +399,6 @@
         },
         {
           "card_name": "Blaziken",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Scoop Up Cyclone",
           "count": 1,
           "category": "Pokemon"
         },
@@ -463,7 +448,22 @@
           "category": "Trainer"
         },
         {
+          "card_name": "Battle Cage",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Hilda",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
           "card_name": "Briar",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Scoop Up Cyclone",
           "count": 1,
           "category": "Trainer"
         },
@@ -546,11 +546,6 @@
           "category": "Pokemon"
         },
         {
-          "card_name": "Morty's Conviction",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
           "card_name": "Frogadier",
           "count": 1,
           "category": "Pokemon"
@@ -611,6 +606,11 @@
           "category": "Trainer"
         },
         {
+          "card_name": "Morty's Conviction",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
           "card_name": "Unfair Stamp",
           "count": 1,
           "category": "Trainer"
@@ -646,47 +646,12 @@
       "week": "2026-03-02",
       "adopted": [
         {
-          "card": "Drayton",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Air Balloon",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Munkidori",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "N's Zekrom",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
           "card": "Morty's Conviction",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "N's Zoroark ex",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Unfair Stamp",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Fezandipiti ex",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "N's Zorua",
+          "card": "Team Rocket's Watchtower",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -696,34 +661,64 @@
           "to_pct": 100.0
         },
         {
+          "card": "N's Zoroark ex",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Munkidori",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Air Balloon",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Drayton",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
           "card": "Yveltal",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Team Rocket's Watchtower",
+          "card": "N's Zorua",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Fezandipiti ex",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Unfair Stamp",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "N's Zekrom",
           "from_pct": 0.0,
           "to_pct": 100.0
         }
       ],
       "dropped": [
         {
-          "card": "Scoop Up Cyclone",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Blaziken",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Crispin",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Shaymin",
+          "card": "Hilda",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Blaziken",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -738,7 +733,12 @@
           "to_pct": 0.0
         },
         {
-          "card": "Hilda",
+          "card": "Scoop Up Cyclone",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Shaymin",
           "from_pct": 100.0,
           "to_pct": 0.0
         },

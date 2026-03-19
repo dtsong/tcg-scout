@@ -100,7 +100,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
       "decks_with": 2,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Buddy-Buddy Poffin",
@@ -121,7 +121,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
       "decks_with": 2,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Air Balloon",
@@ -221,7 +221,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
       "decks_with": 2,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Buddy-Buddy Poffin",
@@ -242,7 +242,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
       "decks_with": 2,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Air Balloon",
@@ -305,14 +305,14 @@
       "inclusion_pct": 50.0,
       "avg_copies": 2.0,
       "decks_with": 1,
-      "category": "Trainer"
+      "category": "Pokemon"
     },
     {
       "card_name": "Iono's Kilowattrel",
       "inclusion_pct": 50.0,
       "avg_copies": 2.0,
       "decks_with": 1,
-      "category": "Trainer"
+      "category": "Pokemon"
     },
     {
       "card_name": "Fezandipiti ex",
@@ -326,7 +326,7 @@
       "inclusion_pct": 50.0,
       "avg_copies": 2.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Budew",
@@ -359,22 +359,7 @@
           "category": "Pokemon"
         },
         {
-          "card_name": "Canari",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
           "card_name": "Mega Manectric ex",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Battle Cage",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Explorer's Guidance",
           "count": 2,
           "category": "Pokemon"
         },
@@ -439,12 +424,27 @@
           "category": "Trainer"
         },
         {
+          "card_name": "Canari",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
           "card_name": "Poké Pad",
           "count": 2,
           "category": "Trainer"
         },
         {
           "card_name": "Switch",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Battle Cage",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Explorer's Guidance",
           "count": 2,
           "category": "Trainer"
         },
@@ -492,22 +492,22 @@
           "category": "Pokemon"
         },
         {
-          "card_name": "Canari",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
           "card_name": "Mega Eelektross ex",
           "count": 2,
           "category": "Pokemon"
         },
         {
-          "card_name": "Mega Manectric ex",
+          "card_name": "Iono's Wattrel",
           "count": 2,
           "category": "Pokemon"
         },
         {
-          "card_name": "Battle Cage",
+          "card_name": "Iono's Kilowattrel",
+          "count": 2,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Mega Manectric ex",
           "count": 2,
           "category": "Pokemon"
         },
@@ -557,17 +557,17 @@
           "category": "Trainer"
         },
         {
+          "card_name": "Canari",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
           "card_name": "Poké Pad",
           "count": 2,
           "category": "Trainer"
         },
         {
-          "card_name": "Iono's Wattrel",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Iono's Kilowattrel",
+          "card_name": "Battle Cage",
           "count": 2,
           "category": "Trainer"
         },
@@ -607,7 +607,17 @@
       "week": "2026-03-02",
       "adopted": [
         {
+          "card": "Stunfisk",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
           "card": "Iono's Kilowattrel",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Secret Box",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -620,31 +630,16 @@
           "card": "Iono's Wattrel",
           "from_pct": 0.0,
           "to_pct": 100.0
-        },
-        {
-          "card": "Secret Box",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Stunfisk",
-          "from_pct": 0.0,
-          "to_pct": 100.0
         }
       ],
       "dropped": [
         {
-          "card": "Tapu Koko",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Zeraora",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Explorer's Guidance",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Zekrom ex",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -659,7 +654,12 @@
           "to_pct": 0.0
         },
         {
-          "card": "Zekrom ex",
+          "card": "Zeraora",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Tapu Koko",
           "from_pct": 100.0,
           "to_pct": 0.0
         },

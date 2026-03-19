@@ -256,7 +256,7 @@
       "inclusion_pct": 50.0,
       "avg_copies": 1.0,
       "decks_with": 2,
-      "category": "Trainer"
+      "category": "Pokemon"
     },
     {
       "card_name": "Fezandipiti ex",
@@ -270,7 +270,7 @@
       "inclusion_pct": 50.0,
       "avg_copies": 1.5,
       "decks_with": 2,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Shaymin",
@@ -305,7 +305,7 @@
       "inclusion_pct": 25.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Hero's Cape",
@@ -326,7 +326,7 @@
       "inclusion_pct": 25.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     }
   ],
   "results": [
@@ -382,7 +382,7 @@
           "category": "Pokemon"
         },
         {
-          "card_name": "Area Zero Underdepths",
+          "card_name": "Lillie's Clefairy ex",
           "count": 1,
           "category": "Pokemon"
         },
@@ -432,12 +432,12 @@
           "category": "Trainer"
         },
         {
-          "card_name": "Lillie's Clefairy ex",
+          "card_name": "Switch",
           "count": 1,
           "category": "Trainer"
         },
         {
-          "card_name": "Switch",
+          "card_name": "Area Zero Underdepths",
           "count": 1,
           "category": "Trainer"
         },
@@ -505,11 +505,6 @@
           "category": "Pokemon"
         },
         {
-          "card_name": "Brock's Scouting",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
           "card_name": "Dragapult ex",
           "count": 2,
           "category": "Pokemon"
@@ -561,6 +556,11 @@
         },
         {
           "card_name": "Team Rocket's Watchtower",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Brock's Scouting",
           "count": 2,
           "category": "Trainer"
         },
@@ -648,7 +648,7 @@
           "category": "Pokemon"
         },
         {
-          "card_name": "Brock's Scouting",
+          "card_name": "Lillie's Clefairy ex",
           "count": 1,
           "category": "Pokemon"
         },
@@ -703,7 +703,7 @@
           "category": "Trainer"
         },
         {
-          "card_name": "Lillie's Clefairy ex",
+          "card_name": "Brock's Scouting",
           "count": 1,
           "category": "Trainer"
         },
@@ -786,11 +786,6 @@
           "category": "Pokemon"
         },
         {
-          "card_name": "Hilda",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
           "card_name": "Meowth ex",
           "count": 1,
           "category": "Pokemon"
@@ -841,6 +836,11 @@
           "category": "Trainer"
         },
         {
+          "card_name": "Hilda",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
           "card_name": "Grass Energy",
           "count": 3,
           "category": "Energy"
@@ -886,7 +886,7 @@
       "week": "2026-02-23",
       "adopted": [
         {
-          "card": "Hero's Cape",
+          "card": "Team Rocket's Watchtower",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -896,12 +896,12 @@
           "to_pct": 100.0
         },
         {
-          "card": "Brock's Scouting",
+          "card": "Hero's Cape",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Team Rocket's Watchtower",
+          "card": "Brock's Scouting",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -913,32 +913,7 @@
       ],
       "dropped": [
         {
-          "card": "Budew",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Unfair Stamp",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Area Zero Underdepths",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Psyduck",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Fezandipiti ex",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Lillie's Clefairy ex",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -948,7 +923,32 @@
           "to_pct": 0.0
         },
         {
+          "card": "Area Zero Underdepths",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
           "card": "Switch",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Fezandipiti ex",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Unfair Stamp",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Budew",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Lillie's Clefairy ex",
           "from_pct": 100.0,
           "to_pct": 0.0
         }
@@ -968,12 +968,7 @@
           "to_pct": 100.0
         },
         {
-          "card": "Legacy Energy",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Unfair Stamp",
+          "card": "Hilda",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -983,7 +978,12 @@
           "to_pct": 50.0
         },
         {
-          "card": "Lillie's Clefairy ex",
+          "card": "Unfair Stamp",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Legacy Energy",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -993,7 +993,7 @@
           "to_pct": 50.0
         },
         {
-          "card": "Hilda",
+          "card": "Lillie's Clefairy ex",
           "from_pct": 0.0,
           "to_pct": 50.0
         }
@@ -1014,17 +1014,22 @@
   ],
   "variants": [
     {
-      "name": "with Brock's Scouting",
-      "deck_count": 2,
-      "pct": 50.0
-    },
-    {
-      "name": "with Hilda",
+      "name": "Standard",
       "deck_count": 1,
       "pct": 25.0
     },
     {
-      "name": "with Area Zero Underdepths",
+      "name": "with Fezandipiti ex",
+      "deck_count": 1,
+      "pct": 25.0
+    },
+    {
+      "name": "with Shaymin",
+      "deck_count": 1,
+      "pct": 25.0
+    },
+    {
+      "name": "with Budew",
       "deck_count": 1,
       "pct": 25.0
     }
