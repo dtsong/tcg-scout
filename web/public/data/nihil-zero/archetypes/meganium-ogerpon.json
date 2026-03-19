@@ -700,12 +700,7 @@
       "week": "2026-02-02",
       "adopted": [
         {
-          "card": "N's Plan",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Crustle",
+          "card": "Psyduck",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -715,17 +710,12 @@
           "to_pct": 100.0
         },
         {
-          "card": "Psyduck",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
           "card": "Dwebble",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Lana's Aid",
+          "card": "N's Plan",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -735,12 +725,12 @@
           "to_pct": 100.0
         },
         {
-          "card": "Ultra Ball",
+          "card": "Meowth ex",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Meowth ex",
+          "card": "Lana's Aid",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -748,16 +738,36 @@
           "card": "Buddy-Buddy Poffin",
           "from_pct": 0.0,
           "to_pct": 100.0
+        },
+        {
+          "card": "Ultra Ball",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Crustle",
+          "from_pct": 0.0,
+          "to_pct": 100.0
         }
       ],
       "dropped": [
         {
-          "card": "Crispin",
+          "card": "Secret Box",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
           "card": "Energy Switch",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Budew",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Poké Pad",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -768,11 +778,6 @@
         },
         {
           "card": "Energy Search",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Secret Box",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -792,17 +797,12 @@
           "to_pct": 0.0
         },
         {
-          "card": "Budew",
+          "card": "Crispin",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
           "card": "Wellspring Mask Ogerpon ex",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Poké Pad",
           "from_pct": 100.0,
           "to_pct": 0.0
         }
@@ -812,12 +812,12 @@
       "week": "2026-02-09",
       "adopted": [
         {
-          "card": "Energy Switch",
+          "card": "Acerola's Mischief",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Acerola's Mischief",
+          "card": "Energy Switch",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -834,21 +834,6 @@
       ],
       "dropped": [
         {
-          "card": "N's Plan",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Crustle",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Hero's Cape",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Psyduck",
           "from_pct": 100.0,
           "to_pct": 0.0
@@ -859,17 +844,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "Dwebble",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Lana's Aid",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Tatsugiri",
+          "card": "Hero's Cape",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -879,7 +854,32 @@
           "to_pct": 0.0
         },
         {
+          "card": "Dwebble",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "N's Plan",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Tatsugiri",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Lana's Aid",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
           "card": "Buddy-Buddy Poffin",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Crustle",
           "from_pct": 100.0,
           "to_pct": 0.0
         }
@@ -923,5 +923,8 @@
       "meta_share": 0.0,
       "deck_count": 0
     }
-  ]
+  ],
+  "top4_card_stats": [],
+  "top4_sample_size": 0,
+  "top4_low_sample": true
 }

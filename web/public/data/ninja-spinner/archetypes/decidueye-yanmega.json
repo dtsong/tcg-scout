@@ -37,7 +37,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Rowlet",
@@ -86,7 +86,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Growth Grass Energy",
@@ -193,7 +193,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Rowlet",
@@ -242,7 +242,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Growth Grass Energy",
@@ -350,11 +350,6 @@
           "category": "Pokemon"
         },
         {
-          "card_name": "Hilda",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
           "card_name": "Fezandipiti ex",
           "count": 1,
           "category": "Pokemon"
@@ -371,11 +366,6 @@
         },
         {
           "card_name": "Dunsparce",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Scoop Up Cyclone",
           "count": 1,
           "category": "Pokemon"
         },
@@ -420,6 +410,11 @@
           "category": "Trainer"
         },
         {
+          "card_name": "Hilda",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
           "card_name": "Air Balloon",
           "count": 1,
           "category": "Trainer"
@@ -431,6 +426,11 @@
         },
         {
           "card_name": "Ultra Ball",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Scoop Up Cyclone",
           "count": 1,
           "category": "Trainer"
         },
@@ -473,5 +473,8 @@
       "meta_share": 0.0,
       "deck_count": 0
     }
-  ]
+  ],
+  "top4_card_stats": [],
+  "top4_sample_size": 0,
+  "top4_low_sample": true
 }

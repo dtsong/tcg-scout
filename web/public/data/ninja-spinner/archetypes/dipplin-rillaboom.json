@@ -79,7 +79,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Kieran",
@@ -114,7 +114,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Dipplin",
@@ -128,7 +128,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 3.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Budew",
@@ -149,14 +149,14 @@
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Brave Bangle",
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Boss's Orders",
@@ -256,7 +256,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Kieran",
@@ -291,7 +291,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Dipplin",
@@ -305,7 +305,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 3.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Budew",
@@ -326,14 +326,14 @@
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Brave Bangle",
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Boss's Orders",
@@ -377,11 +377,6 @@
           "category": "Pokemon"
         },
         {
-          "card_name": "Festival Grounds",
-          "count": 4,
-          "category": "Pokemon"
-        },
-        {
           "card_name": "Thwackey",
           "count": 4,
           "category": "Pokemon"
@@ -397,16 +392,6 @@
           "category": "Pokemon"
         },
         {
-          "card_name": "Bug Catching Set",
-          "count": 3,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Brave Bangle",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
           "card_name": "Budew",
           "count": 1,
           "category": "Pokemon"
@@ -418,16 +403,6 @@
         },
         {
           "card_name": "Shaymin",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Brock's Scouting",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Lana's Aid",
           "count": 1,
           "category": "Pokemon"
         },
@@ -452,6 +427,16 @@
           "category": "Trainer"
         },
         {
+          "card_name": "Festival Grounds",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Bug Catching Set",
+          "count": 3,
+          "category": "Trainer"
+        },
+        {
           "card_name": "Night Stretcher",
           "count": 2,
           "category": "Trainer"
@@ -463,6 +448,11 @@
         },
         {
           "card_name": "Boss's Orders",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Brave Bangle",
           "count": 2,
           "category": "Trainer"
         },
@@ -482,7 +472,17 @@
           "category": "Trainer"
         },
         {
+          "card_name": "Brock's Scouting",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
           "card_name": "Kieran",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Lana's Aid",
           "count": 1,
           "category": "Trainer"
         },
@@ -525,5 +525,8 @@
       "meta_share": 0.0,
       "deck_count": 0
     }
-  ]
+  ],
+  "top4_card_stats": [],
+  "top4_sample_size": 0,
+  "top4_low_sample": true
 }

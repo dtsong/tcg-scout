@@ -624,27 +624,12 @@
       "week": "2026-03-02",
       "adopted": [
         {
-          "card": "Night Stretcher",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
           "card": "Psyduck",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Tatsugiri",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Ultra Ball",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Surfer",
+          "card": "Night Stretcher",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -654,34 +639,29 @@
           "to_pct": 100.0
         },
         {
+          "card": "Tatsugiri",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Surfer",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
           "card": "Prime Catcher",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Ultra Ball",
           "from_pct": 0.0,
           "to_pct": 100.0
         }
       ],
       "dropped": [
         {
-          "card": "Dachsbun ex",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Fidough",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Strange Timepiece",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Maximum Belt",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Abra",
+          "card": "Seaking",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -691,12 +671,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "Tool Scrapper",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Seaking",
+          "card": "Fidough",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -706,7 +681,32 @@
           "to_pct": 0.0
         },
         {
+          "card": "Tool Scrapper",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
           "card": "Colress's Tenacity",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Maximum Belt",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Strange Timepiece",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Dachsbun ex",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Abra",
           "from_pct": 100.0,
           "to_pct": 0.0
         }
@@ -750,5 +750,8 @@
       "meta_share": 0.1,
       "deck_count": 1
     }
-  ]
+  ],
+  "top4_card_stats": [],
+  "top4_sample_size": 0,
+  "top4_low_sample": true
 }

@@ -37,7 +37,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Psyduck",
@@ -86,7 +86,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 3.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Ignition Energy",
@@ -100,7 +100,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Genesect ex",
@@ -135,7 +135,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Boss's Orders",
@@ -149,7 +149,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Aegislash",
@@ -186,7 +186,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Psyduck",
@@ -235,7 +235,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 3.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Ignition Energy",
@@ -249,7 +249,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Genesect ex",
@@ -284,7 +284,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Boss's Orders",
@@ -298,7 +298,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Aegislash",
@@ -326,21 +326,6 @@
           "category": "Pokemon"
         },
         {
-          "card_name": "Kofu",
-          "count": 3,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Battle Cage",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Hilda",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
           "card_name": "Fezandipiti ex",
           "count": 1,
           "category": "Pokemon"
@@ -356,16 +341,6 @@
           "category": "Pokemon"
         },
         {
-          "card_name": "Sacred Ash",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Brock's Scouting",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
           "card_name": "Latias ex",
           "count": 1,
           "category": "Pokemon"
@@ -373,6 +348,11 @@
         {
           "card_name": "Poké Pad",
           "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Kofu",
+          "count": 3,
           "category": "Trainer"
         },
         {
@@ -391,7 +371,17 @@
           "category": "Trainer"
         },
         {
+          "card_name": "Battle Cage",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
           "card_name": "Dawn",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Hilda",
           "count": 2,
           "category": "Trainer"
         },
@@ -401,7 +391,17 @@
           "category": "Trainer"
         },
         {
+          "card_name": "Sacred Ash",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
           "card_name": "Team Rocket's Petrel",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Brock's Scouting",
           "count": 1,
           "category": "Trainer"
         },
@@ -449,5 +449,8 @@
       "meta_share": 0.0,
       "deck_count": 0
     }
-  ]
+  ],
+  "top4_card_stats": [],
+  "top4_sample_size": 0,
+  "top4_low_sample": true
 }

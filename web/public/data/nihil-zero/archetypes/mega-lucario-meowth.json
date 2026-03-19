@@ -667,6 +667,16 @@
           "to_pct": 100.0
         },
         {
+          "card": "Tool Scrapper",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Meowth ex",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
           "card": "Maximum Belt",
           "from_pct": 0.0,
           "to_pct": 100.0
@@ -680,21 +690,11 @@
           "card": "Switch",
           "from_pct": 0.0,
           "to_pct": 100.0
-        },
-        {
-          "card": "Tool Scrapper",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Meowth ex",
-          "from_pct": 0.0,
-          "to_pct": 100.0
         }
       ],
       "dropped": [
         {
-          "card": "Wally's Compassion",
+          "card": "Carmine",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -704,17 +704,17 @@
           "to_pct": 0.0
         },
         {
+          "card": "Judge",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
           "card": "Kieran",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Carmine",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Pokégear 3.0",
+          "card": "Wally's Compassion",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -724,7 +724,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "Judge",
+          "card": "Pokégear 3.0",
           "from_pct": 100.0,
           "to_pct": 0.0
         }
@@ -734,17 +734,7 @@
       "week": "2026-02-23",
       "adopted": [
         {
-          "card": "Kieran",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
           "card": "Psyduck",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Genesect",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -754,7 +744,22 @@
           "to_pct": 100.0
         },
         {
+          "card": "Judge",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
           "card": "Fezandipiti ex",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Kieran",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Genesect",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -762,14 +767,14 @@
           "card": "Prime Catcher",
           "from_pct": 0.0,
           "to_pct": 100.0
-        },
-        {
-          "card": "Judge",
-          "from_pct": 0.0,
-          "to_pct": 100.0
         }
       ],
       "dropped": [
+        {
+          "card": "Tool Scrapper",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
         {
           "card": "Ciphermaniac's Codebreaking",
           "from_pct": 100.0,
@@ -787,11 +792,6 @@
         },
         {
           "card": "Switch",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Tool Scrapper",
           "from_pct": 100.0,
           "to_pct": 0.0
         }
@@ -835,5 +835,8 @@
       "meta_share": 0.0,
       "deck_count": 0
     }
-  ]
+  ],
+  "top4_card_stats": [],
+  "top4_sample_size": 0,
+  "top4_low_sample": true
 }

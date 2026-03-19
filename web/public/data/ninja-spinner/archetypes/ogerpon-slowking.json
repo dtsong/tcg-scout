@@ -65,7 +65,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Metagross",
@@ -100,7 +100,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Kyurem",
@@ -163,7 +163,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     }
   ],
   "all_cards": [
@@ -221,7 +221,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Metagross",
@@ -256,7 +256,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Kyurem",
@@ -319,7 +319,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     }
   ],
   "results": [
@@ -331,16 +331,6 @@
       "decklist": [
         {
           "card_name": "Slowpoke",
-          "count": 4,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Academy at Night",
-          "count": 4,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Morty's Conviction",
           "count": 4,
           "category": "Pokemon"
         },
@@ -375,11 +365,6 @@
           "category": "Pokemon"
         },
         {
-          "card_name": "Lana's Aid",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
           "card_name": "Meowth ex",
           "count": 1,
           "category": "Pokemon"
@@ -396,6 +381,16 @@
         },
         {
           "card_name": "Lillie's Determination",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Academy at Night",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Morty's Conviction",
           "count": 4,
           "category": "Trainer"
         },
@@ -431,6 +426,11 @@
         },
         {
           "card_name": "Boss's Orders",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Lana's Aid",
           "count": 1,
           "category": "Trainer"
         },
@@ -473,5 +473,8 @@
       "meta_share": 0.0,
       "deck_count": 0
     }
-  ]
+  ],
+  "top4_card_stats": [],
+  "top4_sample_size": 0,
+  "top4_low_sample": true
 }

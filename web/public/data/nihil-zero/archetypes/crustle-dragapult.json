@@ -886,12 +886,7 @@
       "week": "2026-02-23",
       "adopted": [
         {
-          "card": "Team Rocket's Watchtower",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Mist Energy",
+          "card": "Brock's Scouting",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -901,12 +896,17 @@
           "to_pct": 100.0
         },
         {
-          "card": "Brock's Scouting",
+          "card": "Shaymin",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Shaymin",
+          "card": "Team Rocket's Watchtower",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Mist Energy",
           "from_pct": 0.0,
           "to_pct": 100.0
         }
@@ -918,17 +918,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "Jamming Tower",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Area Zero Underdepths",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Switch",
+          "card": "Budew",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -938,17 +928,27 @@
           "to_pct": 0.0
         },
         {
+          "card": "Area Zero Underdepths",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
           "card": "Unfair Stamp",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Budew",
+          "card": "Lillie's Clefairy ex",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Lillie's Clefairy ex",
+          "card": "Jamming Tower",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Switch",
           "from_pct": 100.0,
           "to_pct": 0.0
         }
@@ -968,7 +968,7 @@
           "to_pct": 100.0
         },
         {
-          "card": "Hilda",
+          "card": "Judge",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -978,22 +978,22 @@
           "to_pct": 50.0
         },
         {
-          "card": "Unfair Stamp",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
           "card": "Legacy Energy",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
         {
-          "card": "Judge",
+          "card": "Unfair Stamp",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
         {
           "card": "Lillie's Clefairy ex",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Hilda",
           "from_pct": 0.0,
           "to_pct": 50.0
         }
@@ -1070,5 +1070,8 @@
       "meta_share": 0.2,
       "deck_count": 2
     }
-  ]
+  ],
+  "top4_card_stats": [],
+  "top4_sample_size": 0,
+  "top4_low_sample": true
 }

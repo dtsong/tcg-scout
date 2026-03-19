@@ -1006,12 +1006,12 @@
           "to_pct": 100.0
         },
         {
-          "card": "Morty's Conviction",
+          "card": "Rosa's Encouragement",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
         {
-          "card": "Rosa's Encouragement",
+          "card": "Judge",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -1031,19 +1031,19 @@
           "to_pct": 50.0
         },
         {
-          "card": "Prime Catcher",
+          "card": "Morty's Conviction",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
         {
-          "card": "Judge",
+          "card": "Prime Catcher",
           "from_pct": 0.0,
           "to_pct": 50.0
         }
       ],
       "dropped": [
         {
-          "card": "Crispin",
+          "card": "Colress's Tenacity",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -1053,17 +1053,17 @@
           "to_pct": 0.0
         },
         {
-          "card": "Neo Upper Energy",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Switch",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Colress's Tenacity",
+          "card": "Crispin",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Neo Upper Energy",
           "from_pct": 100.0,
           "to_pct": 0.0
         }
@@ -1072,11 +1072,6 @@
     {
       "week": "2026-03-02",
       "adopted": [
-        {
-          "card": "Crispin",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
         {
           "card": "Kieran",
           "from_pct": 0.0,
@@ -1091,6 +1086,11 @@
           "card": "Naveen",
           "from_pct": 0.0,
           "to_pct": 100.0
+        },
+        {
+          "card": "Crispin",
+          "from_pct": 0.0,
+          "to_pct": 100.0
         }
       ],
       "dropped": [
@@ -1100,17 +1100,12 @@
           "to_pct": 0.0
         },
         {
-          "card": "Morty's Conviction",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Rosa's Encouragement",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
-          "card": "Battle Cage",
+          "card": "Judge",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -1120,12 +1115,17 @@
           "to_pct": 0.0
         },
         {
-          "card": "Prime Catcher",
+          "card": "Battle Cage",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
-          "card": "Judge",
+          "card": "Morty's Conviction",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Prime Catcher",
           "from_pct": 50.0,
           "to_pct": 0.0
         }
@@ -1180,5 +1180,313 @@
       "meta_share": 0.1,
       "deck_count": 1
     }
-  ]
+  ],
+  "top4_card_stats": [
+    {
+      "card_name": "Victini",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Pokemon",
+      "delta_vs_field": 25.0
+    },
+    {
+      "card_name": "Unfair Stamp",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 50.0
+    },
+    {
+      "card_name": "Ultra Ball",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Team Rocket's Watchtower",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 25.0
+    },
+    {
+      "card_name": "Shaymin",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Pokemon",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Redeemable Ticket",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Rare Candy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 25.0
+    },
+    {
+      "card_name": "Psyduck",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Pokemon",
+      "delta_vs_field": 25.0
+    },
+    {
+      "card_name": "Poké Pad",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Night Stretcher",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Naveen",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 75.0
+    },
+    {
+      "card_name": "Lillie's Determination",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Lana's Aid",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 75.0
+    },
+    {
+      "card_name": "Kieran",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 75.0
+    },
+    {
+      "card_name": "Gravity Mountain",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 50.0
+    },
+    {
+      "card_name": "Ethan's Typhlosion",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Pokemon",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Ethan's Quilava",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.0,
+      "decks_with": 1,
+      "category": "Pokemon",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Ethan's Cyndaquil",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.0,
+      "decks_with": 1,
+      "category": "Pokemon",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Ethan's Adventure",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Dreepy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Pokemon",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Drakloak",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Pokemon",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Dragapult ex",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Pokemon",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Crispin",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 50.0
+    },
+    {
+      "card_name": "Budew",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Pokemon",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Buddy-Buddy Poffin",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Brave Bangle",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Boss's Orders",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Air Balloon",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Trainer",
+      "delta_vs_field": -75.0
+    },
+    {
+      "card_name": "Battle Cage",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Trainer",
+      "delta_vs_field": -50.0
+    },
+    {
+      "card_name": "Switch",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Trainer",
+      "delta_vs_field": -25.0
+    },
+    {
+      "card_name": "Rosa's Encouragement",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Trainer",
+      "delta_vs_field": -25.0
+    },
+    {
+      "card_name": "Prime Catcher",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Trainer",
+      "delta_vs_field": -25.0
+    },
+    {
+      "card_name": "Neo Upper Energy",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Energy",
+      "delta_vs_field": -25.0
+    },
+    {
+      "card_name": "Morty's Conviction",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Trainer",
+      "delta_vs_field": -25.0
+    },
+    {
+      "card_name": "Judge",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Trainer",
+      "delta_vs_field": -25.0
+    },
+    {
+      "card_name": "Iris's Fighting Spirit",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Trainer",
+      "delta_vs_field": -25.0
+    },
+    {
+      "card_name": "Fezandipiti ex",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Pokemon",
+      "delta_vs_field": -25.0
+    },
+    {
+      "card_name": "Colress's Tenacity",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Trainer",
+      "delta_vs_field": -25.0
+    }
+  ],
+  "top4_sample_size": 1,
+  "top4_low_sample": true
 }

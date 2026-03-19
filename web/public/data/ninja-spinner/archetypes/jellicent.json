@@ -36,14 +36,14 @@
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Pokégear 3.0",
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Mist Energy",
@@ -92,7 +92,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Frillish",
@@ -106,14 +106,14 @@
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Colress's Tenacity",
       "inclusion_pct": 100.0,
       "avg_copies": 3.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Boss's Orders",
@@ -127,7 +127,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     }
   ],
   "all_cards": [
@@ -157,14 +157,14 @@
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Pokégear 3.0",
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Mist Energy",
@@ -213,7 +213,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Frillish",
@@ -227,14 +227,14 @@
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Colress's Tenacity",
       "inclusion_pct": 100.0,
       "avg_copies": 3.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Boss's Orders",
@@ -248,7 +248,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     }
   ],
   "results": [
@@ -259,16 +259,6 @@
       "player_name": "ぽりぷて",
       "decklist": [
         {
-          "card_name": "Crushing Hammer",
-          "count": 4,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Pokégear 3.0",
-          "count": 4,
-          "category": "Pokemon"
-        },
-        {
           "card_name": "Frillish",
           "count": 4,
           "category": "Pokemon"
@@ -276,26 +266,6 @@
         {
           "card_name": "Jellicent ex",
           "count": 4,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Hilda",
-          "count": 4,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Colress's Tenacity",
-          "count": 3,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Battle Cage",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Special Red Card",
-          "count": 2,
           "category": "Pokemon"
         },
         {
@@ -309,12 +279,42 @@
           "category": "Trainer"
         },
         {
+          "card_name": "Crushing Hammer",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Pokégear 3.0",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Hilda",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
           "card_name": "Lillie's Determination",
           "count": 3,
           "category": "Trainer"
         },
         {
+          "card_name": "Colress's Tenacity",
+          "count": 3,
+          "category": "Trainer"
+        },
+        {
           "card_name": "Team Rocket's Watchtower",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Battle Cage",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Special Red Card",
           "count": 2,
           "category": "Trainer"
         },
@@ -372,5 +372,8 @@
       "meta_share": 0.7,
       "deck_count": 1
     }
-  ]
+  ],
+  "top4_card_stats": [],
+  "top4_sample_size": 0,
+  "top4_low_sample": true
 }

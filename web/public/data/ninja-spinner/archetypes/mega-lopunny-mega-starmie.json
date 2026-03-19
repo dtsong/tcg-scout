@@ -16,7 +16,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 3.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Ultra Ball",
@@ -44,7 +44,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Shaymin",
@@ -114,7 +114,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Hero's Cape",
@@ -163,7 +163,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 3.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Air Balloon",
@@ -179,7 +179,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 3.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Ultra Ball",
@@ -207,7 +207,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Shaymin",
@@ -277,7 +277,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Hero's Cape",
@@ -326,7 +326,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 3.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Air Balloon",
@@ -343,21 +343,6 @@
       "standing": 6,
       "player_name": "ペイチン",
       "decklist": [
-        {
-          "card_name": "Hilda",
-          "count": 4,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Wally's Compassion",
-          "count": 3,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Battle Cage",
-          "count": 3,
-          "category": "Pokemon"
-        },
         {
           "card_name": "Mega Starmie ex",
           "count": 3,
@@ -399,11 +384,6 @@
           "category": "Pokemon"
         },
         {
-          "card_name": "Special Red Card",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
           "card_name": "Lillie's Determination",
           "count": 4,
           "category": "Trainer"
@@ -414,12 +394,27 @@
           "category": "Trainer"
         },
         {
+          "card_name": "Hilda",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
           "card_name": "Poké Pad",
           "count": 3,
           "category": "Trainer"
         },
         {
           "card_name": "Ultra Ball",
+          "count": 3,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Wally's Compassion",
+          "count": 3,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Battle Cage",
           "count": 3,
           "category": "Trainer"
         },
@@ -459,6 +454,11 @@
           "category": "Trainer"
         },
         {
+          "card_name": "Special Red Card",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
           "card_name": "Water Energy",
           "count": 6,
           "category": "Energy"
@@ -492,5 +492,8 @@
       "meta_share": 0.0,
       "deck_count": 0
     }
-  ]
+  ],
+  "top4_card_stats": [],
+  "top4_sample_size": 0,
+  "top4_low_sample": true
 }

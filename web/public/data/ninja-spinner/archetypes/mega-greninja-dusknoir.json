@@ -30,7 +30,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Rare Candy",
@@ -93,7 +93,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 3.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Greninja ex",
@@ -142,7 +142,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 3.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Budew",
@@ -193,7 +193,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Rare Candy",
@@ -256,7 +256,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 3.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Greninja ex",
@@ -305,7 +305,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 3.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Budew",
@@ -343,16 +343,6 @@
       "standing": 6,
       "player_name": "ゆ-ki",
       "decklist": [
-        {
-          "card_name": "Colress's Tenacity",
-          "count": 3,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Hilda",
-          "count": 3,
-          "category": "Pokemon"
-        },
         {
           "card_name": "Budew",
           "count": 2,
@@ -399,11 +389,6 @@
           "category": "Pokemon"
         },
         {
-          "card_name": "Special Red Card",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
           "card_name": "Lillie's Determination",
           "count": 4,
           "category": "Trainer"
@@ -420,6 +405,16 @@
         },
         {
           "card_name": "Poké Pad",
+          "count": 3,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Colress's Tenacity",
+          "count": 3,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Hilda",
           "count": 3,
           "category": "Trainer"
         },
@@ -450,6 +445,11 @@
         },
         {
           "card_name": "Jamming Tower",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Special Red Card",
           "count": 1,
           "category": "Trainer"
         },
@@ -487,5 +487,8 @@
       "meta_share": 0.0,
       "deck_count": 0
     }
-  ]
+  ],
+  "top4_card_stats": [],
+  "top4_sample_size": 0,
+  "top4_low_sample": true
 }

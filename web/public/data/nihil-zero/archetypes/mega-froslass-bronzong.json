@@ -1830,22 +1830,12 @@
           "to_pct": 50.0
         },
         {
-          "card": "Surfing Beach",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Lt. Surge's Bargain",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
           "card": "Team Rocket's Petrel",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
         {
-          "card": "Surfer",
+          "card": "Surfing Beach",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -1855,7 +1845,32 @@
           "to_pct": 50.0
         },
         {
+          "card": "Lt. Surge's Bargain",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Surfer",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
           "card": "Secret Box",
+          "from_pct": 33.3,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Budew",
+          "from_pct": 33.3,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Judge",
+          "from_pct": 33.3,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Pecharunt ex",
           "from_pct": 33.3,
           "to_pct": 50.0
         },
@@ -1870,22 +1885,7 @@
           "to_pct": 50.0
         },
         {
-          "card": "Pecharunt ex",
-          "from_pct": 33.3,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Budew",
-          "from_pct": 33.3,
-          "to_pct": 50.0
-        },
-        {
           "card": "Legacy Energy",
-          "from_pct": 33.3,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Judge",
           "from_pct": 33.3,
           "to_pct": 50.0
         }
@@ -1913,17 +1913,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "Nighttime Mine",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Secret Box",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Surfing Beach",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -1933,17 +1923,12 @@
           "to_pct": 0.0
         },
         {
-          "card": "Lt. Surge's Bargain",
+          "card": "Nighttime Mine",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
-          "card": "Yveltal",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Team Rocket's Petrel",
+          "card": "Judge",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -1953,7 +1938,17 @@
           "to_pct": 0.0
         },
         {
-          "card": "Pokégear 3.0",
+          "card": "Team Rocket's Petrel",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Yveltal",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Surfing Beach",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -1963,7 +1958,12 @@
           "to_pct": 0.0
         },
         {
-          "card": "Judge",
+          "card": "Lt. Surge's Bargain",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Pokégear 3.0",
           "from_pct": 50.0,
           "to_pct": 0.0
         }
@@ -1978,17 +1978,17 @@
           "to_pct": 100.0
         },
         {
-          "card": "Girafarig",
-          "from_pct": 0.0,
-          "to_pct": 66.7
-        },
-        {
           "card": "Farigiraf ex",
           "from_pct": 0.0,
           "to_pct": 66.7
         },
         {
           "card": "Lillie's Clefairy ex",
+          "from_pct": 0.0,
+          "to_pct": 66.7
+        },
+        {
+          "card": "Girafarig",
           "from_pct": 0.0,
           "to_pct": 66.7
         }
@@ -2055,5 +2055,8 @@
       "meta_share": 0.2,
       "deck_count": 3
     }
-  ]
+  ],
+  "top4_card_stats": [],
+  "top4_sample_size": 0,
+  "top4_low_sample": true
 }

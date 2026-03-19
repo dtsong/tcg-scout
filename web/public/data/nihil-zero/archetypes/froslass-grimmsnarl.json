@@ -2571,12 +2571,12 @@
           "to_pct": 100.0
         },
         {
-          "card": "Ultra Ball",
+          "card": "Judge",
           "from_pct": 32.6,
           "to_pct": 100.0
         },
         {
-          "card": "Judge",
+          "card": "Ultra Ball",
           "from_pct": 32.6,
           "to_pct": 100.0
         },
@@ -2625,6 +2625,11 @@
       ],
       "dropped": [
         {
+          "card": "Tool Scrapper",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
           "card": "Iris's Fighting Spirit",
           "from_pct": 100.0,
           "to_pct": 0.0
@@ -2635,22 +2640,17 @@
           "to_pct": 0.0
         },
         {
-          "card": "Tool Scrapper",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Secret Box",
           "from_pct": 100.0,
           "to_pct": 16.7
         },
         {
-          "card": "Bloodmoon Ursaluna ex",
+          "card": "Judge",
           "from_pct": 100.0,
           "to_pct": 16.7
         },
         {
-          "card": "Judge",
+          "card": "Bloodmoon Ursaluna ex",
           "from_pct": 100.0,
           "to_pct": 16.7
         }
@@ -2715,5 +2715,569 @@
       "meta_share": 0.5,
       "deck_count": 7
     }
-  ]
+  ],
+  "top4_card_stats": [
+    {
+      "card_name": "Spikemuth Gym",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.4,
+      "decks_with": 50,
+      "category": "Trainer",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Snorunt",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.9,
+      "decks_with": 50,
+      "category": "Pokemon",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Rare Candy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.5,
+      "decks_with": 50,
+      "category": "Trainer",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Poké Pad",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.6,
+      "decks_with": 50,
+      "category": "Trainer",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Night Stretcher",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.8,
+      "decks_with": 50,
+      "category": "Trainer",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Munkidori",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.8,
+      "decks_with": 50,
+      "category": "Pokemon",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Marnie's Morgrem",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 50,
+      "category": "Trainer",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Marnie's Impidimp",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.0,
+      "decks_with": 50,
+      "category": "Trainer",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Marnie's Grimmsnarl ex",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.6,
+      "decks_with": 50,
+      "category": "Pokemon",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Lillie's Determination",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.0,
+      "decks_with": 50,
+      "category": "Trainer",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Froslass",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.3,
+      "decks_with": 50,
+      "category": "Pokemon",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Buddy-Buddy Poffin",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.7,
+      "decks_with": 50,
+      "category": "Trainer",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Boss's Orders",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.4,
+      "decks_with": 50,
+      "category": "Trainer",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Team Rocket's Petrel",
+      "inclusion_pct": 98.0,
+      "avg_copies": 3.6,
+      "decks_with": 49,
+      "category": "Trainer",
+      "delta_vs_field": 1.2
+    },
+    {
+      "card_name": "Budew",
+      "inclusion_pct": 90.0,
+      "avg_copies": 1.1,
+      "decks_with": 45,
+      "category": "Pokemon",
+      "delta_vs_field": -3.5
+    },
+    {
+      "card_name": "Air Balloon",
+      "inclusion_pct": 90.0,
+      "avg_copies": 1.1,
+      "decks_with": 45,
+      "category": "Trainer",
+      "delta_vs_field": -0.8
+    },
+    {
+      "card_name": "Shaymin",
+      "inclusion_pct": 64.0,
+      "avg_copies": 1.0,
+      "decks_with": 32,
+      "category": "Pokemon",
+      "delta_vs_field": -0.3
+    },
+    {
+      "card_name": "Tatsugiri",
+      "inclusion_pct": 62.0,
+      "avg_copies": 1.0,
+      "decks_with": 31,
+      "category": "Pokemon",
+      "delta_vs_field": -4.5
+    },
+    {
+      "card_name": "Secret Box",
+      "inclusion_pct": 56.0,
+      "avg_copies": 1.0,
+      "decks_with": 28,
+      "category": "Trainer",
+      "delta_vs_field": 4.6
+    },
+    {
+      "card_name": "Tool Scrapper",
+      "inclusion_pct": 46.0,
+      "avg_copies": 1.0,
+      "decks_with": 23,
+      "category": "Trainer",
+      "delta_vs_field": 5.5
+    },
+    {
+      "card_name": "Unfair Stamp",
+      "inclusion_pct": 40.0,
+      "avg_copies": 1.0,
+      "decks_with": 20,
+      "category": "Trainer",
+      "delta_vs_field": -5.9
+    },
+    {
+      "card_name": "Morty's Conviction",
+      "inclusion_pct": 40.0,
+      "avg_copies": 2.2,
+      "decks_with": 20,
+      "category": "Trainer",
+      "delta_vs_field": 2.7
+    },
+    {
+      "card_name": "Judge",
+      "inclusion_pct": 40.0,
+      "avg_copies": 1.4,
+      "decks_with": 20,
+      "category": "Trainer",
+      "delta_vs_field": 0.5
+    },
+    {
+      "card_name": "Ultra Ball",
+      "inclusion_pct": 38.0,
+      "avg_copies": 1.2,
+      "decks_with": 19,
+      "category": "Trainer",
+      "delta_vs_field": 4.5
+    },
+    {
+      "card_name": "Energy Switch",
+      "inclusion_pct": 34.0,
+      "avg_copies": 1.4,
+      "decks_with": 17,
+      "category": "Trainer",
+      "delta_vs_field": -4.9
+    },
+    {
+      "card_name": "Yveltal",
+      "inclusion_pct": 32.0,
+      "avg_copies": 1.0,
+      "decks_with": 16,
+      "category": "Pokemon",
+      "delta_vs_field": 3.4
+    },
+    {
+      "card_name": "Bloodmoon Ursaluna ex",
+      "inclusion_pct": 26.0,
+      "avg_copies": 1.0,
+      "decks_with": 13,
+      "category": "Pokemon",
+      "delta_vs_field": 4.4
+    },
+    {
+      "card_name": "Carmine",
+      "inclusion_pct": 16.0,
+      "avg_copies": 3.9,
+      "decks_with": 8,
+      "category": "Trainer",
+      "delta_vs_field": 6.3
+    },
+    {
+      "card_name": "Iris's Fighting Spirit",
+      "inclusion_pct": 14.0,
+      "avg_copies": 1.7,
+      "decks_with": 7,
+      "category": "Trainer",
+      "delta_vs_field": -0.6
+    },
+    {
+      "card_name": "Psyduck",
+      "inclusion_pct": 12.0,
+      "avg_copies": 1.0,
+      "decks_with": 6,
+      "category": "Pokemon",
+      "delta_vs_field": -5.8
+    },
+    {
+      "card_name": "Pokégear 3.0",
+      "inclusion_pct": 8.0,
+      "avg_copies": 2.0,
+      "decks_with": 4,
+      "category": "Trainer",
+      "delta_vs_field": 1.5
+    },
+    {
+      "card_name": "Xerosic's Machinations",
+      "inclusion_pct": 6.0,
+      "avg_copies": 1.0,
+      "decks_with": 3,
+      "category": "Trainer",
+      "delta_vs_field": 3.8
+    },
+    {
+      "card_name": "Punk Helmet",
+      "inclusion_pct": 6.0,
+      "avg_copies": 1.0,
+      "decks_with": 3,
+      "category": "Trainer",
+      "delta_vs_field": 1.7
+    },
+    {
+      "card_name": "Maractus",
+      "inclusion_pct": 6.0,
+      "avg_copies": 1.0,
+      "decks_with": 3,
+      "category": "Pokemon",
+      "delta_vs_field": -1.6
+    },
+    {
+      "card_name": "Energy Recycler",
+      "inclusion_pct": 6.0,
+      "avg_copies": 1.0,
+      "decks_with": 3,
+      "category": "Trainer",
+      "delta_vs_field": 1.7
+    },
+    {
+      "card_name": "Pecharunt ex",
+      "inclusion_pct": 4.0,
+      "avg_copies": 1.0,
+      "decks_with": 2,
+      "category": "Pokemon",
+      "delta_vs_field": 0.8
+    },
+    {
+      "card_name": "Kofu",
+      "inclusion_pct": 4.0,
+      "avg_copies": 2.5,
+      "decks_with": 2,
+      "category": "Trainer",
+      "delta_vs_field": -0.3
+    },
+    {
+      "card_name": "Hop's Cramorant",
+      "inclusion_pct": 4.0,
+      "avg_copies": 1.0,
+      "decks_with": 2,
+      "category": "Pokemon",
+      "delta_vs_field": 1.8
+    },
+    {
+      "card_name": "Drayton",
+      "inclusion_pct": 4.0,
+      "avg_copies": 1.0,
+      "decks_with": 2,
+      "category": "Trainer",
+      "delta_vs_field": -0.9
+    },
+    {
+      "card_name": "Team Rocket's Watchtower",
+      "inclusion_pct": 2.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.4
+    },
+    {
+      "card_name": "Meowth ex",
+      "inclusion_pct": 2.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Pokemon",
+      "delta_vs_field": 0.9
+    },
+    {
+      "card_name": "Mega Absol ex",
+      "inclusion_pct": 2.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Pokemon",
+      "delta_vs_field": -0.2
+    },
+    {
+      "card_name": "Marnie's Morpeko",
+      "inclusion_pct": 2.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Pokemon",
+      "delta_vs_field": 1.5
+    },
+    {
+      "card_name": "Lumiose City",
+      "inclusion_pct": 2.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 1.5
+    },
+    {
+      "card_name": "Jamming Tower",
+      "inclusion_pct": 2.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.4
+    },
+    {
+      "card_name": "Hero's Cape",
+      "inclusion_pct": 2.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": -0.2
+    },
+    {
+      "card_name": "Harlequin",
+      "inclusion_pct": 2.0,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.9
+    },
+    {
+      "card_name": "Friends in Paldea",
+      "inclusion_pct": 2.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 1.5
+    },
+    {
+      "card_name": "Fezandipiti ex",
+      "inclusion_pct": 2.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Pokemon",
+      "delta_vs_field": -1.8
+    },
+    {
+      "card_name": "Duskull",
+      "inclusion_pct": 2.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Pokemon",
+      "delta_vs_field": 0.4
+    },
+    {
+      "card_name": "Dusknoir",
+      "inclusion_pct": 2.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Pokemon",
+      "delta_vs_field": 0.4
+    },
+    {
+      "card_name": "Dusclops",
+      "inclusion_pct": 2.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Pokemon",
+      "delta_vs_field": 0.4
+    },
+    {
+      "card_name": "Deluxe Bomb",
+      "inclusion_pct": 2.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 1.5
+    },
+    {
+      "card_name": "Dawn",
+      "inclusion_pct": 2.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": -0.2
+    },
+    {
+      "card_name": "Naveen",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Trainer",
+      "delta_vs_field": -1.6
+    },
+    {
+      "card_name": "Switch",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Trainer",
+      "delta_vs_field": -1.1
+    },
+    {
+      "card_name": "Repel",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Trainer",
+      "delta_vs_field": -1.1
+    },
+    {
+      "card_name": "Explorer's Guidance",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Trainer",
+      "delta_vs_field": -1.1
+    },
+    {
+      "card_name": "Energy Search",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Trainer",
+      "delta_vs_field": -1.1
+    },
+    {
+      "card_name": "Yveltal ex",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Pokemon",
+      "delta_vs_field": -0.5
+    },
+    {
+      "card_name": "Team Rocket's Transceiver",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Trainer",
+      "delta_vs_field": -0.5
+    },
+    {
+      "card_name": "Prism Energy",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Energy",
+      "delta_vs_field": -0.5
+    },
+    {
+      "card_name": "Pokémon Catcher",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Trainer",
+      "delta_vs_field": -0.5
+    },
+    {
+      "card_name": "Lucian",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Trainer",
+      "delta_vs_field": -0.5
+    },
+    {
+      "card_name": "Lacey",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Trainer",
+      "delta_vs_field": -0.5
+    },
+    {
+      "card_name": "Hassel",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Trainer",
+      "delta_vs_field": -0.5
+    },
+    {
+      "card_name": "Eri",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Trainer",
+      "delta_vs_field": -0.5
+    },
+    {
+      "card_name": "Dunsparce",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Pokemon",
+      "delta_vs_field": -0.5
+    },
+    {
+      "card_name": "Dudunsparce",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Pokemon",
+      "delta_vs_field": -0.5
+    },
+    {
+      "card_name": "Colress's Tenacity",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Trainer",
+      "delta_vs_field": -0.5
+    }
+  ],
+  "top4_sample_size": 50,
+  "top4_low_sample": false
 }

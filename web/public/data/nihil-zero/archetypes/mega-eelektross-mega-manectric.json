@@ -607,16 +607,6 @@
       "week": "2026-03-02",
       "adopted": [
         {
-          "card": "Stunfisk",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Iono's Kilowattrel",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
           "card": "Secret Box",
           "from_pct": 0.0,
           "to_pct": 100.0
@@ -627,24 +617,24 @@
           "to_pct": 100.0
         },
         {
+          "card": "Iono's Kilowattrel",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
           "card": "Iono's Wattrel",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Stunfisk",
           "from_pct": 0.0,
           "to_pct": 100.0
         }
       ],
       "dropped": [
         {
-          "card": "Explorer's Guidance",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Zekrom ex",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Maximum Belt",
+          "card": "Zeraora",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -654,7 +644,12 @@
           "to_pct": 0.0
         },
         {
-          "card": "Zeraora",
+          "card": "Explorer's Guidance",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Tool Scrapper",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -664,7 +659,12 @@
           "to_pct": 0.0
         },
         {
-          "card": "Tool Scrapper",
+          "card": "Maximum Belt",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Zekrom ex",
           "from_pct": 100.0,
           "to_pct": 0.0
         }
@@ -708,5 +708,8 @@
       "meta_share": 0.1,
       "deck_count": 1
     }
-  ]
+  ],
+  "top4_card_stats": [],
+  "top4_sample_size": 0,
+  "top4_low_sample": true
 }

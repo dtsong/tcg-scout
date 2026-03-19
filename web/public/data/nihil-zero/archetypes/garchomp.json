@@ -709,17 +709,17 @@
       "week": "2026-02-09",
       "adopted": [
         {
+          "card": "Bloodmoon Ursaluna",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
           "card": "Air Balloon",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
           "card": "Battle Cage",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Bloodmoon Ursaluna",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -731,27 +731,27 @@
       ],
       "dropped": [
         {
-          "card": "Team Rocket's Petrel",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Cynthia's Spiritomb",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Crispin",
+          "card": "Team Rocket's Petrel",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Psyduck",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
-          "card": "Hilda",
+          "card": "Cynthia's Roserade",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
-          "card": "Team Rocket's Watchtower",
+          "card": "Budew",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -766,32 +766,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "Psyduck",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Cynthia's Roselia",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Cynthia's Roserade",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Switch",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Tool Scrapper",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Budew",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -801,7 +776,32 @@
           "to_pct": 0.0
         },
         {
+          "card": "Hilda",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Cynthia's Roselia",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Team Rocket's Watchtower",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Switch",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
           "card": "Buddy-Buddy Poffin",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Crispin",
           "from_pct": 50.0,
           "to_pct": 0.0
         }
@@ -845,5 +845,8 @@
       "meta_share": 0.0,
       "deck_count": 0
     }
-  ]
+  ],
+  "top4_card_stats": [],
+  "top4_sample_size": 0,
+  "top4_low_sample": true
 }

@@ -753,17 +753,7 @@
       "week": "2026-01-26",
       "adopted": [
         {
-          "card": "Hilda",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Rosa's Encouragement",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Team Rocket's Watchtower",
+          "card": "Brock's Scouting",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -773,7 +763,12 @@
           "to_pct": 100.0
         },
         {
-          "card": "Brock's Scouting",
+          "card": "Rosa's Encouragement",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Budew",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -783,34 +778,29 @@
           "to_pct": 100.0
         },
         {
-          "card": "Budew",
+          "card": "Hilda",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Team Rocket's Watchtower",
           "from_pct": 0.0,
           "to_pct": 100.0
         }
       ],
       "dropped": [
         {
-          "card": "Crispin",
+          "card": "Lucky Helmet",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Judge",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
           "card": "Dawn",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Energy Recycler",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Jamming Tower",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Lucky Helmet",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -825,7 +815,17 @@
           "to_pct": 0.0
         },
         {
-          "card": "Judge",
+          "card": "Jamming Tower",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Energy Recycler",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Crispin",
           "from_pct": 100.0,
           "to_pct": 0.0
         }
@@ -834,16 +834,6 @@
     {
       "week": "2026-02-09",
       "adopted": [
-        {
-          "card": "Crispin",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Dawn",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
         {
           "card": "Munkidori",
           "from_pct": 0.0,
@@ -855,19 +845,29 @@
           "to_pct": 100.0
         },
         {
+          "card": "Dawn",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
           "card": "Lillie's Clefairy ex",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Crispin",
           "from_pct": 0.0,
           "to_pct": 100.0
         }
       ],
       "dropped": [
         {
-          "card": "Air Balloon",
+          "card": "Brock's Scouting",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Brock's Scouting",
+          "card": "Air Balloon",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -916,5 +916,8 @@
       "meta_share": 0.0,
       "deck_count": 0
     }
-  ]
+  ],
+  "top4_card_stats": [],
+  "top4_sample_size": 0,
+  "top4_low_sample": true
 }

@@ -44,7 +44,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Psyduck",
@@ -142,7 +142,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 3.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Crispin",
@@ -156,14 +156,14 @@
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Brock's Scouting",
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Boss's Orders",
@@ -184,7 +184,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 3.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     }
   ],
   "all_cards": [
@@ -221,7 +221,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Psyduck",
@@ -319,7 +319,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 3.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Crispin",
@@ -333,14 +333,14 @@
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Brock's Scouting",
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Boss's Orders",
@@ -361,7 +361,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 3.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     }
   ],
   "results": [
@@ -372,23 +372,8 @@
       "player_name": "サッカーボールナウ",
       "decklist": [
         {
-          "card_name": "Area Zero Underdepths",
-          "count": 3,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Cyrano",
-          "count": 3,
-          "category": "Pokemon"
-        },
-        {
           "card_name": "Munkidori",
           "count": 3,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Brock's Scouting",
-          "count": 2,
           "category": "Pokemon"
         },
         {
@@ -403,11 +388,6 @@
         },
         {
           "card_name": "Latias ex",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Ciphermaniac's Codebreaking",
           "count": 2,
           "category": "Pokemon"
         },
@@ -447,11 +427,6 @@
           "category": "Pokemon"
         },
         {
-          "card_name": "Special Red Card",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
           "card_name": "Energy Switch",
           "count": 4,
           "category": "Trainer"
@@ -472,7 +447,27 @@
           "category": "Trainer"
         },
         {
+          "card_name": "Area Zero Underdepths",
+          "count": 3,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Cyrano",
+          "count": 3,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Brock's Scouting",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
           "card_name": "Crispin",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Ciphermaniac's Codebreaking",
           "count": 2,
           "category": "Trainer"
         },
@@ -488,6 +483,11 @@
         },
         {
           "card_name": "Unfair Stamp",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Special Red Card",
           "count": 1,
           "category": "Trainer"
         },
@@ -535,5 +535,8 @@
       "meta_share": 0.0,
       "deck_count": 0
     }
-  ]
+  ],
+  "top4_card_stats": [],
+  "top4_sample_size": 0,
+  "top4_low_sample": true
 }

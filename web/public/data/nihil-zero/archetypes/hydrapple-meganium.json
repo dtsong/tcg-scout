@@ -636,12 +636,12 @@
           "to_pct": 100.0
         },
         {
-          "card": "Thwackey",
+          "card": "Judge",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Tapu Bulu",
+          "card": "Thwackey",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -651,17 +651,12 @@
           "to_pct": 100.0
         },
         {
-          "card": "Judge",
+          "card": "Tapu Bulu",
           "from_pct": 0.0,
           "to_pct": 100.0
         }
       ],
       "dropped": [
-        {
-          "card": "Morty's Conviction",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
         {
           "card": "Petilil",
           "from_pct": 100.0,
@@ -669,6 +664,11 @@
         },
         {
           "card": "Lilligant",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Morty's Conviction",
           "from_pct": 100.0,
           "to_pct": 0.0
         }
@@ -712,5 +712,8 @@
       "meta_share": 0.0,
       "deck_count": 0
     }
-  ]
+  ],
+  "top4_card_stats": [],
+  "top4_sample_size": 0,
+  "top4_low_sample": true
 }

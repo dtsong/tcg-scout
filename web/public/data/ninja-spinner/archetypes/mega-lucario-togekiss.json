@@ -86,7 +86,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Pokémon Catcher",
@@ -235,7 +235,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Pokémon Catcher",
@@ -316,11 +316,6 @@
       "player_name": "舞久(マイク)",
       "decklist": [
         {
-          "card_name": "Premium Power Pro",
-          "count": 4,
-          "category": "Pokemon"
-        },
-        {
           "card_name": "Solrock",
           "count": 3,
           "category": "Pokemon"
@@ -367,6 +362,11 @@
         },
         {
           "card_name": "Lillie's Determination",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Premium Power Pro",
           "count": 4,
           "category": "Trainer"
         },
@@ -449,5 +449,8 @@
       "meta_share": 0.7,
       "deck_count": 1
     }
-  ]
+  ],
+  "top4_card_stats": [],
+  "top4_sample_size": 0,
+  "top4_low_sample": true
 }

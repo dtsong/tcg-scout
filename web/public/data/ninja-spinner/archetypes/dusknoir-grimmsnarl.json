@@ -37,14 +37,14 @@
       "inclusion_pct": 100.0,
       "avg_copies": 3.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Special Red Card",
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Secret Box",
@@ -186,14 +186,14 @@
       "inclusion_pct": 100.0,
       "avg_copies": 3.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Special Red Card",
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Secret Box",
@@ -316,11 +316,6 @@
       "player_name": "ベッチさん",
       "decklist": [
         {
-          "card_name": "Spikemuth Gym",
-          "count": 3,
-          "category": "Pokemon"
-        },
-        {
           "card_name": "Duskull",
           "count": 3,
           "category": "Pokemon"
@@ -332,11 +327,6 @@
         },
         {
           "card_name": "Dusknoir",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Special Red Card",
           "count": 2,
           "category": "Pokemon"
         },
@@ -391,6 +381,11 @@
           "category": "Trainer"
         },
         {
+          "card_name": "Spikemuth Gym",
+          "count": 3,
+          "category": "Trainer"
+        },
+        {
           "card_name": "Rare Candy",
           "count": 3,
           "category": "Trainer"
@@ -407,6 +402,11 @@
         },
         {
           "card_name": "Ultra Ball",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Special Red Card",
           "count": 2,
           "category": "Trainer"
         },
@@ -449,5 +449,8 @@
       "meta_share": 0.0,
       "deck_count": 0
     }
-  ]
+  ],
+  "top4_card_stats": [],
+  "top4_sample_size": 0,
+  "top4_low_sample": true
 }

@@ -79,14 +79,14 @@
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Jumbo Ice Cream",
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Hero's Cape",
@@ -100,7 +100,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Growth Grass Energy",
@@ -235,14 +235,14 @@
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Jumbo Ice Cream",
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Hero's Cape",
@@ -256,7 +256,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Growth Grass Energy",
@@ -355,11 +355,6 @@
           "category": "Pokemon"
         },
         {
-          "card_name": "Jumbo Ice Cream",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
           "card_name": "Psyduck",
           "count": 1,
           "category": "Pokemon"
@@ -371,16 +366,6 @@
         },
         {
           "card_name": "Dragapult ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Handheld Fan",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Lana's Aid",
           "count": 1,
           "category": "Pokemon"
         },
@@ -415,6 +400,11 @@
           "category": "Trainer"
         },
         {
+          "card_name": "Jumbo Ice Cream",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
           "card_name": "Night Stretcher",
           "count": 1,
           "category": "Trainer"
@@ -426,6 +416,16 @@
         },
         {
           "card_name": "Hero's Cape",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Handheld Fan",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Lana's Aid",
           "count": 1,
           "category": "Trainer"
         },
@@ -483,5 +483,8 @@
       "meta_share": 0.0,
       "deck_count": 0
     }
-  ]
+  ],
+  "top4_card_stats": [],
+  "top4_sample_size": 0,
+  "top4_low_sample": true
 }

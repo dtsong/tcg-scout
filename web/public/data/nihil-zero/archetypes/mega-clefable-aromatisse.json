@@ -843,17 +843,12 @@
       "week": "2026-02-02",
       "adopted": [
         {
-          "card": "Switch",
+          "card": "Colress's Tenacity",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
           "card": "Handheld Fan",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Colress's Tenacity",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -864,6 +859,11 @@
         },
         {
           "card": "Shaymin",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Switch",
           "from_pct": 0.0,
           "to_pct": 100.0
         }
@@ -912,17 +912,17 @@
       ],
       "dropped": [
         {
-          "card": "Switch",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Scoop Up Cyclone",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
           "card": "Shaymin",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Switch",
           "from_pct": 100.0,
           "to_pct": 0.0
         }
@@ -937,12 +937,17 @@
           "to_pct": 100.0
         },
         {
+          "card": "Cofagrigus",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
           "card": "Mega Signal",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
         {
-          "card": "Team Rocket's Watchtower",
+          "card": "Shaymin",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -957,17 +962,12 @@
           "to_pct": 50.0
         },
         {
-          "card": "Shaymin",
+          "card": "Team Rocket's Watchtower",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
         {
           "card": "Lucian",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Cofagrigus",
           "from_pct": 0.0,
           "to_pct": 50.0
         }
@@ -1044,5 +1044,8 @@
       "meta_share": 0.2,
       "deck_count": 2
     }
-  ]
+  ],
+  "top4_card_stats": [],
+  "top4_sample_size": 0,
+  "top4_low_sample": true
 }

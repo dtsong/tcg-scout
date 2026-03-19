@@ -156,7 +156,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Boss's Orders",
@@ -326,7 +326,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Boss's Orders",
@@ -383,11 +383,6 @@
           "category": "Pokemon"
         },
         {
-          "card_name": "Brock's Scouting",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
           "card_name": "Latias ex",
           "count": 2,
           "category": "Pokemon"
@@ -440,6 +435,11 @@
         {
           "card_name": "Poké Pad",
           "count": 3,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Brock's Scouting",
+          "count": 2,
           "category": "Trainer"
         },
         {
@@ -511,5 +511,8 @@
       "meta_share": 0.0,
       "deck_count": 0
     }
-  ]
+  ],
+  "top4_card_stats": [],
+  "top4_sample_size": 0,
+  "top4_low_sample": true
 }

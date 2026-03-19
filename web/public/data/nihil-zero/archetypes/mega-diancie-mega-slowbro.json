@@ -107,7 +107,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
       "decks_with": 1,
-      "category": "Trainer"
+      "category": "Pokemon"
     },
     {
       "card_name": "Mega Diancie ex",
@@ -263,7 +263,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
       "decks_with": 1,
-      "category": "Trainer"
+      "category": "Pokemon"
     },
     {
       "card_name": "Mega Diancie ex",
@@ -355,6 +355,11 @@
           "category": "Pokemon"
         },
         {
+          "card_name": "Mega Slowbro ex",
+          "count": 2,
+          "category": "Pokemon"
+        },
+        {
           "card_name": "Psyduck",
           "count": 1,
           "category": "Pokemon"
@@ -411,11 +416,6 @@
         },
         {
           "card_name": "Hilda",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Mega Slowbro ex",
           "count": 2,
           "category": "Trainer"
         },
@@ -498,5 +498,8 @@
       "meta_share": 0.0,
       "deck_count": 0
     }
-  ]
+  ],
+  "top4_card_stats": [],
+  "top4_sample_size": 0,
+  "top4_low_sample": true
 }

@@ -16,7 +16,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Ultra Ball",
@@ -58,14 +58,14 @@
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Special Red Card",
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Snorunt",
@@ -86,14 +86,14 @@
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Pokégear 3.0",
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Poké Pad",
@@ -200,7 +200,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Ultra Ball",
@@ -242,14 +242,14 @@
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Special Red Card",
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Snorunt",
@@ -270,14 +270,14 @@
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Pokégear 3.0",
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Poké Pad",
@@ -396,11 +396,6 @@
           "category": "Pokemon"
         },
         {
-          "card_name": "Pokégear 3.0",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
           "card_name": "Bronzor",
           "count": 2,
           "category": "Pokemon"
@@ -426,27 +421,7 @@
           "category": "Pokemon"
         },
         {
-          "card_name": "Wally's Compassion",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
           "card_name": "Bronzor",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Surfer",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Salvatore",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Special Red Card",
           "count": 1,
           "category": "Pokemon"
         },
@@ -486,6 +461,11 @@
           "category": "Trainer"
         },
         {
+          "card_name": "Pokégear 3.0",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
           "card_name": "Buddy-Buddy Poffin",
           "count": 2,
           "category": "Trainer"
@@ -511,7 +491,27 @@
           "category": "Trainer"
         },
         {
+          "card_name": "Wally's Compassion",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Surfer",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Salvatore",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
           "card_name": "Secret Box",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Special Red Card",
           "count": 1,
           "category": "Trainer"
         },
@@ -559,5 +559,8 @@
       "meta_share": 0.7,
       "deck_count": 1
     }
-  ]
+  ],
+  "top4_card_stats": [],
+  "top4_sample_size": 0,
+  "top4_low_sample": true
 }

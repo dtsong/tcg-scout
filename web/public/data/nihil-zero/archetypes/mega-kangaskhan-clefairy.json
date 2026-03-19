@@ -808,17 +808,12 @@
           "to_pct": 50.0
         },
         {
+          "card": "Judge",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
           "card": "Handheld Fan",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Jamming Tower",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Xerosic's Machinations",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -828,27 +823,12 @@
           "to_pct": 50.0
         },
         {
-          "card": "Unfair Stamp",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Black Belt's Training",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Wellspring Mask Ogerpon ex",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
           "card": "Cyrano",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
         {
-          "card": "Teal Mask Ogerpon ex",
+          "card": "Unfair Stamp",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -858,7 +838,27 @@
           "to_pct": 50.0
         },
         {
-          "card": "Judge",
+          "card": "Xerosic's Machinations",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Black Belt's Training",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Jamming Tower",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Wellspring Mask Ogerpon ex",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Teal Mask Ogerpon ex",
           "from_pct": 0.0,
           "to_pct": 50.0
         }
@@ -919,5 +919,8 @@
       "meta_share": 0.2,
       "deck_count": 2
     }
-  ]
+  ],
+  "top4_card_stats": [],
+  "top4_sample_size": 0,
+  "top4_low_sample": true
 }

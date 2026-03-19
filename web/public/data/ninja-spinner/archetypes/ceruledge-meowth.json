@@ -72,7 +72,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 3.0,
       "decks_with": 2,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Charcadet",
@@ -100,7 +100,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 2,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Boss's Orders",
@@ -172,7 +172,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 3.0,
       "decks_with": 2,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Charcadet",
@@ -200,7 +200,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 2,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Boss's Orders",
@@ -254,11 +254,6 @@
           "category": "Pokemon"
         },
         {
-          "card_name": "Explorer's Guidance",
-          "count": 3,
-          "category": "Pokemon"
-        },
-        {
           "card_name": "Lunatone",
           "count": 2,
           "category": "Pokemon"
@@ -270,11 +265,6 @@
         },
         {
           "card_name": "Fezandipiti ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Brilliant Blender",
           "count": 1,
           "category": "Pokemon"
         },
@@ -304,12 +294,22 @@
           "category": "Trainer"
         },
         {
+          "card_name": "Explorer's Guidance",
+          "count": 3,
+          "category": "Trainer"
+        },
+        {
           "card_name": "Poké Pad",
           "count": 2,
           "category": "Trainer"
         },
         {
           "card_name": "Briar",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Brilliant Blender",
           "count": 1,
           "category": "Trainer"
         },
@@ -342,11 +342,6 @@
           "category": "Pokemon"
         },
         {
-          "card_name": "Explorer's Guidance",
-          "count": 3,
-          "category": "Pokemon"
-        },
-        {
           "card_name": "Lunatone",
           "count": 2,
           "category": "Pokemon"
@@ -372,11 +367,6 @@
           "category": "Pokemon"
         },
         {
-          "card_name": "Brilliant Blender",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
           "card_name": "Fighting Gong",
           "count": 4,
           "category": "Trainer"
@@ -397,6 +387,11 @@
           "category": "Trainer"
         },
         {
+          "card_name": "Explorer's Guidance",
+          "count": 3,
+          "category": "Trainer"
+        },
+        {
           "card_name": "Night Stretcher",
           "count": 2,
           "category": "Trainer"
@@ -409,6 +404,11 @@
         {
           "card_name": "Prism Tower",
           "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Brilliant Blender",
+          "count": 1,
           "category": "Trainer"
         },
         {
@@ -445,5 +445,8 @@
       "meta_share": 0.0,
       "deck_count": 0
     }
-  ]
+  ],
+  "top4_card_stats": [],
+  "top4_sample_size": 0,
+  "top4_low_sample": true
 }

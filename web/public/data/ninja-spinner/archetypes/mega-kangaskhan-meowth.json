@@ -16,7 +16,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Wellspring Mask Ogerpon ex",
@@ -44,7 +44,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Psyduck",
@@ -128,7 +128,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Crispin",
@@ -142,14 +142,14 @@
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Brock's Scouting",
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Boss's Orders",
@@ -163,7 +163,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 3.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     }
   ],
   "all_cards": [
@@ -172,7 +172,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Wellspring Mask Ogerpon ex",
@@ -200,7 +200,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Psyduck",
@@ -284,7 +284,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Crispin",
@@ -298,14 +298,14 @@
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Brock's Scouting",
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Boss's Orders",
@@ -319,7 +319,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 3.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     }
   ],
   "results": [
@@ -329,11 +329,6 @@
       "standing": 16,
       "player_name": "イオリ",
       "decklist": [
-        {
-          "card_name": "Area Zero Underdepths",
-          "count": 3,
-          "category": "Pokemon"
-        },
         {
           "card_name": "Munkidori",
           "count": 3,
@@ -346,11 +341,6 @@
         },
         {
           "card_name": "Mega Kangaskhan ex",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Cyrano",
           "count": 2,
           "category": "Pokemon"
         },
@@ -380,27 +370,7 @@
           "category": "Pokemon"
         },
         {
-          "card_name": "Brock's Scouting",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
           "card_name": "Mega Absol ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Xerosic's Machinations",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Ciphermaniac's Codebreaking",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Special Red Card",
           "count": 1,
           "category": "Pokemon"
         },
@@ -425,7 +395,17 @@
           "category": "Trainer"
         },
         {
+          "card_name": "Area Zero Underdepths",
+          "count": 3,
+          "category": "Trainer"
+        },
+        {
           "card_name": "Lillie's Clefairy ex",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Cyrano",
           "count": 2,
           "category": "Trainer"
         },
@@ -435,7 +415,27 @@
           "category": "Trainer"
         },
         {
+          "card_name": "Brock's Scouting",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Xerosic's Machinations",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Ciphermaniac's Codebreaking",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
           "card_name": "Hero's Cape",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Special Red Card",
           "count": 1,
           "category": "Trainer"
         },
@@ -483,5 +483,8 @@
       "meta_share": 0.0,
       "deck_count": 0
     }
-  ]
+  ],
+  "top4_card_stats": [],
+  "top4_sample_size": 0,
+  "top4_low_sample": true
 }

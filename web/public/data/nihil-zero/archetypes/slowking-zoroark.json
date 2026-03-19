@@ -121,7 +121,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Trainer"
+      "category": "Pokemon"
     },
     {
       "card_name": "Lillie's Clefairy ex",
@@ -354,7 +354,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Trainer"
+      "category": "Pokemon"
     },
     {
       "card_name": "Lillie's Clefairy ex",
@@ -559,6 +559,11 @@
           "category": "Pokemon"
         },
         {
+          "card_name": "Mega Slowbro ex",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
           "card_name": "Night Stretcher",
           "count": 3,
           "category": "Trainer"
@@ -634,11 +639,6 @@
           "category": "Trainer"
         },
         {
-          "card_name": "Mega Slowbro ex",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
           "card_name": "Psychic Energy",
           "count": 4,
           "category": "Energy"
@@ -707,5 +707,8 @@
       "meta_share": 0.0,
       "deck_count": 0
     }
-  ]
+  ],
+  "top4_card_stats": [],
+  "top4_sample_size": 0,
+  "top4_low_sample": true
 }

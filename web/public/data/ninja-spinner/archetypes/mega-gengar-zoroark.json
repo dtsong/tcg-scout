@@ -65,7 +65,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 3.0,
       "decks_with": 2,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Mega Gengar ex",
@@ -86,7 +86,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 2,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Haunter",
@@ -172,7 +172,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 3.0,
       "decks_with": 2,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Mega Gengar ex",
@@ -193,7 +193,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 2,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Haunter",
@@ -263,7 +263,7 @@
       "inclusion_pct": 50.0,
       "avg_copies": 2.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Munkidori",
@@ -277,7 +277,7 @@
       "inclusion_pct": 50.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Judge",
@@ -326,7 +326,7 @@
       "inclusion_pct": 50.0,
       "avg_copies": 4.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Budew",
@@ -340,7 +340,7 @@
       "inclusion_pct": 50.0,
       "avg_copies": 2.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Black Belt's Training",
@@ -354,14 +354,14 @@
       "inclusion_pct": 50.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Battle Cage",
       "inclusion_pct": 50.0,
       "avg_copies": 2.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     }
   ],
   "results": [
@@ -371,11 +371,6 @@
       "standing": 3,
       "player_name": "おまつ",
       "decklist": [
-        {
-          "card_name": "N's PP Up",
-          "count": 3,
-          "category": "Pokemon"
-        },
         {
           "card_name": "N's Zorua",
           "count": 3,
@@ -388,11 +383,6 @@
         },
         {
           "card_name": "N's Reshiram",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Brock's Scouting",
           "count": 2,
           "category": "Pokemon"
         },
@@ -417,17 +407,7 @@
           "category": "Pokemon"
         },
         {
-          "card_name": "Janine's Secret Art",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
           "card_name": "Pecharunt ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Morty's Conviction",
           "count": 1,
           "category": "Pokemon"
         },
@@ -457,6 +437,11 @@
           "category": "Trainer"
         },
         {
+          "card_name": "N's PP Up",
+          "count": 3,
+          "category": "Trainer"
+        },
+        {
           "card_name": "Boss's Orders",
           "count": 3,
           "category": "Trainer"
@@ -472,12 +457,27 @@
           "category": "Trainer"
         },
         {
+          "card_name": "Brock's Scouting",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
           "card_name": "Dawn",
           "count": 2,
           "category": "Trainer"
         },
         {
           "card_name": "Energy Switch",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Janine's Secret Art",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Morty's Conviction",
           "count": 1,
           "category": "Trainer"
         },
@@ -505,23 +505,8 @@
           "category": "Pokemon"
         },
         {
-          "card_name": "Cyrano",
-          "count": 4,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "N's PP Up",
-          "count": 3,
-          "category": "Pokemon"
-        },
-        {
           "card_name": "N's Zoroark ex",
           "count": 3,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "N's Castle",
-          "count": 2,
           "category": "Pokemon"
         },
         {
@@ -531,11 +516,6 @@
         },
         {
           "card_name": "Mega Gengar ex",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Battle Cage",
           "count": 2,
           "category": "Pokemon"
         },
@@ -565,16 +545,6 @@
           "category": "Pokemon"
         },
         {
-          "card_name": "Janine's Secret Art",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Binding Mochi",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
           "card_name": "Pecharunt ex",
           "count": 1,
           "category": "Pokemon"
@@ -583,6 +553,11 @@
           "card_name": "Haunter",
           "count": 1,
           "category": "Pokemon"
+        },
+        {
+          "card_name": "Cyrano",
+          "count": 4,
+          "category": "Trainer"
         },
         {
           "card_name": "Buddy-Buddy Poffin",
@@ -600,8 +575,18 @@
           "category": "Trainer"
         },
         {
+          "card_name": "N's PP Up",
+          "count": 3,
+          "category": "Trainer"
+        },
+        {
           "card_name": "Lillie's Determination",
           "count": 3,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "N's Castle",
+          "count": 2,
           "category": "Trainer"
         },
         {
@@ -620,12 +605,27 @@
           "category": "Trainer"
         },
         {
+          "card_name": "Battle Cage",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
           "card_name": "Judge",
           "count": 1,
           "category": "Trainer"
         },
         {
           "card_name": "Black Belt's Training",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Janine's Secret Art",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Binding Mochi",
           "count": 1,
           "category": "Trainer"
         },
@@ -663,5 +663,289 @@
       "meta_share": 0.0,
       "deck_count": 0
     }
-  ]
+  ],
+  "top4_card_stats": [
+    {
+      "card_name": "Unfair Stamp",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 50.0
+    },
+    {
+      "card_name": "Ultra Ball",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Rare Candy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Pecharunt ex",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Pokemon",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Night Stretcher",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "N's Zorua",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Pokemon",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "N's Zoroark ex",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Pokemon",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "N's Reshiram",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Pokemon",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "N's PP Up",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Munkidori",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Pokemon",
+      "delta_vs_field": 50.0
+    },
+    {
+      "card_name": "Morty's Conviction",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 50.0
+    },
+    {
+      "card_name": "Mega Gengar ex",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Pokemon",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Lillie's Determination",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Janine's Secret Art",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Haunter",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Pokemon",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Gengar",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Pokemon",
+      "delta_vs_field": 50.0
+    },
+    {
+      "card_name": "Fezandipiti ex",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Pokemon",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Energy Switch",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 50.0
+    },
+    {
+      "card_name": "Dawn",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 50.0
+    },
+    {
+      "card_name": "Budew",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Pokemon",
+      "delta_vs_field": 50.0
+    },
+    {
+      "card_name": "Buddy-Buddy Poffin",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Brock's Scouting",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 50.0
+    },
+    {
+      "card_name": "Boss's Orders",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Poké Pad",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Trainer",
+      "delta_vs_field": -50.0
+    },
+    {
+      "card_name": "N's Zekrom",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Pokemon",
+      "delta_vs_field": -50.0
+    },
+    {
+      "card_name": "N's Darumaka",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Pokemon",
+      "delta_vs_field": -50.0
+    },
+    {
+      "card_name": "N's Darmanitan",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Pokemon",
+      "delta_vs_field": -50.0
+    },
+    {
+      "card_name": "N's Castle",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Trainer",
+      "delta_vs_field": -50.0
+    },
+    {
+      "card_name": "Judge",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Trainer",
+      "delta_vs_field": -50.0
+    },
+    {
+      "card_name": "Hero's Cape",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Trainer",
+      "delta_vs_field": -50.0
+    },
+    {
+      "card_name": "Gastly",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Pokemon",
+      "delta_vs_field": -50.0
+    },
+    {
+      "card_name": "Cyrano",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Trainer",
+      "delta_vs_field": -50.0
+    },
+    {
+      "card_name": "Black Belt's Training",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Trainer",
+      "delta_vs_field": -50.0
+    },
+    {
+      "card_name": "Binding Mochi",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Trainer",
+      "delta_vs_field": -50.0
+    },
+    {
+      "card_name": "Battle Cage",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Trainer",
+      "delta_vs_field": -50.0
+    }
+  ],
+  "top4_sample_size": 1,
+  "top4_low_sample": true
 }

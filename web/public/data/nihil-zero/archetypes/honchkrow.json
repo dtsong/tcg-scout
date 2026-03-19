@@ -752,6 +752,11 @@
           "to_pct": 100.0
         },
         {
+          "card": "Tool Scrapper",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
           "card": "Punk Helmet",
           "from_pct": 0.0,
           "to_pct": 50.0
@@ -760,26 +765,11 @@
           "card": "Ultra Ball",
           "from_pct": 0.0,
           "to_pct": 50.0
-        },
-        {
-          "card": "Tool Scrapper",
-          "from_pct": 0.0,
-          "to_pct": 50.0
         }
       ],
       "dropped": [
         {
-          "card": "Hilda",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Team Rocket's Mimikyu",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Team Rocket's Porygon",
+          "card": "Team Rocket's Porygon2",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -789,7 +779,17 @@
           "to_pct": 0.0
         },
         {
-          "card": "Team Rocket's Porygon2",
+          "card": "Team Rocket's Porygon",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Hilda",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Team Rocket's Mimikyu",
           "from_pct": 100.0,
           "to_pct": 0.0
         }
@@ -799,17 +799,17 @@
       "week": "2026-02-23",
       "adopted": [
         {
-          "card": "Team Rocket's Porygon",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
           "card": "Lucky Helmet",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
           "card": "Team Rocket's Porygon2",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Team Rocket's Porygon",
           "from_pct": 0.0,
           "to_pct": 100.0
         }
@@ -821,7 +821,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "Brave Bangle",
+          "card": "Tool Scrapper",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -831,7 +831,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "Tool Scrapper",
+          "card": "Brave Bangle",
           "from_pct": 50.0,
           "to_pct": 0.0
         }
@@ -886,5 +886,225 @@
       "meta_share": 0.0,
       "deck_count": 0
     }
-  ]
+  ],
+  "top4_card_stats": [
+    {
+      "card_name": "Team Rocket's Transceiver",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Team Rocket's Proton",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Team Rocket's Petrel",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Team Rocket's Murkrow",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.0,
+      "decks_with": 1,
+      "category": "Pokemon",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Team Rocket's Honchkrow",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.0,
+      "decks_with": 1,
+      "category": "Pokemon",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Team Rocket's Giovanni",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Team Rocket's Factory",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Team Rocket's Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.0,
+      "decks_with": 1,
+      "category": "Energy",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Team Rocket's Articuno",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 25.0
+    },
+    {
+      "card_name": "Team Rocket's Ariana",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Team Rocket's Archer",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Roto-Stick",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 25.0
+    },
+    {
+      "card_name": "Punk Helmet",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 75.0
+    },
+    {
+      "card_name": "Pokégear 3.0",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Poké Pad",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Night Stretcher",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Miracle Headset",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 25.0
+    },
+    {
+      "card_name": "Ignition Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.0,
+      "decks_with": 1,
+      "category": "Energy",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Ultra Ball",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Trainer",
+      "delta_vs_field": -50.0
+    },
+    {
+      "card_name": "Team Rocket's Porygon2",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Trainer",
+      "delta_vs_field": -50.0
+    },
+    {
+      "card_name": "Team Rocket's Porygon",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Trainer",
+      "delta_vs_field": -50.0
+    },
+    {
+      "card_name": "Brave Bangle",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Trainer",
+      "delta_vs_field": -50.0
+    },
+    {
+      "card_name": "Unfair Stamp",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Trainer",
+      "delta_vs_field": -25.0
+    },
+    {
+      "card_name": "Tool Scrapper",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Trainer",
+      "delta_vs_field": -25.0
+    },
+    {
+      "card_name": "Team Rocket's Mimikyu",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Pokemon",
+      "delta_vs_field": -25.0
+    },
+    {
+      "card_name": "Lucky Helmet",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Trainer",
+      "delta_vs_field": -25.0
+    },
+    {
+      "card_name": "Hilda",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Trainer",
+      "delta_vs_field": -25.0
+    }
+  ],
+  "top4_sample_size": 1,
+  "top4_low_sample": true
 }

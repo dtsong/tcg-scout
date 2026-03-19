@@ -1030,12 +1030,12 @@
       "week": "2026-02-09",
       "adopted": [
         {
-          "card": "Energy Switch",
+          "card": "Psyduck",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
         {
-          "card": "Psyduck",
+          "card": "Energy Switch",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -1055,17 +1055,17 @@
           "to_pct": 50.0
         },
         {
-          "card": "Energy Search",
-          "from_pct": 33.3,
-          "to_pct": 50.0
-        },
-        {
           "card": "Secret Box",
           "from_pct": 33.3,
           "to_pct": 50.0
         },
         {
           "card": "Carmine",
+          "from_pct": 33.3,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Energy Search",
           "from_pct": 33.3,
           "to_pct": 50.0
         }
@@ -1142,5 +1142,8 @@
       "meta_share": 0.0,
       "deck_count": 0
     }
-  ]
+  ],
+  "top4_card_stats": [],
+  "top4_sample_size": 0,
+  "top4_low_sample": true
 }

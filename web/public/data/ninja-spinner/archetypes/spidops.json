@@ -148,7 +148,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Buddy-Buddy Poffin",
@@ -162,7 +162,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     }
   ],
   "all_cards": [
@@ -304,7 +304,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Buddy-Buddy Poffin",
@@ -318,7 +318,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     }
   ],
   "results": [
@@ -328,16 +328,6 @@
       "standing": 5,
       "player_name": "がや",
       "decklist": [
-        {
-          "card_name": "Brave Bangle",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Hilda",
-          "count": 1,
-          "category": "Pokemon"
-        },
         {
           "card_name": "Team Rocket's Ariana",
           "count": 4,
@@ -404,6 +394,11 @@
           "category": "Trainer"
         },
         {
+          "card_name": "Brave Bangle",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
           "card_name": "Team Rocket's Murkrow",
           "count": 1,
           "category": "Trainer"
@@ -425,6 +420,11 @@
         },
         {
           "card_name": "Team Rocket's Mewtwo ex",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Hilda",
           "count": 1,
           "category": "Trainer"
         },
@@ -467,5 +467,8 @@
       "meta_share": 0.7,
       "deck_count": 1
     }
-  ]
+  ],
+  "top4_card_stats": [],
+  "top4_sample_size": 0,
+  "top4_low_sample": true
 }
