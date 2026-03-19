@@ -28,6 +28,7 @@ const defaultProps = {
   sampleSize: 8,
   lowSample: false,
   deckCount: 50,
+  format: "nihil-zero",
 };
 
 describe("Top4CardStats", () => {
@@ -46,6 +47,23 @@ describe("Top4CardStats", () => {
     // Underperformers: Basic Fire Energy (-5.2), Pidgeot ex (-3.1)
     expect(screen.getByText("Basic Fire Energy")).toBeInTheDocument();
     expect(screen.getByText("Pidgeot ex")).toBeInTheDocument();
+  });
+
+  it("renders card names as links to card detail pages", () => {
+    render(<Top4CardStats {...defaultProps} />);
+
+    const charizardLink = screen.getByRole("link", { name: "Charizard ex" });
+    expect(charizardLink).toHaveAttribute("href", "/nihil-zero/cards/charizard-ex");
+
+    const bossLink = screen.getByRole("link", { name: "Boss's Orders" });
+    expect(bossLink).toHaveAttribute("href", "/nihil-zero/cards/boss-s-orders");
+  });
+
+  it("uses format prop in card link URLs", () => {
+    render(<Top4CardStats {...defaultProps} format="standard" />);
+
+    const link = screen.getByRole("link", { name: "Charizard ex" });
+    expect(link).toHaveAttribute("href", "/standard/cards/charizard-ex");
   });
 
   it("sorts cards by delta descending within each section", () => {
