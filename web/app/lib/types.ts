@@ -261,6 +261,7 @@ export interface CLDecklistCard {
   card_name_en: string | null;
   count: number;
   category: string;
+  image_url?: string | null;
 }
 
 export interface CLPlacement {
@@ -268,7 +269,16 @@ export interface CLPlacement {
   player_name: string;
   region: string;
   deck_code: string;
+  archetype?: string | null;
+  tier?: Tier | null;
+  sprite_filenames?: string[];
   decklist: CLDecklistCard[];
+}
+
+export interface CLArchetypeSummary {
+  archetype: string;
+  count: number;
+  sprite_filenames?: string[];
 }
 
 export interface CLDivision {
@@ -276,5 +286,6 @@ export interface CLDivision {
   event_name: string;
   division: string;
   date: string;
+  archetype_summary?: CLArchetypeSummary[];
   placements: CLPlacement[];
 }
