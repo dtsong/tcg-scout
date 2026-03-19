@@ -1641,7 +1641,25 @@ def _build_jp_en_lookup(conn: sqlite3.Connection) -> dict[str, str]:
     ).fetchall()
     for row in rows:
         lookup[row["name_jp"]] = row["name_en"]
-    logger.info("JP→EN lookup: %d entries (%d from cards table)", len(lookup), len(rows))
+
+    # From card_mappings table (scraped from Limitless)
+    mapping_count = 0
+    try:
+        for row in conn.execute(
+            "SELECT card_name_jp, card_name_en FROM card_mappings "
+            "WHERE card_name_jp IS NOT NULL AND card_name_en IS NOT NULL"
+        ):
+            lookup[row["card_name_jp"]] = row["card_name_en"]
+            mapping_count += 1
+    except sqlite3.OperationalError:
+        pass  # Table may not exist in test DBs without full schema
+
+    logger.info(
+        "JP→EN lookup: %d entries (%d from cards table, %d from card_mappings)",
+        len(lookup),
+        len(rows),
+        mapping_count,
+    )
     return lookup
 
 

@@ -485,3 +485,29 @@ class TestExportWindowed:
                 assert "archetypes" in data
                 assert "tournament_count" in data
                 assert "date_range" in data
+
+
+class TestBuildJpEnLookupWithMappings:
+    def test_includes_card_mappings(self, db):
+        # card_mappings table is created by SCHEMA, insert test data
+        db.execute(
+            "INSERT INTO card_mappings (jp_card_id, en_card_id, card_name_jp, card_name_en, jp_set_id, en_set_id) "
+            "VALUES (?, ?, ?, ?, ?, ?)",
+            ("SV8a-221", "me02.5-100", "ドラパルトex", "Dragapult ex", "SV8a", "me02.5"),
+        )
+        db.commit()
+        lookup = _build_jp_en_lookup(db)
+        assert lookup["ドラパルトex"] == "Dragapult ex"
+
+    def test_card_mappings_table_missing(self):
+        """Lookup works even if card_mappings table doesn't exist."""
+        import sqlite3
+
+        conn = sqlite3.connect(":memory:")
+        conn.row_factory = sqlite3.Row
+        # Minimal schema without card_mappings
+        conn.execute("CREATE TABLE cards (id TEXT, name_en TEXT, name_jp TEXT, set_code TEXT)")
+        lookup = _build_jp_en_lookup(conn)
+        # Should still have hardcoded entries
+        assert "ネストボール" in lookup
+        conn.close()
