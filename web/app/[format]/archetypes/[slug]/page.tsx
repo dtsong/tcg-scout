@@ -133,7 +133,15 @@ export default async function ArchetypeDetailPage({
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 mt-4">
           <StatCard label="Meta Share" value={formatPct(arch.meta_share)} />
-          <StatCard label="Decks" value={arch.deck_count} />
+          {arch.weighted_share != null ? (
+            <StatCard
+              label="Weighted Share"
+              value={formatPct(arch.weighted_share)}
+              tooltip="Placements weighted by finish: 1st = 3x, 2nd = 2.5x, 3rd-4th = 2x, 5th-8th = 1.5x, 9th-16th = 1.2x, 17th+ = 1x. Surfaces decks that win, not just decks that show up."
+            />
+          ) : (
+            <StatCard label="Decks" value={arch.deck_count} />
+          )}
           <StatCard label="Best Finish" value={formatPlacement(arch.best_placement)} />
           <StatCard label="Core Cards" value={arch.core_cards.length} />
         </div>

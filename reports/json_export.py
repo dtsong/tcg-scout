@@ -1450,6 +1450,49 @@ def export_ace_specs(conn: sqlite3.Connection, output_dir: Path) -> None:
     _write_json(specs, output_dir / "ace-specs.json")
 
 
+def _compute_card_stats_for_ids(
+    conn: sqlite3.Connection,
+    placement_ids: list[int],
+    category_lookup: dict[str, str] | None = None,
+) -> list[dict]:
+    """Compute per-card inclusion stats for a set of placement IDs.
+
+    Returns a list of dicts with card_name, inclusion_pct, avg_copies, decks_with, category.
+    """
+    if not placement_ids:
+        return []
+
+    total_decks = len(placement_ids)
+    placeholders = ",".join("?" * len(placement_ids))
+    rows = conn.execute(
+        f"""
+        SELECT card_name,
+               COUNT(DISTINCT placement_id) AS decks_with,
+               SUM(count) AS total_copies
+        FROM decklist_cards dc
+        WHERE placement_id IN ({placeholders}) AND {_basic_energy_exclusion_sql()}
+        GROUP BY card_name
+        ORDER BY decks_with DESC
+        """,
+        (*placement_ids, *_basic_energy_params()),
+    ).fetchall()
+
+    cards = []
+    for row in rows:
+        inclusion = round(row["decks_with"] / total_decks * 100, 1)
+        avg_copies = round(row["total_copies"] / row["decks_with"], 1)
+        cards.append(
+            {
+                "card_name": row["card_name"],
+                "inclusion_pct": inclusion,
+                "avg_copies": avg_copies,
+                "decks_with": row["decks_with"],
+                "category": classify_card(row["card_name"], category_lookup),
+            }
+        )
+    return cards
+
+
 def export_archetypes(conn: sqlite3.Connection, output_dir: Path) -> None:
     """Export per-archetype detail JSON files with core cards and tournament results."""
     snapshot = get_latest_snapshot(conn)
@@ -1471,7 +1514,7 @@ def export_archetypes(conn: sqlite3.Connection, output_dir: Path) -> None:
 
         # Get all placements for this archetype
         placements = conn.execute(
-            "SELECT id FROM placements WHERE archetype = ?",
+            "SELECT id, standing FROM placements WHERE archetype = ?",
             (archetype_name,),
         ).fetchall()
 
@@ -1479,38 +1522,46 @@ def export_archetypes(conn: sqlite3.Connection, output_dir: Path) -> None:
             continue
 
         placement_ids = [p["id"] for p in placements]
-        total_decks = len(placement_ids)
-        placeholders = ",".join("?" * len(placement_ids))
 
-        # Get per-card stats
-        rows = conn.execute(
-            f"""
-            SELECT card_name,
-                   COUNT(DISTINCT placement_id) AS decks_with,
-                   SUM(count) AS total_copies
-            FROM decklist_cards dc
-            WHERE placement_id IN ({placeholders}) AND {_basic_energy_exclusion_sql()}
-            GROUP BY card_name
-            ORDER BY decks_with DESC
-            """,
-            (*placement_ids, *_basic_energy_params()),
-        ).fetchall()
+        all_cards = _compute_card_stats_for_ids(conn, placement_ids, category_lookup)
+        core_cards = [c for c in all_cards if c["inclusion_pct"] >= 80]
 
-        core_cards = []
-        all_cards = []
-        for row in rows:
-            inclusion = round(row["decks_with"] / total_decks * 100, 1)
-            avg_copies = round(row["total_copies"] / row["decks_with"], 1)
-            card_data = {
-                "card_name": row["card_name"],
-                "inclusion_pct": inclusion,
-                "avg_copies": avg_copies,
-                "decks_with": row["decks_with"],
-                "category": classify_card(row["card_name"], category_lookup),
-            }
-            all_cards.append(card_data)
-            if inclusion >= 80:
-                core_cards.append(card_data)
+        # Top-4 segmented card stats (derived from already-fetched placements)
+        top4_ids = [p["id"] for p in placements if p["standing"] <= 4]
+        top4_total = len(top4_ids)
+
+        # Build field inclusion lookup for delta computation
+        field_inclusion = {c["card_name"]: c["inclusion_pct"] for c in all_cards}
+
+        top4_cards = _compute_card_stats_for_ids(conn, top4_ids, category_lookup)
+        top4_names = {c["card_name"] for c in top4_cards}
+        for card in top4_cards:
+            field_pct = field_inclusion.get(card["card_name"])
+            if field_pct is None:
+                logger.error(
+                    "Card %r found in top-4 but missing from field for archetype %s "
+                    "-- this indicates a data integrity bug (top4_ids should be a subset of all placement_ids)",
+                    card["card_name"],
+                    archetype_name,
+                )
+                continue
+            card["delta_vs_field"] = round(card["inclusion_pct"] - field_pct, 1)
+        # Remove any cards that were skipped due to data inconsistency
+        top4_cards = [c for c in top4_cards if "delta_vs_field" in c]
+
+        # Append field-only cards absent from top-4 (negative deltas)
+        if top4_ids:
+            for card in all_cards:
+                if card["card_name"] not in top4_names:
+                    top4_cards.append(
+                        {
+                            **card,
+                            "inclusion_pct": 0,
+                            "avg_copies": 0,
+                            "decks_with": 0,
+                            "delta_vs_field": round(-card["inclusion_pct"], 1),
+                        }
+                    )
 
         # Tournament results — top 16 by standing ASC, date DESC
         # (limited to 16 since each result now includes full decklists)
@@ -1623,6 +1674,9 @@ def export_archetypes(conn: sqlite3.Connection, output_dir: Path) -> None:
             "evolution": evolution,
             "variants": variants,
             "weekly_shares": weekly_shares,
+            "top4_card_stats": top4_cards,
+            "top4_sample_size": top4_total,
+            "top4_low_sample": top4_total < 10,
         }
 
         _write_json(arch_data, arch_dir / f"{slug}.json")

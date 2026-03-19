@@ -74,6 +74,9 @@ def db() -> sqlite3.Connection:
     # A card only in late tournament for trend testing
     decklist_rows.append((5, "card-iono", "Iono", 3))
     decklist_rows.append((6, "card-iono", "Iono", 3))
+    # A card only in top-4 Charizard placements (1st, 4th) but not 9th
+    decklist_rows.append((1, "card-arven", "Arven", 2))
+    decklist_rows.append((3, "card-arven", "Arven", 2))
 
     conn.executemany(
         "INSERT INTO decklist_cards (placement_id, card_id, card_name, count) VALUES (?, ?, ?, ?)",

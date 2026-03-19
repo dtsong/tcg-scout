@@ -13,10 +13,13 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from config import get_format_config
 from reports.json_export import (
     _build_jp_en_lookup,
+    _compute_card_stats_for_ids,
     _compute_weighted_shares,
     _compute_windowed_ace_specs,
     _compute_windowed_meta,
     _compute_windowed_trends,
+    _compute_windowed_winning_edge,
+    _detect_variants,
     _get_sprite_filenames,
     _slugify,
     export_all,
@@ -672,4 +675,277 @@ class TestBuildJpEnLookupWithMappings:
 
         with pytest.raises(sqlite3.OperationalError, match="no such column"):
             _build_jp_en_lookup(conn)
+        conn.close()
+
+
+# --- _compute_card_stats_for_ids ---
+
+
+class TestComputeCardStatsForIds:
+    def test_returns_cards_for_valid_ids(self, db):
+        # Placement IDs 1, 3, 5 are Charizard ex
+        stats = _compute_card_stats_for_ids(db, [1, 3, 5])
+        card_names = [c["card_name"] for c in stats]
+        assert "Nest Ball" in card_names
+        assert "Ultra Ball" in card_names
+
+    def test_inclusion_pct_correct(self, db):
+        # All 3 Charizard placements have Nest Ball
+        stats = _compute_card_stats_for_ids(db, [1, 3, 5])
+        nest = next(c for c in stats if c["card_name"] == "Nest Ball")
+        assert nest["inclusion_pct"] == 100.0
+        assert nest["decks_with"] == 3
+
+    def test_avg_copies_correct(self, db):
+        stats = _compute_card_stats_for_ids(db, [1, 3, 5])
+        nest = next(c for c in stats if c["card_name"] == "Nest Ball")
+        assert nest["avg_copies"] == 4.0
+
+    def test_empty_ids_returns_empty(self, db):
+        assert _compute_card_stats_for_ids(db, []) == []
+
+    def test_has_category(self, db):
+        stats = _compute_card_stats_for_ids(db, [1])
+        for card in stats:
+            assert "category" in card
+
+
+# --- Top-4 segmented stats in export_archetypes ---
+
+
+class TestTop4SegmentedStats:
+    def test_top4_fields_present(self, db, tmp_path):
+        export_archetypes(db, tmp_path)
+        data = json.loads((tmp_path / "archetypes" / "charizard-ex.json").read_text())
+        assert "top4_card_stats" in data
+        assert "top4_sample_size" in data
+        assert "top4_low_sample" in data
+
+    def test_top4_sample_size_correct(self, db, tmp_path):
+        """Charizard has placements at 1st and 4th (standings <= 4)."""
+        export_archetypes(db, tmp_path)
+        data = json.loads((tmp_path / "archetypes" / "charizard-ex.json").read_text())
+        assert data["top4_sample_size"] == 2
+
+    def test_top4_low_sample_flag(self, db, tmp_path):
+        """With only 2 top-4 decks, low_sample should be True."""
+        export_archetypes(db, tmp_path)
+        data = json.loads((tmp_path / "archetypes" / "charizard-ex.json").read_text())
+        assert data["top4_low_sample"] is True
+
+    def test_delta_vs_field_present(self, db, tmp_path):
+        export_archetypes(db, tmp_path)
+        data = json.loads((tmp_path / "archetypes" / "charizard-ex.json").read_text())
+        for card in data["top4_card_stats"]:
+            assert "delta_vs_field" in card
+
+    def test_delta_vs_field_zero(self, db, tmp_path):
+        """Cards present in all decks should have delta 0."""
+        export_archetypes(db, tmp_path)
+        data = json.loads((tmp_path / "archetypes" / "charizard-ex.json").read_text())
+        nest = next(c for c in data["top4_card_stats"] if c["card_name"] == "Nest Ball")
+        # 100% in top4, 100% in field -> delta = 0
+        assert nest["delta_vs_field"] == 0.0
+
+    def test_delta_vs_field_positive(self, db, tmp_path):
+        """Card in top-4 more than field should have positive delta."""
+        export_archetypes(db, tmp_path)
+        data = json.loads((tmp_path / "archetypes" / "charizard-ex.json").read_text())
+        # Arven is in placements 1 (1st) and 3 (4th) but not 5 (9th)
+        # top-4 inclusion: 2/2 = 100%, field inclusion: 2/3 = 66.7%
+        arven = next(c for c in data["top4_card_stats"] if c["card_name"] == "Arven")
+        assert arven["delta_vs_field"] == 33.3
+
+    def test_delta_vs_field_negative(self, db, tmp_path):
+        """Card in field but absent from top-4 should have negative delta."""
+        export_archetypes(db, tmp_path)
+        data = json.loads((tmp_path / "archetypes" / "charizard-ex.json").read_text())
+        # Iono is in placement 5 (9th place) but not 1 (1st) or 3 (4th)
+        # top-4 inclusion: 0%, field inclusion: 1/3 = 33.3%
+        iono = next(c for c in data["top4_card_stats"] if c["card_name"] == "Iono")
+        assert iono["delta_vs_field"] == -33.3
+        assert iono["inclusion_pct"] == 0
+        assert iono["decks_with"] == 0
+
+    def test_no_top4_returns_empty_card_stats(self, db, tmp_path):
+        """Raging Bolt has only 16th place -- top4_card_stats should be empty."""
+        export_archetypes(db, tmp_path)
+        data = json.loads((tmp_path / "archetypes" / "raging-bolt-ex.json").read_text())
+        assert data["top4_sample_size"] == 0
+        assert data["top4_low_sample"] is True
+        assert data["top4_card_stats"] == []
+
+
+# --- _get_sprite_filenames (extended coverage) ---
+
+
+class TestGetSpriteFilenamesMega:
+    def test_mega_archetype(self):
+        result = _get_sprite_filenames("Mega Lucario ex")
+        assert "lucario-mega.png" in result
+
+    def test_mega_with_secondary(self):
+        result = _get_sprite_filenames("Mega Lucario Solrock")
+        assert "lucario-mega.png" in result
+        assert "solrock.png" in result
+
+    def test_hyphenated_pokemon(self):
+        result = _get_sprite_filenames("Chien-Pao ex")
+        assert "chien-pao.png" in result
+
+
+# --- _detect_variants ---
+
+
+class TestDetectVariants:
+    def _make_variant_db(self):
+        """Create a DB with enough placements for variant detection."""
+        import sqlite3
+
+        from db import SCHEMA
+
+        conn = sqlite3.connect(":memory:")
+        conn.row_factory = sqlite3.Row
+        conn.execute("PRAGMA foreign_keys=ON")
+        conn.executescript(SCHEMA)
+        conn.execute(
+            "INSERT INTO tournaments (id, name, date, player_count) VALUES ('t1', 'Test', '2026-01-25', 64)"
+        )
+        # 6 placements for same archetype
+        for i in range(1, 7):
+            conn.execute(
+                "INSERT INTO placements (id, tournament_id, standing, player_name, archetype) "
+                "VALUES (?, 't1', ?, ?, 'Charizard ex')",
+                (i, i, f"Player{i}"),
+            )
+        # All have Charizard ex (core card)
+        for pid in range(1, 7):
+            conn.execute(
+                "INSERT INTO decklist_cards (placement_id, card_id, card_name, count) "
+                "VALUES (?, 'c-zard', 'Charizard ex', 3)",
+                (pid,),
+            )
+            conn.execute(
+                "INSERT INTO decklist_cards (placement_id, card_id, card_name, count) "
+                "VALUES (?, 'c-nest', 'Nest Ball', 4)",
+                (pid,),
+            )
+        # 3 of 6 have Pidgeot ex (50% — within 15-70% variant marker range)
+        for pid in [1, 2, 3]:
+            conn.execute(
+                "INSERT INTO decklist_cards (placement_id, card_id, card_name, count) "
+                "VALUES (?, 'c-pidg', 'Pidgeot ex', 2)",
+                (pid,),
+            )
+        conn.commit()
+        return conn
+
+    def test_detects_variants(self):
+        conn = self._make_variant_db()
+        placement_ids = list(range(1, 7))
+        all_cards = [
+            {"card_name": "Charizard ex", "inclusion_pct": 100.0, "category": "Pokemon"},
+            {"card_name": "Pidgeot ex", "inclusion_pct": 50.0, "category": "Pokemon"},
+            {"card_name": "Nest Ball", "inclusion_pct": 100.0, "category": "Trainer"},
+        ]
+        variants = _detect_variants(conn, "Charizard ex", placement_ids, all_cards)
+        assert len(variants) >= 2
+        names = [v["name"] for v in variants]
+        assert "with Pidgeot ex" in names
+        assert "Standard" in names
+        conn.close()
+
+    def test_too_few_decks_returns_empty(self, db):
+        all_cards = [{"card_name": "Charizard ex", "inclusion_pct": 100.0, "category": "Pokemon"}]
+        result = _detect_variants(db, "Charizard ex", [1, 2, 3], all_cards)
+        assert result == []
+
+    def test_no_markers_returns_empty(self):
+        conn = self._make_variant_db()
+        # All cards are either 100% (core) or not Pokemon — no markers
+        all_cards = [
+            {"card_name": "Charizard ex", "inclusion_pct": 100.0, "category": "Pokemon"},
+            {"card_name": "Nest Ball", "inclusion_pct": 100.0, "category": "Trainer"},
+        ]
+        result = _detect_variants(conn, "Charizard ex", list(range(1, 7)), all_cards)
+        assert result == []
+        conn.close()
+
+
+# --- _compute_windowed_winning_edge ---
+
+
+class TestComputeWindowedWinningEdge:
+    def test_returns_list(self, db):
+        meta_data = {
+            "archetypes": [
+                {"archetype": "Charizard ex", "tier": "S"},
+                {"archetype": "Dragapult ex", "tier": "A"},
+            ]
+        }
+        result = _compute_windowed_winning_edge(db, "2026-01-01", "2026-12-31", meta_data)
+        assert isinstance(result, list)
+
+    def test_empty_when_no_sa_archetypes(self, db):
+        meta_data = {"archetypes": [{"archetype": "Foo", "tier": "Rogue"}]}
+        result = _compute_windowed_winning_edge(db, "2026-01-01", "2026-12-31", meta_data)
+        assert result == []
+
+    def test_cards_have_edge_field(self, db):
+        meta_data = {
+            "archetypes": [
+                {"archetype": "Charizard ex", "tier": "S"},
+                {"archetype": "Dragapult ex", "tier": "S"},
+            ]
+        }
+        result = _compute_windowed_winning_edge(db, "2026-01-01", "2026-12-31", meta_data)
+        for card in result:
+            assert "edge" in card
+            assert "field_pct" in card
+            assert "win_pct" in card
+
+
+# --- export_trends (empty data) ---
+
+
+class TestExportTrendsEdgeCases:
+    def test_empty_db_writes_empty_trends(self, tmp_path):
+        """An empty DB should produce an empty trends file."""
+        import sqlite3
+
+        from db import SCHEMA
+
+        conn = sqlite3.connect(":memory:")
+        conn.row_factory = sqlite3.Row
+        conn.executescript(SCHEMA)
+        export_trends(conn, tmp_path)
+        data = json.loads((tmp_path / "trends.json").read_text())
+        assert data["surging"] == []
+        assert data["declining"] == []
+        conn.close()
+
+    def test_one_sided_data_writes_empty(self, tmp_path):
+        """Data only in early period should produce empty trends."""
+        import sqlite3
+
+        from db import SCHEMA
+
+        conn = sqlite3.connect(":memory:")
+        conn.row_factory = sqlite3.Row
+        conn.executescript(SCHEMA)
+        conn.execute(
+            "INSERT INTO tournaments (id, name, date, player_count) VALUES ('t1', 'Early', '2026-01-15', 64)"
+        )
+        conn.execute(
+            "INSERT INTO placements (tournament_id, standing, player_name, archetype) "
+            "VALUES ('t1', 1, 'Alice', 'Charizard ex')"
+        )
+        conn.execute(
+            "INSERT INTO meta_snapshots (id, generated_at, tournament_count, deck_count) "
+            "VALUES (1, '2026-03-10', 1, 1)"
+        )
+        conn.commit()
+        export_trends(conn, tmp_path)
+        data = json.loads((tmp_path / "trends.json").read_text())
+        assert data["early_decks"] == 0 or data["late_decks"] == 0
         conn.close()
