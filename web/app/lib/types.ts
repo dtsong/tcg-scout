@@ -289,6 +289,6 @@ export interface CLDivision {
   event_name: string;
   division: string;
   date: string;
-  archetype_summary: CLArchetypeSummary[];
+  archetype_summary?: CLArchetypeSummary[];
   placements: CLPlacement[];
 }

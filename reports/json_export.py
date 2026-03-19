@@ -410,6 +410,7 @@ def _classify_card(card_name: str) -> str:
         "tower",
         "gong",
         "scrapper",
+        "vacuum",
         "balloon",
         "board",
         "poffin",
@@ -446,6 +447,18 @@ def _classify_card(card_name: str) -> str:
         "drayton",
         "lacey",
         "hassel",
+        "morty",
+        "wally",
+        "premium power",
+        "precious",
+        "pokegear",
+        "scoop up",
+        "may's",
+        "brock",
+        "kofu",
+        "hilda",
+        "cipher",
+        "steven's",
     )
     for kw in trainer_keywords:
         if kw in lower:
@@ -453,15 +466,15 @@ def _classify_card(card_name: str) -> str:
     for name in trainer_names:
         if name in lower:
             return "Trainer"
-    # Check DB supertype as last resort (most are empty but try)
     return "Pokemon"
 
 
 def _compute_weighted_shares(conn: sqlite3.Connection, snapshot: dict) -> dict[str, float]:
     """Compute performance-weighted meta share for each archetype.
 
-    Weights placements by finish position (top 16 differentiated for 64-player CLs).
-    CL results not included here since cl_placements lack archetype classification.
+    Weights placements by finish position (top 16 differentiated for 64-player City Leagues).
+    Champions League results excluded from scoring -- archetype is classified at
+    export time (export_champions_league) rather than stored in cl_placements.
     """
     rows = conn.execute(
         """
@@ -1924,8 +1937,9 @@ def export_champions_league(conn: sqlite3.Connection, output_dir: Path) -> None:
                     untranslated_names.add(jp_name)
 
                 raw_cat = card["category"]
-                if raw_cat in ("Pokemon", "Trainer", "Energy"):
-                    category = raw_cat
+                normalized_cat = raw_cat.strip().title() if raw_cat else None
+                if normalized_cat in ("Pokemon", "Trainer", "Energy"):
+                    category = normalized_cat
                 else:
                     logger.warning(
                         "Unexpected card category %r for card %r, defaulting to Trainer",

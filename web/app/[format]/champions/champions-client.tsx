@@ -193,7 +193,7 @@ export function ChampionsClient({
       </div>
 
       {/* Archetype Summary Bar */}
-      {division.archetype_summary && (
+      {division.archetype_summary && division.archetype_summary.length > 0 && (
         <ArchetypeSummaryBar summary={division.archetype_summary} />
       )}
 
