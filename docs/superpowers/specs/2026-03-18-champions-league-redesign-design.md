@@ -25,17 +25,14 @@ Above the placements table, add an archetype distribution bar showing each arche
 
 When a row is expanded, show card thumbnails in a responsive grid grouped by Pokemon/Trainer/Energy. Each card shows: thumbnail image, EN name (or JP if untranslated), and copy count. Cards without images show a styled placeholder.
 
-### Translation: tcgdex API + Hardcoded Fallback
+### Translation: card_mappings + cards table + Hardcoded Fallback
 
-At export time, fetch JP card data from the tcgdex API to build a comprehensive JP-EN name mapping. Populate the `cards` table `name_jp` column (already exists, currently null). The existing `JP_CARD_NAMES` hardcoded dict in `json_export.py` serves as fallback for cards the API misses. Target: 90%+ translation coverage.
+At export time, build a JP-EN name mapping from three sources (in priority order):
+1. `card_mappings` table -- explicit JP↔EN card ID pairs (e.g., `SV7-018` → `SCR-028`) that correctly handle set renumbering between JP and EN releases
+2. `cards` table -- `name_jp` → `name_en` for cards with both populated
+3. Hardcoded `JP_CARD_NAMES` dict in `json_export.py` as final fallback
 
-**API details:**
-- Base URL: `https://api.tcgdex.net/v2/jp/sets/{set_id}` to list cards per set
-- Card detail: `https://api.tcgdex.net/v2/jp/cards/{card_id}` for JP name
-- Fetch only rotation-legal sets (filtered by `rotation_legal=1` in cards table)
-- Rate limit: 1 request/second with retry on 429
-- Error handling: log failures, skip unavailable sets, continue pipeline
-- Run as a CLI step before export (`python cli.py fetch-jp-names`)
+This approach avoids the pitfall of matching by `set_code + set_number`, which fails when EN sets merge or renumber JP releases. The `card_mappings` table (populated by `scraper/card_mappings.py`) provides the authoritative cross-language mapping.
 
 ### Archetype Inference: classify_decklist
 
@@ -45,7 +42,7 @@ For CL decklists:
 1. Translate each card's JP name to EN using the improved lookup
 2. Build the cards list with `card_name` (EN), `count`, and `category` keys
 3. Call `classify_decklist(cards)` to get the archetype name
-4. Look up tier from `archetype_stats` for the matched archetype. If the archetype has no entry in `archetype_stats`, set tier to null.
+4. Look up tier from `archetype_stats` scoped to the latest snapshot (`WHERE snapshot_id = (SELECT MAX(id) FROM meta_snapshots)`). If the archetype has no entry, set tier to null.
 5. Look up sprite filenames via `_get_sprite_filenames()` from json_export.py
 6. If `classify_decklist` returns "Unknown", set archetype/tier/sprites to null
 
@@ -56,7 +53,7 @@ Group placements by inferred archetype, count occurrences, sort by count descend
 ## Data Flow
 
 ```
-tcgdex API -> cards.name_jp (one-time populate)
+card_mappings + cards + hardcoded JP_CARD_NAMES
                     |
 CL decklist cards --+--> JP-EN translation --> classify_decklist()
                     |                               |
@@ -165,27 +162,16 @@ All new fields are optional for backward compatibility.
 
 ## Backend Changes
 
-### 1. tcgdex JP Card Fetcher
-
-New function `fetch_jp_card_names(conn)` to populate `cards.name_jp`:
-1. Query `SELECT DISTINCT set_code FROM cards WHERE rotation_legal = 1` to get target sets
-2. For each set, fetch `https://api.tcgdex.net/v2/jp/sets/{set_code}` to get JP card list
-3. Match JP cards to EN cards by set_code + set_number
-4. Update `cards.name_jp` for matched records
-5. Log match rate per set
-
-Run as a CLI command before export. Results persist in DB -- only fetches sets where `name_jp` is still null.
-
-### 2. CL Export Enhancement
+### 1. CL Export Enhancement
 
 Modify `export_champions_league()` in `json_export.py`:
-1. Build JP-EN lookup (existing `_build_jp_en_lookup` + new `cards.name_jp` data)
+1. Build JP-EN lookup via `_build_jp_en_lookup` (card_mappings + cards table + hardcoded fallback)
 2. Build EN-to-image-URL lookup from `cards` table
 3. For each placement:
    a. Translate all card names JP -> EN
    b. Attach `image_url` for each card via EN name lookup
    c. Build a cards list for `classify_decklist()` and call it
-   d. Look up tier from `archetype_stats` (null if not found)
+   d. Look up tier from `archetype_stats` (latest snapshot, null if not found)
    e. Look up sprite filenames via `_get_sprite_filenames()`
    f. Attach archetype, tier, sprite_filenames to placement
 4. Compute `archetype_summary` by grouping placements
