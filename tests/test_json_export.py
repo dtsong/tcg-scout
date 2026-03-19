@@ -754,10 +754,23 @@ class TestTop4SegmentedStats:
         arven = next(c for c in data["top4_card_stats"] if c["card_name"] == "Arven")
         assert arven["delta_vs_field"] == 33.3
 
-    def test_no_top4_exports_gracefully(self, db, tmp_path):
-        """Raging Bolt has only 16th place -- no top-4 placements."""
+    def test_delta_vs_field_negative(self, db, tmp_path):
+        """Card in field but absent from top-4 should have negative delta."""
+        export_archetypes(db, tmp_path)
+        data = json.loads((tmp_path / "archetypes" / "charizard-ex.json").read_text())
+        # Iono is in placement 5 (9th place) but not 1 (1st) or 3 (4th)
+        # top-4 inclusion: 0%, field inclusion: 1/3 = 33.3%
+        iono = next(c for c in data["top4_card_stats"] if c["card_name"] == "Iono")
+        assert iono["delta_vs_field"] == -33.3
+        assert iono["inclusion_pct"] == 0
+        assert iono["decks_with"] == 0
+
+    def test_no_top4_shows_all_negative_deltas(self, db, tmp_path):
+        """Raging Bolt has only 16th place -- all cards have negative deltas."""
         export_archetypes(db, tmp_path)
         data = json.loads((tmp_path / "archetypes" / "raging-bolt-ex.json").read_text())
-        assert data["top4_card_stats"] == []
         assert data["top4_sample_size"] == 0
         assert data["top4_low_sample"] is True
+        for card in data["top4_card_stats"]:
+            assert card["inclusion_pct"] == 0
+            assert card["delta_vs_field"] < 0

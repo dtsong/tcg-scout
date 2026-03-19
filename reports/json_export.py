@@ -1531,6 +1531,7 @@ def export_archetypes(conn: sqlite3.Connection, output_dir: Path) -> None:
         field_inclusion = {c["card_name"]: c["inclusion_pct"] for c in all_cards}
 
         top4_cards = _compute_card_stats_for_ids(conn, top4_ids)
+        top4_names = {c["card_name"] for c in top4_cards}
         for card in top4_cards:
             field_pct = field_inclusion.get(card["card_name"])
             if field_pct is None:
@@ -1541,6 +1542,19 @@ def export_archetypes(conn: sqlite3.Connection, output_dir: Path) -> None:
                 )
                 field_pct = 0
             card["delta_vs_field"] = round(card["inclusion_pct"] - field_pct, 1)
+
+        # Append field-only cards absent from top-4 (negative deltas)
+        for card in all_cards:
+            if card["card_name"] not in top4_names:
+                top4_cards.append(
+                    {
+                        **card,
+                        "inclusion_pct": 0,
+                        "avg_copies": 0,
+                        "decks_with": 0,
+                        "delta_vs_field": round(-card["inclusion_pct"], 1),
+                    }
+                )
 
         # Tournament results — top 16 by standing ASC, date DESC
         # (limited to 16 since each result now includes full decklists)
