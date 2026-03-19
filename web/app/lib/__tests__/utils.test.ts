@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, afterEach } from "vitest";
-import { formatPlacement, formatPct, daysUntil, cn } from "../utils";
+import { formatPlacement, formatPct, daysUntil, cn, slugify } from "../utils";
 
 describe("formatPlacement", () => {
   it("returns 1st for 1", () => {
@@ -60,6 +60,18 @@ describe("daysUntil", () => {
     vi.useFakeTimers();
     vi.setSystemTime(new Date("2026-01-11T00:00:00Z"));
     expect(daysUntil("2026-01-01")).toBeLessThan(0);
+  });
+});
+
+describe("slugify", () => {
+  it.each([
+    ["Charizard ex", "charizard-ex"],
+    ["Boss's Orders", "boss-s-orders"],
+    ["raging-bolt", "raging-bolt"],
+    ["Porygon-Z Box!", "porygon-z-box"],
+    [" -Foo- ", "foo"],
+  ])("slugifies %j to %j", (input, expected) => {
+    expect(slugify(input)).toBe(expected);
   });
 });
 
