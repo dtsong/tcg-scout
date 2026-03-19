@@ -215,6 +215,13 @@ class TestBuildCategoryLookup:
         assert _classify_card("Unfair Stamp", lookup) == "Trainer"
 
     def test_classify_card_falls_back_to_heuristic(self):
+        # Non-empty lookup that doesn't contain the queried card
+        lookup = {"Unrelated Card": "Pokemon"}
+        assert _classify_card("Nest Ball", lookup) == "Trainer"
+        assert _classify_card("Charizard ex", lookup) == "Pokemon"
+
+    def test_classify_card_empty_lookup_falls_through(self):
+        # Empty dict is not None — should still enter lookup branch
         lookup = {}
         assert _classify_card("Nest Ball", lookup) == "Trainer"
         assert _classify_card("Charizard ex", lookup) == "Pokemon"
@@ -222,6 +229,30 @@ class TestBuildCategoryLookup:
     def test_classify_card_without_lookup(self):
         assert _classify_card("Nest Ball") == "Trainer"
         assert _classify_card("Charizard ex") == "Pokemon"
+
+
+class TestPokemonNamesFallback:
+    """Test the _POKEMON_NAMES fallback classification path."""
+
+    def test_pokemon_in_name_set_classified_correctly(self, monkeypatch):
+        monkeypatch.setattr("analysis.card_stats._POKEMON_NAMES", {"pikachu", "charizard"})
+        # Not matched by any heuristic, but in the name set
+        assert _classify_card("Pikachu") == "Pokemon"
+
+    def test_unknown_card_defaults_to_trainer(self, monkeypatch):
+        monkeypatch.setattr("analysis.card_stats._POKEMON_NAMES", {"pikachu"})
+        # Not in name set, not matched by heuristics
+        assert _classify_card("Sacred Ash") == "Trainer"
+
+    def test_ex_suffix_stripped_for_lookup(self, monkeypatch):
+        monkeypatch.setattr("analysis.card_stats._POKEMON_NAMES", {"charizard"})
+        # "charizard ex" -> base "charizard" found in set
+        assert _classify_card("Charizard ex") == "Pokemon"
+
+    def test_empty_name_set_falls_through_to_pokemon_default(self, monkeypatch):
+        monkeypatch.setattr("analysis.card_stats._POKEMON_NAMES", set())
+        # Without the name set, unknown cards default to Pokemon
+        assert _classify_card("Sacred Ash") == "Pokemon"
 
 
 class TestComputeTrendDirection:
