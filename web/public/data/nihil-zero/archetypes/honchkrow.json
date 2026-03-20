@@ -303,6 +303,7 @@
   "results": [
     {
       "tournament_name": "City League Saitama",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4079",
       "date": "2026-02-14",
       "standing": 4,
       "player_name": "Kodano",
@@ -401,6 +402,7 @@
     },
     {
       "tournament_name": "City League Chiba",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4169",
       "date": "2026-03-01",
       "standing": 7,
       "player_name": "とりあたmax",
@@ -509,6 +511,7 @@
     },
     {
       "tournament_name": "City League Ehime",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4054",
       "date": "2026-02-11",
       "standing": 10,
       "player_name": "ぶいえむ",
@@ -617,6 +620,7 @@
     },
     {
       "tournament_name": "City League Chiba",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3868",
       "date": "2026-01-25",
       "standing": 12,
       "player_name": "くくいち",
@@ -752,7 +756,7 @@
           "to_pct": 100.0
         },
         {
-          "card": "Ultra Ball",
+          "card": "Tool Scrapper",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -762,19 +766,24 @@
           "to_pct": 50.0
         },
         {
-          "card": "Tool Scrapper",
+          "card": "Ultra Ball",
           "from_pct": 0.0,
           "to_pct": 50.0
         }
       ],
       "dropped": [
         {
-          "card": "Team Rocket's Mimikyu",
+          "card": "Unfair Stamp",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Unfair Stamp",
+          "card": "Hilda",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Team Rocket's Mimikyu",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -787,11 +796,6 @@
           "card": "Team Rocket's Porygon",
           "from_pct": 100.0,
           "to_pct": 0.0
-        },
-        {
-          "card": "Hilda",
-          "from_pct": 100.0,
-          "to_pct": 0.0
         }
       ]
     },
@@ -799,12 +803,12 @@
       "week": "2026-02-23",
       "adopted": [
         {
-          "card": "Lucky Helmet",
+          "card": "Team Rocket's Porygon2",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Team Rocket's Porygon2",
+          "card": "Lucky Helmet",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -821,17 +825,17 @@
           "to_pct": 0.0
         },
         {
+          "card": "Tool Scrapper",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
           "card": "Brave Bangle",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
           "card": "Punk Helmet",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Tool Scrapper",
           "from_pct": 50.0,
           "to_pct": 0.0
         }

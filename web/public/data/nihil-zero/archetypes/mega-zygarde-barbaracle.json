@@ -290,6 +290,7 @@
   "results": [
     {
       "tournament_name": "City League Aichi",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4062",
       "date": "2026-02-11",
       "standing": 12,
       "player_name": "大豆",
@@ -393,6 +394,7 @@
     },
     {
       "tournament_name": "City League Kanagawa",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3849",
       "date": "2026-01-24",
       "standing": 12,
       "player_name": "もっちゃん",
@@ -476,6 +478,7 @@
     },
     {
       "tournament_name": "City League Chiba",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3890",
       "date": "2026-01-27",
       "standing": 14,
       "player_name": "トネ",
@@ -569,6 +572,7 @@
     },
     {
       "tournament_name": "City League Shizuoka",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3865",
       "date": "2026-01-25",
       "standing": 14,
       "player_name": "FDえーじ",
@@ -664,32 +668,7 @@
       "week": "2026-01-26",
       "adopted": [
         {
-          "card": "Explorer's Guidance",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Okidogi",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Cornerstone Mask Ogerpon ex",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Shaymin",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
           "card": "Prism Energy",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Morty's Conviction",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -699,7 +678,7 @@
           "to_pct": 100.0
         },
         {
-          "card": "Legacy Energy",
+          "card": "Cornerstone Mask Ogerpon ex",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -707,16 +686,41 @@
           "card": "Hilda",
           "from_pct": 0.0,
           "to_pct": 100.0
+        },
+        {
+          "card": "Legacy Energy",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Shaymin",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Explorer's Guidance",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Morty's Conviction",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Okidogi",
+          "from_pct": 0.0,
+          "to_pct": 100.0
         }
       ],
       "dropped": [
         {
-          "card": "Solrock",
+          "card": "Lunatone",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Lunatone",
+          "card": "Solrock",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -731,7 +735,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "Prime Catcher",
+          "card": "Premium Power Pro",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -742,11 +746,6 @@
         },
         {
           "card": "Wally's Compassion",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Bloodmoon Ursaluna",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -761,12 +760,17 @@
           "to_pct": 0.0
         },
         {
-          "card": "Premium Power Pro",
+          "card": "Precious Trolley",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
-          "card": "Precious Trolley",
+          "card": "Bloodmoon Ursaluna",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Prime Catcher",
           "from_pct": 50.0,
           "to_pct": 0.0
         }
@@ -776,32 +780,7 @@
       "week": "2026-02-09",
       "adopted": [
         {
-          "card": "Carmine",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Solrock",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Ultra Ball",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Wally's Compassion",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
           "card": "Scoop Up Cyclone",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Energy Retrieval",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -811,7 +790,32 @@
           "to_pct": 100.0
         },
         {
+          "card": "Premium Power Pro",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Carmine",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
           "card": "Judge",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Solrock",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Team Rocket's Watchtower",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Wally's Compassion",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -821,39 +825,19 @@
           "to_pct": 100.0
         },
         {
-          "card": "Premium Power Pro",
+          "card": "Energy Retrieval",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Team Rocket's Watchtower",
+          "card": "Ultra Ball",
           "from_pct": 0.0,
           "to_pct": 100.0
         }
       ],
       "dropped": [
         {
-          "card": "Explorer's Guidance",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Cornerstone Mask Ogerpon ex",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Shaymin",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Prism Energy",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Morty's Conviction",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -863,17 +847,37 @@
           "to_pct": 0.0
         },
         {
-          "card": "Legacy Energy",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Okidogi",
+          "card": "Cornerstone Mask Ogerpon ex",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
           "card": "Hilda",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Legacy Energy",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Shaymin",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Explorer's Guidance",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Morty's Conviction",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Okidogi",
           "from_pct": 100.0,
           "to_pct": 0.0
         }

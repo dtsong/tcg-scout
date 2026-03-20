@@ -381,6 +381,7 @@
   "results": [
     {
       "tournament_name": "City League Ōsaka",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3972",
       "date": "2026-02-07",
       "standing": 4,
       "player_name": "うたり",
@@ -509,6 +510,7 @@
     },
     {
       "tournament_name": "City League Ōsaka",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3991",
       "date": "2026-02-04",
       "standing": 8,
       "player_name": "しゅう",
@@ -647,6 +649,7 @@
     },
     {
       "tournament_name": "City League Kanagawa",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4032",
       "date": "2026-02-10",
       "standing": 10,
       "player_name": "ゆうさく",
@@ -770,6 +773,7 @@
     },
     {
       "tournament_name": "City League Fukushima",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3988",
       "date": "2026-02-07",
       "standing": 15,
       "player_name": "はにまる",
@@ -878,6 +882,7 @@
     },
     {
       "tournament_name": "City League Tōkyō",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4173",
       "date": "2026-03-01",
       "standing": 16,
       "player_name": "もつ",
@@ -1018,17 +1023,22 @@
           "to_pct": 100.0
         },
         {
-          "card": "Fezandipiti ex",
+          "card": "Hop's Zacian ex",
           "from_pct": 33.3,
           "to_pct": 100.0
         },
         {
-          "card": "Hop's Zacian ex",
+          "card": "Fezandipiti ex",
           "from_pct": 33.3,
           "to_pct": 100.0
         }
       ],
       "dropped": [
+        {
+          "card": "Tool Scrapper",
+          "from_pct": 66.7,
+          "to_pct": 0.0
+        },
         {
           "card": "Team Rocket's Petrel",
           "from_pct": 66.7,
@@ -1038,11 +1048,6 @@
           "card": "Morty's Conviction",
           "from_pct": 66.7,
           "to_pct": 0.0
-        },
-        {
-          "card": "Tool Scrapper",
-          "from_pct": 66.7,
-          "to_pct": 0.0
         }
       ]
     },
@@ -1050,17 +1055,12 @@
       "week": "2026-02-23",
       "adopted": [
         {
-          "card": "Team Rocket's Transceiver",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
           "card": "Mist Energy",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Switch",
+          "card": "Team Rocket's Petrel",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -1070,7 +1070,12 @@
           "to_pct": 100.0
         },
         {
-          "card": "Team Rocket's Petrel",
+          "card": "Switch",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Team Rocket's Transceiver",
           "from_pct": 0.0,
           "to_pct": 100.0
         }
@@ -1082,12 +1087,12 @@
           "to_pct": 0.0
         },
         {
-          "card": "Hop's Cramorant",
+          "card": "Bloodmoon Ursaluna ex",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Bloodmoon Ursaluna ex",
+          "card": "Hop's Cramorant",
           "from_pct": 100.0,
           "to_pct": 0.0
         },

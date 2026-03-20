@@ -381,6 +381,7 @@
   "results": [
     {
       "tournament_name": "City League Iwate",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3965",
       "date": "2026-02-07",
       "standing": 1,
       "player_name": "ひかる",
@@ -519,6 +520,7 @@
     },
     {
       "tournament_name": "City League Kagawa",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4023",
       "date": "2026-02-08",
       "standing": 4,
       "player_name": "L'Kbreth",
@@ -657,6 +659,7 @@
     },
     {
       "tournament_name": "City League Tōkyō",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4049",
       "date": "2026-02-11",
       "standing": 15,
       "player_name": "とるく",
@@ -807,6 +810,11 @@
       "week": "2026-02-09",
       "adopted": [
         {
+          "card": "Tatsugiri",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
           "card": "Yveltal",
           "from_pct": 0.0,
           "to_pct": 100.0
@@ -825,26 +833,11 @@
           "card": "Sableye",
           "from_pct": 0.0,
           "to_pct": 100.0
-        },
-        {
-          "card": "Tatsugiri",
-          "from_pct": 0.0,
-          "to_pct": 100.0
         }
       ],
       "dropped": [
         {
-          "card": "Drayton",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Brute Bonnet",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Lucian",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -855,6 +848,16 @@
         },
         {
           "card": "Pecharunt ex",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Lucian",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Drayton",
           "from_pct": 100.0,
           "to_pct": 0.0
         }

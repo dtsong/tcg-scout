@@ -7,76 +7,90 @@
   "image_url": null,
   "category": "Pokemon",
   "rarity": null,
-  "total_appearances": 147,
-  "usage_pct": 16.5,
+  "total_appearances": 210,
+  "usage_pct": 18.7,
   "avg_copies": 1.0,
-  "unique_archetypes": 43,
-  "weighted_score": 240.3,
-  "win_rate_proxy": 1.63,
-  "top_archetype": "Alakazam Dudunsparce",
-  "trend_direction": "stable",
+  "unique_archetypes": 46,
+  "weighted_score": 347.0,
+  "win_rate_proxy": 1.65,
+  "top_archetype": "Dragapult Meowth",
+  "trend_direction": "surging",
   "copy_distribution": [
     {
       "copies": 1,
-      "count": 147
+      "count": 210
     }
   ],
   "archetypes": [
     {
+      "name": "Dragapult Meowth",
+      "slug": "dragapult-meowth",
+      "usage_count": 30,
+      "avg_copies": 1.0,
+      "tier": "A"
+    },
+    {
       "name": "Alakazam Dudunsparce",
       "slug": "alakazam-dudunsparce",
-      "usage_count": 19,
+      "usage_count": 28,
       "avg_copies": 1.0,
       "tier": "C"
     },
     {
       "name": "Dragapult Dusknoir",
       "slug": "dragapult-dusknoir",
-      "usage_count": 18,
+      "usage_count": 25,
+      "avg_copies": 1.0,
+      "tier": "B"
+    },
+    {
+      "name": "Blaziken Dragapult",
+      "slug": "blaziken-dragapult",
+      "usage_count": 22,
       "avg_copies": 1.0,
       "tier": "B"
     },
     {
       "name": "Grimmsnarl Munkidori",
       "slug": "grimmsnarl-munkidori",
-      "usage_count": 15,
+      "usage_count": 20,
       "avg_copies": 1.0,
       "tier": "C"
     },
     {
-      "name": "Blaziken Dragapult",
-      "slug": "blaziken-dragapult",
-      "usage_count": 15,
-      "avg_copies": 1.0,
-      "tier": "B"
-    },
-    {
-      "name": "Dragapult Meowth",
-      "slug": "dragapult-meowth",
-      "usage_count": 13,
-      "avg_copies": 1.0,
-      "tier": "A"
-    },
-    {
       "name": "Dipplin Thwackey",
       "slug": "dipplin-thwackey",
-      "usage_count": 7,
+      "usage_count": 8,
       "avg_copies": 1.0,
       "tier": "Rogue"
     },
     {
       "name": "Dragapult ex",
       "slug": "dragapult-ex",
-      "usage_count": 5,
+      "usage_count": 7,
       "avg_copies": 1.0,
       "tier": "C"
     },
     {
-      "name": "Typhlosion",
-      "slug": "typhlosion",
-      "usage_count": 3,
+      "name": "Mega Kangaskhan Dragapult",
+      "slug": "mega-kangaskhan-dragapult",
+      "usage_count": 6,
       "avg_copies": 1.0,
       "tier": "Rogue"
+    },
+    {
+      "name": "Typhlosion",
+      "slug": "typhlosion",
+      "usage_count": 4,
+      "avg_copies": 1.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Crustle Munkidori",
+      "slug": "crustle-munkidori",
+      "usage_count": 4,
+      "avg_copies": 1.0,
+      "tier": "C"
     },
     {
       "name": "Trevenant",
@@ -86,11 +100,11 @@
       "tier": "Rogue"
     },
     {
-      "name": "Mega Kangaskhan Dragapult",
-      "slug": "mega-kangaskhan-dragapult",
+      "name": "Mega Lucario",
+      "slug": "mega-lucario",
       "usage_count": 3,
       "avg_copies": 1.0,
-      "tier": "Rogue"
+      "tier": "B"
     },
     {
       "name": "Mega Greninja Dudunsparce",
@@ -100,6 +114,13 @@
       "tier": "C"
     },
     {
+      "name": "Latias Slowking",
+      "slug": "latias-slowking",
+      "usage_count": 3,
+      "avg_copies": 1.0,
+      "tier": "Rogue"
+    },
+    {
       "name": "Garchomp Roserade",
       "slug": "garchomp-roserade",
       "usage_count": 3,
@@ -107,11 +128,25 @@
       "tier": "B"
     },
     {
-      "name": "Mega Lucario",
-      "slug": "mega-lucario",
+      "name": "Barbaracle Okidogi",
+      "slug": "barbaracle-okidogi",
+      "usage_count": 3,
+      "avg_copies": 1.0,
+      "tier": "C"
+    },
+    {
+      "name": "Slowking",
+      "slug": "slowking",
       "usage_count": 2,
       "avg_copies": 1.0,
-      "tier": "B"
+      "tier": "Rogue"
+    },
+    {
+      "name": "Mega Slowbro Slowking",
+      "slug": "mega-slowbro-slowking",
+      "usage_count": 2,
+      "avg_copies": 1.0,
+      "tier": "Rogue"
     },
     {
       "name": "Mega Froslass Mega Starmie",
@@ -123,13 +158,6 @@
     {
       "name": "Mega Dragonite Blaziken",
       "slug": "mega-dragonite-blaziken",
-      "usage_count": 2,
-      "avg_copies": 1.0,
-      "tier": "Rogue"
-    },
-    {
-      "name": "Latias Slowking",
-      "slug": "latias-slowking",
       "usage_count": 2,
       "avg_copies": 1.0,
       "tier": "Rogue"
@@ -156,23 +184,9 @@
       "tier": "Rogue"
     },
     {
-      "name": "Crustle Munkidori",
-      "slug": "crustle-munkidori",
+      "name": "Aegislash Genesect",
+      "slug": "aegislash-genesect",
       "usage_count": 2,
-      "avg_copies": 1.0,
-      "tier": "C"
-    },
-    {
-      "name": "Barbaracle Okidogi",
-      "slug": "barbaracle-okidogi",
-      "usage_count": 2,
-      "avg_copies": 1.0,
-      "tier": "C"
-    },
-    {
-      "name": "Slowking",
-      "slug": "slowking",
-      "usage_count": 1,
       "avg_copies": 1.0,
       "tier": "Rogue"
     },
@@ -189,13 +203,6 @@
       "usage_count": 1,
       "avg_copies": 1.0,
       "tier": "C"
-    },
-    {
-      "name": "Mega Slowbro Slowking",
-      "slug": "mega-slowbro-slowking",
-      "usage_count": 1,
-      "avg_copies": 1.0,
-      "tier": "Rogue"
     },
     {
       "name": "Mega Skarmory Metagross",
@@ -240,6 +247,13 @@
       "tier": "C"
     },
     {
+      "name": "Mega Froslass Grimmsnarl",
+      "slug": "mega-froslass-grimmsnarl",
+      "usage_count": 1,
+      "avg_copies": 1.0,
+      "tier": "Rogue"
+    },
+    {
       "name": "Mega Froslass Glaceon",
       "slug": "mega-froslass-glaceon",
       "usage_count": 1,
@@ -282,6 +296,13 @@
       "tier": "Rogue"
     },
     {
+      "name": "Decidueye Vivillon",
+      "slug": "decidueye-vivillon",
+      "usage_count": 1,
+      "avg_copies": 1.0,
+      "tier": "Rogue"
+    },
+    {
       "name": "Crustle Dragapult",
       "slug": "crustle-dragapult",
       "usage_count": 1,
@@ -296,6 +317,13 @@
       "tier": "Rogue"
     },
     {
+      "name": "Bronzong Farigiraf",
+      "slug": "bronzong-farigiraf",
+      "usage_count": 1,
+      "avg_copies": 1.0,
+      "tier": "Rogue"
+    },
+    {
       "name": "Bronzong Dragapult",
       "slug": "bronzong-dragapult",
       "usage_count": 1,
@@ -305,13 +333,6 @@
     {
       "name": "Alakazam Dragapult",
       "slug": "alakazam-dragapult",
-      "usage_count": 1,
-      "avg_copies": 1.0,
-      "tier": "Rogue"
-    },
-    {
-      "name": "Aegislash Genesect",
-      "slug": "aegislash-genesect",
       "usage_count": 1,
       "avg_copies": 1.0,
       "tier": "Rogue"
@@ -332,115 +353,115 @@
     },
     {
       "week": "2026-03-16",
-      "usage_pct": 15.4,
+      "usage_pct": 20.9,
       "avg_copies": 1.0
     }
   ],
   "synergy_partners": [
     {
-      "card_name": "Enhanced Hammer",
-      "support": 17,
-      "lift": 6.068,
-      "jaccard": 0.116,
-      "weighted_score": 31.0
-    },
-    {
-      "card_name": "Goldeen",
-      "support": 7,
-      "lift": 6.068,
-      "jaccard": 0.048,
-      "weighted_score": 12.4
-    },
-    {
-      "card_name": "Grookey",
-      "support": 9,
-      "lift": 6.068,
-      "jaccard": 0.061,
-      "weighted_score": 15.4
-    },
-    {
-      "card_name": "Seaking",
-      "support": 7,
-      "lift": 6.068,
-      "jaccard": 0.048,
-      "weighted_score": 12.4
-    },
-    {
-      "card_name": "Thwackey",
-      "support": 9,
-      "lift": 6.068,
-      "jaccard": 0.061,
-      "weighted_score": 15.4
-    },
-    {
       "card_name": "Abra",
-      "support": 20,
-      "lift": 5.779,
-      "jaccard": 0.135,
-      "weighted_score": 35.4
+      "support": 29,
+      "lift": 5.007,
+      "jaccard": 0.137,
+      "weighted_score": 50.0
     },
     {
       "card_name": "Kadabra",
-      "support": 20,
-      "lift": 5.779,
-      "jaccard": 0.135,
-      "weighted_score": 35.4
+      "support": 29,
+      "lift": 5.007,
+      "jaccard": 0.137,
+      "weighted_score": 50.0
     },
     {
-      "card_name": "Sacred Ash",
-      "support": 26,
-      "lift": 5.635,
-      "jaccard": 0.174,
-      "weighted_score": 45.5
+      "card_name": "Enhanced Hammer",
+      "support": 25,
+      "lift": 4.956,
+      "jaccard": 0.118,
+      "weighted_score": 42.6
     },
     {
       "card_name": "Alakazam",
-      "support": 20,
-      "lift": 5.516,
-      "jaccard": 0.134,
-      "weighted_score": 35.4
+      "support": 29,
+      "lift": 4.851,
+      "jaccard": 0.136,
+      "weighted_score": 50.0
     },
     {
-      "card_name": "Festival Grounds",
-      "support": 9,
-      "lift": 5.461,
-      "jaccard": 0.061,
+      "card_name": "Sacred Ash",
+      "support": 37,
+      "lift": 4.83,
+      "jaccard": 0.173,
+      "weighted_score": 62.8
+    },
+    {
+      "card_name": "Seaking",
+      "support": 8,
+      "lift": 4.758,
+      "jaccard": 0.038,
       "weighted_score": 15.4
     },
     {
       "card_name": "Enriching Energy",
-      "support": 21,
-      "lift": 5.097,
-      "jaccard": 0.139,
-      "weighted_score": 38.7
+      "support": 32,
+      "lift": 4.629,
+      "jaccard": 0.149,
+      "weighted_score": 55.7
     },
     {
-      "card_name": "Hop's Bag",
-      "support": 5,
-      "lift": 5.057,
-      "jaccard": 0.034,
-      "weighted_score": 6.9
+      "card_name": "Grookey",
+      "support": 10,
+      "lift": 4.46,
+      "jaccard": 0.047,
+      "weighted_score": 18.4
     },
     {
-      "card_name": "Hop's Choice Band",
-      "support": 5,
-      "lift": 5.057,
-      "jaccard": 0.034,
-      "weighted_score": 6.9
+      "card_name": "Thwackey",
+      "support": 10,
+      "lift": 4.46,
+      "jaccard": 0.047,
+      "weighted_score": 18.4
+    },
+    {
+      "card_name": "Goldeen",
+      "support": 8,
+      "lift": 4.282,
+      "jaccard": 0.038,
+      "weighted_score": 15.4
+    },
+    {
+      "card_name": "Festival Grounds",
+      "support": 10,
+      "lift": 3.823,
+      "jaccard": 0.047,
+      "weighted_score": 18.4
     },
     {
       "card_name": "Hop's Phantump",
       "support": 5,
-      "lift": 5.057,
-      "jaccard": 0.034,
+      "lift": 3.823,
+      "jaccard": 0.024,
       "weighted_score": 6.9
     },
     {
-      "card_name": "Hop's Snorlax",
+      "card_name": "Hop's Trevenant",
       "support": 5,
-      "lift": 5.057,
-      "jaccard": 0.034,
+      "lift": 3.823,
+      "jaccard": 0.024,
       "weighted_score": 6.9
+    },
+    {
+      "card_name": "Combusken",
+      "support": 24,
+      "lift": 3.133,
+      "jaccard": 0.106,
+      "weighted_score": 39.1
+    },
+    {
+      "card_name": "Lucky Helmet",
+      "support": 8,
+      "lift": 3.059,
+      "jaccard": 0.037,
+      "weighted_score": 12.1
     }
   ]
 }

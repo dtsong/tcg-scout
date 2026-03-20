@@ -2,20 +2,48 @@
   "archetype": "Unknown",
   "slug": "unknown",
   "tier": "Rogue",
-  "meta_share": 0.2,
-  "weighted_share": 0.2,
-  "deck_count": 2,
-  "best_placement": 15,
+  "meta_share": 0.5,
+  "weighted_share": 0.5,
+  "deck_count": 6,
+  "best_placement": 4,
   "sprite_filenames": [],
   "core_cards": [],
   "all_cards": [],
   "results": [
     {
       "tournament_name": "City League Ōsaka",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4342",
+      "date": "2026-03-20",
+      "standing": 4,
+      "player_name": "メロンソーダ"
+    },
+    {
+      "tournament_name": "City League Tōkyō",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4331",
+      "date": "2026-03-20",
+      "standing": 5,
+      "player_name": "セイユウ"
+    },
+    {
+      "tournament_name": "City League Tōkyō",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4280",
+      "date": "2026-03-14",
+      "standing": 13,
+      "player_name": "スリーエフ"
+    },
+    {
+      "tournament_name": "City League Ōsaka",
       "tournament_url": "https://limitlesstcg.com/tournaments/jp/4321",
       "date": "2026-03-17",
       "standing": 15,
       "player_name": "リクーム"
+    },
+    {
+      "tournament_name": "City League Hiroshima",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4286",
+      "date": "2026-03-14",
+      "standing": 15,
+      "player_name": "りん"
     },
     {
       "tournament_name": "City League Kyōto",
@@ -26,11 +54,11 @@
     }
   ],
   "radar": {
-    "meta_share": 1.1,
-    "weighted_share": 0.9,
-    "consistency": 27.5,
-    "ceiling": 25,
-    "popularity": 2.2,
+    "meta_share": 2.7,
+    "weighted_share": 2.3,
+    "consistency": 48.3,
+    "ceiling": 75,
+    "popularity": 4.9,
     "core_density": 0
   },
   "evolution": [],
@@ -38,16 +66,16 @@
   "weekly_shares": [
     {
       "week": "2026-03-09",
-      "meta_share": 0.0,
-      "deck_count": 0
+      "meta_share": 0.3,
+      "deck_count": 2
     },
     {
       "week": "2026-03-16",
       "meta_share": 0.8,
-      "deck_count": 2
+      "deck_count": 4
     }
   ],
   "top4_card_stats": [],
-  "top4_sample_size": 0,
+  "top4_sample_size": 1,
   "top4_low_sample": true
 }

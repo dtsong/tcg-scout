@@ -353,6 +353,7 @@
   "results": [
     {
       "tournament_name": "City League Tōkyō",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4035",
       "date": "2026-02-11",
       "standing": 4,
       "player_name": "ナッシュ",
@@ -491,6 +492,7 @@
     },
     {
       "tournament_name": "City League Ōsaka",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3919",
       "date": "2026-01-31",
       "standing": 8,
       "player_name": "コタロウ",
@@ -621,7 +623,27 @@
       "week": "2026-02-09",
       "adopted": [
         {
+          "card": "Crispin",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
           "card": "Unfair Stamp",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Night Stretcher",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Powerglass",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Team Rocket's Petrel",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -646,34 +668,14 @@
           "to_pct": 100.0
         },
         {
-          "card": "Night Stretcher",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
           "card": "Fezandipiti ex",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Crispin",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Team Rocket's Petrel",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Powerglass",
           "from_pct": 0.0,
           "to_pct": 100.0
         }
       ],
       "dropped": [
         {
-          "card": "Togekiss",
+          "card": "Maximum Belt",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -683,7 +685,12 @@
           "to_pct": 0.0
         },
         {
-          "card": "Maximum Belt",
+          "card": "Tool Scrapper",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Togekiss",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -699,11 +706,6 @@
         },
         {
           "card": "Togetic",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Tool Scrapper",
           "from_pct": 100.0,
           "to_pct": 0.0
         }

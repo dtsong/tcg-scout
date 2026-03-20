@@ -7,22 +7,22 @@
   "image_url": null,
   "category": "Trainer",
   "rarity": null,
-  "total_appearances": 14,
+  "total_appearances": 18,
   "usage_pct": 1.6,
-  "avg_copies": 2.9,
-  "unique_archetypes": 5,
-  "weighted_score": 19.1,
+  "avg_copies": 2.8,
+  "unique_archetypes": 7,
+  "weighted_score": 24.5,
   "win_rate_proxy": 1.36,
-  "top_archetype": "Dusknoir Jellicent",
+  "top_archetype": "Mega Diancie Dusknoir",
   "trend_direction": "stable",
   "copy_distribution": [
     {
       "copies": 2,
-      "count": 4
+      "count": 6
     },
     {
       "copies": 3,
-      "count": 7
+      "count": 9
     },
     {
       "copies": 4,
@@ -31,6 +31,13 @@
   ],
   "archetypes": [
     {
+      "name": "Mega Diancie Dusknoir",
+      "slug": "mega-diancie-dusknoir",
+      "usage_count": 7,
+      "avg_copies": 3.1,
+      "tier": "Rogue"
+    },
+    {
       "name": "Dusknoir Jellicent",
       "slug": "dusknoir-jellicent",
       "usage_count": 6,
@@ -38,10 +45,17 @@
       "tier": "Rogue"
     },
     {
-      "name": "Mega Diancie Dusknoir",
-      "slug": "mega-diancie-dusknoir",
-      "usage_count": 5,
-      "avg_copies": 3.2,
+      "name": "Mega Gardevoir Latias",
+      "slug": "mega-gardevoir-latias",
+      "usage_count": 1,
+      "avg_copies": 2.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Mega Gardevoir Jellicent",
+      "slug": "mega-gardevoir-jellicent",
+      "usage_count": 1,
+      "avg_copies": 2.0,
       "tier": "Rogue"
     },
     {
@@ -74,115 +88,115 @@
     },
     {
       "week": "2026-03-16",
-      "usage_pct": 1.9,
-      "avg_copies": 3.2
+      "usage_pct": 1.8,
+      "avg_copies": 2.9
     }
   ],
   "synergy_partners": [
     {
       "card_name": "Mega Diancie ex",
-      "support": 13,
-      "lift": 63.714,
-      "jaccard": 0.929,
-      "weighted_score": 17.1
+      "support": 15,
+      "lift": 62.444,
+      "jaccard": 0.833,
+      "weighted_score": 19.8
     },
     {
-      "card_name": "Powerglass",
-      "support": 11,
-      "lift": 36.887,
-      "jaccard": 0.5,
-      "weighted_score": 14.7
+      "card_name": "Flutter Mane",
+      "support": 5,
+      "lift": 39.028,
+      "jaccard": 0.238,
+      "weighted_score": 6.6
     },
     {
       "card_name": "Frillish",
-      "support": 9,
-      "lift": 35.839,
-      "jaccard": 0.429,
-      "weighted_score": 12.2
+      "support": 12,
+      "lift": 35.683,
+      "jaccard": 0.444,
+      "weighted_score": 16.1
     },
     {
       "card_name": "Jellicent ex",
-      "support": 6,
-      "lift": 34.753,
-      "jaccard": 0.316,
-      "weighted_score": 7.8
-    },
-    {
-      "card_name": "Wondrous Patch",
-      "support": 14,
-      "lift": 17.84,
-      "jaccard": 0.28,
-      "weighted_score": 19.1
-    },
-    {
-      "card_name": "Telepath Psychic Energy",
-      "support": 14,
-      "lift": 12.054,
-      "jaccard": 0.189,
-      "weighted_score": 19.1
-    },
-    {
-      "card_name": "Prime Catcher",
-      "support": 5,
-      "lift": 8.168,
-      "jaccard": 0.104,
-      "weighted_score": 6.3
-    },
-    {
-      "card_name": "Carmine",
-      "support": 6,
-      "lift": 5.384,
-      "jaccard": 0.076,
-      "weighted_score": 7.8
-    },
-    {
-      "card_name": "Dusclops",
-      "support": 12,
-      "lift": 5.273,
-      "jaccard": 0.082,
-      "weighted_score": 16.1
-    },
-    {
-      "card_name": "Dusknoir",
-      "support": 12,
-      "lift": 5.166,
-      "jaccard": 0.08,
-      "weighted_score": 16.1
-    },
-    {
-      "card_name": "Duskull",
-      "support": 12,
-      "lift": 5.166,
-      "jaccard": 0.08,
-      "weighted_score": 16.1
-    },
-    {
-      "card_name": "Latias ex",
-      "support": 14,
-      "lift": 3.444,
-      "jaccard": 0.054,
-      "weighted_score": 19.1
-    },
-    {
-      "card_name": "Lillie's Clefairy ex",
-      "support": 14,
-      "lift": 3.444,
-      "jaccard": 0.054,
-      "weighted_score": 19.1
-    },
-    {
-      "card_name": "Judge",
       "support": 8,
-      "lift": 2.929,
-      "jaccard": 0.044,
+      "lift": 35.683,
+      "jaccard": 0.333,
       "weighted_score": 10.5
     },
     {
-      "card_name": "Hilda",
+      "card_name": "Powerglass",
+      "support": 13,
+      "lift": 31.222,
+      "jaccard": 0.419,
+      "weighted_score": 17.4
+    },
+    {
+      "card_name": "Wondrous Patch",
+      "support": 18,
+      "lift": 16.529,
+      "jaccard": 0.265,
+      "weighted_score": 24.5
+    },
+    {
+      "card_name": "Telepath Psychic Energy",
+      "support": 18,
+      "lift": 11.02,
+      "jaccard": 0.176,
+      "weighted_score": 24.5
+    },
+    {
+      "card_name": "Prime Catcher",
+      "support": 6,
+      "lift": 6.812,
+      "jaccard": 0.09,
+      "weighted_score": 7.5
+    },
+    {
+      "card_name": "Carmine",
       "support": 7,
-      "lift": 2.896,
-      "jaccard": 0.043,
-      "weighted_score": 10.1
+      "lift": 4.506,
+      "jaccard": 0.065,
+      "weighted_score": 9.3
+    },
+    {
+      "card_name": "Dusclops",
+      "support": 14,
+      "lift": 4.349,
+      "jaccard": 0.068,
+      "weighted_score": 18.8
+    },
+    {
+      "card_name": "Dusknoir",
+      "support": 14,
+      "lift": 4.285,
+      "jaccard": 0.067,
+      "weighted_score": 18.8
+    },
+    {
+      "card_name": "Duskull",
+      "support": 14,
+      "lift": 4.285,
+      "jaccard": 0.067,
+      "weighted_score": 18.8
+    },
+    {
+      "card_name": "Secret Box",
+      "support": 5,
+      "lift": 4.219,
+      "jaccard": 0.057,
+      "weighted_score": 6.9
+    },
+    {
+      "card_name": "Lillie's Clefairy ex",
+      "support": 18,
+      "lift": 3.193,
+      "jaccard": 0.051,
+      "weighted_score": 24.5
+    },
+    {
+      "card_name": "Latias ex",
+      "support": 18,
+      "lift": 3.096,
+      "jaccard": 0.05,
+      "weighted_score": 24.5
     }
   ]
 }

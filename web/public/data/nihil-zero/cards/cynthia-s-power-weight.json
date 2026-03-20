@@ -7,200 +7,149 @@
   "image_url": null,
   "category": "Trainer",
   "rarity": null,
-  "total_appearances": 296,
-  "usage_pct": 4.4,
-  "avg_copies": 3.1,
-  "unique_archetypes": 4,
-  "weighted_score": 445.1,
-  "win_rate_proxy": 1.5,
+  "total_appearances": 48,
+  "usage_pct": 4.1,
+  "avg_copies": 3.3,
+  "unique_archetypes": 1,
+  "weighted_score": 68.5,
+  "win_rate_proxy": 1.43,
   "top_archetype": "Garchomp Roserade",
   "trend_direction": "stable",
   "copy_distribution": [
     {
       "copies": 2,
-      "count": 16
+      "count": 1
     },
     {
       "copies": 3,
-      "count": 242
+      "count": 31
     },
     {
       "copies": 4,
-      "count": 38
+      "count": 16
     }
   ],
   "archetypes": [
     {
       "name": "Garchomp Roserade",
       "slug": "garchomp-roserade",
-      "usage_count": 291,
-      "avg_copies": 3.1,
+      "usage_count": 48,
+      "avg_copies": 3.3,
       "tier": "B"
-    },
-    {
-      "name": "Garchomp",
-      "slug": "garchomp",
-      "usage_count": 3,
-      "avg_copies": 2.7,
-      "tier": "Rogue"
-    },
-    {
-      "name": "Mega Lucario Garchomp",
-      "slug": "mega-lucario-garchomp",
-      "usage_count": 1,
-      "avg_copies": 2.0,
-      "tier": "Rogue"
-    },
-    {
-      "name": "Garchomp Solrock",
-      "slug": "garchomp-solrock",
-      "usage_count": 1,
-      "avg_copies": 3.0,
-      "tier": "Rogue"
     }
   ],
   "weekly_usage": [
     {
-      "week": "2026-01-19",
-      "usage_pct": 6.2,
-      "avg_copies": 3.0
-    },
-    {
-      "week": "2026-01-26",
-      "usage_pct": 4.2,
-      "avg_copies": 3.0
-    },
-    {
-      "week": "2026-02-02",
-      "usage_pct": 3.8,
-      "avg_copies": 3.0
-    },
-    {
-      "week": "2026-02-09",
-      "usage_pct": 4.3,
-      "avg_copies": 3.0
-    },
-    {
-      "week": "2026-02-16",
-      "usage_pct": 5.5,
-      "avg_copies": 3.1
-    },
-    {
-      "week": "2026-02-23",
-      "usage_pct": 3.9,
-      "avg_copies": 3.1
-    },
-    {
       "week": "2026-03-02",
-      "usage_pct": 4.3,
+      "usage_pct": 4.1,
       "avg_copies": 3.3
     }
   ],
   "synergy_partners": [
     {
-      "card_name": "Cynthia's Spiritomb",
-      "support": 284,
-      "lift": 22.824,
-      "jaccard": 0.959,
-      "weighted_score": 427.6
-    },
-    {
       "card_name": "Cynthia's Gabite",
-      "support": 296,
-      "lift": 22.747,
-      "jaccard": 0.997,
-      "weighted_score": 445.1
+      "support": 48,
+      "lift": 24.667,
+      "jaccard": 1.0,
+      "weighted_score": 68.5
     },
     {
       "card_name": "Cynthia's Garchomp ex",
-      "support": 296,
-      "lift": 22.747,
-      "jaccard": 0.997,
-      "weighted_score": 445.1
+      "support": 48,
+      "lift": 24.667,
+      "jaccard": 1.0,
+      "weighted_score": 68.5
     },
     {
       "card_name": "Cynthia's Gible",
-      "support": 296,
-      "lift": 22.747,
-      "jaccard": 0.997,
-      "weighted_score": 445.1
+      "support": 48,
+      "lift": 24.667,
+      "jaccard": 1.0,
+      "weighted_score": 68.5
     },
     {
       "card_name": "Cynthia's Roselia",
-      "support": 292,
-      "lift": 22.746,
-      "jaccard": 0.983,
-      "weighted_score": 440.3
+      "support": 48,
+      "lift": 24.667,
+      "jaccard": 1.0,
+      "weighted_score": 68.5
     },
     {
       "card_name": "Cynthia's Roserade",
-      "support": 292,
-      "lift": 22.746,
-      "jaccard": 0.983,
-      "weighted_score": 440.3
+      "support": 48,
+      "lift": 24.667,
+      "jaccard": 1.0,
+      "weighted_score": 68.5
     },
     {
-      "card_name": "Rock Fighting Energy",
-      "support": 209,
-      "lift": 10.53,
-      "jaccard": 0.387,
-      "weighted_score": 311.9
+      "card_name": "Cynthia's Spiritomb",
+      "support": 47,
+      "lift": 24.667,
+      "jaccard": 0.979,
+      "weighted_score": 66.5
     },
     {
       "card_name": "Neo Upper Energy",
-      "support": 57,
-      "lift": 5.757,
-      "jaccard": 0.123,
-      "weighted_score": 86.8
+      "support": 19,
+      "lift": 18.747,
+      "jaccard": 0.352,
+      "weighted_score": 29.1
     },
     {
-      "card_name": "Premium Power Pro",
-      "support": 268,
-      "lift": 5.428,
-      "jaccard": 0.232,
-      "weighted_score": 399.1
-    },
-    {
-      "card_name": "Fighting Gong",
-      "support": 296,
-      "lift": 5.042,
-      "jaccard": 0.221,
-      "weighted_score": 445.1
-    },
-    {
-      "card_name": "Battle Cage",
-      "support": 175,
-      "lift": 4.01,
-      "jaccard": 0.157,
-      "weighted_score": 256.1
+      "card_name": "Rock Fighting Energy",
+      "support": 46,
+      "lift": 12.894,
+      "jaccard": 0.511,
+      "weighted_score": 65.3
     },
     {
       "card_name": "Surfer",
-      "support": 16,
-      "lift": 3.689,
-      "jaccard": 0.042,
-      "weighted_score": 24.5
+      "support": 13,
+      "lift": 12.827,
+      "jaccard": 0.217,
+      "weighted_score": 20.0
     },
     {
-      "card_name": "Prime Catcher",
-      "support": 42,
-      "lift": 3.053,
-      "jaccard": 0.074,
-      "weighted_score": 59.6
+      "card_name": "Fighting Gong",
+      "support": 48,
+      "lift": 7.354,
+      "jaccard": 0.298,
+      "weighted_score": 68.5
     },
     {
-      "card_name": "Cornerstone Mask Ogerpon ex",
-      "support": 32,
-      "lift": 2.563,
-      "jaccard": 0.058,
-      "weighted_score": 48.0
+      "card_name": "Premium Power Pro",
+      "support": 30,
+      "lift": 7.255,
+      "jaccard": 0.25,
+      "weighted_score": 40.1
     },
     {
       "card_name": "Hilda",
-      "support": 158,
-      "lift": 2.52,
-      "jaccard": 0.101,
-      "weighted_score": 237.4
+      "support": 34,
+      "lift": 4.904,
+      "jaccard": 0.184,
+      "weighted_score": 50.1
+    },
+    {
+      "card_name": "Battle Cage",
+      "support": 16,
+      "lift": 2.99,
+      "jaccard": 0.098,
+      "weighted_score": 21.1
+    },
+    {
+      "card_name": "Switch",
+      "support": 16,
+      "lift": 2.349,
+      "jaccard": 0.08,
+      "weighted_score": 21.4
+    },
+    {
+      "card_name": "Judge",
+      "support": 32,
+      "lift": 2.262,
+      "jaccard": 0.088,
+      "weighted_score": 44.4
     }
   ]
 }

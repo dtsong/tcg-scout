@@ -388,6 +388,7 @@
   "results": [
     {
       "tournament_name": "City League Hokkaido",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3846",
       "date": "2026-01-24",
       "standing": 6,
       "player_name": "はじめん",
@@ -536,6 +537,7 @@
     },
     {
       "tournament_name": "City League Miyazaki",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3945",
       "date": "2026-02-01",
       "standing": 16,
       "player_name": "ラッキー小林",
@@ -681,22 +683,7 @@
       "week": "2026-01-26",
       "adopted": [
         {
-          "card": "Energy Switch",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Prime Catcher",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Surfer",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Team Rocket's Venture Bomb",
+          "card": "Tatsugiri",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -706,7 +693,12 @@
           "to_pct": 100.0
         },
         {
-          "card": "Tatsugiri",
+          "card": "Team Rocket's Venture Bomb",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Energy Switch",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -714,26 +706,26 @@
           "card": "Risky Ruins",
           "from_pct": 0.0,
           "to_pct": 100.0
+        },
+        {
+          "card": "Surfer",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Prime Catcher",
+          "from_pct": 0.0,
+          "to_pct": 100.0
         }
       ],
       "dropped": [
         {
-          "card": "Energy Search",
+          "card": "Snorunt",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Mega Froslass ex",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Kieran",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Precious Trolley",
+          "card": "Froslass",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -743,22 +735,32 @@
           "to_pct": 0.0
         },
         {
-          "card": "Judge",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Larry's Skill",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Snorunt",
+          "card": "Energy Search",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Froslass",
+          "card": "Judge",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Mega Froslass ex",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Precious Trolley",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Kieran",
           "from_pct": 100.0,
           "to_pct": 0.0
         }

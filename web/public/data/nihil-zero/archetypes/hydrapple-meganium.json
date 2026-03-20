@@ -367,6 +367,7 @@
   "results": [
     {
       "tournament_name": "City League Fukuoka",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3939",
       "date": "2026-02-01",
       "standing": 6,
       "player_name": "トキ",
@@ -505,6 +506,7 @@
     },
     {
       "tournament_name": "City League Kanagawa",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3861",
       "date": "2026-01-25",
       "standing": 12,
       "player_name": "hayabusa",
@@ -650,12 +652,12 @@
           "to_pct": 100.0
         },
         {
-          "card": "Thwackey",
+          "card": "Grookey",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Psyduck",
+          "card": "Thwackey",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -665,17 +667,12 @@
           "to_pct": 100.0
         },
         {
-          "card": "Grookey",
+          "card": "Psyduck",
           "from_pct": 0.0,
           "to_pct": 100.0
         }
       ],
       "dropped": [
-        {
-          "card": "Lilligant",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
         {
           "card": "Petilil",
           "from_pct": 100.0,
@@ -683,6 +680,11 @@
         },
         {
           "card": "Morty's Conviction",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Lilligant",
           "from_pct": 100.0,
           "to_pct": 0.0
         }

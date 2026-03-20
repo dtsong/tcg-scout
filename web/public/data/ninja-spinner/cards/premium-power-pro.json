@@ -7,51 +7,51 @@
   "image_url": null,
   "category": "Trainer",
   "rarity": null,
-  "total_appearances": 94,
-  "usage_pct": 10.5,
-  "avg_copies": 3.6,
-  "unique_archetypes": 9,
-  "weighted_score": 148.4,
-  "win_rate_proxy": 1.58,
+  "total_appearances": 127,
+  "usage_pct": 11.3,
+  "avg_copies": 3.5,
+  "unique_archetypes": 11,
+  "weighted_score": 203.2,
+  "win_rate_proxy": 1.6,
   "top_archetype": "Mega Lucario",
-  "trend_direction": "declining",
+  "trend_direction": "stable",
   "copy_distribution": [
     {
       "copies": 1,
-      "count": 2
+      "count": 5
     },
     {
       "copies": 2,
-      "count": 12
+      "count": 17
     },
     {
       "copies": 3,
-      "count": 8
+      "count": 9
     },
     {
       "copies": 4,
-      "count": 72
+      "count": 96
     }
   ],
   "archetypes": [
     {
       "name": "Mega Lucario",
       "slug": "mega-lucario",
-      "usage_count": 54,
+      "usage_count": 74,
       "avg_copies": 4.0,
       "tier": "B"
     },
     {
       "name": "Garchomp Roserade",
       "slug": "garchomp-roserade",
-      "usage_count": 20,
-      "avg_copies": 2.3,
+      "usage_count": 28,
+      "avg_copies": 2.1,
       "tier": "B"
     },
     {
       "name": "Mega Lucario Solrock",
       "slug": "mega-lucario-solrock",
-      "usage_count": 10,
+      "usage_count": 13,
       "avg_copies": 3.8,
       "tier": "C"
     },
@@ -59,6 +59,13 @@
       "name": "Mega Lucario ex",
       "slug": "mega-lucario-ex",
       "usage_count": 5,
+      "avg_copies": 4.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Solrock",
+      "slug": "solrock",
+      "usage_count": 1,
       "avg_copies": 4.0,
       "tier": "Rogue"
     },
@@ -91,6 +98,13 @@
       "tier": "Rogue"
     },
     {
+      "name": "Garchomp",
+      "slug": "garchomp",
+      "usage_count": 1,
+      "avg_copies": 2.0,
+      "tier": "Rogue"
+    },
+    {
       "name": "Barbaracle Okidogi",
       "slug": "barbaracle-okidogi",
       "usage_count": 1,
@@ -106,115 +120,115 @@
     },
     {
       "week": "2026-03-16",
-      "usage_pct": 6.9,
-      "avg_copies": 3.9
+      "usage_pct": 10.4,
+      "avg_copies": 3.6
     }
   ],
   "synergy_partners": [
     {
       "card_name": "Hariyama",
-      "support": 62,
-      "lift": 9.489,
-      "jaccard": 0.66,
-      "weighted_score": 103.3
+      "support": 83,
+      "lift": 8.85,
+      "jaccard": 0.654,
+      "weighted_score": 139.4
     },
     {
       "card_name": "Makuhita",
-      "support": 62,
-      "lift": 9.489,
-      "jaccard": 0.66,
-      "weighted_score": 103.3
+      "support": 83,
+      "lift": 8.85,
+      "jaccard": 0.654,
+      "weighted_score": 139.4
     },
     {
       "card_name": "Mega Lucario ex",
-      "support": 73,
-      "lift": 9.361,
-      "jaccard": 0.768,
-      "weighted_score": 120.4
+      "support": 96,
+      "lift": 8.67,
+      "jaccard": 0.744,
+      "weighted_score": 159.2
     },
     {
       "card_name": "Riolu",
-      "support": 73,
-      "lift": 9.361,
-      "jaccard": 0.768,
-      "weighted_score": 120.4
+      "support": 96,
+      "lift": 8.67,
+      "jaccard": 0.744,
+      "weighted_score": 159.2
     },
     {
       "card_name": "Rock Fighting Energy",
-      "support": 54,
-      "lift": 8.007,
-      "jaccard": 0.519,
-      "weighted_score": 80.7
-    },
-    {
-      "card_name": "Gravity Mountain",
-      "support": 59,
-      "lift": 6.912,
-      "jaccard": 0.509,
-      "weighted_score": 97.2
+      "support": 72,
+      "lift": 7.586,
+      "jaccard": 0.518,
+      "weighted_score": 110.3
     },
     {
       "card_name": "Cynthia's Spiritomb",
-      "support": 20,
-      "lift": 6.778,
-      "jaccard": 0.196,
-      "weighted_score": 26.8
-    },
-    {
-      "card_name": "Lunatone",
-      "support": 74,
-      "lift": 6.752,
-      "jaccard": 0.597,
-      "weighted_score": 121.6
-    },
-    {
-      "card_name": "Solrock",
-      "support": 74,
-      "lift": 6.752,
-      "jaccard": 0.597,
-      "weighted_score": 121.6
-    },
-    {
-      "card_name": "Fighting Gong",
-      "support": 93,
-      "lift": 6.686,
-      "jaccard": 0.699,
-      "weighted_score": 147.2
+      "support": 28,
+      "lift": 6.884,
+      "jaccard": 0.207,
+      "weighted_score": 38.6
     },
     {
       "card_name": "Cynthia's Gabite",
-      "support": 20,
-      "lift": 6.544,
-      "jaccard": 0.194,
-      "weighted_score": 26.8
+      "support": 29,
+      "lift": 6.754,
+      "jaccard": 0.213,
+      "weighted_score": 41.6
     },
     {
       "card_name": "Cynthia's Garchomp ex",
-      "support": 20,
-      "lift": 6.544,
-      "jaccard": 0.194,
-      "weighted_score": 26.8
+      "support": 29,
+      "lift": 6.754,
+      "jaccard": 0.213,
+      "weighted_score": 41.6
     },
     {
       "card_name": "Cynthia's Gible",
-      "support": 20,
-      "lift": 6.544,
-      "jaccard": 0.194,
-      "weighted_score": 26.8
+      "support": 29,
+      "lift": 6.754,
+      "jaccard": 0.213,
+      "weighted_score": 41.6
     },
     {
       "card_name": "Cynthia's Power Weight",
-      "support": 20,
-      "lift": 6.544,
-      "jaccard": 0.194,
-      "weighted_score": 26.8
+      "support": 29,
+      "lift": 6.754,
+      "jaccard": 0.213,
+      "weighted_score": 41.6
     },
     {
       "card_name": "Cynthia's Roselia",
-      "support": 20,
-      "lift": 6.544,
-      "jaccard": 0.194,
-      "weighted_score": 26.8
+      "support": 29,
+      "lift": 6.754,
+      "jaccard": 0.213,
+      "weighted_score": 41.6
+    },
+    {
+      "card_name": "Cynthia's Roserade",
+      "support": 29,
+      "lift": 6.754,
+      "jaccard": 0.213,
+      "weighted_score": 41.6
+    },
+    {
+      "card_name": "Gravity Mountain",
+      "support": 77,
+      "lift": 6.49,
+      "jaccard": 0.497,
+      "weighted_score": 128.7
+    },
+    {
+      "card_name": "Fighting Gong",
+      "support": 126,
+      "lift": 6.483,
+      "jaccard": 0.728,
+      "weighted_score": 202.0
+    },
+    {
+      "card_name": "Lunatone",
+      "support": 98,
+      "lift": 6.425,
+      "jaccard": 0.598,
+      "weighted_score": 161.6
     }
   ]
 }

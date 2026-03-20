@@ -2,8 +2,8 @@
   "archetype": "Mega Lucario ex",
   "slug": "mega-lucario-ex",
   "tier": "Rogue",
-  "meta_share": 0.6,
-  "weighted_share": 0.5,
+  "meta_share": 0.4,
+  "weighted_share": 0.4,
   "deck_count": 5,
   "best_placement": 5,
   "sprite_filenames": [
@@ -1154,11 +1154,11 @@
     }
   ],
   "radar": {
-    "meta_share": 2.8,
-    "weighted_share": 2.5,
+    "meta_share": 2.2,
+    "weighted_share": 2.0,
     "consistency": 66.0,
     "ceiling": 50,
-    "popularity": 5.5,
+    "popularity": 4.1,
     "core_density": 30.6
   },
   "evolution": [
@@ -1188,17 +1188,17 @@
           "to_pct": 0.0
         },
         {
-          "card": "Rock Fighting Energy",
-          "from_pct": 75.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Team Rocket's Watchtower",
           "from_pct": 75.0,
           "to_pct": 0.0
         },
         {
           "card": "Judge",
+          "from_pct": 75.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Rock Fighting Energy",
           "from_pct": 75.0,
           "to_pct": 0.0
         },
@@ -1245,7 +1245,7 @@
     },
     {
       "week": "2026-03-16",
-      "meta_share": 0.4,
+      "meta_share": 0.2,
       "deck_count": 1
     }
   ],

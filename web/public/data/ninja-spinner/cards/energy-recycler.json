@@ -7,22 +7,22 @@
   "image_url": null,
   "category": "Trainer",
   "rarity": null,
-  "total_appearances": 30,
-  "usage_pct": 3.4,
+  "total_appearances": 41,
+  "usage_pct": 3.6,
   "avg_copies": 1.3,
-  "unique_archetypes": 18,
-  "weighted_score": 45.6,
-  "win_rate_proxy": 1.52,
+  "unique_archetypes": 22,
+  "weighted_score": 65.5,
+  "win_rate_proxy": 1.6,
   "top_archetype": "Genesect Metagross",
   "trend_direction": "stable",
   "copy_distribution": [
     {
       "copies": 1,
-      "count": 21
+      "count": 31
     },
     {
       "copies": 2,
-      "count": 8
+      "count": 9
     },
     {
       "copies": 3,
@@ -33,22 +33,29 @@
     {
       "name": "Genesect Metagross",
       "slug": "genesect-metagross",
-      "usage_count": 8,
-      "avg_copies": 1.4,
+      "usage_count": 9,
+      "avg_copies": 1.3,
       "tier": "Rogue"
+    },
+    {
+      "name": "Empoleon Metagross",
+      "slug": "empoleon-metagross",
+      "usage_count": 5,
+      "avg_copies": 1.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Raging Bolt ex",
+      "slug": "raging-bolt-ex",
+      "usage_count": 3,
+      "avg_copies": 1.0,
+      "tier": "B"
     },
     {
       "name": "Munkidori Toxtricity",
       "slug": "munkidori-toxtricity",
       "usage_count": 3,
       "avg_copies": 1.7,
-      "tier": "Rogue"
-    },
-    {
-      "name": "Empoleon Metagross",
-      "slug": "empoleon-metagross",
-      "usage_count": 3,
-      "avg_copies": 1.0,
       "tier": "Rogue"
     },
     {
@@ -59,15 +66,36 @@
       "tier": "B"
     },
     {
-      "name": "Raging Bolt ex",
-      "slug": "raging-bolt-ex",
-      "usage_count": 1,
+      "name": "Jellicent Metagross",
+      "slug": "jellicent-metagross",
+      "usage_count": 2,
+      "avg_copies": 1.5,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Dudunsparce Yanmega",
+      "slug": "dudunsparce-yanmega",
+      "usage_count": 2,
       "avg_copies": 1.0,
-      "tier": "C"
+      "tier": "Rogue"
     },
     {
       "name": "Pecharunt Toxtricity",
       "slug": "pecharunt-toxtricity",
+      "usage_count": 1,
+      "avg_copies": 1.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Ogerpon Ogerpon Wellspring",
+      "slug": "ogerpon-ogerpon-wellspring",
+      "usage_count": 1,
+      "avg_copies": 1.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Meowth Ogerpon",
+      "slug": "meowth-ogerpon",
       "usage_count": 1,
       "avg_copies": 1.0,
       "tier": "Rogue"
@@ -101,17 +129,17 @@
       "tier": "Rogue"
     },
     {
-      "name": "Latias Noctowl",
-      "slug": "latias-noctowl",
+      "name": "Mega Absol Toxtricity",
+      "slug": "mega-absol-toxtricity",
       "usage_count": 1,
       "avg_copies": 1.0,
       "tier": "Rogue"
     },
     {
-      "name": "Jellicent Metagross",
-      "slug": "jellicent-metagross",
+      "name": "Latias Noctowl",
+      "slug": "latias-noctowl",
       "usage_count": 1,
-      "avg_copies": 2.0,
+      "avg_copies": 1.0,
       "tier": "Rogue"
     },
     {
@@ -136,13 +164,6 @@
       "tier": "Rogue"
     },
     {
-      "name": "Dudunsparce Yanmega",
-      "slug": "dudunsparce-yanmega",
-      "usage_count": 1,
-      "avg_copies": 1.0,
-      "tier": "Rogue"
-    },
-    {
       "name": "Dragapult Noctowl",
       "slug": "dragapult-noctowl",
       "usage_count": 1,
@@ -155,6 +176,13 @@
       "usage_count": 1,
       "avg_copies": 1.0,
       "tier": "Rogue"
+    },
+    {
+      "name": "Cinccino Metagross",
+      "slug": "cinccino-metagross",
+      "usage_count": 1,
+      "avg_copies": 2.0,
+      "tier": "Rogue"
     }
   ],
   "weekly_usage": [
@@ -165,115 +193,115 @@
     },
     {
       "week": "2026-03-16",
-      "usage_pct": 2.3,
-      "avg_copies": 1.2
+      "usage_pct": 3.5,
+      "avg_copies": 1.1
     }
   ],
   "synergy_partners": [
     {
       "card_name": "Brute Bonnet",
-      "support": 5,
-      "lift": 29.733,
-      "jaccard": 0.167,
-      "weighted_score": 6.0
+      "support": 6,
+      "lift": 27.415,
+      "jaccard": 0.146,
+      "weighted_score": 9.0
+    },
+    {
+      "card_name": "Empoleon ex",
+      "support": 7,
+      "lift": 27.415,
+      "jaccard": 0.171,
+      "weighted_score": 10.3
+    },
+    {
+      "card_name": "Piplup",
+      "support": 7,
+      "lift": 27.415,
+      "jaccard": 0.171,
+      "weighted_score": 10.3
     },
     {
       "card_name": "Steven's Beldum",
-      "support": 10,
-      "lift": 24.778,
-      "jaccard": 0.312,
-      "weighted_score": 14.5
+      "support": 14,
+      "lift": 23.988,
+      "jaccard": 0.326,
+      "weighted_score": 21.7
     },
     {
       "card_name": "Steven's Metagross ex",
-      "support": 10,
-      "lift": 24.778,
-      "jaccard": 0.312,
-      "weighted_score": 14.5
+      "support": 14,
+      "lift": 23.988,
+      "jaccard": 0.326,
+      "weighted_score": 21.7
     },
     {
       "card_name": "Steven's Metang",
-      "support": 10,
-      "lift": 24.778,
-      "jaccard": 0.312,
-      "weighted_score": 14.5
+      "support": 14,
+      "lift": 23.988,
+      "jaccard": 0.326,
+      "weighted_score": 21.7
     },
     {
-      "card_name": "Mega Mawile ex",
-      "support": 11,
-      "lift": 21.804,
-      "jaccard": 0.324,
-      "weighted_score": 16.0
+      "card_name": "Mega Skarmory ex",
+      "support": 6,
+      "lift": 23.498,
+      "jaccard": 0.143,
+      "weighted_score": 9.4
+    },
+    {
+      "card_name": "Yanma",
+      "support": 5,
+      "lift": 22.846,
+      "jaccard": 0.119,
+      "weighted_score": 9.0
+    },
+    {
+      "card_name": "Yanmega ex",
+      "support": 5,
+      "lift": 22.846,
+      "jaccard": 0.119,
+      "weighted_score": 9.0
     },
     {
       "card_name": "Genesect ex",
-      "support": 13,
-      "lift": 21.474,
-      "jaccard": 0.371,
-      "weighted_score": 19.5
+      "support": 18,
+      "lift": 20.561,
+      "jaccard": 0.383,
+      "weighted_score": 28.7
     },
     {
       "card_name": "Precious Trolley",
-      "support": 10,
-      "lift": 18.583,
-      "jaccard": 0.278,
-      "weighted_score": 16.3
+      "support": 17,
+      "lift": 18.642,
+      "jaccard": 0.347,
+      "weighted_score": 28.2
+    },
+    {
+      "card_name": "Mega Mawile ex",
+      "support": 14,
+      "lift": 18.276,
+      "jaccard": 0.292,
+      "weighted_score": 21.2
     },
     {
       "card_name": "Toxel",
-      "support": 5,
-      "lift": 14.867,
-      "jaccard": 0.143,
-      "weighted_score": 6.0
+      "support": 6,
+      "lift": 14.953,
+      "jaccard": 0.13,
+      "weighted_score": 9.0
     },
     {
       "card_name": "Toxtricity",
-      "support": 5,
-      "lift": 14.867,
-      "jaccard": 0.143,
-      "weighted_score": 6.0
+      "support": 6,
+      "lift": 14.953,
+      "jaccard": 0.13,
+      "weighted_score": 9.0
     },
     {
-      "card_name": "Hassel",
-      "support": 7,
-      "lift": 12.243,
-      "jaccard": 0.175,
-      "weighted_score": 9.5
-    },
-    {
-      "card_name": "Mega Absol ex",
-      "support": 5,
-      "lift": 7.079,
-      "jaccard": 0.109,
-      "weighted_score": 6.0
-    },
-    {
-      "card_name": "Team Rocket's Transceiver",
-      "support": 8,
-      "lift": 4.956,
-      "jaccard": 0.114,
-      "weighted_score": 12.6
-    },
-    {
-      "card_name": "Team Rocket's Petrel",
-      "support": 19,
-      "lift": 2.912,
-      "jaccard": 0.093,
-      "weighted_score": 28.0
-    },
-    {
-      "card_name": "Tatsugiri",
-      "support": 5,
-      "lift": 2.753,
-      "jaccard": 0.063,
-      "weighted_score": 6.3
-    },
-    {
-      "card_name": "Brock's Scouting",
-      "support": 11,
-      "lift": 2.555,
-      "jaccard": 0.075,
-      "weighted_score": 17.3
+      "card_name": "Jumbo Ice Cream",
+      "support": 6,
+      "lift": 10.28,
+      "jaccard": 0.118,
+      "weighted_score": 9.6
     }
   ]
 }

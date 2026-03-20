@@ -3,7 +3,7 @@
   "slug": "mega-greninja-noctowl",
   "tier": "Rogue",
   "meta_share": 0.3,
-  "weighted_share": 0.3,
+  "weighted_share": 0.2,
   "deck_count": 3,
   "best_placement": 5,
   "sprite_filenames": [
@@ -769,11 +769,11 @@
     }
   ],
   "radar": {
-    "meta_share": 1.7,
-    "weighted_share": 1.4,
+    "meta_share": 1.4,
+    "weighted_share": 1.1,
     "consistency": 45.0,
     "ceiling": 50,
-    "popularity": 3.3,
+    "popularity": 2.4,
     "core_density": 47.1
   },
   "evolution": [
@@ -788,32 +788,27 @@
       ],
       "dropped": [
         {
-          "card": "Latias ex",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Night Stretcher",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Chien-Pao",
+          "card": "Latias ex",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Psyduck",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Surfer",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
           "card": "Fan Rotom",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Bloodmoon Ursaluna ex",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Psyduck",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -828,12 +823,17 @@
           "to_pct": 0.0
         },
         {
+          "card": "Bloodmoon Ursaluna ex",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
           "card": "Wally's Compassion",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
-          "card": "Surfer",
+          "card": "Chien-Pao",
           "from_pct": 50.0,
           "to_pct": 0.0
         }
@@ -849,7 +849,7 @@
     },
     {
       "week": "2026-03-16",
-      "meta_share": 0.4,
+      "meta_share": 0.2,
       "deck_count": 1
     }
   ],

@@ -7,18 +7,18 @@
   "image_url": null,
   "category": "Pokemon",
   "rarity": null,
-  "total_appearances": 7,
+  "total_appearances": 9,
   "usage_pct": 0.8,
   "avg_copies": 1.0,
-  "unique_archetypes": 5,
-  "weighted_score": 12.1,
-  "win_rate_proxy": 1.73,
+  "unique_archetypes": 6,
+  "weighted_score": 14.8,
+  "win_rate_proxy": 1.64,
   "top_archetype": "Barbaracle Okidogi",
   "trend_direction": "stable",
   "copy_distribution": [
     {
       "copies": 1,
-      "count": 7
+      "count": 9
     }
   ],
   "archetypes": [
@@ -30,15 +30,15 @@
       "tier": "C"
     },
     {
-      "name": "Dubwool Trevenant",
-      "slug": "dubwool-trevenant",
-      "usage_count": 1,
+      "name": "Dipplin Thwackey",
+      "slug": "dipplin-thwackey",
+      "usage_count": 2,
       "avg_copies": 1.0,
       "tier": "Rogue"
     },
     {
-      "name": "Dipplin Thwackey",
-      "slug": "dipplin-thwackey",
+      "name": "Dubwool Trevenant",
+      "slug": "dubwool-trevenant",
       "usage_count": 1,
       "avg_copies": 1.0,
       "tier": "Rogue"
@@ -49,6 +49,13 @@
       "usage_count": 1,
       "avg_copies": 1.0,
       "tier": "B"
+    },
+    {
+      "name": "Archaludon Zacian Crowned",
+      "slug": "archaludon-zacian-crowned",
+      "usage_count": 1,
+      "avg_copies": 1.0,
+      "tier": "Rogue"
     },
     {
       "name": "Archaludon Cinderace",
@@ -66,38 +73,59 @@
     },
     {
       "week": "2026-03-16",
-      "usage_pct": 0.4,
+      "usage_pct": 0.6,
       "avg_copies": 1.0
     }
   ],
   "synergy_partners": [
     {
+      "card_name": "Pokégear 3.0",
+      "support": 5,
+      "lift": 3.879,
+      "jaccard": 0.03,
+      "weighted_score": 9.7
+    },
+    {
+      "card_name": "Air Balloon",
+      "support": 5,
+      "lift": 2.339,
+      "jaccard": 0.018,
+      "weighted_score": 8.4
+    },
+    {
+      "card_name": "Psyduck",
+      "support": 5,
+      "lift": 2.014,
+      "jaccard": 0.016,
+      "weighted_score": 7.6
+    },
+    {
       "card_name": "Poké Pad",
-      "support": 7,
-      "lift": 1.3,
+      "support": 9,
+      "lift": 1.209,
       "jaccard": 0.01,
-      "weighted_score": 12.1
+      "weighted_score": 14.8
     },
     {
       "card_name": "Lillie's Determination",
-      "support": 7,
-      "lift": 1.204,
+      "support": 9,
+      "lift": 1.117,
       "jaccard": 0.009,
-      "weighted_score": 12.1
+      "weighted_score": 14.8
     },
     {
       "card_name": "Boss's Orders",
-      "support": 7,
-      "lift": 1.141,
-      "jaccard": 0.009,
-      "weighted_score": 12.1
+      "support": 9,
+      "lift": 1.054,
+      "jaccard": 0.008,
+      "weighted_score": 14.8
     },
     {
       "card_name": "Night Stretcher",
-      "support": 6,
-      "lift": 1.005,
+      "support": 8,
+      "lift": 0.967,
       "jaccard": 0.008,
-      "weighted_score": 10.9
+      "weighted_score": 13.6
     }
   ]
 }
