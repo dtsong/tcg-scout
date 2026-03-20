@@ -253,14 +253,14 @@ export function DashboardClient({
           </section>
         </div>
 
-        {/* What Changed This Week */}
+        {/* Biggest Copy-Count Shifts */}
         {metaEvolution.length > 0 && (
           <div className="mt-6">
             <section className="bg-surface-800 border border-surface-600 rounded-lg p-5">
               <div className="flex items-center justify-between mb-4">
                 <h3 className="font-display text-sm font-semibold text-slate-200 flex items-center gap-2">
                   <Zap className="w-4 h-4 text-amber-400" />
-                  What Changed This Week
+                  Biggest Copy-Count Shifts
                 </h3>
               </div>
               <div className="space-y-3">
