@@ -12,7 +12,7 @@ scout.trainerlab.io
 
 **Tweet 2**
 
-Meowth ex has a +23% winning edge -- it appears in 52% of top-4 finishes but only 29% of the field. Dragapult Meowth leads at 10.2% meta share and climbing.
+Meowth ex has a +23 point winning edge. It shows up in 52% of 1st-place decks but only 29% of the overall field. Dragapult Meowth leads at 10.2% meta share and climbing.
 
 Format Edge surfaces exactly these signals. scout.trainerlab.io/ninja-spinner/card-analysis
 
@@ -26,7 +26,7 @@ Dusknoir Greninja is the fastest-growing archetype in Ninja Spinner with a +12.1
 
 **Tweet 4**
 
-Card detail pages now show Top-4 Edge broken down by archetype. You can see exactly which archetypes a card overperforms in -- not just whether it's popular, but whether it's winning.
+Card detail pages now show the winning edge broken down by archetype. You can see exactly which archetypes a card overperforms in, not just whether it's popular, but whether it's winning.
 
 ---
 

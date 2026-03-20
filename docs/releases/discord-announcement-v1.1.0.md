@@ -9,7 +9,7 @@ scout.trainerlab.io
 **What the data is showing**
 
 Ninja Spinner is off to a volatile start:
-- **Dragapult Meowth** leads the format at 10.2% meta share (A tier), trending up. Meowth ex has a +23% winning edge -- it shows up in top-4 finishes far more than its overall play rate.
+- **Dragapult Meowth** leads the format at 10.2% meta share (A tier), trending up. Meowth ex has a +23 point winning edge: it shows up in 52% of 1st-place decks but only 29% of the overall field.
 - **Dusknoir Greninja** is surging with a +12.1% trend delta, the fastest-growing archetype in the format.
 - The staple base is shifting hard. Night Stretcher (-24%), Boss's Orders (-24%), and Buddy-Buddy Poffin (-14%) are declining. Prime Catcher and Secret Box are on the rise.
 
@@ -19,7 +19,7 @@ Explore the full picture: [Ninja Spinner Format Edge](https://scout.trainerlab.i
 
 **Format Edge (new)**
 
-The [Format Edge page](https://scout.trainerlab.io/ninja-spinner/card-analysis) ranks cards by their top-4 edge -- how much more often a card appears in top-4 finishes compared to general tournament play. This surfaces cards that are actively winning, not just being played.
+The [Format Edge page](https://scout.trainerlab.io/ninja-spinner/card-analysis) ranks cards by their winning edge: the difference between how often a card appears in 1st-place decks vs. the overall field. A high edge means the card is contributing to wins more than its raw popularity suggests.
 
 **Tournament Links**
 

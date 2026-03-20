@@ -61,7 +61,7 @@ export default function BlogPage() {
         </p>
         <p className="text-surface-300 font-body leading-relaxed">
           That foundation held up. But as the data grew, it became clear that
-          the raw numbers needed better framing -- not just what is popular, but
+          the raw numbers needed better framing. Not just what is popular, but
           what actually performs.
         </p>
       </section>
@@ -81,11 +81,13 @@ export default function BlogPage() {
             <p className="text-surface-300 font-body leading-relaxed">
               The Card Analysis tab has been renamed and reframed as Format Edge.
               The name change is intentional: the tool is not about cataloguing
-              cards, it is about identifying which cards overperform in top-4
-              finishes relative to their overall play rate. A card with high
-              top-4 share but low overall share is a signal -- it is ending up
-              in winning lists more than average. That is the edge. A new delta
-              column in card detail pages surfaces this comparison directly.
+              cards, it is about surfacing which cards are overrepresented in
+              1st-place decks compared to the overall field. For example, if a
+              card shows up in 50% of tournament-winning decks but only 30% of
+              all decks, it has a +20 percentage point edge. That gap is the
+              signal: the card is contributing to wins more than its raw
+              popularity suggests. A new delta column in card detail pages
+              surfaces this comparison directly.
             </p>
           </div>
 
@@ -96,9 +98,9 @@ export default function BlogPage() {
             </h3>
             <p className="text-surface-300 font-body leading-relaxed">
               Tournament names in archetype result tables now link directly to
-              their Limitless pages. If you want to drill into a specific event
-              -- see the full standings, cross-reference decklists -- you can
-              get there in one click instead of hunting for it manually.
+              their Limitless pages. If you want to drill into a specific event,
+              see the full standings, or cross-reference decklists, you can get
+              there in one click instead of hunting for it manually.
             </p>
           </div>
 
@@ -124,7 +126,7 @@ export default function BlogPage() {
               Several tables received pagination improvements to handle the full
               archetype set without performance degradation. Card names in top-4
               stats now link to their detail pages. General UX cleanup across
-              the board -- tightened spacing, cleaner state transitions, reduced
+              the board: tightened spacing, cleaner state transitions, reduced
               visual noise.
             </p>
           </div>
@@ -150,8 +152,10 @@ export default function BlogPage() {
             <p className="text-surface-300 text-sm font-body leading-relaxed">
               The only A-tier deck so far, trending up with a +4.1% delta.
               Meowth ex itself has the biggest winning edge in the format: it
-              appears in 52% of top-4 finishes but only 29% of the overall
-              field. That is a +23% edge, the strongest signal in the dataset.
+              appears in 52% of 1st-place decks but only 29% of the overall
+              field. That +23 percentage point gap means it shows up in winning
+              lists far more often than you would expect from its play rate
+              alone.
             </p>
           </div>
 
@@ -209,7 +213,7 @@ export default function BlogPage() {
               </span>
               <p className="text-surface-400 text-sm font-body mt-0.5">
                 Structured summaries of tier shifts, card movement, and notable
-                results -- published automatically after each week of tournament
+                results, published automatically after each week of tournament
                 data.
               </p>
             </div>
@@ -233,7 +237,7 @@ export default function BlogPage() {
                 Tournament prep tools
               </span>
               <p className="text-surface-400 text-sm font-body mt-0.5">
-                Targeted features for players preparing for a specific event --
+                Targeted features for players preparing for a specific event:
                 expected field breakdown, matchup priority lists, card inclusion
                 recommendations.
               </p>
