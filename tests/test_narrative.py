@@ -9,6 +9,8 @@ import pytest
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
+pytest.importorskip("anthropic")
+
 from reports.narrative import (
     _slugify,
     assemble_report_context,
