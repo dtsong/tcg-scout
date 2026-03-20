@@ -19,15 +19,15 @@ def db() -> sqlite3.Connection:
     """Create an in-memory SQLite database with schema and seed data.
 
     Seed data layout:
-    - 3 tournaments (2 early = before 2026-02-15, 1 late = on or after)
-    - 6 placements across 3 archetypes:
-        Charizard ex  — 3 placements (1st, 4th, 9th)
+    - 4 tournaments (2 early = before 2026-02-15, 1 late = on or after, 1 senior division)
+    - 7 placements across 3 archetypes:
+        Charizard ex  — 3 open + 1 senior placements (1st, 4th, 9th, 1st-senior)
         Dragapult ex  — 2 placements (2nd, 8th)
         Raging Bolt ex — 1 placement (16th)
     - Decklist cards for every placement
     - 3 cards in the cards table (for JP→EN translation)
     - 1 CL event (masters) with 2 placements and JP card names
-    - 1 meta snapshot + archetype stats (pre-computed)
+    - 1 meta snapshot + archetype stats (pre-computed, open division only)
     """
     conn = sqlite3.connect(":memory:")
     conn.row_factory = sqlite3.Row
@@ -36,11 +36,12 @@ def db() -> sqlite3.Connection:
 
     # --- Tournaments ---
     conn.executemany(
-        "INSERT INTO tournaments (id, name, date, player_count) VALUES (?, ?, ?, ?)",
+        "INSERT INTO tournaments (id, name, date, player_count, division) VALUES (?, ?, ?, ?, ?)",
         [
-            ("t1", "Osaka CL Jan", "2026-01-25", 64),
-            ("t2", "Tokyo CL Feb Early", "2026-02-10", 64),
-            ("t3", "Nagoya CL Mar", "2026-03-01", 64),
+            ("t1", "Osaka CL Jan", "2026-01-25", 64, "open"),
+            ("t2", "Tokyo CL Feb Early", "2026-02-10", 64, "open"),
+            ("t3", "Nagoya CL Mar", "2026-03-01", 64, "open"),
+            ("t4", "Osaka Junior Cup", "2026-02-20", 32, "senior"),
         ],
     )
 
@@ -55,13 +56,14 @@ def db() -> sqlite3.Connection:
             (4, "t2", 8, "Diana", "Dragapult ex"),
             (5, "t3", 9, "Eve", "Charizard ex"),
             (6, "t3", 16, "Frank", "Raging Bolt ex"),
+            (7, "t4", 1, "Greta", "Charizard ex"),
         ],
     )
 
     # --- Decklist cards ---
     # Each placement gets a couple of cards so queries work.
     decklist_rows = []
-    for pid in range(1, 7):
+    for pid in range(1, 8):
         decklist_rows.append((pid, "card-nest", "Nest Ball", 4))
         decklist_rows.append((pid, "card-ultra", "Ultra Ball", 4))
     # Give some placements unique cards for flex/trend tests
@@ -71,6 +73,7 @@ def db() -> sqlite3.Connection:
     decklist_rows.append((4, "card-boss", "Boss's Orders", 2))
     decklist_rows.append((5, "card-boss", "Boss's Orders", 2))
     decklist_rows.append((6, "card-boss", "Boss's Orders", 2))
+    decklist_rows.append((7, "card-boss", "Boss's Orders", 2))
     # A card only in late tournament for trend testing
     decklist_rows.append((5, "card-iono", "Iono", 3))
     decklist_rows.append((6, "card-iono", "Iono", 3))

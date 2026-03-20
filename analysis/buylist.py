@@ -97,7 +97,7 @@ def generate_buylist(conn: sqlite3.Connection, snapshot_id: int) -> list[dict]:
 
         # Step 2: Get all placements for this archetype
         placements = conn.execute(
-            "SELECT id FROM placements WHERE archetype = ?",
+            "SELECT id FROM open_placements WHERE archetype = ?",
             (archetype,),
         ).fetchall()
 

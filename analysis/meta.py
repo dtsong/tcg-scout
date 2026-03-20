@@ -29,14 +29,13 @@ def compute_meta_snapshot(
     """Compute meta snapshot from all placements. Returns snapshot_id."""
     conn.row_factory = sqlite3.Row
 
-    # Query all placements grouped by archetype
+    # Query all placements grouped by archetype (open division only)
     rows = conn.execute(
         """
         SELECT p.archetype,
                COUNT(*) AS deck_count,
                MIN(p.standing) AS best_placement
-        FROM placements p
-        JOIN tournaments t ON t.id = p.tournament_id
+        FROM open_placements p
         GROUP BY p.archetype
         """
     ).fetchall()
@@ -47,7 +46,7 @@ def compute_meta_snapshot(
 
     total_decks = sum(r["deck_count"] for r in rows)
     tournament_count_row = conn.execute(
-        "SELECT COUNT(DISTINCT tournament_id) AS cnt FROM placements"
+        "SELECT COUNT(DISTINCT p.tournament_id) AS cnt FROM open_placements p"
     ).fetchone()
     tournament_count = tournament_count_row["cnt"]
 

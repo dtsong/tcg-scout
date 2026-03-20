@@ -37,6 +37,9 @@ DIVISION_MAP = {
     "マスター": "masters",
 }
 
+# Map CL division names to tournaments table convention
+_TOURNAMENT_DIVISION = {"masters": "open", "seniors": "senior", "juniors": "junior"}
+
 # Fukuoka Champions League 2026 event IDs
 FUKUOKA_CL_EVENTS = {
     903701: "seniors",
@@ -447,9 +450,10 @@ def store_cl_city_league_results(
     tournament_id = f"jp-{event.event_id}"
 
     # Store tournament
+    tournament_division = _TOURNAMENT_DIVISION.get(event.division, event.division)
     conn.execute(
-        "INSERT OR REPLACE INTO tournaments (id, name, date, country) VALUES (?, ?, ?, ?)",
-        (tournament_id, event.event_name, event.date, "JP"),
+        "INSERT OR REPLACE INTO tournaments (id, name, date, country, division) VALUES (?, ?, ?, ?, ?)",
+        (tournament_id, event.event_name, event.date, "JP", tournament_division),
     )
 
     for placement in event.placements:

@@ -130,16 +130,17 @@ def scrape(
                 console.print("    [yellow]No placements found, skipping[/yellow]")
                 continue
 
-            # Store tournament
+            # Store tournament (Limitless only tracks open division)
             conn.execute(
-                "INSERT OR REPLACE INTO tournaments (id, name, date, player_count, country) "
-                "VALUES (?, ?, ?, ?, ?)",
+                "INSERT OR REPLACE INTO tournaments (id, name, date, player_count, country, division) "
+                "VALUES (?, ?, ?, ?, ?, ?)",
                 (
                     tournament.source_url,
                     tournament.name,
                     tournament.tournament_date.isoformat(),
                     tournament.player_count,
                     "JP",
+                    "open",
                 ),
             )
 
@@ -604,7 +605,7 @@ def scrape_jp(
             jp_event = JPEventResult(
                 event_id=event.event_id,
                 event_name=event_name,
-                division="masters",
+                division=event.division,
                 date=event.date,
                 placements=placements,
             )
@@ -670,7 +671,7 @@ def backfill_archetypes(
         # Find date range of Unknown placements
         rows = conn.execute(
             "SELECT p.id, p.standing, p.player_name, t.date "
-            "FROM placements p "
+            "FROM open_placements p "
             "JOIN tournaments t ON p.tournament_id = t.id "
             "WHERE p.archetype = 'Unknown' "
             "ORDER BY t.date"
