@@ -671,7 +671,7 @@ def backfill_archetypes(
         # Find date range of Unknown placements
         rows = conn.execute(
             "SELECT p.id, p.standing, p.player_name, t.date "
-            "FROM placements p "
+            "FROM open_placements p "
             "JOIN tournaments t ON p.tournament_id = t.id "
             "WHERE p.archetype = 'Unknown' "
             "ORDER BY t.date"

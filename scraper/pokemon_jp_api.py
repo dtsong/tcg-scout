@@ -59,7 +59,14 @@ class JPCityLeagueEvent:
         else:
             date_iso = date_raw
         league_jp = data.get("leagueName", "オープン")
-        division = LEAGUE_NAME_MAP.get(league_jp, "open")
+        division = LEAGUE_NAME_MAP.get(league_jp)
+        if division is None:
+            logger.warning(
+                "Unknown leagueName %r for event %s, defaulting to 'open'",
+                league_jp,
+                data.get("event_holding_id", "?"),
+            )
+            division = "open"
         return cls(
             event_id=data.get("event_holding_id", data.get("event_id", 0)),
             date=date_iso,

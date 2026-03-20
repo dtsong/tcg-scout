@@ -35,7 +35,7 @@ class TestStoreCLResults:
         event = JPEventResult(
             event_id=12345,
             event_name="City League Sapporo",
-            division="masters",
+            division="open",
             date="2026-02-15",
             placements=[
                 JPPlacement(standing=1, player_name="Yuki", region="Hokkaido"),
@@ -50,6 +50,7 @@ class TestStoreCLResults:
         assert tournament is not None
         assert tournament["name"] == "City League Sapporo"
         assert tournament["date"] == "2026-02-15"
+        assert tournament["division"] == "open"
 
         # Placements should be stored with archetype="Unknown"
         placements = db.execute(
@@ -71,7 +72,7 @@ class TestStoreCLResults:
         event = JPEventResult(
             event_id=99999,
             event_name="City League Fukuoka",
-            division="masters",
+            division="open",
             date="2026-03-10",
             placements=[
                 JPPlacement(
@@ -160,7 +161,7 @@ class TestStoreCLResults:
         event = JPEventResult(
             event_id=77777,
             event_name="City League Test",
-            division="masters",
+            division="open",
             date="2026-03-15",
             placements=[
                 JPPlacement(standing=1, player_name="Taro", region="Tokyo", deck_code="deck-zz"),

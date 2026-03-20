@@ -43,7 +43,7 @@ def compute_matchup_matrix(
     rows = conn.execute(
         """
         SELECT t.id AS tid, p.archetype, AVG(p.standing) AS avg_standing
-        FROM placements p
+        FROM open_placements p
         JOIN tournaments t ON t.id = p.tournament_id
         GROUP BY t.id, p.archetype
         """

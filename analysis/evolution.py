@@ -34,7 +34,7 @@ def compute_archetype_evolution(
     rows = conn.execute(
         """
         SELECT p.id AS placement_id, t.date
-        FROM placements p
+        FROM open_placements p
         JOIN tournaments t ON t.id = p.tournament_id
         WHERE p.archetype = ?
         ORDER BY t.date

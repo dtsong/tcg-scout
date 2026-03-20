@@ -391,7 +391,7 @@ def _compute_weighted_shares(conn: sqlite3.Connection, snapshot: dict) -> dict[s
     rows = conn.execute(
         """
         SELECT p.archetype, p.standing
-        FROM placements p
+        FROM open_placements p
         JOIN tournaments t ON t.id = p.tournament_id
         """
     ).fetchall()
@@ -419,7 +419,7 @@ def _compute_archetype_trends(conn: sqlite3.Connection) -> dict[str, dict]:
     rows = conn.execute(
         """
         SELECT t.date, p.archetype
-        FROM placements p
+        FROM open_placements p
         JOIN tournaments t ON t.id = p.tournament_id
         ORDER BY t.date
         """
@@ -500,7 +500,7 @@ def _compute_windowed_meta(
         SELECT p.archetype,
                COUNT(*) AS deck_count,
                MIN(p.standing) AS best_placement
-        FROM placements p
+        FROM open_placements p
         JOIN tournaments t ON t.id = p.tournament_id
         WHERE t.date >= ? AND t.date <= ?
         GROUP BY p.archetype
@@ -516,7 +516,7 @@ def _compute_windowed_meta(
         """
         SELECT COUNT(DISTINCT t.id) AS cnt
         FROM tournaments t
-        JOIN placements p ON p.tournament_id = t.id
+        JOIN open_placements p ON p.tournament_id = t.id
         WHERE t.date >= ? AND t.date <= ?
         """,
         (date_from, date_to),
@@ -526,7 +526,7 @@ def _compute_windowed_meta(
     weight_rows = conn.execute(
         """
         SELECT p.archetype, p.standing
-        FROM placements p
+        FROM open_placements p
         JOIN tournaments t ON t.id = p.tournament_id
         WHERE t.date >= ? AND t.date <= ?
         """,
@@ -611,7 +611,7 @@ def _compute_windowed_trends(
 
     early_total = conn.execute(
         """
-        SELECT COUNT(*) FROM placements p
+        SELECT COUNT(*) FROM open_placements p
         JOIN tournaments t ON t.id = p.tournament_id
         WHERE t.date >= ? AND t.date < ?
         """,
@@ -620,7 +620,7 @@ def _compute_windowed_trends(
 
     late_total = conn.execute(
         """
-        SELECT COUNT(*) FROM placements p
+        SELECT COUNT(*) FROM open_placements p
         JOIN tournaments t ON t.id = p.tournament_id
         WHERE t.date >= ? AND t.date <= ?
         """,
@@ -642,7 +642,7 @@ def _compute_windowed_trends(
                SUM(CASE WHEN t.date < ? THEN 1 ELSE 0 END) AS early_count,
                SUM(CASE WHEN t.date >= ? THEN 1 ELSE 0 END) AS late_count
         FROM decklist_cards dc
-        JOIN placements p ON p.id = dc.placement_id
+        JOIN open_placements p ON p.id = dc.placement_id
         JOIN tournaments t ON t.id = p.tournament_id
         WHERE t.date >= ? AND t.date <= ? AND {_basic_energy_exclusion_sql()} AND dc.card_name NOT LIKE '%Energy%'
         GROUP BY dc.card_name
@@ -698,7 +698,7 @@ def _compute_windowed_winning_edge(
 
     total_field = conn.execute(
         f"""
-        SELECT COUNT(*) FROM placements p
+        SELECT COUNT(*) FROM open_placements p
         JOIN tournaments t ON t.id = p.tournament_id
         WHERE p.archetype IN ({placeholders}) AND t.date >= ? AND t.date <= ?
         """,
@@ -707,7 +707,7 @@ def _compute_windowed_winning_edge(
 
     total_winners = conn.execute(
         f"""
-        SELECT COUNT(*) FROM placements p
+        SELECT COUNT(*) FROM open_placements p
         JOIN tournaments t ON t.id = p.tournament_id
         WHERE p.standing = 1 AND p.archetype IN ({placeholders})
           AND t.date >= ? AND t.date <= ?
@@ -723,7 +723,7 @@ def _compute_windowed_winning_edge(
         SELECT dc.card_name,
                COUNT(DISTINCT dc.placement_id) AS field_decks
         FROM decklist_cards dc
-        JOIN placements p ON p.id = dc.placement_id
+        JOIN open_placements p ON p.id = dc.placement_id
         JOIN tournaments t ON t.id = p.tournament_id
         WHERE p.archetype IN ({placeholders})
           AND t.date >= ? AND t.date <= ?
@@ -741,7 +741,7 @@ def _compute_windowed_winning_edge(
         SELECT dc.card_name,
                COUNT(DISTINCT dc.placement_id) AS winner_decks
         FROM decklist_cards dc
-        JOIN placements p ON p.id = dc.placement_id
+        JOIN open_placements p ON p.id = dc.placement_id
         JOIN tournaments t ON t.id = p.tournament_id
         WHERE p.standing = 1 AND p.archetype IN ({placeholders})
           AND t.date >= ? AND t.date <= ?
@@ -782,7 +782,7 @@ def _compute_windowed_ace_specs(
     """Compute ACE SPEC distribution filtered to a specific date window."""
     total_decks = conn.execute(
         """
-        SELECT COUNT(*) FROM placements p
+        SELECT COUNT(*) FROM open_placements p
         JOIN tournaments t ON t.id = p.tournament_id
         WHERE t.date >= ? AND t.date <= ?
         """,
@@ -799,7 +799,7 @@ def _compute_windowed_ace_specs(
         SELECT dc.card_name,
                COUNT(DISTINCT dc.placement_id) AS deck_count
         FROM decklist_cards dc
-        JOIN placements p ON p.id = dc.placement_id
+        JOIN open_placements p ON p.id = dc.placement_id
         JOIN tournaments t ON t.id = p.tournament_id
         WHERE dc.card_name IN ({placeholders})
           AND t.date >= ? AND t.date <= ?
@@ -832,7 +832,7 @@ def _compute_windowed_staples_flex(
     """
     total_decks = conn.execute(
         """
-        SELECT COUNT(*) FROM placements p
+        SELECT COUNT(*) FROM open_placements p
         JOIN tournaments t ON t.id = p.tournament_id
         WHERE t.date >= ? AND t.date <= ?
         """,
@@ -848,7 +848,7 @@ def _compute_windowed_staples_flex(
                COUNT(DISTINCT dc.placement_id) AS deck_count,
                ROUND(AVG(dc.count), 1) AS avg_copies
         FROM decklist_cards dc
-        JOIN placements p ON p.id = dc.placement_id
+        JOIN open_placements p ON p.id = dc.placement_id
         JOIN tournaments t ON t.id = p.tournament_id
         WHERE t.date >= ? AND t.date <= ?
           AND {_basic_energy_exclusion_sql()}
@@ -897,7 +897,7 @@ def _compute_windowed_buylist(
     placement_rows = conn.execute(
         f"""
         SELECT p.id, p.archetype
-        FROM placements p
+        FROM open_placements p
         JOIN tournaments t ON t.id = p.tournament_id
         WHERE t.date >= ? AND t.date <= ?
           AND p.archetype IN ({arch_placeholders})
@@ -1110,7 +1110,7 @@ def export_buylist(conn: sqlite3.Connection, output_dir: Path) -> None:
 
 def export_staples(conn: sqlite3.Connection, output_dir: Path) -> None:
     """Export staples.json — format staples with 40%+ usage across all decks."""
-    total_decks = conn.execute("SELECT COUNT(*) FROM placements").fetchone()[0]
+    total_decks = conn.execute("SELECT COUNT(*) FROM open_placements").fetchone()[0]
 
     rows = conn.execute(
         f"""
@@ -1143,7 +1143,7 @@ def export_staples(conn: sqlite3.Connection, output_dir: Path) -> None:
 
 def export_flex(conn: sqlite3.Connection, output_dir: Path) -> None:
     """Export flex.json — broad flex cards with 20-40% usage."""
-    total_decks = conn.execute("SELECT COUNT(*) FROM placements").fetchone()[0]
+    total_decks = conn.execute("SELECT COUNT(*) FROM open_placements").fetchone()[0]
 
     rows = conn.execute(
         f"""
@@ -1185,7 +1185,7 @@ def _get_card_archetype_breakdown(
                SUM(CASE WHEN t.date < ? THEN 1 ELSE 0 END) AS early_count,
                SUM(CASE WHEN t.date >= ? THEN 1 ELSE 0 END) AS late_count
         FROM decklist_cards dc
-        JOIN placements p ON p.id = dc.placement_id
+        JOIN open_placements p ON p.id = dc.placement_id
         JOIN tournaments t ON t.id = p.tournament_id
         WHERE dc.card_name = ? AND {_basic_energy_exclusion_sql()}
         GROUP BY p.archetype
@@ -1202,7 +1202,7 @@ def _get_card_archetype_breakdown(
         SELECT p.archetype,
                SUM(CASE WHEN t.date < ? THEN 1 ELSE 0 END) AS early_total,
                SUM(CASE WHEN t.date >= ? THEN 1 ELSE 0 END) AS late_total
-        FROM placements p
+        FROM open_placements p
         JOIN tournaments t ON t.id = p.tournament_id
         GROUP BY p.archetype
         """,
@@ -1254,12 +1254,12 @@ def export_trends(
         midpoint = "2026-02-15"
 
     early_total = conn.execute(
-        "SELECT COUNT(*) FROM placements p JOIN tournaments t ON t.id = p.tournament_id WHERE t.date < ?",
+        "SELECT COUNT(*) FROM open_placements p JOIN tournaments t ON t.id = p.tournament_id WHERE t.date < ?",
         (midpoint,),
     ).fetchone()[0]
 
     late_total = conn.execute(
-        "SELECT COUNT(*) FROM placements p JOIN tournaments t ON t.id = p.tournament_id WHERE t.date >= ?",
+        "SELECT COUNT(*) FROM open_placements p JOIN tournaments t ON t.id = p.tournament_id WHERE t.date >= ?",
         (midpoint,),
     ).fetchone()[0]
 
@@ -1286,7 +1286,7 @@ def export_trends(
                SUM(CASE WHEN t.date < ? THEN 1 ELSE 0 END) AS early_count,
                SUM(CASE WHEN t.date >= ? THEN 1 ELSE 0 END) AS late_count
         FROM decklist_cards dc
-        JOIN placements p ON p.id = dc.placement_id
+        JOIN open_placements p ON p.id = dc.placement_id
         JOIN tournaments t ON t.id = p.tournament_id
         WHERE {_basic_energy_exclusion_sql()} AND dc.card_name NOT LIKE '%Energy%'
         GROUP BY dc.card_name
@@ -1354,13 +1354,13 @@ def export_winning_edge(conn: sqlite3.Connection, output_dir: Path) -> None:
 
     # Total decks in S/A/B
     total_field = conn.execute(
-        f"SELECT COUNT(*) FROM placements WHERE archetype IN ({placeholders})",
+        f"SELECT COUNT(*) FROM open_placements WHERE archetype IN ({placeholders})",
         sa_archetypes,
     ).fetchone()[0]
 
     # Total 1st place decks in S/A/B
     total_winners = conn.execute(
-        f"SELECT COUNT(*) FROM placements WHERE standing = 1 AND archetype IN ({placeholders})",
+        f"SELECT COUNT(*) FROM open_placements WHERE standing = 1 AND archetype IN ({placeholders})",
         sa_archetypes,
     ).fetchone()[0]
 
@@ -1374,7 +1374,7 @@ def export_winning_edge(conn: sqlite3.Connection, output_dir: Path) -> None:
         SELECT dc.card_name,
                COUNT(DISTINCT dc.placement_id) AS field_decks
         FROM decklist_cards dc
-        JOIN placements p ON p.id = dc.placement_id
+        JOIN open_placements p ON p.id = dc.placement_id
         WHERE p.archetype IN ({placeholders}) AND {_basic_energy_exclusion_sql()}
         GROUP BY dc.card_name
         HAVING field_decks >= 10
@@ -1389,7 +1389,7 @@ def export_winning_edge(conn: sqlite3.Connection, output_dir: Path) -> None:
         SELECT dc.card_name,
                COUNT(DISTINCT dc.placement_id) AS winner_decks
         FROM decklist_cards dc
-        JOIN placements p ON p.id = dc.placement_id
+        JOIN open_placements p ON p.id = dc.placement_id
         WHERE p.standing = 1 AND p.archetype IN ({placeholders}) AND {_basic_energy_exclusion_sql()}
         GROUP BY dc.card_name
         """,
@@ -1421,7 +1421,7 @@ def export_winning_edge(conn: sqlite3.Connection, output_dir: Path) -> None:
 
 def export_ace_specs(conn: sqlite3.Connection, output_dir: Path) -> None:
     """Export ace-specs.json — ACE SPEC card distribution across decks."""
-    total_decks = conn.execute("SELECT COUNT(*) FROM placements").fetchone()[0]
+    total_decks = conn.execute("SELECT COUNT(*) FROM open_placements").fetchone()[0]
     placeholders = ",".join("?" * len(ACE_SPEC_CARDS))
 
     rows = conn.execute(
@@ -1521,7 +1521,7 @@ def export_archetypes(conn: sqlite3.Connection, output_dir: Path) -> None:
 
         # Get all placements for this archetype
         placements = conn.execute(
-            "SELECT id, standing FROM placements WHERE archetype = ?",
+            "SELECT id, standing FROM open_placements WHERE archetype = ?",
             (archetype_name,),
         ).fetchall()
 
@@ -1581,7 +1581,7 @@ def export_archetypes(conn: sqlite3.Connection, output_dir: Path) -> None:
             SELECT p.id AS placement_id, t.id AS tournament_url,
                    t.name AS tournament_name, t.date,
                    p.standing, p.player_name
-            FROM placements p
+            FROM open_placements p
             JOIN tournaments t ON t.id = p.tournament_id
             WHERE p.archetype = ?
             ORDER BY p.standing ASC, t.date DESC
@@ -1626,7 +1626,7 @@ def export_archetypes(conn: sqlite3.Connection, output_dir: Path) -> None:
 
         # Consistency: lower avg standing = higher score
         avg_row = conn.execute(
-            "SELECT AVG(standing) as avg_standing FROM placements WHERE archetype = ?",
+            "SELECT AVG(standing) as avg_standing FROM open_placements WHERE archetype = ?",
             (archetype_name,),
         ).fetchone()
         avg_standing = avg_row["avg_standing"] if avg_row and avg_row["avg_standing"] else 1
@@ -1712,7 +1712,7 @@ def export_card_analysis(conn: sqlite3.Connection, output_dir: Path) -> None:
     for arch in snapshot["archetypes"]:
         archetype_name = arch["archetype"]
         placements = conn.execute(
-            "SELECT id, standing FROM placements WHERE archetype = ?",
+            "SELECT id, standing FROM open_placements WHERE archetype = ?",
             (archetype_name,),
         ).fetchall()
 
@@ -1860,7 +1860,7 @@ def _compute_archetype_weekly_shares(conn: sqlite3.Connection, archetype_name: s
     rows = conn.execute(
         """
         SELECT t.date, p.archetype
-        FROM placements p
+        FROM open_placements p
         JOIN tournaments t ON t.id = p.tournament_id
         ORDER BY t.date
         """
@@ -2208,7 +2208,7 @@ def export_timeline(conn: sqlite3.Connection, output_dir: Path) -> None:
     rows = conn.execute(
         """
         SELECT t.id as tid, t.date, p.archetype
-        FROM placements p
+        FROM open_placements p
         JOIN tournaments t ON t.id = p.tournament_id
         ORDER BY t.date
         """
@@ -2329,7 +2329,7 @@ def export_cards(conn: sqlite3.Connection, output_dir: Path) -> None:
                 """
                 SELECT p.archetype, COUNT(*) as cnt
                 FROM decklist_cards dc
-                JOIN placements p ON p.id = dc.placement_id
+                JOIN open_placements p ON p.id = dc.placement_id
                 WHERE dc.card_name = ?
                 GROUP BY p.archetype
                 ORDER BY cnt DESC

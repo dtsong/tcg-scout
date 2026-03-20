@@ -75,13 +75,13 @@ CREATE TABLE IF NOT EXISTS card_mappings (
     en_set_id TEXT
 );
 
--- Champions League events and decklists
 -- View: open-division placements only (used by meta/export queries)
 CREATE VIEW IF NOT EXISTS open_placements AS
 SELECT p.* FROM placements p
 JOIN tournaments t ON t.id = p.tournament_id
 WHERE t.division = 'open';
 
+-- Champions League events and decklists
 CREATE TABLE IF NOT EXISTS cl_events (
     id INTEGER PRIMARY KEY,           -- Official event ID (e.g. 903702)
     name TEXT NOT NULL,
@@ -137,6 +137,10 @@ def init_db(conn: sqlite3.Connection | None = None) -> None:
         conn = get_connection()
         close = True
     conn.executescript(SCHEMA)
+    # Migration: ensure division column exists on older databases
+    cols = {row[1] for row in conn.execute("PRAGMA table_info(tournaments)")}
+    if "division" not in cols:
+        conn.execute("ALTER TABLE tournaments ADD COLUMN division TEXT DEFAULT 'open'")
     conn.commit()
     if close:
         conn.close()

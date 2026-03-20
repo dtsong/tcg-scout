@@ -195,7 +195,7 @@ def compute_card_stats(conn: sqlite3.Connection) -> list[dict]:
 
     Returns a list of card stat dicts, sorted by total_appearances descending.
     """
-    total_decks = conn.execute("SELECT COUNT(*) FROM placements").fetchone()[0]
+    total_decks = conn.execute("SELECT COUNT(*) FROM open_placements").fetchone()[0]
     if total_decks == 0:
         return []
 
@@ -211,7 +211,7 @@ def compute_card_stats(conn: sqlite3.Connection) -> list[dict]:
                SUM(dc.count) AS total_copies,
                COUNT(DISTINCT p.archetype) AS unique_archetypes
         FROM decklist_cards dc
-        JOIN placements p ON p.id = dc.placement_id
+        JOIN open_placements p ON p.id = dc.placement_id
         WHERE dc.card_name NOT IN ({energy_placeholders})
         GROUP BY dc.card_name
         ORDER BY appearances DESC
@@ -250,7 +250,7 @@ def compute_card_stats(conn: sqlite3.Connection) -> list[dict]:
         f"""
         SELECT dc.card_name, p.standing
         FROM decklist_cards dc
-        JOIN placements p ON p.id = dc.placement_id
+        JOIN open_placements p ON p.id = dc.placement_id
         WHERE dc.card_name NOT IN ({energy_placeholders})
         """,
         energy_names,
@@ -304,7 +304,7 @@ def compute_card_detail(conn: sqlite3.Connection, card_name: str) -> dict | None
     """Compute detailed stats for a single card including archetype breakdown,
     weekly usage, and copy distribution.
     """
-    total_decks = conn.execute("SELECT COUNT(*) FROM placements").fetchone()[0]
+    total_decks = conn.execute("SELECT COUNT(*) FROM open_placements").fetchone()[0]
     if total_decks == 0:
         return None
 
@@ -315,7 +315,7 @@ def compute_card_detail(conn: sqlite3.Connection, card_name: str) -> dict | None
                SUM(dc.count) AS total_copies,
                COUNT(DISTINCT p.archetype) AS unique_archetypes
         FROM decklist_cards dc
-        JOIN placements p ON p.id = dc.placement_id
+        JOIN open_placements p ON p.id = dc.placement_id
         WHERE dc.card_name = ?
         """,
         (card_name,),
@@ -350,7 +350,7 @@ def compute_card_detail(conn: sqlite3.Connection, card_name: str) -> dict | None
         """
         SELECT p.standing
         FROM decklist_cards dc
-        JOIN placements p ON p.id = dc.placement_id
+        JOIN open_placements p ON p.id = dc.placement_id
         WHERE dc.card_name = ?
         """,
         (card_name,),
@@ -376,7 +376,7 @@ def compute_card_detail(conn: sqlite3.Connection, card_name: str) -> dict | None
                COUNT(DISTINCT dc.placement_id) AS usage_count,
                ROUND(AVG(dc.count), 1) AS avg_copies
         FROM decklist_cards dc
-        JOIN placements p ON p.id = dc.placement_id
+        JOIN open_placements p ON p.id = dc.placement_id
         WHERE dc.card_name = ?
         GROUP BY p.archetype
         ORDER BY usage_count DESC
@@ -415,7 +415,7 @@ def compute_card_detail(conn: sqlite3.Connection, card_name: str) -> dict | None
         """
         SELECT t.date, dc.count
         FROM decklist_cards dc
-        JOIN placements p ON p.id = dc.placement_id
+        JOIN open_placements p ON p.id = dc.placement_id
         JOIN tournaments t ON t.id = p.tournament_id
         WHERE dc.card_name = ?
         ORDER BY t.date
@@ -431,7 +431,7 @@ def compute_card_detail(conn: sqlite3.Connection, card_name: str) -> dict | None
     # Get all placements per week for denominator
     all_placements = conn.execute(
         """
-        SELECT t.date FROM placements p
+        SELECT t.date FROM open_placements p
         JOIN tournaments t ON t.id = p.tournament_id
         ORDER BY t.date
         """
