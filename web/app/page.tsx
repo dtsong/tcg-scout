@@ -188,7 +188,11 @@ export default function FormatSelectorPage() {
                 {" "}(official Japanese Pokemon TCG site). Scout is a fan project and is not affiliated with or endorsed by The Pokemon Company.
               </p>
               <p className="text-xs text-surface-300 mt-3">
-                Have feedback or feature requests? Reach out:
+                New here?{" "}
+                <Link href="/guide" className="text-accent hover:text-accent/80 transition-colors">
+                  Read the guide
+                </Link>{" "}
+                to learn how Scout works. Have feedback or feature requests? Reach out:
               </p>
               <div className="flex items-center gap-4 mt-2">
                 <a
