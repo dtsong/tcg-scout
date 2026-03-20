@@ -423,6 +423,7 @@
   "results": [
     {
       "tournament_name": "City League Kanagawa",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3925",
       "date": "2026-02-01",
       "standing": 3,
       "player_name": "elmo",
@@ -551,6 +552,7 @@
     },
     {
       "tournament_name": "City League Kyōto",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4154",
       "date": "2026-02-25",
       "standing": 10,
       "player_name": "やしーすけ",
@@ -674,6 +676,7 @@
     },
     {
       "tournament_name": "City League Hokkaido",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4012",
       "date": "2026-02-08",
       "standing": 10,
       "player_name": "とりっぴー",
@@ -807,6 +810,7 @@
     },
     {
       "tournament_name": "City League Aichi",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4008",
       "date": "2026-02-08",
       "standing": 12,
       "player_name": "ジャスタウェイ",
@@ -895,6 +899,7 @@
     },
     {
       "tournament_name": "City League Kanagawa",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3909",
       "date": "2026-01-31",
       "standing": 13,
       "player_name": "たけ",
@@ -1013,6 +1018,7 @@
     },
     {
       "tournament_name": "City League Mie",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4085",
       "date": "2026-02-14",
       "standing": 15,
       "player_name": "モコナ",
@@ -1111,6 +1117,7 @@
     },
     {
       "tournament_name": "City League Kanagawa",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3872",
       "date": "2026-01-25",
       "standing": 15,
       "player_name": "あずき",
@@ -1261,37 +1268,22 @@
           "to_pct": 100.0
         },
         {
-          "card": "Prime Catcher",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Dunsparce",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Enriching Energy",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Dudunsparce",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
           "card": "Growth Grass Energy",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
         {
-          "card": "Iris's Fighting Spirit",
+          "card": "Fennel",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
         {
-          "card": "Psyduck",
+          "card": "Hilda",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Iris's Fighting Spirit",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -1301,42 +1293,37 @@
           "to_pct": 50.0
         },
         {
-          "card": "Fennel",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
           "card": "Colress's Tenacity",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
         {
-          "card": "Hilda",
+          "card": "Dudunsparce",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Dunsparce",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Psyduck",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Enriching Energy",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Prime Catcher",
           "from_pct": 0.0,
           "to_pct": 50.0
         }
       ],
       "dropped": [
-        {
-          "card": "Handheld Fan",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Secret Box",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Shaymin",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Switch",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
         {
           "card": "Team Rocket's Petrel",
           "from_pct": 100.0,
@@ -1346,6 +1333,26 @@
           "card": "Decidueye",
           "from_pct": 100.0,
           "to_pct": 0.0
+        },
+        {
+          "card": "Secret Box",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Switch",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Shaymin",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Handheld Fan",
+          "from_pct": 100.0,
+          "to_pct": 0.0
         }
       ]
     },
@@ -1353,12 +1360,7 @@
       "week": "2026-02-02",
       "adopted": [
         {
-          "card": "Sawsbuck",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Shaymin",
+          "card": "Max Rod",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -1368,14 +1370,19 @@
           "to_pct": 50.0
         },
         {
-          "card": "Max Rod",
+          "card": "Sawsbuck",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Shaymin",
           "from_pct": 0.0,
           "to_pct": 50.0
         }
       ],
       "dropped": [
         {
-          "card": "Prime Catcher",
+          "card": "Fennel",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -1385,7 +1392,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "Fennel",
+          "card": "Prime Catcher",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -1400,17 +1407,17 @@
       "week": "2026-02-09",
       "adopted": [
         {
+          "card": "Tatsugiri",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
           "card": "Vivillon",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
           "card": "Secret Box",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Tatsugiri",
           "from_pct": 0.0,
           "to_pct": 100.0
         }
@@ -1422,62 +1429,12 @@
           "to_pct": 0.0
         },
         {
-          "card": "Lana's Aid",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Sawsbuck",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Spewpa",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Shaymin",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Dunsparce",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Meowth ex",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Enriching Energy",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Deerling",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Ignition Energy",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Dudunsparce",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Growth Grass Energy",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
-          "card": "Judge",
+          "card": "Lana's Aid",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -1495,6 +1452,56 @@
           "card": "Max Rod",
           "from_pct": 50.0,
           "to_pct": 0.0
+        },
+        {
+          "card": "Deerling",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Ignition Energy",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Sawsbuck",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Judge",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Dudunsparce",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Shaymin",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Dunsparce",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Enriching Energy",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Spewpa",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Meowth ex",
+          "from_pct": 50.0,
+          "to_pct": 0.0
         }
       ]
     },
@@ -1502,7 +1509,7 @@
       "week": "2026-02-23",
       "adopted": [
         {
-          "card": "Prime Catcher",
+          "card": "Rellor",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -1512,27 +1519,7 @@
           "to_pct": 100.0
         },
         {
-          "card": "Spewpa",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Bloodmoon Ursaluna ex",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Rellor",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Ignition Energy",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Morty's Conviction",
+          "card": "Scatterbug",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -1542,17 +1529,32 @@
           "to_pct": 100.0
         },
         {
-          "card": "Scatterbug",
+          "card": "Morty's Conviction",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Ignition Energy",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Bloodmoon Ursaluna ex",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Spewpa",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Prime Catcher",
           "from_pct": 0.0,
           "to_pct": 100.0
         }
       ],
       "dropped": [
-        {
-          "card": "Secret Box",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
         {
           "card": "Air Balloon",
           "from_pct": 100.0,
@@ -1565,6 +1567,11 @@
         },
         {
           "card": "Tatsugiri",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Secret Box",
           "from_pct": 100.0,
           "to_pct": 0.0
         }

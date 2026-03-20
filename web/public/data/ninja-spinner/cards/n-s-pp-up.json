@@ -7,42 +7,49 @@
   "image_url": null,
   "category": "Trainer",
   "rarity": null,
-  "total_appearances": 58,
-  "usage_pct": 6.5,
+  "total_appearances": 76,
+  "usage_pct": 6.8,
   "avg_copies": 3.0,
   "unique_archetypes": 7,
-  "weighted_score": 92.2,
-  "win_rate_proxy": 1.59,
+  "weighted_score": 118.6,
+  "win_rate_proxy": 1.56,
   "top_archetype": "Darmanitan Zoroark",
   "trend_direction": "stable",
   "copy_distribution": [
     {
       "copies": 2,
-      "count": 4
+      "count": 5
     },
     {
       "copies": 3,
-      "count": 52
+      "count": 68
     },
     {
       "copies": 4,
-      "count": 2
+      "count": 3
     }
   ],
   "archetypes": [
     {
       "name": "Darmanitan Zoroark",
       "slug": "darmanitan-zoroark",
-      "usage_count": 39,
+      "usage_count": 53,
       "avg_copies": 3.0,
       "tier": "B"
     },
     {
       "name": "Zoroark ex",
       "slug": "zoroark-ex",
-      "usage_count": 12,
+      "usage_count": 14,
       "avg_copies": 2.9,
       "tier": "C"
+    },
+    {
+      "name": "Mega Gengar Zoroark",
+      "slug": "mega-gengar-zoroark",
+      "usage_count": 3,
+      "avg_copies": 2.7,
+      "tier": "Rogue"
     },
     {
       "name": "Pecharunt Zoroark",
@@ -52,10 +59,10 @@
       "tier": "Rogue"
     },
     {
-      "name": "Mega Gengar Zoroark",
-      "slug": "mega-gengar-zoroark",
+      "name": "Dusknoir Zoroark",
+      "slug": "dusknoir-zoroark",
       "usage_count": 2,
-      "avg_copies": 3.0,
+      "avg_copies": 3.5,
       "tier": "Rogue"
     },
     {
@@ -71,13 +78,6 @@
       "usage_count": 1,
       "avg_copies": 2.0,
       "tier": "Rogue"
-    },
-    {
-      "name": "Dusknoir Zoroark",
-      "slug": "dusknoir-zoroark",
-      "usage_count": 1,
-      "avg_copies": 3.0,
-      "tier": "Rogue"
     }
   ],
   "weekly_usage": [
@@ -88,115 +88,115 @@
     },
     {
       "week": "2026-03-16",
-      "usage_pct": 6.9,
+      "usage_pct": 7.3,
       "avg_copies": 2.9
     }
   ],
   "synergy_partners": [
     {
       "card_name": "N's Castle",
-      "support": 55,
-      "lift": 15.379,
-      "jaccard": 0.948,
-      "weighted_score": 87.2
+      "support": 72,
+      "lift": 14.789,
+      "jaccard": 0.947,
+      "weighted_score": 112.4
     },
     {
       "card_name": "N's Darmanitan",
-      "support": 50,
-      "lift": 15.379,
-      "jaccard": 0.862,
-      "weighted_score": 79.3
+      "support": 66,
+      "lift": 14.789,
+      "jaccard": 0.868,
+      "weighted_score": 103.3
     },
     {
       "card_name": "N's Darumaka",
-      "support": 50,
-      "lift": 15.379,
-      "jaccard": 0.862,
-      "weighted_score": 79.3
+      "support": 66,
+      "lift": 14.789,
+      "jaccard": 0.868,
+      "weighted_score": 103.3
     },
     {
       "card_name": "N's Reshiram",
-      "support": 55,
-      "lift": 15.379,
-      "jaccard": 0.948,
-      "weighted_score": 87.5
+      "support": 72,
+      "lift": 14.789,
+      "jaccard": 0.947,
+      "weighted_score": 112.7
     },
     {
       "card_name": "N's Zekrom",
-      "support": 56,
-      "lift": 15.109,
-      "jaccard": 0.949,
-      "weighted_score": 88.7
+      "support": 74,
+      "lift": 14.592,
+      "jaccard": 0.961,
+      "weighted_score": 115.1
     },
     {
       "card_name": "Janine's Secret Art",
-      "support": 49,
-      "lift": 15.072,
-      "jaccard": 0.831,
-      "weighted_score": 79.6
+      "support": 61,
+      "lift": 14.551,
+      "jaccard": 0.792,
+      "weighted_score": 97.7
     },
     {
       "card_name": "N's Zoroark ex",
-      "support": 58,
-      "lift": 14.387,
-      "jaccard": 0.935,
-      "weighted_score": 92.2
+      "support": 76,
+      "lift": 14.05,
+      "jaccard": 0.95,
+      "weighted_score": 118.6
     },
     {
       "card_name": "N's Zorua",
-      "support": 58,
-      "lift": 14.387,
-      "jaccard": 0.935,
-      "weighted_score": 92.2
+      "support": 76,
+      "lift": 14.05,
+      "jaccard": 0.95,
+      "weighted_score": 118.6
     },
     {
       "card_name": "Binding Mochi",
-      "support": 54,
-      "lift": 14.076,
-      "jaccard": 0.857,
-      "weighted_score": 85.0
+      "support": 70,
+      "lift": 13.804,
+      "jaccard": 0.864,
+      "weighted_score": 109.0
     },
     {
       "card_name": "Pecharunt ex",
-      "support": 58,
-      "lift": 11.737,
-      "jaccard": 0.763,
-      "weighted_score": 92.2
+      "support": 76,
+      "lift": 11.469,
+      "jaccard": 0.776,
+      "weighted_score": 118.6
     },
     {
       "card_name": "Black Belt's Training",
-      "support": 47,
-      "lift": 9.902,
-      "jaccard": 0.56,
-      "weighted_score": 74.3
+      "support": 60,
+      "lift": 9.44,
+      "jaccard": 0.545,
+      "weighted_score": 93.4
     },
     {
       "card_name": "Cyrano",
-      "support": 55,
-      "lift": 5.32,
-      "jaccard": 0.34,
-      "weighted_score": 87.2
+      "support": 72,
+      "lift": 4.976,
+      "jaccard": 0.33,
+      "weighted_score": 112.4
     },
     {
       "card_name": "Yveltal",
-      "support": 7,
-      "lift": 3.076,
-      "jaccard": 0.081,
-      "weighted_score": 12.7
+      "support": 9,
+      "lift": 3.095,
+      "jaccard": 0.082,
+      "weighted_score": 15.1
+    },
+    {
+      "card_name": "Tool Scrapper",
+      "support": 6,
+      "lift": 2.398,
+      "jaccard": 0.056,
+      "weighted_score": 7.5
     },
     {
       "card_name": "Munkidori",
-      "support": 55,
-      "lift": 2.533,
-      "jaccard": 0.163,
-      "weighted_score": 87.0
-    },
-    {
-      "card_name": "Hero's Cape",
-      "support": 9,
-      "lift": 2.197,
-      "jaccard": 0.08,
-      "weighted_score": 13.6
+      "support": 72,
+      "lift": 2.356,
+      "jaccard": 0.158,
+      "weighted_score": 112.2
     }
   ]
 }

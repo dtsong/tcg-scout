@@ -381,6 +381,7 @@
   "results": [
     {
       "tournament_name": "City League Kyōto",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3880",
       "date": "2026-01-25",
       "standing": 6,
       "player_name": "しょーん",
@@ -524,6 +525,7 @@
     },
     {
       "tournament_name": "City League Kagawa",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3850",
       "date": "2026-01-24",
       "standing": 7,
       "player_name": "デビルいちばん",
@@ -637,6 +639,7 @@
     },
     {
       "tournament_name": "City League Ibaraki",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4098",
       "date": "2026-02-15",
       "standing": 9,
       "player_name": "ぼるしち",
@@ -812,6 +815,11 @@
       "week": "2026-02-09",
       "adopted": [
         {
+          "card": "Salvatore",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
           "card": "Meowth ex",
           "from_pct": 0.0,
           "to_pct": 100.0
@@ -825,26 +833,16 @@
           "card": "Boss's Orders",
           "from_pct": 0.0,
           "to_pct": 100.0
-        },
-        {
-          "card": "Salvatore",
-          "from_pct": 0.0,
-          "to_pct": 100.0
         }
       ],
       "dropped": [
         {
-          "card": "Bloodmoon Ursaluna ex",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Switch",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Binding Mochi",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Bloodmoon Ursaluna ex",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -855,6 +853,11 @@
         },
         {
           "card": "Redeemable Ticket",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Switch",
           "from_pct": 50.0,
           "to_pct": 0.0
         }

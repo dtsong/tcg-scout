@@ -7,18 +7,22 @@
   "image_url": null,
   "category": "Trainer",
   "rarity": null,
-  "total_appearances": 6,
-  "usage_pct": 0.7,
-  "avg_copies": 4.0,
-  "unique_archetypes": 2,
-  "weighted_score": 8.1,
-  "win_rate_proxy": 1.35,
+  "total_appearances": 9,
+  "usage_pct": 0.8,
+  "avg_copies": 3.9,
+  "unique_archetypes": 5,
+  "weighted_score": 12.3,
+  "win_rate_proxy": 1.37,
   "top_archetype": "Trevenant",
   "trend_direction": "stable",
   "copy_distribution": [
     {
+      "copies": 3,
+      "count": 1
+    },
+    {
       "copies": 4,
-      "count": 6
+      "count": 8
     }
   ],
   "archetypes": [
@@ -35,6 +39,27 @@
       "usage_count": 3,
       "avg_copies": 4.0,
       "tier": "Rogue"
+    },
+    {
+      "name": "Latias Zacian Crowned",
+      "slug": "latias-zacian-crowned",
+      "usage_count": 1,
+      "avg_copies": 4.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Drakloak Trevenant",
+      "slug": "drakloak-trevenant",
+      "usage_count": 1,
+      "avg_copies": 4.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Archaludon Zacian Crowned",
+      "slug": "archaludon-zacian-crowned",
+      "usage_count": 1,
+      "avg_copies": 3.0,
+      "tier": "Rogue"
     }
   ],
   "weekly_usage": [
@@ -45,115 +70,115 @@
     },
     {
       "week": "2026-03-16",
-      "usage_pct": 0.8,
-      "avg_copies": 4.0
+      "usage_pct": 1.0,
+      "avg_copies": 3.8
     }
   ],
   "synergy_partners": [
     {
       "card_name": "Hop's Bag",
-      "support": 6,
-      "lift": 148.667,
+      "support": 9,
+      "lift": 124.889,
       "jaccard": 1.0,
-      "weighted_score": 8.1
+      "weighted_score": 12.3
     },
     {
       "card_name": "Hop's Choice Band",
-      "support": 6,
-      "lift": 148.667,
+      "support": 9,
+      "lift": 124.889,
       "jaccard": 1.0,
-      "weighted_score": 8.1
+      "weighted_score": 12.3
     },
     {
       "card_name": "Hop's Phantump",
-      "support": 6,
-      "lift": 148.667,
-      "jaccard": 1.0,
-      "weighted_score": 8.1
+      "support": 7,
+      "lift": 124.889,
+      "jaccard": 0.778,
+      "weighted_score": 9.3
     },
     {
       "card_name": "Hop's Snorlax",
-      "support": 6,
-      "lift": 148.667,
+      "support": 9,
+      "lift": 124.889,
       "jaccard": 1.0,
-      "weighted_score": 8.1
+      "weighted_score": 12.3
     },
     {
       "card_name": "Hop's Trevenant",
-      "support": 6,
-      "lift": 148.667,
-      "jaccard": 1.0,
-      "weighted_score": 8.1
+      "support": 7,
+      "lift": 124.889,
+      "jaccard": 0.778,
+      "weighted_score": 9.3
     },
     {
       "card_name": "Hop's Zacian ex",
-      "support": 6,
-      "lift": 127.429,
-      "jaccard": 0.857,
-      "weighted_score": 8.1
+      "support": 9,
+      "lift": 112.4,
+      "jaccard": 0.9,
+      "weighted_score": 12.3
+    },
+    {
+      "card_name": "Hop's Cramorant",
+      "support": 5,
+      "lift": 89.206,
+      "jaccard": 0.455,
+      "weighted_score": 6.9
     },
     {
       "card_name": "Hassel",
       "support": 6,
-      "lift": 52.471,
-      "jaccard": 0.353,
-      "weighted_score": 8.1
-    },
-    {
-      "card_name": "Telepath Psychic Energy",
-      "support": 6,
-      "lift": 12.054,
-      "jaccard": 0.081,
+      "lift": 34.061,
+      "jaccard": 0.24,
       "weighted_score": 8.1
     },
     {
       "card_name": "Mist Energy",
+      "support": 7,
+      "lift": 8.742,
+      "jaccard": 0.069,
+      "weighted_score": 9.3
+    },
+    {
+      "card_name": "Telepath Psychic Energy",
+      "support": 7,
+      "lift": 8.571,
+      "jaccard": 0.067,
+      "weighted_score": 9.3
+    },
+    {
+      "card_name": "Secret Box",
+      "support": 5,
+      "lift": 8.438,
+      "jaccard": 0.064,
+      "weighted_score": 7.2
+    },
+    {
+      "card_name": "Pokégear 3.0",
       "support": 6,
-      "lift": 11.584,
-      "jaccard": 0.078,
+      "lift": 4.654,
+      "jaccard": 0.037,
       "weighted_score": 8.1
     },
     {
       "card_name": "Switch",
       "support": 6,
-      "lift": 5.987,
-      "jaccard": 0.04,
-      "weighted_score": 8.1
-    },
-    {
-      "card_name": "Shaymin",
-      "support": 5,
-      "lift": 5.057,
-      "jaccard": 0.034,
-      "weighted_score": 6.9
-    },
-    {
-      "card_name": "Team Rocket's Petrel",
-      "support": 5,
-      "lift": 3.832,
-      "jaccard": 0.026,
-      "weighted_score": 6.9
-    },
-    {
-      "card_name": "Psyduck",
-      "support": 6,
-      "lift": 3.764,
-      "jaccard": 0.025,
+      "lift": 3.765,
+      "jaccard": 0.03,
       "weighted_score": 8.1
     },
     {
       "card_name": "Latias ex",
-      "support": 6,
-      "lift": 3.444,
-      "jaccard": 0.023,
-      "weighted_score": 8.1
+      "support": 9,
+      "lift": 3.096,
+      "jaccard": 0.025,
+      "weighted_score": 12.3
     },
     {
-      "card_name": "Lillie's Clefairy ex",
-      "support": 6,
-      "lift": 3.444,
+      "card_name": "Hilda",
+      "support": 5,
+      "lift": 2.988,
       "jaccard": 0.023,
-      "weighted_score": 8.1
+      "weighted_score": 6.6
     }
   ]
 }

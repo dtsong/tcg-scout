@@ -7,124 +7,44 @@
   "image_url": null,
   "category": "Trainer",
   "rarity": null,
-  "total_appearances": 35,
+  "total_appearances": 6,
   "usage_pct": 0.5,
-  "avg_copies": 3.8,
-  "unique_archetypes": 9,
-  "weighted_score": 59.7,
-  "win_rate_proxy": 1.71,
+  "avg_copies": 4.0,
+  "unique_archetypes": 3,
+  "weighted_score": 13.2,
+  "win_rate_proxy": 2.2,
   "top_archetype": "Trevenant",
   "trend_direction": "stable",
   "copy_distribution": [
     {
-      "copies": 2,
-      "count": 2
-    },
-    {
-      "copies": 3,
-      "count": 4
-    },
-    {
       "copies": 4,
-      "count": 29
+      "count": 6
     }
   ],
   "archetypes": [
     {
       "name": "Trevenant",
       "slug": "trevenant",
-      "usage_count": 11,
-      "avg_copies": 4.0,
-      "tier": "Rogue"
-    },
-    {
-      "name": "Dubwool Trevenant",
-      "slug": "dubwool-trevenant",
-      "usage_count": 7,
+      "usage_count": 3,
       "avg_copies": 4.0,
       "tier": "Rogue"
     },
     {
       "name": "Trevenant Zacian Crowned",
       "slug": "trevenant-zacian-crowned",
-      "usage_count": 6,
-      "avg_copies": 3.8,
-      "tier": "Rogue"
-    },
-    {
-      "name": "Latias Trevenant",
-      "slug": "latias-trevenant",
-      "usage_count": 5,
-      "avg_copies": 3.8,
-      "tier": "Rogue"
-    },
-    {
-      "name": "Latias Zacian Crowned",
-      "slug": "latias-zacian-crowned",
       "usage_count": 2,
-      "avg_copies": 3.5,
-      "tier": "Rogue"
-    },
-    {
-      "name": "Munkidori Zacian Crowned",
-      "slug": "munkidori-zacian-crowned",
-      "usage_count": 1,
-      "avg_copies": 2.0,
-      "tier": "Rogue"
-    },
-    {
-      "name": "Latias Typhlosion",
-      "slug": "latias-typhlosion",
-      "usage_count": 1,
-      "avg_copies": 2.0,
-      "tier": "Rogue"
-    },
-    {
-      "name": "Clefairy Trevenant",
-      "slug": "clefairy-trevenant",
-      "usage_count": 1,
       "avg_copies": 4.0,
       "tier": "Rogue"
     },
     {
-      "name": "Archaludon Zacian Crowned",
-      "slug": "archaludon-zacian-crowned",
+      "name": "Dubwool Trevenant",
+      "slug": "dubwool-trevenant",
       "usage_count": 1,
-      "avg_copies": 3.0,
+      "avg_copies": 4.0,
       "tier": "Rogue"
     }
   ],
   "weekly_usage": [
-    {
-      "week": "2026-01-19",
-      "usage_pct": 0.6,
-      "avg_copies": 3.5
-    },
-    {
-      "week": "2026-01-26",
-      "usage_pct": 0.5,
-      "avg_copies": 3.4
-    },
-    {
-      "week": "2026-02-02",
-      "usage_pct": 0.6,
-      "avg_copies": 4.0
-    },
-    {
-      "week": "2026-02-09",
-      "usage_pct": 0.6,
-      "avg_copies": 3.9
-    },
-    {
-      "week": "2026-02-16",
-      "usage_pct": 0.0,
-      "avg_copies": 0
-    },
-    {
-      "week": "2026-02-23",
-      "usage_pct": 0.5,
-      "avg_copies": 3.5
-    },
     {
       "week": "2026-03-02",
       "usage_pct": 0.5,
@@ -134,108 +54,108 @@
   "synergy_partners": [
     {
       "card_name": "Hop's Bag",
-      "support": 35,
-      "lift": 193.029,
+      "support": 6,
+      "lift": 197.333,
       "jaccard": 1.0,
-      "weighted_score": 59.7
-    },
-    {
-      "card_name": "Hop's Phantump",
-      "support": 31,
-      "lift": 193.029,
-      "jaccard": 0.886,
-      "weighted_score": 52.8
-    },
-    {
-      "card_name": "Hop's Trevenant",
-      "support": 31,
-      "lift": 193.029,
-      "jaccard": 0.886,
-      "weighted_score": 52.8
-    },
-    {
-      "card_name": "Hop's Zacian ex",
-      "support": 29,
-      "lift": 193.029,
-      "jaccard": 0.829,
-      "weighted_score": 49.3
-    },
-    {
-      "card_name": "Hop's Snorlax",
-      "support": 35,
-      "lift": 187.667,
-      "jaccard": 0.972,
-      "weighted_score": 59.7
+      "weighted_score": 13.2
     },
     {
       "card_name": "Hop's Choice Band",
-      "support": 35,
-      "lift": 182.595,
-      "jaccard": 0.946,
-      "weighted_score": 59.7
+      "support": 6,
+      "lift": 197.333,
+      "jaccard": 1.0,
+      "weighted_score": 13.2
     },
     {
-      "card_name": "Hop's Dubwool",
-      "support": 8,
-      "lift": 140.384,
-      "jaccard": 0.211,
-      "weighted_score": 14.0
+      "card_name": "Hop's Phantump",
+      "support": 6,
+      "lift": 197.333,
+      "jaccard": 1.0,
+      "weighted_score": 13.2
     },
     {
-      "card_name": "Hop's Wooloo",
-      "support": 8,
-      "lift": 140.384,
-      "jaccard": 0.211,
-      "weighted_score": 14.0
+      "card_name": "Hop's Trevenant",
+      "support": 6,
+      "lift": 197.333,
+      "jaccard": 1.0,
+      "weighted_score": 13.2
     },
     {
-      "card_name": "Hop's Cramorant",
-      "support": 24,
-      "lift": 81.275,
-      "jaccard": 0.353,
-      "weighted_score": 39.5
+      "card_name": "Hop's Zacian ex",
+      "support": 6,
+      "lift": 197.333,
+      "jaccard": 1.0,
+      "weighted_score": 13.2
     },
     {
-      "card_name": "Repel",
-      "support": 7,
-      "lift": 50.044,
-      "jaccard": 0.127,
-      "weighted_score": 12.4
-    },
-    {
-      "card_name": "Hassel",
-      "support": 11,
-      "lift": 26.877,
-      "jaccard": 0.107,
-      "weighted_score": 18.9
-    },
-    {
-      "card_name": "Mist Energy",
-      "support": 17,
-      "lift": 13.179,
-      "jaccard": 0.064,
-      "weighted_score": 31.9
-    },
-    {
-      "card_name": "Iris's Fighting Spirit",
-      "support": 7,
-      "lift": 9.068,
-      "jaccard": 0.04,
-      "weighted_score": 12.6
-    },
-    {
-      "card_name": "Secret Box",
-      "support": 19,
-      "lift": 8.967,
-      "jaccard": 0.045,
-      "weighted_score": 32.3
+      "card_name": "Hop's Snorlax",
+      "support": 6,
+      "lift": 169.143,
+      "jaccard": 0.857,
+      "weighted_score": 13.2
     },
     {
       "card_name": "Telepath Psychic Energy",
-      "support": 29,
-      "lift": 8.125,
-      "jaccard": 0.042,
-      "weighted_score": 50.1
+      "support": 6,
+      "lift": 11.96,
+      "jaccard": 0.061,
+      "weighted_score": 13.2
+    },
+    {
+      "card_name": "Bloodmoon Ursaluna ex",
+      "support": 5,
+      "lift": 10.842,
+      "jaccard": 0.054,
+      "weighted_score": 10.7
+    },
+    {
+      "card_name": "Mist Energy",
+      "support": 5,
+      "lift": 8.087,
+      "jaccard": 0.041,
+      "weighted_score": 12.0
+    },
+    {
+      "card_name": "Latias ex",
+      "support": 6,
+      "lift": 3.307,
+      "jaccard": 0.017,
+      "weighted_score": 13.2
+    },
+    {
+      "card_name": "Lillie's Clefairy ex",
+      "support": 6,
+      "lift": 2.779,
+      "jaccard": 0.014,
+      "weighted_score": 13.2
+    },
+    {
+      "card_name": "Fezandipiti ex",
+      "support": 5,
+      "lift": 1.372,
+      "jaccard": 0.007,
+      "weighted_score": 10.7
+    },
+    {
+      "card_name": "Lillie's Determination",
+      "support": 6,
+      "lift": 1.173,
+      "jaccard": 0.006,
+      "weighted_score": 13.2
+    },
+    {
+      "card_name": "Poké Pad",
+      "support": 6,
+      "lift": 1.17,
+      "jaccard": 0.006,
+      "weighted_score": 13.2
+    },
+    {
+      "card_name": "Boss's Orders",
+      "support": 6,
+      "lift": 1.106,
+      "jaccard": 0.006,
+      "weighted_score": 13.2
     }
   ]
 }

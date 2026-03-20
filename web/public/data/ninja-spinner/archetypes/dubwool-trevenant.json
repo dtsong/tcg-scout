@@ -3,7 +3,7 @@
   "slug": "dubwool-trevenant",
   "tier": "Rogue",
   "meta_share": 0.3,
-  "weighted_share": 0.3,
+  "weighted_share": 0.2,
   "deck_count": 3,
   "best_placement": 5,
   "sprite_filenames": [
@@ -817,11 +817,11 @@
     }
   ],
   "radar": {
-    "meta_share": 1.7,
-    "weighted_share": 1.4,
+    "meta_share": 1.4,
+    "weighted_share": 1.1,
     "consistency": 60.0,
     "ceiling": 50,
-    "popularity": 3.3,
+    "popularity": 2.4,
     "core_density": 80.0
   },
   "evolution": [
@@ -846,7 +846,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "Patrat",
+          "card": "Surfer",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -856,7 +856,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "Surfer",
+          "card": "Patrat",
           "from_pct": 50.0,
           "to_pct": 0.0
         }
@@ -872,7 +872,7 @@
     },
     {
       "week": "2026-03-16",
-      "meta_share": 0.4,
+      "meta_share": 0.2,
       "deck_count": 1
     }
   ],

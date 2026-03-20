@@ -7,24 +7,31 @@
   "image_url": null,
   "category": "Pokemon",
   "rarity": null,
-  "total_appearances": 3,
-  "usage_pct": 0.3,
+  "total_appearances": 4,
+  "usage_pct": 0.4,
   "avg_copies": 2.0,
-  "unique_archetypes": 3,
-  "weighted_score": 5.2,
-  "win_rate_proxy": 1.73,
+  "unique_archetypes": 4,
+  "weighted_score": 6.4,
+  "win_rate_proxy": 1.6,
   "top_archetype": "Mega Froslass Bronzong",
   "trend_direction": "stable",
   "copy_distribution": [
     {
       "copies": 2,
-      "count": 3
+      "count": 4
     }
   ],
   "archetypes": [
     {
       "name": "Mega Froslass Bronzong",
       "slug": "mega-froslass-bronzong",
+      "usage_count": 1,
+      "avg_copies": 2.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Bronzong Farigiraf",
+      "slug": "bronzong-farigiraf",
       "usage_count": 1,
       "avg_copies": 2.0,
       "tier": "Rogue"

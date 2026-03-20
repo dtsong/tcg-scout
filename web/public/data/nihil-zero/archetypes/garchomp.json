@@ -359,6 +359,7 @@
   "results": [
     {
       "tournament_name": "City League Aichi",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4095",
       "date": "2026-02-15",
       "standing": 14,
       "player_name": "デスセイヤ",
@@ -467,6 +468,7 @@
     },
     {
       "tournament_name": "City League Tōkyō",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3855",
       "date": "2026-01-24",
       "standing": 14,
       "player_name": "むっくー",
@@ -600,6 +602,7 @@
     },
     {
       "tournament_name": "City League Kagawa",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3850",
       "date": "2026-01-24",
       "standing": 15,
       "player_name": "のえる",
@@ -735,6 +738,11 @@
           "to_pct": 100.0
         },
         {
+          "card": "Pokégear 3.0",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
           "card": "Battle Cage",
           "from_pct": 0.0,
           "to_pct": 100.0
@@ -743,51 +751,21 @@
           "card": "Bloodmoon Ursaluna",
           "from_pct": 0.0,
           "to_pct": 100.0
-        },
-        {
-          "card": "Pokégear 3.0",
-          "from_pct": 0.0,
-          "to_pct": 100.0
         }
       ],
       "dropped": [
-        {
-          "card": "Cynthia's Spiritomb",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
         {
           "card": "Team Rocket's Petrel",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Handheld Fan",
-          "from_pct": 50.0,
+          "card": "Cynthia's Spiritomb",
+          "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Munkidori",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Rare Candy",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Buddy-Buddy Poffin",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Switch",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Cynthia's Roselia",
+          "card": "Crispin",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -797,22 +775,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "Crispin",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Psyduck",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Tool Scrapper",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Cynthia's Roserade",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -823,6 +786,46 @@
         },
         {
           "card": "Team Rocket's Watchtower",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Buddy-Buddy Poffin",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Munkidori",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Cynthia's Roserade",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Rare Candy",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Cynthia's Roselia",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Switch",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Psyduck",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Handheld Fan",
           "from_pct": 50.0,
           "to_pct": 0.0
         }

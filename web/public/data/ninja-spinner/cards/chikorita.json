@@ -7,26 +7,26 @@
   "image_url": null,
   "category": "Pokemon",
   "rarity": null,
-  "total_appearances": 47,
-  "usage_pct": 5.3,
-  "avg_copies": 2.2,
+  "total_appearances": 63,
+  "usage_pct": 5.6,
+  "avg_copies": 2.3,
   "unique_archetypes": 6,
-  "weighted_score": 73.6,
-  "win_rate_proxy": 1.57,
+  "weighted_score": 103.0,
+  "win_rate_proxy": 1.63,
   "top_archetype": "Arboliva Ogerpon",
   "trend_direction": "stable",
   "copy_distribution": [
     {
       "copies": 1,
-      "count": 2
+      "count": 4
     },
     {
       "copies": 2,
-      "count": 39
+      "count": 50
     },
     {
       "copies": 3,
-      "count": 7
+      "count": 12
     },
     {
       "copies": 4,
@@ -37,36 +37,36 @@
     {
       "name": "Arboliva Ogerpon",
       "slug": "arboliva-ogerpon",
-      "usage_count": 26,
-      "avg_copies": 2.0,
-      "tier": "C"
-    },
-    {
-      "name": "Mega Venusaur",
-      "slug": "mega-venusaur",
-      "usage_count": 7,
+      "usage_count": 32,
       "avg_copies": 2.0,
       "tier": "C"
     },
     {
       "name": "Mega Meganium",
       "slug": "mega-meganium",
-      "usage_count": 6,
+      "usage_count": 13,
       "avg_copies": 2.3,
-      "tier": "Rogue"
+      "tier": "C"
+    },
+    {
+      "name": "Mega Venusaur",
+      "slug": "mega-venusaur",
+      "usage_count": 8,
+      "avg_copies": 2.0,
+      "tier": "C"
     },
     {
       "name": "Hydrapple Ogerpon",
       "slug": "hydrapple-ogerpon",
-      "usage_count": 4,
+      "usage_count": 5,
       "avg_copies": 2.0,
       "tier": "Rogue"
     },
     {
       "name": "Mega Meganium Mega Venusaur",
       "slug": "mega-meganium-mega-venusaur",
-      "usage_count": 3,
-      "avg_copies": 3.0,
+      "usage_count": 4,
+      "avg_copies": 2.8,
       "tier": "Rogue"
     },
     {
@@ -85,115 +85,115 @@
     },
     {
       "week": "2026-03-16",
-      "usage_pct": 4.6,
+      "usage_pct": 6.1,
       "avg_copies": 2.2
     }
   ],
   "synergy_partners": [
     {
       "card_name": "Bayleef",
-      "support": 47,
-      "lift": 18.979,
+      "support": 63,
+      "lift": 17.841,
       "jaccard": 1.0,
-      "weighted_score": 71.2
+      "weighted_score": 97.1
     },
     {
       "card_name": "Celebi",
-      "support": 8,
-      "lift": 18.979,
-      "jaccard": 0.17,
-      "weighted_score": 12.0
+      "support": 12,
+      "lift": 17.841,
+      "jaccard": 0.19,
+      "weighted_score": 19.5
     },
     {
       "card_name": "Mega Meganium ex",
-      "support": 11,
-      "lift": 18.979,
-      "jaccard": 0.234,
-      "weighted_score": 14.9
+      "support": 19,
+      "lift": 17.841,
+      "jaccard": 0.302,
+      "weighted_score": 28.3
     },
     {
       "card_name": "Meganium",
-      "support": 47,
-      "lift": 18.979,
+      "support": 63,
+      "lift": 17.841,
       "jaccard": 1.0,
-      "weighted_score": 71.2
+      "weighted_score": 97.1
+    },
+    {
+      "card_name": "Hydrapple ex",
+      "support": 5,
+      "lift": 14.868,
+      "jaccard": 0.078,
+      "weighted_score": 6.9
     },
     {
       "card_name": "Max Rod",
-      "support": 11,
-      "lift": 14.912,
-      "jaccard": 0.22,
-      "weighted_score": 17.3
+      "support": 17,
+      "lift": 13.786,
+      "jaccard": 0.25,
+      "weighted_score": 27.2
     },
     {
       "card_name": "Arboliva ex",
-      "support": 26,
-      "lift": 13.707,
-      "jaccard": 0.456,
-      "weighted_score": 40.7
+      "support": 32,
+      "lift": 12.975,
+      "jaccard": 0.427,
+      "weighted_score": 50.5
     },
     {
       "card_name": "Dolliv",
-      "support": 26,
-      "lift": 13.707,
-      "jaccard": 0.456,
-      "weighted_score": 40.7
+      "support": 32,
+      "lift": 12.975,
+      "jaccard": 0.427,
+      "weighted_score": 50.5
     },
     {
       "card_name": "Smoliv",
-      "support": 26,
-      "lift": 13.707,
-      "jaccard": 0.456,
-      "weighted_score": 40.7
-    },
-    {
-      "card_name": "Forest of Vitality",
-      "support": 47,
-      "lift": 12.563,
-      "jaccard": 0.662,
-      "weighted_score": 71.2
-    },
-    {
-      "card_name": "Bulbasaur",
-      "support": 16,
-      "lift": 11.247,
-      "jaccard": 0.276,
-      "weighted_score": 23.6
-    },
-    {
-      "card_name": "Ivysaur",
-      "support": 16,
-      "lift": 11.247,
-      "jaccard": 0.276,
-      "weighted_score": 23.6
-    },
-    {
-      "card_name": "Mega Venusaur ex",
-      "support": 16,
-      "lift": 11.247,
-      "jaccard": 0.276,
-      "weighted_score": 23.6
+      "support": 32,
+      "lift": 12.975,
+      "jaccard": 0.427,
+      "weighted_score": 50.5
     },
     {
       "card_name": "Regigigas",
-      "support": 5,
-      "lift": 10.544,
-      "jaccard": 0.098,
-      "weighted_score": 7.4
+      "support": 10,
+      "lift": 11.894,
+      "jaccard": 0.147,
+      "weighted_score": 15.6
+    },
+    {
+      "card_name": "Forest of Vitality",
+      "support": 63,
+      "lift": 11.832,
+      "jaccard": 0.663,
+      "weighted_score": 97.1
+    },
+    {
+      "card_name": "Bulbasaur",
+      "support": 25,
+      "lift": 11.437,
+      "jaccard": 0.325,
+      "weighted_score": 38.5
+    },
+    {
+      "card_name": "Ivysaur",
+      "support": 25,
+      "lift": 11.437,
+      "jaccard": 0.325,
+      "weighted_score": 38.5
+    },
+    {
+      "card_name": "Mega Venusaur ex",
+      "support": 25,
+      "lift": 11.437,
+      "jaccard": 0.325,
+      "weighted_score": 38.5
     },
     {
       "card_name": "Bug Catching Set",
-      "support": 47,
-      "lift": 7.964,
-      "jaccard": 0.42,
-      "weighted_score": 71.2
-    },
-    {
-      "card_name": "Lana's Aid",
-      "support": 33,
-      "lift": 7.368,
-      "jaccard": 0.333,
-      "weighted_score": 50.0
+      "support": 63,
+      "lift": 7.252,
+      "jaccard": 0.406,
+      "weighted_score": 97.1
     }
   ]
 }

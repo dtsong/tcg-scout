@@ -297,6 +297,7 @@
   "results": [
     {
       "tournament_name": "City League Ōsaka",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4087",
       "date": "2026-02-14",
       "standing": 8,
       "player_name": "ひらじ",
@@ -400,6 +401,7 @@
     },
     {
       "tournament_name": "City League Mie",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4028",
       "date": "2026-02-08",
       "standing": 9,
       "player_name": "リョウサワ",
@@ -513,6 +515,7 @@
     },
     {
       "tournament_name": "City League Gifu",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4015",
       "date": "2026-02-08",
       "standing": 9,
       "player_name": "ボルツマン",
@@ -633,27 +636,7 @@
       "week": "2026-02-09",
       "adopted": [
         {
-          "card": "Shaymin",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
           "card": "Mist Energy",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Latias ex",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Precious Trolley",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Smoochum",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -663,7 +646,22 @@
           "to_pct": 100.0
         },
         {
+          "card": "Smoochum",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Latias ex",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
           "card": "Pokégear 3.0",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Shaymin",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -671,26 +669,26 @@
           "card": "Kofu",
           "from_pct": 0.0,
           "to_pct": 100.0
+        },
+        {
+          "card": "Precious Trolley",
+          "from_pct": 0.0,
+          "to_pct": 100.0
         }
       ],
       "dropped": [
-        {
-          "card": "Solrock",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Lillie's Determination",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
         {
           "card": "Air Balloon",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Fighting Gong",
+          "card": "Hilda",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Solrock",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -715,7 +713,12 @@
           "to_pct": 0.0
         },
         {
-          "card": "Hilda",
+          "card": "Fighting Gong",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Lillie's Determination",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -725,22 +728,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "Meowth ex",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Switch",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Ultra Ball",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Morty's Conviction",
+          "card": "Team Rocket's Watchtower",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -750,7 +738,22 @@
           "to_pct": 0.0
         },
         {
-          "card": "Team Rocket's Watchtower",
+          "card": "Morty's Conviction",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Ultra Ball",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Switch",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Meowth ex",
           "from_pct": 50.0,
           "to_pct": 0.0
         }

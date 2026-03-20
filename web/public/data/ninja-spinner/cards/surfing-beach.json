@@ -7,49 +7,56 @@
   "image_url": null,
   "category": "Trainer",
   "rarity": null,
-  "total_appearances": 30,
-  "usage_pct": 3.4,
+  "total_appearances": 46,
+  "usage_pct": 4.1,
   "avg_copies": 2.0,
-  "unique_archetypes": 9,
-  "weighted_score": 44.2,
-  "win_rate_proxy": 1.47,
+  "unique_archetypes": 11,
+  "weighted_score": 69.3,
+  "win_rate_proxy": 1.51,
   "top_archetype": "Mega Greninja Dudunsparce",
   "trend_direction": "stable",
   "copy_distribution": [
     {
       "copies": 1,
-      "count": 5
+      "count": 8
     },
     {
       "copies": 2,
-      "count": 19
+      "count": 30
     },
     {
       "copies": 3,
-      "count": 6
+      "count": 8
     }
   ],
   "archetypes": [
     {
       "name": "Mega Greninja Dudunsparce",
       "slug": "mega-greninja-dudunsparce",
-      "usage_count": 11,
-      "avg_copies": 2.4,
+      "usage_count": 15,
+      "avg_copies": 2.3,
       "tier": "C"
     },
     {
       "name": "Mega Greninja Dragapult",
       "slug": "mega-greninja-dragapult",
-      "usage_count": 7,
+      "usage_count": 10,
       "avg_copies": 1.9,
       "tier": "C"
     },
     {
       "name": "Mega Froslass Mega Starmie",
       "slug": "mega-froslass-mega-starmie",
-      "usage_count": 4,
-      "avg_copies": 2.0,
+      "usage_count": 6,
+      "avg_copies": 1.8,
       "tier": "C"
+    },
+    {
+      "name": "Mega Greninja Mega Starmie",
+      "slug": "mega-greninja-mega-starmie",
+      "usage_count": 5,
+      "avg_copies": 2.6,
+      "tier": "Rogue"
     },
     {
       "name": "Mega Greninja Noctowl",
@@ -59,10 +66,17 @@
       "tier": "Rogue"
     },
     {
-      "name": "Mega Greninja Mega Starmie",
-      "slug": "mega-greninja-mega-starmie",
+      "name": "Mega Greninja Mega Kangaskhan",
+      "slug": "mega-greninja-mega-kangaskhan",
       "usage_count": 2,
-      "avg_copies": 2.5,
+      "avg_copies": 2.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Dusknoir Greninja",
+      "slug": "dusknoir-greninja",
+      "usage_count": 2,
+      "avg_copies": 1.0,
       "tier": "Rogue"
     },
     {
@@ -80,17 +94,17 @@
       "tier": "Rogue"
     },
     {
-      "name": "Mega Greninja Mega Kangaskhan",
-      "slug": "mega-greninja-mega-kangaskhan",
-      "usage_count": 1,
-      "avg_copies": 2.0,
-      "tier": "Rogue"
-    },
-    {
       "name": "Mega Greninja",
       "slug": "mega-greninja",
       "usage_count": 1,
       "avg_copies": 1.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Mega Froslass Mega Greninja",
+      "slug": "mega-froslass-mega-greninja",
+      "usage_count": 1,
+      "avg_copies": 2.0,
       "tier": "Rogue"
     }
   ],
@@ -102,115 +116,115 @@
     },
     {
       "week": "2026-03-16",
-      "usage_pct": 1.9,
-      "avg_copies": 2.2
+      "usage_pct": 4.3,
+      "avg_copies": 2.0
     }
   ],
   "synergy_partners": [
     {
+      "card_name": "Totodile",
+      "support": 6,
+      "lift": 24.435,
+      "jaccard": 0.13,
+      "weighted_score": 8.6
+    },
+    {
       "card_name": "Greninja ex",
-      "support": 25,
-      "lift": 21.863,
-      "jaccard": 0.641,
-      "weighted_score": 37.3
+      "support": 39,
+      "lift": 18.685,
+      "jaccard": 0.672,
+      "weighted_score": 59.2
     },
     {
       "card_name": "Mega Starmie ex",
+      "support": 9,
+      "lift": 14.661,
+      "jaccard": 0.173,
+      "weighted_score": 13.7
+    },
+    {
+      "card_name": "Salvatore",
       "support": 6,
-      "lift": 17.84,
-      "jaccard": 0.176,
-      "weighted_score": 7.5
-    },
-    {
-      "card_name": "Ignition Energy",
-      "support": 22,
-      "lift": 11.681,
-      "jaccard": 0.344,
-      "weighted_score": 33.7
-    },
-    {
-      "card_name": "Neo Upper Energy",
-      "support": 18,
-      "lift": 11.387,
-      "jaccard": 0.305,
-      "weighted_score": 25.7
-    },
-    {
-      "card_name": "Grand Tree",
-      "support": 5,
-      "lift": 10.619,
-      "jaccard": 0.128,
-      "weighted_score": 8.4
-    },
-    {
-      "card_name": "Mega Froslass ex",
-      "support": 5,
-      "lift": 8.745,
-      "jaccard": 0.119,
-      "weighted_score": 6.9
-    },
-    {
-      "card_name": "Dudunsparce",
-      "support": 12,
-      "lift": 7.136,
-      "jaccard": 0.176,
-      "weighted_score": 16.8
-    },
-    {
-      "card_name": "Dunsparce",
-      "support": 12,
-      "lift": 7.136,
-      "jaccard": 0.176,
-      "weighted_score": 16.8
-    },
-    {
-      "card_name": "Energy Retrieval",
-      "support": 15,
-      "lift": 5.947,
-      "jaccard": 0.167,
-      "weighted_score": 23.2
-    },
-    {
-      "card_name": "Wally's Compassion",
-      "support": 15,
-      "lift": 5.575,
-      "jaccard": 0.158,
-      "weighted_score": 21.8
-    },
-    {
-      "card_name": "Hilda",
-      "support": 26,
-      "lift": 5.02,
-      "jaccard": 0.165,
-      "weighted_score": 37.3
-    },
-    {
-      "card_name": "Colress's Tenacity",
-      "support": 6,
-      "lift": 4.149,
-      "jaccard": 0.09,
+      "lift": 12.217,
+      "jaccard": 0.115,
       "weighted_score": 9.9
     },
     {
-      "card_name": "Air Balloon",
+      "card_name": "Grand Tree",
+      "support": 12,
+      "lift": 11.278,
+      "jaccard": 0.2,
+      "weighted_score": 21.0
+    },
+    {
+      "card_name": "Ignition Energy",
+      "support": 36,
+      "lift": 11.278,
+      "jaccard": 0.409,
+      "weighted_score": 55.3
+    },
+    {
+      "card_name": "Mega Froslass ex",
+      "support": 10,
+      "lift": 10.181,
+      "jaccard": 0.167,
+      "weighted_score": 15.5
+    },
+    {
+      "card_name": "Neo Upper Energy",
+      "support": 24,
+      "lift": 9.459,
+      "jaccard": 0.286,
+      "weighted_score": 33.5
+    },
+    {
+      "card_name": "Dudunsparce",
+      "support": 18,
+      "lift": 6.374,
+      "jaccard": 0.186,
+      "weighted_score": 26.7
+    },
+    {
+      "card_name": "Dunsparce",
+      "support": 18,
+      "lift": 6.374,
+      "jaccard": 0.186,
+      "weighted_score": 26.7
+    },
+    {
+      "card_name": "Colress's Tenacity",
+      "support": 13,
+      "lift": 4.887,
+      "jaccard": 0.133,
+      "weighted_score": 22.5
+    },
+    {
+      "card_name": "Energy Retrieval",
       "support": 23,
-      "lift": 3.402,
-      "jaccard": 0.111,
-      "weighted_score": 34.9
+      "lift": 4.803,
+      "jaccard": 0.164,
+      "weighted_score": 33.7
+    },
+    {
+      "card_name": "Hilda",
+      "support": 39,
+      "lift": 4.56,
+      "jaccard": 0.181,
+      "weighted_score": 57.7
+    },
+    {
+      "card_name": "Wally's Compassion",
+      "support": 18,
+      "lift": 3.962,
+      "jaccard": 0.129,
+      "weighted_score": 25.7
     },
     {
       "card_name": "Snorunt",
-      "support": 5,
-      "lift": 2.973,
-      "jaccard": 0.067,
-      "weighted_score": 6.9
-    },
-    {
-      "card_name": "Rare Candy",
-      "support": 26,
-      "lift": 2.526,
-      "jaccard": 0.084,
-      "weighted_score": 38.5
+      "support": 10,
+      "lift": 3.759,
+      "jaccard": 0.099,
+      "weighted_score": 15.5
     }
   ]
 }

@@ -7,18 +7,18 @@
   "image_url": null,
   "category": "Pokemon",
   "rarity": null,
-  "total_appearances": 22,
-  "usage_pct": 2.5,
-  "avg_copies": 3.2,
+  "total_appearances": 32,
+  "usage_pct": 2.8,
+  "avg_copies": 3.3,
   "unique_archetypes": 4,
-  "weighted_score": 49.0,
-  "win_rate_proxy": 2.23,
+  "weighted_score": 73.7,
+  "win_rate_proxy": 2.3,
   "top_archetype": "Alakazam Dudunsparce",
   "trend_direction": "stable",
   "copy_distribution": [
     {
       "copies": 1,
-      "count": 6
+      "count": 11
     },
     {
       "copies": 2,
@@ -26,7 +26,7 @@
     },
     {
       "copies": 3,
-      "count": 16
+      "count": 26
     },
     {
       "copies": 4,
@@ -37,9 +37,16 @@
     {
       "name": "Alakazam Dudunsparce",
       "slug": "alakazam-dudunsparce",
-      "usage_count": 19,
-      "avg_copies": 2.8,
+      "usage_count": 28,
+      "avg_copies": 2.6,
       "tier": "C"
+    },
+    {
+      "name": "Alakazam Dragapult",
+      "slug": "alakazam-dragapult",
+      "usage_count": 2,
+      "avg_copies": 2.0,
+      "tier": "Rogue"
     },
     {
       "name": "Metagross Slowking",
@@ -54,13 +61,6 @@
       "usage_count": 1,
       "avg_copies": 2.0,
       "tier": "Rogue"
-    },
-    {
-      "name": "Alakazam Dragapult",
-      "slug": "alakazam-dragapult",
-      "usage_count": 1,
-      "avg_copies": 1.5,
-      "tier": "Rogue"
     }
   ],
   "weekly_usage": [
@@ -71,115 +71,115 @@
     },
     {
       "week": "2026-03-16",
-      "usage_pct": 3.5,
-      "avg_copies": 2.1
+      "usage_pct": 4.9,
+      "avg_copies": 2.2
     }
   ],
   "synergy_partners": [
     {
       "card_name": "Abra",
-      "support": 21,
-      "lift": 40.545,
-      "jaccard": 0.955,
-      "weighted_score": 36.6
-    },
-    {
-      "card_name": "Enhanced Hammer",
-      "support": 17,
-      "lift": 40.545,
-      "jaccard": 0.773,
-      "weighted_score": 31.0
+      "support": 31,
+      "lift": 35.125,
+      "jaccard": 0.969,
+      "weighted_score": 52.4
     },
     {
       "card_name": "Kadabra",
-      "support": 21,
-      "lift": 40.545,
-      "jaccard": 0.955,
-      "weighted_score": 36.6
+      "support": 31,
+      "lift": 35.125,
+      "jaccard": 0.969,
+      "weighted_score": 52.4
+    },
+    {
+      "card_name": "Enhanced Hammer",
+      "support": 26,
+      "lift": 33.824,
+      "jaccard": 0.788,
+      "weighted_score": 43.8
     },
     {
       "card_name": "Enriching Energy",
-      "support": 19,
-      "lift": 30.815,
-      "jaccard": 0.679,
-      "weighted_score": 35.0
+      "support": 28,
+      "lift": 26.581,
+      "jaccard": 0.683,
+      "weighted_score": 49.6
     },
     {
       "card_name": "Sacred Ash",
-      "support": 18,
-      "lift": 26.065,
-      "jaccard": 0.562,
-      "weighted_score": 32.2
+      "support": 27,
+      "lift": 23.131,
+      "jaccard": 0.587,
+      "weighted_score": 46.8
+    },
+    {
+      "card_name": "Lucky Helmet",
+      "support": 8,
+      "lift": 20.071,
+      "jaccard": 0.211,
+      "weighted_score": 12.1
     },
     {
       "card_name": "Dudunsparce",
-      "support": 19,
-      "lift": 15.407,
-      "jaccard": 0.358,
-      "weighted_score": 34.2
+      "support": 28,
+      "lift": 14.254,
+      "jaccard": 0.384,
+      "weighted_score": 48.8
     },
     {
       "card_name": "Dunsparce",
-      "support": 19,
-      "lift": 15.407,
-      "jaccard": 0.358,
-      "weighted_score": 34.2
-    },
-    {
-      "card_name": "Fan Rotom",
-      "support": 14,
-      "lift": 12.614,
-      "jaccard": 0.264,
-      "weighted_score": 25.8
-    },
-    {
-      "card_name": "Wondrous Patch",
-      "support": 15,
-      "lift": 12.164,
-      "jaccard": 0.263,
-      "weighted_score": 28.3
-    },
-    {
-      "card_name": "Telepath Psychic Energy",
-      "support": 22,
-      "lift": 12.054,
-      "jaccard": 0.297,
-      "weighted_score": 38.6
+      "support": 28,
+      "lift": 14.254,
+      "jaccard": 0.384,
+      "weighted_score": 48.8
     },
     {
       "card_name": "Genesect",
-      "support": 6,
-      "lift": 11.058,
-      "jaccard": 0.158,
-      "weighted_score": 9.9
+      "support": 11,
+      "lift": 13.323,
+      "jaccard": 0.22,
+      "weighted_score": 17.3
+    },
+    {
+      "card_name": "Fan Rotom",
+      "support": 21,
+      "lift": 11.525,
+      "jaccard": 0.28,
+      "weighted_score": 36.9
+    },
+    {
+      "card_name": "Telepath Psychic Energy",
+      "support": 32,
+      "lift": 11.02,
+      "jaccard": 0.314,
+      "weighted_score": 54.4
+    },
+    {
+      "card_name": "Wondrous Patch",
+      "support": 21,
+      "lift": 10.847,
+      "jaccard": 0.266,
+      "weighted_score": 36.4
     },
     {
       "card_name": "Battle Cage",
-      "support": 19,
-      "lift": 8.109,
-      "jaccard": 0.194,
-      "weighted_score": 34.2
+      "support": 28,
+      "lift": 8.552,
+      "jaccard": 0.235,
+      "weighted_score": 48.8
     },
     {
       "card_name": "Lana's Aid",
-      "support": 13,
-      "lift": 6.201,
-      "jaccard": 0.138,
-      "weighted_score": 25.1
+      "support": 20,
+      "lift": 6.109,
+      "jaccard": 0.157,
+      "weighted_score": 35.5
     },
     {
       "card_name": "Hilda",
-      "support": 21,
-      "lift": 5.529,
-      "jaccard": 0.135,
-      "weighted_score": 37.4
-    },
-    {
-      "card_name": "Shaymin",
-      "support": 20,
-      "lift": 5.516,
-      "jaccard": 0.134,
-      "weighted_score": 35.4
+      "support": 31,
+      "lift": 5.21,
+      "jaccard": 0.148,
+      "weighted_score": 53.2
     }
   ]
 }

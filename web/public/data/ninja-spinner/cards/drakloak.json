@@ -7,69 +7,76 @@
   "image_url": null,
   "category": "Pokemon",
   "rarity": null,
-  "total_appearances": 199,
-  "usage_pct": 22.3,
+  "total_appearances": 279,
+  "usage_pct": 24.8,
   "avg_copies": 3.8,
-  "unique_archetypes": 17,
-  "weighted_score": 324.6,
-  "win_rate_proxy": 1.63,
+  "unique_archetypes": 19,
+  "weighted_score": 449.7,
+  "win_rate_proxy": 1.61,
   "top_archetype": "Dragapult Meowth",
-  "trend_direction": "declining",
+  "trend_direction": "stable",
   "copy_distribution": [
     {
       "copies": 2,
-      "count": 4
+      "count": 7
     },
     {
       "copies": 3,
-      "count": 36
+      "count": 50
     },
     {
       "copies": 4,
-      "count": 159
+      "count": 222
     }
   ],
   "archetypes": [
     {
       "name": "Dragapult Meowth",
       "slug": "dragapult-meowth",
-      "usage_count": 79,
+      "usage_count": 123,
       "avg_copies": 4.0,
       "tier": "A"
     },
     {
       "name": "Dragapult Dusknoir",
       "slug": "dragapult-dusknoir",
-      "usage_count": 51,
+      "usage_count": 64,
       "avg_copies": 4.0,
       "tier": "B"
     },
     {
       "name": "Blaziken Dragapult",
       "slug": "blaziken-dragapult",
-      "usage_count": 30,
+      "usage_count": 37,
       "avg_copies": 3.5,
       "tier": "B"
     },
     {
       "name": "Mega Greninja Dragapult",
       "slug": "mega-greninja-dragapult",
-      "usage_count": 9,
+      "usage_count": 12,
       "avg_copies": 3.2,
       "tier": "C"
     },
     {
       "name": "Dragapult ex",
       "slug": "dragapult-ex",
-      "usage_count": 9,
+      "usage_count": 12,
       "avg_copies": 4.0,
       "tier": "C"
     },
     {
       "name": "Mega Kangaskhan Dragapult",
       "slug": "mega-kangaskhan-dragapult",
-      "usage_count": 5,
+      "usage_count": 9,
       "avg_copies": 3.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Mega Starmie Drakloak",
+      "slug": "mega-starmie-drakloak",
+      "usage_count": 3,
+      "avg_copies": 2.0,
       "tier": "Rogue"
     },
     {
@@ -89,15 +96,15 @@
     {
       "name": "Dragapult Latias",
       "slug": "dragapult-latias",
-      "usage_count": 2,
-      "avg_copies": 3.5,
+      "usage_count": 3,
+      "avg_copies": 3.7,
       "tier": "Rogue"
     },
     {
-      "name": "Mega Starmie Drakloak",
-      "slug": "mega-starmie-drakloak",
-      "usage_count": 1,
-      "avg_copies": 2.0,
+      "name": "Alakazam Dragapult",
+      "slug": "alakazam-dragapult",
+      "usage_count": 2,
+      "avg_copies": 3.0,
       "tier": "Rogue"
     },
     {
@@ -113,6 +120,20 @@
       "usage_count": 1,
       "avg_copies": 2.0,
       "tier": "C"
+    },
+    {
+      "name": "Drakloak Trevenant",
+      "slug": "drakloak-trevenant",
+      "usage_count": 1,
+      "avg_copies": 2.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Dragapult Slowking",
+      "slug": "dragapult-slowking",
+      "usage_count": 1,
+      "avg_copies": 3.0,
+      "tier": "Rogue"
     },
     {
       "name": "Dragapult Froslass",
@@ -136,13 +157,6 @@
       "tier": "Rogue"
     },
     {
-      "name": "Alakazam Dragapult",
-      "slug": "alakazam-dragapult",
-      "usage_count": 1,
-      "avg_copies": 3.0,
-      "tier": "Rogue"
-    },
-    {
       "name": "Aegislash Dragapult",
       "slug": "aegislash-dragapult",
       "usage_count": 1,
@@ -158,115 +172,115 @@
     },
     {
       "week": "2026-03-16",
-      "usage_pct": 16.5,
+      "usage_pct": 25.0,
       "avg_copies": 3.8
     }
   ],
   "synergy_partners": [
     {
       "card_name": "Dragapult ex",
-      "support": 198,
-      "lift": 4.482,
-      "jaccard": 0.995,
-      "weighted_score": 321.6
+      "support": 275,
+      "lift": 4.029,
+      "jaccard": 0.986,
+      "weighted_score": 443.1
     },
     {
       "card_name": "Dreepy",
-      "support": 199,
-      "lift": 4.482,
+      "support": 279,
+      "lift": 4.029,
       "jaccard": 1.0,
-      "weighted_score": 324.6
+      "weighted_score": 449.7
     },
     {
       "card_name": "Rosa's Encouragement",
-      "support": 108,
-      "lift": 4.21,
-      "jaccard": 0.524,
-      "weighted_score": 178.2
+      "support": 154,
+      "lift": 3.783,
+      "jaccard": 0.533,
+      "weighted_score": 249.4
     },
     {
       "card_name": "Risky Ruins",
-      "support": 105,
-      "lift": 4.057,
-      "jaccard": 0.5,
-      "weighted_score": 176.0
+      "support": 153,
+      "lift": 3.647,
+      "jaccard": 0.519,
+      "weighted_score": 250.2
     },
     {
       "card_name": "Combusken",
-      "support": 30,
-      "lift": 3.955,
-      "jaccard": 0.148,
-      "weighted_score": 47.4
+      "support": 37,
+      "lift": 3.636,
+      "jaccard": 0.131,
+      "weighted_score": 60.0
     },
     {
       "card_name": "Blaziken ex",
-      "support": 31,
-      "lift": 3.86,
-      "jaccard": 0.152,
-      "weighted_score": 48.6
+      "support": 38,
+      "lift": 3.56,
+      "jaccard": 0.134,
+      "weighted_score": 61.2
     },
     {
       "card_name": "Torchic",
-      "support": 31,
-      "lift": 3.86,
-      "jaccard": 0.152,
-      "weighted_score": 48.6
+      "support": 38,
+      "lift": 3.56,
+      "jaccard": 0.134,
+      "weighted_score": 61.2
     },
     {
       "card_name": "Dusknoir",
-      "support": 125,
-      "lift": 3.786,
-      "jaccard": 0.563,
-      "weighted_score": 205.6
+      "support": 172,
+      "lift": 3.397,
+      "jaccard": 0.553,
+      "weighted_score": 279.3
     },
     {
       "card_name": "Duskull",
-      "support": 125,
-      "lift": 3.786,
-      "jaccard": 0.563,
-      "weighted_score": 205.6
+      "support": 172,
+      "lift": 3.397,
+      "jaccard": 0.553,
+      "weighted_score": 279.3
     },
     {
       "card_name": "Dusclops",
-      "support": 122,
-      "lift": 3.771,
-      "jaccard": 0.55,
-      "weighted_score": 200.9
+      "support": 169,
+      "lift": 3.387,
+      "jaccard": 0.543,
+      "weighted_score": 274.6
+    },
+    {
+      "card_name": "Blaziken",
+      "support": 5,
+      "lift": 3.357,
+      "jaccard": 0.018,
+      "weighted_score": 8.4
     },
     {
       "card_name": "Jamming Tower",
-      "support": 62,
-      "lift": 3.308,
-      "jaccard": 0.281,
-      "weighted_score": 98.0
+      "support": 80,
+      "lift": 2.957,
+      "jaccard": 0.26,
+      "weighted_score": 126.0
     },
     {
       "card_name": "Hoothoot",
-      "support": 65,
-      "lift": 2.885,
-      "jaccard": 0.277,
-      "weighted_score": 104.8
+      "support": 95,
+      "lift": 2.604,
+      "jaccard": 0.287,
+      "weighted_score": 148.9
     },
     {
       "card_name": "Noctowl",
-      "support": 65,
-      "lift": 2.885,
-      "jaccard": 0.277,
-      "weighted_score": 104.8
+      "support": 95,
+      "lift": 2.604,
+      "jaccard": 0.287,
+      "weighted_score": 148.9
     },
     {
-      "card_name": "Rare Candy",
-      "support": 173,
-      "lift": 2.534,
-      "jaccard": 0.521,
-      "weighted_score": 281.1
-    },
-    {
-      "card_name": "Team Rocket's Watchtower",
-      "support": 124,
-      "lift": 2.481,
-      "jaccard": 0.415,
-      "weighted_score": 199.3
+      "card_name": "Briar",
+      "support": 67,
+      "lift": 2.41,
+      "jaccard": 0.207,
+      "weighted_score": 106.6
     }
   ]
 }

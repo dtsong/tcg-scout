@@ -2409,6 +2409,35 @@ def export_all(
     return out
 
 
+def export_narrative(format_slug: str, output_dir: Path | None = None) -> Path | None:
+    """Generate an LLM narrative meta report for the given format (opt-in).
+
+    Reads the exported JSON files from output_dir and writes report.json and
+    report-thread.json alongside them. Requires ANTHROPIC_API_KEY in the environment.
+
+    Returns the path to report.json, or None if generation fails.
+    """
+    from reports.narrative import generate_report
+
+    base = output_dir or DEFAULT_OUTPUT_DIR
+    try:
+        report_path = generate_report(
+            format_slug=format_slug,
+            data_dir=base,
+            output_dir=base,
+        )
+        logger.info("Narrative report written to %s", report_path)
+        return report_path
+    except (FileNotFoundError, ValueError) as exc:
+        logger.warning("Narrative report generation skipped for %s: %s", format_slug, exc)
+        return None
+    except Exception as exc:
+        logger.error(
+            "Narrative report generation failed for %s: %s", format_slug, exc, exc_info=True
+        )
+        return None
+
+
 def export_formats(output_dir: Path | None = None) -> None:
     """Export formats.json manifest with all format metadata and status."""
     base = output_dir or DEFAULT_OUTPUT_DIR

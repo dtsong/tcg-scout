@@ -7,12 +7,12 @@
   "image_url": null,
   "category": "Trainer",
   "rarity": null,
-  "total_appearances": 132,
-  "usage_pct": 14.8,
+  "total_appearances": 172,
+  "usage_pct": 15.3,
   "avg_copies": 3.9,
-  "unique_archetypes": 17,
-  "weighted_score": 206.6,
-  "win_rate_proxy": 1.57,
+  "unique_archetypes": 20,
+  "weighted_score": 271.7,
+  "win_rate_proxy": 1.58,
   "top_archetype": "Mega Lucario",
   "trend_direction": "declining",
   "copy_distribution": [
@@ -26,46 +26,46 @@
     },
     {
       "copies": 3,
-      "count": 14
+      "count": 18
     },
     {
       "copies": 4,
-      "count": 116
+      "count": 152
     }
   ],
   "archetypes": [
     {
       "name": "Mega Lucario",
       "slug": "mega-lucario",
-      "usage_count": 54,
+      "usage_count": 74,
       "avg_copies": 4.0,
       "tier": "B"
     },
     {
       "name": "Garchomp Roserade",
       "slug": "garchomp-roserade",
-      "usage_count": 28,
-      "avg_copies": 3.6,
+      "usage_count": 36,
+      "avg_copies": 3.7,
       "tier": "B"
     },
     {
       "name": "Barbaracle Okidogi",
       "slug": "barbaracle-okidogi",
-      "usage_count": 14,
+      "usage_count": 16,
       "avg_copies": 4.0,
       "tier": "C"
     },
     {
       "name": "Mega Lucario Solrock",
       "slug": "mega-lucario-solrock",
-      "usage_count": 10,
+      "usage_count": 13,
       "avg_copies": 4.0,
       "tier": "C"
     },
     {
       "name": "Ceruledge ex",
       "slug": "ceruledge-ex",
-      "usage_count": 9,
+      "usage_count": 13,
       "avg_copies": 3.7,
       "tier": "C"
     },
@@ -84,11 +84,18 @@
       "tier": "Rogue"
     },
     {
+      "name": "Solrock",
+      "slug": "solrock",
+      "usage_count": 1,
+      "avg_copies": 4.0,
+      "tier": "Rogue"
+    },
+    {
       "name": "Raging Bolt ex",
       "slug": "raging-bolt-ex",
       "usage_count": 1,
       "avg_copies": 4.0,
-      "tier": "C"
+      "tier": "B"
     },
     {
       "name": "Munkidori Solrock",
@@ -126,6 +133,13 @@
       "tier": "Rogue"
     },
     {
+      "name": "Mega Lucario Crustle",
+      "slug": "mega-lucario-crustle",
+      "usage_count": 1,
+      "avg_copies": 3.0,
+      "tier": "Rogue"
+    },
+    {
       "name": "Mega Kangaskhan Ogerpon",
       "slug": "mega-kangaskhan-ogerpon",
       "usage_count": 1,
@@ -135,6 +149,13 @@
     {
       "name": "Mega Greninja",
       "slug": "mega-greninja",
+      "usage_count": 1,
+      "avg_copies": 4.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Garchomp",
+      "slug": "garchomp",
       "usage_count": 1,
       "avg_copies": 4.0,
       "tier": "Rogue"
@@ -162,115 +183,115 @@
     },
     {
       "week": "2026-03-16",
-      "usage_pct": 8.8,
-      "avg_copies": 4.0
+      "usage_pct": 12.8,
+      "avg_copies": 3.9
     }
   ],
   "synergy_partners": [
     {
       "card_name": "Bloodmoon Ursaluna",
-      "support": 15,
-      "lift": 6.758,
-      "jaccard": 0.114,
-      "weighted_score": 25.4
+      "support": 18,
+      "lift": 6.535,
+      "jaccard": 0.105,
+      "weighted_score": 29.3
     },
     {
       "card_name": "Hariyama",
-      "support": 62,
-      "lift": 6.758,
-      "jaccard": 0.47,
-      "weighted_score": 103.3
+      "support": 83,
+      "lift": 6.535,
+      "jaccard": 0.483,
+      "weighted_score": 139.4
     },
     {
       "card_name": "Makuhita",
-      "support": 62,
-      "lift": 6.758,
-      "jaccard": 0.47,
-      "weighted_score": 103.3
+      "support": 83,
+      "lift": 6.535,
+      "jaccard": 0.483,
+      "weighted_score": 139.4
     },
     {
       "card_name": "Okidogi",
-      "support": 14,
-      "lift": 6.758,
-      "jaccard": 0.106,
-      "weighted_score": 23.9
+      "support": 17,
+      "lift": 6.535,
+      "jaccard": 0.099,
+      "weighted_score": 27.8
     },
     {
       "card_name": "Tarragon",
-      "support": 14,
-      "lift": 6.758,
-      "jaccard": 0.106,
-      "weighted_score": 24.2
+      "support": 17,
+      "lift": 6.535,
+      "jaccard": 0.099,
+      "weighted_score": 28.1
     },
     {
       "card_name": "Premium Power Pro",
-      "support": 93,
-      "lift": 6.686,
-      "jaccard": 0.699,
-      "weighted_score": 147.2
+      "support": 126,
+      "lift": 6.483,
+      "jaccard": 0.728,
+      "weighted_score": 202.0
     },
     {
       "card_name": "Mega Lucario ex",
-      "support": 73,
-      "lift": 6.666,
-      "jaccard": 0.549,
-      "weighted_score": 120.4
+      "support": 97,
+      "lift": 6.468,
+      "jaccard": 0.561,
+      "weighted_score": 161.2
     },
     {
       "card_name": "Riolu",
-      "support": 73,
-      "lift": 6.666,
-      "jaccard": 0.549,
-      "weighted_score": 120.4
+      "support": 97,
+      "lift": 6.468,
+      "jaccard": 0.561,
+      "weighted_score": 161.2
     },
     {
       "card_name": "Rock Fighting Energy",
-      "support": 63,
-      "lift": 6.652,
-      "jaccard": 0.474,
-      "weighted_score": 93.6
+      "support": 83,
+      "lift": 6.457,
+      "jaccard": 0.48,
+      "weighted_score": 127.2
     },
     {
       "card_name": "Lunatone",
-      "support": 102,
-      "lift": 6.628,
-      "jaccard": 0.761,
-      "weighted_score": 167.0
+      "support": 133,
+      "lift": 6.438,
+      "jaccard": 0.764,
+      "weighted_score": 217.3
     },
     {
       "card_name": "Solrock",
-      "support": 102,
-      "lift": 6.628,
-      "jaccard": 0.761,
-      "weighted_score": 167.0
+      "support": 133,
+      "lift": 6.438,
+      "jaccard": 0.764,
+      "weighted_score": 217.3
     },
     {
       "card_name": "Cynthia's Gabite",
-      "support": 28,
-      "lift": 6.525,
-      "jaccard": 0.211,
-      "weighted_score": 37.2
+      "support": 37,
+      "lift": 6.363,
+      "jaccard": 0.214,
+      "weighted_score": 52.0
     },
     {
       "card_name": "Cynthia's Garchomp ex",
-      "support": 28,
-      "lift": 6.525,
-      "jaccard": 0.211,
-      "weighted_score": 37.2
+      "support": 37,
+      "lift": 6.363,
+      "jaccard": 0.214,
+      "weighted_score": 52.0
     },
     {
       "card_name": "Cynthia's Gible",
-      "support": 28,
-      "lift": 6.525,
-      "jaccard": 0.211,
-      "weighted_score": 37.2
+      "support": 37,
+      "lift": 6.363,
+      "jaccard": 0.214,
+      "weighted_score": 52.0
     },
     {
       "card_name": "Cynthia's Power Weight",
-      "support": 28,
-      "lift": 6.525,
-      "jaccard": 0.211,
-      "weighted_score": 37.2
+      "support": 37,
+      "lift": 6.363,
+      "jaccard": 0.214,
+      "weighted_score": 52.0
     }
   ]
 }

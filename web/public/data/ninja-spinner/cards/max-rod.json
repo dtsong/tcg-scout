@@ -7,39 +7,39 @@
   "image_url": null,
   "category": "Trainer",
   "rarity": null,
-  "total_appearances": 14,
-  "usage_pct": 1.6,
+  "total_appearances": 22,
+  "usage_pct": 2.0,
   "avg_copies": 1.0,
-  "unique_archetypes": 6,
-  "weighted_score": 21.7,
+  "unique_archetypes": 8,
+  "weighted_score": 34.0,
   "win_rate_proxy": 1.55,
-  "top_archetype": "Mega Venusaur",
+  "top_archetype": "Mega Meganium",
   "trend_direction": "stable",
   "copy_distribution": [
     {
       "copies": 1,
-      "count": 14
+      "count": 22
     }
   ],
   "archetypes": [
     {
+      "name": "Mega Meganium",
+      "slug": "mega-meganium",
+      "usage_count": 7,
+      "avg_copies": 1.0,
+      "tier": "C"
+    },
+    {
       "name": "Mega Venusaur",
       "slug": "mega-venusaur",
-      "usage_count": 5,
+      "usage_count": 6,
       "avg_copies": 1.0,
       "tier": "C"
     },
     {
       "name": "Mega Meganium Mega Venusaur",
       "slug": "mega-meganium-mega-venusaur",
-      "usage_count": 3,
-      "avg_copies": 1.0,
-      "tier": "Rogue"
-    },
-    {
-      "name": "Mega Meganium",
-      "slug": "mega-meganium",
-      "usage_count": 3,
+      "usage_count": 4,
       "avg_copies": 1.0,
       "tier": "Rogue"
     },
@@ -53,6 +53,20 @@
     {
       "name": "Mega Clefable Aromatisse",
       "slug": "mega-clefable-aromatisse",
+      "usage_count": 1,
+      "avg_copies": 1.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Gyarados Starmie",
+      "slug": "gyarados-starmie",
+      "usage_count": 1,
+      "avg_copies": 1.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Arboliva Beedrill",
+      "slug": "arboliva-beedrill",
       "usage_count": 1,
       "avg_copies": 1.0,
       "tier": "Rogue"
@@ -73,115 +87,115 @@
     },
     {
       "week": "2026-03-16",
-      "usage_pct": 1.2,
+      "usage_pct": 2.2,
       "avg_copies": 1.0
     }
   ],
   "synergy_partners": [
     {
       "card_name": "Mega Meganium ex",
-      "support": 7,
-      "lift": 40.545,
-      "jaccard": 0.389,
-      "weighted_score": 10.1
+      "support": 12,
+      "lift": 32.268,
+      "jaccard": 0.414,
+      "weighted_score": 18.5
     },
     {
       "card_name": "Celebi",
-      "support": 5,
-      "lift": 39.821,
-      "jaccard": 0.294,
-      "weighted_score": 8.4
+      "support": 7,
+      "lift": 29.803,
+      "jaccard": 0.259,
+      "weighted_score": 12.4
+    },
+    {
+      "card_name": "Regigigas",
+      "support": 8,
+      "lift": 27.248,
+      "jaccard": 0.276,
+      "weighted_score": 12.6
     },
     {
       "card_name": "Bulbasaur",
-      "support": 11,
-      "lift": 25.958,
-      "jaccard": 0.367,
-      "weighted_score": 17.3
+      "support": 17,
+      "lift": 22.27,
+      "jaccard": 0.386,
+      "weighted_score": 27.2
     },
     {
       "card_name": "Ivysaur",
-      "support": 11,
-      "lift": 25.958,
-      "jaccard": 0.367,
-      "weighted_score": 17.3
+      "support": 17,
+      "lift": 22.27,
+      "jaccard": 0.386,
+      "weighted_score": 27.2
     },
     {
       "card_name": "Mega Venusaur ex",
-      "support": 11,
-      "lift": 25.958,
-      "jaccard": 0.367,
-      "weighted_score": 17.3
+      "support": 17,
+      "lift": 22.27,
+      "jaccard": 0.386,
+      "weighted_score": 27.2
     },
     {
       "card_name": "Bayleef",
-      "support": 11,
-      "lift": 14.912,
-      "jaccard": 0.22,
-      "weighted_score": 17.3
+      "support": 17,
+      "lift": 13.786,
+      "jaccard": 0.25,
+      "weighted_score": 27.2
     },
     {
       "card_name": "Chikorita",
-      "support": 11,
-      "lift": 14.912,
-      "jaccard": 0.22,
-      "weighted_score": 17.3
+      "support": 17,
+      "lift": 13.786,
+      "jaccard": 0.25,
+      "weighted_score": 27.2
     },
     {
       "card_name": "Meganium",
-      "support": 11,
-      "lift": 14.912,
-      "jaccard": 0.22,
-      "weighted_score": 17.3
+      "support": 17,
+      "lift": 13.786,
+      "jaccard": 0.25,
+      "weighted_score": 27.2
     },
     {
       "card_name": "Forest of Vitality",
-      "support": 11,
-      "lift": 9.871,
-      "jaccard": 0.149,
-      "weighted_score": 17.3
+      "support": 18,
+      "lift": 9.68,
+      "jaccard": 0.182,
+      "weighted_score": 28.4
     },
     {
       "card_name": "Wally's Compassion",
-      "support": 9,
-      "lift": 7.168,
-      "jaccard": 0.106,
-      "weighted_score": 13.6
+      "support": 14,
+      "lift": 6.444,
+      "jaccard": 0.118,
+      "weighted_score": 22.0
     },
     {
       "card_name": "Bug Catching Set",
-      "support": 11,
-      "lift": 6.258,
-      "jaccard": 0.096,
-      "weighted_score": 17.3
+      "support": 18,
+      "lift": 5.933,
+      "jaccard": 0.113,
+      "weighted_score": 28.4
     },
     {
       "card_name": "Teal Mask Ogerpon ex",
-      "support": 11,
-      "lift": 4.051,
-      "jaccard": 0.062,
-      "weighted_score": 17.3
+      "support": 17,
+      "lift": 3.619,
+      "jaccard": 0.069,
+      "weighted_score": 27.2
     },
     {
       "card_name": "Dawn",
-      "support": 9,
-      "lift": 3.54,
-      "jaccard": 0.054,
-      "weighted_score": 14.1
+      "support": 15,
+      "lift": 3.406,
+      "jaccard": 0.065,
+      "weighted_score": 23.7
     },
     {
       "card_name": "Judge",
-      "support": 7,
-      "lift": 2.563,
-      "jaccard": 0.039,
-      "weighted_score": 10.1
-    },
-    {
-      "card_name": "Meowth ex",
-      "support": 10,
-      "lift": 2.029,
-      "jaccard": 0.031,
-      "weighted_score": 15.8
+      "support": 11,
+      "lift": 2.322,
+      "jaccard": 0.043,
+      "weighted_score": 15.5
     }
   ]
 }

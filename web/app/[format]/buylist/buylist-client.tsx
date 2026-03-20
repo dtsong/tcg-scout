@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
+import Link from "next/link";
 import { useParams } from "next/navigation";
 import { DataTable } from "@/app/components/data-table";
 import { DateFilter } from "@/app/components/date-filter";
@@ -75,7 +76,10 @@ export function BuylistClient({
             Buy List
           </h1>
           <p className="text-sm text-surface-300 mt-1">
-            Prioritized acquisition guide: {buylist.length} cards across S/A/B tier archetypes
+            Prioritized acquisition guide: {buylist.length} cards across S/A/B tier archetypes{" "}
+            <Link href="/guide#buy-list" className="text-accent hover:text-accent/80 transition-colors">
+              How this works &rarr;
+            </Link>
           </p>
         </div>
         <DateFilter activeWindow={activeWindow} onWindowChange={handleWindowChange} dateRange={dateRange} customRange={undefined} />
