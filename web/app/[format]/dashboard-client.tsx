@@ -105,7 +105,7 @@ export function DashboardClient({
             <div className="flex items-center gap-1 shrink-0">
               <span className="text-xs text-surface-300 flex items-center gap-1 mr-1">
                 <Calendar className="w-3.5 h-3.5" />
-                Set Legal
+                Set Legal for International TCG Events
               </span>
               <span className="font-mono text-xl font-medium text-accent tabular-nums">
                 {rotationDays > 0 ? `${rotationDays}d` : "Live"}
