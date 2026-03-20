@@ -1,10 +1,10 @@
 import type { NotableTech } from "@/app/lib/types";
 
-const EVENT_STYLES: Record<string, { bg: string; text: string; label: string }> = {
-  appeared: { bg: "bg-emerald-500/15", text: "text-emerald-400", label: "New" },
-  surged: { bg: "bg-amber-500/15", text: "text-amber-400", label: "Surged" },
-  declined: { bg: "bg-red-500/15", text: "text-red-400", label: "Declined" },
-  disappeared: { bg: "bg-surface-600/50", text: "text-surface-400", label: "Dropped" },
+const EVENT_STYLES: Record<string, { bg: string; text: string; border: string; label: string }> = {
+  appeared: { bg: "bg-emerald-500/15", text: "text-emerald-400", border: "border-emerald-400", label: "New" },
+  surged: { bg: "bg-amber-500/15", text: "text-amber-400", border: "border-amber-400", label: "Surged" },
+  declined: { bg: "bg-red-500/15", text: "text-red-400", border: "border-red-400", label: "Declined" },
+  disappeared: { bg: "bg-surface-600/50", text: "text-surface-400", border: "border-surface-400", label: "Dropped" },
 };
 
 export function NotableTechs({ techs }: { techs: NotableTech[] }) {
@@ -21,7 +21,7 @@ export function NotableTechs({ techs }: { techs: NotableTech[] }) {
           <div key={`${tech.card_name}-${i}`} className="flex items-start gap-3 py-3">
             {/* Timeline dot + line */}
             <div className="flex flex-col items-center pt-0.5">
-              <div className={`w-2.5 h-2.5 rounded-full ${style.bg} border-2 ${style.text.replace("text-", "border-")}`} />
+              <div className={`w-2.5 h-2.5 rounded-full ${style.bg} border-2 ${style.border}`} />
               {i < techs.length - 1 && (
                 <div className="w-px flex-1 bg-surface-600 mt-1" />
               )}

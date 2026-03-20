@@ -144,7 +144,6 @@ export function ReportClient({
               label="Weighted Share"
               value={formatPct(report.weighted_share)}
             />
-            <StatCard label="Best Finish" value={formatPlacement(report.best_placement)} />
           </div>
           <div className="bg-surface-800 border border-surface-600 rounded-lg p-4">
             <PlacementDistribution brackets={report.placement_distribution} />

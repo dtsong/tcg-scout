@@ -216,11 +216,3 @@ export function getArchetypeReport(
   }
 }
 
-export function getArchetypeReportSlugs(format: string): string[] {
-  const dir = path.join(DATA_DIR, format, "archetype-reports");
-  if (!fs.existsSync(dir)) return [];
-  return fs
-    .readdirSync(dir)
-    .filter((f) => f.endsWith(".json") && !f.startsWith("."))
-    .map((f) => f.replace(".json", ""));
-}

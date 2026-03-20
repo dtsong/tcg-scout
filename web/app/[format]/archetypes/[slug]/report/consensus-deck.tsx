@@ -1,5 +1,3 @@
-"use client";
-
 import type { ConsensusCard } from "@/app/lib/types";
 
 function ConsensusCardRow({ card }: { card: ConsensusCard }) {

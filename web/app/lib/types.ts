@@ -378,7 +378,7 @@ export interface ConsensusCard {
 
 export interface TechEvolutionCard {
   card_name: string;
-  category: string;
+  category: "Pokemon" | "Trainer" | "Energy";
   timeline: number[];
   copies_timeline: number[];
   trend: "adopted" | "dropped" | "fluctuating" | "stable";
@@ -410,7 +410,6 @@ export interface ArchetypeReport {
   deck_count: number;
   best_placement: number;
   sprite_filenames: string[];
-  min_deck_threshold_met: boolean;
   consensus_60: {
     quality_score: number;
     total_pokemon: number;
@@ -418,7 +417,6 @@ export interface ArchetypeReport {
     total_energy: number;
     cards: ConsensusCard[];
   } | null;
-  card_frequency: ArchetypeCard[];
   tech_evolution: {
     weeks: string[];
     cards: TechEvolutionCard[];

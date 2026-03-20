@@ -2383,25 +2383,19 @@ def export_archetype_overlap(conn: sqlite3.Connection, output_dir: Path) -> None
         logger.info("Exported archetype overlap matrix (%d archetypes)", len(data["archetypes"]))
 
 
-def export_deep_dive(conn: sqlite3.Connection, output_dir: Path) -> None:
+def export_deep_dive(conn: sqlite3.Connection, output_dir: Path, *, format_slug: str = "") -> None:
     """Export per-archetype deep dive report JSON files."""
     from datetime import UTC, datetime
 
     snapshot = get_latest_snapshot(conn)
     if not snapshot:
+        logger.warning("Skipping deep dive export: no snapshot available")
         return
 
     category_lookup = build_category_lookup(conn)
     weighted_shares = _compute_weighted_shares(conn, snapshot)
     report_dir = output_dir / "archetype-reports"
     report_dir.mkdir(parents=True, exist_ok=True)
-
-    format_slug = None
-    # Detect format from output_dir name (e.g., "nihil-zero")
-    for slug in FORMATS:
-        if slug in str(output_dir):
-            format_slug = slug
-            break
 
     count = 0
     for arch in snapshot["archetypes"]:
@@ -2415,6 +2409,7 @@ def export_deep_dive(conn: sqlite3.Connection, output_dir: Path) -> None:
         ).fetchall()
 
         if not placements:
+            logger.debug("Skipping %s: no placements found", archetype_name)
             continue
 
         placement_ids = [p["id"] for p in placements]
@@ -2429,6 +2424,7 @@ def export_deep_dive(conn: sqlite3.Connection, output_dir: Path) -> None:
         ).fetchone()[0]
 
         if has_decklists < 3:
+            logger.debug("Skipping %s: only %d decklists", archetype_name, has_decklists)
             continue
 
         # Compute analyses
@@ -2438,23 +2434,6 @@ def export_deep_dive(conn: sqlite3.Connection, output_dir: Path) -> None:
         placement_dist = compute_placement_distribution(
             [{"standing": p["standing"]} for p in placements]
         )
-
-        # Card frequency (all cards, not just consensus)
-        all_cards = _compute_card_stats_for_ids(
-            conn, placement_ids, category_lookup, include_basic_energy=False
-        )
-        card_freq = []
-        for c in all_cards:
-            card_freq.append(
-                {
-                    "card_name": c["card_name"],
-                    "inclusion_pct": c["inclusion_pct"],
-                    "avg_copies": c["avg_copies"],
-                    "weighted_avg_copies": c["avg_copies"],
-                    "decks_with": c["decks_with"],
-                    "category": c["category"],
-                }
-            )
 
         # Tournament count
         tournament_count = conn.execute(
@@ -2481,9 +2460,7 @@ def export_deep_dive(conn: sqlite3.Connection, output_dir: Path) -> None:
             "deck_count": deck_count,
             "best_placement": best_placement,
             "sprite_filenames": sprite_filenames,
-            "min_deck_threshold_met": has_decklists >= 10,
             "consensus_60": consensus,
-            "card_frequency": card_freq,
             "tech_evolution": timeline,
             "notable_techs": notable_techs,
             "placement_distribution": placement_dist,
@@ -2527,12 +2504,15 @@ def export_all(
         (export_matchup_matrix, "matchup matrix"),
         (export_meta_evolution, "meta evolution"),
         (export_tech_forecast, "tech forecast"),
-        (export_deep_dive, "deep dive reports"),
     ]:
         try:
             export_fn(conn, out)
         except (sqlite3.OperationalError, ValueError) as exc:
             logger.warning("Skipping %s export (data unavailable): %s", name, exc)
+    try:
+        export_deep_dive(conn, out, format_slug=slug)
+    except (sqlite3.OperationalError, ValueError) as exc:
+        logger.warning("Skipping deep dive reports export (data unavailable): %s", exc)
     export_windowed(conn, out, format_slug=slug)
 
     logger.info("Export complete")
