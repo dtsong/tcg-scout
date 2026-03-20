@@ -326,3 +326,17 @@ export interface CLDivision {
   archetype_summary?: CLArchetypeSummary[];
   placements: CLPlacement[];
 }
+
+export interface ReportSection {
+  id: string;
+  title: string;
+  content: string;
+  highlights?: string[];
+}
+
+export interface MetaReport {
+  format: string;
+  generated_at: string;
+  data_hash: string;
+  sections: ReportSection[];
+}

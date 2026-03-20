@@ -12,7 +12,7 @@ vi.mock("fs", () => ({
 }));
 
 import fs from "fs";
-import { getMeta, getTrends, getArchetypeSlugs, getFormats, getCardAnalysis } from "../data";
+import { getMeta, getTrends, getArchetypeSlugs, getFormats, getCardAnalysis, getMetaReport } from "../data";
 
 beforeEach(() => {
   vi.clearAllMocks();
@@ -171,5 +171,42 @@ describe("getCardAnalysis", () => {
       throw Object.assign(new Error("ENOENT"), { code: "ENOENT" });
     });
     expect(getCardAnalysis("test-format")).toBeNull();
+  });
+});
+
+describe("getMetaReport", () => {
+  it("returns parsed MetaReport when file exists", () => {
+    const mockReport = {
+      format: "nihil-zero",
+      generated_at: "2026-03-19T00:00:00Z",
+      data_hash: "abc123",
+      sections: [
+        {
+          id: "meta-at-a-glance",
+          title: "Meta at a Glance",
+          content: "The meta is balanced.",
+          highlights: ["Key point"],
+        },
+      ],
+    };
+    vi.mocked(fs.readFileSync).mockReturnValue(JSON.stringify(mockReport));
+    const result = getMetaReport("nihil-zero");
+    expect(result).not.toBeNull();
+    expect(result!.format).toBe("nihil-zero");
+    expect(result!.data_hash).toBe("abc123");
+    expect(result!.sections).toHaveLength(1);
+    expect(result!.sections[0].id).toBe("meta-at-a-glance");
+  });
+
+  it("returns null when report file does not exist", () => {
+    vi.mocked(fs.readFileSync).mockImplementation(() => {
+      throw Object.assign(new Error("ENOENT"), { code: "ENOENT" });
+    });
+    expect(getMetaReport("nihil-zero")).toBeNull();
+  });
+
+  it("returns null when report file has invalid JSON", () => {
+    vi.mocked(fs.readFileSync).mockReturnValue("not valid json{{{");
+    expect(getMetaReport("nihil-zero")).toBeNull();
   });
 });
