@@ -23,6 +23,7 @@ from analysis.evolution import compute_archetype_evolution, compute_meta_evoluti
 from analysis.matchup import compute_matchup_matrix
 from analysis.meta import get_latest_snapshot
 from analysis.synergy import compute_archetype_overlap_matrix, compute_synergy_pairs
+from analysis.tech_forecast import compute_tech_forecast
 from config import (
     DATASET_END,
     DATASET_START,
@@ -31,6 +32,7 @@ from config import (
     PLACEMENT_WEIGHT_DEFAULT,
     PLACEMENT_WEIGHTS,
     ROTATION_DATE,
+    TECH_CARD_WATCHLIST,
     TIER_THRESHOLDS,
     get_format_config,
 )
@@ -2264,6 +2266,12 @@ def export_timeline(conn: sqlite3.Connection, output_dir: Path) -> None:
     _write_json(timeline, output_dir / "timeline.json")
 
 
+def export_tech_forecast(conn: sqlite3.Connection, output_dir: Path) -> None:
+    """Export tech card weather forecast JSON."""
+    data = compute_tech_forecast(conn, TECH_CARD_WATCHLIST)
+    _write_json(data, output_dir / "tech-forecast.json")
+
+
 def export_cards(conn: sqlite3.Connection, output_dir: Path) -> None:
     """Export card index, individual card detail JSON files, and synergy data."""
     cards = compute_card_stats(conn)
@@ -2398,6 +2406,7 @@ def export_all(
         (export_archetype_overlap, "archetype overlap"),
         (export_matchup_matrix, "matchup matrix"),
         (export_meta_evolution, "meta evolution"),
+        (export_tech_forecast, "tech forecast"),
     ]:
         try:
             export_fn(conn, out)

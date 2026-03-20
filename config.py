@@ -100,6 +100,56 @@ PLACEMENT_WEIGHTS = {
 # Default weight for standings beyond top 16
 PLACEMENT_WEIGHT_DEFAULT = 1.0
 
+# Tech/meta cards tracked in the Weather Forecast.
+# Non-archetype-defining cards whose adoption rates signal meta shifts.
+TECH_CARD_WATCHLIST = {
+    # Draw / search
+    "Ultra Ball",
+    "Buddy-Buddy Poffin",
+    "Rare Candy",
+    "Night Stretcher",
+    "Pokégear 3.0",
+    "Bug Catching Set",
+    # Supporters
+    "Boss's Orders",
+    "Judge",
+    "Crispin",
+    "Lillie's Determination",
+    "Dawn",
+    "Cyrano",
+    "Briar",
+    "Hilda",
+    "Lana's Aid",
+    "Brock's Scouting",
+    "Rosa's Encouragement",
+    "Team Rocket's Petrel",
+    "Ciphermaniac's Codebreaking",
+    # Tools / Items
+    "Poké Pad",
+    "Energy Switch",
+    "Switch",
+    "Air Balloon",
+    "Fighting Gong",
+    # Stadiums
+    "Jamming Tower",
+    "Team Rocket's Watchtower",
+    "Area Zero Underdepths",
+    "Risky Ruins",
+    "Battle Cage",
+    # Energy
+    "Unfair Stamp",  # ACE SPEC
+    "Legacy Energy",  # ACE SPEC
+    "Neo Upper Energy",  # ACE SPEC
+    "Prime Catcher",  # ACE SPEC
+    "Mist Energy",
+    # Tech Pokemon
+    "Shaymin",
+    "Munkidori",
+    "Solrock",
+    "Lunatone",
+    "Fezandipiti ex",
+}
+
 # Champions League weighting multiplier (7000-player field)
 CL_WEIGHT_MULTIPLIER = {
     "masters": 5.0,

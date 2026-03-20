@@ -12,7 +12,7 @@ vi.mock("fs", () => ({
 }));
 
 import fs from "fs";
-import { getMeta, getTrends, getArchetypeSlugs, getFormats, getCardAnalysis } from "../data";
+import { getMeta, getTrends, getArchetypeSlugs, getFormats, getCardAnalysis, getTechForecast } from "../data";
 
 beforeEach(() => {
   vi.clearAllMocks();
@@ -171,5 +171,46 @@ describe("getCardAnalysis", () => {
       throw Object.assign(new Error("ENOENT"), { code: "ENOENT" });
     });
     expect(getCardAnalysis("test-format")).toBeNull();
+  });
+});
+
+describe("getTechForecast", () => {
+  it("returns parsed TechForecast data", () => {
+    const mockForecast = {
+      generated_at: "2026-03-20T00:00:00",
+      cards: [
+        {
+          card_name: "Boss's Orders",
+          current_adoption_pct: 34.2,
+          current_avg_copies: 1.8,
+          trend_direction: "rising",
+          trend_delta: 8.1,
+          weekly_data: [
+            { week: "2026-03-10", adoption_pct: 26.1, avg_copies: 1.6, deck_count: 12, total_decks: 46 },
+            { week: "2026-03-17", adoption_pct: 34.2, avg_copies: 1.8, deck_count: 18, total_decks: 52 },
+          ],
+          top_archetypes: [
+            { archetype: "Dragapult ex", inclusion_pct: 85.0, avg_copies: 2.1 },
+          ],
+        },
+      ],
+    };
+
+    vi.mocked(fs.readFileSync).mockReturnValue(JSON.stringify(mockForecast));
+
+    const result = getTechForecast("nihil-zero");
+    expect(result).not.toBeNull();
+    expect(result!.cards).toHaveLength(1);
+    expect(result!.cards[0].card_name).toBe("Boss's Orders");
+    expect(result!.cards[0].trend_direction).toBe("rising");
+    expect(result!.cards[0].weekly_data).toHaveLength(2);
+    expect(result!.cards[0].top_archetypes).toHaveLength(1);
+  });
+
+  it("returns null when file does not exist", () => {
+    vi.mocked(fs.readFileSync).mockImplementation(() => {
+      throw Object.assign(new Error("ENOENT"), { code: "ENOENT" });
+    });
+    expect(getTechForecast("test-format")).toBeNull();
   });
 });

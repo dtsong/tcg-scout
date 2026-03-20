@@ -18,6 +18,7 @@ import type {
   MatchupMatrixData,
   OverlapMatrixData,
   CardAnalysisData,
+  TechForecast,
 } from "./types";
 
 const DATA_DIR = path.join(process.cwd(), "public", "data");
@@ -168,6 +169,16 @@ export function getCardAnalysis(format: string): CardAnalysisData | null {
   } catch (err) {
     if (isFileNotFound(err)) return null;
     console.error(`Failed to load card analysis for ${format}:`, err);
+    return null;
+  }
+}
+
+export function getTechForecast(format: string): TechForecast | null {
+  try {
+    return readJson(`${format}/tech-forecast.json`);
+  } catch (err) {
+    if (isFileNotFound(err)) return null;
+    console.error(`Failed to load tech forecast for ${format}:`, err);
     return null;
   }
 }

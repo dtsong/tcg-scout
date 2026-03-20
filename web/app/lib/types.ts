@@ -326,3 +326,28 @@ export interface CLDivision {
   archetype_summary?: CLArchetypeSummary[];
   placements: CLPlacement[];
 }
+
+export interface TechForecastCard {
+  card_name: string;
+  current_adoption_pct: number;
+  current_avg_copies: number;
+  trend_direction: "rising" | "falling" | "stable" | "new";
+  trend_delta: number;
+  weekly_data: Array<{
+    week: string;
+    adoption_pct: number;
+    avg_copies: number;
+    deck_count: number;
+    total_decks: number;
+  }>;
+  top_archetypes: Array<{
+    archetype: string;
+    inclusion_pct: number;
+    avg_copies: number;
+  }>;
+}
+
+export interface TechForecast {
+  generated_at: string;
+  cards: TechForecastCard[];
+}
