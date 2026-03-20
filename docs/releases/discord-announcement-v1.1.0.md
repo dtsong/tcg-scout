@@ -1,22 +1,33 @@
 # Scout v1.1.0 is live
 
-Scout is a free meta analysis tool for competitive Pokemon TCG. Version 1.1.0 ships several improvements to how you explore the format.
+Scout is a free meta analysis tool for competitive Pokemon TCG. Version 1.1.0 ships with new analysis tools, and Ninja Spinner (Chaos Rising) is already being tracked with 62 tournaments and 892 decks in the first week.
 
 scout.trainerlab.io
 
 ---
 
-**Format Edge**
+**What the data is showing**
 
-The new [Format Edge page](https://scout.trainerlab.io/nihil-zero/card-analysis) ranks cards by their top-4 edge -- how much more often a card appears in top-4 finishes compared to general tournament play. This surfaces cards that are actively winning, not just being played. The page also includes a delta column showing how each card's edge has shifted week over week.
+Ninja Spinner is off to a volatile start:
+- **Dragapult Meowth** leads the format at 10.2% meta share (A tier), trending up. Meowth ex has a +23% winning edge -- it shows up in top-4 finishes far more than its overall play rate.
+- **Dusknoir Greninja** is surging with a +12.1% trend delta, the fastest-growing archetype in the format.
+- The staple base is shifting hard. Night Stretcher (-24%), Boss's Orders (-24%), and Buddy-Buddy Poffin (-14%) are declining. Prime Catcher and Secret Box are on the rise.
+
+Explore the full picture: [Ninja Spinner Format Edge](https://scout.trainerlab.io/ninja-spinner/card-analysis)
+
+---
+
+**Format Edge (new)**
+
+The [Format Edge page](https://scout.trainerlab.io/ninja-spinner/card-analysis) ranks cards by their top-4 edge -- how much more often a card appears in top-4 finishes compared to general tournament play. This surfaces cards that are actively winning, not just being played.
 
 **Tournament Links**
 
-Every archetype result on the [Archetypes page](https://scout.trainerlab.io/nihil-zero/archetypes) now links directly to the corresponding Limitless tournament page. Click through to see full standings, decklists, and field composition for any result.
+Every archetype result on the [Archetypes page](https://scout.trainerlab.io/ninja-spinner/archetypes) now links directly to the corresponding Limitless tournament page. Click through to see full standings, decklists, and field composition.
 
 **Card Intelligence**
 
-Card detail pages now show Top-4 Edge broken out by archetype. If you want to know whether a card overperforms in Charizard specifically versus the field at large, you can now see that directly.
+Card detail pages now show Top-4 Edge broken out by archetype. Want to know if Munkidori overperforms specifically in Grimmsnarl builds? You can see that directly now.
 
 ---
 
@@ -28,4 +39,4 @@ Card detail pages now show Top-4 Edge broken out by archetype. If you want to kn
 
 ---
 
-Scout is updated after every major tournament. All data is free to use.
+Scout tracks JP City League results across formats, updated daily. Free, no login.

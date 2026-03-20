@@ -131,6 +131,67 @@ export default function BlogPage() {
         </div>
       </section>
 
+      {/* What the data shows */}
+      <section className="mb-12">
+        <h2 className="text-xl font-display font-semibold text-slate-100 mb-4">
+          What the data is showing right now
+        </h2>
+        <p className="text-surface-300 font-body leading-relaxed mb-4">
+          Ninja Spinner (Chaos Rising) is live with 62 tournaments and 892 decks
+          tracked in the first week. The format shift is dramatic. Here is what
+          Scout is picking up:
+        </p>
+
+        <div className="space-y-4 mb-4">
+          <div className="bg-surface-800 border border-surface-600 rounded-lg p-4">
+            <h3 className="text-sm font-display font-semibold text-accent mb-2">
+              Dragapult Meowth leads at 10.2% meta share
+            </h3>
+            <p className="text-surface-300 text-sm font-body leading-relaxed">
+              The only A-tier deck so far, trending up with a +4.1% delta.
+              Meowth ex itself has the biggest winning edge in the format: it
+              appears in 52% of top-4 finishes but only 29% of the overall
+              field. That is a +23% edge, the strongest signal in the dataset.
+            </p>
+          </div>
+
+          <div className="bg-surface-800 border border-surface-600 rounded-lg p-4">
+            <h3 className="text-sm font-display font-semibold text-accent mb-2">
+              Dusknoir Greninja is surging
+            </h3>
+            <p className="text-surface-300 text-sm font-body leading-relaxed">
+              With a +12.1% trend delta, Dusknoir Greninja is the
+              fastest-growing archetype in the format. It sits at 4.2% meta
+              share and climbing. Worth watching closely.
+            </p>
+          </div>
+
+          <div className="bg-surface-800 border border-surface-600 rounded-lg p-4">
+            <h3 className="text-sm font-display font-semibold text-accent mb-2">
+              The staple base is being rewritten
+            </h3>
+            <p className="text-surface-300 text-sm font-body leading-relaxed">
+              Night Stretcher (-24%), Boss&apos;s Orders (-24%), and Buddy-Buddy
+              Poffin (-14%) are all declining sharply. Meanwhile Prime Catcher
+              (+3%) and Secret Box (+1.4%) are on the rise. Chaos Rising did
+              not just add cards, it replaced fundamentals.
+            </p>
+          </div>
+        </div>
+
+        <p className="text-surface-400 text-sm font-body">
+          This is exactly the kind of movement that Format Edge was built to
+          surface. Check the{" "}
+          <Link
+            href="/ninja-spinner/card-analysis"
+            className="text-accent hover:text-accent/80 transition-colors"
+          >
+            Ninja Spinner Format Edge
+          </Link>{" "}
+          page to explore the full picture.
+        </p>
+      </section>
+
       {/* What's next */}
       <section className="mb-12 bg-surface-800 border border-surface-600 rounded-lg p-6">
         <h2 className="text-xl font-display font-semibold text-slate-100 mb-4">

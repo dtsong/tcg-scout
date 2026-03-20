@@ -4,7 +4,7 @@
 
 **Tweet 1**
 
-Scout v1.1.0 is live -- here's what's new for competitive Pokemon TCG players.
+Scout v1.1.0 is live. Ninja Spinner is one week in with 62 tournaments tracked. Here's what's new and what the data is showing.
 
 scout.trainerlab.io
 
@@ -12,27 +12,21 @@ scout.trainerlab.io
 
 **Tweet 2**
 
-Which cards show up more in top-4 finishes than you'd expect?
+Meowth ex has a +23% winning edge -- it appears in 52% of top-4 finishes but only 29% of the field. Dragapult Meowth leads at 10.2% meta share and climbing.
 
-The new Format Edge page ranks cards by how much their top-4 rate exceeds their general play rate. Stop guessing what's actually winning -- see it directly.
-
-scout.trainerlab.io/nihil-zero/card-analysis
+Format Edge surfaces exactly these signals. scout.trainerlab.io/ninja-spinner/card-analysis
 
 ---
 
 **Tweet 3**
 
-Archetype results now link directly to Limitless.
-
-Every tournament entry on an archetype page links to the full standings. Click through to see the decklist, the field, and the full context behind a result.
+Dusknoir Greninja is the fastest-growing archetype in Ninja Spinner with a +12.1% trend delta. Night Stretcher (-24%) and Boss's Orders (-24%) are dropping hard. Chaos Rising is rewriting the staple base.
 
 ---
 
 **Tweet 4**
 
-Card detail pages now show Top-4 Edge broken down by archetype.
-
-You can see exactly which archetypes a card overperforms in -- not just whether it's popular, but whether it's winning.
+Card detail pages now show Top-4 Edge broken down by archetype. You can see exactly which archetypes a card overperforms in -- not just whether it's popular, but whether it's winning.
 
 ---
 
@@ -46,6 +40,6 @@ Scout is building toward giving every player access to the kind of data analysis
 
 **Tweet 6**
 
-Scout is free and updated after every major tournament.
+Scout tracks JP City League results across formats, updated daily. Free, no login.
 
 scout.trainerlab.io
