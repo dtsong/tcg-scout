@@ -199,8 +199,17 @@ class TestExportArchetypes:
         # Verify result structure
         result = data["results"][0]
         assert "tournament_name" in result
+        assert "tournament_url" in result
         assert "standing" in result
         assert "player_name" in result
+
+    def test_archetype_results_include_tournament_url(self, db, tmp_path):
+        export_archetypes(db, tmp_path)
+        charizard_file = tmp_path / "archetypes" / "charizard-ex.json"
+        data = json.loads(charizard_file.read_text())
+        for result in data["results"]:
+            assert "tournament_url" in result
+            assert result["tournament_url"] in ("t1", "t2", "t3")
 
     def test_archetype_file_includes_cards(self, db, tmp_path):
         export_archetypes(db, tmp_path)

@@ -121,8 +121,20 @@ export function ResultsTable({ results }: { results: ArchetypeResult[] }) {
                         <td className="px-4 py-3 font-mono text-xs text-surface-300">
                           {result.date}
                         </td>
-                        <td className="px-4 py-3 text-slate-300 text-sm">
-                          {result.tournament_name}
+                        <td className="px-4 py-3 text-sm">
+                          {result.tournament_url ? (
+                            <a
+                              href={result.tournament_url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-accent hover:text-accent/80"
+                              onClick={(e) => e.stopPropagation()}
+                            >
+                              {result.tournament_name}
+                            </a>
+                          ) : (
+                            <span className="text-slate-300">{result.tournament_name}</span>
+                          )}
                         </td>
                         <td className="px-4 py-3 text-right font-mono tabular-nums">
                           {formatPlacement(result.standing)}

@@ -115,6 +115,7 @@ export interface DecklistCard {
 
 export interface ArchetypeResult {
   tournament_name: string;
+  tournament_url?: string;
   date: string;
   standing: number;
   player_name: string;

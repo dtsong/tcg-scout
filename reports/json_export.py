@@ -1578,7 +1578,8 @@ def export_archetypes(conn: sqlite3.Connection, output_dir: Path) -> None:
         # (limited to 16 since each result now includes full decklists)
         results_rows = conn.execute(
             """
-            SELECT p.id AS placement_id, t.name AS tournament_name, t.date,
+            SELECT p.id AS placement_id, t.id AS tournament_url,
+                   t.name AS tournament_name, t.date,
                    p.standing, p.player_name
             FROM placements p
             JOIN tournaments t ON t.id = p.tournament_id
@@ -1596,6 +1597,7 @@ def export_archetypes(conn: sqlite3.Connection, output_dir: Path) -> None:
         for r in results_rows:
             entry: dict = {
                 "tournament_name": r["tournament_name"],
+                "tournament_url": r["tournament_url"],
                 "date": r["date"],
                 "standing": r["standing"],
                 "player_name": r["player_name"],
