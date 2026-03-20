@@ -448,8 +448,8 @@ def store_cl_city_league_results(
 
     # Store tournament
     conn.execute(
-        "INSERT OR REPLACE INTO tournaments (id, name, date, country) VALUES (?, ?, ?, ?)",
-        (tournament_id, event.event_name, event.date, "JP"),
+        "INSERT OR REPLACE INTO tournaments (id, name, date, country, division) VALUES (?, ?, ?, ?, ?)",
+        (tournament_id, event.event_name, event.date, "JP", event.division),
     )
 
     for placement in event.placements:

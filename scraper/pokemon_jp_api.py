@@ -32,6 +32,13 @@ BASE_URL = "https://players.pokemon-card.com"
 PAGE_SIZE = 20  # event_search returns 20 per page
 
 
+LEAGUE_NAME_MAP = {
+    "オープン": "open",
+    "シニア": "senior",
+    "ジュニア": "junior",
+}
+
+
 @dataclass
 class JPCityLeagueEvent:
     event_id: int  # event_holding_id
@@ -39,6 +46,7 @@ class JPCityLeagueEvent:
     prefecture: str
     store_name: str
     capacity: int
+    division: str  # open, senior, junior
 
     @classmethod
     def from_api(cls, data: dict) -> "JPCityLeagueEvent":
@@ -50,12 +58,15 @@ class JPCityLeagueEvent:
             date_iso = date_raw.replace("/", "-")
         else:
             date_iso = date_raw
+        league_jp = data.get("leagueName", "オープン")
+        division = LEAGUE_NAME_MAP.get(league_jp, "open")
         return cls(
             event_id=data.get("event_holding_id", data.get("event_id", 0)),
             date=date_iso,
             prefecture=data.get("prefecture_name", data.get("prefecture", "")),
             store_name=data.get("shop_name", data.get("store_name", "")),
             capacity=data.get("capacity", 0),
+            division=division,
         )
 
 

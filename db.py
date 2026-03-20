@@ -28,7 +28,8 @@ CREATE TABLE IF NOT EXISTS tournaments (
     name TEXT NOT NULL,
     date TEXT NOT NULL,
     player_count INTEGER,
-    country TEXT DEFAULT 'JP'
+    country TEXT DEFAULT 'JP',
+    division TEXT DEFAULT 'open'
 );
 
 CREATE TABLE IF NOT EXISTS placements (
@@ -75,6 +76,12 @@ CREATE TABLE IF NOT EXISTS card_mappings (
 );
 
 -- Champions League events and decklists
+-- View: open-division placements only (used by meta/export queries)
+CREATE VIEW IF NOT EXISTS open_placements AS
+SELECT p.* FROM placements p
+JOIN tournaments t ON t.id = p.tournament_id
+WHERE t.division = 'open';
+
 CREATE TABLE IF NOT EXISTS cl_events (
     id INTEGER PRIMARY KEY,           -- Official event ID (e.g. 903702)
     name TEXT NOT NULL,
