@@ -451,6 +451,7 @@
   "results": [
     {
       "tournament_name": "City League Ōsaka",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4321",
       "date": "2026-03-17",
       "standing": 3,
       "player_name": "なお",
@@ -604,6 +605,7 @@
     },
     {
       "tournament_name": "City League Gunma",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4300",
       "date": "2026-03-15",
       "standing": 11,
       "player_name": "ネコバス",
@@ -767,6 +769,7 @@
     },
     {
       "tournament_name": "City League Kanagawa",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4293",
       "date": "2026-03-15",
       "standing": 14,
       "player_name": "こた",
@@ -922,11 +925,6 @@
       "week": "2026-03-16",
       "adopted": [
         {
-          "card": "Munkidori",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
           "card": "Air Balloon",
           "from_pct": 0.0,
           "to_pct": 100.0
@@ -935,31 +933,26 @@
           "card": "Lumiose City",
           "from_pct": 0.0,
           "to_pct": 100.0
+        },
+        {
+          "card": "Munkidori",
+          "from_pct": 0.0,
+          "to_pct": 100.0
         }
       ],
       "dropped": [
-        {
-          "card": "Energy Recycler",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Shaymin",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Latias ex",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
         {
           "card": "Bloodmoon Ursaluna ex",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
-          "card": "Duskull",
+          "card": "Dusknoir",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Dusclops",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -974,17 +967,27 @@
           "to_pct": 0.0
         },
         {
+          "card": "Shaymin",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
           "card": "Leafeon ex",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
-          "card": "Dusknoir",
+          "card": "Energy Recycler",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
-          "card": "Dusclops",
+          "card": "Duskull",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Latias ex",
           "from_pct": 50.0,
           "to_pct": 0.0
         }

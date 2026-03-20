@@ -402,6 +402,7 @@
   "results": [
     {
       "tournament_name": "City League Nara",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4312",
       "date": "2026-03-15",
       "standing": 8,
       "player_name": "KATA",
@@ -560,6 +561,7 @@
     },
     {
       "tournament_name": "City League Kanagawa",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4322",
       "date": "2026-03-17",
       "standing": 14,
       "player_name": "ニナみかん♪",
@@ -705,7 +707,12 @@
       "week": "2026-03-16",
       "adopted": [
         {
-          "card": "Rare Candy",
+          "card": "Dusknoir",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Dusclops",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -715,17 +722,12 @@
           "to_pct": 100.0
         },
         {
-          "card": "Duskull",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
           "card": "Judge",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Dusknoir",
+          "card": "Rare Candy",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -735,14 +737,19 @@
           "to_pct": 100.0
         },
         {
-          "card": "Dusclops",
+          "card": "Duskull",
           "from_pct": 0.0,
           "to_pct": 100.0
         }
       ],
       "dropped": [
         {
-          "card": "Energy Switch",
+          "card": "Special Red Card",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Mega Kangaskhan ex",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -757,17 +764,17 @@
           "to_pct": 0.0
         },
         {
+          "card": "Energy Switch",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Brock's Scouting",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
           "card": "Munkidori",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Special Red Card",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Ciphermaniac's Codebreaking",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -777,7 +784,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "Mega Kangaskhan ex",
+          "card": "Ciphermaniac's Codebreaking",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -788,11 +795,6 @@
         },
         {
           "card": "Chien-Pao",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Brock's Scouting",
           "from_pct": 100.0,
           "to_pct": 0.0
         }

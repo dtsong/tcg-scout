@@ -367,6 +367,7 @@
   "results": [
     {
       "tournament_name": "City League Ōsaka",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4321",
       "date": "2026-03-17",
       "standing": 5,
       "player_name": "カネ",
@@ -495,6 +496,7 @@
     },
     {
       "tournament_name": "City League Kagawa",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4291",
       "date": "2026-03-14",
       "standing": 15,
       "player_name": "ほろう",
@@ -628,6 +630,7 @@
     },
     {
       "tournament_name": "City League Gifu",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4292",
       "date": "2026-03-14",
       "standing": 16,
       "player_name": "アン",
@@ -785,32 +788,17 @@
       ],
       "dropped": [
         {
-          "card": "Latias ex",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Night Stretcher",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Surfer",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Neo Upper Energy",
-          "from_pct": 50.0,
+          "card": "Latias ex",
+          "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
           "card": "Wally's Compassion",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Area Zero Underdepths",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -820,17 +808,32 @@
           "to_pct": 0.0
         },
         {
+          "card": "Area Zero Underdepths",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
           "card": "Fan Rotom",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
-          "card": "Chien-Pao",
+          "card": "Psyduck",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
-          "card": "Psyduck",
+          "card": "Neo Upper Energy",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Surfer",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Chien-Pao",
           "from_pct": 50.0,
           "to_pct": 0.0
         }

@@ -402,6 +402,7 @@
   "results": [
     {
       "tournament_name": "City League Aichi",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4311",
       "date": "2026-03-15",
       "standing": 3,
       "player_name": "アンク",
@@ -550,6 +551,7 @@
     },
     {
       "tournament_name": "City League Fukuoka",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4288",
       "date": "2026-03-14",
       "standing": 12,
       "player_name": "メソキング",
@@ -683,6 +685,7 @@
     },
     {
       "tournament_name": "City League Hiroshima",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4326",
       "date": "2026-03-18",
       "standing": 14,
       "player_name": "おーた",
@@ -838,17 +841,7 @@
       "week": "2026-03-16",
       "adopted": [
         {
-          "card": "Rare Candy",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
           "card": "Blaziken ex",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Chi-Yu",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -858,7 +851,7 @@
           "to_pct": 100.0
         },
         {
-          "card": "Pokégear 3.0",
+          "card": "Chi-Yu",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -866,21 +859,21 @@
           "card": "Judge",
           "from_pct": 0.0,
           "to_pct": 100.0
+        },
+        {
+          "card": "Rare Candy",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Pokégear 3.0",
+          "from_pct": 0.0,
+          "to_pct": 100.0
         }
       ],
       "dropped": [
         {
-          "card": "Latias ex",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Special Red Card",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Lillie's Clefairy ex",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -890,12 +883,17 @@
           "to_pct": 0.0
         },
         {
-          "card": "Shaymin",
-          "from_pct": 50.0,
+          "card": "Latias ex",
+          "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Maractus",
+          "card": "Lillie's Clefairy ex",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Shaymin",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -910,12 +908,17 @@
           "to_pct": 0.0
         },
         {
+          "card": "Dawn",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
           "card": "Psyduck",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
-          "card": "Dawn",
+          "card": "Maractus",
           "from_pct": 50.0,
           "to_pct": 0.0
         }

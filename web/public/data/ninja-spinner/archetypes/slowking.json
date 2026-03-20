@@ -415,6 +415,7 @@
   "results": [
     {
       "tournament_name": "City League Hiroshima",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4326",
       "date": "2026-03-18",
       "standing": 10,
       "player_name": "みっきー",
@@ -558,6 +559,7 @@
     },
     {
       "tournament_name": "City League Tōkyō",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4301",
       "date": "2026-03-15",
       "standing": 13,
       "player_name": "イタクラ",
@@ -696,6 +698,7 @@
     },
     {
       "tournament_name": "City League Kanagawa",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4293",
       "date": "2026-03-15",
       "standing": 15,
       "player_name": "かも",
@@ -851,6 +854,11 @@
       "week": "2026-03-16",
       "adopted": [
         {
+          "card": "Shaymin",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
           "card": "Energy Switch",
           "from_pct": 0.0,
           "to_pct": 100.0
@@ -861,17 +869,12 @@
           "to_pct": 100.0
         },
         {
-          "card": "Shaymin",
+          "card": "Regigigas",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
           "card": "Enriching Energy",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Regigigas",
           "from_pct": 0.0,
           "to_pct": 100.0
         }
@@ -883,12 +886,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "Counter Gain",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Unfair Stamp",
+          "card": "Spectrier",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -898,17 +896,12 @@
           "to_pct": 0.0
         },
         {
-          "card": "Spectrier",
+          "card": "Gumshoos",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
-          "card": "Frillish",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Yungoos",
+          "card": "Unfair Stamp",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -918,7 +911,22 @@
           "to_pct": 0.0
         },
         {
+          "card": "Frillish",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
           "card": "Iris's Fighting Spirit",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Max Rod",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Counter Gain",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -928,12 +936,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "Gumshoos",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Max Rod",
+          "card": "Yungoos",
           "from_pct": 50.0,
           "to_pct": 0.0
         }
