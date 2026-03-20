@@ -19,6 +19,12 @@ from analysis.card_stats import (
     compute_card_detail,
     compute_card_stats,
 )
+from analysis.deep_dive import (
+    compute_notable_techs,
+    compute_placement_distribution,
+    compute_weekly_card_timeline,
+    compute_weighted_consensus_60,
+)
 from analysis.evolution import compute_archetype_evolution, compute_meta_evolution
 from analysis.matchup import compute_matchup_matrix
 from analysis.meta import get_latest_snapshot
@@ -2377,6 +2383,228 @@ def export_archetype_overlap(conn: sqlite3.Connection, output_dir: Path) -> None
         logger.info("Exported archetype overlap matrix (%d archetypes)", len(data["archetypes"]))
 
 
+def export_deep_dive(conn: sqlite3.Connection, output_dir: Path) -> None:
+    """Export per-archetype deep dive report JSON files."""
+    from datetime import UTC, datetime
+
+    snapshot = get_latest_snapshot(conn)
+    if not snapshot:
+        return
+
+    category_lookup = build_category_lookup(conn)
+    weighted_shares = _compute_weighted_shares(conn, snapshot)
+    report_dir = output_dir / "archetype-reports"
+    report_dir.mkdir(parents=True, exist_ok=True)
+
+    format_slug = None
+    # Detect format from output_dir name (e.g., "nihil-zero")
+    for slug in FORMATS:
+        if slug in str(output_dir):
+            format_slug = slug
+            break
+
+    count = 0
+    for arch in snapshot["archetypes"]:
+        archetype_name = arch["archetype"]
+        slug = _slugify(archetype_name)
+
+        # Get placements
+        placements = conn.execute(
+            "SELECT id, standing FROM open_placements WHERE archetype = ?",
+            (archetype_name,),
+        ).fetchall()
+
+        if not placements:
+            continue
+
+        placement_ids = [p["id"] for p in placements]
+        deck_count = len(placement_ids)
+
+        # Check minimum decklists
+        has_decklists = conn.execute(
+            "SELECT COUNT(DISTINCT placement_id) FROM decklist_cards WHERE placement_id IN ({})".format(
+                ",".join("?" * len(placement_ids))
+            ),
+            placement_ids,
+        ).fetchone()[0]
+
+        if has_decklists < 3:
+            continue
+
+        # Compute analyses
+        consensus = compute_weighted_consensus_60(conn, archetype_name, category_lookup)
+        timeline = compute_weekly_card_timeline(conn, archetype_name)
+        notable_techs = compute_notable_techs(timeline)
+        placement_dist = compute_placement_distribution(
+            [{"standing": p["standing"]} for p in placements]
+        )
+
+        # Card frequency (all cards, not just consensus)
+        all_cards = _compute_card_stats_for_ids(
+            conn, placement_ids, category_lookup, include_basic_energy=False
+        )
+        card_freq = []
+        for c in all_cards:
+            card_freq.append(
+                {
+                    "card_name": c["card_name"],
+                    "inclusion_pct": c["inclusion_pct"],
+                    "avg_copies": c["avg_copies"],
+                    "weighted_avg_copies": c["avg_copies"],
+                    "decks_with": c["decks_with"],
+                    "category": c["category"],
+                }
+            )
+
+        # Tournament count
+        tournament_count = conn.execute(
+            """
+            SELECT COUNT(DISTINCT t.id)
+            FROM open_placements p
+            JOIN tournaments t ON t.id = p.tournament_id
+            WHERE p.archetype = ?
+            """,
+            (archetype_name,),
+        ).fetchone()[0]
+
+        best_placement = min(p["standing"] for p in placements)
+        sprite_filenames = _get_sprite_filenames(archetype_name)
+
+        report = {
+            "archetype": archetype_name,
+            "slug": slug,
+            "format": format_slug or "",
+            "generated_at": datetime.now(UTC).isoformat(),
+            "tier": arch["tier"],
+            "meta_share": arch["meta_share"],
+            "weighted_share": weighted_shares.get(archetype_name, arch["meta_share"]),
+            "deck_count": deck_count,
+            "best_placement": best_placement,
+            "sprite_filenames": sprite_filenames,
+            "min_deck_threshold_met": has_decklists >= 10,
+            "consensus_60": consensus,
+            "card_frequency": card_freq,
+            "tech_evolution": timeline,
+            "notable_techs": notable_techs,
+            "placement_distribution": placement_dist,
+            "tournament_count": tournament_count,
+            "narrative": {},
+        }
+
+        _write_json(report, report_dir / f"{slug}.json")
+        count += 1
+
+    logger.info("Exported %d archetype deep dive reports", count)
+
+
+def export_deep_dive_narrative(format_slug: str, output_dir: Path | None = None) -> int:
+    """Generate LLM narratives for deep dive reports (opt-in).
+
+    Reads already-exported archetype-reports JSON files and adds narrative sections.
+    Returns the number of reports updated.
+    """
+    import hashlib
+
+    import anthropic
+    from jinja2 import Environment, FileSystemLoader
+
+    from config import REPORT_LLM_MAX_TOKENS, REPORT_LLM_MODEL, REPORT_LLM_TEMPERATURE
+
+    base = output_dir or DEFAULT_OUTPUT_DIR
+    report_dir = base / format_slug / "archetype-reports"
+    if not report_dir.exists():
+        logger.warning("No archetype-reports directory found for %s", format_slug)
+        return 0
+
+    templates_dir = Path(__file__).parent / "templates"
+    jinja_env = Environment(loader=FileSystemLoader(str(templates_dir)), autoescape=False)
+    template = jinja_env.get_template("deep_dive.j2")
+
+    client = anthropic.Anthropic()
+    updated = 0
+
+    for json_path in sorted(report_dir.glob("*.json")):
+        if json_path.name.startswith("."):
+            continue
+
+        try:
+            report = json.loads(json_path.read_text(encoding="utf-8"))
+        except (json.JSONDecodeError, OSError):
+            continue
+
+        if not report.get("min_deck_threshold_met") or report.get("deck_count", 0) < 10:
+            continue
+
+        # Build template context
+        consensus_cards = (report.get("consensus_60") or {}).get("cards", [])
+        tech_cards = (report.get("tech_evolution") or {}).get("cards", [])
+        quality_score = (report.get("consensus_60") or {}).get("quality_score", 0)
+        fmt_config = FORMATS.get(format_slug, {})
+
+        context = {
+            "archetype": report["archetype"],
+            "tier": report.get("tier", ""),
+            "format_name": fmt_config.get("name", format_slug),
+            "meta_share": report.get("meta_share", 0),
+            "weighted_share": report.get("weighted_share", 0),
+            "deck_count": report.get("deck_count", 0),
+            "best_placement": report.get("best_placement", 0),
+            "consensus_cards": consensus_cards,
+            "tech_cards": tech_cards,
+            "quality_score": quality_score,
+        }
+
+        prompt = template.render(**context)
+
+        # Cache check
+        data_hash = hashlib.sha256(prompt.encode("utf-8")).hexdigest()[:12]
+        cache_path = report_dir / f".{json_path.stem}-narrative-{data_hash}.json"
+
+        if cache_path.exists():
+            cached = json.loads(cache_path.read_text(encoding="utf-8"))
+            report["narrative"] = cached
+            json_path.write_text(json.dumps(report, indent=2, ensure_ascii=False), encoding="utf-8")
+            updated += 1
+            continue
+
+        logger.info("Generating narrative for %s (hash %s)", report["archetype"], data_hash)
+        try:
+            message = client.messages.create(
+                model=REPORT_LLM_MODEL,
+                max_tokens=REPORT_LLM_MAX_TOKENS,
+                temperature=REPORT_LLM_TEMPERATURE,
+                messages=[{"role": "user", "content": prompt}],
+            )
+            raw = message.content[0].text.strip()
+            narrative = json.loads(raw)
+        except (json.JSONDecodeError, Exception) as exc:
+            # Try extracting JSON
+            import re as _re
+
+            json_match = _re.search(
+                r"\{.*\}",
+                str(getattr(exc, "__context__", raw if "raw" in dir() else "")),
+                _re.DOTALL,
+            )
+            if json_match:
+                try:
+                    narrative = json.loads(json_match.group(0))
+                except json.JSONDecodeError:
+                    logger.warning("Failed to parse narrative for %s: %s", report["archetype"], exc)
+                    continue
+            else:
+                logger.warning("Failed to generate narrative for %s: %s", report["archetype"], exc)
+                continue
+
+        report["narrative"] = narrative
+        json_path.write_text(json.dumps(report, indent=2, ensure_ascii=False), encoding="utf-8")
+        cache_path.write_text(json.dumps(narrative, ensure_ascii=False), encoding="utf-8")
+        updated += 1
+
+    logger.info("Updated %d archetype reports with narratives", updated)
+    return updated
+
+
 def export_all(
     conn: sqlite3.Connection, output_dir: Path | None = None, format_slug: str | None = None
 ) -> Path:
@@ -2407,6 +2635,7 @@ def export_all(
         (export_matchup_matrix, "matchup matrix"),
         (export_meta_evolution, "meta evolution"),
         (export_tech_forecast, "tech forecast"),
+        (export_deep_dive, "deep dive reports"),
     ]:
         try:
             export_fn(conn, out)

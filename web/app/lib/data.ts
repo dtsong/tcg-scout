@@ -8,6 +8,7 @@ import type {
   WinningEdgeCard,
   AceSpec,
   ArchetypeDetail,
+  ArchetypeReport,
   CLDivision,
   FormatInfo,
   TimelineData,
@@ -197,4 +198,29 @@ export function getMetaReport(format: string): MetaReport | null {
     console.error(`Failed to load meta report for ${format}:`, err);
     return null;
   }
+}
+
+export function getArchetypeReport(
+  format: string,
+  slug: string,
+): ArchetypeReport | null {
+  try {
+    return readJson(`${format}/archetype-reports/${slug}.json`);
+  } catch (err) {
+    if (isFileNotFound(err)) return null;
+    console.error(
+      `Failed to load archetype report for ${format}/${slug}:`,
+      err,
+    );
+    return null;
+  }
+}
+
+export function getArchetypeReportSlugs(format: string): string[] {
+  const dir = path.join(DATA_DIR, format, "archetype-reports");
+  if (!fs.existsSync(dir)) return [];
+  return fs
+    .readdirSync(dir)
+    .filter((f) => f.endsWith(".json") && !f.startsWith("."))
+    .map((f) => f.replace(".json", ""));
 }

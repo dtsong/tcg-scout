@@ -365,3 +365,70 @@ export interface MetaReport {
   data_hash: string;
   sections: ReportSection[];
 }
+
+export interface ConsensusCard {
+  card_name: string;
+  count: number;
+  category: "Pokemon" | "Trainer" | "Energy";
+  weighted_inclusion_pct: number;
+  weighted_avg_copies: number;
+  confidence: number;
+  consensus: "core" | "common" | "tech";
+}
+
+export interface TechEvolutionCard {
+  card_name: string;
+  category: string;
+  timeline: number[];
+  copies_timeline: number[];
+  trend: "adopted" | "dropped" | "fluctuating" | "stable";
+  total_delta: number;
+}
+
+export interface NotableTech {
+  card_name: string;
+  event: "appeared" | "disappeared" | "surged" | "declined";
+  week: string;
+  from_pct: number;
+  to_pct: number;
+}
+
+export interface PlacementBracket {
+  bracket: string;
+  count: number;
+  pct: number;
+}
+
+export interface ArchetypeReport {
+  archetype: string;
+  slug: string;
+  format: string;
+  generated_at: string;
+  tier: Tier;
+  meta_share: number;
+  weighted_share: number;
+  deck_count: number;
+  best_placement: number;
+  sprite_filenames: string[];
+  min_deck_threshold_met: boolean;
+  consensus_60: {
+    quality_score: number;
+    total_pokemon: number;
+    total_trainer: number;
+    total_energy: number;
+    cards: ConsensusCard[];
+  } | null;
+  card_frequency: ArchetypeCard[];
+  tech_evolution: {
+    weeks: string[];
+    cards: TechEvolutionCard[];
+  } | null;
+  notable_techs: NotableTech[];
+  placement_distribution: PlacementBracket[];
+  tournament_count: number;
+  narrative: {
+    summary?: string;
+    consensus_rationale?: string;
+    tech_evolution_analysis?: string;
+  };
+}
