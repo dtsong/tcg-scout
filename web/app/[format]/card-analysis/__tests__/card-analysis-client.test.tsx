@@ -68,9 +68,23 @@ describe("CardAnalysisClient", () => {
     expect(screen.getByText(/3 cards/)).toBeInTheDocument();
   });
 
-  it("renders empty state gracefully", () => {
+  it("renders page title as Format Edge", () => {
     const empty: CardAnalysisData = { cards: [], generated_at: "" };
     render(<CardAnalysisClient data={empty} format="nihil-zero" />);
-    expect(screen.getByText("Card Analysis")).toBeInTheDocument();
+    expect(screen.getByText("Format Edge")).toBeInTheDocument();
+  });
+
+  it("renders card names as links", () => {
+    render(<CardAnalysisClient data={mockData} format="nihil-zero" />);
+    const link = screen.getByRole("link", { name: "Charizard ex" });
+    expect(link).toHaveAttribute("href", "/nihil-zero/cards/charizard-ex");
+  });
+
+  it("default sort surfaces highest max_delta first", () => {
+    render(<CardAnalysisClient data={mockData} format="nihil-zero" />);
+    const links = screen.getAllByRole("link").filter((el) =>
+      mockData.cards.some((c) => c.card_name === el.textContent),
+    );
+    expect(links[0]).toHaveTextContent("Charizard ex");
   });
 });

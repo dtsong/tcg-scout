@@ -3,6 +3,7 @@
 import { useState, useMemo } from "react";
 import Link from "next/link";
 import type { CardAnalysisData, CardAnalysisEntry } from "@/app/lib/types";
+import { slugify } from "@/app/lib/utils";
 
 type CategoryFilter = "all" | "Pokemon" | "Trainer" | "Energy";
 type SortField = "avg_delta" | "max_delta" | "archetype_count";
@@ -42,7 +43,13 @@ function CardRow({
         className="w-full px-4 py-3 flex items-center justify-between gap-4 hover:bg-surface-700/40 transition-colors text-left"
       >
         <div className="flex items-center gap-3 min-w-0">
-          <span className="text-sm text-slate-300 truncate">{card.card_name}</span>
+          <Link
+            href={`/${format}/cards/${slugify(card.card_name)}`}
+            onClick={(e) => e.stopPropagation()}
+            className="text-sm text-slate-300 hover:text-accent truncate"
+          >
+            {card.card_name}
+          </Link>
           <span className="text-[10px] text-surface-500 uppercase">{card.category}</span>
         </div>
         <div className="flex items-center gap-6 shrink-0">
@@ -89,7 +96,7 @@ export function CardAnalysisClient({
 }) {
   const [categoryFilter, setCategoryFilter] = useState<CategoryFilter>("all");
   const [search, setSearch] = useState("");
-  const [sortBy, setSortBy] = useState<SortField>("avg_delta");
+  const [sortBy, setSortBy] = useState<SortField>("max_delta");
   const [expandedCard, setExpandedCard] = useState<string | null>(null);
 
   const filtered = useMemo(() => {
@@ -116,9 +123,9 @@ export function CardAnalysisClient({
     <div className="space-y-4">
       <div className="flex items-start justify-between gap-4">
         <div>
-          <h1 className="font-display text-2xl font-bold text-slate-100">Card Analysis</h1>
+          <h1 className="font-display text-2xl font-bold text-slate-100">Format Edge</h1>
           <p className="text-sm text-surface-400 mt-1">
-            Top-4 inclusion deltas across archetypes. {filtered.length} cards shown.
+            Cards that show up more in top-4 finishes than in the field. {filtered.length} cards shown.
           </p>
         </div>
         <div className="flex gap-1 shrink-0">
@@ -155,7 +162,7 @@ export function CardAnalysisClient({
                 sortBy === field ? "bg-surface-600 text-slate-200" : "text-surface-400 hover:text-slate-300"
               }`}
             >
-              {field === "avg_delta" ? "Avg Delta" : field === "max_delta" ? "Max Delta" : "# Archetypes"}
+              {field === "avg_delta" ? "Avg Edge" : field === "max_delta" ? "Best Edge" : "# Archetypes"}
             </button>
           ))}
         </div>
@@ -165,8 +172,8 @@ export function CardAnalysisClient({
         <div className="px-4 py-2 border-b border-surface-600 flex items-center justify-between">
           <span className="text-[10px] text-surface-500 uppercase tracking-wider">Card</span>
           <div className="flex items-center gap-6">
-            <span className="text-[10px] text-surface-500 uppercase tracking-wider w-16 text-right">Avg Delta</span>
-            <span className="text-[10px] text-surface-500 uppercase tracking-wider w-16 text-right">Max Delta</span>
+            <span className="text-[10px] text-surface-500 uppercase tracking-wider w-16 text-right">Avg Edge</span>
+            <span className="text-[10px] text-surface-500 uppercase tracking-wider w-16 text-right">Best Edge</span>
             <span className="text-[10px] text-surface-500 uppercase tracking-wider w-8 text-right">Archs</span>
           </div>
         </div>

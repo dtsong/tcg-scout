@@ -38,7 +38,7 @@ export function Nav({ format, formats }: { format: string; formats: FormatInfo[]
     { href: `/${format}`, label: "Dashboard" },
     { href: `/${format}/archetypes`, label: "Archetypes" },
     { href: `/${format}/cards`, label: "Cards" },
-    // { href: `/${format}/card-analysis`, label: "Card Analysis" },
+    { href: `/${format}/card-analysis`, label: "Format Edge" },
     { href: `/${format}/buylist`, label: "Buy List" },
     { href: `/${format}/trends`, label: "Trends" },
     { href: `/${format}/champions`, label: "Champions League" },

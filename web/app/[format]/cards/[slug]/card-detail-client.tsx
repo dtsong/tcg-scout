@@ -5,7 +5,7 @@ import { StatCard } from "@/app/components/stat-card";
 import { TierBadge } from "@/app/components/tier-badge";
 import { formatPct } from "@/app/lib/utils";
 import { cn } from "@/app/lib/utils";
-import type { CardDetail, CardArchetype, SynergyPartner } from "@/app/lib/types";
+import type { CardDetail, CardArchetype, SynergyPartner, CardAnalysisArchetype } from "@/app/lib/types";
 import {
   AreaChart,
   Area,
@@ -124,7 +124,17 @@ function UsageTrendChart({ data }: { data: { week: string; usage_pct: number }[]
   );
 }
 
-function ArchetypeRow({ archetype, format }: { archetype: CardArchetype; format: string }) {
+function DeltaValue({ delta }: { delta: number }) {
+  if (delta === 0) return <span className="text-xs font-mono text-surface-400">0.0</span>;
+  const positive = delta > 0;
+  return (
+    <span className={`text-xs font-mono tabular-nums ${positive ? "text-emerald-400" : "text-red-400"}`}>
+      {positive ? "+" : ""}{delta.toFixed(1)}
+    </span>
+  );
+}
+
+function ArchetypeRow({ archetype, format, delta }: { archetype: CardArchetype; format: string; delta?: number }) {
   return (
     <div className="flex items-center justify-between py-2.5 px-3 rounded hover:bg-surface-700/40 transition-colors">
       <div className="flex items-center gap-2.5 min-w-0">
@@ -143,6 +153,11 @@ function ArchetypeRow({ archetype, format }: { archetype: CardArchetype; format:
         <span className="font-mono text-xs text-surface-400 tabular-nums w-12 text-right">
           {archetype.usage_count} decks
         </span>
+        {delta !== undefined && (
+          <span className="w-12 text-right">
+            <DeltaValue delta={delta} />
+          </span>
+        )}
       </div>
     </div>
   );
@@ -151,10 +166,15 @@ function ArchetypeRow({ archetype, format }: { archetype: CardArchetype; format:
 export function CardDetailClient({
   card,
   format,
+  top4Deltas,
 }: {
   card: CardDetail;
   format: string;
+  top4Deltas?: CardAnalysisArchetype[];
 }) {
+  const deltaBySlug = top4Deltas
+    ? new Map(top4Deltas.map((d) => [d.slug, d.delta_vs_field]))
+    : undefined;
   const verdict = generateVerdict(card);
 
   return (
@@ -233,7 +253,7 @@ export function CardDetailClient({
           <div className="bg-surface-800 border border-surface-600 rounded-lg overflow-hidden">
             <div className="p-1.5 space-y-0.5">
               {card.archetypes.map((arch) => (
-                <ArchetypeRow key={arch.slug} archetype={arch} format={format} />
+                <ArchetypeRow key={arch.slug} archetype={arch} format={format} delta={deltaBySlug?.get(arch.slug)} />
               ))}
             </div>
           </div>

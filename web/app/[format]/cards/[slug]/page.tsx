@@ -1,4 +1,4 @@
-import { getCardDetail, getCardSlugs, getFormats } from "@/app/lib/data";
+import { getCardDetail, getCardSlugs, getFormats, getCardAnalysis } from "@/app/lib/data";
 import { CardDetailClient } from "./card-detail-client";
 import { notFound } from "next/navigation";
 
@@ -33,5 +33,9 @@ export default async function CardDetailPage({
     throw err;
   }
 
-  return <CardDetailClient card={card} format={format} />;
+  const analysis = getCardAnalysis(format);
+  const analysisEntry = analysis?.cards.find((c) => c.card_name === card.card_name);
+  const top4Deltas = analysisEntry?.archetypes;
+
+  return <CardDetailClient card={card} format={format} top4Deltas={top4Deltas} />;
 }
