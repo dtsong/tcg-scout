@@ -11,6 +11,7 @@ def compute_tech_forecast(conn: sqlite3.Connection, watchlist: set[str]) -> dict
     Returns a dict with generated_at timestamp and per-card trend data
     sorted by volatility (abs trend_delta descending).
     """
+    conn.row_factory = sqlite3.Row
     if not watchlist:
         return {"generated_at": datetime.now().isoformat(), "cards": []}
 

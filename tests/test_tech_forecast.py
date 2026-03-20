@@ -457,6 +457,50 @@ class TestComputeTechForecast:
 
         conn.close()
 
+    def test_division_filter_excludes_non_open(self):
+        conn = sqlite3.connect(":memory:")
+        conn.row_factory = sqlite3.Row
+        conn.executescript(SCHEMA)
+
+        # Open tournament: 2 decks, both have card => 100%
+        # Junior tournament: 2 decks, neither has card
+        conn.executemany(
+            "INSERT INTO tournaments (id, name, date, player_count, division) VALUES (?, ?, ?, ?, ?)",
+            [
+                ("t1", "Open Event", "2026-01-05", 32, "open"),
+                ("t2", "Junior Event", "2026-01-05", 16, "junior"),
+            ],
+        )
+        conn.executemany(
+            "INSERT INTO placements (id, tournament_id, standing, player_name, archetype) "
+            "VALUES (?, ?, ?, ?, ?)",
+            [
+                (1, "t1", 1, "A", "Deck A"),
+                (2, "t1", 2, "B", "Deck A"),
+                (3, "t2", 1, "C", "Deck B"),
+                (4, "t2", 2, "D", "Deck B"),
+            ],
+        )
+        conn.executemany(
+            "INSERT INTO decklist_cards (placement_id, card_id, card_name, count) VALUES (?, ?, ?, ?)",
+            [
+                (1, "filler", "Filler Card", 1),
+                (2, "filler", "Filler Card", 1),
+                (3, "filler", "Filler Card", 1),
+                (4, "filler", "Filler Card", 1),
+                (1, "target", "Target Card", 2),
+                (2, "target", "Target Card", 2),
+            ],
+        )
+        conn.commit()
+
+        result = compute_tech_forecast(conn, {"Target Card"})
+        card = result["cards"][0]
+        # Should be 100% (2/2 open decks), not 50% (2/4 total decks)
+        assert card["current_adoption_pct"] == 100.0
+
+        conn.close()
+
     def test_empty_watchlist(self, db):
         result = compute_tech_forecast(db, set())
         assert result["cards"] == []

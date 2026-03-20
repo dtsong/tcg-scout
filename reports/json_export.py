@@ -2401,12 +2401,12 @@ def export_all(
     export_champions_league(conn, out)
     export_images(conn, out)
     export_timeline(conn, out)
-    export_tech_forecast(conn, out)
     for export_fn, name in [
         (export_cards, "cards"),
         (export_archetype_overlap, "archetype overlap"),
         (export_matchup_matrix, "matchup matrix"),
         (export_meta_evolution, "meta evolution"),
+        (export_tech_forecast, "tech forecast"),
     ]:
         try:
             export_fn(conn, out)
