@@ -742,12 +742,7 @@ def backfill_archetypes(
 @click.pass_context
 def export_web(ctx: click.Context, narrative: bool) -> None:
     """Export JSON data for the Scout Web dashboard."""
-    from reports.json_export import (
-        export_all,
-        export_deep_dive_narrative,
-        export_formats,
-        export_narrative,
-    )
+    from reports.json_export import export_all, export_formats, export_narrative
 
     fmt = ctx.obj["format"]
     conn = get_format_connection(fmt)
@@ -762,8 +757,6 @@ def export_web(ctx: click.Context, narrative: bool) -> None:
                 console.print(f"[green]Narrative report written to {result}[/green]")
             else:
                 console.print("[yellow]Narrative report generation skipped.[/yellow]")
-            count = export_deep_dive_narrative(fmt, out)
-            console.print(f"[green]Deep dive narratives: {count} reports updated[/green]")
     finally:
         conn.close()
 
