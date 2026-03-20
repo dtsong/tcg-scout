@@ -95,7 +95,7 @@ export function WelcomeGuide() {
           <Link href="/guide" className="text-accent hover:text-accent/80 transition-colors">
             Guide
           </Link>
-          . Use the date filter below to narrow results to the last 7 or 30 days.
+          . Use the date filter above to narrow results to the last 7 or 30 days.
         </p>
         <button
           onClick={dismiss}
