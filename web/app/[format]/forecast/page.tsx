@@ -1,4 +1,4 @@
-import { getTechForecast, getMeta, formatHasData } from "@/app/lib/data";
+import { getTechForecast, formatHasData } from "@/app/lib/data";
 import { ForecastClient } from "./forecast-client";
 import Link from "next/link";
 
@@ -19,7 +19,6 @@ export default async function ForecastPage({
   }
 
   const forecast = getTechForecast(format);
-  const meta = getMeta(format);
 
   if (!forecast || forecast.cards.length === 0) {
     return (
@@ -30,5 +29,5 @@ export default async function ForecastPage({
     );
   }
 
-  return <ForecastClient forecast={forecast} format={format} dateRange={meta.date_range} />;
+  return <ForecastClient forecast={forecast} />;
 }

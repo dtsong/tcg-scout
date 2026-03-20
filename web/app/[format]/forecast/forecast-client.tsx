@@ -232,8 +232,6 @@ export function ForecastClient({
   forecast,
 }: {
   forecast: TechForecast;
-  format: string;
-  dateRange: { start: string; end: string };
 }) {
   const [sortKey, setSortKey] = useState<SortKey>("trend_delta");
   const [sortDir, setSortDir] = useState<SortDir>("desc");

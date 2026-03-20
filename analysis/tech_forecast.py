@@ -11,9 +11,8 @@ def compute_tech_forecast(conn: sqlite3.Connection, watchlist: set[str]) -> dict
     Returns a dict with generated_at timestamp and per-card trend data
     sorted by volatility (abs trend_delta descending).
     """
-    # Get all placements with dates and decklists for watchlist cards
-    card_list = sorted(watchlist)
-    placeholders = ",".join("?" * len(card_list))
+    if not watchlist:
+        return {"generated_at": datetime.now().isoformat(), "cards": []}
 
     # All placements that have decklists (at least one card in decklist_cards)
     placement_rows = conn.execute(
@@ -22,6 +21,7 @@ def compute_tech_forecast(conn: sqlite3.Connection, watchlist: set[str]) -> dict
         FROM placements p
         JOIN tournaments t ON t.id = p.tournament_id
         JOIN decklist_cards dc ON dc.placement_id = p.id
+        WHERE t.division = 'open'
         ORDER BY t.date
         """
     ).fetchall()
@@ -39,6 +39,8 @@ def compute_tech_forecast(conn: sqlite3.Connection, watchlist: set[str]) -> dict
     weeks = sorted(week_placements.keys())
 
     # Get all decklist_cards rows for watchlist cards
+    card_list = sorted(watchlist)
+    placeholders = ",".join("?" * len(card_list))
     card_rows = conn.execute(
         f"""
         SELECT dc.placement_id, dc.card_name, dc.count
@@ -86,9 +88,6 @@ def compute_tech_forecast(conn: sqlite3.Connection, watchlist: set[str]) -> dict
                     "total_decks": total_decks,
                 }
             )
-
-        if not weekly_data:
-            continue
 
         # Current = last week, prior = second-to-last week
         current = weekly_data[-1]

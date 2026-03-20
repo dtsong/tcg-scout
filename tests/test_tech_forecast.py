@@ -353,6 +353,110 @@ class TestComputeTechForecast:
 
         conn.close()
 
+    def test_trend_direction_single_week_new(self):
+        conn = sqlite3.connect(":memory:")
+        conn.row_factory = sqlite3.Row
+        conn.executescript(SCHEMA)
+
+        conn.execute(
+            "INSERT INTO tournaments (id, name, date, player_count, division) VALUES (?, ?, ?, ?, ?)",
+            ("t1", "Single Event", "2026-01-05", 32, "open"),
+        )
+        conn.executemany(
+            "INSERT INTO placements (id, tournament_id, standing, player_name, archetype) "
+            "VALUES (?, ?, ?, ?, ?)",
+            [(1, "t1", 1, "A", "Deck A"), (2, "t1", 2, "B", "Deck A")],
+        )
+        conn.executemany(
+            "INSERT INTO decklist_cards (placement_id, card_id, card_name, count) VALUES (?, ?, ?, ?)",
+            [
+                (1, "filler", "Filler Card", 1),
+                (2, "filler", "Filler Card", 1),
+                (1, "target", "Target Card", 2),
+            ],
+        )
+        conn.commit()
+
+        result = compute_tech_forecast(conn, {"Target Card"})
+        card = result["cards"][0]
+        assert card["trend_direction"] == "new"
+        assert card["trend_delta"] == 0.0
+        assert len(card["weekly_data"]) == 1
+
+        conn.close()
+
+    def test_trend_direction_single_week_stable(self):
+        conn = sqlite3.connect(":memory:")
+        conn.row_factory = sqlite3.Row
+        conn.executescript(SCHEMA)
+
+        conn.execute(
+            "INSERT INTO tournaments (id, name, date, player_count, division) VALUES (?, ?, ?, ?, ?)",
+            ("t1", "Single Event", "2026-01-05", 32, "open"),
+        )
+        conn.executemany(
+            "INSERT INTO placements (id, tournament_id, standing, player_name, archetype) "
+            "VALUES (?, ?, ?, ?, ?)",
+            [(1, "t1", 1, "A", "Deck A"), (2, "t1", 2, "B", "Deck A")],
+        )
+        conn.executemany(
+            "INSERT INTO decklist_cards (placement_id, card_id, card_name, count) VALUES (?, ?, ?, ?)",
+            [(1, "filler", "Filler Card", 1), (2, "filler", "Filler Card", 1)],
+        )
+        conn.commit()
+
+        # "Absent Card" is in watchlist but in zero decks => 0% adoption => stable
+        result = compute_tech_forecast(conn, {"Absent Card"})
+        card = result["cards"][0]
+        assert card["trend_direction"] == "stable"
+        assert card["trend_delta"] == 0.0
+
+        conn.close()
+
+    def test_top_archetypes_sorted_by_inclusion_pct(self):
+        conn = sqlite3.connect(":memory:")
+        conn.row_factory = sqlite3.Row
+        conn.executescript(SCHEMA)
+
+        conn.execute(
+            "INSERT INTO tournaments (id, name, date, player_count, division) VALUES (?, ?, ?, ?, ?)",
+            ("t1", "Big Event", "2026-01-05", 128, "open"),
+        )
+        # Archetype A: 1 deck with card out of 3 total (33.3%)
+        # Archetype B: 2 decks with card out of 2 total (100%)
+        conn.executemany(
+            "INSERT INTO placements (id, tournament_id, standing, player_name, archetype) "
+            "VALUES (?, ?, ?, ?, ?)",
+            [
+                (1, "t1", 1, "P1", "Archetype A"),
+                (2, "t1", 2, "P2", "Archetype A"),
+                (3, "t1", 3, "P3", "Archetype A"),
+                (4, "t1", 4, "P4", "Archetype B"),
+                (5, "t1", 5, "P5", "Archetype B"),
+            ],
+        )
+        conn.executemany(
+            "INSERT INTO decklist_cards (placement_id, card_id, card_name, count) VALUES (?, ?, ?, ?)",
+            [(i, "filler", "Filler Card", 1) for i in range(1, 6)]
+            + [
+                (1, "target", "Target Card", 2),
+                (4, "target", "Target Card", 3),
+                (5, "target", "Target Card", 1),
+            ],
+        )
+        conn.commit()
+
+        result = compute_tech_forecast(conn, {"Target Card"})
+        card = result["cards"][0]
+        archetypes = card["top_archetypes"]
+        assert len(archetypes) == 2
+        assert archetypes[0]["archetype"] == "Archetype B"
+        assert archetypes[0]["inclusion_pct"] == 100.0
+        assert archetypes[1]["archetype"] == "Archetype A"
+        assert archetypes[1]["inclusion_pct"] == 33.3
+
+        conn.close()
+
     def test_empty_watchlist(self, db):
         result = compute_tech_forecast(db, set())
         assert result["cards"] == []
