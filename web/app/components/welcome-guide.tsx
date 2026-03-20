@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import { X, Crosshair, Layers, ShoppingCart, TrendingUp, Trophy } from "lucide-react";
 
 const STORAGE_KEY = "scout-welcome-dismissed";
@@ -90,7 +91,11 @@ export function WelcomeGuide() {
 
       <div className="mt-4 flex items-center justify-between">
         <p className="text-xs text-surface-400">
-          Use the date filter below to narrow results to the last 7 or 30 days.
+          For a full walkthrough, see the{" "}
+          <Link href="/guide" className="text-accent hover:text-accent/80 transition-colors">
+            Guide
+          </Link>
+          . Use the date filter below to narrow results to the last 7 or 30 days.
         </p>
         <button
           onClick={dismiss}
