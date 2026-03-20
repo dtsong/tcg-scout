@@ -41,6 +41,7 @@ export function Nav({ format, formats }: { format: string; formats: FormatInfo[]
     { href: `/${format}/card-analysis`, label: "Format Edge" },
     { href: `/${format}/buylist`, label: "Buy List" },
     { href: `/${format}/trends`, label: "Trends" },
+    { href: `/${format}/forecast`, label: "Forecast" },
     { href: `/${format}/champions`, label: "Champions League" },
   ];
 

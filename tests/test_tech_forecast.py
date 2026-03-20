@@ -10,6 +10,13 @@ from analysis.tech_forecast import compute_tech_forecast
 from db import SCHEMA
 
 
+def _make_db():
+    conn = sqlite3.connect(":memory:")
+    conn.row_factory = sqlite3.Row
+    conn.executescript(SCHEMA)
+    return conn
+
+
 class TestComputeTechForecast:
     def test_returns_dict_with_cards(self, db):
         result = compute_tech_forecast(db, {"Nest Ball", "Iono"})
@@ -57,9 +64,7 @@ class TestComputeTechForecast:
         assert names == {"Nest Ball"}
 
     def test_adoption_pct_calculation(self):
-        conn = sqlite3.connect(":memory:")
-        conn.row_factory = sqlite3.Row
-        conn.executescript(SCHEMA)
+        conn = _make_db()
 
         # Week 1 (2026-01-05): 4 decks, card in 2 => 50%
         # Week 2 (2026-01-12): 4 decks, card in 4 => 100%
@@ -102,9 +107,7 @@ class TestComputeTechForecast:
         conn.close()
 
     def test_avg_copies_calculation(self):
-        conn = sqlite3.connect(":memory:")
-        conn.row_factory = sqlite3.Row
-        conn.executescript(SCHEMA)
+        conn = _make_db()
 
         conn.execute(
             "INSERT INTO tournaments (id, name, date, player_count) VALUES (?, ?, ?, ?)",
@@ -137,9 +140,7 @@ class TestComputeTechForecast:
         conn.close()
 
     def test_trend_direction_rising(self):
-        conn = sqlite3.connect(":memory:")
-        conn.row_factory = sqlite3.Row
-        conn.executescript(SCHEMA)
+        conn = _make_db()
 
         # Week 1: card in 1 of 10 decks (10%), Week 2: card in 8 of 10 decks (80%)
         conn.executemany(
@@ -174,9 +175,7 @@ class TestComputeTechForecast:
         conn.close()
 
     def test_trend_direction_falling(self):
-        conn = sqlite3.connect(":memory:")
-        conn.row_factory = sqlite3.Row
-        conn.executescript(SCHEMA)
+        conn = _make_db()
 
         # Week 1: card in 8 of 10 decks (80%), Week 2: card in 1 of 10 decks (10%)
         conn.executemany(
@@ -211,9 +210,7 @@ class TestComputeTechForecast:
         conn.close()
 
     def test_trend_direction_stable(self):
-        conn = sqlite3.connect(":memory:")
-        conn.row_factory = sqlite3.Row
-        conn.executescript(SCHEMA)
+        conn = _make_db()
 
         # Week 1: 5 of 10 decks (50%), Week 2: 5 of 10 decks (50%) => delta = 0.0
         conn.executemany(
@@ -248,9 +245,7 @@ class TestComputeTechForecast:
         conn.close()
 
     def test_trend_direction_new(self):
-        conn = sqlite3.connect(":memory:")
-        conn.row_factory = sqlite3.Row
-        conn.executescript(SCHEMA)
+        conn = _make_db()
 
         # Week 1: card absent (0%), Week 2: card present (50%)
         conn.executemany(
@@ -281,9 +276,7 @@ class TestComputeTechForecast:
         conn.close()
 
     def test_top_archetypes_limited_to_5(self):
-        conn = sqlite3.connect(":memory:")
-        conn.row_factory = sqlite3.Row
-        conn.executescript(SCHEMA)
+        conn = _make_db()
 
         conn.execute(
             "INSERT INTO tournaments (id, name, date, player_count) VALUES (?, ?, ?, ?)",
@@ -313,9 +306,7 @@ class TestComputeTechForecast:
         conn.close()
 
     def test_sorted_by_volatility(self):
-        conn = sqlite3.connect(":memory:")
-        conn.row_factory = sqlite3.Row
-        conn.executescript(SCHEMA)
+        conn = _make_db()
 
         # Two weeks of data so trend deltas can differ
         conn.executemany(
@@ -354,9 +345,7 @@ class TestComputeTechForecast:
         conn.close()
 
     def test_trend_direction_single_week_new(self):
-        conn = sqlite3.connect(":memory:")
-        conn.row_factory = sqlite3.Row
-        conn.executescript(SCHEMA)
+        conn = _make_db()
 
         conn.execute(
             "INSERT INTO tournaments (id, name, date, player_count, division) VALUES (?, ?, ?, ?, ?)",
@@ -386,9 +375,7 @@ class TestComputeTechForecast:
         conn.close()
 
     def test_trend_direction_single_week_stable(self):
-        conn = sqlite3.connect(":memory:")
-        conn.row_factory = sqlite3.Row
-        conn.executescript(SCHEMA)
+        conn = _make_db()
 
         conn.execute(
             "INSERT INTO tournaments (id, name, date, player_count, division) VALUES (?, ?, ?, ?, ?)",
@@ -414,9 +401,7 @@ class TestComputeTechForecast:
         conn.close()
 
     def test_top_archetypes_sorted_by_inclusion_pct(self):
-        conn = sqlite3.connect(":memory:")
-        conn.row_factory = sqlite3.Row
-        conn.executescript(SCHEMA)
+        conn = _make_db()
 
         conn.execute(
             "INSERT INTO tournaments (id, name, date, player_count, division) VALUES (?, ?, ?, ?, ?)",
@@ -458,9 +443,7 @@ class TestComputeTechForecast:
         conn.close()
 
     def test_division_filter_excludes_non_open(self):
-        conn = sqlite3.connect(":memory:")
-        conn.row_factory = sqlite3.Row
-        conn.executescript(SCHEMA)
+        conn = _make_db()
 
         # Open tournament: 2 decks, both have card => 100%
         # Junior tournament: 2 decks, neither has card
@@ -506,9 +489,7 @@ class TestComputeTechForecast:
         assert result["cards"] == []
 
     def test_empty_database(self):
-        conn = sqlite3.connect(":memory:")
-        conn.row_factory = sqlite3.Row
-        conn.executescript(SCHEMA)
+        conn = _make_db()
         conn.commit()
 
         result = compute_tech_forecast(conn, {"Nest Ball"})

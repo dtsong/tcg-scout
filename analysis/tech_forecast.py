@@ -4,6 +4,8 @@ import sqlite3
 from collections import defaultdict
 from datetime import date, datetime, timedelta
 
+from config import TECH_TREND_THRESHOLD
+
 
 def compute_tech_forecast(conn: sqlite3.Connection, watchlist: set[str]) -> dict:
     """Compute weekly adoption trends for tech/meta cards.
@@ -62,11 +64,9 @@ def compute_tech_forecast(conn: sqlite3.Connection, watchlist: set[str]) -> dict
 
     for wk in weeks:
         for pid, _archetype in week_placements[wk]:
-            cards_in_deck = placement_cards.get(pid, {})
-            for card_name in watchlist:
-                if card_name in cards_in_deck:
-                    card_week_stats[card_name][wk]["deck_count"] += 1
-                    card_week_stats[card_name][wk]["total_copies"] += cards_in_deck[card_name]
+            for card_name, count in placement_cards.get(pid, {}).items():
+                card_week_stats[card_name][wk]["deck_count"] += 1
+                card_week_stats[card_name][wk]["total_copies"] += count
 
     # Build per-card results
     results = []
@@ -102,9 +102,9 @@ def compute_tech_forecast(conn: sqlite3.Connection, watchlist: set[str]) -> dict
 
             if prior_adoption == 0.0 and current_adoption > 0.0:
                 direction = "new"
-            elif delta > 2.0:
+            elif delta > TECH_TREND_THRESHOLD:
                 direction = "rising"
-            elif delta < -2.0:
+            elif delta < -TECH_TREND_THRESHOLD:
                 direction = "falling"
             else:
                 direction = "stable"

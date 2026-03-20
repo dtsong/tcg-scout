@@ -100,6 +100,9 @@ PLACEMENT_WEIGHTS = {
 # Default weight for standings beyond top 16
 PLACEMENT_WEIGHT_DEFAULT = 1.0
 
+# Minimum adoption percentage change (week-over-week) to classify as rising/falling.
+TECH_TREND_THRESHOLD = 2.0
+
 # Tech/meta cards tracked in the Weather Forecast.
 # Non-archetype-defining cards whose adoption rates signal meta shifts.
 TECH_CARD_WATCHLIST = {
