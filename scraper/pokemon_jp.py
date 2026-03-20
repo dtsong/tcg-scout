@@ -13,6 +13,8 @@ from dataclasses import dataclass, field
 from kernel import Kernel
 from playwright.async_api import Page, async_playwright
 
+from analysis.archetype_classifier import classify_decklist
+
 logger = logging.getLogger(__name__)
 
 # JP energy name -> EN energy name
@@ -345,6 +347,42 @@ class PokemonJPClient:
         return result
 
 
+def classify_jp_decklist(conn: sqlite3.Connection, cards: list[JPDeckCard]) -> str:
+    """Translate JP card names to EN and classify the archetype.
+
+    Uses card_mappings table + JP_ENERGY_MAP for translation,
+    then runs classify_decklist() on the translated cards.
+    """
+    # Build JP→EN lookup from card_mappings
+    rows = conn.execute(
+        "SELECT card_name_jp, card_name_en FROM card_mappings WHERE card_name_en IS NOT NULL"
+    ).fetchall()
+    jp_to_en: dict[str, str] = {
+        r["card_name_jp"]: r["card_name_en"] for r in rows if r["card_name_jp"]
+    }
+    jp_to_en.update(JP_ENERGY_MAP)
+
+    # Translate and build classify_decklist input format
+    translated_cards: list[dict] = []
+    for card in cards:
+        en_name = jp_to_en.get(card.name_jp)
+        if not en_name:
+            # Try substring match for names with suffixes like "ex"
+            for jp_name, en in jp_to_en.items():
+                if jp_name and card.name_jp and jp_name in card.name_jp:
+                    en_name = en
+                    break
+        translated_cards.append(
+            {
+                "card_name": en_name or card.name_jp,
+                "count": card.count,
+                "category": card.category,
+            }
+        )
+
+    return classify_decklist(translated_cards)
+
+
 def store_event_results(
     conn: sqlite3.Connection,
     event: JPEventResult,
@@ -415,6 +453,13 @@ def store_cl_city_league_results(
     )
 
     for placement in event.placements:
+        # Classify archetype from decklist if available
+        archetype = "Unknown"
+        deck_cards = None
+        if placement.deck_code and placement.deck_code in decklists:
+            deck_cards = decklists[placement.deck_code]
+            archetype = classify_jp_decklist(conn, deck_cards)
+
         cursor = conn.execute(
             "INSERT INTO placements (tournament_id, standing, player_name, archetype) "
             "VALUES (?, ?, ?, ?)",
@@ -422,14 +467,14 @@ def store_cl_city_league_results(
                 tournament_id,
                 placement.standing,
                 placement.player_name,
-                "Unknown",
+                archetype,
             ),
         )
         placement_id = cursor.lastrowid
 
         # Store decklist cards if available
-        if placement.deck_code and placement.deck_code in decklists:
-            for card in decklists[placement.deck_code]:
+        if deck_cards is not None:
+            for card in deck_cards:
                 if card.set_code and card.card_number:
                     card_id = f"{card.set_code}-{card.card_number}"
                 else:

@@ -12,6 +12,7 @@ try:
         JPDeckCard,
         JPEventResult,
         JPPlacement,
+        classify_jp_decklist,
         store_cl_city_league_results,
     )
 
@@ -142,6 +143,115 @@ class TestStoreCLResults:
             (placement2["id"],),
         ).fetchall()
         assert len(cards_for_p2) == 0
+
+    def test_classifies_archetype_from_decklist(self, db):
+        """store_cl_city_league_results classifies archetype when decklist has known cards."""
+        # Seed card_mappings for JP->EN translation
+        db.executemany(
+            "INSERT INTO card_mappings (jp_card_id, en_card_id, card_name_jp, card_name_en, jp_set_id, en_set_id) "
+            "VALUES (?, ?, ?, ?, ?, ?)",
+            [
+                ("SV5-001", "sv5-001", "リザードンex", "Charizard ex", "SV5", "sv5"),
+                ("SV5-010", "sv5-010", "ヒトカゲ", "Charmander", "SV5", "sv5"),
+            ],
+        )
+        db.commit()
+
+        event = JPEventResult(
+            event_id=77777,
+            event_name="City League Test",
+            division="masters",
+            date="2026-03-15",
+            placements=[
+                JPPlacement(standing=1, player_name="Taro", region="Tokyo", deck_code="deck-zz"),
+                JPPlacement(standing=2, player_name="Hanako", region="Osaka"),  # No decklist
+            ],
+        )
+
+        cards = [
+            JPDeckCard(
+                name_jp="リザードンex",
+                set_code="SV5",
+                card_number="001",
+                count=2,
+                category="Pokemon",
+            ),
+            JPDeckCard(
+                name_jp="ヒトカゲ", set_code="SV5", card_number="010", count=3, category="Pokemon"
+            ),
+            JPDeckCard(
+                name_jp="基本炎エネルギー", set_code="", card_number="", count=10, category="Energy"
+            ),
+        ]
+
+        store_cl_city_league_results(db, event, decklists={"deck-zz": cards})
+
+        # Placement with decklist should be classified
+        p1 = db.execute(
+            "SELECT archetype FROM placements WHERE tournament_id = ? AND standing = 1",
+            ("jp-77777",),
+        ).fetchone()
+        assert p1["archetype"] == "Charizard ex"
+
+        # Placement without decklist stays Unknown
+        p2 = db.execute(
+            "SELECT archetype FROM placements WHERE tournament_id = ? AND standing = 2",
+            ("jp-77777",),
+        ).fetchone()
+        assert p2["archetype"] == "Unknown"
+
+
+@pytest.mark.skipif(not _POKEMON_JP_AVAILABLE, reason="scraper.pokemon_jp requires 'kernel' module")
+class TestClassifyJPDecklist:
+    def test_translates_and_classifies(self, db):
+        """classify_jp_decklist translates JP names and returns archetype."""
+        db.executemany(
+            "INSERT INTO card_mappings (jp_card_id, en_card_id, card_name_jp, card_name_en, jp_set_id, en_set_id) "
+            "VALUES (?, ?, ?, ?, ?, ?)",
+            [
+                ("SV5-001", "sv5-001", "リザードンex", "Charizard ex", "SV5", "sv5"),
+            ],
+        )
+        db.commit()
+
+        cards = [
+            JPDeckCard(
+                name_jp="リザードンex",
+                set_code="SV5",
+                card_number="001",
+                count=2,
+                category="Pokemon",
+            ),
+            JPDeckCard(
+                name_jp="基本炎エネルギー", set_code="", card_number="", count=10, category="Energy"
+            ),
+        ]
+        result = classify_jp_decklist(db, cards)
+        assert result == "Charizard ex"
+
+    def test_unknown_when_no_mappings(self, db):
+        """classify_jp_decklist returns Unknown when cards can't be translated to known anchors."""
+        cards = [
+            JPDeckCard(
+                name_jp="謎のポケモン",
+                set_code="XX",
+                card_number="001",
+                count=4,
+                category="Pokemon",
+            ),
+        ]
+        result = classify_jp_decklist(db, cards)
+        assert result == "Unknown"
+
+    def test_energy_translated_via_jp_energy_map(self, db):
+        """JP energy names are translated even without card_mappings entries."""
+        cards = [
+            JPDeckCard(name_jp="基本炎エネルギー", count=10, category="Energy"),
+            JPDeckCard(name_jp="基本水エネルギー", count=6, category="Energy"),
+        ]
+        result = classify_jp_decklist(db, cards)
+        # No Pokemon cards, so should be Unknown, but energies should translate
+        assert result == "Unknown"
 
 
 class TestEventTypeConfig:

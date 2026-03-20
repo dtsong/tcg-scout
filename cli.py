@@ -520,9 +520,9 @@ def import_cl(ctx: click.Context, data_dir: str) -> None:
 @click.option("--start", default=None, help="Start date (YYYY-MM-DD)")
 @click.option("--end", default=None, help="End date (YYYY-MM-DD)")
 @click.option(
-    "--fetch-decklists/--no-decklists", default=False, help="Fetch decklists via Playwright"
+    "--fetch-decklists/--no-decklists", default=True, help="Fetch decklists via Playwright"
 )
-@click.option("--top", default=16, help="Max placements to fetch decklists for")
+@click.option("--top", default=64, help="Max placements to fetch decklists for")
 @click.pass_context
 def scrape_jp(
     ctx: click.Context, start: str | None, end: str | None, fetch_decklists: bool, top: int
