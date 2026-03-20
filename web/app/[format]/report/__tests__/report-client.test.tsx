@@ -27,25 +27,25 @@ describe("ReportClient", () => {
   afterEach(cleanup);
 
   it("renders the Meta Report heading", () => {
-    render(<ReportClient report={mockReport} />);
+    render(<ReportClient report={mockReport} format="nihil-zero" />);
     expect(screen.getByText("Meta Report")).toBeInTheDocument();
   });
 
   it("renders all section titles", () => {
-    render(<ReportClient report={mockReport} />);
+    render(<ReportClient report={mockReport} format="nihil-zero" />);
     expect(screen.getByText("Meta at a Glance")).toBeInTheDocument();
     expect(screen.getByText("Tier Movements")).toBeInTheDocument();
   });
 
   it("renders section content text", () => {
-    render(<ReportClient report={mockReport} />);
+    render(<ReportClient report={mockReport} format="nihil-zero" />);
     expect(
       screen.getByText(/Dragapult Dusknoir leads at 9.0% meta share/)
     ).toBeInTheDocument();
   });
 
   it("renders highlight bullet points", () => {
-    render(<ReportClient report={mockReport} />);
+    render(<ReportClient report={mockReport} format="nihil-zero" />);
     expect(
       screen.getByText("Top archetype: Dragapult Dusknoir")
     ).toBeInTheDocument();
@@ -53,13 +53,13 @@ describe("ReportClient", () => {
   });
 
   it("renders inline markdown links as anchor or Next Link", () => {
-    render(<ReportClient report={mockReport} />);
+    render(<ReportClient report={mockReport} format="nihil-zero" />);
     const link = screen.getByRole("link", { name: "Mega Lucario" });
-    expect(link).toHaveAttribute("href", "/archetypes/mega-lucario");
+    expect(link).toHaveAttribute("href", "/nihil-zero/archetypes/mega-lucario");
   });
 
   it("renders generated date in human-readable format", () => {
-    render(<ReportClient report={mockReport} />);
+    render(<ReportClient report={mockReport} format="nihil-zero" />);
     // The date "2026-03-19" should appear somewhere in the component
     expect(screen.getByText(/Generated/)).toBeInTheDocument();
     expect(screen.getByText(/March 19, 2026/)).toBeInTheDocument();
@@ -70,7 +70,7 @@ describe("ReportClient", () => {
       ...mockReport,
       sections: [],
     };
-    render(<ReportClient report={emptyReport} />);
+    render(<ReportClient report={emptyReport} format="nihil-zero" />);
     expect(
       screen.getByText(/This report has no sections yet/)
     ).toBeInTheDocument();
@@ -88,14 +88,14 @@ describe("ReportClient", () => {
         },
       ],
     };
-    render(<ReportClient report={reportWithExternal} />);
+    render(<ReportClient report={reportWithExternal} format="nihil-zero" />);
     const link = screen.getByRole("link", { name: "Limitless" });
     expect(link).toHaveAttribute("href", "https://limitlesstcg.com");
     expect(link).toHaveAttribute("target", "_blank");
   });
 
   it("renders section content with no links as plain text", () => {
-    render(<ReportClient report={mockReport} />);
+    render(<ReportClient report={mockReport} format="nihil-zero" />);
     expect(
       screen.getByText(/Dragapult Dusknoir leads at 9.0% meta share/)
     ).toBeInTheDocument();

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import type { MetaReport, ReportSection } from "@/app/lib/types";
 
-function parseInlineLinks(text: string): React.ReactNode[] {
+function parseInlineLinks(text: string, format: string): React.ReactNode[] {
   const parts: React.ReactNode[] = [];
   const linkRegex = /\[([^\]]+)\]\(([^)]+)\)/g;
   let lastIndex = 0;
@@ -28,10 +28,11 @@ function parseInlineLinks(text: string): React.ReactNode[] {
         </a>
       );
     } else {
+      const resolvedHref = `/${format}${href}`;
       parts.push(
         <Link
           key={match.index}
-          href={href}
+          href={resolvedHref}
           className="text-accent hover:text-accent/80 underline underline-offset-2"
         >
           {label}
@@ -48,7 +49,7 @@ function parseInlineLinks(text: string): React.ReactNode[] {
   return parts;
 }
 
-function SectionCard({ section }: { section: ReportSection }) {
+function SectionCard({ section, format }: { section: ReportSection; format: string }) {
   const paragraphs = section.content.split(/\n\n+/).filter(Boolean);
 
   return (
@@ -59,7 +60,7 @@ function SectionCard({ section }: { section: ReportSection }) {
       <div className="space-y-3">
         {paragraphs.map((para, i) => (
           <p key={i} className="text-slate-300 leading-relaxed font-body text-sm">
-            {parseInlineLinks(para)}
+            {parseInlineLinks(para, format)}
           </p>
         ))}
       </div>
@@ -68,7 +69,7 @@ function SectionCard({ section }: { section: ReportSection }) {
           {section.highlights.map((h, i) => (
             <li key={i} className="flex items-start gap-2 text-sm text-slate-400">
               <span className="mt-1 w-1.5 h-1.5 rounded-full bg-amber-500/60 flex-shrink-0" />
-              <span>{parseInlineLinks(h)}</span>
+              <span>{parseInlineLinks(h, format)}</span>
             </li>
           ))}
         </ul>
@@ -77,11 +78,12 @@ function SectionCard({ section }: { section: ReportSection }) {
   );
 }
 
-export function ReportClient({ report }: { report: MetaReport }) {
+export function ReportClient({ report, format }: { report: MetaReport; format: string }) {
   const generatedDate = new Date(report.generated_at).toLocaleDateString("en-US", {
     year: "numeric",
     month: "long",
     day: "numeric",
+    timeZone: "UTC",
   });
 
   return (
@@ -97,7 +99,7 @@ export function ReportClient({ report }: { report: MetaReport }) {
 
       <div className="space-y-4">
         {report.sections.map((section) => (
-          <SectionCard key={section.id} section={section} />
+          <SectionCard key={section.id} section={section} format={format} />
         ))}
       </div>
 

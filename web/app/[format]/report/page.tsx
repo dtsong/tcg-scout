@@ -44,5 +44,5 @@ export default async function ReportPage({
     );
   }
 
-  return <ReportClient report={report} />;
+  return <ReportClient report={report} format={format} />;
 }
