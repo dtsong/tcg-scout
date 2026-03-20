@@ -444,6 +444,7 @@
   "results": [
     {
       "tournament_name": "City League Kagawa",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3954",
       "date": "2026-02-01",
       "standing": 8,
       "player_name": "ついたぬ",
@@ -582,6 +583,7 @@
     },
     {
       "tournament_name": "City League Ōsaka",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3971",
       "date": "2026-02-07",
       "standing": 11,
       "player_name": "ニャオハ",
@@ -735,6 +737,7 @@
     },
     {
       "tournament_name": "City League Ōsaka",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4120",
       "date": "2026-02-15",
       "standing": 14,
       "player_name": "ただのゆうき",
@@ -863,6 +866,7 @@
     },
     {
       "tournament_name": "City League Ōsaka",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3859",
       "date": "2026-01-24",
       "standing": 15,
       "player_name": "ソウ",
@@ -986,6 +990,7 @@
     },
     {
       "tournament_name": "City League Tōkyō",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4048",
       "date": "2026-02-11",
       "standing": 16,
       "player_name": "ひょうけつ",
@@ -1131,12 +1136,12 @@
       "week": "2026-01-26",
       "adopted": [
         {
-          "card": "N's Zorua",
+          "card": "Air Balloon",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Wally's Compassion",
+          "card": "Chi-Yu",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -1146,22 +1151,7 @@
           "to_pct": 100.0
         },
         {
-          "card": "Air Balloon",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Switch",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
           "card": "Night Stretcher",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Chi-Yu",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -1176,6 +1166,21 @@
           "to_pct": 100.0
         },
         {
+          "card": "Wally's Compassion",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Switch",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "N's Zorua",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
           "card": "Cyrano",
           "from_pct": 0.0,
           "to_pct": 100.0
@@ -1183,22 +1188,12 @@
       ],
       "dropped": [
         {
-          "card": "Dunsparce",
+          "card": "Hilda",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Enriching Energy",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Dudunsparce",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Fan Rotom",
+          "card": "Dawn",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -1208,12 +1203,22 @@
           "to_pct": 0.0
         },
         {
-          "card": "Dawn",
+          "card": "Dudunsparce",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Hilda",
+          "card": "Dunsparce",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Fan Rotom",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Enriching Energy",
           "from_pct": 100.0,
           "to_pct": 0.0
         }
@@ -1223,42 +1228,12 @@
       "week": "2026-02-02",
       "adopted": [
         {
-          "card": "Energy Recycler",
+          "card": "Hilda",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
           "card": "Blowtorch",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Dunsparce",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Enriching Energy",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Ignition Energy",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Dudunsparce",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Fan Rotom",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Dawn",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -1268,19 +1243,44 @@
           "to_pct": 100.0
         },
         {
-          "card": "Hilda",
+          "card": "Energy Recycler",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Ignition Energy",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Dawn",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Dudunsparce",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Dunsparce",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Fan Rotom",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Enriching Energy",
           "from_pct": 0.0,
           "to_pct": 100.0
         }
       ],
       "dropped": [
         {
-          "card": "N's Zorua",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Wally's Compassion",
+          "card": "Chi-Yu",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -1290,7 +1290,12 @@
           "to_pct": 0.0
         },
         {
-          "card": "Cyrano",
+          "card": "N's Zoroark ex",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Wally's Compassion",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -1300,12 +1305,12 @@
           "to_pct": 0.0
         },
         {
-          "card": "Chi-Yu",
+          "card": "N's Zorua",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "N's Zoroark ex",
+          "card": "Cyrano",
           "from_pct": 100.0,
           "to_pct": 0.0
         }
@@ -1315,12 +1320,7 @@
       "week": "2026-02-09",
       "adopted": [
         {
-          "card": "Secret Box",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Shaymin",
+          "card": "Volbeat",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -1330,29 +1330,34 @@
           "to_pct": 50.0
         },
         {
+          "card": "Brock's Scouting",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
           "card": "Team Rocket's Petrel",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
         {
-          "card": "Volbeat",
+          "card": "Secret Box",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
         {
-          "card": "Brock's Scouting",
+          "card": "Shaymin",
           "from_pct": 0.0,
           "to_pct": 50.0
         }
       ],
       "dropped": [
         {
-          "card": "Energy Recycler",
+          "card": "Blowtorch",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Blowtorch",
+          "card": "Energy Recycler",
           "from_pct": 100.0,
           "to_pct": 0.0
         },

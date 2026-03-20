@@ -444,6 +444,7 @@
   "results": [
     {
       "tournament_name": "City League Kanagawa",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3861",
       "date": "2026-01-25",
       "standing": 4,
       "player_name": "モンクラ",
@@ -577,6 +578,7 @@
     },
     {
       "tournament_name": "City League Saitama",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3896",
       "date": "2026-01-29",
       "standing": 6,
       "player_name": "太陽",
@@ -705,6 +707,7 @@
     },
     {
       "tournament_name": "City League Miyazaki",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3862",
       "date": "2026-01-25",
       "standing": 7,
       "player_name": "あい",
@@ -828,6 +831,7 @@
     },
     {
       "tournament_name": "City League Ōsaka",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4156",
       "date": "2026-02-26",
       "standing": 9,
       "player_name": "ねこ",
@@ -951,6 +955,7 @@
     },
     {
       "tournament_name": "City League Kanagawa",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3845",
       "date": "2026-01-24",
       "standing": 9,
       "player_name": "づ",
@@ -1089,6 +1094,7 @@
     },
     {
       "tournament_name": "City League Aichi",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4008",
       "date": "2026-02-08",
       "standing": 10,
       "player_name": "コイチ",
@@ -1212,6 +1218,7 @@
     },
     {
       "tournament_name": "City League Gifu",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3860",
       "date": "2026-01-24",
       "standing": 11,
       "player_name": "ブリキ",
@@ -1350,6 +1357,7 @@
     },
     {
       "tournament_name": "City League Kanagawa",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3963",
       "date": "2026-02-07",
       "standing": 13,
       "player_name": "ニワトリ",
@@ -1478,6 +1486,7 @@
     },
     {
       "tournament_name": "City League Tōkyō",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3855",
       "date": "2026-01-24",
       "standing": 13,
       "player_name": "フォント",
@@ -1633,12 +1642,12 @@
           "to_pct": 100.0
         },
         {
-          "card": "Carbink",
+          "card": "Carmine",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Carmine",
+          "card": "Carbink",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -1650,22 +1659,22 @@
       ],
       "dropped": [
         {
-          "card": "Prime Catcher",
-          "from_pct": 80.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Rock Fighting Energy",
           "from_pct": 80.0,
           "to_pct": 0.0
         },
         {
-          "card": "Xerosic's Machinations",
-          "from_pct": 60.0,
+          "card": "Prime Catcher",
+          "from_pct": 80.0,
           "to_pct": 0.0
         },
         {
           "card": "Hilda",
+          "from_pct": 60.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Xerosic's Machinations",
           "from_pct": 60.0,
           "to_pct": 0.0
         }
@@ -1674,6 +1683,11 @@
     {
       "week": "2026-02-02",
       "adopted": [
+        {
+          "card": "Judge",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
         {
           "card": "Wally's Compassion",
           "from_pct": 0.0,
@@ -1685,17 +1699,12 @@
           "to_pct": 50.0
         },
         {
-          "card": "Meowth ex",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
           "card": "Gravity Mountain",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
         {
-          "card": "Judge",
+          "card": "Meowth ex",
           "from_pct": 0.0,
           "to_pct": 50.0
         }
@@ -1734,12 +1743,12 @@
           "to_pct": 0.0
         },
         {
-          "card": "Wally's Compassion",
+          "card": "Carmine",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
-          "card": "Meowth ex",
+          "card": "Wally's Compassion",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -1749,7 +1758,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "Carmine",
+          "card": "Meowth ex",
           "from_pct": 50.0,
           "to_pct": 0.0
         }

@@ -542,6 +542,7 @@
   "results": [
     {
       "tournament_name": "City League Gifu",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4123",
       "date": "2026-02-15",
       "standing": 1,
       "player_name": "ニシ=キ",
@@ -690,6 +691,7 @@
     },
     {
       "tournament_name": "City League Nagasaki",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4168",
       "date": "2026-03-01",
       "standing": 6,
       "player_name": "やまと",
@@ -838,6 +840,7 @@
     },
     {
       "tournament_name": "City League Tōkyō",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3876",
       "date": "2026-01-25",
       "standing": 6,
       "player_name": "鳩サブレー",
@@ -966,6 +969,7 @@
     },
     {
       "tournament_name": "City League Ibaraki",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4146",
       "date": "2026-02-23",
       "standing": 8,
       "player_name": "やまたつ",
@@ -1114,6 +1118,7 @@
     },
     {
       "tournament_name": "City League Shiga",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4192",
       "date": "2026-03-02",
       "standing": 12,
       "player_name": "イトリ",
@@ -1272,6 +1277,7 @@
     },
     {
       "tournament_name": "City League Hiroshima",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4022",
       "date": "2026-02-08",
       "standing": 13,
       "player_name": "もりし",
@@ -1415,6 +1421,7 @@
     },
     {
       "tournament_name": "City League Tōkyō",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4104",
       "date": "2026-02-15",
       "standing": 14,
       "player_name": "たひ",
@@ -1563,6 +1570,7 @@
     },
     {
       "tournament_name": "City League Kagoshima",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3888",
       "date": "2026-01-25",
       "standing": 14,
       "player_name": "しょうた",
@@ -1711,6 +1719,7 @@
     },
     {
       "tournament_name": "City League Okinawa",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4268",
       "date": "2026-03-08",
       "standing": 15,
       "player_name": "七星じぇる",
@@ -1839,6 +1848,7 @@
     },
     {
       "tournament_name": "City League Aichi",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4201",
       "date": "2026-03-04",
       "standing": 15,
       "player_name": "ダマ",
@@ -1987,6 +1997,7 @@
     },
     {
       "tournament_name": "City League Gifu",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3979",
       "date": "2026-02-07",
       "standing": 15,
       "player_name": "カク",
@@ -2145,6 +2156,7 @@
     },
     {
       "tournament_name": "City League Tōkyō",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4249",
       "date": "2026-03-08",
       "standing": 16,
       "player_name": "ゆぐな",
@@ -2288,6 +2300,7 @@
     },
     {
       "tournament_name": "City League Ōsaka",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4198",
       "date": "2026-03-04",
       "standing": 16,
       "player_name": "あぜ",
@@ -2443,31 +2456,6 @@
           "to_pct": 100.0
         },
         {
-          "card": "Nighttime Mine",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Team Rocket's Transceiver",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Joltik",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Battle Cage",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Regigigas",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
           "card": "Tool Scrapper",
           "from_pct": 0.0,
           "to_pct": 50.0
@@ -2478,22 +2466,42 @@
           "to_pct": 50.0
         },
         {
+          "card": "Enhanced Hammer",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Regigigas",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
           "card": "Iron Leaves ex",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
         {
-          "card": "Enhanced Hammer",
+          "card": "Joltik",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Team Rocket's Transceiver",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Nighttime Mine",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Battle Cage",
           "from_pct": 0.0,
           "to_pct": 50.0
         }
       ],
       "dropped": [
-        {
-          "card": "Energy Switch",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
         {
           "card": "Mega Signal",
           "from_pct": 50.0,
@@ -2505,17 +2513,22 @@
           "to_pct": 0.0
         },
         {
-          "card": "Lugia ex",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Kyurem",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
+          "card": "Energy Switch",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
           "card": "Mega Audino ex",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Lugia ex",
           "from_pct": 50.0,
           "to_pct": 0.0
         }
@@ -2530,7 +2543,7 @@
           "to_pct": 100.0
         },
         {
-          "card": "Energy Switch",
+          "card": "Meowth ex",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -2540,7 +2553,7 @@
           "to_pct": 50.0
         },
         {
-          "card": "Meowth ex",
+          "card": "Energy Switch",
           "from_pct": 0.0,
           "to_pct": 50.0
         }
@@ -2552,22 +2565,12 @@
           "to_pct": 0.0
         },
         {
-          "card": "Nighttime Mine",
+          "card": "Team Rocket's Factory",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
-          "card": "Team Rocket's Transceiver",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Joltik",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Battle Cage",
+          "card": "Enhanced Hammer",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -2577,17 +2580,27 @@
           "to_pct": 0.0
         },
         {
-          "card": "Team Rocket's Factory",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Iron Leaves ex",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
-          "card": "Enhanced Hammer",
+          "card": "Joltik",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Team Rocket's Transceiver",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Nighttime Mine",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Battle Cage",
           "from_pct": 50.0,
           "to_pct": 0.0
         }
@@ -2596,6 +2609,26 @@
     {
       "week": "2026-02-23",
       "adopted": [
+        {
+          "card": "Unfair Stamp",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Cornerstone Mask Ogerpon ex",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Teal Mask Ogerpon ex",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Mega Absol ex",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
         {
           "card": "Area Zero Underdepths",
           "from_pct": 0.0,
@@ -2607,32 +2640,12 @@
           "to_pct": 50.0
         },
         {
-          "card": "Brock's Scouting",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Mega Absol ex",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Cyrano",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Cornerstone Mask Ogerpon ex",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Unfair Stamp",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
           "card": "Lillie's Determination",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Brock's Scouting",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -2642,7 +2655,7 @@
           "to_pct": 50.0
         },
         {
-          "card": "Teal Mask Ogerpon ex",
+          "card": "Cyrano",
           "from_pct": 0.0,
           "to_pct": 50.0
         }
@@ -2660,12 +2673,12 @@
       "adopted": [],
       "dropped": [
         {
-          "card": "Cornerstone Mask Ogerpon ex",
+          "card": "Tool Scrapper",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
-          "card": "Tool Scrapper",
+          "card": "Cornerstone Mask Ogerpon ex",
           "from_pct": 50.0,
           "to_pct": 0.0
         }

@@ -381,6 +381,7 @@
   "results": [
     {
       "tournament_name": "City League Gifu",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3858",
       "date": "2026-01-24",
       "standing": 5,
       "player_name": "がちょ",
@@ -494,6 +495,7 @@
     },
     {
       "tournament_name": "City League Aichi",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4065",
       "date": "2026-02-12",
       "standing": 9,
       "player_name": "ポッキー",
@@ -592,6 +594,7 @@
     },
     {
       "tournament_name": "City League Tōkyō",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3911",
       "date": "2026-01-31",
       "standing": 10,
       "player_name": "運だけコイン投げ太郎",
@@ -705,6 +708,7 @@
     },
     {
       "tournament_name": "City League Kanagawa",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3958",
       "date": "2026-02-01",
       "standing": 11,
       "player_name": "てとら",
@@ -818,6 +822,7 @@
     },
     {
       "tournament_name": "City League Kanagawa",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3875",
       "date": "2026-01-25",
       "standing": 12,
       "player_name": "ももそーし",
@@ -941,6 +946,7 @@
     },
     {
       "tournament_name": "City League Kumamoto",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4118",
       "date": "2026-02-15",
       "standing": 14,
       "player_name": "るい",
@@ -1046,6 +1052,11 @@
       "week": "2026-01-26",
       "adopted": [
         {
+          "card": "Larry's Skill",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
           "card": "Switch",
           "from_pct": 0.0,
           "to_pct": 50.0
@@ -1056,24 +1067,19 @@
           "to_pct": 50.0
         },
         {
-          "card": "Naveen",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
           "card": "Hero's Cape",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
         {
-          "card": "Larry's Skill",
+          "card": "Naveen",
           "from_pct": 0.0,
           "to_pct": 50.0
         }
       ],
       "dropped": [
         {
-          "card": "Nighttime Mine",
+          "card": "Air Balloon",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -1083,22 +1089,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "Air Balloon",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Zekrom ex",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Carmine",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Pokégear 3.0",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -1108,12 +1099,27 @@
           "to_pct": 0.0
         },
         {
+          "card": "Team Rocket's Watchtower",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
           "card": "Max Rod",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
-          "card": "Team Rocket's Watchtower",
+          "card": "Zekrom ex",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Pokégear 3.0",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Nighttime Mine",
           "from_pct": 50.0,
           "to_pct": 0.0
         }
@@ -1123,12 +1129,12 @@
       "week": "2026-02-09",
       "adopted": [
         {
-          "card": "Secret Box",
+          "card": "Max Rod",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
         {
-          "card": "Battle Cage",
+          "card": "Secret Box",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -1138,24 +1144,24 @@
           "to_pct": 50.0
         },
         {
-          "card": "Max Rod",
+          "card": "Battle Cage",
           "from_pct": 0.0,
           "to_pct": 50.0
         }
       ],
       "dropped": [
         {
-          "card": "Energy Switch",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Raging Bolt ex",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Prime Catcher",
+          "card": "Energy Switch",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Larry's Skill",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -1175,17 +1181,17 @@
           "to_pct": 0.0
         },
         {
-          "card": "Naveen",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Hero's Cape",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
-          "card": "Larry's Skill",
+          "card": "Naveen",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Prime Catcher",
           "from_pct": 50.0,
           "to_pct": 0.0
         }

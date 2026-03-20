@@ -591,6 +591,7 @@
   "results": [
     {
       "tournament_name": "City League Mie",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4028",
       "date": "2026-02-08",
       "standing": 1,
       "player_name": "teru",
@@ -704,6 +705,7 @@
     },
     {
       "tournament_name": "City League Tōkyō",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3894",
       "date": "2026-01-29",
       "standing": 1,
       "player_name": "おじゅに",
@@ -832,6 +834,7 @@
     },
     {
       "tournament_name": "City League Aichi",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3943",
       "date": "2026-02-01",
       "standing": 2,
       "player_name": "SP",
@@ -955,6 +958,7 @@
     },
     {
       "tournament_name": "City League Tōkyō",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3953",
       "date": "2026-02-01",
       "standing": 4,
       "player_name": "エスカルゴ",
@@ -1093,6 +1097,7 @@
     },
     {
       "tournament_name": "City League Tochigi",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3936",
       "date": "2026-02-01",
       "standing": 5,
       "player_name": "ごっつ",
@@ -1241,6 +1246,7 @@
     },
     {
       "tournament_name": "City League Tottori",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4005",
       "date": "2026-02-08",
       "standing": 6,
       "player_name": "トウマ",
@@ -1359,6 +1365,7 @@
     },
     {
       "tournament_name": "City League Kanagawa",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3872",
       "date": "2026-01-25",
       "standing": 10,
       "player_name": "しまかぜ",
@@ -1482,6 +1489,7 @@
     },
     {
       "tournament_name": "City League Aichi",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4201",
       "date": "2026-03-04",
       "standing": 11,
       "player_name": "まるさん",
@@ -1595,6 +1603,7 @@
     },
     {
       "tournament_name": "City League Ōsaka",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3913",
       "date": "2026-01-31",
       "standing": 11,
       "player_name": "マッギョ",
@@ -1733,6 +1742,7 @@
     },
     {
       "tournament_name": "City League Ōsaka",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4120",
       "date": "2026-02-15",
       "standing": 13,
       "player_name": "カケルゴン",
@@ -1866,6 +1876,7 @@
     },
     {
       "tournament_name": "City League Okinawa",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4057",
       "date": "2026-02-11",
       "standing": 13,
       "player_name": "ひらた",
@@ -1979,6 +1990,7 @@
     },
     {
       "tournament_name": "City League Aichi",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3996",
       "date": "2026-02-08",
       "standing": 13,
       "player_name": "たらきち",
@@ -2112,6 +2124,7 @@
     },
     {
       "tournament_name": "City League Aichi",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3977",
       "date": "2026-02-07",
       "standing": 13,
       "player_name": "you",
@@ -2245,6 +2258,7 @@
     },
     {
       "tournament_name": "City League Aichi",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3943",
       "date": "2026-02-01",
       "standing": 15,
       "player_name": "ノイ",
@@ -2368,6 +2382,7 @@
     },
     {
       "tournament_name": "City League Ehime",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3934",
       "date": "2026-02-01",
       "standing": 15,
       "player_name": "ラウル",
@@ -2531,6 +2546,7 @@
     },
     {
       "tournament_name": "City League Kyōto",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3880",
       "date": "2026-01-25",
       "standing": 15,
       "player_name": "いろあら",
@@ -2672,14 +2688,19 @@
       "week": "2026-02-02",
       "adopted": [
         {
+          "card": "Surfing Beach",
+          "from_pct": 14.3,
+          "to_pct": 50.0
+        },
+        {
           "card": "Prime Catcher",
           "from_pct": 14.3,
           "to_pct": 50.0
         },
         {
-          "card": "Surfing Beach",
-          "from_pct": 14.3,
-          "to_pct": 50.0
+          "card": "Snorunt",
+          "from_pct": 42.9,
+          "to_pct": 75.0
         },
         {
           "card": "Mega Froslass ex",
@@ -2688,11 +2709,6 @@
         },
         {
           "card": "Rare Candy",
-          "from_pct": 42.9,
-          "to_pct": 75.0
-        },
-        {
-          "card": "Snorunt",
           "from_pct": 42.9,
           "to_pct": 75.0
         },
@@ -2723,27 +2739,7 @@
           "to_pct": 100.0
         },
         {
-          "card": "Call Bell",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Team Rocket's Venture Bomb",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Mega Kangaskhan ex",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
           "card": "Prism Energy",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Morty's Conviction",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -2753,13 +2749,28 @@
           "to_pct": 50.0
         },
         {
-          "card": "Legacy Energy",
+          "card": "Team Rocket's Venture Bomb",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
         {
-          "card": "Energy Search",
-          "from_pct": 25.0,
+          "card": "Morty's Conviction",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Mega Kangaskhan ex",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Call Bell",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Legacy Energy",
+          "from_pct": 0.0,
           "to_pct": 50.0
         },
         {
@@ -2771,16 +2782,21 @@
           "card": "Munkidori",
           "from_pct": 25.0,
           "to_pct": 50.0
+        },
+        {
+          "card": "Energy Search",
+          "from_pct": 25.0,
+          "to_pct": 50.0
         }
       ],
       "dropped": [
         {
-          "card": "Mega Froslass ex",
+          "card": "Snorunt",
           "from_pct": 75.0,
           "to_pct": 0.0
         },
         {
-          "card": "Snorunt",
+          "card": "Mega Froslass ex",
           "from_pct": 75.0,
           "to_pct": 0.0
         },
@@ -2805,65 +2821,30 @@
           "to_pct": 100.0
         },
         {
-          "card": "Fezandipiti ex",
+          "card": "Mega Starmie ex",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Mega Starmie ex",
+          "card": "Fezandipiti ex",
           "from_pct": 0.0,
           "to_pct": 100.0
         }
       ],
       "dropped": [
         {
-          "card": "Latias ex",
+          "card": "Rare Candy",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Rare Candy",
+          "card": "Latias ex",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
           "card": "Meowth ex",
           "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Prime Catcher",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Energy Search",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Jamming Tower",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Wally's Compassion",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Call Bell",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Team Rocket's Venture Bomb",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Mega Kangaskhan ex",
-          "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
@@ -2877,12 +2858,47 @@
           "to_pct": 0.0
         },
         {
-          "card": "Morty's Conviction",
+          "card": "Jamming Tower",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
           "card": "Brock's Scouting",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Team Rocket's Venture Bomb",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Morty's Conviction",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Mega Kangaskhan ex",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Energy Search",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Call Bell",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Wally's Compassion",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Prime Catcher",
           "from_pct": 50.0,
           "to_pct": 0.0
         }

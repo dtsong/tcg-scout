@@ -556,6 +556,7 @@
   "results": [
     {
       "tournament_name": "City League Aichi",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4246",
       "date": "2026-03-08",
       "standing": 2,
       "player_name": "シン",
@@ -704,6 +705,7 @@
     },
     {
       "tournament_name": "City League Aichi",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4230",
       "date": "2026-03-07",
       "standing": 2,
       "player_name": "とも1",
@@ -837,6 +839,7 @@
     },
     {
       "tournament_name": "City League Okayama",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4220",
       "date": "2026-03-07",
       "standing": 2,
       "player_name": "しらす",
@@ -975,6 +978,7 @@
     },
     {
       "tournament_name": "City League Kōchi",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4141",
       "date": "2026-02-23",
       "standing": 2,
       "player_name": "たむちょん",
@@ -1133,6 +1137,7 @@
     },
     {
       "tournament_name": "City League Niigata",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4229",
       "date": "2026-03-07",
       "standing": 3,
       "player_name": "べべ",
@@ -1281,6 +1286,7 @@
     },
     {
       "tournament_name": "City League Kyōto",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4188",
       "date": "2026-03-01",
       "standing": 3,
       "player_name": "カズ",
@@ -1434,6 +1440,7 @@
     },
     {
       "tournament_name": "City League Kagawa",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4270",
       "date": "2026-03-08",
       "standing": 4,
       "player_name": "いつき",
@@ -1572,6 +1579,7 @@
     },
     {
       "tournament_name": "City League Saitama",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3883",
       "date": "2026-01-24",
       "standing": 4,
       "player_name": "スミ",
@@ -1705,6 +1713,7 @@
     },
     {
       "tournament_name": "City League Chiba",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4257",
       "date": "2026-03-08",
       "standing": 5,
       "player_name": "こてきち",
@@ -1858,6 +1867,7 @@
     },
     {
       "tournament_name": "City League Tochigi",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4245",
       "date": "2026-03-08",
       "standing": 5,
       "player_name": "げーし～",
@@ -2006,6 +2016,7 @@
     },
     {
       "tournament_name": "City League Gunma",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4227",
       "date": "2026-03-07",
       "standing": 6,
       "player_name": "えいち",
@@ -2159,6 +2170,7 @@
     },
     {
       "tournament_name": "City League Chiba",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4181",
       "date": "2026-03-01",
       "standing": 6,
       "player_name": "いっち",
@@ -2302,6 +2314,7 @@
     },
     {
       "tournament_name": "City League Miyazaki",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3862",
       "date": "2026-01-25",
       "standing": 6,
       "player_name": "Yuma~",
@@ -2425,6 +2438,7 @@
     },
     {
       "tournament_name": "City League Shizuoka",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3865",
       "date": "2026-01-25",
       "standing": 10,
       "player_name": "tako",
@@ -2543,6 +2557,7 @@
     },
     {
       "tournament_name": "City League Tōkyō",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4173",
       "date": "2026-03-01",
       "standing": 11,
       "player_name": "YASU",
@@ -2681,6 +2696,7 @@
     },
     {
       "tournament_name": "City League Fukui",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4147",
       "date": "2026-02-23",
       "standing": 11,
       "player_name": "じん(人)",
@@ -2841,17 +2857,17 @@
       "week": "2026-02-23",
       "adopted": [
         {
-          "card": "Area Zero Underdepths",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
           "card": "Lillie's Clefairy ex",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Energy Switch",
+          "card": "Area Zero Underdepths",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Chien-Pao",
           "from_pct": 0.0,
           "to_pct": 80.0
         },
@@ -2861,14 +2877,9 @@
           "to_pct": 80.0
         },
         {
-          "card": "Chien-Pao",
+          "card": "Energy Switch",
           "from_pct": 0.0,
           "to_pct": 80.0
-        },
-        {
-          "card": "Meowth ex",
-          "from_pct": 33.3,
-          "to_pct": 100.0
         },
         {
           "card": "Budew",
@@ -2877,6 +2888,11 @@
         },
         {
           "card": "Brock's Scouting",
+          "from_pct": 33.3,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Meowth ex",
           "from_pct": 33.3,
           "to_pct": 100.0
         },

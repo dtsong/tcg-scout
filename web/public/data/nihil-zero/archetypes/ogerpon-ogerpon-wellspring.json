@@ -514,6 +514,7 @@
   "results": [
     {
       "tournament_name": "City League Aichi",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4261",
       "date": "2026-03-08",
       "standing": 1,
       "player_name": "悪代官",
@@ -637,6 +638,7 @@
     },
     {
       "tournament_name": "City League Yamanashi",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4212",
       "date": "2026-03-07",
       "standing": 1,
       "player_name": "タクミ",
@@ -755,6 +757,7 @@
     },
     {
       "tournament_name": "City League Ōsaka",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4194",
       "date": "2026-03-03",
       "standing": 1,
       "player_name": "マサオ",
@@ -888,6 +891,7 @@
     },
     {
       "tournament_name": "City League Kanagawa",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4162",
       "date": "2026-02-28",
       "standing": 1,
       "player_name": "WAKA",
@@ -1016,6 +1020,7 @@
     },
     {
       "tournament_name": "City League Kyōto",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4045",
       "date": "2026-02-11",
       "standing": 1,
       "player_name": "遊助",
@@ -1144,6 +1149,7 @@
     },
     {
       "tournament_name": "City League Saitama",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4210",
       "date": "2026-03-07",
       "standing": 2,
       "player_name": "たか",
@@ -1267,6 +1273,7 @@
     },
     {
       "tournament_name": "City League Kanagawa",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4170",
       "date": "2026-03-01",
       "standing": 3,
       "player_name": "りゅか",
@@ -1400,6 +1407,7 @@
     },
     {
       "tournament_name": "City League Hokkaido",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4012",
       "date": "2026-02-08",
       "standing": 4,
       "player_name": "とーるん",
@@ -1518,6 +1526,7 @@
     },
     {
       "tournament_name": "City League Ōsaka",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4262",
       "date": "2026-03-08",
       "standing": 5,
       "player_name": "じじ",
@@ -1671,6 +1680,7 @@
     },
     {
       "tournament_name": "City League Saitama",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4210",
       "date": "2026-03-07",
       "standing": 5,
       "player_name": "ジョニー",
@@ -1804,6 +1814,7 @@
     },
     {
       "tournament_name": "City League Kanagawa",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4250",
       "date": "2026-03-08",
       "standing": 6,
       "player_name": "テラヤマ",
@@ -1932,6 +1943,7 @@
     },
     {
       "tournament_name": "City League Saitama",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4210",
       "date": "2026-03-07",
       "standing": 6,
       "player_name": "あかまる",
@@ -2060,6 +2072,7 @@
     },
     {
       "tournament_name": "City League Kanagawa",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4172",
       "date": "2026-03-01",
       "standing": 6,
       "player_name": "ぶーーー",
@@ -2188,6 +2201,7 @@
     },
     {
       "tournament_name": "City League Okayama",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4266",
       "date": "2026-03-08",
       "standing": 7,
       "player_name": "ななな",
@@ -2321,6 +2335,7 @@
     },
     {
       "tournament_name": "City League Niigata",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4259",
       "date": "2026-03-08",
       "standing": 7,
       "player_name": "たけ",
@@ -2459,6 +2474,7 @@
     },
     {
       "tournament_name": "City League Ibaraki",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4242",
       "date": "2026-03-08",
       "standing": 8,
       "player_name": "Kei",
@@ -2621,7 +2637,17 @@
           "to_pct": 0.0
         },
         {
+          "card": "Carmine",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
           "card": "Terapagos ex",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Iron Leaves ex",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -2631,17 +2657,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "Carmine",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Sparkling Crystal",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Iron Leaves ex",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -2661,7 +2677,7 @@
           "to_pct": 100.0
         },
         {
-          "card": "Ciphermaniac's Codebreaking",
+          "card": "Black Belt's Training",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -2671,7 +2687,7 @@
           "to_pct": 100.0
         },
         {
-          "card": "Black Belt's Training",
+          "card": "Ciphermaniac's Codebreaking",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -2698,7 +2714,7 @@
       ],
       "dropped": [
         {
-          "card": "Prime Catcher",
+          "card": "Raging Bolt ex",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -2713,12 +2729,12 @@
           "to_pct": 0.0
         },
         {
-          "card": "Raging Bolt ex",
+          "card": "Lillie's Determination",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Lillie's Determination",
+          "card": "Prime Catcher",
           "from_pct": 100.0,
           "to_pct": 0.0
         }

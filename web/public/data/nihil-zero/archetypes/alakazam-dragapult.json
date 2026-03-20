@@ -535,6 +535,7 @@
   "results": [
     {
       "tournament_name": "City League Chiba",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3929",
       "date": "2026-02-01",
       "standing": 1,
       "player_name": "にわり",
@@ -673,6 +674,7 @@
     },
     {
       "tournament_name": "City League Fukui",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4014",
       "date": "2026-02-08",
       "standing": 3,
       "player_name": "つばくろ",
@@ -821,6 +823,7 @@
     },
     {
       "tournament_name": "City League Tokushima",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4122",
       "date": "2026-02-15",
       "standing": 4,
       "player_name": "ぺろ",
@@ -959,6 +962,7 @@
     },
     {
       "tournament_name": "City League Tōkyō",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4097",
       "date": "2026-02-15",
       "standing": 5,
       "player_name": "shun",
@@ -1097,6 +1101,7 @@
     },
     {
       "tournament_name": "City League Chiba",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4043",
       "date": "2026-02-11",
       "standing": 5,
       "player_name": "けんちゃん",
@@ -1240,6 +1245,7 @@
     },
     {
       "tournament_name": "City League Ōsaka",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3897",
       "date": "2026-01-29",
       "standing": 5,
       "player_name": "リグス",
@@ -1413,6 +1419,7 @@
     },
     {
       "tournament_name": "City League Shimane",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4101",
       "date": "2026-02-15",
       "standing": 8,
       "player_name": "HARU",
@@ -1551,6 +1558,7 @@
     },
     {
       "tournament_name": "City League Gunma",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4227",
       "date": "2026-03-07",
       "standing": 9,
       "player_name": "ヤマト",
@@ -1689,6 +1697,7 @@
     },
     {
       "tournament_name": "City League Okayama",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4046",
       "date": "2026-02-11",
       "standing": 9,
       "player_name": "ゆんた",
@@ -1832,6 +1841,7 @@
     },
     {
       "tournament_name": "City League Ōsaka",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4218",
       "date": "2026-03-07",
       "standing": 10,
       "player_name": "もち",
@@ -1975,6 +1985,7 @@
     },
     {
       "tournament_name": "City League Ōsaka",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4176",
       "date": "2026-03-01",
       "standing": 10,
       "player_name": "攻め意識",
@@ -2128,6 +2139,7 @@
     },
     {
       "tournament_name": "City League Kanagawa",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3872",
       "date": "2026-01-25",
       "standing": 11,
       "player_name": "パッパ",
@@ -2266,6 +2278,7 @@
     },
     {
       "tournament_name": "City League Fukuoka",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3938",
       "date": "2026-02-01",
       "standing": 13,
       "player_name": "サトシ",
@@ -2419,6 +2432,7 @@
     },
     {
       "tournament_name": "City League Hiroshima",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4050",
       "date": "2026-02-11",
       "standing": 14,
       "player_name": "ろじ",
@@ -2552,6 +2566,7 @@
     },
     {
       "tournament_name": "City League Chiba",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4038",
       "date": "2026-02-11",
       "standing": 14,
       "player_name": "mepo",
@@ -2695,6 +2710,7 @@
     },
     {
       "tournament_name": "City League Chiba",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4030",
       "date": "2026-02-10",
       "standing": 14,
       "player_name": "パオーン",
@@ -2840,6 +2856,11 @@
       "week": "2026-01-26",
       "adopted": [
         {
+          "card": "Team Rocket's Watchtower",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
           "card": "Shaymin",
           "from_pct": 0.0,
           "to_pct": 100.0
@@ -2850,12 +2871,7 @@
           "to_pct": 100.0
         },
         {
-          "card": "Team Rocket's Watchtower",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Sacred Ash",
+          "card": "Crispin",
           "from_pct": 0.0,
           "to_pct": 66.7
         },
@@ -2865,17 +2881,17 @@
           "to_pct": 66.7
         },
         {
-          "card": "Crispin",
-          "from_pct": 0.0,
-          "to_pct": 66.7
-        },
-        {
-          "card": "Morty's Conviction",
+          "card": "Sacred Ash",
           "from_pct": 0.0,
           "to_pct": 66.7
         },
         {
           "card": "Tool Scrapper",
+          "from_pct": 0.0,
+          "to_pct": 66.7
+        },
+        {
+          "card": "Morty's Conviction",
           "from_pct": 0.0,
           "to_pct": 66.7
         }
@@ -2887,12 +2903,12 @@
           "to_pct": 0.0
         },
         {
-          "card": "Dusknoir",
+          "card": "Dusclops",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Dusclops",
+          "card": "Dusknoir",
           "from_pct": 100.0,
           "to_pct": 0.0
         }
@@ -2917,6 +2933,21 @@
           "to_pct": 50.0
         },
         {
+          "card": "Frillish",
+          "from_pct": 33.3,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Enhanced Hammer",
+          "from_pct": 33.3,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Lillie's Clefairy ex",
+          "from_pct": 33.3,
+          "to_pct": 50.0
+        },
+        {
           "card": "Munkidori",
           "from_pct": 33.3,
           "to_pct": 50.0
@@ -2927,34 +2958,19 @@
           "to_pct": 50.0
         },
         {
-          "card": "Lillie's Clefairy ex",
-          "from_pct": 33.3,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Frillish",
-          "from_pct": 33.3,
-          "to_pct": 50.0
-        },
-        {
           "card": "Wondrous Patch",
-          "from_pct": 33.3,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Enhanced Hammer",
           "from_pct": 33.3,
           "to_pct": 50.0
         }
       ],
       "dropped": [
         {
-          "card": "Sacred Ash",
+          "card": "Budew",
           "from_pct": 66.7,
           "to_pct": 0.0
         },
         {
-          "card": "Budew",
+          "card": "Sacred Ash",
           "from_pct": 66.7,
           "to_pct": 0.0
         },
@@ -3038,17 +3054,17 @@
       "week": "2026-03-02",
       "adopted": [
         {
-          "card": "Shaymin",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
           "card": "Enhanced Hammer",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Lana's Aid",
+          "card": "Shaymin",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Crispin",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -3058,7 +3074,12 @@
           "to_pct": 50.0
         },
         {
-          "card": "Ciphermaniac's Codebreaking",
+          "card": "Budew",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Lana's Aid",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -3068,17 +3089,12 @@
           "to_pct": 50.0
         },
         {
-          "card": "Budew",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Crispin",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
           "card": "Dusknoir",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Ciphermaniac's Codebreaking",
           "from_pct": 0.0,
           "to_pct": 50.0
         }
@@ -3086,16 +3102,6 @@
       "dropped": [
         {
           "card": "Togekiss",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Lillie's Determination",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Battle Cage",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -3111,6 +3117,16 @@
         },
         {
           "card": "Togepi",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Lillie's Determination",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Battle Cage",
           "from_pct": 100.0,
           "to_pct": 0.0
         }

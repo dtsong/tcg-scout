@@ -436,6 +436,7 @@
   "results": [
     {
       "tournament_name": "City League Kyōto",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3880",
       "date": "2026-01-25",
       "standing": 2,
       "player_name": "キャプテンコダック",
@@ -574,6 +575,7 @@
     },
     {
       "tournament_name": "City League Tōkyō",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4255",
       "date": "2026-03-08",
       "standing": 10,
       "player_name": "ふくだん",
@@ -697,6 +699,7 @@
     },
     {
       "tournament_name": "City League Kagawa",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3850",
       "date": "2026-01-24",
       "standing": 10,
       "player_name": "ちば",
@@ -835,6 +838,7 @@
     },
     {
       "tournament_name": "City League Ōsaka",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3948",
       "date": "2026-02-01",
       "standing": 14,
       "player_name": "ミツヒロ",
@@ -983,6 +987,7 @@
     },
     {
       "tournament_name": "City League Tōkyō",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3847",
       "date": "2026-01-24",
       "standing": 14,
       "player_name": "ちゃき",
@@ -1111,6 +1116,7 @@
     },
     {
       "tournament_name": "City League Aichi",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4219",
       "date": "2026-03-07",
       "standing": 15,
       "player_name": "くろ",
@@ -1249,6 +1255,7 @@
     },
     {
       "tournament_name": "City League Shizuoka",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3907",
       "date": "2026-01-31",
       "standing": 15,
       "player_name": "ひるまっち",
@@ -1387,6 +1394,7 @@
     },
     {
       "tournament_name": "City League Kanagawa",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3853",
       "date": "2026-01-24",
       "standing": 16,
       "player_name": "あお",
@@ -1517,12 +1525,12 @@
       "week": "2026-01-26",
       "adopted": [
         {
-          "card": "Tool Scrapper",
+          "card": "Team Rocket's Kangaskhan ex",
           "from_pct": 25.0,
           "to_pct": 100.0
         },
         {
-          "card": "Team Rocket's Kangaskhan ex",
+          "card": "Tool Scrapper",
           "from_pct": 25.0,
           "to_pct": 100.0
         },
@@ -1532,7 +1540,7 @@
           "to_pct": 50.0
         },
         {
-          "card": "Battle Cage",
+          "card": "Hilda",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -1542,17 +1550,17 @@
           "to_pct": 50.0
         },
         {
-          "card": "Hilda",
+          "card": "Battle Cage",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
         {
-          "card": "Energy Search",
+          "card": "Lillie's Clefairy ex",
           "from_pct": 25.0,
           "to_pct": 50.0
         },
         {
-          "card": "Lillie's Clefairy ex",
+          "card": "Energy Search",
           "from_pct": 25.0,
           "to_pct": 50.0
         },
@@ -1569,12 +1577,12 @@
           "to_pct": 0.0
         },
         {
-          "card": "Lillie's Determination",
+          "card": "Team Rocket's Watchtower",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
-          "card": "Team Rocket's Watchtower",
+          "card": "Lillie's Determination",
           "from_pct": 50.0,
           "to_pct": 0.0
         }
@@ -1589,17 +1597,12 @@
           "to_pct": 100.0
         },
         {
-          "card": "Shaymin",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
           "card": "Maximum Belt",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
         {
-          "card": "Pokégear 3.0",
+          "card": "Team Rocket's Watchtower",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -1609,7 +1612,12 @@
           "to_pct": 50.0
         },
         {
-          "card": "Team Rocket's Watchtower",
+          "card": "Pokégear 3.0",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Shaymin",
           "from_pct": 0.0,
           "to_pct": 50.0
         }
@@ -1618,11 +1626,6 @@
         {
           "card": "Tool Scrapper",
           "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Energy Search",
-          "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
@@ -1636,7 +1639,17 @@
           "to_pct": 0.0
         },
         {
+          "card": "Team Rocket's Petrel",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
           "card": "Team Rocket's Wobbuffet",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Energy Search",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -1647,11 +1660,6 @@
         },
         {
           "card": "Hero's Cape",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Team Rocket's Petrel",
           "from_pct": 50.0,
           "to_pct": 0.0
         }

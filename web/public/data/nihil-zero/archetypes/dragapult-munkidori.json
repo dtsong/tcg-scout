@@ -451,6 +451,7 @@
   "results": [
     {
       "tournament_name": "City League Chiba",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4133",
       "date": "2026-02-15",
       "standing": 2,
       "player_name": "sherlock",
@@ -614,6 +615,7 @@
     },
     {
       "tournament_name": "City League Kanagawa",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4153",
       "date": "2026-02-24",
       "standing": 3,
       "player_name": "りなのこ",
@@ -742,6 +744,7 @@
     },
     {
       "tournament_name": "City League Gunma",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3975",
       "date": "2026-02-07",
       "standing": 6,
       "player_name": "コシミズ",
@@ -875,6 +878,7 @@
     },
     {
       "tournament_name": "City League Chiba",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4213",
       "date": "2026-03-07",
       "standing": 9,
       "player_name": "ARA",
@@ -1003,6 +1007,7 @@
     },
     {
       "tournament_name": "City League Saitama",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4076",
       "date": "2026-02-14",
       "standing": 11,
       "player_name": "ういろう",
@@ -1146,6 +1151,7 @@
     },
     {
       "tournament_name": "City League Ehime",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4171",
       "date": "2026-03-01",
       "standing": 14,
       "player_name": "じりつくん",
@@ -1279,6 +1285,7 @@
     },
     {
       "tournament_name": "City League Saitama",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4130",
       "date": "2026-02-17",
       "standing": 16,
       "player_name": "とうま",
@@ -1419,11 +1426,6 @@
       "week": "2026-02-09",
       "adopted": [
         {
-          "card": "Meowth ex",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
           "card": "Team Rocket's Petrel",
           "from_pct": 0.0,
           "to_pct": 100.0
@@ -1434,47 +1436,12 @@
           "to_pct": 100.0
         },
         {
-          "card": "Yveltal",
+          "card": "Meowth ex",
           "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Counter Gain",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Maractus",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Switch",
-          "from_pct": 0.0,
-          "to_pct": 50.0
+          "to_pct": 100.0
         },
         {
           "card": "Duskull",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Xerosic's Machinations",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Brock's Scouting",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Mega Absol ex",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Dusknoir",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -1487,11 +1454,51 @@
           "card": "Team Rocket's Watchtower",
           "from_pct": 0.0,
           "to_pct": 50.0
+        },
+        {
+          "card": "Brock's Scouting",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Yveltal",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Dusknoir",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Maractus",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Counter Gain",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Mega Absol ex",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Switch",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Xerosic's Machinations",
+          "from_pct": 0.0,
+          "to_pct": 50.0
         }
       ],
       "dropped": [
         {
-          "card": "Shaymin",
+          "card": "Rosa's Encouragement",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -1501,7 +1508,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "Rosa's Encouragement",
+          "card": "Shaymin",
           "from_pct": 100.0,
           "to_pct": 0.0
         }
@@ -1528,47 +1535,17 @@
           "to_pct": 0.0
         },
         {
-          "card": "Yveltal",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Counter Gain",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Maractus",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Rare Candy",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Switch",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Duskull",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
-          "card": "Xerosic's Machinations",
+          "card": "Hilda",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
-          "card": "Mega Absol ex",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Dawn",
+          "card": "Yveltal",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -1578,7 +1555,37 @@
           "to_pct": 0.0
         },
         {
-          "card": "Hilda",
+          "card": "Rare Candy",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Maractus",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Dawn",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Counter Gain",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Mega Absol ex",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Switch",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Xerosic's Machinations",
           "from_pct": 50.0,
           "to_pct": 0.0
         }
@@ -1593,17 +1600,17 @@
           "to_pct": 100.0
         },
         {
-          "card": "Area Zero Underdepths",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
           "card": "Rare Candy",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
         {
-          "card": "Hoothoot",
+          "card": "Noctowl",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Area Zero Underdepths",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -1613,19 +1620,19 @@
           "to_pct": 50.0
         },
         {
-          "card": "Noctowl",
+          "card": "Hoothoot",
           "from_pct": 0.0,
           "to_pct": 50.0
         }
       ],
       "dropped": [
         {
-          "card": "Judge",
+          "card": "Team Rocket's Watchtower",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Team Rocket's Watchtower",
+          "card": "Judge",
           "from_pct": 100.0,
           "to_pct": 0.0
         }
@@ -1647,22 +1654,22 @@
           "to_pct": 0.0
         },
         {
-          "card": "Area Zero Underdepths",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Hoothoot",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Team Rocket's Petrel",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
           "card": "Noctowl",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Area Zero Underdepths",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Hoothoot",
           "from_pct": 50.0,
           "to_pct": 0.0
         }

@@ -402,6 +402,7 @@
   "results": [
     {
       "tournament_name": "City League Ōsaka",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4149",
       "date": "2026-02-23",
       "standing": 1,
       "player_name": "1007",
@@ -530,6 +531,7 @@
     },
     {
       "tournament_name": "City League Tōkyō",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4177",
       "date": "2026-03-01",
       "standing": 7,
       "player_name": "すんすん",
@@ -668,6 +670,7 @@
     },
     {
       "tournament_name": "City League Kanagawa",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4006",
       "date": "2026-02-08",
       "standing": 8,
       "player_name": "ナユタ",
@@ -811,6 +814,7 @@
     },
     {
       "tournament_name": "City League Fukuoka",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4271",
       "date": "2026-03-07",
       "standing": 12,
       "player_name": "こういち",
@@ -956,7 +960,12 @@
       "week": "2026-02-23",
       "adopted": [
         {
-          "card": "Shaymin",
+          "card": "Team Rocket's Watchtower",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Team Rocket's Petrel",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -966,7 +975,12 @@
           "to_pct": 50.0
         },
         {
-          "card": "Team Rocket's Petrel",
+          "card": "Xerosic's Machinations",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Shaymin",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -979,26 +993,16 @@
           "card": "Psyduck",
           "from_pct": 0.0,
           "to_pct": 50.0
-        },
-        {
-          "card": "Xerosic's Machinations",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Team Rocket's Watchtower",
-          "from_pct": 0.0,
-          "to_pct": 50.0
         }
       ],
       "dropped": [
         {
-          "card": "Rare Candy",
+          "card": "Duskull",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Duskull",
+          "card": "Dusclops",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -1008,7 +1012,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "Dusclops",
+          "card": "Rare Candy",
           "from_pct": 100.0,
           "to_pct": 0.0
         }
@@ -1025,7 +1029,7 @@
       ],
       "dropped": [
         {
-          "card": "Shaymin",
+          "card": "Team Rocket's Watchtower",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -1035,7 +1039,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "Risky Ruins",
+          "card": "Dawn",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -1045,12 +1049,12 @@
           "to_pct": 0.0
         },
         {
-          "card": "Dawn",
+          "card": "Shaymin",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
-          "card": "Team Rocket's Watchtower",
+          "card": "Risky Ruins",
           "from_pct": 50.0,
           "to_pct": 0.0
         }

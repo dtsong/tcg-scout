@@ -360,6 +360,7 @@
   "results": [
     {
       "tournament_name": "City League Kyōto",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3880",
       "date": "2026-01-25",
       "standing": 10,
       "player_name": "Sh0-1",
@@ -498,6 +499,7 @@
     },
     {
       "tournament_name": "City League Aichi",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3910",
       "date": "2026-01-31",
       "standing": 14,
       "player_name": "もつ",
@@ -633,17 +635,17 @@
       "week": "2026-01-26",
       "adopted": [
         {
+          "card": "Lively Stadium",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
           "card": "Yveltal ex",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Precious Trolley",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Lively Stadium",
+          "card": "Team Rocket's Watchtower",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -658,14 +660,14 @@
           "to_pct": 100.0
         },
         {
-          "card": "Team Rocket's Watchtower",
+          "card": "Precious Trolley",
           "from_pct": 0.0,
           "to_pct": 100.0
         }
       ],
       "dropped": [
         {
-          "card": "Energy Search",
+          "card": "Unfair Stamp",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -675,7 +677,12 @@
           "to_pct": 0.0
         },
         {
-          "card": "Unfair Stamp",
+          "card": "Mega Kangaskhan ex",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Energy Search",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -690,17 +697,12 @@
           "to_pct": 0.0
         },
         {
-          "card": "Meowth ex",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Mega Kangaskhan ex",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Xerosic's Machinations",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Meowth ex",
           "from_pct": 100.0,
           "to_pct": 0.0
         }

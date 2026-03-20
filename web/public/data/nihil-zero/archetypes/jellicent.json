@@ -324,6 +324,7 @@
   "results": [
     {
       "tournament_name": "City League Aichi",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3910",
       "date": "2026-01-31",
       "standing": 2,
       "player_name": "鈴音",
@@ -437,6 +438,7 @@
     },
     {
       "tournament_name": "City League Kumamoto",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4118",
       "date": "2026-02-15",
       "standing": 4,
       "player_name": "ゆとり",
@@ -545,6 +547,7 @@
     },
     {
       "tournament_name": "City League Tōkyō",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4204",
       "date": "2026-03-05",
       "standing": 5,
       "player_name": "ぽりぷて",
@@ -638,6 +641,7 @@
     },
     {
       "tournament_name": "City League Kanagawa",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3875",
       "date": "2026-01-25",
       "standing": 10,
       "player_name": "くさびもち",
@@ -726,6 +730,7 @@
     },
     {
       "tournament_name": "City League Ehime",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3920",
       "date": "2026-01-31",
       "standing": 14,
       "player_name": "イチバ",
@@ -829,6 +834,7 @@
     },
     {
       "tournament_name": "City League Gifu",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3882",
       "date": "2026-01-25",
       "standing": 14,
       "player_name": "いぶここ",
@@ -939,19 +945,14 @@
       "week": "2026-01-26",
       "adopted": [
         {
-          "card": "Night Stretcher",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
           "card": "Iris's Fighting Spirit",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Deluxe Bomb",
+          "card": "Night Stretcher",
           "from_pct": 0.0,
-          "to_pct": 50.0
+          "to_pct": 100.0
         },
         {
           "card": "Gravity Gemstone",
@@ -959,12 +960,17 @@
           "to_pct": 50.0
         },
         {
-          "card": "Wondrous Patch",
+          "card": "Enhanced Hammer",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
         {
-          "card": "Enhanced Hammer",
+          "card": "Deluxe Bomb",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Wondrous Patch",
           "from_pct": 0.0,
           "to_pct": 50.0
         }
@@ -981,12 +987,12 @@
       "week": "2026-02-09",
       "adopted": [
         {
-          "card": "Nighttime Mine",
+          "card": "Lillie's Clefairy ex",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Lillie's Clefairy ex",
+          "card": "Nighttime Mine",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -998,22 +1004,17 @@
       ],
       "dropped": [
         {
-          "card": "Night Stretcher",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Iris's Fighting Spirit",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Pokémon Catcher",
-          "from_pct": 50.0,
+          "card": "Night Stretcher",
+          "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Deluxe Bomb",
+          "card": "Gravity Gemstone",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -1028,12 +1029,17 @@
           "to_pct": 0.0
         },
         {
-          "card": "Gravity Gemstone",
+          "card": "Enhanced Hammer",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
-          "card": "Enhanced Hammer",
+          "card": "Deluxe Bomb",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Pokémon Catcher",
           "from_pct": 50.0,
           "to_pct": 0.0
         }
@@ -1042,11 +1048,6 @@
     {
       "week": "2026-03-02",
       "adopted": [
-        {
-          "card": "Colress's Tenacity",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
         {
           "card": "Unfair Stamp",
           "from_pct": 0.0,
@@ -1061,9 +1062,24 @@
           "card": "Battle Cage",
           "from_pct": 0.0,
           "to_pct": 100.0
+        },
+        {
+          "card": "Colress's Tenacity",
+          "from_pct": 0.0,
+          "to_pct": 100.0
         }
       ],
       "dropped": [
+        {
+          "card": "Tool Scrapper",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Wondrous Patch",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
         {
           "card": "Nighttime Mine",
           "from_pct": 100.0,
@@ -1075,27 +1091,17 @@
           "to_pct": 0.0
         },
         {
-          "card": "Hero's Cape",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Wondrous Patch",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Poké Pad",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Tool Scrapper",
+          "card": "Ultra Ball",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Ultra Ball",
+          "card": "Hero's Cape",
           "from_pct": 100.0,
           "to_pct": 0.0
         }

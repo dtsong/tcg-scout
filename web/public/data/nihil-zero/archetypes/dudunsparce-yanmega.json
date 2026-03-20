@@ -409,6 +409,7 @@
   "results": [
     {
       "tournament_name": "City League Chiba",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4186",
       "date": "2026-03-01",
       "standing": 8,
       "player_name": "かくりつ",
@@ -527,6 +528,7 @@
     },
     {
       "tournament_name": "City League Kanagawa",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4044",
       "date": "2026-02-11",
       "standing": 13,
       "player_name": "りんちゃむ",
@@ -680,6 +682,7 @@
     },
     {
       "tournament_name": "City League Ōsaka",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4156",
       "date": "2026-02-26",
       "standing": 16,
       "player_name": "しょっぴぃ",
@@ -830,12 +833,7 @@
           "to_pct": 100.0
         },
         {
-          "card": "Nighttime Mine",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Dwebble",
+          "card": "Dudunsparce ex",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -845,12 +843,7 @@
           "to_pct": 50.0
         },
         {
-          "card": "Pokémon Catcher",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Oshawott",
+          "card": "Dewott",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -860,17 +853,7 @@
           "to_pct": 50.0
         },
         {
-          "card": "Battle Cage",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Crustle",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Dudunsparce ex",
+          "card": "Morty's Conviction",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -880,7 +863,12 @@
           "to_pct": 50.0
         },
         {
-          "card": "Dewott",
+          "card": "Crustle",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Dwebble",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -890,24 +878,39 @@
           "to_pct": 50.0
         },
         {
-          "card": "Morty's Conviction",
+          "card": "Nighttime Mine",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Pokémon Catcher",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Battle Cage",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Oshawott",
           "from_pct": 0.0,
           "to_pct": 50.0
         }
       ],
       "dropped": [
         {
-          "card": "Kieran",
+          "card": "Growth Grass Energy",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Bloodmoon Ursaluna ex",
+          "card": "Forest of Vitality",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Scramble Switch",
+          "card": "Tool Scrapper",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -922,22 +925,12 @@
           "to_pct": 0.0
         },
         {
-          "card": "Forest of Vitality",
+          "card": "Dusclops",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Growth Grass Energy",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Regigigas",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Tool Scrapper",
+          "card": "Scramble Switch",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -947,7 +940,17 @@
           "to_pct": 0.0
         },
         {
-          "card": "Dusclops",
+          "card": "Regigigas",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Bloodmoon Ursaluna ex",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Kieran",
           "from_pct": 100.0,
           "to_pct": 0.0
         }

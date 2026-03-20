@@ -360,6 +360,7 @@
   "results": [
     {
       "tournament_name": "City League Kanagawa",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3958",
       "date": "2026-02-01",
       "standing": 9,
       "player_name": "たじさん",
@@ -493,6 +494,7 @@
     },
     {
       "tournament_name": "City League Chiba",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4136",
       "date": "2026-02-15",
       "standing": 12,
       "player_name": "丸山Ｖガイエル",
@@ -586,6 +588,7 @@
     },
     {
       "tournament_name": "City League Tōkyō",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4007",
       "date": "2026-02-08",
       "standing": 15,
       "player_name": "てぃろ",
@@ -721,12 +724,7 @@
       "week": "2026-02-02",
       "adopted": [
         {
-          "card": "Dwebble",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Lana's Aid",
+          "card": "Meowth ex",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -736,17 +734,17 @@
           "to_pct": 100.0
         },
         {
+          "card": "Lana's Aid",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Tatsugiri",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
           "card": "Buddy-Buddy Poffin",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Meowth ex",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Crustle",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -756,7 +754,7 @@
           "to_pct": 100.0
         },
         {
-          "card": "Hero's Cape",
+          "card": "Crustle",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -766,14 +764,39 @@
           "to_pct": 100.0
         },
         {
-          "card": "Tatsugiri",
+          "card": "Hero's Cape",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Dwebble",
           "from_pct": 0.0,
           "to_pct": 100.0
         }
       ],
       "dropped": [
         {
-          "card": "Energy Switch",
+          "card": "Crispin",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Budew",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Wellspring Mask Ogerpon ex",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Poké Pad",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Regigigas",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -788,22 +811,12 @@
           "to_pct": 0.0
         },
         {
+          "card": "Dawn",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
           "card": "Secret Box",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Poké Pad",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Budew",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Crispin",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -813,17 +826,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "Regigigas",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Dawn",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Wellspring Mask Ogerpon ex",
+          "card": "Energy Switch",
           "from_pct": 100.0,
           "to_pct": 0.0
         }
@@ -833,12 +836,7 @@
       "week": "2026-02-09",
       "adopted": [
         {
-          "card": "Energy Switch",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Acerola's Mischief",
+          "card": "Survival Brace",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -848,19 +846,19 @@
           "to_pct": 100.0
         },
         {
-          "card": "Survival Brace",
+          "card": "Energy Switch",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Acerola's Mischief",
           "from_pct": 0.0,
           "to_pct": 100.0
         }
       ],
       "dropped": [
         {
-          "card": "Dwebble",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Lana's Aid",
+          "card": "Air Balloon",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -870,7 +868,12 @@
           "to_pct": 0.0
         },
         {
-          "card": "Air Balloon",
+          "card": "Lana's Aid",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Tatsugiri",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -885,7 +888,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "Hero's Cape",
+          "card": "Judge",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -895,12 +898,12 @@
           "to_pct": 0.0
         },
         {
-          "card": "Judge",
+          "card": "Hero's Cape",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Tatsugiri",
+          "card": "Dwebble",
           "from_pct": 100.0,
           "to_pct": 0.0
         }

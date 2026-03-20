@@ -353,6 +353,7 @@
   "results": [
     {
       "tournament_name": "City League Miyazaki",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4234",
       "date": "2026-03-08",
       "standing": 5,
       "player_name": "シカマル",
@@ -481,6 +482,7 @@
     },
     {
       "tournament_name": "City League Tochigi",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3873",
       "date": "2026-01-25",
       "standing": 6,
       "player_name": "うなぎくま",
@@ -621,12 +623,22 @@
       "week": "2026-03-02",
       "adopted": [
         {
-          "card": "Energy Switch",
+          "card": "Unfair Stamp",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Unfair Stamp",
+          "card": "Tarragon",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Brock's Scouting",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Hassel",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -641,39 +653,19 @@
           "to_pct": 100.0
         },
         {
-          "card": "Tarragon",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Hassel",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Brock's Scouting",
+          "card": "Energy Switch",
           "from_pct": 0.0,
           "to_pct": 100.0
         }
       ],
       "dropped": [
         {
-          "card": "Prime Catcher",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Lana's Aid",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Cornerstone Mask Ogerpon ex",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Shaymin",
+          "card": "Lana's Aid",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -688,7 +680,17 @@
           "to_pct": 0.0
         },
         {
+          "card": "Shaymin",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
           "card": "Psyduck",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Prime Catcher",
           "from_pct": 100.0,
           "to_pct": 0.0
         }

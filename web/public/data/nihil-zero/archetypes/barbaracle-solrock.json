@@ -360,6 +360,7 @@
   "results": [
     {
       "tournament_name": "City League Aomori",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4161",
       "date": "2026-02-28",
       "standing": 1,
       "player_name": "こうき",
@@ -468,6 +469,7 @@
     },
     {
       "tournament_name": "City League Kyōto",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4247",
       "date": "2026-03-08",
       "standing": 8,
       "player_name": "たぶんね",
@@ -576,6 +578,7 @@
     },
     {
       "tournament_name": "City League Kanagawa",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4170",
       "date": "2026-03-01",
       "standing": 8,
       "player_name": "リセスタ",
@@ -689,6 +692,7 @@
     },
     {
       "tournament_name": "City League Yamaguchi",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3924",
       "date": "2026-01-31",
       "standing": 8,
       "player_name": "d",
@@ -797,6 +801,7 @@
     },
     {
       "tournament_name": "City League Aichi",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4246",
       "date": "2026-03-08",
       "standing": 10,
       "player_name": "あおせ",
@@ -910,6 +915,7 @@
     },
     {
       "tournament_name": "City League Ōsaka",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4262",
       "date": "2026-03-08",
       "standing": 12,
       "player_name": "パンリa.k.a南無",
@@ -1018,6 +1024,7 @@
     },
     {
       "tournament_name": "City League Tōkyō",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4206",
       "date": "2026-03-06",
       "standing": 13,
       "player_name": "しょう",
@@ -1131,6 +1138,7 @@
     },
     {
       "tournament_name": "City League Chiba",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3974",
       "date": "2026-02-07",
       "standing": 14,
       "player_name": "なめ",
@@ -1239,6 +1247,7 @@
     },
     {
       "tournament_name": "City League Kanagawa",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4170",
       "date": "2026-03-01",
       "standing": 15,
       "player_name": "蓮",
@@ -1359,12 +1368,22 @@
       "week": "2026-02-02",
       "adopted": [
         {
-          "card": "Carmine",
+          "card": "Tool Scrapper",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
           "card": "Cornerstone Mask Ogerpon ex",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Tarragon",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Carmine",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -1377,31 +1396,16 @@
           "card": "Battle Cage",
           "from_pct": 0.0,
           "to_pct": 100.0
-        },
-        {
-          "card": "Tool Scrapper",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Tarragon",
-          "from_pct": 0.0,
-          "to_pct": 100.0
         }
       ],
       "dropped": [
         {
+          "card": "Premium Power Pro",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
           "card": "Brave Bangle",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Rock Fighting Energy",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Morty's Conviction",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -1411,12 +1415,17 @@
           "to_pct": 0.0
         },
         {
+          "card": "Rock Fighting Energy",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
           "card": "Switch",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Premium Power Pro",
+          "card": "Morty's Conviction",
           "from_pct": 100.0,
           "to_pct": 0.0
         }
@@ -1426,24 +1435,24 @@
       "week": "2026-02-23",
       "adopted": [
         {
-          "card": "Explorer's Guidance",
+          "card": "Pokégear 3.0",
           "from_pct": 0.0,
           "to_pct": 66.7
         },
         {
-          "card": "Pokégear 3.0",
+          "card": "Explorer's Guidance",
           "from_pct": 0.0,
           "to_pct": 66.7
         }
       ],
       "dropped": [
         {
-          "card": "Carmine",
+          "card": "Tool Scrapper",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Tool Scrapper",
+          "card": "Carmine",
           "from_pct": 100.0,
           "to_pct": 0.0
         }
@@ -1458,12 +1467,12 @@
           "to_pct": 50.0
         },
         {
-          "card": "Moltres",
+          "card": "Cornerstone Mask Ogerpon ex",
           "from_pct": 33.3,
           "to_pct": 75.0
         },
         {
-          "card": "Cornerstone Mask Ogerpon ex",
+          "card": "Moltres",
           "from_pct": 33.3,
           "to_pct": 75.0
         },

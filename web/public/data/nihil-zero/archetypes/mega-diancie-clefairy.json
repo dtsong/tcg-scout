@@ -381,6 +381,7 @@
   "results": [
     {
       "tournament_name": "City League Nagasaki",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4168",
       "date": "2026-03-01",
       "standing": 2,
       "player_name": "フルフル",
@@ -474,6 +475,7 @@
     },
     {
       "tournament_name": "City League Tōkyō",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4202",
       "date": "2026-03-05",
       "standing": 6,
       "player_name": "アクドラ",
@@ -602,6 +604,7 @@
     },
     {
       "tournament_name": "City League Aichi",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4062",
       "date": "2026-02-11",
       "standing": 10,
       "player_name": "ヒデオ",
@@ -705,6 +708,7 @@
     },
     {
       "tournament_name": "City League Shizuoka",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4272",
       "date": "2026-03-07",
       "standing": 16,
       "player_name": "はなえらび",
@@ -828,6 +832,7 @@
     },
     {
       "tournament_name": "City League Tōkyō",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4145",
       "date": "2026-02-23",
       "standing": 16,
       "player_name": "ぽったー。",
@@ -938,17 +943,12 @@
       "week": "2026-02-23",
       "adopted": [
         {
-          "card": "Carmine",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Colress's Tenacity",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
           "card": "Unfair Stamp",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Carmine",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -961,9 +961,19 @@
           "card": "Night Stretcher",
           "from_pct": 0.0,
           "to_pct": 50.0
+        },
+        {
+          "card": "Colress's Tenacity",
+          "from_pct": 0.0,
+          "to_pct": 50.0
         }
       ],
       "dropped": [
+        {
+          "card": "Judge",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
         {
           "card": "Iris's Fighting Spirit",
           "from_pct": 100.0,
@@ -973,11 +983,6 @@
           "card": "Psyduck",
           "from_pct": 100.0,
           "to_pct": 0.0
-        },
-        {
-          "card": "Judge",
-          "from_pct": 100.0,
-          "to_pct": 0.0
         }
       ]
     },
@@ -985,37 +990,7 @@
       "week": "2026-03-02",
       "adopted": [
         {
-          "card": "Energy Switch",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
           "card": "Mega Signal",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Energy Search",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Bronzor",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Secret Box",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Lillie's Pearl",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Poké Pad",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -1030,7 +1005,12 @@
           "to_pct": 50.0
         },
         {
-          "card": "Fezandipiti ex",
+          "card": "Team Rocket's Petrel",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Poké Pad",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -1040,12 +1020,37 @@
           "to_pct": 50.0
         },
         {
-          "card": "Harlequin",
+          "card": "Energy Search",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
         {
-          "card": "Team Rocket's Petrel",
+          "card": "Secret Box",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Bronzor",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Energy Switch",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Lillie's Pearl",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Fezandipiti ex",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Harlequin",
           "from_pct": 0.0,
           "to_pct": 50.0
         }

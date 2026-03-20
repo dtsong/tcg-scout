@@ -325,6 +325,7 @@
   "results": [
     {
       "tournament_name": "City League Tōkyō",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4251",
       "date": "2026-03-08",
       "standing": 5,
       "player_name": "夢幻鏡",
@@ -428,6 +429,7 @@
     },
     {
       "tournament_name": "City League Tochigi",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4245",
       "date": "2026-03-08",
       "standing": 9,
       "player_name": "エルチキ",
@@ -541,6 +543,7 @@
     },
     {
       "tournament_name": "City League Nagano",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3940",
       "date": "2026-02-01",
       "standing": 9,
       "player_name": "ありじゅん",
@@ -639,6 +642,7 @@
     },
     {
       "tournament_name": "City League Iwate",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3965",
       "date": "2026-02-07",
       "standing": 11,
       "player_name": "YDK",
@@ -742,6 +746,7 @@
     },
     {
       "tournament_name": "City League Tochigi",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4040",
       "date": "2026-02-11",
       "standing": 16,
       "player_name": "なとぅ",
@@ -857,7 +862,7 @@
       "week": "2026-02-02",
       "adopted": [
         {
-          "card": "Colress's Tenacity",
+          "card": "Switch",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -867,29 +872,29 @@
           "to_pct": 100.0
         },
         {
-          "card": "Handheld Fan",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
           "card": "Shaymin",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Switch",
+          "card": "Handheld Fan",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Colress's Tenacity",
           "from_pct": 0.0,
           "to_pct": 100.0
         }
       ],
       "dropped": [
         {
-          "card": "Energy Switch",
+          "card": "Jamming Tower",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Jamming Tower",
+          "card": "Hilda",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -899,7 +904,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "Hilda",
+          "card": "Energy Switch",
           "from_pct": 100.0,
           "to_pct": 0.0
         }
@@ -909,11 +914,6 @@
       "week": "2026-02-09",
       "adopted": [
         {
-          "card": "Judge",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
           "card": "Maximum Belt",
           "from_pct": 0.0,
           "to_pct": 100.0
@@ -922,14 +922,14 @@
           "card": "Hilda",
           "from_pct": 0.0,
           "to_pct": 100.0
+        },
+        {
+          "card": "Judge",
+          "from_pct": 0.0,
+          "to_pct": 100.0
         }
       ],
       "dropped": [
-        {
-          "card": "Shaymin",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
         {
           "card": "Scoop Up Cyclone",
           "from_pct": 100.0,
@@ -937,6 +937,11 @@
         },
         {
           "card": "Switch",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Shaymin",
           "from_pct": 100.0,
           "to_pct": 0.0
         }
@@ -951,22 +956,17 @@
           "to_pct": 100.0
         },
         {
-          "card": "Mega Signal",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Shaymin",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
           "card": "Scoop Up Cyclone",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
         {
-          "card": "Yamask",
+          "card": "Mega Signal",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Team Rocket's Watchtower",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -976,24 +976,29 @@
           "to_pct": 50.0
         },
         {
+          "card": "Shaymin",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
           "card": "Cofagrigus",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
         {
-          "card": "Team Rocket's Watchtower",
+          "card": "Yamask",
           "from_pct": 0.0,
           "to_pct": 50.0
         }
       ],
       "dropped": [
         {
-          "card": "Handheld Fan",
+          "card": "Frillish",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Frillish",
+          "card": "Handheld Fan",
           "from_pct": 100.0,
           "to_pct": 0.0
         }

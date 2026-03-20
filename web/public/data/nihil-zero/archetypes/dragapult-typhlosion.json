@@ -430,6 +430,7 @@
   "results": [
     {
       "tournament_name": "City League Fukuoka",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4233",
       "date": "2026-03-07",
       "standing": 3,
       "player_name": "やよゆ",
@@ -583,6 +584,7 @@
     },
     {
       "tournament_name": "City League Kanagawa",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4103",
       "date": "2026-02-15",
       "standing": 7,
       "player_name": "kuu",
@@ -736,6 +738,7 @@
     },
     {
       "tournament_name": "City League Kanagawa",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4178",
       "date": "2026-03-01",
       "standing": 13,
       "player_name": "ゆきは",
@@ -874,6 +877,7 @@
     },
     {
       "tournament_name": "City League Hokkaido",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4140",
       "date": "2026-02-23",
       "standing": 14,
       "player_name": "かたまる",
@@ -1034,7 +1038,7 @@
           "to_pct": 100.0
         },
         {
-          "card": "Prime Catcher",
+          "card": "Rosa's Encouragement",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -1044,7 +1048,17 @@
           "to_pct": 50.0
         },
         {
-          "card": "Rosa's Encouragement",
+          "card": "Morty's Conviction",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Prime Catcher",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Judge",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -1057,29 +1071,9 @@
           "card": "Gravity Mountain",
           "from_pct": 0.0,
           "to_pct": 50.0
-        },
-        {
-          "card": "Morty's Conviction",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Judge",
-          "from_pct": 0.0,
-          "to_pct": 50.0
         }
       ],
       "dropped": [
-        {
-          "card": "Neo Upper Energy",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Switch",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
         {
           "card": "Crispin",
           "from_pct": 100.0,
@@ -1087,6 +1081,16 @@
         },
         {
           "card": "Iris's Fighting Spirit",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Neo Upper Energy",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Switch",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -1101,6 +1105,11 @@
       "week": "2026-03-02",
       "adopted": [
         {
+          "card": "Crispin",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
           "card": "Lana's Aid",
           "from_pct": 0.0,
           "to_pct": 100.0
@@ -1114,11 +1123,6 @@
           "card": "Naveen",
           "from_pct": 0.0,
           "to_pct": 100.0
-        },
-        {
-          "card": "Crispin",
-          "from_pct": 0.0,
-          "to_pct": 100.0
         }
       ],
       "dropped": [
@@ -1128,22 +1132,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "Prime Catcher",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Rosa's Encouragement",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Battle Cage",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Fezandipiti ex",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -1154,6 +1143,21 @@
         },
         {
           "card": "Judge",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Fezandipiti ex",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Battle Cage",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Prime Catcher",
           "from_pct": 50.0,
           "to_pct": 0.0
         }

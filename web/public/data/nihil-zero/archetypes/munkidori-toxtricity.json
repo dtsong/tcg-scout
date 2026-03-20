@@ -500,6 +500,7 @@
   "results": [
     {
       "tournament_name": "City League Ishikawa",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4082",
       "date": "2026-02-14",
       "standing": 1,
       "player_name": "とうふ",
@@ -648,6 +649,7 @@
     },
     {
       "tournament_name": "City League Kyōto",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4188",
       "date": "2026-03-01",
       "standing": 2,
       "player_name": "コケコ",
@@ -771,6 +773,7 @@
     },
     {
       "tournament_name": "City League Tōkyō",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4145",
       "date": "2026-02-23",
       "standing": 7,
       "player_name": "まるまる",
@@ -899,6 +902,7 @@
     },
     {
       "tournament_name": "City League Kanagawa",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3854",
       "date": "2026-01-24",
       "standing": 10,
       "player_name": "カントナグロス",
@@ -1037,6 +1041,7 @@
     },
     {
       "tournament_name": "City League Tōkyō",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3847",
       "date": "2026-01-24",
       "standing": 10,
       "player_name": "かまき きしん",
@@ -1175,6 +1180,7 @@
     },
     {
       "tournament_name": "City League Kyōto",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3880",
       "date": "2026-01-25",
       "standing": 11,
       "player_name": "たたみ",
@@ -1308,6 +1314,7 @@
     },
     {
       "tournament_name": "City League Kanagawa",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3854",
       "date": "2026-01-24",
       "standing": 11,
       "player_name": "しーぴー",
@@ -1446,6 +1453,7 @@
     },
     {
       "tournament_name": "City League Fukuoka",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4148",
       "date": "2026-02-23",
       "standing": 12,
       "player_name": "ドル",
@@ -1579,6 +1587,7 @@
     },
     {
       "tournament_name": "City League Hokkaido",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4140",
       "date": "2026-02-23",
       "standing": 12,
       "player_name": "Moku@むろじむ",
@@ -1712,6 +1721,7 @@
     },
     {
       "tournament_name": "City League Hiroshima",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3982",
       "date": "2026-02-07",
       "standing": 12,
       "player_name": "ハマーC",
@@ -1870,6 +1880,7 @@
     },
     {
       "tournament_name": "City League Kanagawa",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4096",
       "date": "2026-02-15",
       "standing": 15,
       "player_name": "み",
@@ -2008,6 +2019,7 @@
     },
     {
       "tournament_name": "City League Tōkyō",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3933",
       "date": "2026-02-01",
       "standing": 15,
       "player_name": "エニグマ",
@@ -2151,6 +2163,7 @@
     },
     {
       "tournament_name": "City League Ōsaka",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4199",
       "date": "2026-03-04",
       "standing": 16,
       "player_name": "おばけ",
@@ -2306,12 +2319,12 @@
           "to_pct": 100.0
         },
         {
-          "card": "Psyduck",
+          "card": "Pecharunt",
           "from_pct": 25.0,
           "to_pct": 100.0
         },
         {
-          "card": "Pecharunt",
+          "card": "Psyduck",
           "from_pct": 25.0,
           "to_pct": 100.0
         }
@@ -2323,7 +2336,12 @@
           "to_pct": 0.0
         },
         {
-          "card": "Energy Search",
+          "card": "Sacred Ash",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Tatsugiri",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -2333,12 +2351,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "Sacred Ash",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Precious Trolley",
+          "card": "Energy Search",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -2348,7 +2361,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "Tatsugiri",
+          "card": "Precious Trolley",
           "from_pct": 50.0,
           "to_pct": 0.0
         }
@@ -2358,12 +2371,12 @@
       "week": "2026-02-02",
       "adopted": [
         {
-          "card": "Team Rocket's Sneasel",
+          "card": "Okidogi ex",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Gravity Mountain",
+          "card": "Tatsugiri",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -2373,7 +2386,7 @@
           "to_pct": 100.0
         },
         {
-          "card": "Okidogi ex",
+          "card": "Team Rocket's Sneasel",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -2383,19 +2396,19 @@
           "to_pct": 100.0
         },
         {
-          "card": "Tatsugiri",
+          "card": "Gravity Mountain",
           "from_pct": 0.0,
           "to_pct": 100.0
         }
       ],
       "dropped": [
         {
-          "card": "Counter Gain",
+          "card": "Yveltal ex",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Yveltal ex",
+          "card": "Counter Gain",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -2415,11 +2428,6 @@
           "to_pct": 100.0
         },
         {
-          "card": "Nighttime Mine",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
           "card": "Mega Signal",
           "from_pct": 0.0,
           "to_pct": 50.0
@@ -2435,6 +2443,11 @@
           "to_pct": 50.0
         },
         {
+          "card": "Judge",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
           "card": "Pokégear 3.0",
           "from_pct": 0.0,
           "to_pct": 50.0
@@ -2445,19 +2458,14 @@
           "to_pct": 50.0
         },
         {
-          "card": "Judge",
+          "card": "Nighttime Mine",
           "from_pct": 0.0,
           "to_pct": 50.0
         }
       ],
       "dropped": [
         {
-          "card": "Gravity Mountain",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Punk Helmet",
+          "card": "Okidogi ex",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -2467,12 +2475,17 @@
           "to_pct": 0.0
         },
         {
-          "card": "Okidogi ex",
+          "card": "Punk Helmet",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
           "card": "Dawn",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Gravity Mountain",
           "from_pct": 100.0,
           "to_pct": 0.0
         }
@@ -2493,7 +2506,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "Psyduck",
+          "card": "Tatsugiri",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -2503,7 +2516,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "Tatsugiri",
+          "card": "Psyduck",
           "from_pct": 50.0,
           "to_pct": 0.0
         }
@@ -2513,17 +2526,17 @@
       "week": "2026-03-02",
       "adopted": [
         {
+          "card": "Dudunsparce",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
           "card": "Dunsparce",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
           "card": "Gravity Mountain",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Dudunsparce",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -2550,12 +2563,12 @@
           "to_pct": 0.0
         },
         {
-          "card": "Nighttime Mine",
+          "card": "Yveltal ex",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
-          "card": "Yveltal ex",
+          "card": "Team Rocket's Watchtower",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -2565,7 +2578,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "Team Rocket's Watchtower",
+          "card": "Nighttime Mine",
           "from_pct": 50.0,
           "to_pct": 0.0
         }

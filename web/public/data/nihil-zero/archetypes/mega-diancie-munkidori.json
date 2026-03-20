@@ -381,6 +381,7 @@
   "results": [
     {
       "tournament_name": "City League Fukuoka",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4017",
       "date": "2026-02-08",
       "standing": 6,
       "player_name": "いなば",
@@ -479,6 +480,7 @@
     },
     {
       "tournament_name": "City League Kanagawa",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4032",
       "date": "2026-02-10",
       "standing": 8,
       "player_name": "デラさん",
@@ -582,6 +584,7 @@
     },
     {
       "tournament_name": "City League Kanagawa",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3998",
       "date": "2026-02-08",
       "standing": 10,
       "player_name": "kurione",
@@ -695,6 +698,7 @@
     },
     {
       "tournament_name": "City League Tōkyō",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4048",
       "date": "2026-02-11",
       "standing": 12,
       "player_name": "riku",
@@ -808,6 +812,7 @@
     },
     {
       "tournament_name": "City League Fukuoka",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3985",
       "date": "2026-02-07",
       "standing": 12,
       "player_name": "くろ",
@@ -921,6 +926,7 @@
     },
     {
       "tournament_name": "City League Tōkyō",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3901",
       "date": "2026-01-31",
       "standing": 12,
       "player_name": "アレックス",
@@ -1043,12 +1049,12 @@
       ],
       "dropped": [
         {
-          "card": "Prime Catcher",
+          "card": "Energy Recycler",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Energy Recycler",
+          "card": "Prime Catcher",
           "from_pct": 100.0,
           "to_pct": 0.0
         }
@@ -1058,12 +1064,7 @@
       "week": "2026-02-09",
       "adopted": [
         {
-          "card": "Energy Switch",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Flutter Mane",
+          "card": "Legacy Energy",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -1073,13 +1074,23 @@
           "to_pct": 50.0
         },
         {
+          "card": "Energy Switch",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
           "card": "Psyduck",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
         {
-          "card": "Legacy Energy",
+          "card": "Flutter Mane",
           "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Carmine",
+          "from_pct": 33.3,
           "to_pct": 50.0
         },
         {
@@ -1089,11 +1100,6 @@
         },
         {
           "card": "Secret Box",
-          "from_pct": 33.3,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Carmine",
           "from_pct": 33.3,
           "to_pct": 50.0
         }

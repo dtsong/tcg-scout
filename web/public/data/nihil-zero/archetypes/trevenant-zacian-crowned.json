@@ -416,6 +416,7 @@
   "results": [
     {
       "tournament_name": "City League Saitama",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4142",
       "date": "2026-02-23",
       "standing": 3,
       "player_name": "ごまたんたん",
@@ -534,6 +535,7 @@
     },
     {
       "tournament_name": "City League Gifu",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4231",
       "date": "2026-03-07",
       "standing": 4,
       "player_name": "カズニケ",
@@ -662,6 +664,7 @@
     },
     {
       "tournament_name": "City League Gifu",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3979",
       "date": "2026-02-07",
       "standing": 6,
       "player_name": "ピノ",
@@ -800,6 +803,7 @@
     },
     {
       "tournament_name": "City League Shizuoka",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4263",
       "date": "2026-03-08",
       "standing": 7,
       "player_name": "ソウ",
@@ -918,6 +922,7 @@
     },
     {
       "tournament_name": "City League Tōkyō",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3899",
       "date": "2026-01-30",
       "standing": 11,
       "player_name": "クロサキ",
@@ -1041,6 +1046,7 @@
     },
     {
       "tournament_name": "City League Tōkyō",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3953",
       "date": "2026-02-01",
       "standing": 15,
       "player_name": "ユウシ",
@@ -1201,7 +1207,7 @@
       "week": "2026-02-02",
       "adopted": [
         {
-          "card": "Prime Catcher",
+          "card": "Team Rocket's Petrel",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -1211,7 +1217,7 @@
           "to_pct": 100.0
         },
         {
-          "card": "Team Rocket's Petrel",
+          "card": "Prime Catcher",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -1228,22 +1234,22 @@
           "to_pct": 0.0
         },
         {
-          "card": "Secret Box",
+          "card": "Tool Scrapper",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
-          "card": "Shaymin",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Drayton",
+          "card": "Iris's Fighting Spirit",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
           "card": "Mist Energy",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Morty's Conviction",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -1258,17 +1264,12 @@
           "to_pct": 0.0
         },
         {
-          "card": "Iris's Fighting Spirit",
+          "card": "Lisia's Appeal",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
-          "card": "Morty's Conviction",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Tool Scrapper",
+          "card": "Secret Box",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -1278,7 +1279,12 @@
           "to_pct": 0.0
         },
         {
-          "card": "Lisia's Appeal",
+          "card": "Shaymin",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Drayton",
           "from_pct": 50.0,
           "to_pct": 0.0
         }
@@ -1288,7 +1294,7 @@
       "week": "2026-02-23",
       "adopted": [
         {
-          "card": "Team Rocket's Transceiver",
+          "card": "Mist Energy",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -1298,19 +1304,19 @@
           "to_pct": 100.0
         },
         {
-          "card": "Mist Energy",
+          "card": "Switch",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Switch",
+          "card": "Team Rocket's Transceiver",
           "from_pct": 0.0,
           "to_pct": 100.0
         }
       ],
       "dropped": [
         {
-          "card": "Prime Catcher",
+          "card": "Munkidori",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -1320,12 +1326,12 @@
           "to_pct": 0.0
         },
         {
-          "card": "Munkidori",
+          "card": "Hop's Cramorant",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Hop's Cramorant",
+          "card": "Prime Catcher",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -1345,22 +1351,22 @@
       "week": "2026-03-02",
       "adopted": [
         {
-          "card": "Hop's Cramorant",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
           "card": "Bloodmoon Ursaluna ex",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Repel",
+          "card": "Hop's Cramorant",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Iris's Fighting Spirit",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
         {
-          "card": "Iris's Fighting Spirit",
+          "card": "Repel",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -1372,7 +1378,7 @@
       ],
       "dropped": [
         {
-          "card": "Team Rocket's Transceiver",
+          "card": "Judge",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -1382,7 +1388,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "Judge",
+          "card": "Team Rocket's Transceiver",
           "from_pct": 100.0,
           "to_pct": 0.0
         }

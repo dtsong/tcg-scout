@@ -486,6 +486,7 @@
   "results": [
     {
       "tournament_name": "City League Kanagawa",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3849",
       "date": "2026-01-24",
       "standing": 1,
       "player_name": "のえる",
@@ -629,6 +630,7 @@
     },
     {
       "tournament_name": "City League Chiba",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3974",
       "date": "2026-02-07",
       "standing": 2,
       "player_name": "ショコレート",
@@ -772,6 +774,7 @@
     },
     {
       "tournament_name": "City League Ibaraki",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3976",
       "date": "2026-02-07",
       "standing": 3,
       "player_name": "じぇのば",
@@ -905,6 +908,7 @@
     },
     {
       "tournament_name": "City League Ibaraki",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3932",
       "date": "2026-02-01",
       "standing": 4,
       "player_name": "ふくさん",
@@ -1063,6 +1067,7 @@
     },
     {
       "tournament_name": "City League Tōkyō",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3901",
       "date": "2026-01-31",
       "standing": 4,
       "player_name": "かに",
@@ -1201,6 +1206,7 @@
     },
     {
       "tournament_name": "City League Kyōto",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3892",
       "date": "2026-01-28",
       "standing": 6,
       "player_name": "てらだ",
@@ -1329,6 +1335,7 @@
     },
     {
       "tournament_name": "City League Shiga",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4027",
       "date": "2026-02-09",
       "standing": 8,
       "player_name": "秤",
@@ -1472,6 +1479,7 @@
     },
     {
       "tournament_name": "City League Okinawa",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3944",
       "date": "2026-02-01",
       "standing": 8,
       "player_name": "エンダーベア",
@@ -1615,6 +1623,7 @@
     },
     {
       "tournament_name": "City League Fukuoka",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4233",
       "date": "2026-03-07",
       "standing": 9,
       "player_name": "マティ",
@@ -1763,6 +1772,7 @@
     },
     {
       "tournament_name": "City League Aichi",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4024",
       "date": "2026-02-08",
       "standing": 9,
       "player_name": "yoshi",
@@ -1901,6 +1911,7 @@
     },
     {
       "tournament_name": "City League Miyazaki",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3945",
       "date": "2026-02-01",
       "standing": 9,
       "player_name": "たかーどん",
@@ -2044,6 +2055,7 @@
     },
     {
       "tournament_name": "City League Kyōto",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4061",
       "date": "2026-02-11",
       "standing": 10,
       "player_name": "ベア",
@@ -2202,6 +2214,7 @@
     },
     {
       "tournament_name": "City League Ibaraki",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4042",
       "date": "2026-02-11",
       "standing": 11,
       "player_name": "ぽんぽん",
@@ -2340,6 +2353,7 @@
     },
     {
       "tournament_name": "City League Hokkaido",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3903",
       "date": "2026-01-31",
       "standing": 13,
       "player_name": "リン",
@@ -2507,17 +2521,17 @@
       "week": "2026-02-02",
       "adopted": [
         {
+          "card": "Team Rocket's Watchtower",
+          "from_pct": 0.0,
+          "to_pct": 66.7
+        },
+        {
           "card": "Telepath Psychic Energy",
           "from_pct": 0.0,
           "to_pct": 66.7
         },
         {
           "card": "Psyduck",
-          "from_pct": 0.0,
-          "to_pct": 66.7
-        },
-        {
-          "card": "Team Rocket's Watchtower",
           "from_pct": 0.0,
           "to_pct": 66.7
         }
@@ -2529,12 +2543,12 @@
           "to_pct": 0.0
         },
         {
-          "card": "Shaymin",
+          "card": "Brock's Scouting",
           "from_pct": 66.7,
           "to_pct": 0.0
         },
         {
-          "card": "Brock's Scouting",
+          "card": "Shaymin",
           "from_pct": 66.7,
           "to_pct": 0.0
         },
@@ -2549,22 +2563,22 @@
       "week": "2026-02-09",
       "adopted": [
         {
-          "card": "Meowth ex",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
           "card": "Brock's Scouting",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Shaymin",
+          "card": "Meowth ex",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Legacy Energy",
           "from_pct": 0.0,
           "to_pct": 66.7
         },
         {
-          "card": "Legacy Energy",
+          "card": "Shaymin",
           "from_pct": 0.0,
           "to_pct": 66.7
         }
@@ -2586,6 +2600,16 @@
       "week": "2026-03-02",
       "adopted": [
         {
+          "card": "Hilda",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Farigiraf ex",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
           "card": "Telepath Psychic Energy",
           "from_pct": 0.0,
           "to_pct": 100.0
@@ -2596,22 +2620,12 @@
           "to_pct": 100.0
         },
         {
-          "card": "Switch",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
           "card": "Briar",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Farigiraf ex",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Hilda",
+          "card": "Switch",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -2623,11 +2637,6 @@
       ],
       "dropped": [
         {
-          "card": "Meowth ex",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Brock's Scouting",
           "from_pct": 100.0,
           "to_pct": 0.0
@@ -2638,17 +2647,22 @@
           "to_pct": 0.0
         },
         {
+          "card": "Meowth ex",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
           "card": "Jamming Tower",
           "from_pct": 66.7,
           "to_pct": 0.0
         },
         {
-          "card": "Shaymin",
+          "card": "Legacy Energy",
           "from_pct": 66.7,
           "to_pct": 0.0
         },
         {
-          "card": "Legacy Energy",
+          "card": "Shaymin",
           "from_pct": 66.7,
           "to_pct": 0.0
         }

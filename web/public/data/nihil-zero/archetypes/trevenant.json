@@ -450,6 +450,7 @@
   "results": [
     {
       "tournament_name": "City League Miyagi",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4269",
       "date": "2026-03-08",
       "standing": 1,
       "player_name": "おきどき",
@@ -598,6 +599,7 @@
     },
     {
       "tournament_name": "City League Ōsaka",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4205",
       "date": "2026-03-05",
       "standing": 1,
       "player_name": "こくやちゃ",
@@ -746,6 +748,7 @@
     },
     {
       "tournament_name": "City League Saitama",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4165",
       "date": "2026-02-28",
       "standing": 2,
       "player_name": "ちはやパパ",
@@ -879,6 +882,7 @@
     },
     {
       "tournament_name": "City League Kanagawa",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4084",
       "date": "2026-02-14",
       "standing": 3,
       "player_name": "べつこ",
@@ -1012,6 +1016,7 @@
     },
     {
       "tournament_name": "City League Shiga",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3886",
       "date": "2026-01-26",
       "standing": 4,
       "player_name": "ねんどよしりん",
@@ -1160,6 +1165,7 @@
     },
     {
       "tournament_name": "City League Saitama",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3864",
       "date": "2026-01-25",
       "standing": 4,
       "player_name": "ほねっと",
@@ -1283,6 +1289,7 @@
     },
     {
       "tournament_name": "City League Aichi",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4062",
       "date": "2026-02-11",
       "standing": 8,
       "player_name": "明智サンダー",
@@ -1436,6 +1443,7 @@
     },
     {
       "tournament_name": "City League Aichi",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4246",
       "date": "2026-03-08",
       "standing": 9,
       "player_name": "ほしみ",
@@ -1594,6 +1602,7 @@
     },
     {
       "tournament_name": "City League Hiroshima",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3982",
       "date": "2026-02-07",
       "standing": 13,
       "player_name": "よっさん",
@@ -1722,6 +1731,7 @@
     },
     {
       "tournament_name": "City League Shiga",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4116",
       "date": "2026-02-15",
       "standing": 15,
       "player_name": "まぁてる",
@@ -1860,6 +1870,7 @@
     },
     {
       "tournament_name": "City League Tōkyō",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3966",
       "date": "2026-02-07",
       "standing": 15,
       "player_name": "リク",
@@ -2005,12 +2016,12 @@
       "week": "2026-01-26",
       "adopted": [
         {
-          "card": "Prime Catcher",
+          "card": "Hop's Zacian ex",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Surfer",
+          "card": "Iris's Fighting Spirit",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -2020,7 +2031,27 @@
           "to_pct": 100.0
         },
         {
+          "card": "Team Rocket's Petrel",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Lacey",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
           "card": "Bloodmoon Ursaluna ex",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Repel",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Prime Catcher",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -2035,44 +2066,19 @@
           "to_pct": 100.0
         },
         {
-          "card": "Repel",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Lacey",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Iris's Fighting Spirit",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Team Rocket's Petrel",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Hop's Zacian ex",
+          "card": "Surfer",
           "from_pct": 0.0,
           "to_pct": 100.0
         }
       ],
       "dropped": [
         {
-          "card": "Shaymin",
+          "card": "Tool Scrapper",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
           "card": "Unfair Stamp",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Munkidori",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -2082,7 +2088,12 @@
           "to_pct": 0.0
         },
         {
-          "card": "Tool Scrapper",
+          "card": "Munkidori",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Shaymin",
           "from_pct": 100.0,
           "to_pct": 0.0
         }
@@ -2092,22 +2103,22 @@
       "week": "2026-02-02",
       "adopted": [
         {
-          "card": "Shaymin",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
           "card": "Tool Scrapper",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Hop's Wooloo",
+          "card": "Shaymin",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Unfair Stamp",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
         {
-          "card": "Unfair Stamp",
+          "card": "Morty's Conviction",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -2122,19 +2133,34 @@
           "to_pct": 50.0
         },
         {
-          "card": "Pokégear 3.0",
+          "card": "Hop's Wooloo",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
         {
-          "card": "Morty's Conviction",
+          "card": "Pokégear 3.0",
           "from_pct": 0.0,
           "to_pct": 50.0
         }
       ],
       "dropped": [
         {
+          "card": "Team Rocket's Petrel",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Lacey",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
           "card": "Bloodmoon Ursaluna ex",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Repel",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -2145,21 +2171,6 @@
         },
         {
           "card": "Fezandipiti ex",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Repel",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Lacey",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Team Rocket's Petrel",
           "from_pct": 100.0,
           "to_pct": 0.0
         }
@@ -2184,7 +2195,12 @@
           "to_pct": 100.0
         },
         {
-          "card": "Colress's Tenacity",
+          "card": "Team Rocket's Petrel",
+          "from_pct": 0.0,
+          "to_pct": 66.7
+        },
+        {
+          "card": "Hassel",
           "from_pct": 0.0,
           "to_pct": 66.7
         },
@@ -2199,34 +2215,14 @@
           "to_pct": 66.7
         },
         {
-          "card": "Hassel",
-          "from_pct": 0.0,
-          "to_pct": 66.7
-        },
-        {
-          "card": "Team Rocket's Petrel",
+          "card": "Colress's Tenacity",
           "from_pct": 0.0,
           "to_pct": 66.7
         }
       ],
       "dropped": [
         {
-          "card": "Surfer",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Hop's Wooloo",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Unfair Stamp",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Hop's Dubwool",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -2236,7 +2232,22 @@
           "to_pct": 0.0
         },
         {
+          "card": "Hop's Dubwool",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Hop's Wooloo",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
           "card": "Pokégear 3.0",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Surfer",
           "from_pct": 50.0,
           "to_pct": 0.0
         }
@@ -2251,12 +2262,12 @@
           "to_pct": 100.0
         },
         {
-          "card": "Repel",
+          "card": "Hilda",
           "from_pct": 33.3,
           "to_pct": 100.0
         },
         {
-          "card": "Hilda",
+          "card": "Repel",
           "from_pct": 33.3,
           "to_pct": 100.0
         }
@@ -2268,11 +2279,6 @@
           "to_pct": 0.0
         },
         {
-          "card": "Colress's Tenacity",
-          "from_pct": 66.7,
-          "to_pct": 0.0
-        },
-        {
           "card": "Munkidori",
           "from_pct": 66.7,
           "to_pct": 0.0
@@ -2281,17 +2287,17 @@
           "card": "Hassel",
           "from_pct": 66.7,
           "to_pct": 0.0
+        },
+        {
+          "card": "Colress's Tenacity",
+          "from_pct": 66.7,
+          "to_pct": 0.0
         }
       ]
     },
     {
       "week": "2026-03-02",
       "adopted": [
-        {
-          "card": "Shaymin",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
         {
           "card": "Unfair Stamp",
           "from_pct": 0.0,
@@ -2308,12 +2314,17 @@
           "to_pct": 100.0
         },
         {
-          "card": "Colress's Tenacity",
+          "card": "Shaymin",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Judge",
           "from_pct": 0.0,
           "to_pct": 66.7
         },
         {
-          "card": "Judge",
+          "card": "Colress's Tenacity",
           "from_pct": 0.0,
           "to_pct": 66.7
         }

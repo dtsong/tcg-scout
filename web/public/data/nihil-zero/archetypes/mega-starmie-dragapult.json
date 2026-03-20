@@ -472,6 +472,7 @@
   "results": [
     {
       "tournament_name": "City League Shizuoka",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3995",
       "date": "2026-02-08",
       "standing": 2,
       "player_name": "タコツ",
@@ -610,6 +611,7 @@
     },
     {
       "tournament_name": "City League Kanagawa",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3958",
       "date": "2026-02-01",
       "standing": 2,
       "player_name": "はなまる",
@@ -748,6 +750,7 @@
     },
     {
       "tournament_name": "City League Hokkaido",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3903",
       "date": "2026-01-31",
       "standing": 4,
       "player_name": "しょう。",
@@ -881,6 +884,7 @@
     },
     {
       "tournament_name": "City League Kyōto",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3880",
       "date": "2026-01-25",
       "standing": 4,
       "player_name": "はやと",
@@ -1024,6 +1028,7 @@
     },
     {
       "tournament_name": "City League Ōsaka",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4199",
       "date": "2026-03-04",
       "standing": 5,
       "player_name": "SODA",
@@ -1157,6 +1162,7 @@
     },
     {
       "tournament_name": "City League Shizuoka",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4067",
       "date": "2026-02-11",
       "standing": 5,
       "player_name": "カズ",
@@ -1285,6 +1291,7 @@
     },
     {
       "tournament_name": "City League Shiga",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3952",
       "date": "2026-02-02",
       "standing": 7,
       "player_name": "クロスケ",
@@ -1423,6 +1430,7 @@
     },
     {
       "tournament_name": "City League Gifu",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3882",
       "date": "2026-01-25",
       "standing": 7,
       "player_name": "かもポン",
@@ -1576,6 +1584,7 @@
     },
     {
       "tournament_name": "City League Kumamoto",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3984",
       "date": "2026-02-07",
       "standing": 14,
       "player_name": "たくみん",
@@ -1709,6 +1718,7 @@
     },
     {
       "tournament_name": "City League Tōkyō",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3960",
       "date": "2026-02-06",
       "standing": 14,
       "player_name": "バリバリ",
@@ -1842,6 +1852,7 @@
     },
     {
       "tournament_name": "City League Aichi",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4062",
       "date": "2026-02-11",
       "standing": 15,
       "player_name": "るる",
@@ -2019,22 +2030,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "Prime Catcher",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Jamming Tower",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Latias ex",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Rare Candy",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -2044,17 +2040,12 @@
           "to_pct": 0.0
         },
         {
-          "card": "Pokégear 3.0",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Dawn",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Mega Starmie ex",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Dusclops",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -2064,7 +2055,27 @@
           "to_pct": 0.0
         },
         {
-          "card": "Dusclops",
+          "card": "Rare Candy",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Latias ex",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Dawn",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Pokégear 3.0",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Prime Catcher",
           "from_pct": 50.0,
           "to_pct": 0.0
         }
@@ -2096,12 +2107,12 @@
       "week": "2026-02-09",
       "adopted": [
         {
-          "card": "Prime Catcher",
+          "card": "Shaymin",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
         {
-          "card": "Shaymin",
+          "card": "Prime Catcher",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -2129,7 +2140,7 @@
       "adopted": [],
       "dropped": [
         {
-          "card": "Prime Catcher",
+          "card": "Pokégear 3.0",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -2139,7 +2150,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "Pokégear 3.0",
+          "card": "Prime Catcher",
           "from_pct": 50.0,
           "to_pct": 0.0
         }

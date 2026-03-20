@@ -486,6 +486,7 @@
   "results": [
     {
       "tournament_name": "City League Fukuoka",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4017",
       "date": "2026-02-08",
       "standing": 1,
       "player_name": "ラベン",
@@ -619,6 +620,7 @@
     },
     {
       "tournament_name": "City League Aichi",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4021",
       "date": "2026-02-08",
       "standing": 2,
       "player_name": "ライト",
@@ -752,6 +754,7 @@
     },
     {
       "tournament_name": "City League Kanagawa",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4006",
       "date": "2026-02-08",
       "standing": 3,
       "player_name": "ルート",
@@ -890,6 +893,7 @@
     },
     {
       "tournament_name": "City League Chiba",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4133",
       "date": "2026-02-15",
       "standing": 5,
       "player_name": "デスマス田中",
@@ -1013,6 +1017,7 @@
     },
     {
       "tournament_name": "City League Aichi",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4024",
       "date": "2026-02-08",
       "standing": 7,
       "player_name": "すろ",
@@ -1131,6 +1136,7 @@
     },
     {
       "tournament_name": "City League Gifu",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3923",
       "date": "2026-01-31",
       "standing": 8,
       "player_name": "Myガブ",
@@ -1264,6 +1270,7 @@
     },
     {
       "tournament_name": "City League Kumamoto",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3851",
       "date": "2026-01-24",
       "standing": 8,
       "player_name": "しゅん",
@@ -1387,6 +1394,7 @@
     },
     {
       "tournament_name": "City League Fukuoka",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4179",
       "date": "2026-03-01",
       "standing": 9,
       "player_name": "ぼんし",
@@ -1530,6 +1538,7 @@
     },
     {
       "tournament_name": "City League Tōkyō",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4163",
       "date": "2026-02-28",
       "standing": 9,
       "player_name": "S",
@@ -1653,6 +1662,7 @@
     },
     {
       "tournament_name": "City League Chiba",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3997",
       "date": "2026-02-08",
       "standing": 11,
       "player_name": "アーサー",
@@ -1806,6 +1816,7 @@
     },
     {
       "tournament_name": "City League Tōkyō",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3847",
       "date": "2026-01-24",
       "standing": 11,
       "player_name": "Ryyyu",
@@ -1934,6 +1945,7 @@
     },
     {
       "tournament_name": "City League Nagano",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4053",
       "date": "2026-02-11",
       "standing": 12,
       "player_name": "タケEX",
@@ -2062,6 +2074,7 @@
     },
     {
       "tournament_name": "City League Gifu",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3979",
       "date": "2026-02-07",
       "standing": 13,
       "player_name": "にょれい株式会社",
@@ -2200,6 +2213,7 @@
     },
     {
       "tournament_name": "City League Tōkyō",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4249",
       "date": "2026-03-08",
       "standing": 14,
       "player_name": "やゆう",
@@ -2333,6 +2347,7 @@
     },
     {
       "tournament_name": "City League Tōkyō",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4206",
       "date": "2026-03-06",
       "standing": 14,
       "player_name": "ぱんだ",
@@ -2471,6 +2486,7 @@
     },
     {
       "tournament_name": "City League Ehime",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3934",
       "date": "2026-02-01",
       "standing": 14,
       "player_name": "なべ",
@@ -2631,17 +2647,17 @@
           "to_pct": 66.7
         },
         {
-          "card": "N's Castle",
-          "from_pct": 33.3,
-          "to_pct": 66.7
-        },
-        {
           "card": "Unfair Stamp",
           "from_pct": 33.3,
           "to_pct": 66.7
         },
         {
           "card": "Psyduck",
+          "from_pct": 33.3,
+          "to_pct": 66.7
+        },
+        {
+          "card": "N's Castle",
           "from_pct": 33.3,
           "to_pct": 66.7
         }
@@ -2658,19 +2674,14 @@
       "week": "2026-02-02",
       "adopted": [
         {
-          "card": "Fezandipiti ex",
-          "from_pct": 33.3,
-          "to_pct": 83.3
-        },
-        {
           "card": "Janine's Secret Art",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
         {
-          "card": "Yveltal",
+          "card": "Fezandipiti ex",
           "from_pct": 33.3,
-          "to_pct": 66.7
+          "to_pct": 83.3
         },
         {
           "card": "Tool Scrapper",
@@ -2678,12 +2689,17 @@
           "to_pct": 66.7
         },
         {
-          "card": "N's Darumaka",
+          "card": "Yveltal",
+          "from_pct": 33.3,
+          "to_pct": 66.7
+        },
+        {
+          "card": "N's Darmanitan",
           "from_pct": 33.3,
           "to_pct": 50.0
         },
         {
-          "card": "N's Darmanitan",
+          "card": "N's Darumaka",
           "from_pct": 33.3,
           "to_pct": 50.0
         }
@@ -2704,11 +2720,6 @@
           "to_pct": 50.0
         },
         {
-          "card": "Prime Catcher",
-          "from_pct": 16.7,
-          "to_pct": 50.0
-        },
-        {
           "card": "Team Rocket's Watchtower",
           "from_pct": 16.7,
           "to_pct": 50.0
@@ -2719,12 +2730,17 @@
           "to_pct": 50.0
         },
         {
-          "card": "Gravity Mountain",
-          "from_pct": 33.3,
+          "card": "Prime Catcher",
+          "from_pct": 16.7,
           "to_pct": 50.0
         },
         {
           "card": "Psyduck",
+          "from_pct": 33.3,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Gravity Mountain",
           "from_pct": 33.3,
           "to_pct": 50.0
         }
@@ -2736,7 +2752,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "N's Darumaka",
+          "card": "N's Darmanitan",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -2746,7 +2762,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "N's Darmanitan",
+          "card": "N's Darumaka",
           "from_pct": 50.0,
           "to_pct": 0.0
         }
@@ -2763,12 +2779,12 @@
       ],
       "dropped": [
         {
-          "card": "Prime Catcher",
+          "card": "Meddling Memo",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
-          "card": "Gravity Mountain",
+          "card": "N's Purrloin",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -2778,12 +2794,12 @@
           "to_pct": 0.0
         },
         {
-          "card": "Meddling Memo",
+          "card": "Gravity Mountain",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
-          "card": "N's Purrloin",
+          "card": "Prime Catcher",
           "from_pct": 50.0,
           "to_pct": 0.0
         }
@@ -2798,27 +2814,7 @@
           "to_pct": 100.0
         },
         {
-          "card": "Secret Box",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Kieran",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Psyduck",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
           "card": "Tool Scrapper",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Meddling Memo",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -2828,7 +2824,27 @@
           "to_pct": 50.0
         },
         {
-          "card": "Ciphermaniac's Codebreaking",
+          "card": "Meddling Memo",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Secret Box",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Psyduck",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Kieran",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "N's Darmanitan",
           "from_pct": 33.3,
           "to_pct": 50.0
         },
@@ -2838,17 +2854,22 @@
           "to_pct": 50.0
         },
         {
-          "card": "Fezandipiti ex",
+          "card": "Ciphermaniac's Codebreaking",
           "from_pct": 33.3,
           "to_pct": 50.0
         },
         {
-          "card": "N's Darmanitan",
+          "card": "Fezandipiti ex",
           "from_pct": 33.3,
           "to_pct": 50.0
         }
       ],
       "dropped": [
+        {
+          "card": "Budew",
+          "from_pct": 66.7,
+          "to_pct": 0.0
+        },
         {
           "card": "Black Belt's Training",
           "from_pct": 66.7,
@@ -2856,11 +2877,6 @@
         },
         {
           "card": "Eri",
-          "from_pct": 66.7,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Budew",
           "from_pct": 66.7,
           "to_pct": 0.0
         }

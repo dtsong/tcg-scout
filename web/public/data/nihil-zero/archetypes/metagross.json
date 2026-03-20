@@ -443,6 +443,7 @@
   "results": [
     {
       "tournament_name": "City League Tōkyō",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3926",
       "date": "2026-02-01",
       "standing": 2,
       "player_name": "ヌーブ",
@@ -591,6 +592,7 @@
     },
     {
       "tournament_name": "City League Fukuoka",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4179",
       "date": "2026-03-01",
       "standing": 10,
       "player_name": "チエカナ",
@@ -744,6 +746,7 @@
     },
     {
       "tournament_name": "City League Ōsaka",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4031",
       "date": "2026-02-10",
       "standing": 10,
       "player_name": "マサティー",
@@ -877,6 +880,7 @@
     },
     {
       "tournament_name": "City League Miyazaki",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3945",
       "date": "2026-02-01",
       "standing": 12,
       "player_name": "アキ",
@@ -1042,22 +1046,17 @@
       "week": "2026-02-09",
       "adopted": [
         {
-          "card": "Latias ex",
+          "card": "Mega Diancie ex",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Mega Diancie ex",
+          "card": "Latias ex",
           "from_pct": 0.0,
           "to_pct": 100.0
         }
       ],
       "dropped": [
-        {
-          "card": "Munkidori",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
         {
           "card": "Air Balloon",
           "from_pct": 100.0,
@@ -1066,6 +1065,31 @@
         {
           "card": "Steven's Carbink",
           "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Munkidori",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Tool Scrapper",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Jumbo Ice Cream",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Tatsugiri",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Mega Skarmory ex",
+          "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
@@ -1082,26 +1106,6 @@
           "card": "Psyduck",
           "from_pct": 50.0,
           "to_pct": 0.0
-        },
-        {
-          "card": "Tool Scrapper",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Jumbo Ice Cream",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Mega Skarmory ex",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Tatsugiri",
-          "from_pct": 50.0,
-          "to_pct": 0.0
         }
       ]
     },
@@ -1109,42 +1113,17 @@
       "week": "2026-02-23",
       "adopted": [
         {
-          "card": "Team Rocket's Transceiver",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Team Rocket's Mimikyu",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Shaymin",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Dialga",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Precious Trolley",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
           "card": "Budew",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Psyduck",
+          "card": "Jumbo Ice Cream",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Jumbo Ice Cream",
+          "card": "Team Rocket's Mimikyu",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -1157,6 +1136,31 @@
           "card": "Mega Skarmory ex",
           "from_pct": 0.0,
           "to_pct": 100.0
+        },
+        {
+          "card": "Dialga",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Team Rocket's Transceiver",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Shaymin",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Psyduck",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Precious Trolley",
+          "from_pct": 0.0,
+          "to_pct": 100.0
         }
       ],
       "dropped": [
@@ -1166,12 +1170,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "Latias ex",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Meowth ex",
+          "card": "Mega Diancie ex",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -1186,7 +1185,12 @@
           "to_pct": 0.0
         },
         {
-          "card": "Mega Diancie ex",
+          "card": "Latias ex",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Meowth ex",
           "from_pct": 100.0,
           "to_pct": 0.0
         }

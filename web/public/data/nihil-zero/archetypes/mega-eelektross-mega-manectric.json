@@ -353,6 +353,7 @@
   "results": [
     {
       "tournament_name": "City League Kanagawa",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4006",
       "date": "2026-02-08",
       "standing": 10,
       "player_name": "まだ",
@@ -486,6 +487,7 @@
     },
     {
       "tournament_name": "City League Tottori",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4248",
       "date": "2026-03-08",
       "standing": 13,
       "player_name": "クウガ",
@@ -621,7 +623,17 @@
       "week": "2026-03-02",
       "adopted": [
         {
+          "card": "Budew",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
           "card": "Iono's Wattrel",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Stunfisk",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -634,36 +646,11 @@
           "card": "Iono's Kilowattrel",
           "from_pct": 0.0,
           "to_pct": 100.0
-        },
-        {
-          "card": "Stunfisk",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Budew",
-          "from_pct": 0.0,
-          "to_pct": 100.0
         }
       ],
       "dropped": [
         {
-          "card": "Explorer's Guidance",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Zekrom ex",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Maximum Belt",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Fezandipiti ex",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -679,6 +666,21 @@
         },
         {
           "card": "Tapu Koko",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Zekrom ex",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Explorer's Guidance",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Fezandipiti ex",
           "from_pct": 100.0,
           "to_pct": 0.0
         }

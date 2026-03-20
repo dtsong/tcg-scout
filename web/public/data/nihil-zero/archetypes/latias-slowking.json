@@ -437,6 +437,7 @@
   "results": [
     {
       "tournament_name": "City League Aichi",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4201",
       "date": "2026-03-04",
       "standing": 1,
       "player_name": "はるぽ",
@@ -570,6 +571,7 @@
     },
     {
       "tournament_name": "City League Hokkaido",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4258",
       "date": "2026-03-08",
       "standing": 2,
       "player_name": "マーサ",
@@ -708,6 +710,7 @@
     },
     {
       "tournament_name": "City League Fukuoka",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4151",
       "date": "2026-02-23",
       "standing": 4,
       "player_name": "りんごアタック",
@@ -841,6 +844,7 @@
     },
     {
       "tournament_name": "City League Tōkyō",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4216",
       "date": "2026-03-07",
       "standing": 5,
       "player_name": "みかん",
@@ -974,6 +978,7 @@
     },
     {
       "tournament_name": "City League Chiba",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4038",
       "date": "2026-02-11",
       "standing": 8,
       "player_name": "カントコ",
@@ -1112,6 +1117,7 @@
     },
     {
       "tournament_name": "City League Tōkyō",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4191",
       "date": "2026-03-02",
       "standing": 12,
       "player_name": "世界平和",
@@ -1255,6 +1261,7 @@
     },
     {
       "tournament_name": "City League Miyagi",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4269",
       "date": "2026-03-08",
       "standing": 14,
       "player_name": "瀬戸内",
@@ -1393,6 +1400,7 @@
     },
     {
       "tournament_name": "City League Kanagawa",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3964",
       "date": "2026-02-07",
       "standing": 16,
       "player_name": "あーる",
@@ -1548,19 +1556,19 @@
       "week": "2026-02-09",
       "adopted": [
         {
-          "card": "Conkeldurr",
+          "card": "Regigigas",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Regigigas",
+          "card": "Conkeldurr",
           "from_pct": 0.0,
           "to_pct": 100.0
         }
       ],
       "dropped": [
         {
-          "card": "Haxorus",
+          "card": "Dusclops",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -1570,7 +1578,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "Dusclops",
+          "card": "Haxorus",
           "from_pct": 100.0,
           "to_pct": 0.0
         }
@@ -1580,17 +1588,7 @@
       "week": "2026-02-23",
       "adopted": [
         {
-          "card": "Surfer",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Colress's Tenacity",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Lillie's Clefairy ex",
+          "card": "Powerglass",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -1600,19 +1598,24 @@
           "to_pct": 100.0
         },
         {
-          "card": "Powerglass",
+          "card": "Lillie's Clefairy ex",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Surfer",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Colress's Tenacity",
           "from_pct": 0.0,
           "to_pct": 100.0
         }
       ],
       "dropped": [
         {
-          "card": "Rare Candy",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Switch",
+          "card": "Tatsugiri",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -1622,17 +1625,22 @@
           "to_pct": 0.0
         },
         {
-          "card": "Regigigas",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Dusknoir",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Tatsugiri",
+          "card": "Rare Candy",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Regigigas",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Switch",
           "from_pct": 100.0,
           "to_pct": 0.0
         }
