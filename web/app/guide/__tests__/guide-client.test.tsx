@@ -34,7 +34,6 @@ describe("GuideClient", () => {
     expect(
       screen.getAllByText("Champions League").length
     ).toBeGreaterThanOrEqual(1);
-    expect(screen.getAllByText("Report").length).toBeGreaterThanOrEqual(1);
   });
 
   it("has first section (Dashboard) open by default", () => {

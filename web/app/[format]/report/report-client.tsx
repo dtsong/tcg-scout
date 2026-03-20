@@ -93,10 +93,7 @@ export function ReportClient({ report, format }: { report: MetaReport; format: s
           Meta Report
         </h1>
         <p className="text-sm text-surface-300 mt-1">
-          Generated {generatedDate}{" "}
-          <Link href="/guide#report" className="text-accent hover:text-accent/80 transition-colors">
-            How this works &rarr;
-          </Link>
+          Generated {generatedDate}
         </p>
       </div>
 

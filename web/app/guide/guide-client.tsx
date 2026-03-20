@@ -84,12 +84,6 @@ const TOOL_SECTIONS = [
     content:
       "Full translated decklists from Japan's Champions League events. Results are organized by division (Masters, Seniors, Juniors). These results are not included in archetype scoring since CL placements lack archetype classification.",
   },
-  {
-    id: "report",
-    title: "Report",
-    content:
-      "Auto-generated weekly meta summaries when available. Reports cover tier movements, emerging trends, and notable meta shifts.",
-  },
 ];
 
 const GLOSSARY = [
