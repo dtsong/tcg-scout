@@ -2428,8 +2428,13 @@ def export_narrative(format_slug: str, output_dir: Path | None = None) -> Path |
         )
         logger.info("Narrative report written to %s", report_path)
         return report_path
+    except (FileNotFoundError, ValueError) as exc:
+        logger.warning("Narrative report generation skipped for %s: %s", format_slug, exc)
+        return None
     except Exception as exc:
-        logger.warning("Narrative report generation failed for %s: %s", format_slug, exc)
+        logger.error(
+            "Narrative report generation failed for %s: %s", format_slug, exc, exc_info=True
+        )
         return None
 
 

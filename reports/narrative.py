@@ -127,10 +127,6 @@ def validate_report_facts(report_text: str, context: dict) -> list[str]:
     """
     errors = []
 
-    # Build sets of valid names from context (used for future name validation)
-    valid_cards = {c["card_name"] for c in context.get("surging_cards", [])}
-    valid_cards.update(c["card_name"] for c in context.get("winning_edge_cards", []))
-
     # Check that any percentage figures in the text are within plausible range
     pct_pattern = re.compile(r"(\d+(?:\.\d+)?)\s*%")
     for match in pct_pattern.finditer(report_text):
@@ -142,8 +138,8 @@ def validate_report_facts(report_text: str, context: dict) -> list[str]:
     meta_share_map = {a["archetype"]: a["meta_share"] for a in context.get("top_archetypes", [])}
     for arch, share in meta_share_map.items():
         # If an archetype is mentioned with a specific wrong share, flag it
-        pattern = re.compile(re.escape(arch) + r"[^.]*?(\d+(?:\.\d+)?)\s*%\s*meta")
-        for match in pattern.finditer(report_text, re.IGNORECASE):
+        pattern = re.compile(re.escape(arch) + r"[^.]*?(\d+(?:\.\d+)?)\s*%\s*meta", re.IGNORECASE)
+        for match in pattern.finditer(report_text):
             mentioned_share = float(match.group(1))
             if abs(mentioned_share - share) > 0.5:
                 errors.append(
@@ -171,6 +167,9 @@ def generate_report(format_slug: str, data_dir: Path, output_dir: Path) -> Path:
     out_dir.mkdir(parents=True, exist_ok=True)
 
     context = assemble_report_context(format_slug, data_dir)
+
+    if not context.get("top_archetypes"):
+        raise ValueError(f"No archetype data available for {format_slug} — skipping LLM call")
 
     # Build prompt from template
     jinja_env = Environment(loader=FileSystemLoader(str(_TEMPLATES_DIR)), autoescape=False)
