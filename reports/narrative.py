@@ -169,7 +169,7 @@ def generate_report(format_slug: str, data_dir: Path, output_dir: Path) -> Path:
     context = assemble_report_context(format_slug, data_dir)
 
     if not context.get("top_archetypes"):
-        raise ValueError(f"No archetype data available for {format_slug} — skipping LLM call")
+        raise ValueError(f"No archetype data available for {format_slug} - skipping LLM call")
 
     # Build prompt from template
     jinja_env = Environment(loader=FileSystemLoader(str(_TEMPLATES_DIR)), autoescape=False)

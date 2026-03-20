@@ -12,7 +12,7 @@ TIER LIST (by meta share %):
 ---
 SURGING CARDS (biggest adoption increases):
 {% for card in surging_cards %}
-- {{ card.card_name }}: +{{ card.delta }}% ({{ card.early_pct }}% -> {{ card.late_pct }}%){% if card.top_archetype %} -- heaviest in {{ card.top_archetype }}{% endif %}
+- {{ card.card_name }}: +{{ card.delta }}% ({{ card.early_pct }}% -> {{ card.late_pct }}%){% if card.top_archetype %} - heaviest in {{ card.top_archetype }}{% endif %}
 
 {%- endfor %}
 
