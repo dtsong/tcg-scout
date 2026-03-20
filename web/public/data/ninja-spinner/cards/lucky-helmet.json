@@ -7,26 +7,26 @@
   "image_url": null,
   "category": "Trainer",
   "rarity": null,
-  "total_appearances": 8,
-  "usage_pct": 0.9,
+  "total_appearances": 14,
+  "usage_pct": 1.2,
   "avg_copies": 2.0,
-  "unique_archetypes": 4,
-  "weighted_score": 12.6,
-  "win_rate_proxy": 1.57,
+  "unique_archetypes": 5,
+  "weighted_score": 22.3,
+  "win_rate_proxy": 1.59,
   "top_archetype": "Alakazam Dudunsparce",
   "trend_direction": "stable",
   "copy_distribution": [
     {
       "copies": 1,
-      "count": 3
+      "count": 5
     },
     {
       "copies": 2,
-      "count": 3
+      "count": 5
     },
     {
       "copies": 3,
-      "count": 1
+      "count": 3
     },
     {
       "copies": 4,
@@ -37,20 +37,27 @@
     {
       "name": "Alakazam Dudunsparce",
       "slug": "alakazam-dudunsparce",
-      "usage_count": 4,
-      "avg_copies": 2.5,
+      "usage_count": 8,
+      "avg_copies": 2.4,
       "tier": "C"
     },
     {
       "name": "Archaludon ex",
       "slug": "archaludon-ex",
-      "usage_count": 2,
-      "avg_copies": 1.5,
+      "usage_count": 3,
+      "avg_copies": 1.3,
       "tier": "Rogue"
     },
     {
       "name": "Mega Venusaur",
       "slug": "mega-venusaur",
+      "usage_count": 1,
+      "avg_copies": 2.0,
+      "tier": "C"
+    },
+    {
+      "name": "Mega Froslass Mega Starmie",
+      "slug": "mega-froslass-mega-starmie",
       "usage_count": 1,
       "avg_copies": 2.0,
       "tier": "C"
@@ -71,80 +78,115 @@
     },
     {
       "week": "2026-03-16",
-      "usage_pct": 0.4,
-      "avg_copies": 3.0
+      "usage_pct": 1.4,
+      "avg_copies": 2.1
     }
   ],
   "synergy_partners": [
     {
       "card_name": "Genesect",
-      "support": 5,
-      "lift": 25.341,
-      "jaccard": 0.2,
-      "weighted_score": 7.9
+      "support": 10,
+      "lift": 27.685,
+      "jaccard": 0.303,
+      "weighted_score": 15.6
+    },
+    {
+      "card_name": "Enhanced Hammer",
+      "support": 7,
+      "lift": 20.815,
+      "jaccard": 0.206,
+      "weighted_score": 10.9
+    },
+    {
+      "card_name": "Abra",
+      "support": 8,
+      "lift": 20.719,
+      "jaccard": 0.216,
+      "weighted_score": 12.1
+    },
+    {
+      "card_name": "Kadabra",
+      "support": 8,
+      "lift": 20.719,
+      "jaccard": 0.216,
+      "weighted_score": 12.1
+    },
+    {
+      "card_name": "Alakazam",
+      "support": 8,
+      "lift": 20.071,
+      "jaccard": 0.211,
+      "weighted_score": 12.1
+    },
+    {
+      "card_name": "Sacred Ash",
+      "support": 8,
+      "lift": 15.666,
+      "jaccard": 0.17,
+      "weighted_score": 12.1
+    },
+    {
+      "card_name": "Enriching Energy",
+      "support": 7,
+      "lift": 15.189,
+      "jaccard": 0.159,
+      "weighted_score": 10.9
+    },
+    {
+      "card_name": "Dudunsparce",
+      "support": 8,
+      "lift": 9.308,
+      "jaccard": 0.107,
+      "weighted_score": 12.1
+    },
+    {
+      "card_name": "Dunsparce",
+      "support": 8,
+      "lift": 9.308,
+      "jaccard": 0.107,
+      "weighted_score": 12.1
+    },
+    {
+      "card_name": "Telepath Psychic Energy",
+      "support": 8,
+      "lift": 6.297,
+      "jaccard": 0.074,
+      "weighted_score": 12.1
     },
     {
       "card_name": "Battle Cage",
+      "support": 9,
+      "lift": 6.283,
+      "jaccard": 0.075,
+      "weighted_score": 13.3
+    },
+    {
+      "card_name": "Wondrous Patch",
       "support": 5,
-      "lift": 5.868,
-      "jaccard": 0.051,
-      "weighted_score": 7.1
+      "lift": 5.903,
+      "jaccard": 0.065,
+      "weighted_score": 7.4
+    },
+    {
+      "card_name": "Lana's Aid",
+      "support": 6,
+      "lift": 4.189,
+      "jaccard": 0.049,
+      "weighted_score": 9.7
     },
     {
       "card_name": "Dawn",
-      "support": 5,
-      "lift": 3.441,
-      "jaccard": 0.03,
-      "weighted_score": 7.9
+      "support": 9,
+      "lift": 3.211,
+      "jaccard": 0.039,
+      "weighted_score": 14.1
     },
     {
-      "card_name": "Psyduck",
-      "support": 5,
-      "lift": 2.352,
-      "jaccard": 0.021,
-      "weighted_score": 7.9
-    },
-    {
-      "card_name": "Rare Candy",
-      "support": 5,
-      "lift": 1.822,
-      "jaccard": 0.016,
-      "weighted_score": 7.4
-    },
-    {
-      "card_name": "Poké Pad",
+      "card_name": "Hilda",
       "support": 8,
-      "lift": 1.3,
-      "jaccard": 0.012,
-      "weighted_score": 12.6
-    },
-    {
-      "card_name": "Buddy-Buddy Poffin",
-      "support": 5,
-      "lift": 1.176,
-      "jaccard": 0.01,
-      "weighted_score": 7.4
-    },
-    {
-      "card_name": "Boss's Orders",
-      "support": 8,
-      "lift": 1.141,
-      "jaccard": 0.01,
-      "weighted_score": 12.6
-    },
-    {
-      "card_name": "Special Red Card",
-      "support": 5,
-      "lift": 1.133,
-      "jaccard": 0.01,
-      "weighted_score": 8.2
-    },
-    {
-      "card_name": "Night Stretcher",
-      "support": 6,
-      "lift": 0.879,
-      "jaccard": 0.008,
-      "weighted_score": 9.1
+      "lift": 3.073,
+      "jaccard": 0.037,
+      "weighted_score": 12.9
     }
   ]
 }

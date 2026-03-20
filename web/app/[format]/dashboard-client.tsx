@@ -105,13 +105,18 @@ export function DashboardClient({
             <div className="flex items-center gap-1 shrink-0">
               <span className="text-xs text-surface-300 flex items-center gap-1 mr-1">
                 <Calendar className="w-3.5 h-3.5" />
-                Set Legal
+                Set Legal for International TCG Events
               </span>
               <span className="font-mono text-xl font-medium text-accent tabular-nums">
                 {rotationDays > 0 ? `${rotationDays}d` : "Live"}
               </span>
             </div>
           </div>
+          <p className="text-xs text-surface-400 mt-2">
+            <Link href="/guide#dashboard" className="text-accent hover:text-accent/80 transition-colors">
+              How to read the dashboard &rarr;
+            </Link>
+          </p>
           <div className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm">
             <div>
               <span className="text-surface-300">Tournaments </span>

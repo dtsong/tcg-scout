@@ -1,10 +1,10 @@
 {
   "archetype": "Mega Venusaur",
   "slug": "mega-venusaur",
-  "tier": "B",
-  "meta_share": 3.2,
-  "weighted_share": 3.1,
-  "deck_count": 214,
+  "tier": "C",
+  "meta_share": 2.0,
+  "weighted_share": 2.0,
+  "deck_count": 24,
   "best_placement": 1,
   "sprite_filenames": [
     "ogerpon.png",
@@ -12,907 +12,495 @@
   ],
   "core_cards": [
     {
+      "card_name": "Ultra Ball",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.8,
+      "decks_with": 24,
+      "category": "Trainer"
+    },
+    {
       "card_name": "Teal Mask Ogerpon ex",
       "inclusion_pct": 100.0,
-      "avg_copies": 3.9,
-      "decks_with": 214,
+      "avg_copies": 3.8,
+      "decks_with": 24,
       "category": "Pokemon"
     },
     {
       "card_name": "Mega Venusaur ex",
       "inclusion_pct": 100.0,
-      "avg_copies": 2.5,
-      "decks_with": 214,
+      "avg_copies": 2.3,
+      "decks_with": 24,
       "category": "Pokemon"
     },
     {
       "card_name": "Lillie's Determination",
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
-      "decks_with": 214,
+      "decks_with": 24,
       "category": "Trainer"
     },
     {
       "card_name": "Ivysaur",
       "inclusion_pct": 100.0,
-      "avg_copies": 2.9,
-      "decks_with": 214,
+      "avg_copies": 2.5,
+      "decks_with": 24,
       "category": "Pokemon"
     },
     {
       "card_name": "Grass Energy",
       "inclusion_pct": 100.0,
-      "avg_copies": 12.0,
-      "decks_with": 214,
+      "avg_copies": 11.8,
+      "decks_with": 24,
       "category": "Energy"
     },
     {
       "card_name": "Forest of Vitality",
       "inclusion_pct": 100.0,
-      "avg_copies": 3.7,
-      "decks_with": 214,
+      "avg_copies": 3.6,
+      "decks_with": 24,
       "category": "Trainer"
     },
     {
       "card_name": "Bulbasaur",
       "inclusion_pct": 100.0,
-      "avg_copies": 3.1,
-      "decks_with": 214,
+      "avg_copies": 2.8,
+      "decks_with": 24,
       "category": "Pokemon"
     },
     {
       "card_name": "Bug Catching Set",
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
-      "decks_with": 214,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Ultra Ball",
-      "inclusion_pct": 99.5,
-      "avg_copies": 3.8,
-      "decks_with": 213,
+      "decks_with": 24,
       "category": "Trainer"
     },
     {
       "card_name": "Boss's Orders",
-      "inclusion_pct": 99.1,
-      "avg_copies": 2.3,
-      "decks_with": 212,
+      "inclusion_pct": 95.8,
+      "avg_copies": 2.2,
+      "decks_with": 23,
       "category": "Trainer"
     },
     {
       "card_name": "Wally's Compassion",
-      "inclusion_pct": 88.8,
-      "avg_copies": 2.6,
-      "decks_with": 190,
+      "inclusion_pct": 91.7,
+      "avg_copies": 2.2,
+      "decks_with": 22,
       "category": "Trainer"
     }
   ],
   "all_cards": [
     {
+      "card_name": "Ultra Ball",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.8,
+      "decks_with": 24,
+      "category": "Trainer"
+    },
+    {
       "card_name": "Teal Mask Ogerpon ex",
       "inclusion_pct": 100.0,
-      "avg_copies": 3.9,
-      "decks_with": 214,
+      "avg_copies": 3.8,
+      "decks_with": 24,
       "category": "Pokemon"
     },
     {
       "card_name": "Mega Venusaur ex",
       "inclusion_pct": 100.0,
-      "avg_copies": 2.5,
-      "decks_with": 214,
+      "avg_copies": 2.3,
+      "decks_with": 24,
       "category": "Pokemon"
     },
     {
       "card_name": "Lillie's Determination",
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
-      "decks_with": 214,
+      "decks_with": 24,
       "category": "Trainer"
     },
     {
       "card_name": "Ivysaur",
       "inclusion_pct": 100.0,
-      "avg_copies": 2.9,
-      "decks_with": 214,
+      "avg_copies": 2.5,
+      "decks_with": 24,
       "category": "Pokemon"
     },
     {
       "card_name": "Grass Energy",
       "inclusion_pct": 100.0,
-      "avg_copies": 12.0,
-      "decks_with": 214,
+      "avg_copies": 11.8,
+      "decks_with": 24,
       "category": "Energy"
     },
     {
       "card_name": "Forest of Vitality",
       "inclusion_pct": 100.0,
-      "avg_copies": 3.7,
-      "decks_with": 214,
+      "avg_copies": 3.6,
+      "decks_with": 24,
       "category": "Trainer"
     },
     {
       "card_name": "Bulbasaur",
       "inclusion_pct": 100.0,
-      "avg_copies": 3.1,
-      "decks_with": 214,
+      "avg_copies": 2.8,
+      "decks_with": 24,
       "category": "Pokemon"
     },
     {
       "card_name": "Bug Catching Set",
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
-      "decks_with": 214,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Ultra Ball",
-      "inclusion_pct": 99.5,
-      "avg_copies": 3.8,
-      "decks_with": 213,
+      "decks_with": 24,
       "category": "Trainer"
     },
     {
       "card_name": "Boss's Orders",
-      "inclusion_pct": 99.1,
-      "avg_copies": 2.3,
-      "decks_with": 212,
+      "inclusion_pct": 95.8,
+      "avg_copies": 2.2,
+      "decks_with": 23,
       "category": "Trainer"
     },
     {
       "card_name": "Wally's Compassion",
-      "inclusion_pct": 88.8,
-      "avg_copies": 2.6,
-      "decks_with": 190,
+      "inclusion_pct": 91.7,
+      "avg_copies": 2.2,
+      "decks_with": 22,
       "category": "Trainer"
     },
     {
       "card_name": "Judge",
-      "inclusion_pct": 78.5,
-      "avg_copies": 1.8,
-      "decks_with": 168,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Night Stretcher",
-      "inclusion_pct": 57.0,
-      "avg_copies": 1.9,
-      "decks_with": 122,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Pokégear 3.0",
-      "inclusion_pct": 54.7,
-      "avg_copies": 3.5,
-      "decks_with": 117,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Poké Pad",
-      "inclusion_pct": 51.4,
-      "avg_copies": 2.7,
-      "decks_with": 110,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Fezandipiti ex",
-      "inclusion_pct": 50.0,
-      "avg_copies": 1.0,
-      "decks_with": 107,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Meowth ex",
-      "inclusion_pct": 49.1,
-      "avg_copies": 1.1,
-      "decks_with": 105,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Meganium",
-      "inclusion_pct": 46.7,
-      "avg_copies": 2.0,
-      "decks_with": 100,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Chikorita",
-      "inclusion_pct": 46.7,
-      "avg_copies": 2.0,
-      "decks_with": 100,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Bayleef",
-      "inclusion_pct": 46.7,
-      "avg_copies": 2.0,
-      "decks_with": 100,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Dawn",
-      "inclusion_pct": 45.8,
-      "avg_copies": 1.7,
-      "decks_with": 98,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Max Rod",
-      "inclusion_pct": 36.4,
-      "avg_copies": 1.0,
-      "decks_with": 78,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Regigigas",
-      "inclusion_pct": 34.6,
-      "avg_copies": 1.0,
-      "decks_with": 74,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Hero's Cape",
-      "inclusion_pct": 34.6,
-      "avg_copies": 1.0,
-      "decks_with": 74,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Genesect",
-      "inclusion_pct": 20.1,
-      "avg_copies": 1.0,
-      "decks_with": 43,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Scoop Up Cyclone",
-      "inclusion_pct": 17.3,
-      "avg_copies": 1.0,
-      "decks_with": 37,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Dwebble",
-      "inclusion_pct": 15.0,
-      "avg_copies": 1.0,
-      "decks_with": 32,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Crustle",
-      "inclusion_pct": 15.0,
-      "avg_copies": 1.0,
-      "decks_with": 32,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Switch",
-      "inclusion_pct": 14.5,
-      "avg_copies": 1.0,
-      "decks_with": 31,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Drayton",
-      "inclusion_pct": 14.0,
-      "avg_copies": 2.1,
-      "decks_with": 30,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Lana's Aid",
-      "inclusion_pct": 13.1,
-      "avg_copies": 1.0,
-      "decks_with": 28,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Team Rocket's Petrel",
-      "inclusion_pct": 10.7,
-      "avg_copies": 1.3,
-      "decks_with": 23,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Morty's Conviction",
-      "inclusion_pct": 10.7,
-      "avg_copies": 1.7,
-      "decks_with": 23,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Celebi",
-      "inclusion_pct": 10.7,
-      "avg_copies": 1.4,
-      "decks_with": 23,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Briar",
-      "inclusion_pct": 9.8,
-      "avg_copies": 1.0,
-      "decks_with": 21,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Energy Retrieval",
-      "inclusion_pct": 9.3,
-      "avg_copies": 1.1,
-      "decks_with": 20,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Xerosic's Machinations",
-      "inclusion_pct": 8.9,
-      "avg_copies": 1.0,
+      "inclusion_pct": 79.2,
+      "avg_copies": 1.6,
       "decks_with": 19,
       "category": "Trainer"
     },
     {
-      "card_name": "Tera Orb",
-      "inclusion_pct": 8.4,
-      "avg_copies": 1.6,
+      "card_name": "Night Stretcher",
+      "inclusion_pct": 75.0,
+      "avg_copies": 1.8,
       "decks_with": 18,
       "category": "Trainer"
     },
     {
-      "card_name": "Unfair Stamp",
-      "inclusion_pct": 7.9,
-      "avg_copies": 1.0,
-      "decks_with": 17,
+      "card_name": "Poké Pad",
+      "inclusion_pct": 66.7,
+      "avg_copies": 2.7,
+      "decks_with": 16,
       "category": "Trainer"
     },
     {
-      "card_name": "Mega Kangaskhan ex",
-      "inclusion_pct": 7.9,
-      "avg_copies": 1.9,
-      "decks_with": 17,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Budew",
-      "inclusion_pct": 7.9,
+      "card_name": "Fezandipiti ex",
+      "inclusion_pct": 66.7,
       "avg_copies": 1.0,
-      "decks_with": 17,
+      "decks_with": 16,
       "category": "Pokemon"
     },
     {
-      "card_name": "Mega Meganium ex",
-      "inclusion_pct": 7.0,
-      "avg_copies": 1.1,
+      "card_name": "Meowth ex",
+      "inclusion_pct": 62.5,
+      "avg_copies": 1.4,
       "decks_with": 15,
       "category": "Pokemon"
     },
     {
-      "card_name": "Kofu",
-      "inclusion_pct": 5.6,
-      "avg_copies": 2.4,
-      "decks_with": 12,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Psyduck",
-      "inclusion_pct": 4.7,
-      "avg_copies": 1.0,
-      "decks_with": 10,
+      "card_name": "Meganium",
+      "inclusion_pct": 62.5,
+      "avg_copies": 1.9,
+      "decks_with": 15,
       "category": "Pokemon"
     },
     {
-      "card_name": "Air Balloon",
-      "inclusion_pct": 4.2,
+      "card_name": "Chikorita",
+      "inclusion_pct": 62.5,
+      "avg_copies": 2.1,
+      "decks_with": 15,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Bayleef",
+      "inclusion_pct": 62.5,
+      "avg_copies": 2.0,
+      "decks_with": 15,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Regigigas",
+      "inclusion_pct": 45.8,
       "avg_copies": 1.0,
-      "decks_with": 9,
+      "decks_with": 11,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Max Rod",
+      "inclusion_pct": 45.8,
+      "avg_copies": 1.0,
+      "decks_with": 11,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Pokégear 3.0",
+      "inclusion_pct": 41.7,
+      "avg_copies": 3.4,
+      "decks_with": 10,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Dawn",
+      "inclusion_pct": 41.7,
+      "avg_copies": 1.6,
+      "decks_with": 10,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Celebi",
+      "inclusion_pct": 33.3,
+      "avg_copies": 1.4,
+      "decks_with": 8,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Hero's Cape",
+      "inclusion_pct": 29.2,
+      "avg_copies": 1.0,
+      "decks_with": 7,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Xerosic's Machinations",
+      "inclusion_pct": 25.0,
+      "avg_copies": 1.0,
+      "decks_with": 6,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Switch",
+      "inclusion_pct": 25.0,
+      "avg_copies": 1.0,
+      "decks_with": 6,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Team Rocket's Petrel",
+      "inclusion_pct": 20.8,
+      "avg_copies": 2.0,
+      "decks_with": 5,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Genesect",
+      "inclusion_pct": 20.8,
+      "avg_copies": 1.0,
+      "decks_with": 5,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Lana's Aid",
+      "inclusion_pct": 16.7,
+      "avg_copies": 1.0,
+      "decks_with": 4,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Dwebble",
+      "inclusion_pct": 16.7,
+      "avg_copies": 1.0,
+      "decks_with": 4,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Crustle",
+      "inclusion_pct": 16.7,
+      "avg_copies": 1.0,
+      "decks_with": 4,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Unfair Stamp",
+      "inclusion_pct": 12.5,
+      "avg_copies": 1.0,
+      "decks_with": 3,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Mega Meganium ex",
+      "inclusion_pct": 12.5,
+      "avg_copies": 1.3,
+      "decks_with": 3,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Briar",
+      "inclusion_pct": 12.5,
+      "avg_copies": 1.0,
+      "decks_with": 3,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Scoop Up Cyclone",
+      "inclusion_pct": 8.3,
+      "avg_copies": 1.0,
+      "decks_with": 2,
       "category": "Trainer"
     },
     {
       "card_name": "Noctowl",
-      "inclusion_pct": 3.7,
-      "avg_copies": 1.8,
-      "decks_with": 8,
+      "inclusion_pct": 8.3,
+      "avg_copies": 1.0,
+      "decks_with": 2,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Morty's Conviction",
+      "inclusion_pct": 8.3,
+      "avg_copies": 1.5,
+      "decks_with": 2,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Mega Kangaskhan ex",
+      "inclusion_pct": 8.3,
+      "avg_copies": 2.5,
+      "decks_with": 2,
       "category": "Pokemon"
     },
     {
       "card_name": "Hoothoot",
-      "inclusion_pct": 3.7,
-      "avg_copies": 1.8,
-      "decks_with": 8,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Tool Scrapper",
-      "inclusion_pct": 3.3,
-      "avg_copies": 1.0,
-      "decks_with": 7,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Iris's Fighting Spirit",
-      "inclusion_pct": 3.3,
-      "avg_copies": 1.9,
-      "decks_with": 7,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Colress's Tenacity",
-      "inclusion_pct": 3.3,
-      "avg_copies": 1.0,
-      "decks_with": 7,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Jumbo Ice Cream",
-      "inclusion_pct": 2.8,
-      "avg_copies": 1.5,
-      "decks_with": 6,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Growth Grass Energy",
-      "inclusion_pct": 2.8,
-      "avg_copies": 1.5,
-      "decks_with": 6,
-      "category": "Energy"
-    },
-    {
-      "card_name": "Lucky Helmet",
-      "inclusion_pct": 2.3,
-      "avg_copies": 2.0,
-      "decks_with": 5,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Hilda",
-      "inclusion_pct": 2.3,
-      "avg_copies": 1.4,
-      "decks_with": 5,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Flutter Mane",
-      "inclusion_pct": 2.3,
-      "avg_copies": 1.0,
-      "decks_with": 5,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Ciphermaniac's Codebreaking",
-      "inclusion_pct": 2.3,
-      "avg_copies": 2.0,
-      "decks_with": 5,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Carmine",
-      "inclusion_pct": 2.3,
-      "avg_copies": 2.2,
-      "decks_with": 5,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Tapu Bulu",
-      "inclusion_pct": 1.9,
-      "avg_copies": 1.0,
-      "decks_with": 4,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Surfer",
-      "inclusion_pct": 1.9,
-      "avg_copies": 1.2,
-      "decks_with": 4,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Shuckle",
-      "inclusion_pct": 1.9,
-      "avg_copies": 1.2,
-      "decks_with": 4,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Rare Candy",
-      "inclusion_pct": 1.9,
-      "avg_copies": 1.8,
-      "decks_with": 4,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Pokémon Catcher",
-      "inclusion_pct": 1.9,
-      "avg_copies": 3.2,
-      "decks_with": 4,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Mega Signal",
-      "inclusion_pct": 1.9,
-      "avg_copies": 1.0,
-      "decks_with": 4,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Lucian",
-      "inclusion_pct": 1.9,
-      "avg_copies": 2.2,
-      "decks_with": 4,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Kieran",
-      "inclusion_pct": 1.9,
-      "avg_copies": 1.0,
-      "decks_with": 4,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Fennel",
-      "inclusion_pct": 1.9,
-      "avg_copies": 1.0,
-      "decks_with": 4,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Battle Cage",
-      "inclusion_pct": 1.9,
-      "avg_copies": 1.2,
-      "decks_with": 4,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Area Zero Underdepths",
-      "inclusion_pct": 1.9,
-      "avg_copies": 1.0,
-      "decks_with": 4,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Wellspring Mask Ogerpon ex",
-      "inclusion_pct": 1.4,
-      "avg_copies": 1.0,
-      "decks_with": 3,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Team Rocket's Watchtower",
-      "inclusion_pct": 1.4,
-      "avg_copies": 1.0,
-      "decks_with": 3,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Naveen",
-      "inclusion_pct": 1.4,
-      "avg_copies": 1.3,
-      "decks_with": 3,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Mist Energy",
-      "inclusion_pct": 1.4,
-      "avg_copies": 1.3,
-      "decks_with": 3,
-      "category": "Energy"
-    },
-    {
-      "card_name": "Lively Stadium",
-      "inclusion_pct": 1.4,
-      "avg_copies": 1.0,
-      "decks_with": 3,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Lillie's Clefairy ex",
-      "inclusion_pct": 1.4,
-      "avg_copies": 1.0,
-      "decks_with": 3,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Latias ex",
-      "inclusion_pct": 1.4,
-      "avg_copies": 1.0,
-      "decks_with": 3,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Cyrano",
-      "inclusion_pct": 1.4,
-      "avg_copies": 1.0,
-      "decks_with": 3,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Zarude",
-      "inclusion_pct": 0.9,
+      "inclusion_pct": 8.3,
       "avg_copies": 1.0,
       "decks_with": 2,
       "category": "Pokemon"
+    },
+    {
+      "card_name": "Budew",
+      "inclusion_pct": 8.3,
+      "avg_copies": 1.0,
+      "decks_with": 2,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Air Balloon",
+      "inclusion_pct": 8.3,
+      "avg_copies": 1.0,
+      "decks_with": 2,
+      "category": "Trainer"
     },
     {
       "card_name": "Whimsicott",
-      "inclusion_pct": 0.9,
-      "avg_copies": 1.0,
-      "decks_with": 2,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Tatsugiri",
-      "inclusion_pct": 0.9,
-      "avg_copies": 1.0,
-      "decks_with": 2,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Shaymin",
-      "inclusion_pct": 0.9,
-      "avg_copies": 1.0,
-      "decks_with": 2,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Secret Box",
-      "inclusion_pct": 0.9,
-      "avg_copies": 1.0,
-      "decks_with": 2,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Scatterbug",
-      "inclusion_pct": 0.9,
-      "avg_copies": 1.0,
-      "decks_with": 2,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Psychic Energy",
-      "inclusion_pct": 0.9,
-      "avg_copies": 1.0,
-      "decks_with": 2,
-      "category": "Energy"
-    },
-    {
-      "card_name": "Prism Energy",
-      "inclusion_pct": 0.9,
-      "avg_copies": 1.5,
-      "decks_with": 2,
-      "category": "Energy"
-    },
-    {
-      "card_name": "Prime Catcher",
-      "inclusion_pct": 0.9,
-      "avg_copies": 1.0,
-      "decks_with": 2,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Miracle Headset",
-      "inclusion_pct": 0.9,
-      "avg_copies": 1.0,
-      "decks_with": 2,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Harlequin",
-      "inclusion_pct": 0.9,
-      "avg_copies": 3.0,
-      "decks_with": 2,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Handheld Fan",
-      "inclusion_pct": 0.9,
-      "avg_copies": 1.5,
-      "decks_with": 2,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Eri",
-      "inclusion_pct": 0.9,
-      "avg_copies": 1.0,
-      "decks_with": 2,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Enriching Energy",
-      "inclusion_pct": 0.9,
-      "avg_copies": 1.0,
-      "decks_with": 2,
-      "category": "Energy"
-    },
-    {
-      "card_name": "Energy Search",
-      "inclusion_pct": 0.9,
-      "avg_copies": 1.0,
-      "decks_with": 2,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Cottonee",
-      "inclusion_pct": 0.9,
-      "avg_copies": 1.0,
-      "decks_with": 2,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Clefairy",
-      "inclusion_pct": 0.9,
-      "avg_copies": 1.5,
-      "decks_with": 2,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Clefable",
-      "inclusion_pct": 0.9,
-      "avg_copies": 1.5,
-      "decks_with": 2,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Water Energy",
-      "inclusion_pct": 0.5,
-      "avg_copies": 1.0,
-      "decks_with": 1,
-      "category": "Energy"
-    },
-    {
-      "card_name": "Vivillon",
-      "inclusion_pct": 0.5,
-      "avg_copies": 1.0,
-      "decks_with": 1,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Urbain",
-      "inclusion_pct": 0.5,
-      "avg_copies": 3.0,
-      "decks_with": 1,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Torchic",
-      "inclusion_pct": 0.5,
-      "avg_copies": 1.0,
-      "decks_with": 1,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Tangrowth",
-      "inclusion_pct": 0.5,
-      "avg_copies": 1.0,
-      "decks_with": 1,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Tangela",
-      "inclusion_pct": 0.5,
+      "inclusion_pct": 4.2,
       "avg_copies": 1.0,
       "decks_with": 1,
       "category": "Pokemon"
     },
     {
       "card_name": "Spewpa",
-      "inclusion_pct": 0.5,
+      "inclusion_pct": 4.2,
       "avg_copies": 1.0,
       "decks_with": 1,
       "category": "Pokemon"
     },
     {
-      "card_name": "Sawsbuck",
-      "inclusion_pct": 0.5,
+      "card_name": "Scatterbug",
+      "inclusion_pct": 4.2,
       "avg_copies": 1.0,
       "decks_with": 1,
       "category": "Pokemon"
-    },
-    {
-      "card_name": "Repel",
-      "inclusion_pct": 0.5,
-      "avg_copies": 1.0,
-      "decks_with": 1,
-      "category": "Trainer"
     },
     {
       "card_name": "Redeemable Ticket",
-      "inclusion_pct": 0.5,
+      "inclusion_pct": 4.2,
       "avg_copies": 1.0,
       "decks_with": 1,
       "category": "Trainer"
     },
     {
-      "card_name": "Munkidori",
-      "inclusion_pct": 0.5,
-      "avg_copies": 1.0,
+      "card_name": "Pokémon Catcher",
+      "inclusion_pct": 4.2,
+      "avg_copies": 4.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
-      "card_name": "Mega Heracross ex",
-      "inclusion_pct": 0.5,
-      "avg_copies": 1.0,
-      "decks_with": 1,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Fire Energy",
-      "inclusion_pct": 0.5,
-      "avg_copies": 1.0,
-      "decks_with": 1,
-      "category": "Energy"
-    },
-    {
-      "card_name": "Fan Rotom",
-      "inclusion_pct": 0.5,
-      "avg_copies": 1.0,
-      "decks_with": 1,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Exeggutor",
-      "inclusion_pct": 0.5,
-      "avg_copies": 1.0,
-      "decks_with": 1,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Exeggcute",
-      "inclusion_pct": 0.5,
-      "avg_copies": 1.0,
-      "decks_with": 1,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Enhanced Hammer",
-      "inclusion_pct": 0.5,
+      "card_name": "Mega Signal",
+      "inclusion_pct": 4.2,
       "avg_copies": 1.0,
       "decks_with": 1,
       "category": "Trainer"
     },
     {
-      "card_name": "Deerling",
-      "inclusion_pct": 0.5,
+      "card_name": "Lively Stadium",
+      "inclusion_pct": 4.2,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
-      "card_name": "Cheren",
-      "inclusion_pct": 0.5,
+      "card_name": "Jumbo Ice Cream",
+      "inclusion_pct": 4.2,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Iris's Fighting Spirit",
+      "inclusion_pct": 4.2,
       "avg_copies": 3.0,
       "decks_with": 1,
       "category": "Trainer"
     },
     {
-      "card_name": "Buddy-Buddy Poffin",
-      "inclusion_pct": 0.5,
+      "card_name": "Growth Grass Energy",
+      "inclusion_pct": 4.2,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Energy"
+    },
+    {
+      "card_name": "Enriching Energy",
+      "inclusion_pct": 4.2,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Energy"
+    },
+    {
+      "card_name": "Energy Retrieval",
+      "inclusion_pct": 4.2,
       "avg_copies": 1.0,
       "decks_with": 1,
       "category": "Trainer"
     },
     {
-      "card_name": "Brock's Scouting",
-      "inclusion_pct": 0.5,
+      "card_name": "Drayton",
+      "inclusion_pct": 4.2,
       "avg_copies": 2.0,
       "decks_with": 1,
       "category": "Trainer"
     },
     {
-      "card_name": "Blaziken ex",
-      "inclusion_pct": 0.5,
+      "card_name": "Cottonee",
+      "inclusion_pct": 4.2,
       "avg_copies": 1.0,
       "decks_with": 1,
       "category": "Pokemon"
     },
     {
-      "card_name": "Black Kyurem ex",
-      "inclusion_pct": 0.5,
+      "card_name": "Ciphermaniac's Codebreaking",
+      "inclusion_pct": 4.2,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Area Zero Underdepths",
+      "inclusion_pct": 4.2,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     }
   ],
   "results": [
     {
       "tournament_name": "City League Hyōgo",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4211",
       "date": "2026-03-07",
       "standing": 1,
       "player_name": "あきお",
@@ -1030,1069 +618,8 @@
       ]
     },
     {
-      "tournament_name": "City League Shizuoka",
-      "date": "2026-02-15",
-      "standing": 1,
-      "player_name": "ムー",
-      "decklist": [
-        {
-          "card_name": "Teal Mask Ogerpon ex",
-          "count": 4,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Chikorita",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Bayleef",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Bulbasaur",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Meganium",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Ivysaur",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Mega Venusaur ex",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Mega Meganium ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Fezandipiti ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Celebi",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Regigigas",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Meowth ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Lillie's Determination",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Ultra Ball",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Bug Catching Set",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Poké Pad",
-          "count": 3,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Forest of Vitality",
-          "count": 3,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Night Stretcher",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Boss's Orders",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Judge",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Wally's Compassion",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Max Rod",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Xerosic's Machinations",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Morty's Conviction",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Grass Energy",
-          "count": 12,
-          "category": "Energy"
-        }
-      ]
-    },
-    {
-      "tournament_name": "City League Aichi",
-      "date": "2026-02-15",
-      "standing": 1,
-      "player_name": "どうじ",
-      "decklist": [
-        {
-          "card_name": "Bulbasaur",
-          "count": 4,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Ivysaur",
-          "count": 4,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Teal Mask Ogerpon ex",
-          "count": 4,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Mega Venusaur ex",
-          "count": 3,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Forest of Vitality",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Lillie's Determination",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Ultra Ball",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Wally's Compassion",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Pokégear 3.0",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Bug Catching Set",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Judge",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Boss's Orders",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Carmine",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Hero's Cape",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Grass Energy",
-          "count": 14,
-          "category": "Energy"
-        }
-      ]
-    },
-    {
-      "tournament_name": "City League Fukushima",
-      "date": "2026-02-14",
-      "standing": 1,
-      "player_name": "みずしょう",
-      "decklist": [
-        {
-          "card_name": "Teal Mask Ogerpon ex",
-          "count": 4,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Chikorita",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Bulbasaur",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Meganium",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Mega Kangaskhan ex",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Ivysaur",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Mega Venusaur ex",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Bayleef",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Fezandipiti ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Forest of Vitality",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Lillie's Determination",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Ultra Ball",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Bug Catching Set",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Lucian",
-          "count": 3,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Night Stretcher",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Poké Pad",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Boss's Orders",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Team Rocket's Watchtower",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Wally's Compassion",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Dawn",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Lana's Aid",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Scoop Up Cyclone",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Grass Energy",
-          "count": 11,
-          "category": "Energy"
-        }
-      ]
-    },
-    {
-      "tournament_name": "City League Aichi",
-      "date": "2026-02-08",
-      "standing": 1,
-      "player_name": "rashia",
-      "decklist": [
-        {
-          "card_name": "Mega Kangaskhan ex",
-          "count": 4,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Teal Mask Ogerpon ex",
-          "count": 4,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Bulbasaur",
-          "count": 3,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Ivysaur",
-          "count": 3,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Mega Venusaur ex",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Meowth ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Forest of Vitality",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Lillie's Determination",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Ultra Ball",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Bug Catching Set",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Boss's Orders",
-          "count": 3,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Wally's Compassion",
-          "count": 3,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Pokégear 3.0",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Night Stretcher",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Judge",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Team Rocket's Petrel",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Mega Signal",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Lively Stadium",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Scoop Up Cyclone",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Grass Energy",
-          "count": 13,
-          "category": "Energy"
-        }
-      ]
-    },
-    {
-      "tournament_name": "City League Kanagawa",
-      "date": "2026-02-08",
-      "standing": 1,
-      "player_name": "ホーリィ",
-      "decklist": [
-        {
-          "card_name": "Bulbasaur",
-          "count": 3,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Teal Mask Ogerpon ex",
-          "count": 3,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Ivysaur",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Mega Venusaur ex",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Hoothoot",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Noctowl",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Fezandipiti ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Torchic",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Blaziken ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Lillie's Clefairy ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Wellspring Mask Ogerpon ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Lillie's Determination",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Poké Pad",
-          "count": 3,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Bug Catching Set",
-          "count": 3,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Night Stretcher",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Boss's Orders",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Rare Candy",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Ultra Ball",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Hilda",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Tool Scrapper",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Forest of Vitality",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Switch",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Wally's Compassion",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Dawn",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Area Zero Underdepths",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Tera Orb",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Unfair Stamp",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Grass Energy",
-          "count": 10,
-          "category": "Energy"
-        },
-        {
-          "card_name": "Prism Energy",
-          "count": 1,
-          "category": "Energy"
-        },
-        {
-          "card_name": "Fire Energy",
-          "count": 1,
-          "category": "Energy"
-        },
-        {
-          "card_name": "Psychic Energy",
-          "count": 1,
-          "category": "Energy"
-        }
-      ]
-    },
-    {
-      "tournament_name": "City League Tōkyō",
-      "date": "2026-02-08",
-      "standing": 1,
-      "player_name": "キム",
-      "decklist": [
-        {
-          "card_name": "Teal Mask Ogerpon ex",
-          "count": 4,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Bulbasaur",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Meganium",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Ivysaur",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Mega Venusaur ex",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Chikorita",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Bayleef",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Mega Meganium ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Fezandipiti ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Meowth ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Lillie's Determination",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Ultra Ball",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Bug Catching Set",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Poké Pad",
-          "count": 3,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Forest of Vitality",
-          "count": 3,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Morty's Conviction",
-          "count": 3,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Night Stretcher",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Boss's Orders",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Judge",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Wally's Compassion",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Max Rod",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Xerosic's Machinations",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Grass Energy",
-          "count": 12,
-          "category": "Energy"
-        }
-      ]
-    },
-    {
-      "tournament_name": "City League Miyagi",
-      "date": "2026-02-01",
-      "standing": 1,
-      "player_name": "PandRA",
-      "decklist": [
-        {
-          "card_name": "Bulbasaur",
-          "count": 4,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Ivysaur",
-          "count": 4,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Teal Mask Ogerpon ex",
-          "count": 4,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Mega Venusaur ex",
-          "count": 3,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Forest of Vitality",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Lillie's Determination",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Ultra Ball",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Wally's Compassion",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Pokégear 3.0",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Bug Catching Set",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Drayton",
-          "count": 3,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Boss's Orders",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Hero's Cape",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Grass Energy",
-          "count": 15,
-          "category": "Energy"
-        }
-      ]
-    },
-    {
-      "tournament_name": "City League Fukuoka",
-      "date": "2026-02-01",
-      "standing": 1,
-      "player_name": "白",
-      "decklist": [
-        {
-          "card_name": "Teal Mask Ogerpon ex",
-          "count": 4,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Bulbasaur",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Meganium",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Ivysaur",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Mega Venusaur ex",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Chikorita",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Bayleef",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Fezandipiti ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Regigigas",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Meowth ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Poké Pad",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Forest of Vitality",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Lillie's Determination",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Bug Catching Set",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Ultra Ball",
-          "count": 3,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Dawn",
-          "count": 3,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Night Stretcher",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Boss's Orders",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Judge",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Wally's Compassion",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Max Rod",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Lana's Aid",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Grass Energy",
-          "count": 11,
-          "category": "Energy"
-        }
-      ]
-    },
-    {
-      "tournament_name": "City League Tōkyō",
-      "date": "2026-01-24",
-      "standing": 1,
-      "player_name": "いーじー",
-      "decklist": [
-        {
-          "card_name": "Teal Mask Ogerpon ex",
-          "count": 4,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Bulbasaur",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Meganium",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Ivysaur",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Mega Venusaur ex",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Chikorita",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Bayleef",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Dwebble",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Crustle",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Fezandipiti ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Meowth ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Forest of Vitality",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Lillie's Determination",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Ultra Ball",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Bug Catching Set",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Poké Pad",
-          "count": 3,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Judge",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Boss's Orders",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Kofu",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Night Stretcher",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Wally's Compassion",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Max Rod",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Colress's Tenacity",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Grass Energy",
-          "count": 10,
-          "category": "Energy"
-        }
-      ]
-    },
-    {
       "tournament_name": "City League Yamanashi",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4212",
       "date": "2026-03-07",
       "standing": 2,
       "player_name": "はるひこ",
@@ -2220,19 +747,15 @@
       ]
     },
     {
-      "tournament_name": "City League Tōkyō",
-      "date": "2026-02-28",
-      "standing": 2,
-      "player_name": "びゅう",
+      "tournament_name": "City League Yamagata",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4235",
+      "date": "2026-03-08",
+      "standing": 3,
+      "player_name": "りょー",
       "decklist": [
         {
           "card_name": "Teal Mask Ogerpon ex",
           "count": 4,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Bayleef",
-          "count": 2,
           "category": "Pokemon"
         },
         {
@@ -2261,12 +784,12 @@
           "category": "Pokemon"
         },
         {
-          "card_name": "Fezandipiti ex",
-          "count": 1,
+          "card_name": "Bayleef",
+          "count": 2,
           "category": "Pokemon"
         },
         {
-          "card_name": "Celebi",
+          "card_name": "Fezandipiti ex",
           "count": 1,
           "category": "Pokemon"
         },
@@ -2286,12 +809,12 @@
           "category": "Pokemon"
         },
         {
-          "card_name": "Lillie's Determination",
+          "card_name": "Forest of Vitality",
           "count": 4,
           "category": "Trainer"
         },
         {
-          "card_name": "Ultra Ball",
+          "card_name": "Lillie's Determination",
           "count": 4,
           "category": "Trainer"
         },
@@ -2306,23 +829,23 @@
           "category": "Trainer"
         },
         {
-          "card_name": "Forest of Vitality",
+          "card_name": "Ultra Ball",
           "count": 3,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Dawn",
+          "count": 3,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Night Stretcher",
+          "count": 2,
           "category": "Trainer"
         },
         {
           "card_name": "Boss's Orders",
           "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Dawn",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Night Stretcher",
-          "count": 1,
           "category": "Trainer"
         },
         {
@@ -2346,11 +869,6 @@
           "category": "Trainer"
         },
         {
-          "card_name": "Xerosic's Machinations",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
           "card_name": "Morty's Conviction",
           "count": 1,
           "category": "Trainer"
@@ -2363,10 +881,11 @@
       ]
     },
     {
-      "tournament_name": "City League Kanagawa",
-      "date": "2026-02-24",
-      "standing": 2,
-      "player_name": "かたくりこ",
+      "tournament_name": "City League Okayama",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4220",
+      "date": "2026-03-07",
+      "standing": 3,
+      "player_name": "白犬",
       "decklist": [
         {
           "card_name": "Teal Mask Ogerpon ex",
@@ -2374,12 +893,22 @@
           "category": "Pokemon"
         },
         {
+          "card_name": "Bayleef",
+          "count": 2,
+          "category": "Pokemon"
+        },
+        {
           "card_name": "Bulbasaur",
-          "count": 3,
+          "count": 2,
           "category": "Pokemon"
         },
         {
           "card_name": "Meganium",
+          "count": 2,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Celebi",
           "count": 2,
           "category": "Pokemon"
         },
@@ -2394,16 +923,6 @@
           "category": "Pokemon"
         },
         {
-          "card_name": "Chikorita",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Bayleef",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
           "card_name": "Mega Meganium ex",
           "count": 1,
           "category": "Pokemon"
@@ -2414,27 +933,32 @@
           "category": "Pokemon"
         },
         {
-          "card_name": "Regigigas",
+          "card_name": "Chikorita",
           "count": 1,
           "category": "Pokemon"
         },
         {
-          "card_name": "Meowth ex",
+          "card_name": "Chikorita",
           "count": 1,
           "category": "Pokemon"
         },
         {
-          "card_name": "Forest of Vitality",
-          "count": 4,
-          "category": "Trainer"
+          "card_name": "Genesect",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Hoothoot",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Noctowl",
+          "count": 1,
+          "category": "Pokemon"
         },
         {
           "card_name": "Lillie's Determination",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Ultra Ball",
           "count": 4,
           "category": "Trainer"
         },
@@ -2444,12 +968,27 @@
           "category": "Trainer"
         },
         {
+          "card_name": "Poké Pad",
+          "count": 3,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Forest of Vitality",
+          "count": 3,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Ultra Ball",
+          "count": 3,
+          "category": "Trainer"
+        },
+        {
           "card_name": "Night Stretcher",
           "count": 2,
           "category": "Trainer"
         },
         {
-          "card_name": "Poké Pad",
+          "card_name": "Judge",
           "count": 2,
           "category": "Trainer"
         },
@@ -2459,27 +998,12 @@
           "category": "Trainer"
         },
         {
-          "card_name": "Dawn",
+          "card_name": "Wally's Compassion",
           "count": 2,
           "category": "Trainer"
         },
         {
-          "card_name": "Judge",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Wally's Compassion",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Briar",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Unfair Stamp",
+          "card_name": "Max Rod",
           "count": 1,
           "category": "Trainer"
         },
@@ -2491,10 +1015,11 @@
       ]
     },
     {
-      "tournament_name": "City League Shizuoka",
-      "date": "2026-02-15",
-      "standing": 2,
-      "player_name": "しろあん",
+      "tournament_name": "City League Aichi",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4201",
+      "date": "2026-03-04",
+      "standing": 3,
+      "player_name": "ソロ",
       "decklist": [
         {
           "card_name": "Teal Mask Ogerpon ex",
@@ -2503,7 +1028,7 @@
         },
         {
           "card_name": "Bulbasaur",
-          "count": 2,
+          "count": 3,
           "category": "Pokemon"
         },
         {
@@ -2547,6 +1072,403 @@
           "category": "Pokemon"
         },
         {
+          "card_name": "Celebi",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Regigigas",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Meowth ex",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Lillie's Determination",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Ultra Ball",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Bug Catching Set",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Poké Pad",
+          "count": 3,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Forest of Vitality",
+          "count": 3,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Night Stretcher",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Boss's Orders",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Judge",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Wally's Compassion",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Dawn",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Xerosic's Machinations",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Unfair Stamp",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Grass Energy",
+          "count": 10,
+          "category": "Energy"
+        }
+      ]
+    },
+    {
+      "tournament_name": "City League Nara",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4265",
+      "date": "2026-03-08",
+      "standing": 4,
+      "player_name": "えもん",
+      "decklist": [
+        {
+          "card_name": "Teal Mask Ogerpon ex",
+          "count": 3,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Bulbasaur",
+          "count": 2,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Meganium",
+          "count": 2,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Ivysaur",
+          "count": 2,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Mega Venusaur ex",
+          "count": 2,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Chikorita",
+          "count": 2,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Bayleef",
+          "count": 2,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Meowth ex",
+          "count": 2,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Fezandipiti ex",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Regigigas",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Poké Pad",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Forest of Vitality",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Lillie's Determination",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Ultra Ball",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Bug Catching Set",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Team Rocket's Petrel",
+          "count": 3,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Night Stretcher",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Boss's Orders",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Wally's Compassion",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Switch",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Max Rod",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Grass Energy",
+          "count": 10,
+          "category": "Energy"
+        }
+      ]
+    },
+    {
+      "tournament_name": "City League Ishikawa",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4223",
+      "date": "2026-03-07",
+      "standing": 5,
+      "player_name": "du",
+      "decklist": [
+        {
+          "card_name": "Teal Mask Ogerpon ex",
+          "count": 4,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Bulbasaur",
+          "count": 2,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Meganium",
+          "count": 2,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Celebi",
+          "count": 2,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Ivysaur",
+          "count": 2,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Mega Venusaur ex",
+          "count": 2,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Chikorita",
+          "count": 2,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Bayleef",
+          "count": 2,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Meowth ex",
+          "count": 2,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Fezandipiti ex",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Regigigas",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Lillie's Determination",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Ultra Ball",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Bug Catching Set",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Forest of Vitality",
+          "count": 3,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Night Stretcher",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Poké Pad",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Boss's Orders",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Judge",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Wally's Compassion",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Briar",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Xerosic's Machinations",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Hero's Cape",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Lana's Aid",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Grass Energy",
+          "count": 11,
+          "category": "Energy"
+        }
+      ]
+    },
+    {
+      "tournament_name": "City League Tōkyō",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4206",
+      "date": "2026-03-06",
+      "standing": 5,
+      "player_name": "吉田",
+      "decklist": [
+        {
+          "card_name": "Teal Mask Ogerpon ex",
+          "count": 4,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Bulbasaur",
+          "count": 2,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Meganium",
+          "count": 2,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Ivysaur",
+          "count": 2,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Mega Venusaur ex",
+          "count": 2,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Chikorita",
+          "count": 2,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Mega Meganium ex",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Fezandipiti ex",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Bayleef",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Celebi",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Bayleef",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
           "card_name": "Regigigas",
           "count": 1,
           "category": "Pokemon"
@@ -2577,12 +1499,12 @@
           "category": "Trainer"
         },
         {
-          "card_name": "Poké Pad",
-          "count": 3,
+          "card_name": "Night Stretcher",
+          "count": 2,
           "category": "Trainer"
         },
         {
-          "card_name": "Night Stretcher",
+          "card_name": "Poké Pad",
           "count": 2,
           "category": "Trainer"
         },
@@ -2618,20 +1540,239 @@
         },
         {
           "card_name": "Grass Energy",
-          "count": 10,
+          "count": 11,
           "category": "Energy"
         }
       ]
     },
     {
-      "tournament_name": "City League Wakayama",
-      "date": "2026-02-07",
-      "standing": 2,
-      "player_name": "おかし",
+      "tournament_name": "City League Iwate",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4243",
+      "date": "2026-03-08",
+      "standing": 6,
+      "player_name": "サトシ",
+      "decklist": [
+        {
+          "card_name": "Bulbasaur",
+          "count": 4,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Teal Mask Ogerpon ex",
+          "count": 4,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Ivysaur",
+          "count": 3,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Mega Venusaur ex",
+          "count": 3,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Dwebble",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Crustle",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Forest of Vitality",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Lillie's Determination",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Ultra Ball",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Wally's Compassion",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Pokégear 3.0",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Bug Catching Set",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Boss's Orders",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Dawn",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Judge",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Hero's Cape",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Grass Energy",
+          "count": 14,
+          "category": "Energy"
+        }
+      ]
+    },
+    {
+      "tournament_name": "City League Chiba",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4239",
+      "date": "2026-03-08",
+      "standing": 6,
+      "player_name": "ぺんけい",
       "decklist": [
         {
           "card_name": "Teal Mask Ogerpon ex",
           "count": 4,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Bulbasaur",
+          "count": 3,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Ivysaur",
+          "count": 3,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Mega Venusaur ex",
+          "count": 3,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Fezandipiti ex",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Budew",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Regigigas",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Meowth ex",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Lillie's Determination",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Ultra Ball",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Bug Catching Set",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Boss's Orders",
+          "count": 3,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Forest of Vitality",
+          "count": 3,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Pokégear 3.0",
+          "count": 3,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Night Stretcher",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Judge",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Wally's Compassion",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Air Balloon",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Poké Pad",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Unfair Stamp",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Grass Energy",
+          "count": 13,
+          "category": "Energy"
+        }
+      ]
+    },
+    {
+      "tournament_name": "City League Yamagata",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4235",
+      "date": "2026-03-08",
+      "standing": 6,
+      "player_name": "きゃん",
+      "decklist": [
+        {
+          "card_name": "Chikorita",
+          "count": 4,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Teal Mask Ogerpon ex",
+          "count": 3,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Mega Meganium ex",
+          "count": 2,
           "category": "Pokemon"
         },
         {
@@ -2665,12 +1806,7 @@
           "category": "Pokemon"
         },
         {
-          "card_name": "Chikorita",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Chikorita",
+          "card_name": "Bayleef",
           "count": 1,
           "category": "Pokemon"
         },
@@ -2680,32 +1816,7 @@
           "category": "Pokemon"
         },
         {
-          "card_name": "Regigigas",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Flutter Mane",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Meowth ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Forest of Vitality",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
           "card_name": "Lillie's Determination",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Ultra Ball",
           "count": 4,
           "category": "Trainer"
         },
@@ -2720,7 +1831,22 @@
           "category": "Trainer"
         },
         {
+          "card_name": "Forest of Vitality",
+          "count": 3,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Ultra Ball",
+          "count": 3,
+          "category": "Trainer"
+        },
+        {
           "card_name": "Night Stretcher",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Judge",
           "count": 2,
           "category": "Trainer"
         },
@@ -2731,16 +1857,6 @@
         },
         {
           "card_name": "Wally's Compassion",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Dawn",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Team Rocket's Petrel",
           "count": 1,
           "category": "Trainer"
         },
@@ -2750,51 +1866,47 @@
           "category": "Trainer"
         },
         {
+          "card_name": "Briar",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Energy Retrieval",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
           "card_name": "Grass Energy",
-          "count": 10,
+          "count": 11,
           "category": "Energy"
         }
       ]
     },
     {
-      "tournament_name": "City League Ōsaka",
-      "date": "2026-02-07",
-      "standing": 2,
-      "player_name": "えびかん",
+      "tournament_name": "City League Shiga",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4264",
+      "date": "2026-03-08",
+      "standing": 7,
+      "player_name": "お弁当大臣",
       "decklist": [
+        {
+          "card_name": "Bulbasaur",
+          "count": 4,
+          "category": "Pokemon"
+        },
         {
           "card_name": "Teal Mask Ogerpon ex",
           "count": 4,
           "category": "Pokemon"
         },
         {
-          "card_name": "Bulbasaur",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Meganium",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
           "card_name": "Ivysaur",
-          "count": 2,
+          "count": 3,
           "category": "Pokemon"
         },
         {
           "card_name": "Mega Venusaur ex",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Chikorita",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Bayleef",
-          "count": 2,
+          "count": 3,
           "category": "Pokemon"
         },
         {
@@ -2803,23 +1915,191 @@
           "category": "Pokemon"
         },
         {
-          "card_name": "Psyduck",
+          "card_name": "Dwebble",
           "count": 1,
           "category": "Pokemon"
         },
+        {
+          "card_name": "Crustle",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Forest of Vitality",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Lillie's Determination",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Ultra Ball",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Pokégear 3.0",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Bug Catching Set",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Wally's Compassion",
+          "count": 3,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Judge",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Boss's Orders",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Night Stretcher",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Xerosic's Machinations",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Hero's Cape",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Grass Energy",
+          "count": 13,
+          "category": "Energy"
+        }
+      ]
+    },
+    {
+      "tournament_name": "City League Yamagata",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4235",
+      "date": "2026-03-08",
+      "standing": 8,
+      "player_name": "秘密にしてあげる",
+      "decklist": [
+        {
+          "card_name": "Bulbasaur",
+          "count": 4,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Ivysaur",
+          "count": 4,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Teal Mask Ogerpon ex",
+          "count": 4,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Mega Venusaur ex",
+          "count": 3,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Forest of Vitality",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Lillie's Determination",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Wally's Compassion",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Pokégear 3.0",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Bug Catching Set",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Ultra Ball",
+          "count": 3,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Boss's Orders",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Dawn",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Ciphermaniac's Codebreaking",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Hero's Cape",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Grass Energy",
+          "count": 15,
+          "category": "Energy"
+        }
+      ]
+    },
+    {
+      "tournament_name": "City League Saitama",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4209",
+      "date": "2026-03-07",
+      "standing": 8,
+      "player_name": "いと",
+      "decklist": [
         {
           "card_name": "Mega Kangaskhan ex",
-          "count": 1,
+          "count": 4,
           "category": "Pokemon"
         },
         {
-          "card_name": "Regigigas",
-          "count": 1,
+          "card_name": "Teal Mask Ogerpon ex",
+          "count": 4,
           "category": "Pokemon"
         },
         {
-          "card_name": "Latias ex",
-          "count": 1,
+          "card_name": "Bulbasaur",
+          "count": 3,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Ivysaur",
+          "count": 3,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Mega Venusaur ex",
+          "count": 2,
           "category": "Pokemon"
         },
         {
@@ -2848,13 +2128,23 @@
           "category": "Trainer"
         },
         {
-          "card_name": "Night Stretcher",
+          "card_name": "Boss's Orders",
           "count": 3,
           "category": "Trainer"
         },
         {
-          "card_name": "Poké Pad",
+          "card_name": "Wally's Compassion",
           "count": 3,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Pokégear 3.0",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Night Stretcher",
+          "count": 1,
           "category": "Trainer"
         },
         {
@@ -2863,22 +2153,17 @@
           "category": "Trainer"
         },
         {
-          "card_name": "Boss's Orders",
+          "card_name": "Team Rocket's Petrel",
           "count": 1,
           "category": "Trainer"
         },
         {
-          "card_name": "Wally's Compassion",
+          "card_name": "Mega Signal",
           "count": 1,
           "category": "Trainer"
         },
         {
-          "card_name": "Dawn",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Area Zero Underdepths",
+          "card_name": "Lively Stadium",
           "count": 1,
           "category": "Trainer"
         },
@@ -2889,207 +2174,319 @@
         },
         {
           "card_name": "Grass Energy",
-          "count": 10,
+          "count": 13,
+          "category": "Energy"
+        }
+      ]
+    },
+    {
+      "tournament_name": "City League Ehime",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4256",
+      "date": "2026-03-08",
+      "standing": 9,
+      "player_name": "たことうどん",
+      "decklist": [
+        {
+          "card_name": "Teal Mask Ogerpon ex",
+          "count": 4,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Bulbasaur",
+          "count": 2,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Meganium",
+          "count": 2,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Ivysaur",
+          "count": 2,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Mega Venusaur ex",
+          "count": 2,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Chikorita",
+          "count": 2,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Bayleef",
+          "count": 2,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Fezandipiti ex",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Celebi",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Whimsicott",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Cottonee",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Meowth ex",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Forest of Vitality",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Lillie's Determination",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Ultra Ball",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Bug Catching Set",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Poké Pad",
+          "count": 3,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Team Rocket's Petrel",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Boss's Orders",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Dawn",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Night Stretcher",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Judge",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Max Rod",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Grass Energy",
+          "count": 11,
+          "category": "Energy"
+        }
+      ]
+    },
+    {
+      "tournament_name": "City League Kanagawa",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4250",
+      "date": "2026-03-08",
+      "standing": 9,
+      "player_name": "しまとら",
+      "decklist": [
+        {
+          "card_name": "Bulbasaur",
+          "count": 4,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Teal Mask Ogerpon ex",
+          "count": 4,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Ivysaur",
+          "count": 3,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Mega Venusaur ex",
+          "count": 3,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Dwebble",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Crustle",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Forest of Vitality",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Lillie's Determination",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Ultra Ball",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Pokégear 3.0",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Bug Catching Set",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Wally's Compassion",
+          "count": 3,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Judge",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Boss's Orders",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Team Rocket's Petrel",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Jumbo Ice Cream",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Hero's Cape",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Grass Energy",
+          "count": 14,
           "category": "Energy"
         }
       ]
     }
   ],
   "radar": {
-    "meta_share": 15.8,
-    "weighted_share": 15.5,
-    "consistency": 62.4,
+    "meta_share": 10.1,
+    "weighted_share": 10.1,
+    "consistency": 66.5,
     "ceiling": 100,
-    "popularity": 35.0,
-    "core_density": 9.4
+    "popularity": 18.2,
+    "core_density": 19.0
   },
-  "evolution": [
-    {
-      "week": "2026-01-26",
-      "adopted": [
-        {
-          "card": "Pokégear 3.0",
-          "from_pct": 0.0,
-          "to_pct": 65.2
-        },
-        {
-          "card": "Wally's Compassion",
-          "from_pct": 41.2,
-          "to_pct": 91.3
-        },
-        {
-          "card": "Hero's Cape",
-          "from_pct": 5.9,
-          "to_pct": 50.0
-        }
-      ],
-      "dropped": []
-    },
-    {
-      "week": "2026-02-09",
-      "adopted": [
-        {
-          "card": "Meowth ex",
-          "from_pct": 38.5,
-          "to_pct": 56.8
-        },
-        {
-          "card": "Fezandipiti ex",
-          "from_pct": 34.6,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Night Stretcher",
-          "from_pct": 46.2,
-          "to_pct": 50.0
-        }
-      ],
-      "dropped": []
-    },
-    {
-      "week": "2026-02-16",
-      "adopted": [
-        {
-          "card": "Dwebble",
-          "from_pct": 9.1,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Crustle",
-          "from_pct": 9.1,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Dawn",
-          "from_pct": 36.4,
-          "to_pct": 66.7
-        },
-        {
-          "card": "Hero's Cape",
-          "from_pct": 34.1,
-          "to_pct": 50.0
-        }
-      ],
-      "dropped": []
-    },
-    {
-      "week": "2026-02-23",
-      "adopted": [
-        {
-          "card": "Bayleef",
-          "from_pct": 16.7,
-          "to_pct": 58.3
-        },
-        {
-          "card": "Meganium",
-          "from_pct": 16.7,
-          "to_pct": 58.3
-        },
-        {
-          "card": "Chikorita",
-          "from_pct": 16.7,
-          "to_pct": 58.3
-        },
-        {
-          "card": "Meowth ex",
-          "from_pct": 33.3,
-          "to_pct": 66.7
-        },
-        {
-          "card": "Fezandipiti ex",
-          "from_pct": 33.3,
-          "to_pct": 58.3
-        },
-        {
-          "card": "Poké Pad",
-          "from_pct": 33.3,
-          "to_pct": 50.0
-        }
-      ],
-      "dropped": []
-    }
-  ],
+  "evolution": [],
   "variants": [
     {
       "name": "with Bayleef",
-      "deck_count": 100,
-      "pct": 46.7
+      "deck_count": 15,
+      "pct": 62.5
     },
     {
       "name": "Standard",
-      "deck_count": 57,
-      "pct": 26.6
+      "deck_count": 4,
+      "pct": 16.7
     },
     {
       "name": "with Crustle",
-      "deck_count": 22,
-      "pct": 10.3
-    },
-    {
-      "name": "with Meowth ex",
-      "deck_count": 22,
-      "pct": 10.3
+      "deck_count": 3,
+      "pct": 12.5
     }
   ],
   "weekly_shares": [
     {
-      "week": "2026-01-19",
-      "meta_share": 2.5,
-      "deck_count": 17
-    },
-    {
-      "week": "2026-01-26",
-      "meta_share": 4.4,
-      "deck_count": 46
-    },
-    {
-      "week": "2026-02-02",
-      "meta_share": 4.6,
-      "deck_count": 52
-    },
-    {
-      "week": "2026-02-09",
-      "meta_share": 2.7,
-      "deck_count": 44
-    },
-    {
-      "week": "2026-02-16",
-      "meta_share": 4.7,
-      "deck_count": 6
-    },
-    {
-      "week": "2026-02-23",
-      "meta_share": 2.7,
-      "deck_count": 24
-    },
-    {
       "week": "2026-03-02",
       "meta_share": 2.0,
-      "deck_count": 25
+      "deck_count": 24
     }
   ],
   "top4_card_stats": [
     {
       "card_name": "Ultra Ball",
       "inclusion_pct": 100.0,
-      "avg_copies": 3.8,
-      "decks_with": 49,
+      "avg_copies": 3.7,
+      "decks_with": 6,
       "category": "Trainer",
-      "delta_vs_field": 0.5
+      "delta_vs_field": 0.0
     },
     {
       "card_name": "Teal Mask Ogerpon ex",
       "inclusion_pct": 100.0,
-      "avg_copies": 3.9,
-      "decks_with": 49,
+      "avg_copies": 3.7,
+      "decks_with": 6,
       "category": "Pokemon",
       "delta_vs_field": 0.0
     },
     {
+      "card_name": "Poké Pad",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.3,
+      "decks_with": 6,
+      "category": "Trainer",
+      "delta_vs_field": 33.3
+    },
+    {
+      "card_name": "Night Stretcher",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 6,
+      "category": "Trainer",
+      "delta_vs_field": 25.0
+    },
+    {
+      "card_name": "Meganium",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 6,
+      "category": "Pokemon",
+      "delta_vs_field": 37.5
+    },
+    {
       "card_name": "Mega Venusaur ex",
       "inclusion_pct": 100.0,
-      "avg_copies": 2.3,
-      "decks_with": 49,
+      "avg_copies": 2.0,
+      "decks_with": 6,
       "category": "Pokemon",
       "delta_vs_field": 0.0
     },
@@ -3097,39 +2494,55 @@
       "card_name": "Lillie's Determination",
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
-      "decks_with": 49,
+      "decks_with": 6,
       "category": "Trainer",
       "delta_vs_field": 0.0
     },
     {
       "card_name": "Ivysaur",
       "inclusion_pct": 100.0,
-      "avg_copies": 2.6,
-      "decks_with": 49,
+      "avg_copies": 2.0,
+      "decks_with": 6,
       "category": "Pokemon",
       "delta_vs_field": 0.0
     },
     {
       "card_name": "Grass Energy",
       "inclusion_pct": 100.0,
-      "avg_copies": 11.4,
-      "decks_with": 49,
+      "avg_copies": 10.2,
+      "decks_with": 6,
       "category": "Energy",
       "delta_vs_field": 0.0
     },
     {
       "card_name": "Forest of Vitality",
       "inclusion_pct": 100.0,
-      "avg_copies": 3.6,
-      "decks_with": 49,
+      "avg_copies": 3.7,
+      "decks_with": 6,
       "category": "Trainer",
       "delta_vs_field": 0.0
     },
     {
+      "card_name": "Fezandipiti ex",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 6,
+      "category": "Pokemon",
+      "delta_vs_field": 33.3
+    },
+    {
+      "card_name": "Chikorita",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 6,
+      "category": "Pokemon",
+      "delta_vs_field": 37.5
+    },
+    {
       "card_name": "Bulbasaur",
       "inclusion_pct": 100.0,
-      "avg_copies": 2.8,
-      "decks_with": 49,
+      "avg_copies": 2.2,
+      "decks_with": 6,
       "category": "Pokemon",
       "delta_vs_field": 0.0
     },
@@ -3137,633 +2550,241 @@
       "card_name": "Bug Catching Set",
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
-      "decks_with": 49,
+      "decks_with": 6,
       "category": "Trainer",
       "delta_vs_field": 0.0
     },
     {
       "card_name": "Boss's Orders",
       "inclusion_pct": 100.0,
-      "avg_copies": 2.1,
-      "decks_with": 49,
-      "category": "Trainer",
-      "delta_vs_field": 0.9
-    },
-    {
-      "card_name": "Wally's Compassion",
-      "inclusion_pct": 87.8,
-      "avg_copies": 2.1,
-      "decks_with": 43,
-      "category": "Trainer",
-      "delta_vs_field": -1.0
-    },
-    {
-      "card_name": "Night Stretcher",
-      "inclusion_pct": 75.5,
-      "avg_copies": 1.9,
-      "decks_with": 37,
-      "category": "Trainer",
-      "delta_vs_field": 18.5
-    },
-    {
-      "card_name": "Judge",
-      "inclusion_pct": 75.5,
-      "avg_copies": 1.6,
-      "decks_with": 37,
-      "category": "Trainer",
-      "delta_vs_field": -3.0
-    },
-    {
-      "card_name": "Poké Pad",
-      "inclusion_pct": 67.3,
-      "avg_copies": 2.9,
-      "decks_with": 33,
-      "category": "Trainer",
-      "delta_vs_field": 15.9
-    },
-    {
-      "card_name": "Fezandipiti ex",
-      "inclusion_pct": 67.3,
-      "avg_copies": 1.0,
-      "decks_with": 33,
-      "category": "Pokemon",
-      "delta_vs_field": 17.3
-    },
-    {
-      "card_name": "Meowth ex",
-      "inclusion_pct": 65.3,
-      "avg_copies": 1.2,
-      "decks_with": 32,
-      "category": "Pokemon",
-      "delta_vs_field": 16.2
-    },
-    {
-      "card_name": "Meganium",
-      "inclusion_pct": 65.3,
       "avg_copies": 2.0,
-      "decks_with": 32,
-      "category": "Pokemon",
-      "delta_vs_field": 18.6
-    },
-    {
-      "card_name": "Chikorita",
-      "inclusion_pct": 65.3,
-      "avg_copies": 2.0,
-      "decks_with": 32,
-      "category": "Pokemon",
-      "delta_vs_field": 18.6
-    },
-    {
-      "card_name": "Bayleef",
-      "inclusion_pct": 65.3,
-      "avg_copies": 2.0,
-      "decks_with": 32,
-      "category": "Pokemon",
-      "delta_vs_field": 18.6
-    },
-    {
-      "card_name": "Dawn",
-      "inclusion_pct": 53.1,
-      "avg_copies": 1.7,
-      "decks_with": 26,
-      "category": "Trainer",
-      "delta_vs_field": 7.3
-    },
-    {
-      "card_name": "Max Rod",
-      "inclusion_pct": 51.0,
-      "avg_copies": 1.0,
-      "decks_with": 25,
-      "category": "Trainer",
-      "delta_vs_field": 14.6
-    },
-    {
-      "card_name": "Regigigas",
-      "inclusion_pct": 49.0,
-      "avg_copies": 1.0,
-      "decks_with": 24,
-      "category": "Pokemon",
-      "delta_vs_field": 14.4
-    },
-    {
-      "card_name": "Pokégear 3.0",
-      "inclusion_pct": 34.7,
-      "avg_copies": 3.6,
-      "decks_with": 17,
-      "category": "Trainer",
-      "delta_vs_field": -20.0
-    },
-    {
-      "card_name": "Hero's Cape",
-      "inclusion_pct": 24.5,
-      "avg_copies": 1.0,
-      "decks_with": 12,
-      "category": "Trainer",
-      "delta_vs_field": -10.1
-    },
-    {
-      "card_name": "Switch",
-      "inclusion_pct": 18.4,
-      "avg_copies": 1.0,
-      "decks_with": 9,
-      "category": "Trainer",
-      "delta_vs_field": 3.9
-    },
-    {
-      "card_name": "Genesect",
-      "inclusion_pct": 18.4,
-      "avg_copies": 1.0,
-      "decks_with": 9,
-      "category": "Pokemon",
-      "delta_vs_field": -1.7
-    },
-    {
-      "card_name": "Dwebble",
-      "inclusion_pct": 18.4,
-      "avg_copies": 1.0,
-      "decks_with": 9,
-      "category": "Pokemon",
-      "delta_vs_field": 3.4
-    },
-    {
-      "card_name": "Crustle",
-      "inclusion_pct": 18.4,
-      "avg_copies": 1.0,
-      "decks_with": 9,
-      "category": "Pokemon",
-      "delta_vs_field": 3.4
-    },
-    {
-      "card_name": "Team Rocket's Petrel",
-      "inclusion_pct": 16.3,
-      "avg_copies": 1.5,
-      "decks_with": 8,
-      "category": "Trainer",
-      "delta_vs_field": 5.6
-    },
-    {
-      "card_name": "Morty's Conviction",
-      "inclusion_pct": 16.3,
-      "avg_copies": 1.6,
-      "decks_with": 8,
-      "category": "Trainer",
-      "delta_vs_field": 5.6
-    },
-    {
-      "card_name": "Xerosic's Machinations",
-      "inclusion_pct": 14.3,
-      "avg_copies": 1.0,
-      "decks_with": 7,
-      "category": "Trainer",
-      "delta_vs_field": 5.4
-    },
-    {
-      "card_name": "Scoop Up Cyclone",
-      "inclusion_pct": 14.3,
-      "avg_copies": 1.0,
-      "decks_with": 7,
-      "category": "Trainer",
-      "delta_vs_field": -3.0
-    },
-    {
-      "card_name": "Lana's Aid",
-      "inclusion_pct": 14.3,
-      "avg_copies": 1.0,
-      "decks_with": 7,
-      "category": "Trainer",
-      "delta_vs_field": 1.2
-    },
-    {
-      "card_name": "Celebi",
-      "inclusion_pct": 14.3,
-      "avg_copies": 1.3,
-      "decks_with": 7,
-      "category": "Pokemon",
-      "delta_vs_field": 3.6
-    },
-    {
-      "card_name": "Mega Kangaskhan ex",
-      "inclusion_pct": 12.2,
-      "avg_copies": 1.8,
       "decks_with": 6,
-      "category": "Pokemon",
-      "delta_vs_field": 4.3
-    },
-    {
-      "card_name": "Briar",
-      "inclusion_pct": 12.2,
-      "avg_copies": 1.0,
-      "decks_with": 6,
-      "category": "Trainer",
-      "delta_vs_field": 2.4
-    },
-    {
-      "card_name": "Unfair Stamp",
-      "inclusion_pct": 10.2,
-      "avg_copies": 1.0,
-      "decks_with": 5,
-      "category": "Trainer",
-      "delta_vs_field": 2.3
-    },
-    {
-      "card_name": "Mega Meganium ex",
-      "inclusion_pct": 10.2,
-      "avg_copies": 1.0,
-      "decks_with": 5,
-      "category": "Pokemon",
-      "delta_vs_field": 3.2
-    },
-    {
-      "card_name": "Energy Retrieval",
-      "inclusion_pct": 10.2,
-      "avg_copies": 1.0,
-      "decks_with": 5,
-      "category": "Trainer",
-      "delta_vs_field": 0.9
-    },
-    {
-      "card_name": "Drayton",
-      "inclusion_pct": 10.2,
-      "avg_copies": 2.0,
-      "decks_with": 5,
-      "category": "Trainer",
-      "delta_vs_field": -3.8
-    },
-    {
-      "card_name": "Tera Orb",
-      "inclusion_pct": 8.2,
-      "avg_copies": 1.8,
-      "decks_with": 4,
-      "category": "Trainer",
-      "delta_vs_field": -0.2
-    },
-    {
-      "card_name": "Psyduck",
-      "inclusion_pct": 8.2,
-      "avg_copies": 1.0,
-      "decks_with": 4,
-      "category": "Pokemon",
-      "delta_vs_field": 3.5
-    },
-    {
-      "card_name": "Noctowl",
-      "inclusion_pct": 6.1,
-      "avg_copies": 1.3,
-      "decks_with": 3,
-      "category": "Pokemon",
-      "delta_vs_field": 2.4
-    },
-    {
-      "card_name": "Hoothoot",
-      "inclusion_pct": 6.1,
-      "avg_copies": 1.3,
-      "decks_with": 3,
-      "category": "Pokemon",
-      "delta_vs_field": 2.4
-    },
-    {
-      "card_name": "Area Zero Underdepths",
-      "inclusion_pct": 6.1,
-      "avg_copies": 1.0,
-      "decks_with": 3,
       "category": "Trainer",
       "delta_vs_field": 4.2
     },
     {
-      "card_name": "Latias ex",
-      "inclusion_pct": 4.1,
+      "card_name": "Bayleef",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 6,
+      "category": "Pokemon",
+      "delta_vs_field": 37.5
+    },
+    {
+      "card_name": "Wally's Compassion",
+      "inclusion_pct": 83.3,
+      "avg_copies": 1.6,
+      "decks_with": 5,
+      "category": "Trainer",
+      "delta_vs_field": -8.4
+    },
+    {
+      "card_name": "Meowth ex",
+      "inclusion_pct": 83.3,
+      "avg_copies": 1.6,
+      "decks_with": 5,
+      "category": "Pokemon",
+      "delta_vs_field": 20.8
+    },
+    {
+      "card_name": "Max Rod",
+      "inclusion_pct": 83.3,
+      "avg_copies": 1.0,
+      "decks_with": 5,
+      "category": "Trainer",
+      "delta_vs_field": 37.5
+    },
+    {
+      "card_name": "Regigigas",
+      "inclusion_pct": 66.7,
+      "avg_copies": 1.0,
+      "decks_with": 4,
+      "category": "Pokemon",
+      "delta_vs_field": 20.9
+    },
+    {
+      "card_name": "Judge",
+      "inclusion_pct": 66.7,
+      "avg_copies": 1.5,
+      "decks_with": 4,
+      "category": "Trainer",
+      "delta_vs_field": -12.5
+    },
+    {
+      "card_name": "Xerosic's Machinations",
+      "inclusion_pct": 50.0,
+      "avg_copies": 1.0,
+      "decks_with": 3,
+      "category": "Trainer",
+      "delta_vs_field": 25.0
+    },
+    {
+      "card_name": "Switch",
+      "inclusion_pct": 50.0,
+      "avg_copies": 1.0,
+      "decks_with": 3,
+      "category": "Trainer",
+      "delta_vs_field": 25.0
+    },
+    {
+      "card_name": "Team Rocket's Petrel",
+      "inclusion_pct": 33.3,
+      "avg_copies": 3.0,
+      "decks_with": 2,
+      "category": "Trainer",
+      "delta_vs_field": 12.5
+    },
+    {
+      "card_name": "Noctowl",
+      "inclusion_pct": 33.3,
       "avg_copies": 1.0,
       "decks_with": 2,
       "category": "Pokemon",
-      "delta_vs_field": 2.7
+      "delta_vs_field": 25.0
     },
     {
-      "card_name": "Kofu",
-      "inclusion_pct": 4.1,
+      "card_name": "Hoothoot",
+      "inclusion_pct": 33.3,
+      "avg_copies": 1.0,
+      "decks_with": 2,
+      "category": "Pokemon",
+      "delta_vs_field": 25.0
+    },
+    {
+      "card_name": "Genesect",
+      "inclusion_pct": 33.3,
+      "avg_copies": 1.0,
+      "decks_with": 2,
+      "category": "Pokemon",
+      "delta_vs_field": 12.5
+    },
+    {
+      "card_name": "Dawn",
+      "inclusion_pct": 33.3,
       "avg_copies": 2.0,
       "decks_with": 2,
       "category": "Trainer",
-      "delta_vs_field": -1.5
+      "delta_vs_field": -8.4
     },
     {
-      "card_name": "Cyrano",
-      "inclusion_pct": 4.1,
-      "avg_copies": 1.0,
+      "card_name": "Celebi",
+      "inclusion_pct": 33.3,
+      "avg_copies": 1.5,
       "decks_with": 2,
+      "category": "Pokemon",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Unfair Stamp",
+      "inclusion_pct": 16.7,
+      "avg_copies": 1.0,
+      "decks_with": 1,
       "category": "Trainer",
-      "delta_vs_field": 2.7
+      "delta_vs_field": 4.2
+    },
+    {
+      "card_name": "Morty's Conviction",
+      "inclusion_pct": 16.7,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 8.4
+    },
+    {
+      "card_name": "Mega Meganium ex",
+      "inclusion_pct": 16.7,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Pokemon",
+      "delta_vs_field": 4.2
+    },
+    {
+      "card_name": "Dwebble",
+      "inclusion_pct": 16.7,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Pokemon",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Crustle",
+      "inclusion_pct": 16.7,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Pokemon",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Area Zero Underdepths",
+      "inclusion_pct": 16.7,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 12.5
+    },
+    {
+      "card_name": "Pokégear 3.0",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Trainer",
+      "delta_vs_field": -41.7
+    },
+    {
+      "card_name": "Hero's Cape",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Trainer",
+      "delta_vs_field": -29.2
+    },
+    {
+      "card_name": "Lana's Aid",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Trainer",
+      "delta_vs_field": -16.7
+    },
+    {
+      "card_name": "Briar",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Trainer",
+      "delta_vs_field": -12.5
+    },
+    {
+      "card_name": "Scoop Up Cyclone",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Trainer",
+      "delta_vs_field": -8.3
+    },
+    {
+      "card_name": "Mega Kangaskhan ex",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Pokemon",
+      "delta_vs_field": -8.3
     },
     {
       "card_name": "Budew",
-      "inclusion_pct": 4.1,
-      "avg_copies": 1.0,
-      "decks_with": 2,
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
       "category": "Pokemon",
-      "delta_vs_field": -3.8
+      "delta_vs_field": -8.3
     },
     {
       "card_name": "Air Balloon",
-      "inclusion_pct": 4.1,
-      "avg_copies": 1.0,
-      "decks_with": 2,
-      "category": "Trainer",
-      "delta_vs_field": -0.1
-    },
-    {
-      "card_name": "Wellspring Mask Ogerpon ex",
-      "inclusion_pct": 2.0,
-      "avg_copies": 1.0,
-      "decks_with": 1,
-      "category": "Pokemon",
-      "delta_vs_field": 0.6
-    },
-    {
-      "card_name": "Torchic",
-      "inclusion_pct": 2.0,
-      "avg_copies": 1.0,
-      "decks_with": 1,
-      "category": "Pokemon",
-      "delta_vs_field": 1.5
-    },
-    {
-      "card_name": "Tool Scrapper",
-      "inclusion_pct": 2.0,
-      "avg_copies": 1.0,
-      "decks_with": 1,
-      "category": "Trainer",
-      "delta_vs_field": -1.3
-    },
-    {
-      "card_name": "Team Rocket's Watchtower",
-      "inclusion_pct": 2.0,
-      "avg_copies": 1.0,
-      "decks_with": 1,
-      "category": "Trainer",
-      "delta_vs_field": 0.6
-    },
-    {
-      "card_name": "Tatsugiri",
-      "inclusion_pct": 2.0,
-      "avg_copies": 1.0,
-      "decks_with": 1,
-      "category": "Pokemon",
-      "delta_vs_field": 1.1
-    },
-    {
-      "card_name": "Surfer",
-      "inclusion_pct": 2.0,
-      "avg_copies": 1.0,
-      "decks_with": 1,
-      "category": "Trainer",
-      "delta_vs_field": 0.1
-    },
-    {
-      "card_name": "Rare Candy",
-      "inclusion_pct": 2.0,
-      "avg_copies": 2.0,
-      "decks_with": 1,
-      "category": "Trainer",
-      "delta_vs_field": 0.1
-    },
-    {
-      "card_name": "Psychic Energy",
-      "inclusion_pct": 2.0,
-      "avg_copies": 1.0,
-      "decks_with": 1,
-      "category": "Energy",
-      "delta_vs_field": 1.1
-    },
-    {
-      "card_name": "Prism Energy",
-      "inclusion_pct": 2.0,
-      "avg_copies": 1.0,
-      "decks_with": 1,
-      "category": "Energy",
-      "delta_vs_field": 1.1
-    },
-    {
-      "card_name": "Pokémon Catcher",
-      "inclusion_pct": 2.0,
-      "avg_copies": 3.0,
-      "decks_with": 1,
-      "category": "Trainer",
-      "delta_vs_field": 0.1
-    },
-    {
-      "card_name": "Naveen",
-      "inclusion_pct": 2.0,
-      "avg_copies": 1.0,
-      "decks_with": 1,
-      "category": "Trainer",
-      "delta_vs_field": 0.6
-    },
-    {
-      "card_name": "Mist Energy",
-      "inclusion_pct": 2.0,
-      "avg_copies": 2.0,
-      "decks_with": 1,
-      "category": "Energy",
-      "delta_vs_field": 0.6
-    },
-    {
-      "card_name": "Mega Signal",
-      "inclusion_pct": 2.0,
-      "avg_copies": 1.0,
-      "decks_with": 1,
-      "category": "Trainer",
-      "delta_vs_field": 0.1
-    },
-    {
-      "card_name": "Lucian",
-      "inclusion_pct": 2.0,
-      "avg_copies": 3.0,
-      "decks_with": 1,
-      "category": "Trainer",
-      "delta_vs_field": 0.1
-    },
-    {
-      "card_name": "Lively Stadium",
-      "inclusion_pct": 2.0,
-      "avg_copies": 1.0,
-      "decks_with": 1,
-      "category": "Trainer",
-      "delta_vs_field": 0.6
-    },
-    {
-      "card_name": "Lillie's Clefairy ex",
-      "inclusion_pct": 2.0,
-      "avg_copies": 1.0,
-      "decks_with": 1,
-      "category": "Pokemon",
-      "delta_vs_field": 0.6
-    },
-    {
-      "card_name": "Kieran",
-      "inclusion_pct": 2.0,
-      "avg_copies": 1.0,
-      "decks_with": 1,
-      "category": "Trainer",
-      "delta_vs_field": 0.1
-    },
-    {
-      "card_name": "Iris's Fighting Spirit",
-      "inclusion_pct": 2.0,
-      "avg_copies": 1.0,
-      "decks_with": 1,
-      "category": "Trainer",
-      "delta_vs_field": -1.3
-    },
-    {
-      "card_name": "Hilda",
-      "inclusion_pct": 2.0,
-      "avg_copies": 2.0,
-      "decks_with": 1,
-      "category": "Trainer",
-      "delta_vs_field": -0.3
-    },
-    {
-      "card_name": "Harlequin",
-      "inclusion_pct": 2.0,
-      "avg_copies": 2.0,
-      "decks_with": 1,
-      "category": "Trainer",
-      "delta_vs_field": 1.1
-    },
-    {
-      "card_name": "Handheld Fan",
-      "inclusion_pct": 2.0,
-      "avg_copies": 1.0,
-      "decks_with": 1,
-      "category": "Trainer",
-      "delta_vs_field": 1.1
-    },
-    {
-      "card_name": "Flutter Mane",
-      "inclusion_pct": 2.0,
-      "avg_copies": 1.0,
-      "decks_with": 1,
-      "category": "Pokemon",
-      "delta_vs_field": -0.3
-    },
-    {
-      "card_name": "Fire Energy",
-      "inclusion_pct": 2.0,
-      "avg_copies": 1.0,
-      "decks_with": 1,
-      "category": "Energy",
-      "delta_vs_field": 1.5
-    },
-    {
-      "card_name": "Eri",
-      "inclusion_pct": 2.0,
-      "avg_copies": 1.0,
-      "decks_with": 1,
-      "category": "Trainer",
-      "delta_vs_field": 1.1
-    },
-    {
-      "card_name": "Enhanced Hammer",
-      "inclusion_pct": 2.0,
-      "avg_copies": 1.0,
-      "decks_with": 1,
-      "category": "Trainer",
-      "delta_vs_field": 1.5
-    },
-    {
-      "card_name": "Colress's Tenacity",
-      "inclusion_pct": 2.0,
-      "avg_copies": 1.0,
-      "decks_with": 1,
-      "category": "Trainer",
-      "delta_vs_field": -1.3
-    },
-    {
-      "card_name": "Ciphermaniac's Codebreaking",
-      "inclusion_pct": 2.0,
-      "avg_copies": 3.0,
-      "decks_with": 1,
-      "category": "Trainer",
-      "delta_vs_field": -0.3
-    },
-    {
-      "card_name": "Carmine",
-      "inclusion_pct": 2.0,
-      "avg_copies": 2.0,
-      "decks_with": 1,
-      "category": "Trainer",
-      "delta_vs_field": -0.3
-    },
-    {
-      "card_name": "Blaziken ex",
-      "inclusion_pct": 2.0,
-      "avg_copies": 1.0,
-      "decks_with": 1,
-      "category": "Pokemon",
-      "delta_vs_field": 1.5
-    },
-    {
-      "card_name": "Jumbo Ice Cream",
       "inclusion_pct": 0,
       "avg_copies": 0,
       "decks_with": 0,
       "category": "Trainer",
-      "delta_vs_field": -2.8
-    },
-    {
-      "card_name": "Growth Grass Energy",
-      "inclusion_pct": 0,
-      "avg_copies": 0,
-      "decks_with": 0,
-      "category": "Energy",
-      "delta_vs_field": -2.8
-    },
-    {
-      "card_name": "Lucky Helmet",
-      "inclusion_pct": 0,
-      "avg_copies": 0,
-      "decks_with": 0,
-      "category": "Trainer",
-      "delta_vs_field": -2.3
-    },
-    {
-      "card_name": "Tapu Bulu",
-      "inclusion_pct": 0,
-      "avg_copies": 0,
-      "decks_with": 0,
-      "category": "Pokemon",
-      "delta_vs_field": -1.9
-    },
-    {
-      "card_name": "Shuckle",
-      "inclusion_pct": 0,
-      "avg_copies": 0,
-      "decks_with": 0,
-      "category": "Pokemon",
-      "delta_vs_field": -1.9
-    },
-    {
-      "card_name": "Fennel",
-      "inclusion_pct": 0,
-      "avg_copies": 0,
-      "decks_with": 0,
-      "category": "Trainer",
-      "delta_vs_field": -1.9
-    },
-    {
-      "card_name": "Battle Cage",
-      "inclusion_pct": 0,
-      "avg_copies": 0,
-      "decks_with": 0,
-      "category": "Trainer",
-      "delta_vs_field": -1.9
-    },
-    {
-      "card_name": "Zarude",
-      "inclusion_pct": 0,
-      "avg_copies": 0,
-      "decks_with": 0,
-      "category": "Pokemon",
-      "delta_vs_field": -0.9
+      "delta_vs_field": -8.3
     },
     {
       "card_name": "Whimsicott",
@@ -3771,127 +2792,7 @@
       "avg_copies": 0,
       "decks_with": 0,
       "category": "Pokemon",
-      "delta_vs_field": -0.9
-    },
-    {
-      "card_name": "Shaymin",
-      "inclusion_pct": 0,
-      "avg_copies": 0,
-      "decks_with": 0,
-      "category": "Pokemon",
-      "delta_vs_field": -0.9
-    },
-    {
-      "card_name": "Secret Box",
-      "inclusion_pct": 0,
-      "avg_copies": 0,
-      "decks_with": 0,
-      "category": "Trainer",
-      "delta_vs_field": -0.9
-    },
-    {
-      "card_name": "Scatterbug",
-      "inclusion_pct": 0,
-      "avg_copies": 0,
-      "decks_with": 0,
-      "category": "Pokemon",
-      "delta_vs_field": -0.9
-    },
-    {
-      "card_name": "Prime Catcher",
-      "inclusion_pct": 0,
-      "avg_copies": 0,
-      "decks_with": 0,
-      "category": "Trainer",
-      "delta_vs_field": -0.9
-    },
-    {
-      "card_name": "Miracle Headset",
-      "inclusion_pct": 0,
-      "avg_copies": 0,
-      "decks_with": 0,
-      "category": "Trainer",
-      "delta_vs_field": -0.9
-    },
-    {
-      "card_name": "Enriching Energy",
-      "inclusion_pct": 0,
-      "avg_copies": 0,
-      "decks_with": 0,
-      "category": "Energy",
-      "delta_vs_field": -0.9
-    },
-    {
-      "card_name": "Energy Search",
-      "inclusion_pct": 0,
-      "avg_copies": 0,
-      "decks_with": 0,
-      "category": "Trainer",
-      "delta_vs_field": -0.9
-    },
-    {
-      "card_name": "Cottonee",
-      "inclusion_pct": 0,
-      "avg_copies": 0,
-      "decks_with": 0,
-      "category": "Pokemon",
-      "delta_vs_field": -0.9
-    },
-    {
-      "card_name": "Clefairy",
-      "inclusion_pct": 0,
-      "avg_copies": 0,
-      "decks_with": 0,
-      "category": "Pokemon",
-      "delta_vs_field": -0.9
-    },
-    {
-      "card_name": "Clefable",
-      "inclusion_pct": 0,
-      "avg_copies": 0,
-      "decks_with": 0,
-      "category": "Pokemon",
-      "delta_vs_field": -0.9
-    },
-    {
-      "card_name": "Water Energy",
-      "inclusion_pct": 0,
-      "avg_copies": 0,
-      "decks_with": 0,
-      "category": "Energy",
-      "delta_vs_field": -0.5
-    },
-    {
-      "card_name": "Vivillon",
-      "inclusion_pct": 0,
-      "avg_copies": 0,
-      "decks_with": 0,
-      "category": "Pokemon",
-      "delta_vs_field": -0.5
-    },
-    {
-      "card_name": "Urbain",
-      "inclusion_pct": 0,
-      "avg_copies": 0,
-      "decks_with": 0,
-      "category": "Trainer",
-      "delta_vs_field": -0.5
-    },
-    {
-      "card_name": "Tangrowth",
-      "inclusion_pct": 0,
-      "avg_copies": 0,
-      "decks_with": 0,
-      "category": "Pokemon",
-      "delta_vs_field": -0.5
-    },
-    {
-      "card_name": "Tangela",
-      "inclusion_pct": 0,
-      "avg_copies": 0,
-      "decks_with": 0,
-      "category": "Pokemon",
-      "delta_vs_field": -0.5
+      "delta_vs_field": -4.2
     },
     {
       "card_name": "Spewpa",
@@ -3899,23 +2800,15 @@
       "avg_copies": 0,
       "decks_with": 0,
       "category": "Pokemon",
-      "delta_vs_field": -0.5
+      "delta_vs_field": -4.2
     },
     {
-      "card_name": "Sawsbuck",
+      "card_name": "Scatterbug",
       "inclusion_pct": 0,
       "avg_copies": 0,
       "decks_with": 0,
       "category": "Pokemon",
-      "delta_vs_field": -0.5
-    },
-    {
-      "card_name": "Repel",
-      "inclusion_pct": 0,
-      "avg_copies": 0,
-      "decks_with": 0,
-      "category": "Trainer",
-      "delta_vs_field": -0.5
+      "delta_vs_field": -4.2
     },
     {
       "card_name": "Redeemable Ticket",
@@ -3923,89 +2816,97 @@
       "avg_copies": 0,
       "decks_with": 0,
       "category": "Trainer",
-      "delta_vs_field": -0.5
+      "delta_vs_field": -4.2
     },
     {
-      "card_name": "Munkidori",
-      "inclusion_pct": 0,
-      "avg_copies": 0,
-      "decks_with": 0,
-      "category": "Pokemon",
-      "delta_vs_field": -0.5
-    },
-    {
-      "card_name": "Mega Heracross ex",
-      "inclusion_pct": 0,
-      "avg_copies": 0,
-      "decks_with": 0,
-      "category": "Pokemon",
-      "delta_vs_field": -0.5
-    },
-    {
-      "card_name": "Fan Rotom",
-      "inclusion_pct": 0,
-      "avg_copies": 0,
-      "decks_with": 0,
-      "category": "Pokemon",
-      "delta_vs_field": -0.5
-    },
-    {
-      "card_name": "Exeggutor",
-      "inclusion_pct": 0,
-      "avg_copies": 0,
-      "decks_with": 0,
-      "category": "Pokemon",
-      "delta_vs_field": -0.5
-    },
-    {
-      "card_name": "Exeggcute",
-      "inclusion_pct": 0,
-      "avg_copies": 0,
-      "decks_with": 0,
-      "category": "Pokemon",
-      "delta_vs_field": -0.5
-    },
-    {
-      "card_name": "Deerling",
-      "inclusion_pct": 0,
-      "avg_copies": 0,
-      "decks_with": 0,
-      "category": "Pokemon",
-      "delta_vs_field": -0.5
-    },
-    {
-      "card_name": "Cheren",
+      "card_name": "Pokémon Catcher",
       "inclusion_pct": 0,
       "avg_copies": 0,
       "decks_with": 0,
       "category": "Trainer",
-      "delta_vs_field": -0.5
+      "delta_vs_field": -4.2
     },
     {
-      "card_name": "Buddy-Buddy Poffin",
+      "card_name": "Mega Signal",
       "inclusion_pct": 0,
       "avg_copies": 0,
       "decks_with": 0,
       "category": "Trainer",
-      "delta_vs_field": -0.5
+      "delta_vs_field": -4.2
     },
     {
-      "card_name": "Brock's Scouting",
+      "card_name": "Lively Stadium",
       "inclusion_pct": 0,
       "avg_copies": 0,
       "decks_with": 0,
       "category": "Trainer",
-      "delta_vs_field": -0.5
+      "delta_vs_field": -4.2
     },
     {
-      "card_name": "Black Kyurem ex",
+      "card_name": "Jumbo Ice Cream",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Trainer",
+      "delta_vs_field": -4.2
+    },
+    {
+      "card_name": "Iris's Fighting Spirit",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Trainer",
+      "delta_vs_field": -4.2
+    },
+    {
+      "card_name": "Growth Grass Energy",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Energy",
+      "delta_vs_field": -4.2
+    },
+    {
+      "card_name": "Enriching Energy",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Energy",
+      "delta_vs_field": -4.2
+    },
+    {
+      "card_name": "Energy Retrieval",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Trainer",
+      "delta_vs_field": -4.2
+    },
+    {
+      "card_name": "Drayton",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Trainer",
+      "delta_vs_field": -4.2
+    },
+    {
+      "card_name": "Cottonee",
       "inclusion_pct": 0,
       "avg_copies": 0,
       "decks_with": 0,
       "category": "Pokemon",
-      "delta_vs_field": -0.5
+      "delta_vs_field": -4.2
+    },
+    {
+      "card_name": "Ciphermaniac's Codebreaking",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Trainer",
+      "delta_vs_field": -4.2
     }
   ],
-  "top4_sample_size": 49,
-  "top4_low_sample": false
+  "top4_sample_size": 6,
+  "top4_low_sample": true
 }

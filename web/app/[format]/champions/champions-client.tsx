@@ -1,6 +1,7 @@
 "use client";
 
 import { Fragment, useState } from "react";
+import Link from "next/link";
 import { ChevronDown, ChevronRight } from "lucide-react";
 import { cn } from "@/app/lib/utils";
 import { SpriteRow } from "@/app/components/sprite-row";
@@ -169,7 +170,10 @@ export function ChampionsClient({
           Champions League
         </h1>
         <p className="text-sm text-surface-300 mt-1">
-          {division.event_name}, {division.date}
+          {division.event_name}, {division.date}{" "}
+          <Link href="/guide#champions-league" className="text-accent hover:text-accent/80 transition-colors">
+            How this works &rarr;
+          </Link>
         </p>
       </div>
 

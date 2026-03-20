@@ -297,3 +297,8 @@ ARCHETYPE_ANCHOR_CARDS: dict[str, dict[str, str] | str] = {
     "Crustle": "Crustle",
     "Dwebble": "Crustle",
 }
+
+# LLM configuration for auto-generated reports
+REPORT_LLM_MODEL = "claude-haiku-4-5-20251001"
+REPORT_LLM_TEMPERATURE = 0.3
+REPORT_LLM_MAX_TOKENS = 2048

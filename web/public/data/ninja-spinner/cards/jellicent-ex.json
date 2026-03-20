@@ -7,22 +7,22 @@
   "image_url": null,
   "category": "Pokemon",
   "rarity": null,
-  "total_appearances": 11,
+  "total_appearances": 14,
   "usage_pct": 1.2,
-  "avg_copies": 2.2,
-  "unique_archetypes": 6,
-  "weighted_score": 17.2,
+  "avg_copies": 2.0,
+  "unique_archetypes": 8,
+  "weighted_score": 21.9,
   "win_rate_proxy": 1.56,
   "top_archetype": "Dusknoir Jellicent",
   "trend_direction": "stable",
   "copy_distribution": [
     {
       "copies": 1,
-      "count": 2
+      "count": 4
     },
     {
       "copies": 2,
-      "count": 6
+      "count": 7
     },
     {
       "copies": 3,
@@ -42,6 +42,13 @@
       "tier": "Rogue"
     },
     {
+      "name": "Jellicent Metagross",
+      "slug": "jellicent-metagross",
+      "usage_count": 2,
+      "avg_copies": 2.0,
+      "tier": "Rogue"
+    },
+    {
       "name": "Mega Kangaskhan Ogerpon",
       "slug": "mega-kangaskhan-ogerpon",
       "usage_count": 1,
@@ -49,10 +56,17 @@
       "tier": "B"
     },
     {
-      "name": "Jellicent Metagross",
-      "slug": "jellicent-metagross",
+      "name": "Mega Gardevoir Latias",
+      "slug": "mega-gardevoir-latias",
       "usage_count": 1,
-      "avg_copies": 2.0,
+      "avg_copies": 1.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Mega Gardevoir Jellicent",
+      "slug": "mega-gardevoir-jellicent",
+      "usage_count": 1,
+      "avg_copies": 1.0,
       "tier": "Rogue"
     },
     {
@@ -85,115 +99,115 @@
     },
     {
       "week": "2026-03-16",
-      "usage_pct": 1.5,
-      "avg_copies": 2.2
+      "usage_pct": 1.4,
+      "avg_copies": 1.9
     }
   ],
   "synergy_partners": [
     {
       "card_name": "Frillish",
-      "support": 11,
-      "lift": 55.75,
-      "jaccard": 0.688,
-      "weighted_score": 17.2
+      "support": 14,
+      "lift": 53.524,
+      "jaccard": 0.667,
+      "weighted_score": 21.9
+    },
+    {
+      "card_name": "Mystery Garden",
+      "support": 8,
+      "lift": 35.683,
+      "jaccard": 0.333,
+      "weighted_score": 10.5
     },
     {
       "card_name": "Mega Diancie ex",
       "support": 6,
-      "lift": 37.427,
-      "jaccard": 0.333,
-      "weighted_score": 7.8
-    },
-    {
-      "card_name": "Mystery Garden",
-      "support": 6,
-      "lift": 34.753,
-      "jaccard": 0.316,
+      "lift": 32.114,
+      "jaccard": 0.261,
       "weighted_score": 7.8
     },
     {
       "card_name": "Wondrous Patch",
-      "support": 6,
-      "lift": 9.731,
-      "jaccard": 0.109,
-      "weighted_score": 7.8
+      "support": 8,
+      "lift": 9.445,
+      "jaccard": 0.108,
+      "weighted_score": 10.5
     },
     {
       "card_name": "Telepath Psychic Energy",
-      "support": 8,
-      "lift": 8.767,
-      "jaccard": 0.104,
-      "weighted_score": 12.0
+      "support": 10,
+      "lift": 7.871,
+      "jaccard": 0.094,
+      "weighted_score": 14.7
     },
     {
       "card_name": "Ignition Energy",
       "support": 5,
-      "lift": 7.24,
-      "jaccard": 0.081,
+      "lift": 5.147,
+      "jaccard": 0.057,
       "weighted_score": 6.3
     },
     {
       "card_name": "Lillie's Clefairy ex",
-      "support": 11,
-      "lift": 3.444,
-      "jaccard": 0.042,
-      "weighted_score": 17.2
+      "support": 14,
+      "lift": 3.193,
+      "jaccard": 0.04,
+      "weighted_score": 21.9
+    },
+    {
+      "card_name": "Judge",
+      "support": 9,
+      "lift": 2.986,
+      "jaccard": 0.036,
+      "weighted_score": 14.0
+    },
+    {
+      "card_name": "Latias ex",
+      "support": 13,
+      "lift": 2.875,
+      "jaccard": 0.036,
+      "weighted_score": 20.7
+    },
+    {
+      "card_name": "Hilda",
+      "support": 7,
+      "lift": 2.689,
+      "jaccard": 0.032,
+      "weighted_score": 9.3
     },
     {
       "card_name": "Dusclops",
       "support": 6,
-      "lift": 3.355,
-      "jaccard": 0.04,
+      "lift": 2.397,
+      "jaccard": 0.029,
       "weighted_score": 7.8
     },
     {
       "card_name": "Dusknoir",
       "support": 6,
-      "lift": 3.287,
-      "jaccard": 0.039,
+      "lift": 2.361,
+      "jaccard": 0.028,
       "weighted_score": 7.8
     },
     {
       "card_name": "Duskull",
       "support": 6,
-      "lift": 3.287,
-      "jaccard": 0.039,
+      "lift": 2.361,
+      "jaccard": 0.028,
       "weighted_score": 7.8
-    },
-    {
-      "card_name": "Judge",
-      "support": 7,
-      "lift": 3.262,
-      "jaccard": 0.039,
-      "weighted_score": 10.5
-    },
-    {
-      "card_name": "Hilda",
-      "support": 6,
-      "lift": 3.159,
-      "jaccard": 0.038,
-      "weighted_score": 7.8
-    },
-    {
-      "card_name": "Latias ex",
-      "support": 10,
-      "lift": 3.131,
-      "jaccard": 0.038,
-      "weighted_score": 16.0
     },
     {
       "card_name": "Rare Candy",
-      "support": 5,
-      "lift": 1.325,
-      "jaccard": 0.016,
-      "weighted_score": 7.9
+      "support": 7,
+      "lift": 1.357,
+      "jaccard": 0.017,
+      "weighted_score": 11.4
     },
     {
-      "card_name": "Lillie's Determination",
-      "support": 11,
-      "lift": 1.204,
+      "card_name": "Special Red Card",
+      "support": 10,
+      "lift": 1.179,
       "jaccard": 0.015,
-      "weighted_score": 17.2
+      "weighted_score": 15.5
     }
   ]
 }

@@ -7,25 +7,33 @@
   "image_url": null,
   "category": "Trainer",
   "rarity": null,
-  "total_appearances": 28,
-  "usage_pct": 3.1,
-  "avg_copies": 1.0,
-  "unique_archetypes": 7,
-  "weighted_score": 47.9,
-  "win_rate_proxy": 1.71,
+  "total_appearances": 41,
+  "usage_pct": 3.6,
+  "avg_copies": 1.1,
+  "unique_archetypes": 10,
+  "weighted_score": 67.6,
+  "win_rate_proxy": 1.65,
   "top_archetype": "Alakazam Dudunsparce",
   "trend_direction": "stable",
   "copy_distribution": [
     {
       "copies": 1,
-      "count": 28
+      "count": 39
+    },
+    {
+      "copies": 2,
+      "count": 1
+    },
+    {
+      "copies": 4,
+      "count": 1
     }
   ],
   "archetypes": [
     {
       "name": "Alakazam Dudunsparce",
       "slug": "alakazam-dudunsparce",
-      "usage_count": 18,
+      "usage_count": 27,
       "avg_copies": 1.0,
       "tier": "C"
     },
@@ -44,6 +52,20 @@
       "tier": "B"
     },
     {
+      "name": "Aegislash Genesect",
+      "slug": "aegislash-genesect",
+      "usage_count": 2,
+      "avg_copies": 1.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Typhlosion",
+      "slug": "typhlosion",
+      "usage_count": 1,
+      "avg_copies": 1.0,
+      "tier": "Rogue"
+    },
+    {
       "name": "Mewtwo Spidops",
       "slug": "mewtwo-spidops",
       "usage_count": 1,
@@ -51,15 +73,22 @@
       "tier": "B"
     },
     {
-      "name": "Dipplin Rillaboom",
-      "slug": "dipplin-rillaboom",
+      "name": "Mega Greninja Dragapult",
+      "slug": "mega-greninja-dragapult",
       "usage_count": 1,
       "avg_copies": 1.0,
+      "tier": "C"
+    },
+    {
+      "name": "Gyarados Starmie",
+      "slug": "gyarados-starmie",
+      "usage_count": 1,
+      "avg_copies": 4.0,
       "tier": "Rogue"
     },
     {
-      "name": "Aegislash Genesect",
-      "slug": "aegislash-genesect",
+      "name": "Dipplin Rillaboom",
+      "slug": "dipplin-rillaboom",
       "usage_count": 1,
       "avg_copies": 1.0,
       "tier": "Rogue"
@@ -80,115 +109,115 @@
     },
     {
       "week": "2026-03-16",
-      "usage_pct": 2.3,
-      "avg_copies": 1.0
+      "usage_pct": 3.9,
+      "avg_copies": 1.2
     }
   ],
   "synergy_partners": [
     {
       "card_name": "Enhanced Hammer",
-      "support": 17,
-      "lift": 31.857,
-      "jaccard": 0.607,
-      "weighted_score": 31.0
+      "support": 25,
+      "lift": 25.384,
+      "jaccard": 0.581,
+      "weighted_score": 42.6
     },
     {
       "card_name": "Abra",
-      "support": 18,
-      "lift": 27.306,
-      "jaccard": 0.581,
-      "weighted_score": 32.2
+      "support": 27,
+      "lift": 23.877,
+      "jaccard": 0.6,
+      "weighted_score": 46.8
     },
     {
       "card_name": "Kadabra",
-      "support": 18,
-      "lift": 27.306,
-      "jaccard": 0.581,
-      "weighted_score": 32.2
+      "support": 27,
+      "lift": 23.877,
+      "jaccard": 0.6,
+      "weighted_score": 46.8
     },
     {
       "card_name": "Alakazam",
-      "support": 18,
-      "lift": 26.065,
-      "jaccard": 0.562,
-      "weighted_score": 32.2
+      "support": 27,
+      "lift": 23.131,
+      "jaccard": 0.587,
+      "weighted_score": 46.8
     },
     {
       "card_name": "Enriching Energy",
-      "support": 17,
-      "lift": 21.663,
-      "jaccard": 0.472,
-      "weighted_score": 31.0
+      "support": 26,
+      "lift": 19.264,
+      "jaccard": 0.5,
+      "weighted_score": 45.6
+    },
+    {
+      "card_name": "Lucky Helmet",
+      "support": 8,
+      "lift": 15.666,
+      "jaccard": 0.17,
+      "weighted_score": 12.1
     },
     {
       "card_name": "Grookey",
       "support": 5,
-      "lift": 17.698,
-      "jaccard": 0.156,
+      "lift": 11.423,
+      "jaccard": 0.104,
       "weighted_score": 8.9
     },
     {
       "card_name": "Thwackey",
       "support": 5,
-      "lift": 17.698,
-      "jaccard": 0.156,
-      "weighted_score": 8.9
-    },
-    {
-      "card_name": "Festival Grounds",
-      "support": 5,
-      "lift": 15.929,
-      "jaccard": 0.152,
-      "weighted_score": 8.9
-    },
-    {
-      "card_name": "Applin",
-      "support": 5,
-      "lift": 12.253,
-      "jaccard": 0.139,
-      "weighted_score": 8.9
-    },
-    {
-      "card_name": "Dipplin",
-      "support": 5,
-      "lift": 12.253,
-      "jaccard": 0.139,
+      "lift": 11.423,
+      "jaccard": 0.104,
       "weighted_score": 8.9
     },
     {
       "card_name": "Dudunsparce",
-      "support": 19,
-      "lift": 12.106,
-      "jaccard": 0.322,
-      "weighted_score": 34.2
+      "support": 28,
+      "lift": 11.125,
+      "jaccard": 0.341,
+      "weighted_score": 48.8
     },
     {
       "card_name": "Dunsparce",
-      "support": 19,
-      "lift": 12.106,
-      "jaccard": 0.322,
-      "weighted_score": 34.2
+      "support": 28,
+      "lift": 11.125,
+      "jaccard": 0.341,
+      "weighted_score": 48.8
     },
     {
-      "card_name": "Fan Rotom",
-      "support": 14,
-      "lift": 9.911,
-      "jaccard": 0.237,
-      "weighted_score": 25.8
-    },
-    {
-      "card_name": "Wondrous Patch",
-      "support": 14,
-      "lift": 8.92,
-      "jaccard": 0.219,
-      "weighted_score": 26.3
+      "card_name": "Festival Grounds",
+      "support": 5,
+      "lift": 9.791,
+      "jaccard": 0.1,
+      "weighted_score": 8.9
     },
     {
       "card_name": "Genesect",
-      "support": 6,
-      "lift": 8.688,
-      "jaccard": 0.136,
-      "weighted_score": 9.9
+      "support": 10,
+      "lift": 9.453,
+      "jaccard": 0.167,
+      "weighted_score": 16.1
+    },
+    {
+      "card_name": "Fan Rotom",
+      "support": 21,
+      "lift": 8.995,
+      "jaccard": 0.25,
+      "weighted_score": 36.9
+    },
+    {
+      "card_name": "Wondrous Patch",
+      "support": 20,
+      "lift": 8.063,
+      "jaccard": 0.225,
+      "weighted_score": 34.4
+    },
+    {
+      "card_name": "Applin",
+      "support": 5,
+      "lift": 7.615,
+      "jaccard": 0.093,
+      "weighted_score": 8.9
     }
   ]
 }

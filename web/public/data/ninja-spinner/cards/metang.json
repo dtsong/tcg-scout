@@ -7,18 +7,18 @@
   "image_url": null,
   "category": "Pokemon",
   "rarity": null,
-  "total_appearances": 3,
-  "usage_pct": 0.3,
+  "total_appearances": 4,
+  "usage_pct": 0.4,
   "avg_copies": 4.0,
-  "unique_archetypes": 2,
-  "weighted_score": 5.0,
-  "win_rate_proxy": 1.67,
+  "unique_archetypes": 3,
+  "weighted_score": 7.0,
+  "win_rate_proxy": 1.75,
   "top_archetype": "Genesect Metagross",
   "trend_direction": "stable",
   "copy_distribution": [
     {
       "copies": 4,
-      "count": 3
+      "count": 4
     }
   ],
   "archetypes": [
@@ -35,6 +35,13 @@
       "usage_count": 1,
       "avg_copies": 4.0,
       "tier": "Rogue"
+    },
+    {
+      "name": "Cinccino Metagross",
+      "slug": "cinccino-metagross",
+      "usage_count": 1,
+      "avg_copies": 4.0,
+      "tier": "Rogue"
     }
   ],
   "weekly_usage": [
@@ -45,8 +52,8 @@
     },
     {
       "week": "2026-03-16",
-      "usage_pct": 0.0,
-      "avg_copies": 0
+      "usage_pct": 0.2,
+      "avg_copies": 4.0
     }
   ]
 }

@@ -402,6 +402,7 @@
   "results": [
     {
       "tournament_name": "City League Saitama",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3908",
       "date": "2026-01-31",
       "standing": 3,
       "player_name": "しくじり",
@@ -545,6 +546,7 @@
     },
     {
       "tournament_name": "City League Okinawa",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4019",
       "date": "2026-02-08",
       "standing": 4,
       "player_name": "ケリィ",
@@ -693,6 +695,7 @@
     },
     {
       "tournament_name": "City League Ibaraki",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4098",
       "date": "2026-02-15",
       "standing": 14,
       "player_name": "たくん",
@@ -843,7 +846,7 @@
       "week": "2026-02-02",
       "adopted": [
         {
-          "card": "Joltik",
+          "card": "Tool Scrapper",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -853,19 +856,29 @@
           "to_pct": 100.0
         },
         {
-          "card": "Pokégear 3.0",
+          "card": "Joltik",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Tool Scrapper",
+          "card": "Pokégear 3.0",
           "from_pct": 0.0,
           "to_pct": 100.0
         }
       ],
       "dropped": [
         {
+          "card": "Prism Energy",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
           "card": "Cornerstone Mask Ogerpon ex",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Tatsugiri",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -880,17 +893,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "Prism Energy",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Xerosic's Machinations",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Tatsugiri",
           "from_pct": 100.0,
           "to_pct": 0.0
         }
@@ -912,12 +915,12 @@
       ],
       "dropped": [
         {
-          "card": "Joltik",
+          "card": "Tool Scrapper",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Tool Scrapper",
+          "card": "Joltik",
           "from_pct": 100.0,
           "to_pct": 0.0
         }

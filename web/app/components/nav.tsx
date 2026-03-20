@@ -131,6 +131,12 @@ export function Nav({ format, formats }: { format: string; formats: FormatInfo[]
                 </Link>
               );
             })}
+            <Link
+              href="/guide"
+              className="px-3 py-1.5 text-sm rounded-md whitespace-nowrap transition-colors ml-1 border-l border-surface-600 pl-3 text-surface-300 hover:text-slate-200 hover:bg-surface-700"
+            >
+              Guide
+            </Link>
           </div>
         </div>
       </div>

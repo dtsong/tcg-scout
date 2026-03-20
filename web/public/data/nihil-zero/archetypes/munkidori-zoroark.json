@@ -388,6 +388,7 @@
   "results": [
     {
       "tournament_name": "City League Aichi",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4091",
       "date": "2026-02-14",
       "standing": 2,
       "player_name": "ルカ",
@@ -521,6 +522,7 @@
     },
     {
       "tournament_name": "City League Shizuoka",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4094",
       "date": "2026-02-15",
       "standing": 3,
       "player_name": "さた",
@@ -659,6 +661,7 @@
     },
     {
       "tournament_name": "City League Aichi",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3910",
       "date": "2026-01-31",
       "standing": 7,
       "player_name": "みっくん",
@@ -824,6 +827,16 @@
       "week": "2026-02-09",
       "adopted": [
         {
+          "card": "N's Darmanitan",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Brock's Scouting",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
           "card": "Secret Box",
           "from_pct": 0.0,
           "to_pct": 50.0
@@ -839,12 +852,12 @@
           "to_pct": 50.0
         },
         {
-          "card": "Risky Ruins",
+          "card": "Xerosic's Machinations",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
         {
-          "card": "Brock's Scouting",
+          "card": "Risky Ruins",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -852,26 +865,16 @@
           "card": "Psyduck",
           "from_pct": 0.0,
           "to_pct": 50.0
-        },
-        {
-          "card": "Xerosic's Machinations",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "N's Darmanitan",
-          "from_pct": 0.0,
-          "to_pct": 50.0
         }
       ],
       "dropped": [
         {
-          "card": "Lillie's Clefairy ex",
+          "card": "Hilda",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Hilda",
+          "card": "Lillie's Clefairy ex",
           "from_pct": 100.0,
           "to_pct": 0.0
         }

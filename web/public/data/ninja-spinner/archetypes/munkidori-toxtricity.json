@@ -844,11 +844,11 @@
     }
   ],
   "radar": {
-    "meta_share": 1.7,
-    "weighted_share": 1.2,
+    "meta_share": 1.4,
+    "weighted_share": 1.0,
     "consistency": 60.0,
     "ceiling": 25,
-    "popularity": 3.3,
+    "popularity": 2.4,
     "core_density": 57.1
   },
   "evolution": [
@@ -868,12 +868,12 @@
       ],
       "dropped": [
         {
-          "card": "Yveltal ex",
+          "card": "Unfair Stamp",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Unfair Stamp",
+          "card": "Yveltal ex",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -883,12 +883,12 @@
           "to_pct": 0.0
         },
         {
-          "card": "Pecharunt",
+          "card": "Psyduck",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
-          "card": "Psyduck",
+          "card": "Lacey",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -898,12 +898,12 @@
           "to_pct": 0.0
         },
         {
-          "card": "Counter Gain",
+          "card": "Pecharunt",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
-          "card": "Lacey",
+          "card": "Counter Gain",
           "from_pct": 50.0,
           "to_pct": 0.0
         }
@@ -919,7 +919,7 @@
     },
     {
       "week": "2026-03-16",
-      "meta_share": 0.4,
+      "meta_share": 0.2,
       "deck_count": 1
     }
   ],

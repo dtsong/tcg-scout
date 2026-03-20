@@ -16,6 +16,8 @@ node_modules/
 
 # Data
 data/*.db
+data/*.db-wal
+data/*.db-shm
 data/*.sqlite
 *.db
 

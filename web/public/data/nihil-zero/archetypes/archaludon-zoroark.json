@@ -339,6 +339,7 @@
   "results": [
     {
       "tournament_name": "City League Tōkyō",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4111",
       "date": "2026-02-15",
       "standing": 3,
       "player_name": "ゆたか",
@@ -452,6 +453,7 @@
     },
     {
       "tournament_name": "City League Ibaraki",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4146",
       "date": "2026-02-23",
       "standing": 5,
       "player_name": "キドちゃん",
@@ -570,6 +572,7 @@
     },
     {
       "tournament_name": "City League Okinawa",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4019",
       "date": "2026-02-08",
       "standing": 6,
       "player_name": "うにあし",
@@ -668,6 +671,7 @@
     },
     {
       "tournament_name": "City League Gunma",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4000",
       "date": "2026-02-08",
       "standing": 7,
       "player_name": "海津",
@@ -796,6 +800,7 @@
     },
     {
       "tournament_name": "City League Okinawa",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3944",
       "date": "2026-02-01",
       "standing": 7,
       "player_name": "710（なっと）",
@@ -916,7 +921,17 @@
           "to_pct": 50.0
         },
         {
-          "card": "Meowth ex",
+          "card": "Tool Scrapper",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Hilda",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Full Metal Lab",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -936,17 +951,7 @@
           "to_pct": 50.0
         },
         {
-          "card": "Tool Scrapper",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Full Metal Lab",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Hilda",
+          "card": "Meowth ex",
           "from_pct": 0.0,
           "to_pct": 50.0
         }
@@ -963,12 +968,12 @@
       "week": "2026-02-09",
       "adopted": [
         {
-          "card": "Explorer's Guidance",
+          "card": "Carmine",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Carmine",
+          "card": "Explorer's Guidance",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -985,17 +990,12 @@
           "to_pct": 0.0
         },
         {
-          "card": "N's Castle",
+          "card": "Tool Scrapper",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
-          "card": "Cyrano",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Meowth ex",
+          "card": "Hilda",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -1010,12 +1010,17 @@
           "to_pct": 0.0
         },
         {
-          "card": "Tool Scrapper",
+          "card": "N's Castle",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
-          "card": "Hilda",
+          "card": "Cyrano",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Meowth ex",
           "from_pct": 50.0,
           "to_pct": 0.0
         }

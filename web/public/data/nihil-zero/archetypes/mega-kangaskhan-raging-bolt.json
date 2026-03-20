@@ -2,8 +2,8 @@
   "archetype": "Mega Kangaskhan Raging Bolt",
   "slug": "mega-kangaskhan-raging-bolt",
   "tier": "Rogue",
-  "meta_share": 0.0,
-  "weighted_share": 0.0,
+  "meta_share": 0.1,
+  "weighted_share": 0.2,
   "deck_count": 1,
   "best_placement": 1,
   "sprite_filenames": [
@@ -65,7 +65,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Lightning Energy",
@@ -270,7 +270,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Lightning Energy",
@@ -423,6 +423,7 @@
   "results": [
     {
       "tournament_name": "City League Chiba",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4239",
       "date": "2026-03-08",
       "standing": 1,
       "player_name": "TAISEI",
@@ -459,11 +460,6 @@
         },
         {
           "card_name": "Psyduck",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Lillie's Clefairy ex",
           "count": 1,
           "category": "Pokemon"
         },
@@ -509,6 +505,11 @@
         },
         {
           "card_name": "Brock's Scouting",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Lillie's Clefairy ex",
           "count": 1,
           "category": "Trainer"
         },
@@ -576,46 +577,16 @@
     }
   ],
   "radar": {
-    "meta_share": 0.1,
-    "weighted_share": 0.1,
+    "meta_share": 0.4,
+    "weighted_share": 0.8,
     "consistency": 100.0,
     "ceiling": 100,
-    "popularity": 0.2,
+    "popularity": 0.8,
     "core_density": 100.0
   },
   "evolution": [],
   "variants": [],
   "weekly_shares": [
-    {
-      "week": "2026-01-19",
-      "meta_share": 0.0,
-      "deck_count": 0
-    },
-    {
-      "week": "2026-01-26",
-      "meta_share": 0.0,
-      "deck_count": 0
-    },
-    {
-      "week": "2026-02-02",
-      "meta_share": 0.0,
-      "deck_count": 0
-    },
-    {
-      "week": "2026-02-09",
-      "meta_share": 0.0,
-      "deck_count": 0
-    },
-    {
-      "week": "2026-02-16",
-      "meta_share": 0.0,
-      "deck_count": 0
-    },
-    {
-      "week": "2026-02-23",
-      "meta_share": 0.0,
-      "deck_count": 0
-    },
     {
       "week": "2026-03-02",
       "meta_share": 0.1,
@@ -684,7 +655,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Pokemon",
+      "category": "Trainer",
       "delta_vs_field": 0.0
     },
     {

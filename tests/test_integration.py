@@ -135,7 +135,7 @@ class TestScrapeJPIntegration:
         event = JPEventResult(
             event_id=999999,
             event_name="City League Test",
-            division="masters",
+            division="open",
             date="2026-01-25",
             placements=[
                 JPPlacement(standing=1, player_name="Alice", region="Tokyo"),

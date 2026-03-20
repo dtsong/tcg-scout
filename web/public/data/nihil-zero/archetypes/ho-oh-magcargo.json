@@ -346,6 +346,7 @@
   "results": [
     {
       "tournament_name": "City League Tōkyō",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4163",
       "date": "2026-02-28",
       "standing": 7,
       "player_name": "よっしー",
@@ -464,6 +465,7 @@
     },
     {
       "tournament_name": "City League Chiba",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3974",
       "date": "2026-02-07",
       "standing": 16,
       "player_name": "かみやん",
@@ -609,7 +611,12 @@
       "week": "2026-02-23",
       "adopted": [
         {
-          "card": "Prime Catcher",
+          "card": "Budew",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Tatsugiri",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -619,44 +626,24 @@
           "to_pct": 100.0
         },
         {
-          "card": "Budew",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
           "card": "Pokégear 3.0",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Tatsugiri",
+          "card": "Prime Catcher",
           "from_pct": 0.0,
           "to_pct": 100.0
         }
       ],
       "dropped": [
         {
-          "card": "Meowth ex",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Switch",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Precious Trolley",
+          "card": "Tool Scrapper",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
           "card": "Ethan's Cyndaquil",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Ethan's Quilava",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -671,7 +658,22 @@
           "to_pct": 0.0
         },
         {
-          "card": "Tool Scrapper",
+          "card": "Switch",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Ethan's Quilava",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Meowth ex",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Precious Trolley",
           "from_pct": 100.0,
           "to_pct": 0.0
         }

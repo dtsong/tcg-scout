@@ -18,7 +18,7 @@ def validate(format_slug: str = "nihil-zero") -> None:
     conn = get_format_connection(format_slug)
 
     placements = conn.execute(
-        "SELECT id, archetype FROM placements WHERE archetype != 'Unknown'"
+        "SELECT id, archetype FROM open_placements WHERE archetype != 'Unknown'"
     ).fetchall()
 
     correct = 0

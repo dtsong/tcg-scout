@@ -7,13 +7,13 @@
   "image_url": null,
   "category": "Pokemon",
   "rarity": null,
-  "total_appearances": 4,
-  "usage_pct": 0.4,
-  "avg_copies": 2.8,
+  "total_appearances": 6,
+  "usage_pct": 0.5,
+  "avg_copies": 3.0,
   "unique_archetypes": 4,
-  "weighted_score": 7.5,
-  "win_rate_proxy": 1.88,
-  "top_archetype": "Mega Meganium Mega Venusaur",
+  "weighted_score": 10.5,
+  "win_rate_proxy": 1.75,
+  "top_archetype": "Dudunsparce Yanmega",
   "trend_direction": "stable",
   "copy_distribution": [
     {
@@ -22,14 +22,21 @@
     },
     {
       "copies": 3,
-      "count": 1
+      "count": 2
     },
     {
       "copies": 4,
-      "count": 1
+      "count": 2
     }
   ],
   "archetypes": [
+    {
+      "name": "Dudunsparce Yanmega",
+      "slug": "dudunsparce-yanmega",
+      "usage_count": 3,
+      "avg_copies": 3.7,
+      "tier": "Rogue"
+    },
     {
       "name": "Mega Meganium Mega Venusaur",
       "slug": "mega-meganium-mega-venusaur",
@@ -42,13 +49,6 @@
       "slug": "mega-kangaskhan-yanmega",
       "usage_count": 1,
       "avg_copies": 3.0,
-      "tier": "Rogue"
-    },
-    {
-      "name": "Dudunsparce Yanmega",
-      "slug": "dudunsparce-yanmega",
-      "usage_count": 1,
-      "avg_copies": 4.0,
       "tier": "Rogue"
     },
     {
@@ -67,8 +67,66 @@
     },
     {
       "week": "2026-03-16",
-      "usage_pct": 0.0,
-      "avg_copies": 0
+      "usage_pct": 0.4,
+      "avg_copies": 3.5
+    }
+  ],
+  "synergy_partners": [
+    {
+      "card_name": "Yanma",
+      "support": 6,
+      "lift": 187.333,
+      "jaccard": 1.0,
+      "weighted_score": 10.5
+    },
+    {
+      "card_name": "Energy Recycler",
+      "support": 5,
+      "lift": 22.846,
+      "jaccard": 0.119,
+      "weighted_score": 9.0
+    },
+    {
+      "card_name": "Buddy-Buddy Poffin",
+      "support": 6,
+      "lift": 1.756,
+      "jaccard": 0.009,
+      "weighted_score": 10.5
+    },
+    {
+      "card_name": "Fezandipiti ex",
+      "support": 6,
+      "lift": 1.57,
+      "jaccard": 0.008,
+      "weighted_score": 10.5
+    },
+    {
+      "card_name": "Poké Pad",
+      "support": 6,
+      "lift": 1.209,
+      "jaccard": 0.006,
+      "weighted_score": 10.5
+    },
+    {
+      "card_name": "Ultra Ball",
+      "support": 6,
+      "lift": 1.147,
+      "jaccard": 0.006,
+      "weighted_score": 10.5
+    },
+    {
+      "card_name": "Lillie's Determination",
+      "support": 6,
+      "lift": 1.117,
+      "jaccard": 0.006,
+      "weighted_score": 10.5
+    },
+    {
+      "card_name": "Boss's Orders",
+      "support": 6,
+      "lift": 1.054,
+      "jaccard": 0.006,
+      "weighted_score": 10.5
     }
   ]
 }

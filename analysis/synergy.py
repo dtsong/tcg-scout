@@ -23,7 +23,7 @@ def compute_synergy_pairs(
     energy_names = sorted(BASIC_ENERGY_NAMES)
     energy_placeholders = ",".join("?" * len(energy_names))
 
-    total_decks = conn.execute("SELECT COUNT(*) FROM placements").fetchone()[0]
+    total_decks = conn.execute("SELECT COUNT(*) FROM open_placements").fetchone()[0]
     if total_decks < 2:
         return {"pairs": [], "per_card": {}}
 
@@ -43,7 +43,7 @@ def compute_synergy_pairs(
 
     # Get placement weights for weighted scoring
     placement_standings = {}
-    standing_rows = conn.execute("SELECT id, standing FROM placements").fetchall()
+    standing_rows = conn.execute("SELECT id, standing FROM open_placements").fetchall()
     for r in standing_rows:
         placement_standings[r["id"]] = r["standing"]
 
@@ -184,7 +184,7 @@ def compute_archetype_overlap_matrix(
     arch_card_sets: dict[str, set[str]] = {}
     for arch_name in arch_names:
         total = conn.execute(
-            "SELECT COUNT(*) FROM placements WHERE archetype = ?",
+            "SELECT COUNT(*) FROM open_placements WHERE archetype = ?",
             (arch_name,),
         ).fetchone()[0]
 
@@ -197,7 +197,7 @@ def compute_archetype_overlap_matrix(
             f"""
             SELECT dc.card_name, COUNT(DISTINCT dc.placement_id) AS cnt
             FROM decklist_cards dc
-            JOIN placements p ON p.id = dc.placement_id
+            JOIN open_placements p ON p.id = dc.placement_id
             WHERE p.archetype = ?
               AND dc.card_name NOT IN ({energy_placeholders})
             GROUP BY dc.card_name
@@ -262,7 +262,7 @@ def _get_pair_archetypes(
     placeholders = ",".join("?" * len(intersection))
     rows = conn.execute(
         f"""
-        SELECT DISTINCT archetype FROM placements
+        SELECT DISTINCT archetype FROM open_placements
         WHERE id IN ({placeholders})
         ORDER BY archetype
         """,

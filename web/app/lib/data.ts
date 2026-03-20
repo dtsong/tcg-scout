@@ -19,6 +19,7 @@ import type {
   OverlapMatrixData,
   CardAnalysisData,
   TechForecast,
+  MetaReport,
 } from "./types";
 
 const DATA_DIR = path.join(process.cwd(), "public", "data");
@@ -186,4 +187,14 @@ export function getTechForecast(format: string): TechForecast | null {
 export function formatHasData(format: string): boolean {
   const metaPath = path.join(DATA_DIR, format, "meta.json");
   return fs.existsSync(metaPath);
+}
+
+export function getMetaReport(format: string): MetaReport | null {
+  try {
+    return readJson(`${format}/report.json`);
+  } catch (err) {
+    if (isFileNotFound(err)) return null;
+    console.error(`Failed to load meta report for ${format}:`, err);
+    return null;
+  }
 }

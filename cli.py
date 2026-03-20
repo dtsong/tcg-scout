@@ -671,7 +671,7 @@ def backfill_archetypes(
         # Find date range of Unknown placements
         rows = conn.execute(
             "SELECT p.id, p.standing, p.player_name, t.date "
-            "FROM placements p "
+            "FROM open_placements p "
             "JOIN tournaments t ON p.tournament_id = t.id "
             "WHERE p.archetype = 'Unknown' "
             "ORDER BY t.date"
@@ -734,10 +734,15 @@ def backfill_archetypes(
 
 
 @cli.command("export-web")
+@click.option(
+    "--narrative",
+    is_flag=True,
+    help="Also generate LLM narrative report (requires ANTHROPIC_API_KEY)",
+)
 @click.pass_context
-def export_web(ctx: click.Context) -> None:
+def export_web(ctx: click.Context, narrative: bool) -> None:
     """Export JSON data for the Scout Web dashboard."""
-    from reports.json_export import export_all, export_formats
+    from reports.json_export import export_all, export_formats, export_narrative
 
     fmt = ctx.obj["format"]
     conn = get_format_connection(fmt)
@@ -746,6 +751,12 @@ def export_web(ctx: click.Context) -> None:
         console.print(f"[green]Web data exported to {out}[/green]")
         export_formats()
         console.print("[green]formats.json updated[/green]")
+        if narrative:
+            result = export_narrative(fmt, out)
+            if result:
+                console.print(f"[green]Narrative report written to {result}[/green]")
+            else:
+                console.print("[yellow]Narrative report generation skipped.[/yellow]")
     finally:
         conn.close()
 

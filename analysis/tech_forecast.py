@@ -7,6 +7,27 @@ from datetime import date, datetime, timedelta
 from config import TECH_TREND_THRESHOLD
 
 
+def _build_jp_to_en(conn: sqlite3.Connection) -> dict[str, str]:
+    """Build JP→EN card name lookup from cards table and card_mappings."""
+    lookup: dict[str, str] = {}
+    try:
+        for row in conn.execute(
+            "SELECT name_jp, name_en FROM cards WHERE name_jp IS NOT NULL AND name_jp != ''"
+        ):
+            lookup[row["name_jp"]] = row["name_en"]
+    except sqlite3.OperationalError:
+        pass
+    try:
+        for row in conn.execute(
+            "SELECT card_name_jp, card_name_en FROM card_mappings "
+            "WHERE card_name_jp IS NOT NULL AND card_name_en IS NOT NULL"
+        ):
+            lookup[row["card_name_jp"]] = row["card_name_en"]
+    except sqlite3.OperationalError:
+        pass
+    return lookup
+
+
 def compute_tech_forecast(conn: sqlite3.Connection, watchlist: set[str]) -> dict:
     """Compute weekly adoption trends for tech/meta cards.
 
@@ -17,14 +38,24 @@ def compute_tech_forecast(conn: sqlite3.Connection, watchlist: set[str]) -> dict
     if not watchlist:
         return {"generated_at": datetime.now().isoformat(), "cards": []}
 
-    # All placements that have decklists (at least one card in decklist_cards)
+    # Build JP→EN mapping so we can match JP card names to EN watchlist
+    jp_to_en = _build_jp_to_en(conn)
+    en_to_jp: dict[str, str] = {v: k for k, v in jp_to_en.items()}
+
+    # Build the full set of names to query (EN + JP equivalents)
+    query_names = set(watchlist)
+    for en_name in watchlist:
+        jp_name = en_to_jp.get(en_name)
+        if jp_name:
+            query_names.add(jp_name)
+
+    # All open-division placements that have decklists
     placement_rows = conn.execute(
         """
         SELECT DISTINCT p.id AS placement_id, t.date, p.archetype
-        FROM placements p
+        FROM open_placements p
         JOIN tournaments t ON t.id = p.tournament_id
         JOIN decklist_cards dc ON dc.placement_id = p.id
-        WHERE t.division = 'open'
         ORDER BY t.date
         """
     ).fetchall()
@@ -41,8 +72,8 @@ def compute_tech_forecast(conn: sqlite3.Connection, watchlist: set[str]) -> dict
 
     weeks = sorted(week_placements.keys())
 
-    # Get all decklist_cards rows for watchlist cards
-    card_list = sorted(watchlist)
+    # Get all decklist_cards rows for watchlist cards (both EN and JP names)
+    card_list = sorted(query_names)
     placeholders = ",".join("?" * len(card_list))
     card_rows = conn.execute(
         f"""
@@ -53,10 +84,13 @@ def compute_tech_forecast(conn: sqlite3.Connection, watchlist: set[str]) -> dict
         card_list,
     ).fetchall()
 
-    # Build lookup: placement_id -> {card_name: count}
+    # Build lookup: placement_id -> {en_card_name: count}
+    # Normalize JP names to their EN equivalents
     placement_cards = defaultdict(dict)
     for r in card_rows:
-        placement_cards[r["placement_id"]][r["card_name"]] = r["count"]
+        name = r["card_name"]
+        en_name = jp_to_en.get(name, name)
+        placement_cards[r["placement_id"]][en_name] = r["count"]
 
     # Compute per-card, per-week stats
     # card -> week -> {deck_count, total_copies}

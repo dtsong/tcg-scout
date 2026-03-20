@@ -7,14 +7,14 @@
   "image_url": null,
   "category": "Pokemon",
   "rarity": null,
-  "total_appearances": 173,
-  "usage_pct": 19.4,
-  "avg_copies": 3.4,
-  "unique_archetypes": 23,
-  "weighted_score": 286.6,
-  "win_rate_proxy": 1.66,
-  "top_archetype": "Mega Kangaskhan Ogerpon",
-  "trend_direction": "declining",
+  "total_appearances": 240,
+  "usage_pct": 21.4,
+  "avg_copies": 3.5,
+  "unique_archetypes": 24,
+  "weighted_score": 395.4,
+  "win_rate_proxy": 1.65,
+  "top_archetype": "Raging Bolt ex",
+  "trend_direction": "stable",
   "copy_distribution": [
     {
       "copies": 1,
@@ -22,100 +22,107 @@
     },
     {
       "copies": 2,
-      "count": 22
+      "count": 31
     },
     {
       "copies": 3,
-      "count": 51
+      "count": 64
     },
     {
       "copies": 4,
-      "count": 99
+      "count": 144
     }
   ],
   "archetypes": [
     {
+      "name": "Raging Bolt ex",
+      "slug": "raging-bolt-ex",
+      "usage_count": 45,
+      "avg_copies": 3.9,
+      "tier": "B"
+    },
+    {
       "name": "Mega Kangaskhan Ogerpon",
       "slug": "mega-kangaskhan-ogerpon",
-      "usage_count": 30,
+      "usage_count": 36,
       "avg_copies": 3.1,
       "tier": "B"
     },
     {
-      "name": "Raging Bolt ex",
-      "slug": "raging-bolt-ex",
-      "usage_count": 26,
-      "avg_copies": 4.0,
-      "tier": "C"
-    },
-    {
       "name": "Arboliva Ogerpon",
       "slug": "arboliva-ogerpon",
-      "usage_count": 26,
+      "usage_count": 32,
       "avg_copies": 3.9,
       "tier": "C"
     },
     {
       "name": "Clefairy Ogerpon",
       "slug": "clefairy-ogerpon",
-      "usage_count": 19,
+      "usage_count": 24,
       "avg_copies": 3.3,
       "tier": "C"
     },
     {
       "name": "Mega Venusaur",
       "slug": "mega-venusaur",
-      "usage_count": 18,
+      "usage_count": 22,
       "avg_copies": 3.9,
-      "tier": "C"
-    },
-    {
-      "name": "Ogerpon Ogerpon Wellspring",
-      "slug": "ogerpon-ogerpon-wellspring",
-      "usage_count": 9,
-      "avg_copies": 2.9,
       "tier": "C"
     },
     {
       "name": "Noctowl Ogerpon",
       "slug": "noctowl-ogerpon",
-      "usage_count": 9,
+      "usage_count": 17,
       "avg_copies": 3.8,
       "tier": "C"
     },
     {
       "name": "Mega Meganium",
       "slug": "mega-meganium",
-      "usage_count": 6,
+      "usage_count": 13,
       "avg_copies": 4.0,
+      "tier": "C"
+    },
+    {
+      "name": "Ogerpon Ogerpon Wellspring",
+      "slug": "ogerpon-ogerpon-wellspring",
+      "usage_count": 10,
+      "avg_copies": 2.8,
       "tier": "Rogue"
     },
     {
       "name": "Mega Absol Box",
       "slug": "mega-absol-box",
-      "usage_count": 6,
+      "usage_count": 8,
       "avg_copies": 2.0,
       "tier": "Rogue"
     },
     {
       "name": "Meowth Ogerpon",
       "slug": "meowth-ogerpon",
-      "usage_count": 5,
+      "usage_count": 7,
       "avg_copies": 4.0,
       "tier": "Rogue"
     },
     {
       "name": "Hydrapple Ogerpon",
       "slug": "hydrapple-ogerpon",
-      "usage_count": 4,
+      "usage_count": 6,
       "avg_copies": 3.5,
       "tier": "Rogue"
     },
     {
       "name": "Mega Meganium Mega Venusaur",
       "slug": "mega-meganium-mega-venusaur",
-      "usage_count": 3,
-      "avg_copies": 2.7,
+      "usage_count": 4,
+      "avg_copies": 2.8,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Tera Box",
+      "slug": "tera-box",
+      "usage_count": 2,
+      "avg_copies": 2.0,
       "tier": "Rogue"
     },
     {
@@ -123,6 +130,20 @@
       "slug": "mega-kangaskhan-meowth",
       "usage_count": 2,
       "avg_copies": 2.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Mega Kangaskhan Clefairy",
+      "slug": "mega-kangaskhan-clefairy",
+      "usage_count": 2,
+      "avg_copies": 2.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Clefairy Meowth",
+      "slug": "clefairy-meowth",
+      "usage_count": 2,
+      "avg_copies": 2.5,
       "tier": "Rogue"
     },
     {
@@ -161,13 +182,6 @@
       "tier": "Rogue"
     },
     {
-      "name": "Mega Kangaskhan Clefairy",
-      "slug": "mega-kangaskhan-clefairy",
-      "usage_count": 1,
-      "avg_copies": 2.0,
-      "tier": "Rogue"
-    },
-    {
       "name": "Mega Kangaskhan Arboliva",
       "slug": "mega-kangaskhan-arboliva",
       "usage_count": 1,
@@ -187,13 +201,6 @@
       "usage_count": 1,
       "avg_copies": 2.0,
       "tier": "Rogue"
-    },
-    {
-      "name": "Clefairy Meowth",
-      "slug": "clefairy-meowth",
-      "usage_count": 1,
-      "avg_copies": 3.0,
-      "tier": "Rogue"
     }
   ],
   "weekly_usage": [
@@ -204,115 +211,115 @@
     },
     {
       "week": "2026-03-16",
-      "usage_pct": 16.5,
+      "usage_pct": 22.4,
       "avg_copies": 3.5
     }
   ],
   "synergy_partners": [
     {
       "card_name": "Bayleef",
-      "support": 47,
-      "lift": 5.156,
-      "jaccard": 0.272,
-      "weighted_score": 71.2
+      "support": 63,
+      "lift": 4.683,
+      "jaccard": 0.263,
+      "weighted_score": 97.1
     },
     {
       "card_name": "Bulbasaur",
-      "support": 27,
-      "lift": 5.156,
-      "jaccard": 0.156,
-      "weighted_score": 40.0
+      "support": 39,
+      "lift": 4.683,
+      "jaccard": 0.163,
+      "weighted_score": 58.5
     },
     {
       "card_name": "Celebi",
-      "support": 8,
-      "lift": 5.156,
-      "jaccard": 0.046,
-      "weighted_score": 12.0
+      "support": 12,
+      "lift": 4.683,
+      "jaccard": 0.05,
+      "weighted_score": 19.5
     },
     {
       "card_name": "Chikorita",
-      "support": 47,
-      "lift": 5.156,
-      "jaccard": 0.272,
-      "weighted_score": 71.2
+      "support": 63,
+      "lift": 4.683,
+      "jaccard": 0.263,
+      "weighted_score": 97.1
+    },
+    {
+      "card_name": "Community Center",
+      "support": 7,
+      "lift": 4.683,
+      "jaccard": 0.029,
+      "weighted_score": 11.4
     },
     {
       "card_name": "Dusk Ball",
-      "support": 8,
-      "lift": 5.156,
-      "jaccard": 0.046,
-      "weighted_score": 14.1
+      "support": 13,
+      "lift": 4.683,
+      "jaccard": 0.054,
+      "weighted_score": 21.5
+    },
+    {
+      "card_name": "Hydrapple ex",
+      "support": 6,
+      "lift": 4.683,
+      "jaccard": 0.025,
+      "weighted_score": 8.9
     },
     {
       "card_name": "Ivysaur",
-      "support": 27,
-      "lift": 5.156,
-      "jaccard": 0.156,
-      "weighted_score": 40.0
+      "support": 39,
+      "lift": 4.683,
+      "jaccard": 0.163,
+      "weighted_score": 58.5
     },
     {
       "card_name": "Koraidon",
-      "support": 5,
-      "lift": 5.156,
-      "jaccard": 0.029,
-      "weighted_score": 8.7
+      "support": 11,
+      "lift": 4.683,
+      "jaccard": 0.046,
+      "weighted_score": 19.1
     },
     {
       "card_name": "Mega Meganium ex",
-      "support": 11,
-      "lift": 5.156,
-      "jaccard": 0.064,
-      "weighted_score": 14.9
+      "support": 19,
+      "lift": 4.683,
+      "jaccard": 0.079,
+      "weighted_score": 28.3
     },
     {
       "card_name": "Mega Venusaur ex",
-      "support": 27,
-      "lift": 5.156,
-      "jaccard": 0.156,
-      "weighted_score": 40.0
+      "support": 39,
+      "lift": 4.683,
+      "jaccard": 0.163,
+      "weighted_score": 58.5
     },
     {
       "card_name": "Meganium",
-      "support": 47,
-      "lift": 5.156,
-      "jaccard": 0.272,
-      "weighted_score": 71.2
+      "support": 63,
+      "lift": 4.683,
+      "jaccard": 0.263,
+      "weighted_score": 97.1
     },
     {
       "card_name": "Raging Bolt",
-      "support": 26,
-      "lift": 5.156,
-      "jaccard": 0.15,
-      "weighted_score": 42.5
+      "support": 39,
+      "lift": 4.683,
+      "jaccard": 0.163,
+      "weighted_score": 63.2
+    },
+    {
+      "card_name": "Tapu Bulu",
+      "support": 5,
+      "lift": 4.683,
+      "jaccard": 0.021,
+      "weighted_score": 8.7
     },
     {
       "card_name": "Iron Leaves ex",
-      "support": 66,
-      "lift": 5.079,
-      "jaccard": 0.379,
-      "weighted_score": 115.6
-    },
-    {
-      "card_name": "Raging Bolt ex",
-      "support": 50,
-      "lift": 5.055,
-      "jaccard": 0.287,
-      "weighted_score": 86.9
-    },
-    {
-      "card_name": "Lillie's Pearl",
-      "support": 16,
-      "lift": 4.583,
-      "jaccard": 0.091,
-      "weighted_score": 31.5
-    },
-    {
-      "card_name": "Tapu Koko ex",
-      "support": 8,
-      "lift": 4.583,
-      "jaccard": 0.046,
-      "weighted_score": 12.4
+      "support": 100,
+      "lift": 4.637,
+      "jaccard": 0.415,
+      "weighted_score": 172.4
     }
   ]
 }

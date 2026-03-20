@@ -339,6 +339,7 @@
   "results": [
     {
       "tournament_name": "City League Okayama",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3884",
       "date": "2026-01-24",
       "standing": 3,
       "player_name": "てる丸",
@@ -452,6 +453,7 @@
     },
     {
       "tournament_name": "City League Shiga",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3886",
       "date": "2026-01-26",
       "standing": 7,
       "player_name": "ラット",
@@ -585,6 +587,7 @@
     },
     {
       "tournament_name": "City League Chiba",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4186",
       "date": "2026-03-01",
       "standing": 12,
       "player_name": "うすちよ",
@@ -715,17 +718,12 @@
       "week": "2026-01-26",
       "adopted": [
         {
-          "card": "Shaymin",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
           "card": "Munkidori",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Dunsparce",
+          "card": "Judge",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -735,7 +733,12 @@
           "to_pct": 100.0
         },
         {
-          "card": "Judge",
+          "card": "Shaymin",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Dunsparce",
           "from_pct": 0.0,
           "to_pct": 100.0
         }
@@ -757,7 +760,12 @@
       "week": "2026-02-23",
       "adopted": [
         {
-          "card": "Switch",
+          "card": "Crispin",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Budew",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -772,34 +780,19 @@
           "to_pct": 100.0
         },
         {
-          "card": "Budew",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Crispin",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
           "card": "Legacy Energy",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Switch",
           "from_pct": 0.0,
           "to_pct": 100.0
         }
       ],
       "dropped": [
         {
-          "card": "Prime Catcher",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Team Rocket's Articuno",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Shaymin",
+          "card": "Salvatore",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -809,12 +802,17 @@
           "to_pct": 0.0
         },
         {
-          "card": "Dunsparce",
+          "card": "Team Rocket's Articuno",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Dudunsparce",
+          "card": "Prime Catcher",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Judge",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -824,12 +822,17 @@
           "to_pct": 0.0
         },
         {
-          "card": "Salvatore",
+          "card": "Dudunsparce",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Judge",
+          "card": "Shaymin",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Dunsparce",
           "from_pct": 100.0,
           "to_pct": 0.0
         }

@@ -297,6 +297,7 @@
   "results": [
     {
       "tournament_name": "City League Hiroshima",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4121",
       "date": "2026-02-15",
       "standing": 1,
       "player_name": "Etopen",
@@ -400,6 +401,7 @@
     },
     {
       "tournament_name": "City League Kōchi",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4119",
       "date": "2026-02-15",
       "standing": 7,
       "player_name": "マナりんちょ",
@@ -518,6 +520,7 @@
     },
     {
       "tournament_name": "City League Chiba",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3970",
       "date": "2026-02-07",
       "standing": 11,
       "player_name": "ふぁんだむ",
@@ -626,6 +629,7 @@
     },
     {
       "tournament_name": "City League Chiba",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4181",
       "date": "2026-03-01",
       "standing": 15,
       "player_name": "きむ",
@@ -756,12 +760,7 @@
           "to_pct": 50.0
         },
         {
-          "card": "Lillie's Determination",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Battle Cage",
+          "card": "Legacy Energy",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -776,19 +775,24 @@
           "to_pct": 50.0
         },
         {
-          "card": "Legacy Energy",
+          "card": "Lillie's Determination",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Battle Cage",
           "from_pct": 0.0,
           "to_pct": 50.0
         }
       ],
       "dropped": [
         {
-          "card": "Hand Trimmer",
+          "card": "Jamming Tower",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Jamming Tower",
+          "card": "Hand Trimmer",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -809,12 +813,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "Lillie's Determination",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Battle Cage",
+          "card": "Legacy Energy",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -829,7 +828,12 @@
           "to_pct": 0.0
         },
         {
-          "card": "Legacy Energy",
+          "card": "Lillie's Determination",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Battle Cage",
           "from_pct": 50.0,
           "to_pct": 0.0
         }

@@ -496,3 +496,42 @@ class TestComputeTechForecast:
         assert result["cards"] == []
 
         conn.close()
+
+    def test_jp_card_names_resolved_to_en(self):
+        conn = _make_db()
+
+        # Set up a cards table entry for JP→EN mapping
+        conn.execute(
+            "INSERT INTO cards (id, name_en, name_jp, set_code) VALUES (?, ?, ?, ?)",
+            ("SV-001", "Nest Ball", "ネストボール", "SV1"),
+        )
+        conn.execute(
+            "INSERT INTO tournaments (id, name, date, player_count, division) VALUES (?, ?, ?, ?, ?)",
+            ("t1", "Event", "2026-01-05", 32, "open"),
+        )
+        conn.executemany(
+            "INSERT INTO placements (id, tournament_id, standing, player_name, archetype) "
+            "VALUES (?, ?, ?, ?, ?)",
+            [(1, "t1", 1, "A", "Deck A"), (2, "t1", 2, "B", "Deck A")],
+        )
+        # Card stored with JP name in decklist_cards
+        conn.executemany(
+            "INSERT INTO decklist_cards (placement_id, card_id, card_name, count) VALUES (?, ?, ?, ?)",
+            [
+                (1, "filler", "Filler Card", 1),
+                (2, "filler", "Filler Card", 1),
+                (1, "SV-001", "ネストボール", 2),
+                (2, "SV-001", "ネストボール", 3),
+            ],
+        )
+        conn.commit()
+
+        # Watchlist uses EN name, should still match JP entries
+        result = compute_tech_forecast(conn, {"Nest Ball"})
+        assert len(result["cards"]) == 1
+        card = result["cards"][0]
+        assert card["card_name"] == "Nest Ball"
+        assert card["current_adoption_pct"] == 100.0
+        assert card["current_avg_copies"] == 2.5  # (2 + 3) / 2
+
+        conn.close()

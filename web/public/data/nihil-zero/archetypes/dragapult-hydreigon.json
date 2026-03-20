@@ -381,6 +381,7 @@
   "results": [
     {
       "tournament_name": "City League Kagawa",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3850",
       "date": "2026-01-24",
       "standing": 5,
       "player_name": "Anima",
@@ -519,6 +520,7 @@
     },
     {
       "tournament_name": "City League Tōkyō",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3885",
       "date": "2026-01-26",
       "standing": 9,
       "player_name": "まっつん",
@@ -647,6 +649,7 @@
     },
     {
       "tournament_name": "City League Hokkaido",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4113",
       "date": "2026-02-15",
       "standing": 16,
       "player_name": "おっくー",
@@ -812,17 +815,7 @@
           "to_pct": 100.0
         },
         {
-          "card": "Fezandipiti ex",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
           "card": "Budew",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Brock's Scouting",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -835,16 +828,21 @@
           "card": "Team Rocket's Watchtower",
           "from_pct": 0.0,
           "to_pct": 100.0
+        },
+        {
+          "card": "Brock's Scouting",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Fezandipiti ex",
+          "from_pct": 0.0,
+          "to_pct": 100.0
         }
       ],
       "dropped": [
         {
-          "card": "Energy Recycler",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Tera Orb",
+          "card": "Crispin",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -859,12 +857,17 @@
           "to_pct": 0.0
         },
         {
-          "card": "Crispin",
+          "card": "Energy Recycler",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Pokégear 3.0",
+          "card": "Tera Orb",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Dawn",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -874,7 +877,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "Dawn",
+          "card": "Pokégear 3.0",
           "from_pct": 100.0,
           "to_pct": 0.0
         }
@@ -884,12 +887,12 @@
       "week": "2026-02-09",
       "adopted": [
         {
-          "card": "Yveltal",
+          "card": "Crispin",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Munkidori",
+          "card": "Yveltal",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -899,7 +902,7 @@
           "to_pct": 100.0
         },
         {
-          "card": "Crispin",
+          "card": "Munkidori",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -911,17 +914,17 @@
       ],
       "dropped": [
         {
-          "card": "Shaymin",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Air Balloon",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
           "card": "Brock's Scouting",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Shaymin",
           "from_pct": 100.0,
           "to_pct": 0.0
         }

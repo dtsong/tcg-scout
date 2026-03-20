@@ -360,6 +360,7 @@
   "results": [
     {
       "tournament_name": "City League Yamagata",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4080",
       "date": "2026-02-14",
       "standing": 3,
       "player_name": "K",
@@ -478,6 +479,7 @@
     },
     {
       "tournament_name": "City League Ibaraki",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3932",
       "date": "2026-02-01",
       "standing": 15,
       "player_name": "DK",
@@ -611,6 +613,7 @@
     },
     {
       "tournament_name": "City League Saitama",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3908",
       "date": "2026-01-31",
       "standing": 16,
       "player_name": "こうちゃ",
@@ -771,12 +774,12 @@
       "week": "2026-02-09",
       "adopted": [
         {
-          "card": "Lana's Aid",
+          "card": "Jamming Tower",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Jamming Tower",
+          "card": "Lana's Aid",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -793,12 +796,7 @@
       ],
       "dropped": [
         {
-          "card": "Sacred Ash",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Lillie's Determination",
+          "card": "Crispin",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -808,27 +806,22 @@
           "to_pct": 0.0
         },
         {
+          "card": "Sacred Ash",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
           "card": "Ultra Ball",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Crispin",
+          "card": "Lillie's Determination",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Prime Catcher",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Counter Gain",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Lillie's Clefairy ex",
+          "card": "Hyper Aroma",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -838,7 +831,17 @@
           "to_pct": 0.0
         },
         {
-          "card": "Hyper Aroma",
+          "card": "Lillie's Clefairy ex",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Counter Gain",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Prime Catcher",
           "from_pct": 50.0,
           "to_pct": 0.0
         }

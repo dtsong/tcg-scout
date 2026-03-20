@@ -351,3 +351,17 @@ export interface TechForecast {
   generated_at: string;
   cards: TechForecastCard[];
 }
+
+export interface ReportSection {
+  id: string;
+  title: string;
+  content: string;
+  highlights?: string[];
+}
+
+export interface MetaReport {
+  format: string;
+  generated_at: string;
+  data_hash: string;
+  sections: ReportSection[];
+}
