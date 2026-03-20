@@ -2,8 +2,8 @@
   "archetype": "Mega Diancie Mega Kangaskhan",
   "slug": "mega-diancie-mega-kangaskhan",
   "tier": "Rogue",
-  "meta_share": 0.0,
-  "weighted_share": 0.0,
+  "meta_share": 0.1,
+  "weighted_share": 0.1,
   "deck_count": 1,
   "best_placement": 13,
   "sprite_filenames": [
@@ -100,7 +100,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Latias ex",
@@ -242,7 +242,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Latias ex",
@@ -308,11 +308,6 @@
           "category": "Pokemon"
         },
         {
-          "card_name": "Lillie's Clefairy ex",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
           "card_name": "Mega Diancie ex",
           "count": 2,
           "category": "Pokemon"
@@ -373,6 +368,11 @@
           "category": "Trainer"
         },
         {
+          "card_name": "Lillie's Clefairy ex",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
           "card_name": "Mega Signal",
           "count": 2,
           "category": "Trainer"
@@ -406,46 +406,16 @@
     }
   ],
   "radar": {
-    "meta_share": 0.1,
-    "weighted_share": 0.1,
+    "meta_share": 0.4,
+    "weighted_share": 0.3,
     "consistency": 40.0,
     "ceiling": 25,
-    "popularity": 0.2,
+    "popularity": 0.8,
     "core_density": 100.0
   },
   "evolution": [],
   "variants": [],
   "weekly_shares": [
-    {
-      "week": "2026-01-19",
-      "meta_share": 0.0,
-      "deck_count": 0
-    },
-    {
-      "week": "2026-01-26",
-      "meta_share": 0.0,
-      "deck_count": 0
-    },
-    {
-      "week": "2026-02-02",
-      "meta_share": 0.0,
-      "deck_count": 0
-    },
-    {
-      "week": "2026-02-09",
-      "meta_share": 0.0,
-      "deck_count": 0
-    },
-    {
-      "week": "2026-02-16",
-      "meta_share": 0.0,
-      "deck_count": 0
-    },
-    {
-      "week": "2026-02-23",
-      "meta_share": 0.0,
-      "deck_count": 0
-    },
     {
       "week": "2026-03-02",
       "meta_share": 0.1,

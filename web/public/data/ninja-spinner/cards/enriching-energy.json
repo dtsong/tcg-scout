@@ -7,32 +7,32 @@
   "image_url": null,
   "category": "Energy",
   "rarity": null,
-  "total_appearances": 25,
-  "usage_pct": 2.8,
+  "total_appearances": 37,
+  "usage_pct": 3.3,
   "avg_copies": 1.0,
-  "unique_archetypes": 5,
-  "weighted_score": 45.9,
-  "win_rate_proxy": 1.84,
+  "unique_archetypes": 7,
+  "weighted_score": 64.1,
+  "win_rate_proxy": 1.73,
   "top_archetype": "Alakazam Dudunsparce",
   "trend_direction": "stable",
   "copy_distribution": [
     {
       "copies": 1,
-      "count": 25
+      "count": 37
     }
   ],
   "archetypes": [
     {
       "name": "Alakazam Dudunsparce",
       "slug": "alakazam-dudunsparce",
-      "usage_count": 18,
+      "usage_count": 27,
       "avg_copies": 1.0,
       "tier": "C"
     },
     {
       "name": "Latias Slowking",
       "slug": "latias-slowking",
-      "usage_count": 4,
+      "usage_count": 5,
       "avg_copies": 1.0,
       "tier": "Rogue"
     },
@@ -46,6 +46,20 @@
     {
       "name": "Metagross Slowking",
       "slug": "metagross-slowking",
+      "usage_count": 1,
+      "avg_copies": 1.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Meowth Slowking",
+      "slug": "meowth-slowking",
+      "usage_count": 1,
+      "avg_copies": 1.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Mega Slowbro Slowking",
+      "slug": "mega-slowbro-slowking",
       "usage_count": 1,
       "avg_copies": 1.0,
       "tier": "Rogue"
@@ -66,115 +80,115 @@
     },
     {
       "week": "2026-03-16",
-      "usage_pct": 3.5,
+      "usage_pct": 4.3,
       "avg_copies": 1.0
     }
   ],
   "synergy_partners": [
     {
       "card_name": "Enhanced Hammer",
-      "support": 16,
-      "lift": 33.581,
-      "jaccard": 0.615,
-      "weighted_score": 29.8
+      "support": 24,
+      "lift": 27.003,
+      "jaccard": 0.6,
+      "weighted_score": 41.4
     },
     {
       "card_name": "Alakazam",
-      "support": 19,
-      "lift": 30.815,
-      "jaccard": 0.679,
-      "weighted_score": 35.0
+      "support": 28,
+      "lift": 26.581,
+      "jaccard": 0.683,
+      "weighted_score": 49.6
     },
     {
       "card_name": "Abra",
-      "support": 18,
-      "lift": 30.583,
-      "jaccard": 0.643,
-      "weighted_score": 33.0
+      "support": 27,
+      "lift": 26.459,
+      "jaccard": 0.659,
+      "weighted_score": 47.6
     },
     {
       "card_name": "Kadabra",
-      "support": 18,
-      "lift": 30.583,
-      "jaccard": 0.643,
-      "weighted_score": 33.0
+      "support": 27,
+      "lift": 26.459,
+      "jaccard": 0.659,
+      "weighted_score": 47.6
     },
     {
       "card_name": "Sacred Ash",
-      "support": 17,
-      "lift": 21.663,
-      "jaccard": 0.472,
-      "weighted_score": 31.0
+      "support": 26,
+      "lift": 19.264,
+      "jaccard": 0.5,
+      "weighted_score": 45.6
+    },
+    {
+      "card_name": "Lucky Helmet",
+      "support": 7,
+      "lift": 15.189,
+      "jaccard": 0.159,
+      "weighted_score": 10.9
     },
     {
       "card_name": "Wondrous Patch",
-      "support": 21,
-      "lift": 14.986,
-      "jaccard": 0.389,
-      "weighted_score": 39.2
+      "support": 30,
+      "lift": 13.402,
+      "jaccard": 0.4,
+      "weighted_score": 50.9
     },
     {
       "card_name": "Dudunsparce",
-      "support": 19,
-      "lift": 13.558,
-      "jaccard": 0.339,
-      "weighted_score": 35.0
+      "support": 28,
+      "lift": 12.327,
+      "jaccard": 0.359,
+      "weighted_score": 49.6
     },
     {
       "card_name": "Dunsparce",
-      "support": 19,
-      "lift": 13.558,
-      "jaccard": 0.339,
-      "weighted_score": 35.0
+      "support": 28,
+      "lift": 12.327,
+      "jaccard": 0.359,
+      "weighted_score": 49.6
     },
     {
       "card_name": "Kyurem",
-      "support": 6,
-      "lift": 13.38,
-      "jaccard": 0.171,
-      "weighted_score": 10.9
+      "support": 9,
+      "lift": 11.392,
+      "jaccard": 0.173,
+      "weighted_score": 14.5
     },
     {
       "card_name": "Slowking",
-      "support": 6,
-      "lift": 13.38,
-      "jaccard": 0.171,
-      "weighted_score": 10.9
-    },
-    {
-      "card_name": "Academy at Night",
-      "support": 6,
-      "lift": 12.593,
-      "jaccard": 0.167,
-      "weighted_score": 10.9
-    },
-    {
-      "card_name": "Annihilape",
-      "support": 5,
-      "lift": 11.893,
-      "jaccard": 0.143,
-      "weighted_score": 8.9
-    },
-    {
-      "card_name": "Fan Rotom",
-      "support": 15,
-      "lift": 11.893,
-      "jaccard": 0.273,
-      "weighted_score": 27.8
-    },
-    {
-      "card_name": "Slowpoke",
-      "support": 6,
-      "lift": 11.893,
-      "jaccard": 0.162,
-      "weighted_score": 10.9
+      "support": 9,
+      "lift": 11.392,
+      "jaccard": 0.173,
+      "weighted_score": 14.5
     },
     {
       "card_name": "Telepath Psychic Energy",
-      "support": 24,
-      "lift": 11.572,
-      "jaccard": 0.32,
-      "weighted_score": 43.9
+      "support": 36,
+      "lift": 10.722,
+      "jaccard": 0.35,
+      "weighted_score": 62.1
+    },
+    {
+      "card_name": "Annihilape",
+      "support": 7,
+      "lift": 10.632,
+      "jaccard": 0.14,
+      "weighted_score": 11.3
+    },
+    {
+      "card_name": "Academy at Night",
+      "support": 9,
+      "lift": 10.516,
+      "jaccard": 0.167,
+      "weighted_score": 14.5
+    },
+    {
+      "card_name": "Slowpoke",
+      "support": 9,
+      "lift": 10.516,
+      "jaccard": 0.167,
+      "weighted_score": 14.5
     }
   ]
 }

@@ -3,7 +3,7 @@
   "slug": "dragapult-munkidori",
   "tier": "Rogue",
   "meta_share": 0.3,
-  "weighted_share": 0.3,
+  "weighted_share": 0.2,
   "deck_count": 3,
   "best_placement": 3,
   "sprite_filenames": [
@@ -829,11 +829,11 @@
     }
   ],
   "radar": {
-    "meta_share": 1.7,
-    "weighted_share": 1.6,
+    "meta_share": 1.4,
+    "weighted_share": 1.2,
     "consistency": 56.7,
     "ceiling": 75,
-    "popularity": 3.3,
+    "popularity": 2.4,
     "core_density": 48.6
   },
   "evolution": [
@@ -841,22 +841,7 @@
       "week": "2026-03-16",
       "adopted": [
         {
-          "card": "Chi-Yu",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
           "card": "Rare Candy",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Blaziken ex",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Torchic",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -866,14 +851,29 @@
           "to_pct": 100.0
         },
         {
+          "card": "Blaziken ex",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
           "card": "Pokégear 3.0",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Chi-Yu",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Torchic",
           "from_pct": 0.0,
           "to_pct": 100.0
         }
       ],
       "dropped": [
         {
-          "card": "Latias ex",
+          "card": "Team Rocket's Watchtower",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -888,17 +888,12 @@
           "to_pct": 0.0
         },
         {
-          "card": "Team Rocket's Watchtower",
+          "card": "Latias ex",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Maractus",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Brock's Scouting",
+          "card": "Psyduck",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -908,17 +903,22 @@
           "to_pct": 0.0
         },
         {
+          "card": "Dawn",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Brock's Scouting",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
           "card": "Shaymin",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
-          "card": "Psyduck",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Dawn",
+          "card": "Maractus",
           "from_pct": 50.0,
           "to_pct": 0.0
         }
@@ -934,7 +934,7 @@
     },
     {
       "week": "2026-03-16",
-      "meta_share": 0.4,
+      "meta_share": 0.2,
       "deck_count": 1
     }
   ],

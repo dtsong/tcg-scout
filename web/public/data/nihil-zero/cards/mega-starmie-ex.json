@@ -7,92 +7,46 @@
   "image_url": null,
   "category": "Pokemon",
   "rarity": null,
-  "total_appearances": 79,
-  "usage_pct": 1.2,
-  "avg_copies": 2.1,
-  "unique_archetypes": 9,
-  "weighted_score": 121.5,
-  "win_rate_proxy": 1.54,
+  "total_appearances": 4,
+  "usage_pct": 0.3,
+  "avg_copies": 2.2,
+  "unique_archetypes": 3,
+  "weighted_score": 5.1,
+  "win_rate_proxy": 1.27,
   "top_archetype": "Mega Froslass Mega Starmie",
   "trend_direction": "stable",
   "copy_distribution": [
     {
       "copies": 1,
-      "count": 6
+      "count": 1
     },
     {
       "copies": 2,
-      "count": 59
+      "count": 1
     },
     {
       "copies": 3,
-      "count": 13
-    },
-    {
-      "copies": 4,
-      "count": 1
+      "count": 2
     }
   ],
   "archetypes": [
     {
       "name": "Mega Froslass Mega Starmie",
       "slug": "mega-froslass-mega-starmie",
-      "usage_count": 62,
-      "avg_copies": 2.1,
-      "tier": "B"
+      "usage_count": 2,
+      "avg_copies": 2.5,
+      "tier": "Rogue"
     },
     {
       "name": "Mega Starmie Dusknoir",
       "slug": "mega-starmie-dusknoir",
-      "usage_count": 5,
+      "usage_count": 1,
       "avg_copies": 3.0,
       "tier": "Rogue"
     },
     {
       "name": "Dusknoir Greninja",
       "slug": "dusknoir-greninja",
-      "usage_count": 5,
-      "avg_copies": 1.0,
-      "tier": "Rogue"
-    },
-    {
-      "name": "Mega Starmie Greninja",
-      "slug": "mega-starmie-greninja",
-      "usage_count": 2,
-      "avg_copies": 2.0,
-      "tier": "Rogue"
-    },
-    {
-      "name": "Mega Starmie Froslass",
-      "slug": "mega-starmie-froslass",
-      "usage_count": 1,
-      "avg_copies": 3.0,
-      "tier": "Rogue"
-    },
-    {
-      "name": "Mega Starmie Drakloak",
-      "slug": "mega-starmie-drakloak",
-      "usage_count": 1,
-      "avg_copies": 3.0,
-      "tier": "Rogue"
-    },
-    {
-      "name": "Mega Starmie Dragapult",
-      "slug": "mega-starmie-dragapult",
-      "usage_count": 1,
-      "avg_copies": 2.0,
-      "tier": "Rogue"
-    },
-    {
-      "name": "Mega Dragonite Mega Starmie",
-      "slug": "mega-dragonite-mega-starmie",
-      "usage_count": 1,
-      "avg_copies": 2.0,
-      "tier": "Rogue"
-    },
-    {
-      "name": "Greninja Noctowl",
-      "slug": "greninja-noctowl",
       "usage_count": 1,
       "avg_copies": 1.0,
       "tier": "Rogue"
@@ -100,146 +54,9 @@
   ],
   "weekly_usage": [
     {
-      "week": "2026-01-19",
-      "usage_pct": 4.8,
-      "avg_copies": 2.2
-    },
-    {
-      "week": "2026-01-26",
-      "usage_pct": 2.6,
-      "avg_copies": 2.1
-    },
-    {
-      "week": "2026-02-02",
-      "usage_pct": 0.7,
-      "avg_copies": 2.1
-    },
-    {
-      "week": "2026-02-09",
-      "usage_pct": 0.3,
-      "avg_copies": 2.0
-    },
-    {
-      "week": "2026-02-16",
-      "usage_pct": 0.0,
-      "avg_copies": 0
-    },
-    {
-      "week": "2026-02-23",
-      "usage_pct": 0.2,
-      "avg_copies": 2.0
-    },
-    {
       "week": "2026-03-02",
       "usage_pct": 0.3,
       "avg_copies": 2.2
-    }
-  ],
-  "synergy_partners": [
-    {
-      "card_name": "Glalie",
-      "support": 5,
-      "lift": 30.542,
-      "jaccard": 0.057,
-      "weighted_score": 6.6
-    },
-    {
-      "card_name": "Mega Signal",
-      "support": 34,
-      "lift": 21.224,
-      "jaccard": 0.187,
-      "weighted_score": 53.9
-    },
-    {
-      "card_name": "Mega Froslass ex",
-      "support": 64,
-      "lift": 17.486,
-      "jaccard": 0.195,
-      "weighted_score": 100.0
-    },
-    {
-      "card_name": "Maractus",
-      "support": 24,
-      "lift": 16.962,
-      "jaccard": 0.136,
-      "weighted_score": 37.7
-    },
-    {
-      "card_name": "Surfing Beach",
-      "support": 12,
-      "lift": 14.873,
-      "jaccard": 0.088,
-      "weighted_score": 17.1
-    },
-    {
-      "card_name": "Froslass",
-      "support": 63,
-      "lift": 8.114,
-      "jaccard": 0.093,
-      "weighted_score": 97.7
-    },
-    {
-      "card_name": "Snorunt",
-      "support": 65,
-      "lift": 7.731,
-      "jaccard": 0.089,
-      "weighted_score": 101.2
-    },
-    {
-      "card_name": "Risky Ruins",
-      "support": 55,
-      "lift": 7.55,
-      "jaccard": 0.085,
-      "weighted_score": 86.9
-    },
-    {
-      "card_name": "Frogadier",
-      "support": 8,
-      "lift": 7.518,
-      "jaccard": 0.049,
-      "weighted_score": 13.1
-    },
-    {
-      "card_name": "Froakie",
-      "support": 8,
-      "lift": 7.356,
-      "jaccard": 0.049,
-      "weighted_score": 13.1
-    },
-    {
-      "card_name": "Greninja ex",
-      "support": 8,
-      "lift": 7.356,
-      "jaccard": 0.049,
-      "weighted_score": 13.1
-    },
-    {
-      "card_name": "Salvatore",
-      "support": 7,
-      "lift": 6.301,
-      "jaccard": 0.042,
-      "weighted_score": 10.0
-    },
-    {
-      "card_name": "Tatsugiri",
-      "support": 37,
-      "lift": 6.278,
-      "jaccard": 0.068,
-      "weighted_score": 57.2
-    },
-    {
-      "card_name": "Grand Tree",
-      "support": 6,
-      "lift": 5.577,
-      "jaccard": 0.036,
-      "weighted_score": 9.6
-    },
-    {
-      "card_name": "Ignition Energy",
-      "support": 30,
-      "lift": 5.413,
-      "jaccard": 0.057,
-      "weighted_score": 43.9
     }
   ]
 }

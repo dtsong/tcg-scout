@@ -1,0 +1,584 @@
+{
+  "archetype": "Garchomp",
+  "slug": "garchomp",
+  "tier": "Rogue",
+  "meta_share": 0.1,
+  "weighted_share": 0.1,
+  "deck_count": 1,
+  "best_placement": 7,
+  "sprite_filenames": [
+    "garchomp.png"
+  ],
+  "core_cards": [
+    {
+      "card_name": "Unfair Stamp",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Team Rocket's Watchtower",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Team Rocket's Petrel",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Switch",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Special Red Card",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Rock Fighting Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Energy"
+    },
+    {
+      "card_name": "Rare Candy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Psyduck",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Premium Power Pro",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Pokégear 3.0",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Poké Pad",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Night Stretcher",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Munkidori",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Lillie's Determination",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Fighting Gong",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Fighting Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 6.0,
+      "decks_with": 1,
+      "category": "Energy"
+    },
+    {
+      "card_name": "Darkness Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Energy"
+    },
+    {
+      "card_name": "Cynthia's Spiritomb",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Cynthia's Roserade",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Cynthia's Roselia",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Cynthia's Power Weight",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Cynthia's Gible",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Cynthia's Garchomp ex",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Cynthia's Gabite",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Crispin",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Cornerstone Mask Ogerpon ex",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Buddy-Buddy Poffin",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Boss's Orders",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    }
+  ],
+  "all_cards": [
+    {
+      "card_name": "Unfair Stamp",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Team Rocket's Watchtower",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Team Rocket's Petrel",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Switch",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Special Red Card",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Rock Fighting Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Energy"
+    },
+    {
+      "card_name": "Rare Candy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Psyduck",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Premium Power Pro",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Pokégear 3.0",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Poké Pad",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Night Stretcher",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Munkidori",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Lillie's Determination",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Fighting Gong",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Fighting Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 6.0,
+      "decks_with": 1,
+      "category": "Energy"
+    },
+    {
+      "card_name": "Darkness Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Energy"
+    },
+    {
+      "card_name": "Cynthia's Spiritomb",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Cynthia's Roserade",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Cynthia's Roselia",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Cynthia's Power Weight",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Cynthia's Gible",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Cynthia's Garchomp ex",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Cynthia's Gabite",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Crispin",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Cornerstone Mask Ogerpon ex",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Buddy-Buddy Poffin",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Boss's Orders",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    }
+  ],
+  "results": [
+    {
+      "tournament_name": "City League Ōsaka",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4342",
+      "date": "2026-03-20",
+      "standing": 7,
+      "player_name": "でって",
+      "decklist": [
+        {
+          "card_name": "Munkidori",
+          "count": 2,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Psyduck",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Cornerstone Mask Ogerpon ex",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Cynthia's Gible",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Cynthia's Gabite",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Fighting Gong",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Lillie's Determination",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Poké Pad",
+          "count": 3,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Cynthia's Garchomp ex",
+          "count": 3,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Cynthia's Power Weight",
+          "count": 3,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Buddy-Buddy Poffin",
+          "count": 3,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Night Stretcher",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Team Rocket's Watchtower",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Boss's Orders",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Premium Power Pro",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Crispin",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Cynthia's Spiritomb",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Team Rocket's Petrel",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Cynthia's Roselia",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Cynthia's Roserade",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Rare Candy",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Switch",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Pokégear 3.0",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Unfair Stamp",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Special Red Card",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Fighting Energy",
+          "count": 6,
+          "category": "Energy"
+        },
+        {
+          "card_name": "Darkness Energy",
+          "count": 2,
+          "category": "Energy"
+        },
+        {
+          "card_name": "Rock Fighting Energy",
+          "count": 1,
+          "category": "Energy"
+        }
+      ]
+    }
+  ],
+  "radar": {
+    "meta_share": 0.4,
+    "weighted_share": 0.4,
+    "consistency": 70.0,
+    "ceiling": 50,
+    "popularity": 0.8,
+    "core_density": 100.0
+  },
+  "evolution": [],
+  "variants": [],
+  "weekly_shares": [
+    {
+      "week": "2026-03-09",
+      "meta_share": 0.0,
+      "deck_count": 0
+    },
+    {
+      "week": "2026-03-16",
+      "meta_share": 0.2,
+      "deck_count": 1
+    }
+  ],
+  "top4_card_stats": [],
+  "top4_sample_size": 0,
+  "top4_low_sample": true
+}

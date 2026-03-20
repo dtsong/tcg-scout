@@ -2,9 +2,9 @@
   "archetype": "Alakazam Dudunsparce",
   "slug": "alakazam-dudunsparce",
   "tier": "B",
-  "meta_share": 5.0,
-  "weighted_share": 5.2,
-  "deck_count": 337,
+  "meta_share": 4.2,
+  "weighted_share": 4.8,
+  "deck_count": 50,
   "best_placement": 1,
   "sprite_filenames": [
     "alakazam.png",
@@ -12,655 +12,466 @@
   ],
   "core_cards": [
     {
+      "card_name": "Telepath Psychic Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.9,
+      "decks_with": 50,
+      "category": "Energy"
+    },
+    {
       "card_name": "Rare Candy",
       "inclusion_pct": 100.0,
-      "avg_copies": 3.5,
-      "decks_with": 337,
+      "avg_copies": 3.3,
+      "decks_with": 50,
       "category": "Trainer"
     },
     {
       "card_name": "Psychic Energy",
       "inclusion_pct": 100.0,
-      "avg_copies": 2.8,
-      "decks_with": 337,
+      "avg_copies": 2.2,
+      "decks_with": 50,
       "category": "Energy"
     },
     {
       "card_name": "Poké Pad",
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
-      "decks_with": 337,
+      "decks_with": 50,
       "category": "Trainer"
     },
     {
       "card_name": "Kadabra",
       "inclusion_pct": 100.0,
-      "avg_copies": 3.7,
-      "decks_with": 337,
+      "avg_copies": 3.9,
+      "decks_with": 50,
       "category": "Pokemon"
+    },
+    {
+      "card_name": "Hilda",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.7,
+      "decks_with": 50,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Enriching Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 50,
+      "category": "Energy"
     },
     {
       "card_name": "Dunsparce",
       "inclusion_pct": 100.0,
-      "avg_copies": 3.6,
-      "decks_with": 337,
+      "avg_copies": 3.3,
+      "decks_with": 50,
       "category": "Pokemon"
     },
     {
       "card_name": "Dudunsparce",
       "inclusion_pct": 100.0,
-      "avg_copies": 3.2,
-      "decks_with": 337,
+      "avg_copies": 3.0,
+      "decks_with": 50,
       "category": "Pokemon"
     },
     {
       "card_name": "Dawn",
       "inclusion_pct": 100.0,
-      "avg_copies": 3.2,
-      "decks_with": 337,
+      "avg_copies": 3.1,
+      "decks_with": 50,
       "category": "Trainer"
     },
     {
       "card_name": "Buddy-Buddy Poffin",
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
-      "decks_with": 337,
+      "decks_with": 50,
       "category": "Trainer"
     },
     {
       "card_name": "Boss's Orders",
       "inclusion_pct": 100.0,
-      "avg_copies": 3.0,
-      "decks_with": 337,
+      "avg_copies": 2.9,
+      "decks_with": 50,
       "category": "Trainer"
     },
     {
       "card_name": "Battle Cage",
       "inclusion_pct": 100.0,
-      "avg_copies": 3.5,
-      "decks_with": 337,
+      "avg_copies": 3.4,
+      "decks_with": 50,
       "category": "Trainer"
     },
     {
       "card_name": "Alakazam",
       "inclusion_pct": 100.0,
       "avg_copies": 3.4,
-      "decks_with": 337,
+      "decks_with": 50,
       "category": "Pokemon"
     },
     {
       "card_name": "Abra",
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
-      "decks_with": 337,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Hilda",
-      "inclusion_pct": 99.4,
-      "avg_copies": 3.8,
-      "decks_with": 335,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Enriching Energy",
-      "inclusion_pct": 97.9,
-      "avg_copies": 1.0,
-      "decks_with": 330,
-      "category": "Energy"
-    },
-    {
-      "card_name": "Telepath Psychic Energy",
-      "inclusion_pct": 96.1,
-      "avg_copies": 2.4,
-      "decks_with": 324,
-      "category": "Energy"
-    },
-    {
-      "card_name": "Shaymin",
-      "inclusion_pct": 95.3,
-      "avg_copies": 1.0,
-      "decks_with": 321,
+      "decks_with": 50,
       "category": "Pokemon"
     },
     {
       "card_name": "Psyduck",
-      "inclusion_pct": 92.0,
+      "inclusion_pct": 98.0,
       "avg_copies": 1.0,
-      "decks_with": 310,
+      "decks_with": 49,
       "category": "Pokemon"
     },
     {
-      "card_name": "Wondrous Patch",
-      "inclusion_pct": 88.7,
-      "avg_copies": 1.8,
-      "decks_with": 299,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Night Stretcher",
-      "inclusion_pct": 86.9,
-      "avg_copies": 1.4,
-      "decks_with": 293,
-      "category": "Trainer"
+      "card_name": "Shaymin",
+      "inclusion_pct": 96.0,
+      "avg_copies": 1.0,
+      "decks_with": 48,
+      "category": "Pokemon"
     },
     {
       "card_name": "Sacred Ash",
-      "inclusion_pct": 84.0,
-      "avg_copies": 1.1,
-      "decks_with": 283,
+      "inclusion_pct": 94.0,
+      "avg_copies": 1.0,
+      "decks_with": 47,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Enhanced Hammer",
+      "inclusion_pct": 86.0,
+      "avg_copies": 1.7,
+      "decks_with": 43,
       "category": "Trainer"
     }
   ],
   "all_cards": [
     {
+      "card_name": "Telepath Psychic Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.9,
+      "decks_with": 50,
+      "category": "Energy"
+    },
+    {
       "card_name": "Rare Candy",
       "inclusion_pct": 100.0,
-      "avg_copies": 3.5,
-      "decks_with": 337,
+      "avg_copies": 3.3,
+      "decks_with": 50,
       "category": "Trainer"
     },
     {
       "card_name": "Psychic Energy",
       "inclusion_pct": 100.0,
-      "avg_copies": 2.8,
-      "decks_with": 337,
+      "avg_copies": 2.2,
+      "decks_with": 50,
       "category": "Energy"
     },
     {
       "card_name": "Poké Pad",
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
-      "decks_with": 337,
+      "decks_with": 50,
       "category": "Trainer"
     },
     {
       "card_name": "Kadabra",
       "inclusion_pct": 100.0,
-      "avg_copies": 3.7,
-      "decks_with": 337,
+      "avg_copies": 3.9,
+      "decks_with": 50,
       "category": "Pokemon"
+    },
+    {
+      "card_name": "Hilda",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.7,
+      "decks_with": 50,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Enriching Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 50,
+      "category": "Energy"
     },
     {
       "card_name": "Dunsparce",
       "inclusion_pct": 100.0,
-      "avg_copies": 3.6,
-      "decks_with": 337,
+      "avg_copies": 3.3,
+      "decks_with": 50,
       "category": "Pokemon"
     },
     {
       "card_name": "Dudunsparce",
       "inclusion_pct": 100.0,
-      "avg_copies": 3.2,
-      "decks_with": 337,
+      "avg_copies": 3.0,
+      "decks_with": 50,
       "category": "Pokemon"
     },
     {
       "card_name": "Dawn",
       "inclusion_pct": 100.0,
-      "avg_copies": 3.2,
-      "decks_with": 337,
+      "avg_copies": 3.1,
+      "decks_with": 50,
       "category": "Trainer"
     },
     {
       "card_name": "Buddy-Buddy Poffin",
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
-      "decks_with": 337,
+      "decks_with": 50,
       "category": "Trainer"
     },
     {
       "card_name": "Boss's Orders",
       "inclusion_pct": 100.0,
-      "avg_copies": 3.0,
-      "decks_with": 337,
+      "avg_copies": 2.9,
+      "decks_with": 50,
       "category": "Trainer"
     },
     {
       "card_name": "Battle Cage",
       "inclusion_pct": 100.0,
-      "avg_copies": 3.5,
-      "decks_with": 337,
+      "avg_copies": 3.4,
+      "decks_with": 50,
       "category": "Trainer"
     },
     {
       "card_name": "Alakazam",
       "inclusion_pct": 100.0,
       "avg_copies": 3.4,
-      "decks_with": 337,
+      "decks_with": 50,
       "category": "Pokemon"
     },
     {
       "card_name": "Abra",
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
-      "decks_with": 337,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Hilda",
-      "inclusion_pct": 99.4,
-      "avg_copies": 3.8,
-      "decks_with": 335,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Enriching Energy",
-      "inclusion_pct": 97.9,
-      "avg_copies": 1.0,
-      "decks_with": 330,
-      "category": "Energy"
-    },
-    {
-      "card_name": "Telepath Psychic Energy",
-      "inclusion_pct": 96.1,
-      "avg_copies": 2.4,
-      "decks_with": 324,
-      "category": "Energy"
-    },
-    {
-      "card_name": "Shaymin",
-      "inclusion_pct": 95.3,
-      "avg_copies": 1.0,
-      "decks_with": 321,
+      "decks_with": 50,
       "category": "Pokemon"
     },
     {
       "card_name": "Psyduck",
-      "inclusion_pct": 92.0,
+      "inclusion_pct": 98.0,
       "avg_copies": 1.0,
-      "decks_with": 310,
+      "decks_with": 49,
       "category": "Pokemon"
     },
     {
-      "card_name": "Wondrous Patch",
-      "inclusion_pct": 88.7,
-      "avg_copies": 1.8,
-      "decks_with": 299,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Night Stretcher",
-      "inclusion_pct": 86.9,
-      "avg_copies": 1.4,
-      "decks_with": 293,
-      "category": "Trainer"
+      "card_name": "Shaymin",
+      "inclusion_pct": 96.0,
+      "avg_copies": 1.0,
+      "decks_with": 48,
+      "category": "Pokemon"
     },
     {
       "card_name": "Sacred Ash",
-      "inclusion_pct": 84.0,
-      "avg_copies": 1.1,
-      "decks_with": 283,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Lana's Aid",
-      "inclusion_pct": 77.4,
+      "inclusion_pct": 94.0,
       "avg_copies": 1.0,
-      "decks_with": 261,
+      "decks_with": 47,
       "category": "Trainer"
     },
     {
       "card_name": "Enhanced Hammer",
-      "inclusion_pct": 76.9,
-      "avg_copies": 1.4,
-      "decks_with": 259,
+      "inclusion_pct": 86.0,
+      "avg_copies": 1.7,
+      "decks_with": 43,
       "category": "Trainer"
     },
     {
-      "card_name": "Fan Rotom",
-      "inclusion_pct": 73.3,
-      "avg_copies": 1.1,
-      "decks_with": 247,
-      "category": "Pokemon"
+      "card_name": "Night Stretcher",
+      "inclusion_pct": 78.0,
+      "avg_copies": 1.4,
+      "decks_with": 39,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Wondrous Patch",
+      "inclusion_pct": 74.0,
+      "avg_copies": 1.4,
+      "decks_with": 37,
+      "category": "Trainer"
     },
     {
       "card_name": "Fezandipiti ex",
-      "inclusion_pct": 72.7,
+      "inclusion_pct": 74.0,
       "avg_copies": 1.0,
-      "decks_with": 245,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Togepi",
-      "inclusion_pct": 22.0,
-      "avg_copies": 1.0,
-      "decks_with": 74,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Togekiss",
-      "inclusion_pct": 22.0,
-      "avg_copies": 1.0,
-      "decks_with": 74,
+      "decks_with": 37,
       "category": "Pokemon"
     },
     {
       "card_name": "Genesect",
-      "inclusion_pct": 21.1,
+      "inclusion_pct": 70.0,
       "avg_copies": 1.0,
-      "decks_with": 71,
+      "decks_with": 35,
       "category": "Pokemon"
+    },
+    {
+      "card_name": "Lana's Aid",
+      "inclusion_pct": 68.0,
+      "avg_copies": 1.0,
+      "decks_with": 34,
+      "category": "Trainer"
     },
     {
       "card_name": "Lucky Helmet",
-      "inclusion_pct": 17.2,
-      "avg_copies": 2.7,
-      "decks_with": 58,
+      "inclusion_pct": 60.0,
+      "avg_copies": 2.6,
+      "decks_with": 30,
       "category": "Trainer"
     },
     {
-      "card_name": "Lillie's Clefairy ex",
-      "inclusion_pct": 15.7,
+      "card_name": "Fan Rotom",
+      "inclusion_pct": 42.0,
       "avg_copies": 1.0,
-      "decks_with": 53,
+      "decks_with": 21,
       "category": "Pokemon"
-    },
-    {
-      "card_name": "Tool Scrapper",
-      "inclusion_pct": 8.3,
-      "avg_copies": 1.0,
-      "decks_with": 28,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Lillie's Determination",
-      "inclusion_pct": 6.8,
-      "avg_copies": 1.8,
-      "decks_with": 23,
-      "category": "Trainer"
     },
     {
       "card_name": "Air Balloon",
-      "inclusion_pct": 6.8,
-      "avg_copies": 2.2,
-      "decks_with": 23,
+      "inclusion_pct": 18.0,
+      "avg_copies": 2.3,
+      "decks_with": 9,
       "category": "Trainer"
     },
     {
-      "card_name": "Switch",
-      "inclusion_pct": 6.2,
+      "card_name": "Togepi",
+      "inclusion_pct": 10.0,
       "avg_copies": 1.0,
-      "decks_with": 21,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Duskull",
-      "inclusion_pct": 4.2,
-      "avg_copies": 1.2,
-      "decks_with": 14,
+      "decks_with": 5,
       "category": "Pokemon"
     },
     {
-      "card_name": "Dusknoir",
-      "inclusion_pct": 4.2,
-      "avg_copies": 1.1,
-      "decks_with": 14,
+      "card_name": "Togekiss",
+      "inclusion_pct": 10.0,
+      "avg_copies": 1.0,
+      "decks_with": 5,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Mega Lopunny ex",
+      "inclusion_pct": 8.0,
+      "avg_copies": 1.0,
+      "decks_with": 4,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Lillie's Clefairy ex",
+      "inclusion_pct": 8.0,
+      "avg_copies": 1.0,
+      "decks_with": 4,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Buneary",
+      "inclusion_pct": 8.0,
+      "avg_copies": 1.0,
+      "decks_with": 4,
       "category": "Pokemon"
     },
     {
       "card_name": "Xerosic's Machinations",
-      "inclusion_pct": 3.9,
-      "avg_copies": 1.0,
-      "decks_with": 13,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Mega Lopunny ex",
-      "inclusion_pct": 3.3,
-      "avg_copies": 1.0,
-      "decks_with": 11,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Buneary",
-      "inclusion_pct": 3.3,
-      "avg_copies": 1.0,
-      "decks_with": 11,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Budew",
-      "inclusion_pct": 3.3,
-      "avg_copies": 1.0,
-      "decks_with": 11,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Jamming Tower",
-      "inclusion_pct": 3.0,
-      "avg_copies": 1.0,
-      "decks_with": 10,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Hop's Cramorant",
-      "inclusion_pct": 2.4,
-      "avg_copies": 1.0,
-      "decks_with": 8,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Colress's Tenacity",
-      "inclusion_pct": 2.1,
-      "avg_copies": 1.0,
-      "decks_with": 7,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Morty's Conviction",
-      "inclusion_pct": 1.8,
-      "avg_copies": 1.5,
-      "decks_with": 6,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Dusk Ball",
-      "inclusion_pct": 1.8,
-      "avg_copies": 1.2,
-      "decks_with": 6,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Ruffian",
-      "inclusion_pct": 1.5,
-      "avg_copies": 1.0,
-      "decks_with": 5,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Ultra Ball",
-      "inclusion_pct": 1.2,
-      "avg_copies": 1.2,
-      "decks_with": 4,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Max Rod",
-      "inclusion_pct": 1.2,
-      "avg_copies": 1.0,
-      "decks_with": 4,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Lillie's Pearl",
-      "inclusion_pct": 1.2,
-      "avg_copies": 1.0,
-      "decks_with": 4,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Dudunsparce ex",
-      "inclusion_pct": 1.2,
-      "avg_copies": 1.0,
-      "decks_with": 4,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Team Rocket's Petrel",
-      "inclusion_pct": 0.9,
+      "inclusion_pct": 6.0,
       "avg_copies": 1.0,
       "decks_with": 3,
       "category": "Trainer"
     },
     {
-      "card_name": "Nighttime Mine",
-      "inclusion_pct": 0.9,
-      "avg_copies": 1.3,
-      "decks_with": 3,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Mist Energy",
-      "inclusion_pct": 0.9,
+      "card_name": "Switch",
+      "inclusion_pct": 4.0,
       "avg_copies": 1.0,
-      "decks_with": 3,
-      "category": "Energy"
-    },
-    {
-      "card_name": "Meddling Memo",
-      "inclusion_pct": 0.9,
-      "avg_copies": 1.0,
-      "decks_with": 3,
+      "decks_with": 2,
       "category": "Trainer"
     },
     {
       "card_name": "Handheld Fan",
-      "inclusion_pct": 0.9,
-      "avg_copies": 2.0,
-      "decks_with": 3,
+      "inclusion_pct": 4.0,
+      "avg_copies": 2.5,
+      "decks_with": 2,
       "category": "Trainer"
     },
     {
-      "card_name": "Maractus",
-      "inclusion_pct": 0.6,
+      "card_name": "Team Rocket's Petrel",
+      "inclusion_pct": 2.0,
       "avg_copies": 1.0,
-      "decks_with": 2,
-      "category": "Pokemon"
+      "decks_with": 1,
+      "category": "Trainer"
     },
     {
-      "card_name": "Legacy Energy",
-      "inclusion_pct": 0.6,
+      "card_name": "Ruffian",
+      "inclusion_pct": 2.0,
       "avg_copies": 1.0,
-      "decks_with": 2,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Mist Energy",
+      "inclusion_pct": 2.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
       "category": "Energy"
     },
     {
-      "card_name": "Ignition Energy",
-      "inclusion_pct": 0.6,
-      "avg_copies": 1.0,
-      "decks_with": 2,
-      "category": "Energy"
-    },
-    {
-      "card_name": "Fighting Energy",
-      "inclusion_pct": 0.6,
-      "avg_copies": 1.0,
-      "decks_with": 2,
-      "category": "Energy"
-    },
-    {
-      "card_name": "Elgyem",
-      "inclusion_pct": 0.6,
-      "avg_copies": 2.0,
-      "decks_with": 2,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Dusclops",
-      "inclusion_pct": 0.6,
-      "avg_copies": 1.0,
-      "decks_with": 2,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Cornerstone Mask Ogerpon ex",
-      "inclusion_pct": 0.6,
-      "avg_copies": 1.0,
-      "decks_with": 2,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Ciphermaniac's Codebreaking",
-      "inclusion_pct": 0.6,
-      "avg_copies": 1.0,
-      "decks_with": 2,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Survival Brace",
-      "inclusion_pct": 0.3,
+      "card_name": "Meddling Memo",
+      "inclusion_pct": 2.0,
       "avg_copies": 1.0,
       "decks_with": 1,
       "category": "Trainer"
     },
     {
-      "card_name": "Mega Diancie ex",
-      "inclusion_pct": 0.3,
-      "avg_copies": 1.0,
-      "decks_with": 1,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Kyurem",
-      "inclusion_pct": 0.3,
-      "avg_copies": 1.0,
-      "decks_with": 1,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Hop's Choice Band",
-      "inclusion_pct": 0.3,
-      "avg_copies": 1.0,
-      "decks_with": 1,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Gravity Mountain",
-      "inclusion_pct": 0.3,
+      "card_name": "Lillie's Determination",
+      "inclusion_pct": 2.0,
       "avg_copies": 1.0,
       "decks_with": 1,
       "category": "Trainer"
     },
     {
       "card_name": "Gothitelle",
-      "inclusion_pct": 0.3,
+      "inclusion_pct": 2.0,
       "avg_copies": 1.0,
       "decks_with": 1,
       "category": "Pokemon"
     },
     {
       "card_name": "Gothita",
-      "inclusion_pct": 0.3,
+      "inclusion_pct": 2.0,
       "avg_copies": 1.0,
       "decks_with": 1,
       "category": "Pokemon"
     },
     {
-      "card_name": "Eri",
-      "inclusion_pct": 0.3,
+      "card_name": "Duskull",
+      "inclusion_pct": 2.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Trainer"
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Dusknoir",
+      "inclusion_pct": 2.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Pokemon"
     },
     {
       "card_name": "Crushing Hammer",
-      "inclusion_pct": 0.3,
+      "inclusion_pct": 2.0,
       "avg_copies": 2.0,
       "decks_with": 1,
       "category": "Trainer"
     },
     {
-      "card_name": "Bloodmoon Ursaluna ex",
-      "inclusion_pct": 0.3,
+      "card_name": "Colress's Tenacity",
+      "inclusion_pct": 2.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
-      "card_name": "Beheeyem",
-      "inclusion_pct": 0.3,
-      "avg_copies": 2.0,
+      "card_name": "Budew",
+      "inclusion_pct": 2.0,
+      "avg_copies": 1.0,
       "decks_with": 1,
       "category": "Pokemon"
     }
@@ -1481,17 +1292,151 @@
       ]
     },
     {
-      "tournament_name": "City League Ōsaka",
-      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4198",
-      "date": "2026-03-04",
-      "standing": 1,
-      "player_name": "ヨリタ",
+      "tournament_name": "City League Kagawa",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4270",
+      "date": "2026-03-08",
+      "standing": 2,
+      "player_name": "fish",
       "decklist": [
         {
-          "card_name": "Dunsparce",
+          "card_name": "Kadabra",
           "count": 4,
           "category": "Pokemon"
         },
+        {
+          "card_name": "Dunsparce",
+          "count": 3,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Abra",
+          "count": 3,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Alakazam",
+          "count": 3,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Dudunsparce",
+          "count": 3,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Psyduck",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Shaymin",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Buneary",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Mega Lopunny ex",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Fan Rotom",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Genesect",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Abra",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Poké Pad",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Buddy-Buddy Poffin",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Boss's Orders",
+          "count": 3,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Rare Candy",
+          "count": 3,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Battle Cage",
+          "count": 3,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Dawn",
+          "count": 3,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Hilda",
+          "count": 3,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Night Stretcher",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Enhanced Hammer",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Lucky Helmet",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Sacred Ash",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Telepath Psychic Energy",
+          "count": 4,
+          "category": "Energy"
+        },
+        {
+          "card_name": "Psychic Energy",
+          "count": 2,
+          "category": "Energy"
+        },
+        {
+          "card_name": "Enriching Energy",
+          "count": 1,
+          "category": "Energy"
+        }
+      ]
+    },
+    {
+      "tournament_name": "City League Okinawa",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4268",
+      "date": "2026-03-08",
+      "standing": 2,
+      "player_name": "し　ょ　う　じ　き",
+      "decklist": [
         {
           "card_name": "Abra",
           "count": 4,
@@ -1508,8 +1453,18 @@
           "category": "Pokemon"
         },
         {
+          "card_name": "Dunsparce",
+          "count": 3,
+          "category": "Pokemon"
+        },
+        {
           "card_name": "Alakazam",
           "count": 3,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Fezandipiti ex",
+          "count": 1,
           "category": "Pokemon"
         },
         {
@@ -1528,136 +1483,12 @@
           "category": "Pokemon"
         },
         {
-          "card_name": "Genesect",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Poké Pad",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Buddy-Buddy Poffin",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Hilda",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Boss's Orders",
-          "count": 3,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Rare Candy",
-          "count": 3,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Battle Cage",
-          "count": 3,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Dawn",
-          "count": 3,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Air Balloon",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Enhanced Hammer",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Sacred Ash",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Wondrous Patch",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Lana's Aid",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Telepath Psychic Energy",
-          "count": 3,
-          "category": "Energy"
-        },
-        {
-          "card_name": "Psychic Energy",
-          "count": 2,
-          "category": "Energy"
-        },
-        {
-          "card_name": "Enriching Energy",
-          "count": 1,
-          "category": "Energy"
-        }
-      ]
-    },
-    {
-      "tournament_name": "City League Hokkaido",
-      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4182",
-      "date": "2026-03-01",
-      "standing": 1,
-      "player_name": "メノオ",
-      "decklist": [
-        {
-          "card_name": "Abra",
-          "count": 4,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Kadabra",
-          "count": 4,
-          "category": "Pokemon"
-        },
-        {
           "card_name": "Dunsparce",
-          "count": 3,
+          "count": 1,
           "category": "Pokemon"
         },
         {
           "card_name": "Alakazam",
-          "count": 3,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Dudunsparce",
-          "count": 3,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Fezandipiti ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Psyduck",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Shaymin",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Genesect",
           "count": 1,
           "category": "Pokemon"
         },
@@ -1667,7 +1498,17 @@
           "category": "Trainer"
         },
         {
+          "card_name": "Rare Candy",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
           "card_name": "Battle Cage",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Dawn",
           "count": 4,
           "category": "Trainer"
         },
@@ -1684,26 +1525,6 @@
         {
           "card_name": "Boss's Orders",
           "count": 3,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Rare Candy",
-          "count": 3,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Dawn",
-          "count": 3,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Lucky Helmet",
-          "count": 3,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Enhanced Hammer",
-          "count": 2,
           "category": "Trainer"
         },
         {
@@ -1717,8 +1538,13 @@
           "category": "Trainer"
         },
         {
+          "card_name": "Wondrous Patch",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
           "card_name": "Telepath Psychic Energy",
-          "count": 4,
+          "count": 3,
           "category": "Energy"
         },
         {
@@ -1734,12 +1560,17 @@
       ]
     },
     {
-      "tournament_name": "City League Nagano",
-      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4180",
-      "date": "2026-03-01",
-      "standing": 1,
-      "player_name": "バァズ",
+      "tournament_name": "City League Okayama",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4266",
+      "date": "2026-03-08",
+      "standing": 2,
+      "player_name": "雷神",
       "decklist": [
+        {
+          "card_name": "Dunsparce",
+          "count": 4,
+          "category": "Pokemon"
+        },
         {
           "card_name": "Abra",
           "count": 4,
@@ -1758,21 +1589,6 @@
         {
           "card_name": "Dudunsparce",
           "count": 3,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Dunsparce",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Dunsparce",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Fezandipiti ex",
-          "count": 1,
           "category": "Pokemon"
         },
         {
@@ -1806,6 +1622,11 @@
           "category": "Trainer"
         },
         {
+          "card_name": "Lucky Helmet",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
           "card_name": "Hilda",
           "count": 4,
           "category": "Trainer"
@@ -1827,11 +1648,6 @@
         },
         {
           "card_name": "Dawn",
-          "count": 3,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Lucky Helmet",
           "count": 3,
           "category": "Trainer"
         },
@@ -1873,11 +1689,11 @@
       ]
     },
     {
-      "tournament_name": "City League Fukui",
-      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4147",
-      "date": "2026-02-23",
-      "standing": 1,
-      "player_name": "じんかす",
+      "tournament_name": "City League Ibaraki",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4244",
+      "date": "2026-03-08",
+      "standing": 2,
+      "player_name": "NEGI",
       "decklist": [
         {
           "card_name": "Abra",
@@ -1930,7 +1746,7 @@
           "category": "Trainer"
         },
         {
-          "card_name": "Rare Candy",
+          "card_name": "Battle Cage",
           "count": 4,
           "category": "Trainer"
         },
@@ -1940,12 +1756,17 @@
           "category": "Trainer"
         },
         {
+          "card_name": "Hilda",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
           "card_name": "Boss's Orders",
           "count": 3,
           "category": "Trainer"
         },
         {
-          "card_name": "Battle Cage",
+          "card_name": "Rare Candy",
           "count": 3,
           "category": "Trainer"
         },
@@ -1955,18 +1776,18 @@
           "category": "Trainer"
         },
         {
-          "card_name": "Lucky Helmet",
-          "count": 3,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Hilda",
-          "count": 3,
-          "category": "Trainer"
-        },
-        {
           "card_name": "Enhanced Hammer",
           "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Lucky Helmet",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Night Stretcher",
+          "count": 1,
           "category": "Trainer"
         },
         {
@@ -1981,140 +1802,6 @@
         },
         {
           "card_name": "Lana's Aid",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Telepath Psychic Energy",
-          "count": 4,
-          "category": "Energy"
-        },
-        {
-          "card_name": "Psychic Energy",
-          "count": 2,
-          "category": "Energy"
-        },
-        {
-          "card_name": "Enriching Energy",
-          "count": 1,
-          "category": "Energy"
-        }
-      ]
-    },
-    {
-      "tournament_name": "City League Yamaguchi",
-      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4139",
-      "date": "2026-02-23",
-      "standing": 1,
-      "player_name": "すーぱーつよつよゆむら",
-      "decklist": [
-        {
-          "card_name": "Kadabra",
-          "count": 4,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Dudunsparce",
-          "count": 4,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Alakazam",
-          "count": 3,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Dunsparce",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Abra",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Dunsparce",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Abra",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Fezandipiti ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Psyduck",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Shaymin",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Lillie's Clefairy ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Poké Pad",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Battle Cage",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Buddy-Buddy Poffin",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Hilda",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Boss's Orders",
-          "count": 3,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Rare Candy",
-          "count": 3,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Dawn",
-          "count": 3,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Night Stretcher",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Wondrous Patch",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Sacred Ash",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Enhanced Hammer",
           "count": 1,
           "category": "Trainer"
         },
@@ -2137,10 +1824,10 @@
     },
     {
       "tournament_name": "City League Aichi",
-      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4115",
-      "date": "2026-02-15",
-      "standing": 1,
-      "player_name": "Yuki",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4237",
+      "date": "2026-03-08",
+      "standing": 2,
+      "player_name": "リチャード",
       "decklist": [
         {
           "card_name": "Dunsparce",
@@ -2159,17 +1846,12 @@
         },
         {
           "card_name": "Alakazam",
-          "count": 4,
+          "count": 3,
           "category": "Pokemon"
         },
         {
           "card_name": "Dudunsparce",
           "count": 3,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Fezandipiti ex",
-          "count": 1,
           "category": "Pokemon"
         },
         {
@@ -2188,131 +1870,7 @@
           "category": "Pokemon"
         },
         {
-          "card_name": "Poké Pad",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Rare Candy",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Battle Cage",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Buddy-Buddy Poffin",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Hilda",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Boss's Orders",
-          "count": 3,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Dawn",
-          "count": 3,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Night Stretcher",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Wondrous Patch",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Sacred Ash",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Psychic Energy",
-          "count": 3,
-          "category": "Energy"
-        },
-        {
-          "card_name": "Telepath Psychic Energy",
-          "count": 2,
-          "category": "Energy"
-        },
-        {
-          "card_name": "Enriching Energy",
-          "count": 1,
-          "category": "Energy"
-        }
-      ]
-    },
-    {
-      "tournament_name": "City League Gifu",
-      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4086",
-      "date": "2026-02-14",
-      "standing": 1,
-      "player_name": "ちゃび",
-      "decklist": [
-        {
-          "card_name": "Dunsparce",
-          "count": 4,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Kadabra",
-          "count": 4,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Abra",
-          "count": 3,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Alakazam",
-          "count": 3,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Dudunsparce",
-          "count": 3,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Fezandipiti ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Psyduck",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Shaymin",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Fan Rotom",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Abra",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Alakazam",
+          "card_name": "Genesect",
           "count": 1,
           "category": "Pokemon"
         },
@@ -2327,6 +1885,11 @@
           "category": "Trainer"
         },
         {
+          "card_name": "Dawn",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
           "card_name": "Buddy-Buddy Poffin",
           "count": 4,
           "category": "Trainer"
@@ -2337,32 +1900,32 @@
           "category": "Trainer"
         },
         {
-          "card_name": "Boss's Orders",
-          "count": 3,
-          "category": "Trainer"
-        },
-        {
           "card_name": "Rare Candy",
           "count": 3,
           "category": "Trainer"
         },
         {
-          "card_name": "Dawn",
+          "card_name": "Lucky Helmet",
           "count": 3,
           "category": "Trainer"
         },
         {
-          "card_name": "Night Stretcher",
+          "card_name": "Boss's Orders",
           "count": 2,
           "category": "Trainer"
         },
         {
-          "card_name": "Wondrous Patch",
+          "card_name": "Enhanced Hammer",
           "count": 2,
           "category": "Trainer"
         },
         {
           "card_name": "Sacred Ash",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Wondrous Patch",
           "count": 1,
           "category": "Trainer"
         },
@@ -2373,7 +1936,7 @@
         },
         {
           "card_name": "Psychic Energy",
-          "count": 3,
+          "count": 2,
           "category": "Energy"
         },
         {
@@ -2389,14 +1952,19 @@
       ]
     },
     {
-      "tournament_name": "City League Kanagawa",
-      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4084",
-      "date": "2026-02-14",
-      "standing": 1,
-      "player_name": "しゅん",
+      "tournament_name": "City League Yamagata",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4235",
+      "date": "2026-03-08",
+      "standing": 2,
+      "player_name": "アイブラ",
       "decklist": [
         {
-          "card_name": "Alakazam",
+          "card_name": "Abra",
+          "count": 4,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Kadabra",
           "count": 4,
           "category": "Pokemon"
         },
@@ -2406,12 +1974,7 @@
           "category": "Pokemon"
         },
         {
-          "card_name": "Abra",
-          "count": 3,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Kadabra",
+          "card_name": "Alakazam",
           "count": 3,
           "category": "Pokemon"
         },
@@ -2436,27 +1999,17 @@
           "category": "Pokemon"
         },
         {
-          "card_name": "Fan Rotom",
+          "card_name": "Genesect",
           "count": 1,
           "category": "Pokemon"
         },
         {
-          "card_name": "Dunsparce",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Abra",
+          "card_name": "Alakazam",
           "count": 1,
           "category": "Pokemon"
         },
         {
           "card_name": "Poké Pad",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Battle Cage",
           "count": 4,
           "category": "Trainer"
         },
@@ -2481,13 +2034,18 @@
           "category": "Trainer"
         },
         {
+          "card_name": "Battle Cage",
+          "count": 3,
+          "category": "Trainer"
+        },
+        {
           "card_name": "Dawn",
           "count": 3,
           "category": "Trainer"
         },
         {
-          "card_name": "Wondrous Patch",
-          "count": 2,
+          "card_name": "Lucky Helmet",
+          "count": 3,
           "category": "Trainer"
         },
         {
@@ -2496,12 +2054,12 @@
           "category": "Trainer"
         },
         {
-          "card_name": "Tool Scrapper",
+          "card_name": "Sacred Ash",
           "count": 1,
           "category": "Trainer"
         },
         {
-          "card_name": "Sacred Ash",
+          "card_name": "Wondrous Patch",
           "count": 1,
           "category": "Trainer"
         },
@@ -2516,141 +2074,12 @@
           "category": "Trainer"
         },
         {
-          "card_name": "Psychic Energy",
-          "count": 3,
-          "category": "Energy"
-        },
-        {
           "card_name": "Telepath Psychic Energy",
-          "count": 2,
+          "count": 3,
           "category": "Energy"
-        },
-        {
-          "card_name": "Enriching Energy",
-          "count": 1,
-          "category": "Energy"
-        }
-      ]
-    },
-    {
-      "tournament_name": "City League Chiba",
-      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4075",
-      "date": "2026-02-14",
-      "standing": 1,
-      "player_name": "水無月",
-      "decklist": [
-        {
-          "card_name": "Dunsparce",
-          "count": 4,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Abra",
-          "count": 4,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Kadabra",
-          "count": 4,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Dudunsparce",
-          "count": 4,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Alakazam",
-          "count": 3,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Fezandipiti ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Psyduck",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Shaymin",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Fan Rotom",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Poké Pad",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Rare Candy",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Buddy-Buddy Poffin",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Hilda",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Boss's Orders",
-          "count": 3,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Battle Cage",
-          "count": 3,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Dawn",
-          "count": 3,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Wondrous Patch",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Night Stretcher",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Sacred Ash",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Dusk Ball",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Lana's Aid",
-          "count": 1,
-          "category": "Trainer"
         },
         {
           "card_name": "Psychic Energy",
-          "count": 3,
-          "category": "Energy"
-        },
-        {
-          "card_name": "Telepath Psychic Energy",
           "count": 2,
           "category": "Energy"
         },
@@ -2663,10 +2092,422 @@
     },
     {
       "tournament_name": "City League Tōkyō",
-      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4068",
-      "date": "2026-02-13",
-      "standing": 1,
-      "player_name": "ケロマル",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4215",
+      "date": "2026-03-07",
+      "standing": 2,
+      "player_name": "つな",
+      "decklist": [
+        {
+          "card_name": "Abra",
+          "count": 4,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Kadabra",
+          "count": 4,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Dunsparce",
+          "count": 3,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Alakazam",
+          "count": 3,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Dudunsparce",
+          "count": 2,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Fezandipiti ex",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Psyduck",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Shaymin",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Genesect",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Alakazam",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Poké Pad",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Battle Cage",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Dawn",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Buddy-Buddy Poffin",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Hilda",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Boss's Orders",
+          "count": 3,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Rare Candy",
+          "count": 3,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Lucky Helmet",
+          "count": 3,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Night Stretcher",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Sacred Ash",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Telepath Psychic Energy",
+          "count": 4,
+          "category": "Energy"
+        },
+        {
+          "card_name": "Psychic Energy",
+          "count": 2,
+          "category": "Energy"
+        },
+        {
+          "card_name": "Enriching Energy",
+          "count": 1,
+          "category": "Energy"
+        }
+      ]
+    },
+    {
+      "tournament_name": "City League Miyagi",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4269",
+      "date": "2026-03-08",
+      "standing": 3,
+      "player_name": "ラフラフ",
+      "decklist": [
+        {
+          "card_name": "Abra",
+          "count": 3,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Kadabra",
+          "count": 3,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Alakazam",
+          "count": 3,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Dudunsparce",
+          "count": 3,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Dunsparce",
+          "count": 2,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Dunsparce",
+          "count": 2,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Psyduck",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Shaymin",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Genesect",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Abra",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Alakazam",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Poké Pad",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Rare Candy",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Buddy-Buddy Poffin",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Hilda",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Boss's Orders",
+          "count": 3,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Battle Cage",
+          "count": 3,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Dawn",
+          "count": 3,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Wondrous Patch",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Lucky Helmet",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Night Stretcher",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Sacred Ash",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Enhanced Hammer",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Lana's Aid",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Psychic Energy",
+          "count": 3,
+          "category": "Energy"
+        },
+        {
+          "card_name": "Telepath Psychic Energy",
+          "count": 2,
+          "category": "Energy"
+        },
+        {
+          "card_name": "Enriching Energy",
+          "count": 1,
+          "category": "Energy"
+        }
+      ]
+    },
+    {
+      "tournament_name": "City League Kumamoto",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4267",
+      "date": "2026-03-08",
+      "standing": 4,
+      "player_name": "コイキング",
+      "decklist": [
+        {
+          "card_name": "Kadabra",
+          "count": 4,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Abra",
+          "count": 3,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Alakazam",
+          "count": 3,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Dudunsparce",
+          "count": 3,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Dunsparce",
+          "count": 2,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Fezandipiti ex",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Budew",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Psyduck",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Shaymin",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Dunsparce",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Abra",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Alakazam",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Poké Pad",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Rare Candy",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Buddy-Buddy Poffin",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Boss's Orders",
+          "count": 3,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Battle Cage",
+          "count": 3,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Dawn",
+          "count": 3,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Lucky Helmet",
+          "count": 3,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Hilda",
+          "count": 3,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Enhanced Hammer",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Sacred Ash",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Wondrous Patch",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Lana's Aid",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Telepath Psychic Energy",
+          "count": 3,
+          "category": "Energy"
+        },
+        {
+          "card_name": "Psychic Energy",
+          "count": 2,
+          "category": "Energy"
+        },
+        {
+          "card_name": "Enriching Energy",
+          "count": 1,
+          "category": "Energy"
+        }
+      ]
+    },
+    {
+      "tournament_name": "City League Niigata",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4259",
+      "date": "2026-03-08",
+      "standing": 4,
+      "player_name": "ニコニコ",
       "decklist": [
         {
           "card_name": "Dunsparce",
@@ -2684,12 +2525,12 @@
           "category": "Pokemon"
         },
         {
-          "card_name": "Alakazam",
-          "count": 3,
+          "card_name": "Dudunsparce",
+          "count": 4,
           "category": "Pokemon"
         },
         {
-          "card_name": "Dudunsparce",
+          "card_name": "Alakazam",
           "count": 3,
           "category": "Pokemon"
         },
@@ -2714,6 +2555,11 @@
           "category": "Pokemon"
         },
         {
+          "card_name": "Alakazam",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
           "card_name": "Poké Pad",
           "count": 4,
           "category": "Trainer"
@@ -2724,7 +2570,7 @@
           "category": "Trainer"
         },
         {
-          "card_name": "Battle Cage",
+          "card_name": "Dawn",
           "count": 4,
           "category": "Trainer"
         },
@@ -2734,18 +2580,23 @@
           "category": "Trainer"
         },
         {
+          "card_name": "Battle Cage",
+          "count": 3,
+          "category": "Trainer"
+        },
+        {
           "card_name": "Hilda",
-          "count": 4,
+          "count": 3,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Night Stretcher",
+          "count": 2,
           "category": "Trainer"
         },
         {
           "card_name": "Boss's Orders",
-          "count": 3,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Dawn",
-          "count": 3,
+          "count": 2,
           "category": "Trainer"
         },
         {
@@ -2754,17 +2605,7 @@
           "category": "Trainer"
         },
         {
-          "card_name": "Night Stretcher",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
           "card_name": "Sacred Ash",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Enhanced Hammer",
           "count": 1,
           "category": "Trainer"
         },
@@ -2792,126 +2633,76 @@
     }
   ],
   "radar": {
-    "meta_share": 24.9,
-    "weighted_share": 26.0,
-    "consistency": 64.6,
+    "meta_share": 21.1,
+    "weighted_share": 23.8,
+    "consistency": 67.1,
     "ceiling": 100,
-    "popularity": 55.2,
-    "core_density": 27.4
+    "popularity": 37.9,
+    "core_density": 40.4
   },
-  "evolution": [
-    {
-      "week": "2026-02-02",
-      "adopted": [
-        {
-          "card": "Fezandipiti ex",
-          "from_pct": 48.6,
-          "to_pct": 69.2
-        }
-      ],
-      "dropped": []
-    },
-    {
-      "week": "2026-02-23",
-      "adopted": [
-        {
-          "card": "Enhanced Hammer",
-          "from_pct": 37.5,
-          "to_pct": 80.6
-        }
-      ],
-      "dropped": []
-    },
-    {
-      "week": "2026-03-02",
-      "adopted": [
-        {
-          "card": "Genesect",
-          "from_pct": 44.8,
-          "to_pct": 70.7
-        },
-        {
-          "card": "Lucky Helmet",
-          "from_pct": 35.8,
-          "to_pct": 58.6
-        }
-      ],
-      "dropped": []
-    }
-  ],
+  "evolution": [],
   "variants": [
     {
-      "name": "Standard",
-      "deck_count": 159,
-      "pct": 47.2
-    },
-    {
       "name": "with Genesect",
-      "deck_count": 71,
-      "pct": 21.1
+      "deck_count": 23,
+      "pct": 46.0
     },
     {
-      "name": "with Togekiss",
-      "deck_count": 55,
-      "pct": 16.3
+      "name": "with Fan Rotom",
+      "deck_count": 21,
+      "pct": 42.0
     },
     {
-      "name": "with Lillie's Clefairy ex",
-      "deck_count": 52,
-      "pct": 15.4
+      "name": "Standard",
+      "deck_count": 6,
+      "pct": 12.0
     }
   ],
   "weekly_shares": [
     {
-      "week": "2026-01-19",
-      "meta_share": 3.8,
-      "deck_count": 26
-    },
-    {
-      "week": "2026-01-26",
-      "meta_share": 3.6,
-      "deck_count": 37
-    },
-    {
-      "week": "2026-02-02",
-      "meta_share": 3.5,
-      "deck_count": 39
-    },
-    {
-      "week": "2026-02-09",
-      "meta_share": 6.3,
-      "deck_count": 102
-    },
-    {
-      "week": "2026-02-16",
-      "meta_share": 6.2,
-      "deck_count": 8
-    },
-    {
-      "week": "2026-02-23",
-      "meta_share": 7.6,
-      "deck_count": 67
-    },
-    {
       "week": "2026-03-02",
-      "meta_share": 4.5,
-      "deck_count": 58
+      "meta_share": 4.2,
+      "deck_count": 50
     }
   ],
   "top4_card_stats": [
     {
+      "card_name": "Telepath Psychic Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.9,
+      "decks_with": 20,
+      "category": "Energy",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Shaymin",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 20,
+      "category": "Pokemon",
+      "delta_vs_field": 4.0
+    },
+    {
       "card_name": "Rare Candy",
       "inclusion_pct": 100.0,
       "avg_copies": 3.4,
-      "decks_with": 103,
+      "decks_with": 20,
       "category": "Trainer",
       "delta_vs_field": 0.0
     },
     {
+      "card_name": "Psyduck",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 20,
+      "category": "Pokemon",
+      "delta_vs_field": 2.0
+    },
+    {
       "card_name": "Psychic Energy",
       "inclusion_pct": 100.0,
-      "avg_copies": 2.8,
-      "decks_with": 103,
+      "avg_copies": 2.4,
+      "decks_with": 20,
       "category": "Energy",
       "delta_vs_field": 0.0
     },
@@ -2919,39 +2710,47 @@
       "card_name": "Poké Pad",
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
-      "decks_with": 103,
+      "decks_with": 20,
       "category": "Trainer",
       "delta_vs_field": 0.0
     },
     {
       "card_name": "Kadabra",
       "inclusion_pct": 100.0,
-      "avg_copies": 3.7,
-      "decks_with": 103,
+      "avg_copies": 3.9,
+      "decks_with": 20,
       "category": "Pokemon",
       "delta_vs_field": 0.0
     },
     {
       "card_name": "Hilda",
       "inclusion_pct": 100.0,
-      "avg_copies": 3.7,
-      "decks_with": 103,
+      "avg_copies": 3.5,
+      "decks_with": 20,
       "category": "Trainer",
-      "delta_vs_field": 0.6
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Enriching Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 20,
+      "category": "Energy",
+      "delta_vs_field": 0.0
     },
     {
       "card_name": "Dunsparce",
       "inclusion_pct": 100.0,
-      "avg_copies": 3.6,
-      "decks_with": 103,
+      "avg_copies": 3.4,
+      "decks_with": 20,
       "category": "Pokemon",
       "delta_vs_field": 0.0
     },
     {
       "card_name": "Dudunsparce",
       "inclusion_pct": 100.0,
-      "avg_copies": 3.3,
-      "decks_with": 103,
+      "avg_copies": 3.1,
+      "decks_with": 20,
       "category": "Pokemon",
       "delta_vs_field": 0.0
     },
@@ -2959,7 +2758,7 @@
       "card_name": "Dawn",
       "inclusion_pct": 100.0,
       "avg_copies": 3.2,
-      "decks_with": 103,
+      "decks_with": 20,
       "category": "Trainer",
       "delta_vs_field": 0.0
     },
@@ -2967,7 +2766,7 @@
       "card_name": "Buddy-Buddy Poffin",
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
-      "decks_with": 103,
+      "decks_with": 20,
       "category": "Trainer",
       "delta_vs_field": 0.0
     },
@@ -2975,15 +2774,15 @@
       "card_name": "Boss's Orders",
       "inclusion_pct": 100.0,
       "avg_copies": 3.0,
-      "decks_with": 103,
+      "decks_with": 20,
       "category": "Trainer",
       "delta_vs_field": 0.0
     },
     {
       "card_name": "Battle Cage",
       "inclusion_pct": 100.0,
-      "avg_copies": 3.6,
-      "decks_with": 103,
+      "avg_copies": 3.5,
+      "decks_with": 20,
       "category": "Trainer",
       "delta_vs_field": 0.0
     },
@@ -2991,7 +2790,7 @@
       "card_name": "Alakazam",
       "inclusion_pct": 100.0,
       "avg_copies": 3.5,
-      "decks_with": 103,
+      "decks_with": 20,
       "category": "Pokemon",
       "delta_vs_field": 0.0
     },
@@ -2999,329 +2798,185 @@
       "card_name": "Abra",
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
-      "decks_with": 103,
+      "decks_with": 20,
       "category": "Pokemon",
       "delta_vs_field": 0.0
     },
     {
-      "card_name": "Telepath Psychic Energy",
-      "inclusion_pct": 98.1,
-      "avg_copies": 2.4,
-      "decks_with": 101,
-      "category": "Energy",
-      "delta_vs_field": 2.0
-    },
-    {
-      "card_name": "Enriching Energy",
-      "inclusion_pct": 98.1,
+      "card_name": "Sacred Ash",
+      "inclusion_pct": 95.0,
       "avg_copies": 1.0,
-      "decks_with": 101,
-      "category": "Energy",
-      "delta_vs_field": 0.2
-    },
-    {
-      "card_name": "Shaymin",
-      "inclusion_pct": 95.1,
-      "avg_copies": 1.0,
-      "decks_with": 98,
-      "category": "Pokemon",
-      "delta_vs_field": -0.2
-    },
-    {
-      "card_name": "Psyduck",
-      "inclusion_pct": 92.2,
-      "avg_copies": 1.0,
-      "decks_with": 95,
-      "category": "Pokemon",
-      "delta_vs_field": 0.2
+      "decks_with": 19,
+      "category": "Trainer",
+      "delta_vs_field": 1.0
     },
     {
       "card_name": "Night Stretcher",
-      "inclusion_pct": 86.4,
+      "inclusion_pct": 80.0,
       "avg_copies": 1.4,
-      "decks_with": 89,
+      "decks_with": 16,
       "category": "Trainer",
-      "delta_vs_field": -0.5
-    },
-    {
-      "card_name": "Wondrous Patch",
-      "inclusion_pct": 85.4,
-      "avg_copies": 1.8,
-      "decks_with": 88,
-      "category": "Trainer",
-      "delta_vs_field": -3.3
-    },
-    {
-      "card_name": "Sacred Ash",
-      "inclusion_pct": 85.4,
-      "avg_copies": 1.0,
-      "decks_with": 88,
-      "category": "Trainer",
-      "delta_vs_field": 1.4
-    },
-    {
-      "card_name": "Fan Rotom",
-      "inclusion_pct": 75.7,
-      "avg_copies": 1.1,
-      "decks_with": 78,
-      "category": "Pokemon",
-      "delta_vs_field": 2.4
-    },
-    {
-      "card_name": "Fezandipiti ex",
-      "inclusion_pct": 74.8,
-      "avg_copies": 1.0,
-      "decks_with": 77,
-      "category": "Pokemon",
-      "delta_vs_field": 2.1
-    },
-    {
-      "card_name": "Lana's Aid",
-      "inclusion_pct": 72.8,
-      "avg_copies": 1.0,
-      "decks_with": 75,
-      "category": "Trainer",
-      "delta_vs_field": -4.6
+      "delta_vs_field": 2.0
     },
     {
       "card_name": "Enhanced Hammer",
-      "inclusion_pct": 72.8,
-      "avg_copies": 1.4,
-      "decks_with": 75,
+      "inclusion_pct": 75.0,
+      "avg_copies": 1.7,
+      "decks_with": 15,
       "category": "Trainer",
-      "delta_vs_field": -4.1
+      "delta_vs_field": -11.0
     },
     {
       "card_name": "Genesect",
-      "inclusion_pct": 22.3,
+      "inclusion_pct": 70.0,
       "avg_copies": 1.0,
-      "decks_with": 23,
+      "decks_with": 14,
       "category": "Pokemon",
-      "delta_vs_field": 1.2
+      "delta_vs_field": 0.0
     },
     {
-      "card_name": "Lucky Helmet",
-      "inclusion_pct": 18.4,
-      "avg_copies": 2.7,
-      "decks_with": 19,
+      "card_name": "Fezandipiti ex",
+      "inclusion_pct": 70.0,
+      "avg_copies": 1.0,
+      "decks_with": 14,
+      "category": "Pokemon",
+      "delta_vs_field": -4.0
+    },
+    {
+      "card_name": "Wondrous Patch",
+      "inclusion_pct": 65.0,
+      "avg_copies": 1.4,
+      "decks_with": 13,
       "category": "Trainer",
-      "delta_vs_field": 1.2
+      "delta_vs_field": -9.0
     },
     {
-      "card_name": "Togepi",
-      "inclusion_pct": 17.5,
-      "avg_copies": 1.0,
-      "decks_with": 18,
-      "category": "Pokemon",
-      "delta_vs_field": -4.5
-    },
-    {
-      "card_name": "Togekiss",
-      "inclusion_pct": 17.5,
-      "avg_copies": 1.0,
-      "decks_with": 18,
-      "category": "Pokemon",
-      "delta_vs_field": -4.5
-    },
-    {
-      "card_name": "Lillie's Clefairy ex",
-      "inclusion_pct": 15.5,
-      "avg_copies": 1.0,
-      "decks_with": 16,
-      "category": "Pokemon",
-      "delta_vs_field": -0.2
-    },
-    {
-      "card_name": "Tool Scrapper",
-      "inclusion_pct": 12.6,
+      "card_name": "Lana's Aid",
+      "inclusion_pct": 65.0,
       "avg_copies": 1.0,
       "decks_with": 13,
       "category": "Trainer",
-      "delta_vs_field": 4.3
+      "delta_vs_field": -3.0
+    },
+    {
+      "card_name": "Lucky Helmet",
+      "inclusion_pct": 60.0,
+      "avg_copies": 2.7,
+      "decks_with": 12,
+      "category": "Trainer",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Fan Rotom",
+      "inclusion_pct": 55.0,
+      "avg_copies": 1.0,
+      "decks_with": 11,
+      "category": "Pokemon",
+      "delta_vs_field": 13.0
     },
     {
       "card_name": "Mega Lopunny ex",
-      "inclusion_pct": 7.8,
+      "inclusion_pct": 15.0,
       "avg_copies": 1.0,
-      "decks_with": 8,
+      "decks_with": 3,
       "category": "Pokemon",
-      "delta_vs_field": 4.5
+      "delta_vs_field": 7.0
     },
     {
       "card_name": "Buneary",
-      "inclusion_pct": 7.8,
+      "inclusion_pct": 15.0,
       "avg_copies": 1.0,
-      "decks_with": 8,
+      "decks_with": 3,
       "category": "Pokemon",
-      "delta_vs_field": 4.5
+      "delta_vs_field": 7.0
     },
     {
       "card_name": "Air Balloon",
-      "inclusion_pct": 5.8,
-      "avg_copies": 2.3,
-      "decks_with": 6,
+      "inclusion_pct": 15.0,
+      "avg_copies": 2.7,
+      "decks_with": 3,
+      "category": "Trainer",
+      "delta_vs_field": -3.0
+    },
+    {
+      "card_name": "Xerosic's Machinations",
+      "inclusion_pct": 5.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
       "category": "Trainer",
       "delta_vs_field": -1.0
     },
     {
-      "card_name": "Xerosic's Machinations",
-      "inclusion_pct": 4.9,
-      "avg_copies": 1.0,
-      "decks_with": 5,
-      "category": "Trainer",
-      "delta_vs_field": 1.0
-    },
-    {
-      "card_name": "Switch",
-      "inclusion_pct": 4.9,
-      "avg_copies": 1.0,
-      "decks_with": 5,
-      "category": "Trainer",
-      "delta_vs_field": -1.3
-    },
-    {
-      "card_name": "Morty's Conviction",
-      "inclusion_pct": 2.9,
-      "avg_copies": 1.3,
-      "decks_with": 3,
-      "category": "Trainer",
-      "delta_vs_field": 1.1
-    },
-    {
-      "card_name": "Lillie's Determination",
-      "inclusion_pct": 2.9,
-      "avg_copies": 1.7,
-      "decks_with": 3,
-      "category": "Trainer",
-      "delta_vs_field": -3.9
-    },
-    {
-      "card_name": "Jamming Tower",
-      "inclusion_pct": 2.9,
-      "avg_copies": 1.0,
-      "decks_with": 3,
-      "category": "Trainer",
-      "delta_vs_field": -0.1
-    },
-    {
-      "card_name": "Duskull",
-      "inclusion_pct": 2.9,
-      "avg_copies": 1.3,
-      "decks_with": 3,
-      "category": "Pokemon",
-      "delta_vs_field": -1.3
-    },
-    {
-      "card_name": "Dusknoir",
-      "inclusion_pct": 2.9,
-      "avg_copies": 1.0,
-      "decks_with": 3,
-      "category": "Pokemon",
-      "delta_vs_field": -1.3
-    },
-    {
       "card_name": "Team Rocket's Petrel",
-      "inclusion_pct": 1.9,
+      "inclusion_pct": 5.0,
       "avg_copies": 1.0,
-      "decks_with": 2,
+      "decks_with": 1,
       "category": "Trainer",
-      "delta_vs_field": 1.0
-    },
-    {
-      "card_name": "Nighttime Mine",
-      "inclusion_pct": 1.9,
-      "avg_copies": 1.5,
-      "decks_with": 2,
-      "category": "Trainer",
-      "delta_vs_field": 1.0
+      "delta_vs_field": 3.0
     },
     {
       "card_name": "Mist Energy",
-      "inclusion_pct": 1.9,
+      "inclusion_pct": 5.0,
       "avg_copies": 1.0,
-      "decks_with": 2,
+      "decks_with": 1,
       "category": "Energy",
-      "delta_vs_field": 1.0
+      "delta_vs_field": 3.0
     },
     {
-      "card_name": "Max Rod",
-      "inclusion_pct": 1.9,
+      "card_name": "Lillie's Determination",
+      "inclusion_pct": 5.0,
       "avg_copies": 1.0,
-      "decks_with": 2,
+      "decks_with": 1,
       "category": "Trainer",
-      "delta_vs_field": 0.7
-    },
-    {
-      "card_name": "Colress's Tenacity",
-      "inclusion_pct": 1.9,
-      "avg_copies": 1.0,
-      "decks_with": 2,
-      "category": "Trainer",
-      "delta_vs_field": -0.2
+      "delta_vs_field": 3.0
     },
     {
       "card_name": "Budew",
-      "inclusion_pct": 1.9,
-      "avg_copies": 1.0,
-      "decks_with": 2,
-      "category": "Pokemon",
-      "delta_vs_field": -1.4
-    },
-    {
-      "card_name": "Ultra Ball",
-      "inclusion_pct": 1.0,
-      "avg_copies": 1.0,
-      "decks_with": 1,
-      "category": "Trainer",
-      "delta_vs_field": -0.2
-    },
-    {
-      "card_name": "Maractus",
-      "inclusion_pct": 1.0,
+      "inclusion_pct": 5.0,
       "avg_copies": 1.0,
       "decks_with": 1,
       "category": "Pokemon",
-      "delta_vs_field": 0.4
+      "delta_vs_field": 3.0
     },
     {
-      "card_name": "Handheld Fan",
-      "inclusion_pct": 1.0,
-      "avg_copies": 1.0,
-      "decks_with": 1,
-      "category": "Trainer",
-      "delta_vs_field": 0.1
-    },
-    {
-      "card_name": "Elgyem",
-      "inclusion_pct": 1.0,
-      "avg_copies": 1.0,
-      "decks_with": 1,
-      "category": "Pokemon",
-      "delta_vs_field": 0.4
-    },
-    {
-      "card_name": "Dusk Ball",
-      "inclusion_pct": 1.0,
-      "avg_copies": 1.0,
-      "decks_with": 1,
-      "category": "Trainer",
-      "delta_vs_field": -0.8
-    },
-    {
-      "card_name": "Dusclops",
-      "inclusion_pct": 1.0,
-      "avg_copies": 1.0,
-      "decks_with": 1,
-      "category": "Pokemon",
-      "delta_vs_field": 0.4
-    },
-    {
-      "card_name": "Hop's Cramorant",
+      "card_name": "Togepi",
       "inclusion_pct": 0,
       "avg_copies": 0,
       "decks_with": 0,
       "category": "Pokemon",
-      "delta_vs_field": -2.4
+      "delta_vs_field": -10.0
+    },
+    {
+      "card_name": "Togekiss",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Pokemon",
+      "delta_vs_field": -10.0
+    },
+    {
+      "card_name": "Lillie's Clefairy ex",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Trainer",
+      "delta_vs_field": -8.0
+    },
+    {
+      "card_name": "Switch",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Trainer",
+      "delta_vs_field": -4.0
+    },
+    {
+      "card_name": "Handheld Fan",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Trainer",
+      "delta_vs_field": -4.0
     },
     {
       "card_name": "Ruffian",
@@ -3329,23 +2984,7 @@
       "avg_copies": 0,
       "decks_with": 0,
       "category": "Trainer",
-      "delta_vs_field": -1.5
-    },
-    {
-      "card_name": "Lillie's Pearl",
-      "inclusion_pct": 0,
-      "avg_copies": 0,
-      "decks_with": 0,
-      "category": "Trainer",
-      "delta_vs_field": -1.2
-    },
-    {
-      "card_name": "Dudunsparce ex",
-      "inclusion_pct": 0,
-      "avg_copies": 0,
-      "decks_with": 0,
-      "category": "Pokemon",
-      "delta_vs_field": -1.2
+      "delta_vs_field": -2.0
     },
     {
       "card_name": "Meddling Memo",
@@ -3353,87 +2992,7 @@
       "avg_copies": 0,
       "decks_with": 0,
       "category": "Trainer",
-      "delta_vs_field": -0.9
-    },
-    {
-      "card_name": "Legacy Energy",
-      "inclusion_pct": 0,
-      "avg_copies": 0,
-      "decks_with": 0,
-      "category": "Energy",
-      "delta_vs_field": -0.6
-    },
-    {
-      "card_name": "Ignition Energy",
-      "inclusion_pct": 0,
-      "avg_copies": 0,
-      "decks_with": 0,
-      "category": "Energy",
-      "delta_vs_field": -0.6
-    },
-    {
-      "card_name": "Fighting Energy",
-      "inclusion_pct": 0,
-      "avg_copies": 0,
-      "decks_with": 0,
-      "category": "Energy",
-      "delta_vs_field": -0.6
-    },
-    {
-      "card_name": "Cornerstone Mask Ogerpon ex",
-      "inclusion_pct": 0,
-      "avg_copies": 0,
-      "decks_with": 0,
-      "category": "Pokemon",
-      "delta_vs_field": -0.6
-    },
-    {
-      "card_name": "Ciphermaniac's Codebreaking",
-      "inclusion_pct": 0,
-      "avg_copies": 0,
-      "decks_with": 0,
-      "category": "Trainer",
-      "delta_vs_field": -0.6
-    },
-    {
-      "card_name": "Survival Brace",
-      "inclusion_pct": 0,
-      "avg_copies": 0,
-      "decks_with": 0,
-      "category": "Trainer",
-      "delta_vs_field": -0.3
-    },
-    {
-      "card_name": "Mega Diancie ex",
-      "inclusion_pct": 0,
-      "avg_copies": 0,
-      "decks_with": 0,
-      "category": "Pokemon",
-      "delta_vs_field": -0.3
-    },
-    {
-      "card_name": "Kyurem",
-      "inclusion_pct": 0,
-      "avg_copies": 0,
-      "decks_with": 0,
-      "category": "Pokemon",
-      "delta_vs_field": -0.3
-    },
-    {
-      "card_name": "Hop's Choice Band",
-      "inclusion_pct": 0,
-      "avg_copies": 0,
-      "decks_with": 0,
-      "category": "Trainer",
-      "delta_vs_field": -0.3
-    },
-    {
-      "card_name": "Gravity Mountain",
-      "inclusion_pct": 0,
-      "avg_copies": 0,
-      "decks_with": 0,
-      "category": "Trainer",
-      "delta_vs_field": -0.3
+      "delta_vs_field": -2.0
     },
     {
       "card_name": "Gothitelle",
@@ -3441,7 +3000,7 @@
       "avg_copies": 0,
       "decks_with": 0,
       "category": "Pokemon",
-      "delta_vs_field": -0.3
+      "delta_vs_field": -2.0
     },
     {
       "card_name": "Gothita",
@@ -3449,15 +3008,23 @@
       "avg_copies": 0,
       "decks_with": 0,
       "category": "Pokemon",
-      "delta_vs_field": -0.3
+      "delta_vs_field": -2.0
     },
     {
-      "card_name": "Eri",
+      "card_name": "Duskull",
       "inclusion_pct": 0,
       "avg_copies": 0,
       "decks_with": 0,
-      "category": "Trainer",
-      "delta_vs_field": -0.3
+      "category": "Pokemon",
+      "delta_vs_field": -2.0
+    },
+    {
+      "card_name": "Dusknoir",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Pokemon",
+      "delta_vs_field": -2.0
     },
     {
       "card_name": "Crushing Hammer",
@@ -3465,25 +3032,17 @@
       "avg_copies": 0,
       "decks_with": 0,
       "category": "Trainer",
-      "delta_vs_field": -0.3
+      "delta_vs_field": -2.0
     },
     {
-      "card_name": "Bloodmoon Ursaluna ex",
+      "card_name": "Colress's Tenacity",
       "inclusion_pct": 0,
       "avg_copies": 0,
       "decks_with": 0,
-      "category": "Pokemon",
-      "delta_vs_field": -0.3
-    },
-    {
-      "card_name": "Beheeyem",
-      "inclusion_pct": 0,
-      "avg_copies": 0,
-      "decks_with": 0,
-      "category": "Pokemon",
-      "delta_vs_field": -0.3
+      "category": "Trainer",
+      "delta_vs_field": -2.0
     }
   ],
-  "top4_sample_size": 103,
+  "top4_sample_size": 20,
   "top4_low_sample": false
 }

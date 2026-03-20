@@ -1,229 +1,530 @@
 {
   "archetype": "Dusknoir Greninja",
   "slug": "dusknoir-greninja",
-  "tier": "B",
-  "meta_share": 4.2,
-  "weighted_share": 3.2,
-  "deck_count": 37,
+  "tier": "Rogue",
+  "meta_share": 0.7,
+  "weighted_share": 0.8,
+  "deck_count": 8,
   "best_placement": 1,
   "sprite_filenames": [
     "dusknoir.png",
     "greninja.png"
   ],
-  "core_cards": [],
-  "all_cards": [
+  "core_cards": [
     {
       "card_name": "Water Energy",
-      "inclusion_pct": 13.5,
+      "inclusion_pct": 100.0,
       "avg_copies": 6.6,
-      "decks_with": 5,
+      "decks_with": 8,
       "category": "Energy"
     },
     {
       "card_name": "Ultra Ball",
-      "inclusion_pct": 13.5,
+      "inclusion_pct": 100.0,
       "avg_copies": 3.8,
-      "decks_with": 5,
+      "decks_with": 8,
       "category": "Trainer"
     },
     {
       "card_name": "Rare Candy",
-      "inclusion_pct": 13.5,
-      "avg_copies": 3.0,
-      "decks_with": 5,
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.8,
+      "decks_with": 8,
       "category": "Trainer"
     },
     {
       "card_name": "Poké Pad",
-      "inclusion_pct": 13.5,
+      "inclusion_pct": 100.0,
       "avg_copies": 3.4,
-      "decks_with": 5,
+      "decks_with": 8,
       "category": "Trainer"
     },
     {
       "card_name": "Night Stretcher",
-      "inclusion_pct": 13.5,
-      "avg_copies": 1.6,
-      "decks_with": 5,
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.4,
+      "decks_with": 8,
       "category": "Trainer"
     },
     {
       "card_name": "Lillie's Determination",
-      "inclusion_pct": 13.5,
-      "avg_copies": 3.8,
-      "decks_with": 5,
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.9,
+      "decks_with": 8,
       "category": "Trainer"
     },
     {
       "card_name": "Ignition Energy",
-      "inclusion_pct": 13.5,
+      "inclusion_pct": 100.0,
       "avg_copies": 3.0,
-      "decks_with": 5,
+      "decks_with": 8,
       "category": "Energy"
     },
     {
       "card_name": "Hilda",
-      "inclusion_pct": 13.5,
-      "avg_copies": 2.0,
-      "decks_with": 5,
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.2,
+      "decks_with": 8,
       "category": "Trainer"
     },
     {
       "card_name": "Greninja ex",
-      "inclusion_pct": 13.5,
+      "inclusion_pct": 100.0,
       "avg_copies": 2.2,
-      "decks_with": 5,
+      "decks_with": 8,
       "category": "Pokemon"
     },
     {
       "card_name": "Grand Tree",
-      "inclusion_pct": 13.5,
+      "inclusion_pct": 100.0,
       "avg_copies": 1.0,
-      "decks_with": 5,
+      "decks_with": 8,
       "category": "Trainer"
     },
     {
       "card_name": "Duskull",
-      "inclusion_pct": 13.5,
+      "inclusion_pct": 100.0,
       "avg_copies": 2.4,
-      "decks_with": 5,
+      "decks_with": 8,
       "category": "Pokemon"
     },
     {
       "card_name": "Dusknoir",
-      "inclusion_pct": 13.5,
-      "avg_copies": 2.0,
-      "decks_with": 5,
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.8,
+      "decks_with": 8,
       "category": "Pokemon"
     },
     {
       "card_name": "Dusclops",
-      "inclusion_pct": 13.5,
-      "avg_copies": 1.6,
-      "decks_with": 5,
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.8,
+      "decks_with": 8,
       "category": "Pokemon"
     },
     {
       "card_name": "Colress's Tenacity",
-      "inclusion_pct": 13.5,
+      "inclusion_pct": 100.0,
       "avg_copies": 2.4,
-      "decks_with": 5,
+      "decks_with": 8,
       "category": "Trainer"
     },
     {
       "card_name": "Buddy-Buddy Poffin",
-      "inclusion_pct": 13.5,
+      "inclusion_pct": 100.0,
       "avg_copies": 4.0,
-      "decks_with": 5,
+      "decks_with": 8,
       "category": "Trainer"
     },
     {
       "card_name": "Boss's Orders",
-      "inclusion_pct": 13.5,
-      "avg_copies": 1.8,
-      "decks_with": 5,
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.9,
+      "decks_with": 8,
       "category": "Trainer"
     },
     {
       "card_name": "Switch",
-      "inclusion_pct": 10.8,
-      "avg_copies": 1.2,
-      "decks_with": 4,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Latias ex",
-      "inclusion_pct": 10.8,
-      "avg_copies": 1.0,
-      "decks_with": 4,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Jamming Tower",
-      "inclusion_pct": 10.8,
-      "avg_copies": 1.0,
-      "decks_with": 4,
+      "inclusion_pct": 87.5,
+      "avg_copies": 1.1,
+      "decks_with": 7,
       "category": "Trainer"
     },
     {
       "card_name": "Frogadier",
-      "inclusion_pct": 10.8,
+      "inclusion_pct": 87.5,
       "avg_copies": 2.0,
-      "decks_with": 4,
+      "decks_with": 7,
       "category": "Pokemon"
     },
     {
       "card_name": "Fezandipiti ex",
-      "inclusion_pct": 10.8,
+      "inclusion_pct": 87.5,
       "avg_copies": 1.0,
-      "decks_with": 4,
+      "decks_with": 7,
       "category": "Pokemon"
     },
     {
       "card_name": "Budew",
-      "inclusion_pct": 10.8,
+      "inclusion_pct": 87.5,
+      "avg_copies": 1.1,
+      "decks_with": 7,
+      "category": "Pokemon"
+    }
+  ],
+  "all_cards": [
+    {
+      "card_name": "Water Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 6.6,
+      "decks_with": 8,
+      "category": "Energy"
+    },
+    {
+      "card_name": "Ultra Ball",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.8,
+      "decks_with": 8,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Rare Candy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.8,
+      "decks_with": 8,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Poké Pad",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.4,
+      "decks_with": 8,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Night Stretcher",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.4,
+      "decks_with": 8,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Lillie's Determination",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.9,
+      "decks_with": 8,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Ignition Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.0,
+      "decks_with": 8,
+      "category": "Energy"
+    },
+    {
+      "card_name": "Hilda",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.2,
+      "decks_with": 8,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Greninja ex",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.2,
+      "decks_with": 8,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Grand Tree",
+      "inclusion_pct": 100.0,
       "avg_copies": 1.0,
+      "decks_with": 8,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Duskull",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.4,
+      "decks_with": 8,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Dusknoir",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.8,
+      "decks_with": 8,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Dusclops",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.8,
+      "decks_with": 8,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Colress's Tenacity",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.4,
+      "decks_with": 8,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Buddy-Buddy Poffin",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.0,
+      "decks_with": 8,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Boss's Orders",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.9,
+      "decks_with": 8,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Switch",
+      "inclusion_pct": 87.5,
+      "avg_copies": 1.1,
+      "decks_with": 7,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Frogadier",
+      "inclusion_pct": 87.5,
+      "avg_copies": 2.0,
+      "decks_with": 7,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Fezandipiti ex",
+      "inclusion_pct": 87.5,
+      "avg_copies": 1.0,
+      "decks_with": 7,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Budew",
+      "inclusion_pct": 87.5,
+      "avg_copies": 1.1,
+      "decks_with": 7,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Jamming Tower",
+      "inclusion_pct": 62.5,
+      "avg_copies": 1.0,
+      "decks_with": 5,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Snorunt",
+      "inclusion_pct": 50.0,
+      "avg_copies": 1.5,
       "decks_with": 4,
       "category": "Pokemon"
     },
     {
       "card_name": "Meowth ex",
-      "inclusion_pct": 8.1,
-      "avg_copies": 1.7,
-      "decks_with": 3,
+      "inclusion_pct": 50.0,
+      "avg_copies": 1.8,
+      "decks_with": 4,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Mega Starmie ex",
+      "inclusion_pct": 50.0,
+      "avg_copies": 1.0,
+      "decks_with": 4,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Mega Froslass ex",
+      "inclusion_pct": 50.0,
+      "avg_copies": 1.0,
+      "decks_with": 4,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Latias ex",
+      "inclusion_pct": 50.0,
+      "avg_copies": 1.0,
+      "decks_with": 4,
       "category": "Pokemon"
     },
     {
       "card_name": "Froakie",
-      "inclusion_pct": 8.1,
+      "inclusion_pct": 37.5,
       "avg_copies": 2.7,
       "decks_with": 3,
       "category": "Pokemon"
     },
     {
-      "card_name": "Special Red Card",
-      "inclusion_pct": 5.4,
+      "card_name": "Surfing Beach",
+      "inclusion_pct": 25.0,
       "avg_copies": 1.0,
       "decks_with": 2,
       "category": "Trainer"
     },
     {
-      "card_name": "Snorunt",
-      "inclusion_pct": 5.4,
+      "card_name": "Special Red Card",
+      "inclusion_pct": 25.0,
       "avg_copies": 1.0,
       "decks_with": 2,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
-      "card_name": "Mega Starmie ex",
-      "inclusion_pct": 5.4,
+      "card_name": "Salvatore",
+      "inclusion_pct": 25.0,
       "avg_copies": 1.0,
       "decks_with": 2,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Mega Froslass ex",
-      "inclusion_pct": 5.4,
-      "avg_copies": 1.0,
-      "decks_with": 2,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Bloodmoon Ursaluna ex",
-      "inclusion_pct": 5.4,
+      "inclusion_pct": 25.0,
       "avg_copies": 1.0,
       "decks_with": 2,
       "category": "Pokemon"
     },
     {
+      "card_name": "Air Balloon",
+      "inclusion_pct": 25.0,
+      "avg_copies": 1.0,
+      "decks_with": 2,
+      "category": "Trainer"
+    },
+    {
       "card_name": "Energy Search",
-      "inclusion_pct": 2.7,
+      "inclusion_pct": 12.5,
       "avg_copies": 1.0,
       "decks_with": 1,
       "category": "Trainer"
     }
   ],
   "results": [
+    {
+      "tournament_name": "City League Ōita",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4346",
+      "date": "2026-03-20",
+      "standing": 1,
+      "player_name": "こや",
+      "decklist": [
+        {
+          "card_name": "Snorunt",
+          "count": 2,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Duskull",
+          "count": 2,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Dusclops",
+          "count": 2,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Greninja ex",
+          "count": 2,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Frogadier",
+          "count": 2,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Fezandipiti ex",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Budew",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Mega Froslass ex",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Dusknoir",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Mega Starmie ex",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Lillie's Determination",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Ultra Ball",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Buddy-Buddy Poffin",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Poké Pad",
+          "count": 3,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Hilda",
+          "count": 3,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Boss's Orders",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Rare Candy",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Colress's Tenacity",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Air Balloon",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Night Stretcher",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Surfing Beach",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Switch",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Grand Tree",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Salvatore",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Water Energy",
+          "count": 6,
+          "category": "Energy"
+        },
+        {
+          "card_name": "Ignition Energy",
+          "count": 3,
+          "category": "Energy"
+        }
+      ]
+    },
     {
       "tournament_name": "City League Okinawa",
       "tournament_url": "https://limitlesstcg.com/tournaments/jp/4313",
@@ -463,231 +764,729 @@
       ]
     },
     {
-      "tournament_name": "大阪府 ドラゴンスター日本橋2号店",
-      "tournament_url": "jp-952956",
+      "tournament_name": "City League Ōsaka",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4323",
       "date": "2026-03-18",
       "standing": 9,
-      "player_name": "コウタ"
+      "player_name": "コウタ",
+      "decklist": [
+        {
+          "card_name": "Duskull",
+          "count": 2,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Dusknoir",
+          "count": 2,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Greninja ex",
+          "count": 2,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Frogadier",
+          "count": 2,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Fezandipiti ex",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Budew",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Snorunt",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Mega Froslass ex",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Dusclops",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Latias ex",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Bloodmoon Ursaluna ex",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Mega Starmie ex",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Poké Pad",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Lillie's Determination",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Ultra Ball",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Buddy-Buddy Poffin",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Rare Candy",
+          "count": 3,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Boss's Orders",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Colress's Tenacity",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Hilda",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Night Stretcher",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Grand Tree",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Energy Search",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Jamming Tower",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Water Energy",
+          "count": 6,
+          "category": "Energy"
+        },
+        {
+          "card_name": "Ignition Energy",
+          "count": 3,
+          "category": "Energy"
+        }
+      ]
     },
     {
-      "tournament_name": "大阪府 ドラゴンスター日本橋2号店",
-      "tournament_url": "jp-952956",
-      "date": "2026-03-18",
-      "standing": 9,
-      "player_name": "しゃむしゃむ"
+      "tournament_name": "City League Hiroshima",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4286",
+      "date": "2026-03-14",
+      "standing": 11,
+      "player_name": "かめ",
+      "decklist": [
+        {
+          "card_name": "Duskull",
+          "count": 3,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Dusclops",
+          "count": 2,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Dusknoir",
+          "count": 2,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Greninja ex",
+          "count": 2,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Frogadier",
+          "count": 2,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Fezandipiti ex",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Budew",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Latias ex",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Bloodmoon Ursaluna ex",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Meowth ex",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Lillie's Determination",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Buddy-Buddy Poffin",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Poké Pad",
+          "count": 3,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Rare Candy",
+          "count": 3,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Ultra Ball",
+          "count": 3,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Night Stretcher",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Colress's Tenacity",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Hilda",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Boss's Orders",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Switch",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Grand Tree",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Jamming Tower",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Special Red Card",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Water Energy",
+          "count": 6,
+          "category": "Energy"
+        },
+        {
+          "card_name": "Ignition Energy",
+          "count": 3,
+          "category": "Energy"
+        }
+      ]
     },
     {
-      "tournament_name": "大阪府 ドラゴンスター日本橋2号店",
-      "tournament_url": "jp-952956",
-      "date": "2026-03-18",
-      "standing": 9,
-      "player_name": "ひろき"
+      "tournament_name": "City League Kōchi",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4335",
+      "date": "2026-03-20",
+      "standing": 14,
+      "player_name": "リョウ",
+      "decklist": [
+        {
+          "card_name": "Duskull",
+          "count": 3,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Greninja ex",
+          "count": 3,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Budew",
+          "count": 2,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Dusclops",
+          "count": 2,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Dusknoir",
+          "count": 2,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Meowth ex",
+          "count": 2,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Fezandipiti ex",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Frogadier",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Frogadier",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Poké Pad",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Lillie's Determination",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Buddy-Buddy Poffin",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Rare Candy",
+          "count": 3,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Ultra Ball",
+          "count": 3,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Colress's Tenacity",
+          "count": 3,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Boss's Orders",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Hilda",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Night Stretcher",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Switch",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Grand Tree",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Jamming Tower",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Water Energy",
+          "count": 8,
+          "category": "Energy"
+        },
+        {
+          "card_name": "Ignition Energy",
+          "count": 3,
+          "category": "Energy"
+        }
+      ]
     },
     {
-      "tournament_name": "大阪府 ドラゴンスター日本橋2号店",
-      "tournament_url": "jp-952956",
-      "date": "2026-03-18",
-      "standing": 9,
-      "player_name": "しゃけもん"
+      "tournament_name": "City League Ōita",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4346",
+      "date": "2026-03-20",
+      "standing": 15,
+      "player_name": "ウインデ石井",
+      "decklist": [
+        {
+          "card_name": "Snorunt",
+          "count": 2,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Duskull",
+          "count": 2,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Dusclops",
+          "count": 2,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Greninja ex",
+          "count": 2,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Frogadier",
+          "count": 2,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Fezandipiti ex",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Budew",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Mega Froslass ex",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Dusknoir",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Mega Starmie ex",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Lillie's Determination",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Ultra Ball",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Buddy-Buddy Poffin",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Poké Pad",
+          "count": 3,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Hilda",
+          "count": 3,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Boss's Orders",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Rare Candy",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Colress's Tenacity",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Air Balloon",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Night Stretcher",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Surfing Beach",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Switch",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Grand Tree",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Salvatore",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Water Energy",
+          "count": 6,
+          "category": "Energy"
+        },
+        {
+          "card_name": "Ignition Energy",
+          "count": 3,
+          "category": "Energy"
+        }
+      ]
     },
     {
-      "tournament_name": "大阪府 ドラゴンスター日本橋2号店",
-      "tournament_url": "jp-952956",
-      "date": "2026-03-18",
-      "standing": 9,
-      "player_name": "ちょむすけ"
-    },
-    {
-      "tournament_name": "大阪府 ドラゴンスター日本橋2号店",
-      "tournament_url": "jp-952956",
-      "date": "2026-03-18",
-      "standing": 9,
-      "player_name": "Asu"
-    },
-    {
-      "tournament_name": "大阪府 ドラゴンスター日本橋2号店",
-      "tournament_url": "jp-952956",
-      "date": "2026-03-18",
-      "standing": 9,
-      "player_name": "すぎやん"
-    },
-    {
-      "tournament_name": "大阪府 ドラゴンスター日本橋2号店",
-      "tournament_url": "jp-952956",
-      "date": "2026-03-18",
-      "standing": 9,
-      "player_name": "てらゆん"
-    },
-    {
-      "tournament_name": "京都府 GIRAFULL京都店",
-      "tournament_url": "jp-952957",
-      "date": "2026-03-18",
-      "standing": 9,
-      "player_name": "りょーすけ"
-    },
-    {
-      "tournament_name": "京都府 GIRAFULL京都店",
-      "tournament_url": "jp-952957",
-      "date": "2026-03-18",
-      "standing": 9,
-      "player_name": "キカト"
-    },
-    {
-      "tournament_name": "京都府 GIRAFULL京都店",
-      "tournament_url": "jp-952957",
-      "date": "2026-03-18",
-      "standing": 9,
-      "player_name": "とら"
-    },
-    {
-      "tournament_name": "京都府 GIRAFULL京都店",
-      "tournament_url": "jp-952957",
-      "date": "2026-03-18",
-      "standing": 9,
-      "player_name": "はる"
-    },
-    {
-      "tournament_name": "京都府 GIRAFULL京都店",
-      "tournament_url": "jp-952957",
-      "date": "2026-03-18",
-      "standing": 9,
-      "player_name": "プロトン"
-    },
-    {
-      "tournament_name": "京都府 GIRAFULL京都店",
-      "tournament_url": "jp-952957",
-      "date": "2026-03-18",
-      "standing": 9,
-      "player_name": "とわっち"
+      "tournament_name": "City League Ōsaka",
+      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4284",
+      "date": "2026-03-14",
+      "standing": 15,
+      "player_name": "TeacH",
+      "decklist": [
+        {
+          "card_name": "Duskull",
+          "count": 2,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Dusclops",
+          "count": 2,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Dusknoir",
+          "count": 2,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Greninja ex",
+          "count": 2,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Fezandipiti ex",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Budew",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Snorunt",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Mega Froslass ex",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Latias ex",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Froakie",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Mega Starmie ex",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Lillie's Determination",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Ultra Ball",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Buddy-Buddy Poffin",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Poké Pad",
+          "count": 3,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Rare Candy",
+          "count": 3,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Boss's Orders",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Colress's Tenacity",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Hilda",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Night Stretcher",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Switch",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Grand Tree",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Jamming Tower",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Special Red Card",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Water Energy",
+          "count": 6,
+          "category": "Energy"
+        },
+        {
+          "card_name": "Ignition Energy",
+          "count": 3,
+          "category": "Energy"
+        }
+      ]
     }
   ],
   "radar": {
-    "meta_share": 20.8,
-    "weighted_share": 16.2,
-    "consistency": 60.1,
+    "meta_share": 3.5,
+    "weighted_share": 3.8,
+    "consistency": 58.8,
     "ceiling": 100,
-    "popularity": 40.7,
-    "core_density": 0.0
+    "popularity": 6.5,
+    "core_density": 60.6
   },
   "evolution": [
     {
       "week": "2026-03-16",
-      "adopted": [],
+      "adopted": [
+        {
+          "card": "Mega Starmie ex",
+          "from_pct": 25.0,
+          "to_pct": 75.0
+        },
+        {
+          "card": "Salvatore",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Surfing Beach",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Air Balloon",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Snorunt",
+          "from_pct": 25.0,
+          "to_pct": 75.0
+        },
+        {
+          "card": "Mega Froslass ex",
+          "from_pct": 25.0,
+          "to_pct": 75.0
+        }
+      ],
       "dropped": [
-        {
-          "card": "Switch",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Ignition Energy",
-          "from_pct": 100.0,
-          "to_pct": 3.0
-        },
-        {
-          "card": "Colress's Tenacity",
-          "from_pct": 100.0,
-          "to_pct": 3.0
-        },
-        {
-          "card": "Dusclops",
-          "from_pct": 100.0,
-          "to_pct": 3.0
-        },
-        {
-          "card": "Rare Candy",
-          "from_pct": 100.0,
-          "to_pct": 3.0
-        },
-        {
-          "card": "Grand Tree",
-          "from_pct": 100.0,
-          "to_pct": 3.0
-        },
-        {
-          "card": "Greninja ex",
-          "from_pct": 100.0,
-          "to_pct": 3.0
-        },
-        {
-          "card": "Duskull",
-          "from_pct": 100.0,
-          "to_pct": 3.0
-        },
-        {
-          "card": "Boss's Orders",
-          "from_pct": 100.0,
-          "to_pct": 3.0
-        },
-        {
-          "card": "Lillie's Determination",
-          "from_pct": 100.0,
-          "to_pct": 3.0
-        },
-        {
-          "card": "Ultra Ball",
-          "from_pct": 100.0,
-          "to_pct": 3.0
-        },
-        {
-          "card": "Buddy-Buddy Poffin",
-          "from_pct": 100.0,
-          "to_pct": 3.0
-        },
-        {
-          "card": "Hilda",
-          "from_pct": 100.0,
-          "to_pct": 3.0
-        },
-        {
-          "card": "Poké Pad",
-          "from_pct": 100.0,
-          "to_pct": 3.0
-        },
-        {
-          "card": "Dusknoir",
-          "from_pct": 100.0,
-          "to_pct": 3.0
-        },
-        {
-          "card": "Night Stretcher",
-          "from_pct": 100.0,
-          "to_pct": 3.0
-        },
         {
           "card": "Froakie",
           "from_pct": 75.0,
           "to_pct": 0.0
-        },
-        {
-          "card": "Meowth ex",
-          "from_pct": 75.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Latias ex",
-          "from_pct": 75.0,
-          "to_pct": 3.0
-        },
-        {
-          "card": "Jamming Tower",
-          "from_pct": 75.0,
-          "to_pct": 3.0
-        },
-        {
-          "card": "Fezandipiti ex",
-          "from_pct": 75.0,
-          "to_pct": 3.0
-        },
-        {
-          "card": "Frogadier",
-          "from_pct": 75.0,
-          "to_pct": 3.0
-        },
-        {
-          "card": "Budew",
-          "from_pct": 75.0,
-          "to_pct": 3.0
         },
         {
           "card": "Special Red Card",
@@ -697,7 +1496,28 @@
       ]
     }
   ],
-  "variants": [],
+  "variants": [
+    {
+      "name": "with Froakie",
+      "deck_count": 3,
+      "pct": 37.5
+    },
+    {
+      "name": "with Mega Froslass ex",
+      "deck_count": 2,
+      "pct": 25.0
+    },
+    {
+      "name": "with Bloodmoon Ursaluna ex",
+      "deck_count": 2,
+      "pct": 25.0
+    },
+    {
+      "name": "with Meowth ex",
+      "deck_count": 1,
+      "pct": 12.5
+    }
+  ],
   "weekly_shares": [
     {
       "week": "2026-03-09",
@@ -706,194 +1526,242 @@
     },
     {
       "week": "2026-03-16",
-      "meta_share": 12.7,
-      "deck_count": 33
+      "meta_share": 0.8,
+      "deck_count": 4
     }
   ],
   "top4_card_stats": [
     {
       "card_name": "Water Energy",
       "inclusion_pct": 100.0,
-      "avg_copies": 7.0,
-      "decks_with": 1,
+      "avg_copies": 6.5,
+      "decks_with": 2,
       "category": "Energy",
-      "delta_vs_field": 86.5
+      "delta_vs_field": 0.0
     },
     {
       "card_name": "Ultra Ball",
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
-      "decks_with": 1,
+      "decks_with": 2,
       "category": "Trainer",
-      "delta_vs_field": 86.5
+      "delta_vs_field": 0.0
     },
     {
       "card_name": "Switch",
       "inclusion_pct": 100.0,
-      "avg_copies": 2.0,
-      "decks_with": 1,
+      "avg_copies": 1.5,
+      "decks_with": 2,
       "category": "Trainer",
-      "delta_vs_field": 89.2
+      "delta_vs_field": 12.5
     },
     {
       "card_name": "Rare Candy",
       "inclusion_pct": 100.0,
-      "avg_copies": 4.0,
-      "decks_with": 1,
+      "avg_copies": 3.0,
+      "decks_with": 2,
       "category": "Trainer",
-      "delta_vs_field": 86.5
+      "delta_vs_field": 0.0
     },
     {
       "card_name": "Poké Pad",
       "inclusion_pct": 100.0,
-      "avg_copies": 4.0,
-      "decks_with": 1,
+      "avg_copies": 3.5,
+      "decks_with": 2,
       "category": "Trainer",
-      "delta_vs_field": 86.5
+      "delta_vs_field": 0.0
     },
     {
       "card_name": "Night Stretcher",
       "inclusion_pct": 100.0,
-      "avg_copies": 2.0,
-      "decks_with": 1,
+      "avg_copies": 1.5,
+      "decks_with": 2,
       "category": "Trainer",
-      "delta_vs_field": 86.5
-    },
-    {
-      "card_name": "Meowth ex",
-      "inclusion_pct": 100.0,
-      "avg_copies": 2.0,
-      "decks_with": 1,
-      "category": "Pokemon",
-      "delta_vs_field": 91.9
+      "delta_vs_field": 0.0
     },
     {
       "card_name": "Lillie's Determination",
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
-      "decks_with": 1,
+      "decks_with": 2,
       "category": "Trainer",
-      "delta_vs_field": 86.5
-    },
-    {
-      "card_name": "Jamming Tower",
-      "inclusion_pct": 100.0,
-      "avg_copies": 1.0,
-      "decks_with": 1,
-      "category": "Trainer",
-      "delta_vs_field": 89.2
+      "delta_vs_field": 0.0
     },
     {
       "card_name": "Ignition Energy",
       "inclusion_pct": 100.0,
       "avg_copies": 3.0,
-      "decks_with": 1,
+      "decks_with": 2,
       "category": "Energy",
-      "delta_vs_field": 86.5
+      "delta_vs_field": 0.0
     },
     {
       "card_name": "Hilda",
       "inclusion_pct": 100.0,
-      "avg_copies": 2.0,
-      "decks_with": 1,
+      "avg_copies": 2.5,
+      "decks_with": 2,
       "category": "Trainer",
-      "delta_vs_field": 86.5
+      "delta_vs_field": 0.0
     },
     {
       "card_name": "Greninja ex",
       "inclusion_pct": 100.0,
-      "avg_copies": 3.0,
-      "decks_with": 1,
+      "avg_copies": 2.5,
+      "decks_with": 2,
       "category": "Pokemon",
-      "delta_vs_field": 86.5
+      "delta_vs_field": 0.0
     },
     {
       "card_name": "Grand Tree",
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
-      "decks_with": 1,
+      "decks_with": 2,
       "category": "Trainer",
-      "delta_vs_field": 86.5
+      "delta_vs_field": 0.0
     },
     {
       "card_name": "Frogadier",
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
-      "decks_with": 1,
+      "decks_with": 2,
       "category": "Pokemon",
-      "delta_vs_field": 89.2
-    },
-    {
-      "card_name": "Froakie",
-      "inclusion_pct": 100.0,
-      "avg_copies": 3.0,
-      "decks_with": 1,
-      "category": "Pokemon",
-      "delta_vs_field": 91.9
+      "delta_vs_field": 12.5
     },
     {
       "card_name": "Fezandipiti ex",
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
-      "decks_with": 1,
+      "decks_with": 2,
       "category": "Pokemon",
-      "delta_vs_field": 89.2
+      "delta_vs_field": 12.5
     },
     {
       "card_name": "Duskull",
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
-      "decks_with": 1,
+      "decks_with": 2,
       "category": "Pokemon",
-      "delta_vs_field": 86.5
+      "delta_vs_field": 0.0
     },
     {
       "card_name": "Dusknoir",
       "inclusion_pct": 100.0,
-      "avg_copies": 2.0,
-      "decks_with": 1,
+      "avg_copies": 1.5,
+      "decks_with": 2,
       "category": "Pokemon",
-      "delta_vs_field": 86.5
+      "delta_vs_field": 0.0
     },
     {
       "card_name": "Dusclops",
       "inclusion_pct": 100.0,
-      "avg_copies": 1.0,
-      "decks_with": 1,
+      "avg_copies": 1.5,
+      "decks_with": 2,
       "category": "Pokemon",
-      "delta_vs_field": 86.5
+      "delta_vs_field": 0.0
     },
     {
       "card_name": "Colress's Tenacity",
       "inclusion_pct": 100.0,
-      "avg_copies": 3.0,
-      "decks_with": 1,
+      "avg_copies": 2.5,
+      "decks_with": 2,
       "category": "Trainer",
-      "delta_vs_field": 86.5
+      "delta_vs_field": 0.0
     },
     {
       "card_name": "Budew",
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
-      "decks_with": 1,
+      "decks_with": 2,
       "category": "Pokemon",
-      "delta_vs_field": 89.2
+      "delta_vs_field": 12.5
     },
     {
       "card_name": "Buddy-Buddy Poffin",
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
-      "decks_with": 1,
+      "decks_with": 2,
       "category": "Trainer",
-      "delta_vs_field": 86.5
+      "delta_vs_field": 0.0
     },
     {
       "card_name": "Boss's Orders",
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
+      "decks_with": 2,
+      "category": "Trainer",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Surfing Beach",
+      "inclusion_pct": 50.0,
+      "avg_copies": 1.0,
       "decks_with": 1,
       "category": "Trainer",
-      "delta_vs_field": 86.5
+      "delta_vs_field": 25.0
+    },
+    {
+      "card_name": "Snorunt",
+      "inclusion_pct": 50.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Pokemon",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Salvatore",
+      "inclusion_pct": 50.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 25.0
+    },
+    {
+      "card_name": "Meowth ex",
+      "inclusion_pct": 50.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Pokemon",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Mega Starmie ex",
+      "inclusion_pct": 50.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Pokemon",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Mega Froslass ex",
+      "inclusion_pct": 50.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Pokemon",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "Jamming Tower",
+      "inclusion_pct": 50.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": -12.5
+    },
+    {
+      "card_name": "Froakie",
+      "inclusion_pct": 50.0,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Pokemon",
+      "delta_vs_field": 12.5
+    },
+    {
+      "card_name": "Air Balloon",
+      "inclusion_pct": 50.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 25.0
     },
     {
       "card_name": "Latias ex",
@@ -901,7 +1769,7 @@
       "avg_copies": 0,
       "decks_with": 0,
       "category": "Pokemon",
-      "delta_vs_field": -10.8
+      "delta_vs_field": -50.0
     },
     {
       "card_name": "Special Red Card",
@@ -909,31 +1777,7 @@
       "avg_copies": 0,
       "decks_with": 0,
       "category": "Trainer",
-      "delta_vs_field": -5.4
-    },
-    {
-      "card_name": "Snorunt",
-      "inclusion_pct": 0,
-      "avg_copies": 0,
-      "decks_with": 0,
-      "category": "Pokemon",
-      "delta_vs_field": -5.4
-    },
-    {
-      "card_name": "Mega Starmie ex",
-      "inclusion_pct": 0,
-      "avg_copies": 0,
-      "decks_with": 0,
-      "category": "Pokemon",
-      "delta_vs_field": -5.4
-    },
-    {
-      "card_name": "Mega Froslass ex",
-      "inclusion_pct": 0,
-      "avg_copies": 0,
-      "decks_with": 0,
-      "category": "Pokemon",
-      "delta_vs_field": -5.4
+      "delta_vs_field": -25.0
     },
     {
       "card_name": "Bloodmoon Ursaluna ex",
@@ -941,7 +1785,7 @@
       "avg_copies": 0,
       "decks_with": 0,
       "category": "Pokemon",
-      "delta_vs_field": -5.4
+      "delta_vs_field": -25.0
     },
     {
       "card_name": "Energy Search",
@@ -949,9 +1793,9 @@
       "avg_copies": 0,
       "decks_with": 0,
       "category": "Trainer",
-      "delta_vs_field": -2.7
+      "delta_vs_field": -12.5
     }
   ],
-  "top4_sample_size": 1,
+  "top4_sample_size": 2,
   "top4_low_sample": true
 }

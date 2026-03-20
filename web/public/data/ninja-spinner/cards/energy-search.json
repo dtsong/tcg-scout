@@ -7,31 +7,45 @@
   "image_url": null,
   "category": "Trainer",
   "rarity": null,
-  "total_appearances": 30,
-  "usage_pct": 3.4,
-  "avg_copies": 1.2,
-  "unique_archetypes": 15,
-  "weighted_score": 47.7,
-  "win_rate_proxy": 1.59,
+  "total_appearances": 45,
+  "usage_pct": 4.0,
+  "avg_copies": 1.1,
+  "unique_archetypes": 19,
+  "weighted_score": 69.4,
+  "win_rate_proxy": 1.54,
   "top_archetype": "Noctowl Ogerpon",
   "trend_direction": "stable",
   "copy_distribution": [
     {
       "copies": 1,
-      "count": 25
+      "count": 39
     },
     {
       "copies": 2,
-      "count": 5
+      "count": 6
     }
   ],
   "archetypes": [
     {
       "name": "Noctowl Ogerpon",
       "slug": "noctowl-ogerpon",
-      "usage_count": 6,
+      "usage_count": 11,
       "avg_copies": 1.0,
       "tier": "C"
+    },
+    {
+      "name": "Raging Bolt ex",
+      "slug": "raging-bolt-ex",
+      "usage_count": 6,
+      "avg_copies": 1.2,
+      "tier": "B"
+    },
+    {
+      "name": "Mewtwo Spidops",
+      "slug": "mewtwo-spidops",
+      "usage_count": 6,
+      "avg_copies": 1.0,
+      "tier": "B"
     },
     {
       "name": "Flareon Noctowl",
@@ -41,18 +55,11 @@
       "tier": "C"
     },
     {
-      "name": "Mewtwo Spidops",
-      "slug": "mewtwo-spidops",
-      "usage_count": 4,
+      "name": "Tera Box",
+      "slug": "tera-box",
+      "usage_count": 2,
       "avg_copies": 1.0,
-      "tier": "B"
-    },
-    {
-      "name": "Raging Bolt ex",
-      "slug": "raging-bolt-ex",
-      "usage_count": 3,
-      "avg_copies": 1.3,
-      "tier": "C"
+      "tier": "Rogue"
     },
     {
       "name": "Meowth Ogerpon",
@@ -64,6 +71,13 @@
     {
       "name": "Mega Greninja Mega Starmie",
       "slug": "mega-greninja-mega-starmie",
+      "usage_count": 1,
+      "avg_copies": 1.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Mega Froslass Grimmsnarl",
+      "slug": "mega-froslass-grimmsnarl",
       "usage_count": 1,
       "avg_copies": 1.0,
       "tier": "Rogue"
@@ -90,6 +104,13 @@
       "tier": "Rogue"
     },
     {
+      "name": "Latias Zacian Crowned",
+      "slug": "latias-zacian-crowned",
+      "usage_count": 1,
+      "avg_copies": 1.0,
+      "tier": "Rogue"
+    },
+    {
       "name": "Latias Noctowl",
       "slug": "latias-noctowl",
       "usage_count": 1,
@@ -108,7 +129,7 @@
       "slug": "dusknoir-greninja",
       "usage_count": 1,
       "avg_copies": 1.0,
-      "tier": "B"
+      "tier": "Rogue"
     },
     {
       "name": "Blaziken Dragapult",
@@ -130,6 +151,13 @@
       "usage_count": 1,
       "avg_copies": 2.0,
       "tier": "Rogue"
+    },
+    {
+      "name": "Archaludon Zacian Crowned",
+      "slug": "archaludon-zacian-crowned",
+      "usage_count": 1,
+      "avg_copies": 2.0,
+      "tier": "Rogue"
     }
   ],
   "weekly_usage": [
@@ -140,115 +168,115 @@
     },
     {
       "week": "2026-03-16",
-      "usage_pct": 5.0,
+      "usage_pct": 5.7,
       "avg_copies": 1.1
     }
   ],
   "synergy_partners": [
     {
       "card_name": "Terapagos ex",
-      "support": 7,
-      "lift": 18.921,
-      "jaccard": 0.206,
-      "weighted_score": 12.6
+      "support": 11,
+      "lift": 18.317,
+      "jaccard": 0.224,
+      "weighted_score": 18.3
     },
     {
-      "card_name": "Flareon ex",
-      "support": 6,
-      "lift": 17.84,
-      "jaccard": 0.176,
-      "weighted_score": 9.3
-    },
-    {
-      "card_name": "Leafeon ex",
-      "support": 7,
-      "lift": 17.344,
-      "jaccard": 0.2,
-      "weighted_score": 10.5
-    },
-    {
-      "card_name": "Eevee ex",
+      "card_name": "Joltik",
       "support": 5,
-      "lift": 16.519,
-      "jaccard": 0.147,
-      "weighted_score": 7.8
+      "lift": 17.841,
+      "jaccard": 0.106,
+      "weighted_score": 7.6
     },
     {
       "card_name": "Eevee",
       "support": 7,
-      "lift": 16.01,
-      "jaccard": 0.194,
+      "lift": 10.928,
+      "jaccard": 0.13,
       "weighted_score": 10.5
     },
     {
-      "card_name": "Sparkling Crystal",
+      "card_name": "Leafeon ex",
+      "support": 7,
+      "lift": 10.928,
+      "jaccard": 0.13,
+      "weighted_score": 10.5
+    },
+    {
+      "card_name": "Flareon ex",
       "support": 6,
-      "lift": 12.743,
-      "jaccard": 0.158,
+      "lift": 10.705,
+      "jaccard": 0.113,
       "weighted_score": 9.3
     },
     {
+      "card_name": "Sparkling Crystal",
+      "support": 8,
+      "lift": 10.517,
+      "jaccard": 0.143,
+      "weighted_score": 11.7
+    },
+    {
       "card_name": "Tera Orb",
-      "support": 14,
-      "lift": 12.614,
+      "support": 22,
+      "lift": 10.176,
       "jaccard": 0.286,
-      "weighted_score": 23.4
+      "weighted_score": 34.7
+    },
+    {
+      "card_name": "Eevee ex",
+      "support": 5,
+      "lift": 9.607,
+      "jaccard": 0.094,
+      "weighted_score": 7.8
     },
     {
       "card_name": "Fan Rotom",
-      "support": 13,
-      "lift": 8.59,
-      "jaccard": 0.21,
-      "weighted_score": 22.2
-    },
-    {
-      "card_name": "Glass Trumpet",
-      "support": 14,
-      "lift": 8.162,
-      "jaccard": 0.209,
-      "weighted_score": 23.1
+      "support": 20,
+      "lift": 7.806,
+      "jaccard": 0.225,
+      "weighted_score": 32.3
     },
     {
       "card_name": "Raging Bolt",
-      "support": 7,
-      "lift": 8.005,
-      "jaccard": 0.143,
-      "weighted_score": 12.9
+      "support": 12,
+      "lift": 7.685,
+      "jaccard": 0.167,
+      "weighted_score": 20.3
+    },
+    {
+      "card_name": "Glass Trumpet",
+      "support": 20,
+      "lift": 6.573,
+      "jaccard": 0.198,
+      "weighted_score": 32.0
+    },
+    {
+      "card_name": "Precious Trolley",
+      "support": 6,
+      "lift": 5.995,
+      "jaccard": 0.094,
+      "weighted_score": 9.6
     },
     {
       "card_name": "Raging Bolt ex",
-      "support": 11,
-      "lift": 6.413,
-      "jaccard": 0.157,
-      "weighted_score": 19.0
+      "support": 19,
+      "lift": 5.788,
+      "jaccard": 0.176,
+      "weighted_score": 30.6
     },
     {
       "card_name": "Iron Leaves ex",
-      "support": 10,
-      "lift": 4.438,
-      "jaccard": 0.115,
-      "weighted_score": 16.5
+      "support": 18,
+      "lift": 4.451,
+      "jaccard": 0.141,
+      "weighted_score": 27.8
     },
     {
-      "card_name": "Energy Retrieval",
-      "support": 11,
-      "lift": 4.361,
-      "jaccard": 0.117,
-      "weighted_score": 19.0
-    },
-    {
-      "card_name": "Hoothoot",
-      "support": 14,
-      "lift": 4.121,
-      "jaccard": 0.12,
-      "weighted_score": 23.4
-    },
-    {
-      "card_name": "Noctowl",
-      "support": 14,
-      "lift": 4.121,
-      "jaccard": 0.12,
-      "weighted_score": 23.4
+      "card_name": "Team Rocket's Mewtwo ex",
+      "support": 6,
+      "lift": 4.163,
+      "jaccard": 0.08,
+      "weighted_score": 8.6
     }
   ]
 }

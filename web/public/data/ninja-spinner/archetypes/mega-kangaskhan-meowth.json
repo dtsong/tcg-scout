@@ -3,7 +3,7 @@
   "slug": "mega-kangaskhan-meowth",
   "tier": "Rogue",
   "meta_share": 0.2,
-  "weighted_share": 0.2,
+  "weighted_share": 0.1,
   "deck_count": 2,
   "best_placement": 8,
   "sprite_filenames": [
@@ -671,17 +671,22 @@
     }
   ],
   "radar": {
-    "meta_share": 1.1,
-    "weighted_share": 0.9,
+    "meta_share": 0.9,
+    "weighted_share": 0.8,
     "consistency": 45.0,
     "ceiling": 50,
-    "popularity": 2.2,
+    "popularity": 1.6,
     "core_density": 82.8
   },
   "evolution": [
     {
       "week": "2026-03-16",
       "adopted": [
+        {
+          "card": "Iron Leaves ex",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
         {
           "card": "Lillie's Determination",
           "from_pct": 0.0,
@@ -691,21 +696,16 @@
           "card": "Bloodmoon Ursaluna ex",
           "from_pct": 0.0,
           "to_pct": 100.0
-        },
-        {
-          "card": "Iron Leaves ex",
-          "from_pct": 0.0,
-          "to_pct": 100.0
         }
       ],
       "dropped": [
         {
-          "card": "Mega Absol ex",
+          "card": "Xerosic's Machinations",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Xerosic's Machinations",
+          "card": "Mega Absol ex",
           "from_pct": 100.0,
           "to_pct": 0.0
         }
@@ -721,7 +721,7 @@
     },
     {
       "week": "2026-03-16",
-      "meta_share": 0.4,
+      "meta_share": 0.2,
       "deck_count": 1
     }
   ],

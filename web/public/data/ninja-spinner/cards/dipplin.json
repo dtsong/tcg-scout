@@ -7,43 +7,43 @@
   "image_url": null,
   "category": "Pokemon",
   "rarity": null,
-  "total_appearances": 13,
-  "usage_pct": 1.5,
+  "total_appearances": 18,
+  "usage_pct": 1.6,
   "avg_copies": 3.6,
   "unique_archetypes": 3,
-  "weighted_score": 21.1,
-  "win_rate_proxy": 1.62,
+  "weighted_score": 31.0,
+  "win_rate_proxy": 1.72,
   "top_archetype": "Dipplin Thwackey",
   "trend_direction": "stable",
   "copy_distribution": [
     {
       "copies": 3,
-      "count": 5
+      "count": 7
     },
     {
       "copies": 4,
-      "count": 8
+      "count": 11
     }
   ],
   "archetypes": [
     {
       "name": "Dipplin Thwackey",
       "slug": "dipplin-thwackey",
-      "usage_count": 7,
+      "usage_count": 9,
       "avg_copies": 3.9,
       "tier": "Rogue"
     },
     {
       "name": "Hydrapple Ogerpon",
       "slug": "hydrapple-ogerpon",
-      "usage_count": 4,
+      "usage_count": 6,
       "avg_copies": 3.0,
       "tier": "Rogue"
     },
     {
       "name": "Dipplin Rillaboom",
       "slug": "dipplin-rillaboom",
-      "usage_count": 2,
+      "usage_count": 3,
       "avg_copies": 4.0,
       "tier": "Rogue"
     }
@@ -56,115 +56,115 @@
     },
     {
       "week": "2026-03-16",
-      "usage_pct": 0.4,
-      "avg_copies": 4.0
+      "usage_pct": 1.2,
+      "avg_copies": 3.7
     }
   ],
   "synergy_partners": [
     {
       "card_name": "Applin",
-      "support": 13,
-      "lift": 68.615,
+      "support": 18,
+      "lift": 62.444,
       "jaccard": 1.0,
-      "weighted_score": 21.1
+      "weighted_score": 31.0
     },
     {
       "card_name": "Festival Grounds",
-      "support": 10,
-      "lift": 68.615,
-      "jaccard": 0.769,
-      "weighted_score": 16.9
+      "support": 14,
+      "lift": 62.444,
+      "jaccard": 0.778,
+      "weighted_score": 24.8
     },
     {
       "card_name": "Goldeen",
-      "support": 7,
-      "lift": 68.615,
-      "jaccard": 0.538,
-      "weighted_score": 12.4
+      "support": 10,
+      "lift": 62.444,
+      "jaccard": 0.556,
+      "weighted_score": 19.1
     },
     {
       "card_name": "Grookey",
-      "support": 9,
-      "lift": 68.615,
-      "jaccard": 0.692,
-      "weighted_score": 15.4
+      "support": 12,
+      "lift": 62.444,
+      "jaccard": 0.667,
+      "weighted_score": 22.1
+    },
+    {
+      "card_name": "Hydrapple ex",
+      "support": 6,
+      "lift": 62.444,
+      "jaccard": 0.333,
+      "weighted_score": 8.9
     },
     {
       "card_name": "Seaking",
-      "support": 7,
-      "lift": 68.615,
-      "jaccard": 0.538,
-      "weighted_score": 12.4
+      "support": 9,
+      "lift": 62.444,
+      "jaccard": 0.5,
+      "weighted_score": 16.6
     },
     {
       "card_name": "Thwackey",
-      "support": 9,
-      "lift": 68.615,
-      "jaccard": 0.692,
-      "weighted_score": 15.4
+      "support": 12,
+      "lift": 62.444,
+      "jaccard": 0.667,
+      "weighted_score": 22.1
     },
     {
       "card_name": "Brave Bangle",
-      "support": 9,
-      "lift": 18.163,
-      "jaccard": 0.237,
-      "weighted_score": 15.4
+      "support": 12,
+      "lift": 16.652,
+      "jaccard": 0.235,
+      "weighted_score": 22.1
     },
     {
       "card_name": "Kieran",
-      "support": 9,
-      "lift": 16.251,
-      "jaccard": 0.214,
-      "weighted_score": 15.4
+      "support": 11,
+      "lift": 13.468,
+      "jaccard": 0.19,
+      "weighted_score": 19.6
+    },
+    {
+      "card_name": "Growth Grass Energy",
+      "support": 5,
+      "lift": 10.407,
+      "jaccard": 0.116,
+      "weighted_score": 7.4
     },
     {
       "card_name": "Sacred Ash",
       "support": 5,
-      "lift": 12.253,
-      "jaccard": 0.139,
+      "lift": 7.615,
+      "jaccard": 0.093,
       "weighted_score": 8.9
     },
     {
-      "card_name": "Lana's Aid",
-      "support": 10,
-      "lift": 8.072,
-      "jaccard": 0.114,
-      "weighted_score": 15.6
+      "card_name": "Bug Catching Set",
+      "support": 18,
+      "lift": 7.252,
+      "jaccard": 0.116,
+      "weighted_score": 31.0
     },
     {
-      "card_name": "Bug Catching Set",
+      "card_name": "Lana's Aid",
       "support": 13,
-      "lift": 7.964,
-      "jaccard": 0.116,
-      "weighted_score": 21.1
+      "lift": 7.059,
+      "jaccard": 0.108,
+      "weighted_score": 22.3
     },
     {
       "card_name": "Black Belt's Training",
-      "support": 5,
-      "lift": 4.7,
-      "jaccard": 0.062,
-      "weighted_score": 8.7
-    },
-    {
-      "card_name": "Shaymin",
-      "support": 9,
-      "lift": 4.201,
-      "jaccard": 0.06,
+      "support": 8,
+      "lift": 5.314,
+      "jaccard": 0.077,
       "weighted_score": 15.4
     },
     {
-      "card_name": "Air Balloon",
-      "support": 10,
-      "lift": 3.414,
-      "jaccard": 0.049,
-      "weighted_score": 16.9
-    },
-    {
-      "card_name": "Psyduck",
-      "support": 9,
-      "lift": 2.606,
-      "jaccard": 0.037,
-      "weighted_score": 14.4
+      "card_name": "Bayleef",
+      "support": 5,
+      "lift": 4.956,
+      "jaccard": 0.066,
+      "weighted_score": 6.9
     }
   ]
 }

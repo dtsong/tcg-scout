@@ -1,58 +1,40 @@
 {
   "card_name": "Charcadet",
   "card_slug": "charcadet",
-  "card_id": "me02-019",
-  "set_code": "me02",
-  "set_number": "019",
-  "image_url": "https://assets.tcgdex.net/en/me/me02/019/high.png",
+  "card_id": null,
+  "set_code": null,
+  "set_number": null,
+  "image_url": null,
   "category": "Pokemon",
-  "rarity": "",
-  "total_appearances": 43,
-  "usage_pct": 0.6,
+  "rarity": null,
+  "total_appearances": 10,
+  "usage_pct": 0.8,
   "avg_copies": 4.0,
-  "unique_archetypes": 6,
-  "weighted_score": 76.0,
-  "win_rate_proxy": 1.77,
+  "unique_archetypes": 4,
+  "weighted_score": 17.0,
+  "win_rate_proxy": 1.7,
   "top_archetype": "Ceruledge ex",
   "trend_direction": "stable",
   "copy_distribution": [
     {
       "copies": 1,
-      "count": 6
-    },
-    {
-      "copies": 2,
-      "count": 6
+      "count": 1
     },
     {
       "copies": 3,
-      "count": 7
+      "count": 1
     },
     {
       "copies": 4,
-      "count": 33
+      "count": 9
     }
   ],
   "archetypes": [
     {
       "name": "Ceruledge ex",
       "slug": "ceruledge-ex",
-      "usage_count": 31,
-      "avg_copies": 3.3,
-      "tier": "Rogue"
-    },
-    {
-      "name": "Ceruledge Solrock",
-      "slug": "ceruledge-solrock",
-      "usage_count": 5,
-      "avg_copies": 3.3,
-      "tier": "Rogue"
-    },
-    {
-      "name": "Ceruledge Meowth",
-      "slug": "ceruledge-meowth",
-      "usage_count": 4,
-      "avg_copies": 3.2,
+      "usage_count": 7,
+      "avg_copies": 3.5,
       "tier": "Rogue"
     },
     {
@@ -63,51 +45,21 @@
       "tier": "Rogue"
     },
     {
-      "name": "Ceruledge Lunatone",
-      "slug": "ceruledge-lunatone",
+      "name": "Ceruledge Solrock",
+      "slug": "ceruledge-solrock",
       "usage_count": 1,
       "avg_copies": 4.0,
       "tier": "Rogue"
     },
     {
-      "name": "Azumarill Ceruledge",
-      "slug": "azumarill-ceruledge",
+      "name": "Ceruledge Lunatone",
+      "slug": "ceruledge-lunatone",
       "usage_count": 1,
-      "avg_copies": 3.0,
+      "avg_copies": 4.0,
       "tier": "Rogue"
     }
   ],
   "weekly_usage": [
-    {
-      "week": "2026-01-19",
-      "usage_pct": 0.7,
-      "avg_copies": 2.4
-    },
-    {
-      "week": "2026-01-26",
-      "usage_pct": 0.9,
-      "avg_copies": 3.6
-    },
-    {
-      "week": "2026-02-02",
-      "usage_pct": 0.7,
-      "avg_copies": 3.5
-    },
-    {
-      "week": "2026-02-09",
-      "usage_pct": 0.7,
-      "avg_copies": 3.2
-    },
-    {
-      "week": "2026-02-16",
-      "usage_pct": 1.6,
-      "avg_copies": 2.0
-    },
-    {
-      "week": "2026-02-23",
-      "usage_pct": 0.6,
-      "avg_copies": 3.2
-    },
     {
       "week": "2026-03-02",
       "usage_pct": 0.9,
@@ -116,109 +68,109 @@
   ],
   "synergy_partners": [
     {
-      "card_name": "Ceruledge ex",
-      "support": 43,
-      "lift": 157.116,
-      "jaccard": 1.0,
-      "weighted_score": 61.5
+      "card_name": "Brilliant Blender",
+      "support": 6,
+      "lift": 118.4,
+      "jaccard": 0.6,
+      "weighted_score": 9.1
     },
     {
-      "card_name": "Brilliant Blender",
-      "support": 34,
-      "lift": 144.377,
-      "jaccard": 0.739,
-      "weighted_score": 49.2
+      "card_name": "Ceruledge ex",
+      "support": 10,
+      "lift": 118.4,
+      "jaccard": 1.0,
+      "weighted_score": 14.5
     },
     {
       "card_name": "Drilbur",
-      "support": 30,
-      "lift": 134.671,
-      "jaccard": 0.625,
-      "weighted_score": 41.6
-    },
-    {
-      "card_name": "Blowtorch",
-      "support": 22,
-      "lift": 80.385,
-      "jaccard": 0.344,
-      "weighted_score": 32.3
+      "support": 6,
+      "lift": 101.486,
+      "jaccard": 0.545,
+      "weighted_score": 9.4
     },
     {
       "card_name": "Explorer's Guidance",
-      "support": 23,
-      "lift": 25.629,
-      "jaccard": 0.143,
-      "weighted_score": 33.4
-    },
-    {
-      "card_name": "Naveen",
-      "support": 9,
-      "lift": 21.425,
-      "jaccard": 0.09,
-      "weighted_score": 12.1
-    },
-    {
-      "card_name": "Mist Energy",
-      "support": 27,
-      "lift": 17.037,
-      "jaccard": 0.102,
-      "weighted_score": 37.4
-    },
-    {
-      "card_name": "Briar",
-      "support": 29,
-      "lift": 7.314,
-      "jaccard": 0.046,
-      "weighted_score": 43.2
+      "support": 8,
+      "lift": 28.703,
+      "jaccard": 0.229,
+      "weighted_score": 10.8
     },
     {
       "card_name": "Carmine",
-      "support": 41,
-      "lift": 6.994,
-      "jaccard": 0.044,
-      "weighted_score": 58.8
+      "support": 8,
+      "lift": 11.84,
+      "jaccard": 0.098,
+      "weighted_score": 11.8
     },
     {
       "card_name": "Lunatone",
-      "support": 42,
-      "lift": 6.321,
-      "jaccard": 0.04,
-      "weighted_score": 60.3
+      "support": 9,
+      "lift": 9.43,
+      "jaccard": 0.079,
+      "weighted_score": 13.3
     },
     {
       "card_name": "Solrock",
-      "support": 42,
-      "lift": 6.321,
-      "jaccard": 0.04,
-      "weighted_score": 60.3
+      "support": 9,
+      "lift": 9.43,
+      "jaccard": 0.079,
+      "weighted_score": 13.3
     },
     {
       "card_name": "Fighting Gong",
-      "support": 42,
-      "lift": 4.925,
-      "jaccard": 0.031,
-      "weighted_score": 60.3
+      "support": 9,
+      "lift": 6.619,
+      "jaccard": 0.056,
+      "weighted_score": 13.3
     },
     {
-      "card_name": "Jamming Tower",
-      "support": 19,
-      "lift": 2.303,
-      "jaccard": 0.014,
-      "weighted_score": 27.5
-    },
-    {
-      "card_name": "Legacy Energy",
+      "card_name": "Mist Energy",
       "support": 5,
-      "lift": 1.999,
-      "jaccard": 0.012,
+      "lift": 4.852,
+      "jaccard": 0.039,
       "weighted_score": 6.9
     },
     {
-      "card_name": "Ciphermaniac's Codebreaking",
-      "support": 6,
-      "lift": 1.889,
+      "card_name": "Briar",
+      "support": 7,
+      "lift": 4.736,
+      "jaccard": 0.039,
+      "weighted_score": 10.3
+    },
+    {
+      "card_name": "Fezandipiti ex",
+      "support": 8,
+      "lift": 1.317,
       "jaccard": 0.011,
-      "weighted_score": 7.5
+      "weighted_score": 11.5
+    },
+    {
+      "card_name": "Ultra Ball",
+      "support": 10,
+      "lift": 1.213,
+      "jaccard": 0.01,
+      "weighted_score": 14.5
+    },
+    {
+      "card_name": "Boss's Orders",
+      "support": 10,
+      "lift": 1.106,
+      "jaccard": 0.009,
+      "weighted_score": 14.5
+    },
+    {
+      "card_name": "Poké Pad",
+      "support": 9,
+      "lift": 1.053,
+      "jaccard": 0.009,
+      "weighted_score": 13.3
+    },
+    {
+      "card_name": "Night Stretcher",
+      "support": 10,
+      "lift": 1.051,
+      "jaccard": 0.009,
+      "weighted_score": 14.5
     }
   ]
 }

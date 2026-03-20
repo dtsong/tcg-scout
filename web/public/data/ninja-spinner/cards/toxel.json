@@ -7,12 +7,12 @@
   "image_url": null,
   "category": "Pokemon",
   "rarity": null,
-  "total_appearances": 10,
-  "usage_pct": 1.1,
-  "avg_copies": 3.0,
-  "unique_archetypes": 4,
-  "weighted_score": 13.3,
-  "win_rate_proxy": 1.33,
+  "total_appearances": 11,
+  "usage_pct": 1.0,
+  "avg_copies": 3.1,
+  "unique_archetypes": 5,
+  "weighted_score": 16.3,
+  "win_rate_proxy": 1.48,
   "top_archetype": "Mega Sharpedo Toxtricity",
   "trend_direction": "stable",
   "copy_distribution": [
@@ -22,7 +22,7 @@
     },
     {
       "copies": 4,
-      "count": 5
+      "count": 6
     }
   ],
   "archetypes": [
@@ -48,6 +48,13 @@
       "tier": "Rogue"
     },
     {
+      "name": "Mega Absol Toxtricity",
+      "slug": "mega-absol-toxtricity",
+      "usage_count": 1,
+      "avg_copies": 4.0,
+      "tier": "Rogue"
+    },
+    {
       "name": "Fezandipiti Toxtricity",
       "slug": "fezandipiti-toxtricity",
       "usage_count": 1,
@@ -63,115 +70,115 @@
     },
     {
       "week": "2026-03-16",
-      "usage_pct": 0.8,
+      "usage_pct": 0.6,
       "avg_copies": 4.0
     }
   ],
   "synergy_partners": [
     {
       "card_name": "Brute Bonnet",
-      "support": 5,
-      "lift": 89.2,
-      "jaccard": 0.5,
-      "weighted_score": 6.0
+      "support": 6,
+      "lift": 102.182,
+      "jaccard": 0.545,
+      "weighted_score": 9.0
     },
     {
       "card_name": "Carvanha",
       "support": 5,
-      "lift": 89.2,
-      "jaccard": 0.5,
+      "lift": 102.182,
+      "jaccard": 0.455,
       "weighted_score": 7.3
     },
     {
       "card_name": "Mega Sharpedo ex",
       "support": 5,
-      "lift": 89.2,
-      "jaccard": 0.5,
+      "lift": 102.182,
+      "jaccard": 0.455,
       "weighted_score": 7.3
     },
     {
       "card_name": "Toxtricity",
-      "support": 10,
-      "lift": 89.2,
+      "support": 11,
+      "lift": 102.182,
       "jaccard": 1.0,
-      "weighted_score": 13.3
+      "weighted_score": 16.3
     },
     {
       "card_name": "Mega Absol ex",
+      "support": 6,
+      "lift": 25.545,
+      "jaccard": 0.207,
+      "weighted_score": 9.0
+    },
+    {
+      "card_name": "Hassel",
       "support": 5,
-      "lift": 21.238,
-      "jaccard": 0.192,
-      "weighted_score": 6.0
+      "lift": 23.223,
+      "jaccard": 0.179,
+      "weighted_score": 7.8
+    },
+    {
+      "card_name": "Energy Recycler",
+      "support": 6,
+      "lift": 14.953,
+      "jaccard": 0.13,
+      "weighted_score": 9.0
     },
     {
       "card_name": "Yveltal",
       "support": 6,
-      "lift": 15.291,
-      "jaccard": 0.154,
+      "lift": 14.258,
+      "jaccard": 0.125,
       "weighted_score": 8.5
     },
     {
-      "card_name": "Energy Recycler",
-      "support": 5,
-      "lift": 14.867,
-      "jaccard": 0.143,
-      "weighted_score": 6.0
-    },
-    {
       "card_name": "Pecharunt ex",
-      "support": 10,
-      "lift": 11.737,
-      "jaccard": 0.132,
-      "weighted_score": 13.3
+      "support": 11,
+      "lift": 11.469,
+      "jaccard": 0.112,
+      "weighted_score": 16.3
     },
     {
       "card_name": "Tatsugiri",
       "support": 6,
-      "lift": 9.911,
-      "jaccard": 0.103,
+      "lift": 9.889,
+      "jaccard": 0.09,
       "weighted_score": 8.5
     },
     {
       "card_name": "Binding Mochi",
       "support": 5,
-      "lift": 7.559,
-      "jaccard": 0.078,
+      "lift": 6.812,
+      "jaccard": 0.062,
       "weighted_score": 7.3
     },
     {
       "card_name": "Gravity Mountain",
       "support": 5,
-      "lift": 5.506,
-      "jaccard": 0.058,
+      "lift": 4.866,
+      "jaccard": 0.045,
       "weighted_score": 7.3
     },
     {
       "card_name": "Judge",
-      "support": 7,
-      "lift": 3.589,
-      "jaccard": 0.04,
-      "weighted_score": 9.7
+      "support": 8,
+      "lift": 3.378,
+      "jaccard": 0.033,
+      "weighted_score": 12.7
     },
     {
       "card_name": "Team Rocket's Watchtower",
-      "support": 8,
-      "lift": 3.186,
-      "jaccard": 0.035,
-      "weighted_score": 10.9
+      "support": 9,
+      "lift": 3.065,
+      "jaccard": 0.03,
+      "weighted_score": 13.9
     },
     {
       "card_name": "Energy Switch",
-      "support": 6,
-      "lift": 2.759,
-      "jaccard": 0.03,
-      "weighted_score": 7.2
-    },
-    {
-      "card_name": "Munkidori",
-      "support": 10,
-      "lift": 2.671,
-      "jaccard": 0.03,
-      "weighted_score": 13.3
+      "support": 7,
+      "lift": 2.72,
+      "jaccard": 0.026,
+      "weighted_score": 10.2
     }
   ]
 }

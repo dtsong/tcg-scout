@@ -2,9 +2,9 @@
   "archetype": "Palafin Thwackey",
   "slug": "palafin-thwackey",
   "tier": "Rogue",
-  "meta_share": 0.0,
-  "weighted_share": 0.0,
-  "deck_count": 2,
+  "meta_share": 0.1,
+  "weighted_share": 0.1,
+  "deck_count": 1,
   "best_placement": 6,
   "sprite_filenames": [
     "palafin.png",
@@ -14,113 +14,162 @@
     {
       "card_name": "Water Energy",
       "inclusion_pct": 100.0,
-      "avg_copies": 6.5,
-      "decks_with": 2,
+      "avg_copies": 7.0,
+      "decks_with": 1,
       "category": "Energy"
+    },
+    {
+      "card_name": "Ultra Ball",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Trainer"
     },
     {
       "card_name": "Thwackey",
       "inclusion_pct": 100.0,
       "avg_copies": 3.0,
-      "decks_with": 2,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Tatsugiri",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
       "category": "Pokemon"
     },
     {
       "card_name": "Switch",
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
-      "decks_with": 2,
+      "decks_with": 1,
       "category": "Trainer"
     },
     {
       "card_name": "Surfing Beach",
       "inclusion_pct": 100.0,
-      "avg_copies": 3.5,
-      "decks_with": 2,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Surfer",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Psyduck",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Prime Catcher",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
       "category": "Trainer"
     },
     {
       "card_name": "Poké Pad",
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
-      "decks_with": 2,
+      "decks_with": 1,
       "category": "Trainer"
     },
     {
       "card_name": "Palafin ex",
       "inclusion_pct": 100.0,
       "avg_copies": 3.0,
-      "decks_with": 2,
+      "decks_with": 1,
       "category": "Pokemon"
     },
     {
       "card_name": "Palafin",
       "inclusion_pct": 100.0,
-      "avg_copies": 3.0,
-      "decks_with": 2,
+      "avg_copies": 2.0,
+      "decks_with": 1,
       "category": "Pokemon"
+    },
+    {
+      "card_name": "Night Stretcher",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Trainer"
     },
     {
       "card_name": "Lillie's Determination",
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
-      "decks_with": 2,
+      "decks_with": 1,
       "category": "Trainer"
     },
     {
       "card_name": "Kieran",
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
-      "decks_with": 2,
+      "decks_with": 1,
       "category": "Trainer"
     },
     {
       "card_name": "Hilda",
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
-      "decks_with": 2,
+      "decks_with": 1,
       "category": "Trainer"
     },
     {
       "card_name": "Grookey",
       "inclusion_pct": 100.0,
       "avg_copies": 3.0,
-      "decks_with": 2,
+      "decks_with": 1,
       "category": "Pokemon"
     },
     {
       "card_name": "Goldeen",
       "inclusion_pct": 100.0,
       "avg_copies": 3.0,
-      "decks_with": 2,
+      "decks_with": 1,
       "category": "Pokemon"
     },
     {
       "card_name": "Finizen",
       "inclusion_pct": 100.0,
-      "avg_copies": 3.5,
-      "decks_with": 2,
+      "avg_copies": 4.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Budew",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
       "category": "Pokemon"
     },
     {
       "card_name": "Buddy-Buddy Poffin",
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
-      "decks_with": 2,
+      "decks_with": 1,
       "category": "Trainer"
     },
     {
       "card_name": "Boss's Orders",
       "inclusion_pct": 100.0,
-      "avg_copies": 1.5,
-      "decks_with": 2,
+      "avg_copies": 2.0,
+      "decks_with": 1,
       "category": "Trainer"
     },
     {
       "card_name": "Air Balloon",
       "inclusion_pct": 100.0,
-      "avg_copies": 3.5,
-      "decks_with": 2,
+      "avg_copies": 3.0,
+      "decks_with": 1,
       "category": "Trainer"
     }
   ],
@@ -128,233 +177,163 @@
     {
       "card_name": "Water Energy",
       "inclusion_pct": 100.0,
-      "avg_copies": 6.5,
-      "decks_with": 2,
+      "avg_copies": 7.0,
+      "decks_with": 1,
       "category": "Energy"
+    },
+    {
+      "card_name": "Ultra Ball",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Trainer"
     },
     {
       "card_name": "Thwackey",
       "inclusion_pct": 100.0,
       "avg_copies": 3.0,
-      "decks_with": 2,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Tatsugiri",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
       "category": "Pokemon"
     },
     {
       "card_name": "Switch",
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
-      "decks_with": 2,
+      "decks_with": 1,
       "category": "Trainer"
     },
     {
       "card_name": "Surfing Beach",
       "inclusion_pct": 100.0,
-      "avg_copies": 3.5,
-      "decks_with": 2,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Poké Pad",
-      "inclusion_pct": 100.0,
-      "avg_copies": 4.0,
-      "decks_with": 2,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Palafin ex",
-      "inclusion_pct": 100.0,
-      "avg_copies": 3.0,
-      "decks_with": 2,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Palafin",
-      "inclusion_pct": 100.0,
-      "avg_copies": 3.0,
-      "decks_with": 2,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Lillie's Determination",
-      "inclusion_pct": 100.0,
-      "avg_copies": 4.0,
-      "decks_with": 2,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Kieran",
-      "inclusion_pct": 100.0,
-      "avg_copies": 1.0,
-      "decks_with": 2,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Hilda",
-      "inclusion_pct": 100.0,
-      "avg_copies": 1.0,
-      "decks_with": 2,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Grookey",
-      "inclusion_pct": 100.0,
-      "avg_copies": 3.0,
-      "decks_with": 2,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Goldeen",
-      "inclusion_pct": 100.0,
-      "avg_copies": 3.0,
-      "decks_with": 2,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Finizen",
-      "inclusion_pct": 100.0,
-      "avg_copies": 3.5,
-      "decks_with": 2,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Buddy-Buddy Poffin",
-      "inclusion_pct": 100.0,
-      "avg_copies": 4.0,
-      "decks_with": 2,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Boss's Orders",
-      "inclusion_pct": 100.0,
-      "avg_copies": 1.5,
-      "decks_with": 2,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Air Balloon",
-      "inclusion_pct": 100.0,
-      "avg_copies": 3.5,
-      "decks_with": 2,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Ultra Ball",
-      "inclusion_pct": 50.0,
       "avg_copies": 3.0,
       "decks_with": 1,
       "category": "Trainer"
-    },
-    {
-      "card_name": "Tool Scrapper",
-      "inclusion_pct": 50.0,
-      "avg_copies": 1.0,
-      "decks_with": 1,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Tatsugiri",
-      "inclusion_pct": 50.0,
-      "avg_copies": 1.0,
-      "decks_with": 1,
-      "category": "Pokemon"
     },
     {
       "card_name": "Surfer",
-      "inclusion_pct": 50.0,
+      "inclusion_pct": 100.0,
       "avg_copies": 2.0,
       "decks_with": 1,
       "category": "Trainer"
     },
     {
-      "card_name": "Strange Timepiece",
-      "inclusion_pct": 50.0,
-      "avg_copies": 1.0,
-      "decks_with": 1,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Seaking",
-      "inclusion_pct": 50.0,
-      "avg_copies": 1.0,
-      "decks_with": 1,
-      "category": "Pokemon"
-    },
-    {
       "card_name": "Psyduck",
-      "inclusion_pct": 50.0,
+      "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
       "category": "Pokemon"
     },
     {
       "card_name": "Prime Catcher",
-      "inclusion_pct": 50.0,
+      "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
       "category": "Trainer"
     },
     {
+      "card_name": "Poké Pad",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Palafin ex",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Palafin",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
       "card_name": "Night Stretcher",
-      "inclusion_pct": 50.0,
+      "inclusion_pct": 100.0,
       "avg_copies": 2.0,
       "decks_with": 1,
       "category": "Trainer"
     },
     {
-      "card_name": "Maximum Belt",
-      "inclusion_pct": 50.0,
+      "card_name": "Lillie's Determination",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Kieran",
+      "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
       "category": "Trainer"
     },
     {
-      "card_name": "Judge",
-      "inclusion_pct": 50.0,
+      "card_name": "Hilda",
+      "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
       "category": "Trainer"
     },
     {
-      "card_name": "Fidough",
-      "inclusion_pct": 50.0,
-      "avg_copies": 1.0,
+      "card_name": "Grookey",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.0,
       "decks_with": 1,
       "category": "Pokemon"
     },
     {
-      "card_name": "Dachsbun ex",
-      "inclusion_pct": 50.0,
-      "avg_copies": 1.0,
+      "card_name": "Goldeen",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.0,
       "decks_with": 1,
       "category": "Pokemon"
     },
     {
-      "card_name": "Colress's Tenacity",
-      "inclusion_pct": 50.0,
-      "avg_copies": 1.0,
+      "card_name": "Finizen",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.0,
       "decks_with": 1,
-      "category": "Trainer"
+      "category": "Pokemon"
     },
     {
       "card_name": "Budew",
-      "inclusion_pct": 50.0,
+      "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
       "category": "Pokemon"
     },
     {
-      "card_name": "Brock's Scouting",
-      "inclusion_pct": 50.0,
-      "avg_copies": 1.0,
+      "card_name": "Buddy-Buddy Poffin",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.0,
       "decks_with": 1,
       "category": "Trainer"
     },
     {
-      "card_name": "Abra",
-      "inclusion_pct": 50.0,
-      "avg_copies": 1.0,
+      "card_name": "Boss's Orders",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Air Balloon",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Trainer"
     }
   ],
   "results": [
@@ -481,286 +460,19 @@
           "category": "Energy"
         }
       ]
-    },
-    {
-      "tournament_name": "City League Chiba",
-      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3848",
-      "date": "2026-01-24",
-      "standing": 9,
-      "player_name": "モリタ",
-      "decklist": [
-        {
-          "card_name": "Grookey",
-          "count": 3,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Thwackey",
-          "count": 3,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Goldeen",
-          "count": 3,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Finizen",
-          "count": 3,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Palafin",
-          "count": 3,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Palafin ex",
-          "count": 3,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Seaking",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Fidough",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Dachsbun ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Palafin",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Abra",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Poké Pad",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Air Balloon",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Lillie's Determination",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Surfing Beach",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Buddy-Buddy Poffin",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Switch",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Judge",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Brock's Scouting",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Boss's Orders",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Strange Timepiece",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Colress's Tenacity",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Maximum Belt",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Kieran",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Hilda",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Tool Scrapper",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Water Energy",
-          "count": 6,
-          "category": "Energy"
-        }
-      ]
     }
   ],
   "radar": {
-    "meta_share": 0.1,
-    "weighted_share": 0.1,
-    "consistency": 67.5,
+    "meta_share": 0.4,
+    "weighted_share": 0.4,
+    "consistency": 75.0,
     "ceiling": 50,
-    "popularity": 0.3,
-    "core_density": 48.5
+    "popularity": 0.8,
+    "core_density": 100.0
   },
-  "evolution": [
-    {
-      "week": "2026-03-02",
-      "adopted": [
-        {
-          "card": "Budew",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Tatsugiri",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Night Stretcher",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Ultra Ball",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Prime Catcher",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Psyduck",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Surfer",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        }
-      ],
-      "dropped": [
-        {
-          "card": "Maximum Belt",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Tool Scrapper",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Brock's Scouting",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Seaking",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Strange Timepiece",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Dachsbun ex",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Fidough",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Abra",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Judge",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Colress's Tenacity",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        }
-      ]
-    }
-  ],
+  "evolution": [],
   "variants": [],
   "weekly_shares": [
-    {
-      "week": "2026-01-19",
-      "meta_share": 0.1,
-      "deck_count": 1
-    },
-    {
-      "week": "2026-01-26",
-      "meta_share": 0.0,
-      "deck_count": 0
-    },
-    {
-      "week": "2026-02-02",
-      "meta_share": 0.0,
-      "deck_count": 0
-    },
-    {
-      "week": "2026-02-09",
-      "meta_share": 0.0,
-      "deck_count": 0
-    },
-    {
-      "week": "2026-02-16",
-      "meta_share": 0.0,
-      "deck_count": 0
-    },
-    {
-      "week": "2026-02-23",
-      "meta_share": 0.0,
-      "deck_count": 0
-    },
     {
       "week": "2026-03-02",
       "meta_share": 0.1,
