@@ -100,4 +100,10 @@ describe("ReportClient", () => {
       screen.getByText(/Dragapult Dusknoir leads at 9.0% meta share/)
     ).toBeInTheDocument();
   });
+
+  it("renders guide link in subtitle", () => {
+    render(<ReportClient report={mockReport} format="nihil-zero" />);
+    const guideLink = screen.getByText("How this works →");
+    expect(guideLink).toHaveAttribute("href", "/guide#report");
+  });
 });

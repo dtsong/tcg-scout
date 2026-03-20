@@ -112,6 +112,11 @@ export function DashboardClient({
               </span>
             </div>
           </div>
+          <p className="text-xs text-surface-400 mt-2">
+            <Link href="/guide#dashboard" className="text-accent hover:text-accent/80 transition-colors">
+              How to read the dashboard &rarr;
+            </Link>
+          </p>
           <div className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm">
             <div>
               <span className="text-surface-300">Tournaments </span>

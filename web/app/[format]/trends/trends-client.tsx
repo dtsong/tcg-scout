@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
+import Link from "next/link";
 import {
   BarChart,
   Bar,
@@ -75,7 +76,10 @@ export function TrendsClient({
           Trends
         </h1>
         <p className="text-sm text-surface-300 mt-1">
-          Usage shifts between early ({trends.early_decks} decks) and late ({trends.late_decks} decks) periods, split at {trends.midpoint}
+          Usage shifts between early ({trends.early_decks} decks) and late ({trends.late_decks} decks) periods, split at {trends.midpoint}{" "}
+          <Link href="/guide#trends" className="text-accent hover:text-accent/80 transition-colors">
+            How this works &rarr;
+          </Link>
         </p>
       </div>
 
