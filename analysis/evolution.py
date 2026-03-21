@@ -4,7 +4,7 @@ import sqlite3
 from collections import defaultdict
 from datetime import date, timedelta
 
-from analysis.card_stats import BASIC_ENERGY_NAMES
+from analysis.card_stats import BASIC_ENERGY_NAMES, _slugify
 
 
 def compute_archetype_evolution(
@@ -145,26 +145,22 @@ def compute_archetype_evolution(
     return evolution
 
 
-def compute_meta_evolution(conn: sqlite3.Connection, top_n: int = 5) -> list[dict]:
-    """Compute format-wide "what changed this week" — top card movements across all archetypes.
+def compute_meta_evolution(conn: sqlite3.Connection, top_n: int | None = None) -> dict:
+    """Compute format-wide "what changed this week" — card movements across all archetypes.
 
-    Returns a list of the most significant card movements:
-    [
-        {
-            "card": "Card Name",
-            "archetype": "Archetype Name",
-            "direction": "adopted" | "dropped",
-            "from_pct": 15.0,
-            "to_pct": 55.0,
-            "week": "2026-03-03",
-        },
-        ...
-    ]
+    Returns a dict with highlights (top 5) and all movements:
+    {
+        "highlights": [...top 5 movements...],
+        "movements": [...all movements...],
+    }
+
+    Each movement has: card, archetype, archetype_slug, direction, from_pct,
+    to_pct, delta, deck_count, week.
     """
     # Get all archetypes from latest snapshot
     arch_rows = conn.execute(
         """
-        SELECT archetype FROM archetype_stats
+        SELECT archetype, deck_count FROM archetype_stats
         WHERE snapshot_id = (SELECT MAX(id) FROM meta_snapshots)
           AND tier IN ('S', 'A', 'B')
         ORDER BY deck_count DESC
@@ -172,38 +168,46 @@ def compute_meta_evolution(conn: sqlite3.Connection, top_n: int = 5) -> list[dic
     ).fetchall()
 
     if not arch_rows:
-        return []
+        return {"highlights": [], "movements": []}
 
     all_movements = []
     for ar in arch_rows:
         evolution = compute_archetype_evolution(conn, ar["archetype"])
         for event in evolution:
+            base = {
+                "archetype": ar["archetype"],
+                "archetype_slug": _slugify(ar["archetype"]),
+                "deck_count": ar["deck_count"],
+                "week": event["week"],
+            }
             for card in event["adopted"]:
                 all_movements.append(
                     {
+                        **base,
                         "card": card["card"],
-                        "archetype": ar["archetype"],
                         "direction": "adopted",
                         "from_pct": card["from_pct"],
                         "to_pct": card["to_pct"],
                         "delta": round(card["to_pct"] - card["from_pct"], 1),
-                        "week": event["week"],
                     }
                 )
             for card in event["dropped"]:
                 all_movements.append(
                     {
+                        **base,
                         "card": card["card"],
-                        "archetype": ar["archetype"],
                         "direction": "dropped",
                         "from_pct": card["from_pct"],
                         "to_pct": card["to_pct"],
                         "delta": round(card["from_pct"] - card["to_pct"], 1),
-                        "week": event["week"],
                     }
                 )
 
     # Sort by recency then magnitude
     all_movements.sort(key=lambda m: (m["week"], m["delta"]), reverse=True)
 
-    return all_movements[:top_n]
+    limit = top_n if top_n is not None else 5
+    return {
+        "highlights": all_movements[:limit],
+        "movements": all_movements,
+    }

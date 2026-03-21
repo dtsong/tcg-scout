@@ -140,6 +140,7 @@ export function Nav({ format, formats }: { format: string; formats: FormatInfo[]
       label: "Meta",
       items: [
         { href: `/${format}/trends`, label: "Trends" },
+        { href: `/${format}/shifts`, label: "Shifts" },
         { href: `/${format}/forecast`, label: "Forecast" },
       ],
     },

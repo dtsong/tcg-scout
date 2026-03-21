@@ -40,7 +40,7 @@ export default async function Dashboard({
       winningEdge={winningEdge}
       aceSpecs={aceSpecs}
       timeline={timeline}
-      metaEvolution={metaEvolution}
+      metaEvolution={metaEvolution.highlights}
     />
   );
 }

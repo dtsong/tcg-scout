@@ -16,6 +16,7 @@ import type {
   CardDetail,
   SynergyPair,
   MetaEvolutionMovement,
+  MetaEvolutionData,
   MatchupMatrixData,
   OverlapMatrixData,
   CardAnalysisData,
@@ -137,13 +138,23 @@ export function getCardSlugs(format: string): string[] {
     .map((f) => f.replace(".json", ""));
 }
 
-export function getMetaEvolution(format: string): MetaEvolutionMovement[] {
+export function getMetaEvolution(format: string): MetaEvolutionData {
+  const empty: MetaEvolutionData = { highlights: [], movements: [] };
   try {
-    return readJson(`${format}/meta-evolution.json`);
+    const raw = readJson<MetaEvolutionData | MetaEvolutionMovement[]>(
+      `${format}/meta-evolution.json`
+    );
+    // Support both old (bare array) and new (object) formats
+    if (Array.isArray(raw)) {
+      console.warn(
+        `[data] meta-evolution.json for "${format}" uses legacy array format`
+      );
+      return { highlights: raw, movements: raw };
+    }
+    return raw;
   } catch (err) {
-    if (isFileNotFound(err)) return [];
-    console.error(`Failed to load meta evolution for ${format}:`, err);
-    return [];
+    if (isFileNotFound(err)) return empty;
+    throw err;
   }
 }
 

@@ -12,7 +12,7 @@ vi.mock("fs", () => ({
 }));
 
 import fs from "fs";
-import { getMeta, getTrends, getArchetypeSlugs, getFormats, getCardAnalysis, getTechForecast, getMetaReport } from "../data";
+import { getMeta, getTrends, getArchetypeSlugs, getFormats, getCardAnalysis, getTechForecast, getMetaReport, getMetaEvolution } from "../data";
 
 beforeEach(() => {
   vi.clearAllMocks();
@@ -249,5 +249,47 @@ describe("getMetaReport", () => {
   it("returns null when report file has invalid JSON", () => {
     vi.mocked(fs.readFileSync).mockReturnValue("not valid json{{{");
     expect(getMetaReport("nihil-zero")).toBeNull();
+  });
+});
+
+describe("getMetaEvolution", () => {
+  it("returns new object format as-is", () => {
+    const mockData = {
+      highlights: [{ card: "Iono", archetype: "Charizard", direction: "adopted", from_pct: 10, to_pct: 60, delta: 50, week: "2026-03-16" }],
+      movements: [
+        { card: "Iono", archetype: "Charizard", direction: "adopted", from_pct: 10, to_pct: 60, delta: 50, week: "2026-03-16" },
+        { card: "Arven", archetype: "Charizard", direction: "dropped", from_pct: 80, to_pct: 10, delta: 70, week: "2026-03-16" },
+      ],
+    };
+    vi.mocked(fs.readFileSync).mockReturnValue(JSON.stringify(mockData));
+    const result = getMetaEvolution("ninja-spinner");
+    expect(result.highlights).toHaveLength(1);
+    expect(result.movements).toHaveLength(2);
+  });
+
+  it("wraps legacy bare-array format", () => {
+    const mockArray = [
+      { card: "Iono", archetype: "Charizard", direction: "adopted", from_pct: 10, to_pct: 60, delta: 50, week: "2026-03-16" },
+    ];
+    vi.mocked(fs.readFileSync).mockReturnValue(JSON.stringify(mockArray));
+    const result = getMetaEvolution("ninja-spinner");
+    expect(result.highlights).toEqual(mockArray);
+    expect(result.movements).toEqual(mockArray);
+  });
+
+  it("returns empty when file not found", () => {
+    vi.mocked(fs.readFileSync).mockImplementation(() => {
+      const err = new Error("ENOENT") as NodeJS.ErrnoException;
+      err.code = "ENOENT";
+      throw err;
+    });
+    const result = getMetaEvolution("ninja-spinner");
+    expect(result.highlights).toEqual([]);
+    expect(result.movements).toEqual([]);
+  });
+
+  it("throws on non-ENOENT errors", () => {
+    vi.mocked(fs.readFileSync).mockReturnValue("not valid json{{{");
+    expect(() => getMetaEvolution("ninja-spinner")).toThrow();
   });
 });

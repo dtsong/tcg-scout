@@ -485,14 +485,18 @@ class TestExportMetaEvolution:
         out_file = tmp_path / "meta-evolution.json"
         assert out_file.exists()
         data = json.loads(out_file.read_text())
-        assert isinstance(data, list)
+        assert isinstance(data, dict)
+        assert "highlights" in data
+        assert "movements" in data
 
     def test_movements_have_required_fields(self, db, tmp_path):
         export_meta_evolution(db, tmp_path)
         data = json.loads((tmp_path / "meta-evolution.json").read_text())
-        for m in data:
+        for m in data["movements"]:
             assert "card" in m
             assert "archetype" in m
+            assert "archetype_slug" in m
+            assert "deck_count" in m
             assert "direction" in m
             assert m["direction"] in ("adopted", "dropped")
 

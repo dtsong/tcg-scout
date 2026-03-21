@@ -273,11 +273,25 @@ export interface EvolutionEvent {
 export interface MetaEvolutionMovement {
   card: string;
   archetype: string;
+  /** Always present in exports after 2026-03-21; absent in legacy bare-array format. */
+  archetype_slug?: string;
+  /** Always present in exports after 2026-03-21; absent in legacy bare-array format. */
+  deck_count?: number;
   direction: "adopted" | "dropped";
   from_pct: number;
   to_pct: number;
   delta: number;
   week: string;
+}
+
+/**
+ * Format-wide card adoption/drop movements.
+ * `highlights` is the top 5 movements by recency+magnitude (subset of `movements`).
+ * `movements` is the complete list, sorted by week DESC then delta DESC.
+ */
+export interface MetaEvolutionData {
+  highlights: MetaEvolutionMovement[];
+  movements: MetaEvolutionMovement[];
 }
 
 export interface OverlapMatrixData {
