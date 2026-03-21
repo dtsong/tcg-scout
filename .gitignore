@@ -24,6 +24,9 @@ data/*.sqlite
 # Reports output
 reports/output/
 
+# Exported JSON data (served from Vercel Blob Store)
+web/public/data/
+
 # IDE
 .idea/
 .vscode/
