@@ -36,12 +36,29 @@ def compute_weighted_consensus_60(
         return None
 
     placement_ids = [r["placement_id"] for r in rows]
-    weight_by_pid = {r["placement_id"]: _get_placement_weight(r["standing"]) for r in rows}
-    total_weight = sum(weight_by_pid.values())
 
     energy_names = sorted(BASIC_ENERGY_NAMES)
     energy_placeholders = ",".join("?" * len(energy_names))
     pid_placeholders = ",".join("?" * len(placement_ids))
+
+    # Only consider placements that actually have decklists
+    pids_with_decklists = {
+        r[0]
+        for r in conn.execute(
+            f"SELECT DISTINCT placement_id FROM decklist_cards WHERE placement_id IN ({pid_placeholders})",
+            placement_ids,
+        ).fetchall()
+    }
+
+    if len(pids_with_decklists) < 3:
+        return None
+
+    weight_by_pid = {
+        r["placement_id"]: _get_placement_weight(r["standing"])
+        for r in rows
+        if r["placement_id"] in pids_with_decklists
+    }
+    total_weight = sum(weight_by_pid.values())
 
     card_rows = conn.execute(
         f"""
@@ -61,14 +78,16 @@ def compute_weighted_consensus_60(
         lambda: {"weighted_sum": 0.0, "weighted_copies": 0.0, "raw_count": 0, "total_copies": 0}
     )
     for cr in card_rows:
-        w = weight_by_pid[cr["placement_id"]]
+        w = weight_by_pid.get(cr["placement_id"])
+        if w is None:
+            continue
         cd = card_data[cr["card_name"]]
         cd["weighted_sum"] += w
         cd["weighted_copies"] += cr["count"] * w
         cd["raw_count"] += 1
         cd["total_copies"] += cr["count"]
 
-    total_decks = len(placement_ids)
+    total_decks = len(pids_with_decklists)
     cards = []
     for card_name, cd in card_data.items():
         weighted_inclusion = round(cd["weighted_sum"] / total_weight * 100, 1)
@@ -174,8 +193,17 @@ def compute_weekly_card_timeline(
     week_card_data: dict[str, dict[str, dict]] = {}
     for wk in weeks:
         pids = week_pids[wk]
-        total = len(pids)
         placeholders = ",".join("?" * len(pids))
+
+        # Only count placements that actually have decklists
+        total = conn.execute(
+            f"SELECT COUNT(DISTINCT placement_id) FROM decklist_cards WHERE placement_id IN ({placeholders})",
+            pids,
+        ).fetchone()[0]
+
+        if total == 0:
+            continue
+
         card_rows = conn.execute(
             f"""
             SELECT dc.card_name,

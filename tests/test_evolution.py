@@ -79,3 +79,100 @@ class TestComputeMetaEvolution:
         result = compute_meta_evolution(db)
         for i in range(len(result) - 1):
             assert result[i]["week"] >= result[i + 1]["week"]
+
+
+class TestDecklistDenominator:
+    """Inclusion rates should only count placements that have decklists."""
+
+    def test_placements_without_decklists_excluded_from_denominator(self):
+        conn = sqlite3.connect(":memory:")
+        conn.row_factory = sqlite3.Row
+        conn.executescript(SCHEMA)
+
+        # Two weeks of tournaments
+        conn.executemany(
+            "INSERT INTO tournaments (id, name, date, player_count) VALUES (?, ?, ?, ?)",
+            [
+                ("t1", "Week 1", "2026-01-20", 64),
+                ("t2", "Week 2", "2026-01-27", 64),
+            ],
+        )
+
+        # Week 1: 1 placement WITH decklist containing Night Stretcher
+        # Week 2: 3 placements but only 1 has a decklist (also with Night Stretcher)
+        conn.executemany(
+            "INSERT INTO placements (id, tournament_id, standing, player_name, archetype) "
+            "VALUES (?, ?, ?, ?, ?)",
+            [
+                (1, "t1", 1, "Alice", "Mega Lucario"),
+                (2, "t2", 1, "Bob", "Mega Lucario"),
+                (3, "t2", 2, "Charlie", "Mega Lucario"),  # no decklist
+                (4, "t2", 3, "Diana", "Mega Lucario"),  # no decklist
+            ],
+        )
+
+        # Decklists: only placements 1 and 2 have decklist data
+        conn.executemany(
+            "INSERT INTO decklist_cards (placement_id, card_id, card_name, count) VALUES (?, ?, ?, ?)",
+            [
+                (1, "card-ns", "Night Stretcher", 2),
+                (1, "card-ub", "Ultra Ball", 4),
+                (2, "card-ns", "Night Stretcher", 2),
+                (2, "card-ub", "Ultra Ball", 4),
+            ],
+        )
+        conn.commit()
+
+        result = compute_archetype_evolution(conn, "Mega Lucario")
+
+        # Night Stretcher is at 100% both weeks (1/1 and 1/1 decklist placements).
+        # Without the fix, week 2 would show 1/3 = 33%, triggering a false "drop".
+        # With the fix, no drop events should be reported for Night Stretcher.
+        for event in result:
+            dropped_cards = [c["card"] for c in event["dropped"]]
+            assert "Night Stretcher" not in dropped_cards, (
+                f"Night Stretcher falsely reported as dropped: {event}"
+            )
+
+        conn.close()
+
+    def test_week_with_no_decklists_skipped(self):
+        conn = sqlite3.connect(":memory:")
+        conn.row_factory = sqlite3.Row
+        conn.executescript(SCHEMA)
+
+        conn.executemany(
+            "INSERT INTO tournaments (id, name, date, player_count) VALUES (?, ?, ?, ?)",
+            [
+                ("t1", "Week 1", "2026-01-20", 64),
+                ("t2", "Week 2", "2026-01-27", 64),
+            ],
+        )
+
+        # Week 1: placement with decklist; Week 2: placement without decklist
+        conn.executemany(
+            "INSERT INTO placements (id, tournament_id, standing, player_name, archetype) "
+            "VALUES (?, ?, ?, ?, ?)",
+            [
+                (1, "t1", 1, "Alice", "Test Deck"),
+                (2, "t2", 1, "Bob", "Test Deck"),  # no decklist
+            ],
+        )
+
+        conn.executemany(
+            "INSERT INTO decklist_cards (placement_id, card_id, card_name, count) VALUES (?, ?, ?, ?)",
+            [
+                (1, "card-ns", "Night Stretcher", 2),
+            ],
+        )
+        conn.commit()
+
+        result = compute_archetype_evolution(conn, "Test Deck")
+
+        # Week 2 has no decklists, so no comparison should happen.
+        # Without the fix, Night Stretcher would show 100% -> 0% (false drop).
+        for event in result:
+            dropped_cards = [c["card"] for c in event["dropped"]]
+            assert "Night Stretcher" not in dropped_cards
+
+        conn.close()
