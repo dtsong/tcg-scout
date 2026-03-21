@@ -8,13 +8,13 @@
   "category": "Pokemon",
   "rarity": null,
   "total_appearances": 82,
-  "usage_pct": 7.3,
+  "usage_pct": 3.4,
   "avg_copies": 2.6,
   "unique_archetypes": 7,
   "weighted_score": 139.6,
   "win_rate_proxy": 1.7,
   "top_archetype": "Raging Bolt ex",
-  "trend_direction": "surging",
+  "trend_direction": "stable",
   "copy_distribution": [
     {
       "copies": 2,
@@ -35,21 +35,21 @@
       "slug": "raging-bolt-ex",
       "usage_count": 45,
       "avg_copies": 2.8,
-      "tier": "B"
+      "tier": "C"
     },
     {
       "name": "Noctowl Ogerpon",
       "slug": "noctowl-ogerpon",
       "usage_count": 15,
       "avg_copies": 2.0,
-      "tier": "C"
+      "tier": "Rogue"
     },
     {
       "name": "Mega Kangaskhan Ogerpon",
       "slug": "mega-kangaskhan-ogerpon",
       "usage_count": 11,
       "avg_copies": 2.5,
-      "tier": "B"
+      "tier": "C"
     },
     {
       "name": "Meowth Ogerpon",
@@ -83,12 +83,12 @@
   "weekly_usage": [
     {
       "week": "2026-03-09",
-      "usage_pct": 5.7,
+      "usage_pct": 2.9,
       "avg_copies": 2.5
     },
     {
       "week": "2026-03-16",
-      "usage_pct": 9.3,
+      "usage_pct": 4.0,
       "avg_copies": 2.6
     }
   ],
@@ -96,105 +96,105 @@
     {
       "card_name": "Community Center",
       "support": 7,
-      "lift": 13.707,
+      "lift": 29.659,
       "jaccard": 0.085,
       "weighted_score": 11.4
     },
     {
       "card_name": "Dusk Ball",
       "support": 13,
-      "lift": 13.707,
+      "lift": 29.659,
       "jaccard": 0.159,
       "weighted_score": 21.5
     },
     {
       "card_name": "Koraidon",
       "support": 11,
-      "lift": 13.707,
+      "lift": 29.659,
       "jaccard": 0.134,
       "weighted_score": 19.1
     },
     {
       "card_name": "Raging Bolt",
       "support": 38,
-      "lift": 13.356,
+      "lift": 28.898,
       "jaccard": 0.458,
       "weighted_score": 61.2
     },
     {
       "card_name": "Glass Trumpet",
       "support": 67,
-      "lift": 12.084,
+      "lift": 26.146,
       "jaccard": 0.736,
       "weighted_score": 116.0
     },
     {
       "card_name": "Joltik",
       "support": 5,
-      "lift": 9.791,
+      "lift": 21.185,
       "jaccard": 0.06,
       "weighted_score": 9.4
     },
     {
       "card_name": "Energy Retrieval",
       "support": 78,
-      "lift": 9.138,
+      "lift": 19.772,
       "jaccard": 0.645,
       "weighted_score": 133.4
     },
     {
       "card_name": "Iron Leaves ex",
       "support": 66,
-      "lift": 8.957,
+      "lift": 19.381,
       "jaccard": 0.564,
       "weighted_score": 114.6
     },
     {
       "card_name": "Terapagos ex",
       "support": 9,
-      "lift": 8.224,
+      "lift": 17.795,
       "jaccard": 0.102,
       "weighted_score": 15.6
     },
     {
       "card_name": "Tera Orb",
       "support": 30,
-      "lift": 7.615,
+      "lift": 16.477,
       "jaccard": 0.283,
       "weighted_score": 49.8
     },
     {
       "card_name": "Prime Catcher",
       "support": 29,
-      "lift": 7.227,
+      "lift": 15.638,
       "jaccard": 0.269,
       "weighted_score": 49.9
     },
     {
       "card_name": "Energy Search",
       "support": 19,
-      "lift": 5.788,
+      "lift": 12.522,
       "jaccard": 0.176,
       "weighted_score": 30.6
     },
     {
       "card_name": "Chien-Pao",
       "support": 35,
-      "lift": 5.514,
+      "lift": 11.932,
       "jaccard": 0.261,
       "weighted_score": 60.4
     },
     {
       "card_name": "Mega Kangaskhan ex",
       "support": 58,
-      "lift": 4.677,
+      "lift": 10.119,
       "jaccard": 0.299,
       "weighted_score": 99.7
     },
     {
       "card_name": "Area Zero Underdepths",
       "support": 77,
-      "lift": 4.589,
+      "lift": 9.929,
       "jaccard": 0.328,
       "weighted_score": 132.4
     }

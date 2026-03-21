@@ -2,7 +2,7 @@
   "archetype": "Mega Kangaskhan Meowth",
   "slug": "mega-kangaskhan-meowth",
   "tier": "Rogue",
-  "meta_share": 0.2,
+  "meta_share": 0.1,
   "weighted_share": 0.1,
   "deck_count": 2,
   "best_placement": 8,
@@ -93,7 +93,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
       "decks_with": 2,
-      "category": "Trainer"
+      "category": "Pokemon"
     },
     {
       "card_name": "Latias ex",
@@ -263,7 +263,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
       "decks_with": 2,
-      "category": "Trainer"
+      "category": "Pokemon"
     },
     {
       "card_name": "Latias ex",
@@ -399,6 +399,11 @@
           "category": "Pokemon"
         },
         {
+          "card_name": "Lillie's Clefairy ex",
+          "count": 2,
+          "category": "Pokemon"
+        },
+        {
           "card_name": "Mega Kangaskhan ex",
           "count": 2,
           "category": "Pokemon"
@@ -474,11 +479,6 @@
           "category": "Trainer"
         },
         {
-          "card_name": "Lillie's Clefairy ex",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
           "card_name": "Night Stretcher",
           "count": 1,
           "category": "Trainer"
@@ -548,6 +548,11 @@
           "category": "Pokemon"
         },
         {
+          "card_name": "Lillie's Clefairy ex",
+          "count": 2,
+          "category": "Pokemon"
+        },
+        {
           "card_name": "Mega Kangaskhan ex",
           "count": 2,
           "category": "Pokemon"
@@ -605,11 +610,6 @@
         {
           "card_name": "Area Zero Underdepths",
           "count": 3,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Lillie's Clefairy ex",
-          "count": 2,
           "category": "Trainer"
         },
         {
@@ -671,11 +671,11 @@
     }
   ],
   "radar": {
-    "meta_share": 0.9,
-    "weighted_share": 0.8,
+    "meta_share": 0.4,
+    "weighted_share": 0.4,
     "consistency": 45.0,
     "ceiling": 50,
-    "popularity": 1.6,
+    "popularity": 0.8,
     "core_density": 82.8
   },
   "evolution": [
@@ -683,12 +683,12 @@
       "week": "2026-03-16",
       "adopted": [
         {
-          "card": "Iron Leaves ex",
+          "card": "Lillie's Determination",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Lillie's Determination",
+          "card": "Iron Leaves ex",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -716,12 +716,12 @@
   "weekly_shares": [
     {
       "week": "2026-03-09",
-      "meta_share": 0.2,
+      "meta_share": 0.1,
       "deck_count": 1
     },
     {
       "week": "2026-03-16",
-      "meta_share": 0.2,
+      "meta_share": 0.1,
       "deck_count": 1
     }
   ],

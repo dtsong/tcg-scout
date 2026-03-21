@@ -2,8 +2,8 @@
   "archetype": "Dipplin Rillaboom",
   "slug": "dipplin-rillaboom",
   "tier": "Rogue",
-  "meta_share": 0.3,
-  "weighted_share": 0.3,
+  "meta_share": 0.1,
+  "weighted_share": 0.1,
   "deck_count": 3,
   "best_placement": 2,
   "sprite_filenames": [
@@ -805,11 +805,11 @@
     }
   ],
   "radar": {
-    "meta_share": 1.4,
-    "weighted_share": 1.4,
+    "meta_share": 0.6,
+    "weighted_share": 0.7,
     "consistency": 76.7,
     "ceiling": 90,
-    "popularity": 2.4,
+    "popularity": 1.2,
     "core_density": 43.2
   },
   "evolution": [
@@ -827,11 +827,6 @@
           "to_pct": 100.0
         },
         {
-          "card": "Rabsca",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
           "card": "Sacred Ash",
           "from_pct": 0.0,
           "to_pct": 50.0
@@ -842,22 +837,7 @@
           "to_pct": 50.0
         },
         {
-          "card": "Unfair Stamp",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Pokégear 3.0",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
           "card": "Rellor",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Secret Box",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -870,14 +850,29 @@
           "card": "Team Rocket's Petrel",
           "from_pct": 0.0,
           "to_pct": 50.0
+        },
+        {
+          "card": "Unfair Stamp",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Rabsca",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Secret Box",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Pokégear 3.0",
+          "from_pct": 0.0,
+          "to_pct": 50.0
         }
       ],
       "dropped": [
-        {
-          "card": "Brock's Scouting",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
         {
           "card": "Legacy Energy",
           "from_pct": 100.0,
@@ -885,6 +880,11 @@
         },
         {
           "card": "Growth Grass Energy",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Brock's Scouting",
           "from_pct": 100.0,
           "to_pct": 0.0
         }
@@ -895,12 +895,12 @@
   "weekly_shares": [
     {
       "week": "2026-03-09",
-      "meta_share": 0.2,
+      "meta_share": 0.1,
       "deck_count": 1
     },
     {
       "week": "2026-03-16",
-      "meta_share": 0.4,
+      "meta_share": 0.2,
       "deck_count": 2
     }
   ],

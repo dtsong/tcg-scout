@@ -2,8 +2,8 @@
   "archetype": "Dusknoir Zoroark",
   "slug": "dusknoir-zoroark",
   "tier": "Rogue",
-  "meta_share": 0.2,
-  "weighted_share": 0.2,
+  "meta_share": 0.1,
+  "weighted_share": 0.1,
   "deck_count": 2,
   "best_placement": 2,
   "sprite_filenames": [
@@ -719,27 +719,17 @@
     }
   ],
   "radar": {
-    "meta_share": 0.9,
-    "weighted_share": 1.0,
+    "meta_share": 0.4,
+    "weighted_share": 0.4,
     "consistency": 77.5,
     "ceiling": 90,
-    "popularity": 1.6,
+    "popularity": 0.8,
     "core_density": 62.9
   },
   "evolution": [
     {
       "week": "2026-03-16",
       "adopted": [
-        {
-          "card": "Budew",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Fezandipiti ex",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
         {
           "card": "Team Rocket's Watchtower",
           "from_pct": 0.0,
@@ -756,6 +746,16 @@
           "to_pct": 100.0
         },
         {
+          "card": "Budew",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Fezandipiti ex",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
           "card": "Prime Catcher",
           "from_pct": 0.0,
           "to_pct": 100.0
@@ -763,12 +763,17 @@
       ],
       "dropped": [
         {
-          "card": "Judge",
+          "card": "Dawn",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Dawn",
+          "card": "Ciphermaniac's Codebreaking",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Team Rocket's Petrel",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -783,12 +788,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "Team Rocket's Petrel",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Ciphermaniac's Codebreaking",
+          "card": "Judge",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -804,12 +804,12 @@
   "weekly_shares": [
     {
       "week": "2026-03-09",
-      "meta_share": 0.2,
+      "meta_share": 0.1,
       "deck_count": 1
     },
     {
       "week": "2026-03-16",
-      "meta_share": 0.2,
+      "meta_share": 0.1,
       "deck_count": 1
     }
   ],

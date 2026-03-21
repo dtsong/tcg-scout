@@ -2,573 +2,2287 @@
   "archetype": "Dragapult Meowth",
   "slug": "dragapult-meowth",
   "tier": "A",
-  "meta_share": 10.9,
-  "weighted_share": 11.4,
-  "deck_count": 123,
+  "meta_share": 8.9,
+  "weighted_share": 10.4,
+  "deck_count": 216,
   "best_placement": 1,
   "sprite_filenames": [
     "dragapult.png",
     "meowth.png"
   ],
-  "core_cards": [
-    {
-      "card_name": "Ultra Ball",
-      "inclusion_pct": 100.0,
-      "avg_copies": 4.0,
-      "decks_with": 123,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Psychic Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 3.3,
-      "decks_with": 123,
-      "category": "Energy"
-    },
-    {
-      "card_name": "Poké Pad",
-      "inclusion_pct": 100.0,
-      "avg_copies": 3.9,
-      "decks_with": 123,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Night Stretcher",
-      "inclusion_pct": 100.0,
-      "avg_copies": 1.7,
-      "decks_with": 123,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Lillie's Determination",
-      "inclusion_pct": 100.0,
-      "avg_copies": 4.0,
-      "decks_with": 123,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Fire Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 3.0,
-      "decks_with": 123,
-      "category": "Energy"
-    },
-    {
-      "card_name": "Fezandipiti ex",
-      "inclusion_pct": 100.0,
-      "avg_copies": 1.0,
-      "decks_with": 123,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Dreepy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 4.0,
-      "decks_with": 123,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Drakloak",
-      "inclusion_pct": 100.0,
-      "avg_copies": 4.0,
-      "decks_with": 123,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Dragapult ex",
-      "inclusion_pct": 100.0,
-      "avg_copies": 3.0,
-      "decks_with": 123,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Boss's Orders",
-      "inclusion_pct": 100.0,
-      "avg_copies": 2.3,
-      "decks_with": 123,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Crispin",
-      "inclusion_pct": 99.2,
-      "avg_copies": 1.7,
-      "decks_with": 122,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Budew",
-      "inclusion_pct": 99.2,
-      "avg_copies": 1.6,
-      "decks_with": 122,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Buddy-Buddy Poffin",
-      "inclusion_pct": 98.4,
-      "avg_copies": 4.0,
-      "decks_with": 121,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Munkidori",
-      "inclusion_pct": 97.6,
-      "avg_copies": 1.3,
-      "decks_with": 120,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Darkness Energy",
-      "inclusion_pct": 97.6,
-      "avg_copies": 1.6,
-      "decks_with": 120,
-      "category": "Energy"
-    },
-    {
-      "card_name": "Unfair Stamp",
-      "inclusion_pct": 95.1,
-      "avg_copies": 1.0,
-      "decks_with": 117,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Special Red Card",
-      "inclusion_pct": 94.3,
-      "avg_copies": 1.1,
-      "decks_with": 116,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Rare Candy",
-      "inclusion_pct": 88.6,
-      "avg_copies": 2.6,
-      "decks_with": 109,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Duskull",
-      "inclusion_pct": 84.6,
-      "avg_copies": 2.0,
-      "decks_with": 104,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Dusknoir",
-      "inclusion_pct": 84.6,
-      "avg_copies": 1.0,
-      "decks_with": 104,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Rosa's Encouragement",
-      "inclusion_pct": 83.7,
-      "avg_copies": 1.0,
-      "decks_with": 103,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Dusclops",
-      "inclusion_pct": 82.9,
-      "avg_copies": 1.0,
-      "decks_with": 102,
-      "category": "Pokemon"
-    }
-  ],
+  "core_cards": [],
   "all_cards": [
     {
       "card_name": "Ultra Ball",
-      "inclusion_pct": 100.0,
+      "inclusion_pct": 56.9,
       "avg_copies": 4.0,
       "decks_with": 123,
       "category": "Trainer"
     },
     {
       "card_name": "Psychic Energy",
-      "inclusion_pct": 100.0,
+      "inclusion_pct": 56.9,
       "avg_copies": 3.3,
       "decks_with": 123,
       "category": "Energy"
     },
     {
       "card_name": "Poké Pad",
-      "inclusion_pct": 100.0,
+      "inclusion_pct": 56.9,
       "avg_copies": 3.9,
       "decks_with": 123,
       "category": "Trainer"
     },
     {
       "card_name": "Night Stretcher",
-      "inclusion_pct": 100.0,
+      "inclusion_pct": 56.9,
       "avg_copies": 1.7,
       "decks_with": 123,
       "category": "Trainer"
     },
     {
       "card_name": "Lillie's Determination",
-      "inclusion_pct": 100.0,
+      "inclusion_pct": 56.9,
       "avg_copies": 4.0,
       "decks_with": 123,
       "category": "Trainer"
     },
     {
       "card_name": "Fire Energy",
-      "inclusion_pct": 100.0,
+      "inclusion_pct": 56.9,
       "avg_copies": 3.0,
       "decks_with": 123,
       "category": "Energy"
     },
     {
       "card_name": "Fezandipiti ex",
-      "inclusion_pct": 100.0,
+      "inclusion_pct": 56.9,
       "avg_copies": 1.0,
       "decks_with": 123,
       "category": "Pokemon"
     },
     {
       "card_name": "Dreepy",
-      "inclusion_pct": 100.0,
+      "inclusion_pct": 56.9,
       "avg_copies": 4.0,
       "decks_with": 123,
       "category": "Pokemon"
     },
     {
       "card_name": "Drakloak",
-      "inclusion_pct": 100.0,
+      "inclusion_pct": 56.9,
       "avg_copies": 4.0,
       "decks_with": 123,
       "category": "Pokemon"
     },
     {
       "card_name": "Dragapult ex",
-      "inclusion_pct": 100.0,
+      "inclusion_pct": 56.9,
       "avg_copies": 3.0,
       "decks_with": 123,
       "category": "Pokemon"
     },
     {
       "card_name": "Boss's Orders",
-      "inclusion_pct": 100.0,
+      "inclusion_pct": 56.9,
       "avg_copies": 2.3,
       "decks_with": 123,
       "category": "Trainer"
     },
     {
       "card_name": "Crispin",
-      "inclusion_pct": 99.2,
+      "inclusion_pct": 56.5,
       "avg_copies": 1.7,
       "decks_with": 122,
       "category": "Trainer"
     },
     {
       "card_name": "Budew",
-      "inclusion_pct": 99.2,
+      "inclusion_pct": 56.5,
       "avg_copies": 1.6,
       "decks_with": 122,
       "category": "Pokemon"
     },
     {
       "card_name": "Buddy-Buddy Poffin",
-      "inclusion_pct": 98.4,
+      "inclusion_pct": 56.0,
       "avg_copies": 4.0,
       "decks_with": 121,
       "category": "Trainer"
     },
     {
       "card_name": "Munkidori",
-      "inclusion_pct": 97.6,
+      "inclusion_pct": 55.6,
       "avg_copies": 1.3,
       "decks_with": 120,
       "category": "Pokemon"
     },
     {
       "card_name": "Darkness Energy",
-      "inclusion_pct": 97.6,
+      "inclusion_pct": 55.6,
       "avg_copies": 1.6,
       "decks_with": 120,
       "category": "Energy"
     },
     {
       "card_name": "Unfair Stamp",
-      "inclusion_pct": 95.1,
+      "inclusion_pct": 54.2,
       "avg_copies": 1.0,
       "decks_with": 117,
       "category": "Trainer"
     },
     {
       "card_name": "Special Red Card",
-      "inclusion_pct": 94.3,
+      "inclusion_pct": 53.7,
       "avg_copies": 1.1,
       "decks_with": 116,
       "category": "Trainer"
     },
     {
       "card_name": "Rare Candy",
-      "inclusion_pct": 88.6,
+      "inclusion_pct": 50.5,
       "avg_copies": 2.6,
       "decks_with": 109,
       "category": "Trainer"
     },
     {
       "card_name": "Duskull",
-      "inclusion_pct": 84.6,
+      "inclusion_pct": 48.1,
       "avg_copies": 2.0,
       "decks_with": 104,
       "category": "Pokemon"
     },
     {
       "card_name": "Dusknoir",
-      "inclusion_pct": 84.6,
+      "inclusion_pct": 48.1,
       "avg_copies": 1.0,
       "decks_with": 104,
       "category": "Pokemon"
     },
     {
       "card_name": "Rosa's Encouragement",
-      "inclusion_pct": 83.7,
+      "inclusion_pct": 47.7,
       "avg_copies": 1.0,
       "decks_with": 103,
       "category": "Trainer"
     },
     {
       "card_name": "Dusclops",
-      "inclusion_pct": 82.9,
+      "inclusion_pct": 47.2,
       "avg_copies": 1.0,
       "decks_with": 102,
       "category": "Pokemon"
     },
     {
       "card_name": "Risky Ruins",
-      "inclusion_pct": 79.7,
+      "inclusion_pct": 45.4,
       "avg_copies": 1.1,
       "decks_with": 98,
       "category": "Trainer"
     },
     {
       "card_name": "Team Rocket's Watchtower",
-      "inclusion_pct": 74.8,
+      "inclusion_pct": 42.6,
       "avg_copies": 1.1,
       "decks_with": 92,
       "category": "Trainer"
     },
     {
+      "card_name": "ボスの指令",
+      "inclusion_pct": 40.7,
+      "avg_copies": 2.3,
+      "decks_with": 88,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ハイパーボール",
+      "inclusion_pct": 39.4,
+      "avg_copies": 3.5,
+      "decks_with": 85,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "リーリエの決心",
+      "inclusion_pct": 37.5,
+      "avg_copies": 3.5,
+      "decks_with": 81,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "夜のタンカ",
+      "inclusion_pct": 36.1,
+      "avg_copies": 1.7,
+      "decks_with": 78,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ポケパッド",
+      "inclusion_pct": 33.8,
+      "avg_copies": 3.5,
+      "decks_with": 73,
+      "category": "Trainer"
+    },
+    {
       "card_name": "Noctowl",
-      "inclusion_pct": 58.5,
+      "inclusion_pct": 33.3,
       "avg_copies": 1.0,
       "decks_with": 72,
       "category": "Pokemon"
     },
     {
       "card_name": "Hoothoot",
-      "inclusion_pct": 58.5,
+      "inclusion_pct": 33.3,
       "avg_copies": 1.0,
       "decks_with": 72,
       "category": "Pokemon"
     },
     {
+      "card_name": "ニャースex",
+      "inclusion_pct": 30.6,
+      "avg_copies": 1.6,
+      "decks_with": 66,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "キチキギスex",
+      "inclusion_pct": 30.1,
+      "avg_copies": 1.0,
+      "decks_with": 65,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "スペシャルレッドカード",
+      "inclusion_pct": 28.7,
+      "avg_copies": 1.2,
+      "decks_with": 62,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "なかよしポフィン",
+      "inclusion_pct": 24.5,
+      "avg_copies": 3.6,
+      "decks_with": 53,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "アカマツ",
+      "inclusion_pct": 23.1,
+      "avg_copies": 2.5,
+      "decks_with": 50,
+      "category": "Trainer"
+    },
+    {
       "card_name": "Briar",
-      "inclusion_pct": 40.7,
+      "inclusion_pct": 23.1,
       "avg_copies": 1.0,
       "decks_with": 50,
       "category": "Trainer"
     },
     {
+      "card_name": "スボミー",
+      "inclusion_pct": 22.2,
+      "avg_copies": 1.3,
+      "decks_with": 48,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "アンフェアスタンプ(ACE SPEC)",
+      "inclusion_pct": 22.2,
+      "avg_copies": 1.0,
+      "decks_with": 48,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "基本超エネルギー",
+      "inclusion_pct": 21.8,
+      "avg_copies": 3.2,
+      "decks_with": 47,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "基本悪エネルギー",
+      "inclusion_pct": 19.0,
+      "avg_copies": 3.7,
+      "decks_with": 41,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "マシマシラ",
+      "inclusion_pct": 19.0,
+      "avg_copies": 1.9,
+      "decks_with": 41,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ふしぎなアメ",
+      "inclusion_pct": 17.6,
+      "avg_copies": 2.4,
+      "decks_with": 38,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "基本炎エネルギー",
+      "inclusion_pct": 15.7,
+      "avg_copies": 3.2,
+      "decks_with": 34,
+      "category": "Trainer"
+    },
+    {
       "card_name": "Latias ex",
-      "inclusion_pct": 26.0,
+      "inclusion_pct": 14.8,
       "avg_copies": 1.1,
       "decks_with": 32,
       "category": "Pokemon"
     },
     {
+      "card_name": "ラティアスex",
+      "inclusion_pct": 14.4,
+      "avg_copies": 1.5,
+      "decks_with": 31,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ドロンチ",
+      "inclusion_pct": 14.4,
+      "avg_copies": 3.8,
+      "decks_with": 31,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ドラメシヤ",
+      "inclusion_pct": 14.4,
+      "avg_copies": 3.9,
+      "decks_with": 31,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ドラパルトex",
+      "inclusion_pct": 14.4,
+      "avg_copies": 2.7,
+      "decks_with": 31,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "基本草エネルギー",
+      "inclusion_pct": 13.9,
+      "avg_copies": 7.8,
+      "decks_with": 30,
+      "category": "Trainer"
+    },
+    {
       "card_name": "Shaymin",
-      "inclusion_pct": 24.4,
+      "inclusion_pct": 13.9,
       "avg_copies": 1.0,
       "decks_with": 30,
       "category": "Pokemon"
     },
     {
-      "card_name": "Jamming Tower",
-      "inclusion_pct": 18.7,
+      "card_name": "リーリエのピッピex",
+      "inclusion_pct": 12.5,
+      "avg_copies": 1.4,
+      "decks_with": 27,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ゼロの大空洞",
+      "inclusion_pct": 12.5,
+      "avg_copies": 2.3,
+      "decks_with": 27,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "エネルギーつけかえ",
+      "inclusion_pct": 11.1,
+      "avg_copies": 1.9,
+      "decks_with": 24,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ロケット団の監視塔",
+      "inclusion_pct": 10.6,
       "avg_copies": 1.1,
       "decks_with": 23,
       "category": "Trainer"
     },
     {
+      "card_name": "オーガポン みどりのめんex",
+      "inclusion_pct": 10.6,
+      "avg_copies": 3.6,
+      "decks_with": 23,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Jamming Tower",
+      "inclusion_pct": 10.6,
+      "avg_copies": 1.1,
+      "decks_with": 23,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "基本闘エネルギー",
+      "inclusion_pct": 10.2,
+      "avg_copies": 5.5,
+      "decks_with": 22,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ヨマワル",
+      "inclusion_pct": 9.7,
+      "avg_copies": 1.9,
+      "decks_with": 21,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ヨノワール",
+      "inclusion_pct": 9.7,
+      "avg_copies": 1.0,
+      "decks_with": 21,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "メイのはげまし",
+      "inclusion_pct": 9.7,
+      "avg_copies": 1.0,
+      "decks_with": 21,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "シアノ",
+      "inclusion_pct": 9.7,
+      "avg_copies": 1.8,
+      "decks_with": 21,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ヒカリ",
+      "inclusion_pct": 9.3,
+      "avg_copies": 1.9,
+      "decks_with": 20,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "サマヨール",
+      "inclusion_pct": 9.3,
+      "avg_copies": 1.0,
+      "decks_with": 20,
+      "category": "Trainer"
+    },
+    {
       "card_name": "Meowth ex",
-      "inclusion_pct": 16.3,
+      "inclusion_pct": 9.3,
       "avg_copies": 2.0,
       "decks_with": 20,
       "category": "Pokemon"
     },
     {
       "card_name": "Lillie's Clefairy ex",
-      "inclusion_pct": 16.3,
+      "inclusion_pct": 9.3,
       "avg_copies": 1.0,
       "decks_with": 20,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "ロケット団のラムダ",
+      "inclusion_pct": 8.8,
+      "avg_copies": 2.5,
+      "decks_with": 19,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "メガガルーラex",
+      "inclusion_pct": 8.8,
+      "avg_copies": 2.3,
+      "decks_with": 19,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "暗号マニアの解読",
+      "inclusion_pct": 8.3,
+      "avg_copies": 1.2,
+      "decks_with": 18,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "コダック",
+      "inclusion_pct": 8.3,
+      "avg_copies": 1.0,
+      "decks_with": 18,
       "category": "Trainer"
     },
     {
       "card_name": "Dawn",
-      "inclusion_pct": 14.6,
+      "inclusion_pct": 8.3,
       "avg_copies": 1.2,
       "decks_with": 18,
       "category": "Trainer"
     },
     {
       "card_name": "Area Zero Underdepths",
-      "inclusion_pct": 14.6,
+      "inclusion_pct": 8.3,
       "avg_copies": 1.2,
       "decks_with": 18,
       "category": "Trainer"
     },
     {
+      "card_name": "危ない廃墟",
+      "inclusion_pct": 7.9,
+      "avg_copies": 1.1,
+      "decks_with": 17,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ふうせん",
+      "inclusion_pct": 7.9,
+      "avg_copies": 1.1,
+      "decks_with": 17,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ヨルノズク",
+      "inclusion_pct": 7.4,
+      "avg_copies": 1.6,
+      "decks_with": 16,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ホーホー",
+      "inclusion_pct": 7.4,
+      "avg_copies": 1.6,
+      "decks_with": 16,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "シェイミ",
+      "inclusion_pct": 7.4,
+      "avg_copies": 1.0,
+      "decks_with": 16,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "むしとりセット",
+      "inclusion_pct": 6.9,
+      "avg_copies": 3.3,
+      "decks_with": 15,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "エネルギー回収",
+      "inclusion_pct": 6.5,
+      "avg_copies": 1.3,
+      "decks_with": 14,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "基本雷エネルギー",
+      "inclusion_pct": 6.0,
+      "avg_copies": 2.5,
+      "decks_with": 13,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ジャッジマン",
+      "inclusion_pct": 6.0,
+      "avg_copies": 1.2,
+      "decks_with": 13,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "基本水エネルギー",
+      "inclusion_pct": 5.6,
+      "avg_copies": 3.8,
+      "decks_with": 12,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "テツノイサハex",
+      "inclusion_pct": 5.6,
+      "avg_copies": 1.1,
+      "decks_with": 12,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "タケシのスカウト",
+      "inclusion_pct": 5.6,
+      "avg_copies": 1.8,
+      "decks_with": 12,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ジャミングタワー",
+      "inclusion_pct": 5.6,
+      "avg_copies": 1.2,
+      "decks_with": 12,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "活力の森",
+      "inclusion_pct": 4.6,
+      "avg_copies": 3.7,
+      "decks_with": 10,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ブライア",
+      "inclusion_pct": 4.6,
+      "avg_copies": 1.0,
+      "decks_with": 10,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ファイトゴング",
+      "inclusion_pct": 4.6,
+      "avg_copies": 3.9,
+      "decks_with": 10,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "パオジアン",
+      "inclusion_pct": 4.6,
+      "avg_copies": 1.0,
+      "decks_with": 10,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "タケルライコex",
+      "inclusion_pct": 4.6,
+      "avg_copies": 2.7,
+      "decks_with": 10,
+      "category": "Trainer"
+    },
+    {
       "card_name": "Brock's Scouting",
-      "inclusion_pct": 8.1,
+      "inclusion_pct": 4.6,
       "avg_copies": 1.6,
       "decks_with": 10,
       "category": "Trainer"
     },
     {
+      "card_name": "ヒーローマント(ACE SPEC)",
+      "inclusion_pct": 4.2,
+      "avg_copies": 1.0,
+      "decks_with": 9,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "トウコ",
+      "inclusion_pct": 4.2,
+      "avg_copies": 1.8,
+      "decks_with": 9,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ガラスのラッパ",
+      "inclusion_pct": 4.2,
+      "avg_copies": 1.7,
+      "decks_with": 9,
+      "category": "Trainer"
+    },
+    {
       "card_name": "Team Rocket's Petrel",
-      "inclusion_pct": 7.3,
+      "inclusion_pct": 4.2,
       "avg_copies": 1.0,
       "decks_with": 9,
       "category": "Trainer"
     },
     {
       "card_name": "Moltres",
-      "inclusion_pct": 7.3,
+      "inclusion_pct": 4.2,
       "avg_copies": 1.0,
       "decks_with": 9,
       "category": "Pokemon"
     },
     {
+      "card_name": "ルナトーン",
+      "inclusion_pct": 3.7,
+      "avg_copies": 2.0,
+      "decks_with": 8,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ポケモンいれかえ",
+      "inclusion_pct": 3.7,
+      "avg_copies": 1.1,
+      "decks_with": 8,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ポケギア3.0",
+      "inclusion_pct": 3.7,
+      "avg_copies": 2.8,
+      "decks_with": 8,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ソルロック",
+      "inclusion_pct": 3.7,
+      "avg_copies": 2.6,
+      "decks_with": 8,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "からておうの稽古",
+      "inclusion_pct": 3.7,
+      "avg_copies": 1.0,
+      "decks_with": 8,
+      "category": "Trainer"
+    },
+    {
       "card_name": "Psyduck",
-      "inclusion_pct": 6.5,
+      "inclusion_pct": 3.7,
       "avg_copies": 1.0,
       "decks_with": 8,
       "category": "Pokemon"
     },
     {
+      "card_name": "モモワロウex",
+      "inclusion_pct": 3.2,
+      "avg_copies": 1.0,
+      "decks_with": 7,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "シークレットボックス(ACE SPEC)",
+      "inclusion_pct": 3.2,
+      "avg_copies": 1.0,
+      "decks_with": 7,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "探検家の先導",
+      "inclusion_pct": 2.8,
+      "avg_copies": 2.8,
+      "decks_with": 6,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ユキワラシ",
+      "inclusion_pct": 2.8,
+      "avg_copies": 2.7,
+      "decks_with": 6,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ユキメノコ",
+      "inclusion_pct": 2.8,
+      "avg_copies": 2.0,
+      "decks_with": 6,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ミツルの思いやり",
+      "inclusion_pct": 2.8,
+      "avg_copies": 1.7,
+      "decks_with": 6,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ミストエネルギー",
+      "inclusion_pct": 2.8,
+      "avg_copies": 2.0,
+      "decks_with": 6,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "プライムキャッチャー(ACE SPEC)",
+      "inclusion_pct": 2.8,
+      "avg_copies": 1.0,
+      "decks_with": 6,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "パワープロテイン",
+      "inclusion_pct": 2.8,
+      "avg_copies": 3.3,
+      "decks_with": 6,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "バトルコロシアム",
+      "inclusion_pct": 2.8,
+      "avg_copies": 2.3,
+      "decks_with": 6,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "テラスタルオーブ",
+      "inclusion_pct": 2.8,
+      "avg_copies": 2.2,
+      "decks_with": 6,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "シャリタツ",
+      "inclusion_pct": 2.8,
+      "avg_copies": 1.0,
+      "decks_with": 6,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ガチグマ アカツキex",
+      "inclusion_pct": 2.8,
+      "avg_copies": 1.0,
+      "decks_with": 6,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "オーガポン いどのめんex",
+      "inclusion_pct": 2.8,
+      "avg_copies": 1.5,
+      "decks_with": 6,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "エネルギーリサイクル",
+      "inclusion_pct": 2.8,
+      "avg_copies": 1.2,
+      "decks_with": 6,
+      "category": "Trainer"
+    },
+    {
       "card_name": "Neo Upper Energy",
-      "inclusion_pct": 4.9,
+      "inclusion_pct": 2.8,
       "avg_copies": 1.0,
       "decks_with": 6,
       "category": "Energy"
     },
     {
       "card_name": "Bloodmoon Ursaluna ex",
-      "inclusion_pct": 4.9,
+      "inclusion_pct": 2.8,
       "avg_copies": 1.0,
       "decks_with": 6,
       "category": "Pokemon"
     },
     {
+      "card_name": "基本鋼エネルギー",
+      "inclusion_pct": 2.3,
+      "avg_copies": 8.6,
+      "decks_with": 5,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ロック闘エネルギー",
+      "inclusion_pct": 2.3,
+      "avg_copies": 1.4,
+      "decks_with": 5,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ロケット団のレシーバー",
+      "inclusion_pct": 2.3,
+      "avg_copies": 3.2,
+      "decks_with": 5,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "リオル",
+      "inclusion_pct": 2.3,
+      "avg_copies": 3.8,
+      "decks_with": 5,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "メガルカリオex",
+      "inclusion_pct": 2.3,
+      "avg_copies": 2.8,
+      "decks_with": 5,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "マリィのベロバー",
+      "inclusion_pct": 2.3,
+      "avg_copies": 3.0,
+      "decks_with": 5,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "マリィのギモー",
+      "inclusion_pct": 2.3,
+      "avg_copies": 2.0,
+      "decks_with": 5,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "マリィのオーロンゲex",
+      "inclusion_pct": 2.3,
+      "avg_copies": 2.8,
+      "decks_with": 5,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "マツバの確信",
+      "inclusion_pct": 2.3,
+      "avg_copies": 1.0,
+      "decks_with": 5,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ノコッチ",
+      "inclusion_pct": 2.3,
+      "avg_copies": 2.4,
+      "decks_with": 5,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ノココッチ",
+      "inclusion_pct": 2.3,
+      "avg_copies": 2.0,
+      "decks_with": 5,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "タケルライコ",
+      "inclusion_pct": 2.3,
+      "avg_copies": 1.0,
+      "decks_with": 5,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ゼイユ",
+      "inclusion_pct": 2.3,
+      "avg_copies": 3.6,
+      "decks_with": 5,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "スパイクタウンジム",
+      "inclusion_pct": 2.3,
+      "avg_copies": 3.4,
+      "decks_with": 5,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "スイレンのお世話",
+      "inclusion_pct": 2.3,
+      "avg_copies": 1.2,
+      "decks_with": 5,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ジャンボアイス",
+      "inclusion_pct": 2.3,
+      "avg_copies": 1.8,
+      "decks_with": 5,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "エネルギー転送",
+      "inclusion_pct": 2.3,
+      "avg_copies": 1.0,
+      "decks_with": 5,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "イベルタル",
+      "inclusion_pct": 2.3,
+      "avg_copies": 1.2,
+      "decks_with": 5,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "くさりもち",
+      "inclusion_pct": 2.3,
+      "avg_copies": 1.2,
+      "decks_with": 5,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Nの城",
+      "inclusion_pct": 2.3,
+      "avg_copies": 2.0,
+      "decks_with": 5,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Nのレシラム",
+      "inclusion_pct": 2.3,
+      "avg_copies": 1.0,
+      "decks_with": 5,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Nのポイントアップ",
+      "inclusion_pct": 2.3,
+      "avg_copies": 3.0,
+      "decks_with": 5,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Nのヒヒダルマ",
+      "inclusion_pct": 2.3,
+      "avg_copies": 1.8,
+      "decks_with": 5,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Nのダルマッカ",
+      "inclusion_pct": 2.3,
+      "avg_copies": 2.0,
+      "decks_with": 5,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Nのゾロアークex",
+      "inclusion_pct": 2.3,
+      "avg_copies": 4.0,
+      "decks_with": 5,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Nのゾロア",
+      "inclusion_pct": 2.3,
+      "avg_copies": 4.0,
+      "decks_with": 5,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Nのゼクロム",
+      "inclusion_pct": 2.3,
+      "avg_copies": 1.8,
+      "decks_with": 5,
+      "category": "Trainer"
+    },
+    {
       "card_name": "Hilda",
-      "inclusion_pct": 4.1,
+      "inclusion_pct": 2.3,
       "avg_copies": 1.6,
       "decks_with": 5,
       "category": "Trainer"
     },
     {
+      "card_name": "ロケット団のフリーザー",
+      "inclusion_pct": 1.9,
+      "avg_copies": 1.5,
+      "decks_with": 4,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "メガフシギバナex",
+      "inclusion_pct": 1.9,
+      "avg_copies": 2.5,
+      "decks_with": 4,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "メガニウム",
+      "inclusion_pct": 1.9,
+      "avg_copies": 2.0,
+      "decks_with": 4,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ミネズミ",
+      "inclusion_pct": 1.9,
+      "avg_copies": 1.0,
+      "decks_with": 4,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ミニーブ",
+      "inclusion_pct": 1.9,
+      "avg_copies": 2.0,
+      "decks_with": 4,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "マクノシタ",
+      "inclusion_pct": 1.9,
+      "avg_copies": 2.0,
+      "decks_with": 4,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "マキシマムベルト(ACE SPEC)",
+      "inclusion_pct": 1.9,
+      "avg_copies": 1.0,
+      "decks_with": 4,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ベイリーフ",
+      "inclusion_pct": 1.9,
+      "avg_copies": 2.5,
+      "decks_with": 4,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "プレシャスキャリー(ACE SPEC)",
+      "inclusion_pct": 1.9,
+      "avg_copies": 1.0,
+      "decks_with": 4,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "フシギダネ",
+      "inclusion_pct": 1.9,
+      "avg_copies": 2.8,
+      "decks_with": 4,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "フシギソウ",
+      "inclusion_pct": 1.9,
+      "avg_copies": 2.5,
+      "decks_with": 4,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ハリテヤマ",
+      "inclusion_pct": 1.9,
+      "avg_copies": 2.0,
+      "decks_with": 4,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "チコリータ",
+      "inclusion_pct": 1.9,
+      "avg_copies": 2.0,
+      "decks_with": 4,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "スピンロトム",
+      "inclusion_pct": 1.9,
+      "avg_copies": 2.0,
+      "decks_with": 4,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ゲノセクトex",
+      "inclusion_pct": 1.9,
+      "avg_copies": 2.0,
+      "decks_with": 4,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "グラビティーマウンテン",
+      "inclusion_pct": 1.9,
+      "avg_copies": 1.2,
+      "decks_with": 4,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "オーガポン いしずえのめんex",
+      "inclusion_pct": 1.9,
+      "avg_copies": 1.0,
+      "decks_with": 4,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "オリーヴァex",
+      "inclusion_pct": 1.9,
+      "avg_copies": 2.0,
+      "decks_with": 4,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "オリーニョ",
+      "inclusion_pct": 1.9,
+      "avg_copies": 2.0,
+      "decks_with": 4,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "イグニッションエネルギー",
+      "inclusion_pct": 1.9,
+      "avg_copies": 1.8,
+      "decks_with": 4,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "アンズの秘技",
+      "inclusion_pct": 1.9,
+      "avg_copies": 1.0,
+      "decks_with": 4,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "なみのりビーチ",
+      "inclusion_pct": 1.9,
+      "avg_copies": 1.8,
+      "decks_with": 4,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ワカシャモ",
+      "inclusion_pct": 1.4,
+      "avg_copies": 1.0,
+      "decks_with": 3,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ロケット団のファクトリー",
+      "inclusion_pct": 1.4,
+      "avg_copies": 2.7,
+      "decks_with": 3,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "メガミミロップex",
+      "inclusion_pct": 1.4,
+      "avg_copies": 1.0,
+      "decks_with": 3,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "メガゲッコウガex",
+      "inclusion_pct": 1.4,
+      "avg_copies": 2.3,
+      "decks_with": 3,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "メガクチートex",
+      "inclusion_pct": 1.4,
+      "avg_copies": 1.0,
+      "decks_with": 3,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "メガエアームドex",
+      "inclusion_pct": 1.4,
+      "avg_copies": 1.0,
+      "decks_with": 3,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ミミロル",
+      "inclusion_pct": 1.4,
+      "avg_copies": 1.0,
+      "decks_with": 3,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "バシャーモex",
+      "inclusion_pct": 1.4,
+      "avg_copies": 2.0,
+      "decks_with": 3,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ネオアッパーエネルギー",
+      "inclusion_pct": 1.4,
+      "avg_copies": 1.0,
+      "decks_with": 3,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "テレパス超エネルギー",
+      "inclusion_pct": 1.4,
+      "avg_copies": 3.7,
+      "decks_with": 3,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ダイゴのメタング",
+      "inclusion_pct": 1.4,
+      "avg_copies": 2.3,
+      "decks_with": 3,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ダイゴのメタグロスex",
+      "inclusion_pct": 1.4,
+      "avg_copies": 3.0,
+      "decks_with": 3,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ダイゴのダンバル",
+      "inclusion_pct": 1.4,
+      "avg_copies": 3.3,
+      "decks_with": 3,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ゲッコウガex",
+      "inclusion_pct": 1.4,
+      "avg_copies": 1.7,
+      "decks_with": 3,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ゲコガシラ",
+      "inclusion_pct": 1.4,
+      "avg_copies": 3.0,
+      "decks_with": 3,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ケロマツ",
+      "inclusion_pct": 1.4,
+      "avg_copies": 4.0,
+      "decks_with": 3,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "クセロシキのたくらみ",
+      "inclusion_pct": 1.4,
+      "avg_copies": 1.0,
+      "decks_with": 3,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "アチャモ",
+      "inclusion_pct": 1.4,
+      "avg_copies": 2.3,
+      "decks_with": 3,
+      "category": "Trainer"
+    },
+    {
       "card_name": "Switch",
-      "inclusion_pct": 2.4,
+      "inclusion_pct": 1.4,
+      "avg_copies": 1.0,
+      "decks_with": 3,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Nの筋書き",
+      "inclusion_pct": 1.4,
       "avg_copies": 1.0,
       "decks_with": 3,
       "category": "Trainer"
     },
     {
       "card_name": "Kieran",
-      "inclusion_pct": 2.4,
+      "inclusion_pct": 1.4,
       "avg_copies": 1.0,
       "decks_with": 3,
       "category": "Trainer"
     },
     {
+      "card_name": "偉大な大樹(ACE SPEC)",
+      "inclusion_pct": 0.9,
+      "avg_copies": 1.0,
+      "decks_with": 2,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ロケット団エネルギー",
+      "inclusion_pct": 0.9,
+      "avg_copies": 4.0,
+      "decks_with": 2,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ロケット団のワナイダー",
+      "inclusion_pct": 0.9,
+      "avg_copies": 4.0,
+      "decks_with": 2,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ロケット団のランス",
+      "inclusion_pct": 0.9,
+      "avg_copies": 3.0,
+      "decks_with": 2,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ロケット団のミュウツーex",
+      "inclusion_pct": 0.9,
+      "avg_copies": 1.5,
+      "decks_with": 2,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ロケット団のミミッキュ",
+      "inclusion_pct": 0.9,
+      "avg_copies": 2.0,
+      "decks_with": 2,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ロケット団のタマンチュラ",
+      "inclusion_pct": 0.9,
+      "avg_copies": 4.0,
+      "decks_with": 2,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ロケット団のサカキ",
+      "inclusion_pct": 0.9,
+      "avg_copies": 3.0,
+      "decks_with": 2,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ロケット団のアポロ",
+      "inclusion_pct": 0.9,
+      "avg_copies": 2.0,
+      "decks_with": 2,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ロケット団のアテナ",
+      "inclusion_pct": 0.9,
+      "avg_copies": 3.0,
+      "decks_with": 2,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "レガシーエネルギー",
+      "inclusion_pct": 0.9,
+      "avg_copies": 1.0,
+      "decks_with": 2,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "リーリエのしんじゅ",
+      "inclusion_pct": 0.9,
+      "avg_copies": 2.0,
+      "decks_with": 2,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ラッキーメット",
+      "inclusion_pct": 0.9,
+      "avg_copies": 1.5,
+      "decks_with": 2,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "モグリュー",
+      "inclusion_pct": 0.9,
+      "avg_copies": 1.0,
+      "decks_with": 2,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "メガユキメノコex",
+      "inclusion_pct": 0.9,
+      "avg_copies": 1.5,
+      "decks_with": 2,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "メガメガニウムex",
+      "inclusion_pct": 0.9,
+      "avg_copies": 1.0,
+      "decks_with": 2,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "プリズムタワー",
+      "inclusion_pct": 0.9,
+      "avg_copies": 2.0,
+      "decks_with": 2,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "プリズムエネルギー",
+      "inclusion_pct": 0.9,
+      "avg_copies": 2.5,
+      "decks_with": 2,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ブレイブバングル",
+      "inclusion_pct": 0.9,
+      "avg_copies": 1.0,
+      "decks_with": 2,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ファイヤー",
+      "inclusion_pct": 0.9,
+      "avg_copies": 1.0,
+      "decks_with": 2,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ビードル",
+      "inclusion_pct": 0.9,
+      "avg_copies": 4.0,
+      "decks_with": 2,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "パーフェクトミキサー(ACE SPEC)",
+      "inclusion_pct": 0.9,
+      "avg_copies": 1.0,
+      "decks_with": 2,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "パルデア ケンタロス",
+      "inclusion_pct": 0.9,
+      "avg_copies": 1.0,
+      "decks_with": 2,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ハイダイ",
+      "inclusion_pct": 0.9,
+      "avg_copies": 1.0,
+      "decks_with": 2,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "テラパゴスex",
+      "inclusion_pct": 0.9,
+      "avg_copies": 1.0,
+      "decks_with": 2,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ダークボール",
+      "inclusion_pct": 0.9,
+      "avg_copies": 2.0,
+      "decks_with": 2,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ソウブレイズex",
+      "inclusion_pct": 0.9,
+      "avg_copies": 3.0,
+      "decks_with": 2,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "スピアーex",
+      "inclusion_pct": 0.9,
+      "avg_copies": 4.0,
+      "decks_with": 2,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "スグリ",
+      "inclusion_pct": 0.9,
+      "avg_copies": 1.0,
+      "decks_with": 2,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ジーランス",
+      "inclusion_pct": 0.9,
+      "avg_copies": 1.0,
+      "decks_with": 2,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "シロナのロゼリア",
+      "inclusion_pct": 0.9,
+      "avg_copies": 3.0,
+      "decks_with": 2,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "シロナのロズレイド",
+      "inclusion_pct": 0.9,
+      "avg_copies": 3.0,
+      "decks_with": 2,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "シロナのミカルゲ",
+      "inclusion_pct": 0.9,
+      "avg_copies": 1.0,
+      "decks_with": 2,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "シロナのフカマル",
+      "inclusion_pct": 0.9,
+      "avg_copies": 4.0,
+      "decks_with": 2,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "シロナのパワーウエイト",
+      "inclusion_pct": 0.9,
+      "avg_copies": 3.0,
+      "decks_with": 2,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "シロナのガブリアスex",
+      "inclusion_pct": 0.9,
+      "avg_copies": 3.0,
+      "decks_with": 2,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "シロナのガバイト",
+      "inclusion_pct": 0.9,
+      "avg_copies": 4.0,
+      "decks_with": 2,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "コクーン",
+      "inclusion_pct": 0.9,
+      "avg_copies": 4.0,
+      "decks_with": 2,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "グロウ草エネルギー",
+      "inclusion_pct": 0.9,
+      "avg_copies": 2.0,
+      "decks_with": 2,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "カルボウ",
+      "inclusion_pct": 0.9,
+      "avg_copies": 4.0,
+      "decks_with": 2,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "カプ・コケコex",
+      "inclusion_pct": 0.9,
+      "avg_copies": 1.0,
+      "decks_with": 2,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "アクロマの執念",
+      "inclusion_pct": 0.9,
+      "avg_copies": 2.0,
+      "decks_with": 2,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "アイリスの闘志",
+      "inclusion_pct": 0.9,
+      "avg_copies": 1.5,
+      "decks_with": 2,
+      "category": "Trainer"
+    },
+    {
       "card_name": "Mega Kangaskhan ex",
-      "inclusion_pct": 1.6,
+      "inclusion_pct": 0.9,
       "avg_copies": 2.0,
       "decks_with": 2,
       "category": "Pokemon"
     },
     {
       "card_name": "Judge",
-      "inclusion_pct": 1.6,
+      "inclusion_pct": 0.9,
       "avg_copies": 1.0,
       "decks_with": 2,
       "category": "Trainer"
     },
     {
       "card_name": "Energy Switch",
-      "inclusion_pct": 1.6,
+      "inclusion_pct": 0.9,
       "avg_copies": 1.0,
       "decks_with": 2,
       "category": "Trainer"
     },
     {
       "card_name": "Ciphermaniac's Codebreaking",
-      "inclusion_pct": 1.6,
+      "inclusion_pct": 0.9,
       "avg_copies": 1.0,
       "decks_with": 2,
       "category": "Trainer"
     },
     {
       "card_name": "Chien-Pao",
-      "inclusion_pct": 1.6,
+      "inclusion_pct": 0.9,
       "avg_copies": 1.0,
       "decks_with": 2,
       "category": "Pokemon"
     },
     {
+      "card_name": "重力玉",
+      "inclusion_pct": 0.5,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "改造ハンマー",
+      "inclusion_pct": 0.5,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "危険な密林",
+      "inclusion_pct": 0.5,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "力の砂時計",
+      "inclusion_pct": 0.5,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ワニノコ",
+      "inclusion_pct": 0.5,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ロケット団のニューラ",
+      "inclusion_pct": 0.5,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "リーフィアex",
+      "inclusion_pct": 0.5,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "リッチエネルギー",
+      "inclusion_pct": 0.5,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ラブトロス",
+      "inclusion_pct": 0.5,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ユンゲラー",
+      "inclusion_pct": 0.5,
+      "avg_copies": 4.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "モモワロウ",
+      "inclusion_pct": 0.5,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "モクロー",
+      "inclusion_pct": 0.5,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "メタング",
+      "inclusion_pct": 0.5,
+      "avg_copies": 4.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "メタグロス",
+      "inclusion_pct": 0.5,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "メガヘラクロスex",
+      "inclusion_pct": 0.5,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "メガドラミドロex",
+      "inclusion_pct": 0.5,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "メガスターミーex",
+      "inclusion_pct": 0.5,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "メガシグナル",
+      "inclusion_pct": 0.5,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "メガアブソルex",
+      "inclusion_pct": 0.5,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ミロカロスex",
+      "inclusion_pct": 0.5,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ポッチャマ",
+      "inclusion_pct": 0.5,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ポケモンキャッチャー",
+      "inclusion_pct": 0.5,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ホルード",
+      "inclusion_pct": 0.5,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ホルビー",
+      "inclusion_pct": 0.5,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ホミカの演奏",
+      "inclusion_pct": 0.5,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "プルリル",
+      "inclusion_pct": 0.5,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ブースターex",
+      "inclusion_pct": 0.5,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ブルンゲルex",
+      "inclusion_pct": 0.5,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ブリジュラスex",
+      "inclusion_pct": 0.5,
+      "avg_copies": 4.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "フーディン",
+      "inclusion_pct": 0.5,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "フクスロー",
+      "inclusion_pct": 0.5,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ビビヨン",
+      "inclusion_pct": 0.5,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ヒンバス",
+      "inclusion_pct": 0.5,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ヒトデマン",
+      "inclusion_pct": 0.5,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "パンクメット",
+      "inclusion_pct": 0.5,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ハッコウシティ",
+      "inclusion_pct": 0.5,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "デオキシス",
+      "inclusion_pct": 0.5,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ディアルガ",
+      "inclusion_pct": 0.5,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "チラーミィ",
+      "inclusion_pct": 0.5,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "チラチーノex",
+      "inclusion_pct": 0.5,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ダンバル",
+      "inclusion_pct": 0.5,
+      "avg_copies": 4.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "タラゴン",
+      "inclusion_pct": 0.5,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "セレビィ",
+      "inclusion_pct": 0.5,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ジュラルドン",
+      "inclusion_pct": 0.5,
+      "avg_copies": 4.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ジュナイパーex",
+      "inclusion_pct": 0.5,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ザルード",
+      "inclusion_pct": 0.5,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ゴヨウ",
+      "inclusion_pct": 0.5,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "コライドン",
+      "inclusion_pct": 0.5,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "コフーライ",
+      "inclusion_pct": 0.5,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "コフキムシ",
+      "inclusion_pct": 0.5,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "コック",
+      "inclusion_pct": 0.5,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ゲノセクト",
+      "inclusion_pct": 0.5,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ケーシィ",
+      "inclusion_pct": 0.5,
+      "avg_copies": 4.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "クラッシュハンマー",
+      "inclusion_pct": 0.5,
+      "avg_copies": 4.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "クズモー",
+      "inclusion_pct": 0.5,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ガメノデス",
+      "inclusion_pct": 0.5,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ガチグマ アカツキ",
+      "inclusion_pct": 0.5,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "カメテテ",
+      "inclusion_pct": 0.5,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "カミツオロチex",
+      "inclusion_pct": 0.5,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "カミッチュ",
+      "inclusion_pct": 0.5,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "カプ・ブルル",
+      "inclusion_pct": 0.5,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "カジッチュ",
+      "inclusion_pct": 0.5,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "カキツバタ",
+      "inclusion_pct": 0.5,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "エーフィex",
+      "inclusion_pct": 0.5,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "エンペルトex",
+      "inclusion_pct": 0.5,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ウネルミナモex",
+      "inclusion_pct": 0.5,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ウガツホムラex",
+      "inclusion_pct": 0.5,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "ウガツホムラ",
+      "inclusion_pct": 0.5,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "イーブイex",
+      "inclusion_pct": 0.5,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "イーブイ",
+      "inclusion_pct": 0.5,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "イワパレス",
+      "inclusion_pct": 0.5,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "イシズマイ",
+      "inclusion_pct": 0.5,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "イイネイヌ",
+      "inclusion_pct": 0.5,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "アセロラのいたずら",
+      "inclusion_pct": 0.5,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "つりざおMAX(ACE SPEC)",
+      "inclusion_pct": 0.5,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "せいなるはい",
+      "inclusion_pct": 0.5,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "きらめく結晶(ACE SPEC)",
+      "inclusion_pct": 0.5,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
       "card_name": "Wondrous Patch",
-      "inclusion_pct": 0.8,
+      "inclusion_pct": 0.5,
       "avg_copies": 1.0,
       "decks_with": 1,
       "category": "Trainer"
     },
     {
       "card_name": "Prism Energy",
-      "inclusion_pct": 0.8,
+      "inclusion_pct": 0.5,
       "avg_copies": 1.0,
       "decks_with": 1,
       "category": "Energy"
     },
     {
       "card_name": "Mega Lopunny ex",
-      "inclusion_pct": 0.8,
+      "inclusion_pct": 0.5,
       "avg_copies": 1.0,
       "decks_with": 1,
       "category": "Pokemon"
     },
     {
       "card_name": "Hop's Wooloo",
-      "inclusion_pct": 0.8,
+      "inclusion_pct": 0.5,
       "avg_copies": 1.0,
       "decks_with": 1,
       "category": "Pokemon"
     },
     {
       "card_name": "Hop's Dubwool",
-      "inclusion_pct": 0.8,
+      "inclusion_pct": 0.5,
       "avg_copies": 1.0,
       "decks_with": 1,
       "category": "Pokemon"
     },
     {
       "card_name": "Chi-Yu",
-      "inclusion_pct": 0.8,
+      "inclusion_pct": 0.5,
       "avg_copies": 1.0,
       "decks_with": 1,
       "category": "Pokemon"
     },
     {
       "card_name": "Buneary",
-      "inclusion_pct": 0.8,
+      "inclusion_pct": 0.5,
       "avg_copies": 1.0,
       "decks_with": 1,
       "category": "Pokemon"
     },
     {
       "card_name": "Acerola's Mischief",
-      "inclusion_pct": 0.8,
+      "inclusion_pct": 0.5,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "AZの安らぎ",
+      "inclusion_pct": 0.5,
       "avg_copies": 1.0,
       "decks_with": 1,
       "category": "Trainer"
@@ -1224,6 +2938,11 @@
           "category": "Pokemon"
         },
         {
+          "card_name": "Lillie's Clefairy ex",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
           "card_name": "Latias ex",
           "count": 1,
           "category": "Pokemon"
@@ -1275,11 +2994,6 @@
         },
         {
           "card_name": "Brock's Scouting",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Lillie's Clefairy ex",
           "count": 1,
           "category": "Trainer"
         },
@@ -2021,1294 +3735,3472 @@
       ]
     },
     {
-      "tournament_name": "City League Ōsaka",
-      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4341",
-      "date": "2026-03-20",
-      "standing": 2,
-      "player_name": "レイトン",
+      "tournament_name": "長崎県 BOOKOFFSUPERBAZAARアクロスプラザ佐世保店",
+      "tournament_url": "jp-953118",
+      "date": "2026-03-14",
+      "standing": 1,
+      "player_name": "夢來",
       "decklist": [
         {
-          "card_name": "Dreepy",
-          "count": 4,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Drakloak",
-          "count": 4,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Dragapult ex",
-          "count": 3,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Budew",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Duskull",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Fezandipiti ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Shaymin",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Dusclops",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Dusknoir",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Latias ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Munkidori",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Poké Pad",
+          "card_name": "なかよしポフィン",
           "count": 4,
           "category": "Trainer"
         },
         {
-          "card_name": "Lillie's Determination",
+          "card_name": "ドラメシヤ",
           "count": 4,
           "category": "Trainer"
         },
         {
-          "card_name": "Ultra Ball",
+          "card_name": "ドロンチ",
           "count": 4,
           "category": "Trainer"
         },
         {
-          "card_name": "Buddy-Buddy Poffin",
+          "card_name": "ハイパーボール",
           "count": 4,
           "category": "Trainer"
         },
         {
-          "card_name": "Boss's Orders",
+          "card_name": "ポケパッド",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "リーリエの決心",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "ふしぎなアメ",
           "count": 3,
           "category": "Trainer"
         },
         {
-          "card_name": "Team Rocket's Watchtower",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Crispin",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Night Stretcher",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Rare Candy",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Dawn",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Unfair Stamp",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Rosa's Encouragement",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Special Red Card",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Psychic Energy",
-          "count": 4,
-          "category": "Energy"
-        },
-        {
-          "card_name": "Fire Energy",
+          "card_name": "ドラパルトex",
           "count": 3,
-          "category": "Energy"
+          "category": "Trainer"
         },
         {
-          "card_name": "Darkness Energy",
+          "card_name": "基本炎エネルギー",
+          "count": 3,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "基本超エネルギー",
+          "count": 3,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "スペシャルレッドカード",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "ニャースex",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "ボスの指令",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "ヨマワル",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "夜のタンカ",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "アカマツ",
           "count": 1,
-          "category": "Energy"
+          "category": "Trainer"
+        },
+        {
+          "card_name": "アンフェアスタンプ(ACE SPEC)",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "キチキギスex",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "サマヨール",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "スボミー",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "ゼロの大空洞",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "ブライア",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "ホーホー",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "マシマシラ",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "メイのはげまし",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "ヨノワール",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "ヨルノズク",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "危ない廃墟",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "基本悪エネルギー",
+          "count": 1,
+          "category": "Trainer"
         }
       ]
     },
     {
-      "tournament_name": "City League Kōchi",
-      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4335",
-      "date": "2026-03-20",
-      "standing": 2,
-      "player_name": "ゆう",
+      "tournament_name": "神奈川県 トーナメントセンターバトロコ　本厚木駅前",
+      "tournament_url": "jp-952859",
+      "date": "2026-03-14",
+      "standing": 1,
+      "player_name": "はる",
       "decklist": [
         {
-          "card_name": "Dreepy",
-          "count": 4,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Drakloak",
-          "count": 4,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Dragapult ex",
-          "count": 3,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Budew",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Munkidori",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Meowth ex",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Fezandipiti ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Shaymin",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Moltres",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Latias ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Bloodmoon Ursaluna ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Poké Pad",
+          "card_name": "なかよしポフィン",
           "count": 4,
           "category": "Trainer"
         },
         {
-          "card_name": "Lillie's Determination",
+          "card_name": "ドラメシヤ",
           "count": 4,
           "category": "Trainer"
         },
         {
-          "card_name": "Ultra Ball",
+          "card_name": "ドロンチ",
           "count": 4,
           "category": "Trainer"
         },
         {
-          "card_name": "Buddy-Buddy Poffin",
+          "card_name": "ハイパーボール",
           "count": 4,
           "category": "Trainer"
         },
         {
-          "card_name": "Boss's Orders",
+          "card_name": "ポケパッド",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "リーリエの決心",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "ふしぎなアメ",
           "count": 3,
           "category": "Trainer"
         },
         {
-          "card_name": "Risky Ruins",
+          "card_name": "ドラパルトex",
           "count": 3,
           "category": "Trainer"
         },
         {
-          "card_name": "Crispin",
+          "card_name": "基本炎エネルギー",
           "count": 3,
           "category": "Trainer"
         },
         {
-          "card_name": "Night Stretcher",
+          "card_name": "基本超エネルギー",
+          "count": 3,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "スボミー",
           "count": 2,
           "category": "Trainer"
         },
         {
-          "card_name": "Dawn",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Unfair Stamp",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Special Red Card",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Fire Energy",
-          "count": 3,
-          "category": "Energy"
-        },
-        {
-          "card_name": "Psychic Energy",
-          "count": 3,
-          "category": "Energy"
-        },
-        {
-          "card_name": "Darkness Energy",
+          "card_name": "ニャースex",
           "count": 2,
-          "category": "Energy"
+          "category": "Trainer"
+        },
+        {
+          "card_name": "ボスの指令",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "ヨマワル",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "基本悪エネルギー",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "夜のタンカ",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "アカマツ",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "アンフェアスタンプ(ACE SPEC)",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "キチキギスex",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "サマヨール",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "スペシャルレッドカード",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "ゼロの大空洞",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "ホーホー",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "マシマシラ",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "メイのはげまし",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "ヨノワール",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "ヨルノズク",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "危ない廃墟",
+          "count": 1,
+          "category": "Trainer"
         }
       ]
     },
     {
-      "tournament_name": "City League Tōkyō",
-      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4334",
-      "date": "2026-03-20",
-      "standing": 2,
-      "player_name": "ねくすと",
+      "tournament_name": "東京都 カードショップリドル京急蒲田店",
+      "tournament_url": "jp-953231",
+      "date": "2026-03-14",
+      "standing": 1,
+      "player_name": "そのだやお",
       "decklist": [
         {
-          "card_name": "Dreepy",
-          "count": 4,
-          "category": "Pokemon"
+          "card_name": "基本闘エネルギー",
+          "count": 9,
+          "category": "Trainer"
         },
         {
-          "card_name": "Drakloak",
-          "count": 4,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Dragapult ex",
-          "count": 3,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Munkidori",
-          "count": 3,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Budew",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Fezandipiti ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Shaymin",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Poké Pad",
+          "card_name": "バトルコロシアム",
           "count": 4,
           "category": "Trainer"
         },
         {
-          "card_name": "Lillie's Determination",
+          "card_name": "ファイトゴング",
           "count": 4,
           "category": "Trainer"
         },
         {
-          "card_name": "Ultra Ball",
+          "card_name": "プリズムエネルギー",
           "count": 4,
           "category": "Trainer"
         },
         {
-          "card_name": "Buddy-Buddy Poffin",
+          "card_name": "ポケパッド",
           "count": 4,
           "category": "Trainer"
         },
         {
-          "card_name": "Crispin",
+          "card_name": "リーリエの決心",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "イイネイヌ",
           "count": 3,
           "category": "Trainer"
         },
         {
-          "card_name": "Team Rocket's Watchtower",
+          "card_name": "ソルロック",
+          "count": 3,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "ボスの指令",
+          "count": 3,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "ポケギア3.0",
+          "count": 3,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "ふうせん",
           "count": 2,
           "category": "Trainer"
         },
         {
-          "card_name": "Boss's Orders",
+          "card_name": "カメテテ",
           "count": 2,
           "category": "Trainer"
         },
         {
-          "card_name": "Rare Candy",
+          "card_name": "ガメノデス",
           "count": 2,
           "category": "Trainer"
         },
         {
-          "card_name": "Dawn",
+          "card_name": "タラゴン",
           "count": 2,
           "category": "Trainer"
         },
         {
-          "card_name": "Night Stretcher",
+          "card_name": "ルナトーン",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "夜のタンカ",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "探検家の先導",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "エネルギー回収",
           "count": 1,
           "category": "Trainer"
         },
         {
-          "card_name": "Lillie's Clefairy ex",
+          "card_name": "ガチグマ アカツキ",
           "count": 1,
           "category": "Trainer"
         },
         {
-          "card_name": "Unfair Stamp",
+          "card_name": "ハイダイ",
           "count": 1,
           "category": "Trainer"
         },
         {
-          "card_name": "Rosa's Encouragement",
+          "card_name": "ミネズミ",
           "count": 1,
           "category": "Trainer"
         },
         {
-          "card_name": "Fire Energy",
-          "count": 3,
-          "category": "Energy"
-        },
-        {
-          "card_name": "Psychic Energy",
-          "count": 3,
-          "category": "Energy"
-        },
-        {
-          "card_name": "Darkness Energy",
-          "count": 3,
-          "category": "Energy"
+          "card_name": "レガシーエネルギー",
+          "count": 1,
+          "category": "Trainer"
         }
       ]
     },
     {
-      "tournament_name": "City League Nara",
-      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4329",
-      "date": "2026-03-19",
-      "standing": 2,
-      "player_name": "ぶーま",
+      "tournament_name": "東京都 カードショップ竜星のPAO多摩境店",
+      "tournament_url": "jp-953262",
+      "date": "2026-03-14",
+      "standing": 1,
+      "player_name": "アーク",
       "decklist": [
         {
-          "card_name": "Dreepy",
-          "count": 4,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Drakloak",
-          "count": 4,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Dragapult ex",
-          "count": 3,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Duskull",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Fezandipiti ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Budew",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Shaymin",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Dusclops",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Dusknoir",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Hoothoot",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Noctowl",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Munkidori",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Poké Pad",
+          "card_name": "なかよしポフィン",
           "count": 4,
           "category": "Trainer"
         },
         {
-          "card_name": "Lillie's Determination",
+          "card_name": "ドラメシヤ",
           "count": 4,
           "category": "Trainer"
         },
         {
-          "card_name": "Ultra Ball",
+          "card_name": "ドロンチ",
           "count": 4,
           "category": "Trainer"
         },
         {
-          "card_name": "Buddy-Buddy Poffin",
+          "card_name": "ハイパーボール",
           "count": 4,
           "category": "Trainer"
         },
         {
-          "card_name": "Rare Candy",
+          "card_name": "ポケパッド",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "リーリエの決心",
+          "count": 4,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "ドラパルトex",
           "count": 3,
           "category": "Trainer"
         },
         {
-          "card_name": "Night Stretcher",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Boss's Orders",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Team Rocket's Watchtower",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Risky Ruins",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Crispin",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Unfair Stamp",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Rosa's Encouragement",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Special Red Card",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Fire Energy",
+          "card_name": "基本悪エネルギー",
           "count": 3,
-          "category": "Energy"
+          "category": "Trainer"
         },
         {
-          "card_name": "Psychic Energy",
+          "card_name": "基本炎エネルギー",
           "count": 3,
-          "category": "Energy"
+          "category": "Trainer"
         },
         {
-          "card_name": "Darkness Energy",
+          "card_name": "基本超エネルギー",
+          "count": 3,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "ふしぎなアメ",
           "count": 2,
-          "category": "Energy"
+          "category": "Trainer"
+        },
+        {
+          "card_name": "アカマツ",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "スボミー",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "ニャースex",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "ボスの指令",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "マシマシラ",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "ヨマワル",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "夜のタンカ",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "アンフェアスタンプ(ACE SPEC)",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "キチキギスex",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "サマヨール",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "スペシャルレッドカード",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "メイのはげまし",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "ヨノワール",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "ロケット団の監視塔",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "危ない廃墟",
+          "count": 1,
+          "category": "Trainer"
         }
       ]
     },
     {
-      "tournament_name": "City League Hiroshima",
-      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4326",
-      "date": "2026-03-18",
-      "standing": 2,
-      "player_name": "もち",
+      "tournament_name": "山梨県 ブックオフプラス　田富昭和通り店",
+      "tournament_url": "jp-952858",
+      "date": "2026-03-14",
+      "standing": 1,
+      "player_name": "わっしー",
       "decklist": [
         {
-          "card_name": "Dreepy",
-          "count": 4,
-          "category": "Pokemon"
+          "card_name": "基本草エネルギー",
+          "count": 6,
+          "category": "Trainer"
         },
         {
-          "card_name": "Drakloak",
-          "count": 4,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Dragapult ex",
-          "count": 3,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Duskull",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Meowth ex",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Fezandipiti ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Budew",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Shaymin",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Dusclops",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Dusknoir",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Munkidori",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Poké Pad",
+          "card_name": "アカマツ",
           "count": 4,
           "category": "Trainer"
         },
         {
-          "card_name": "Lillie's Determination",
+          "card_name": "ハイパーボール",
           "count": 4,
           "category": "Trainer"
         },
         {
-          "card_name": "Ultra Ball",
+          "card_name": "ポケパッド",
           "count": 4,
           "category": "Trainer"
         },
         {
-          "card_name": "Buddy-Buddy Poffin",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Rare Candy",
+          "card_name": "ゼロの大空洞",
           "count": 3,
           "category": "Trainer"
         },
         {
-          "card_name": "Special Red Card",
+          "card_name": "タケルライコex",
           "count": 3,
           "category": "Trainer"
         },
         {
-          "card_name": "Night Stretcher",
+          "card_name": "ホーホー",
+          "count": 3,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "ヨルノズク",
+          "count": 3,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "基本闘エネルギー",
+          "count": 3,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "基本雷エネルギー",
+          "count": 3,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "ガラスのラッパ",
           "count": 2,
           "category": "Trainer"
         },
         {
-          "card_name": "Boss's Orders",
+          "card_name": "スピンロトム",
           "count": 2,
           "category": "Trainer"
         },
         {
-          "card_name": "Team Rocket's Watchtower",
+          "card_name": "夜のタンカ",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "エネルギーつけかえ",
           "count": 1,
           "category": "Trainer"
         },
         {
-          "card_name": "Risky Ruins",
+          "card_name": "エネルギー回収",
           "count": 1,
           "category": "Trainer"
         },
         {
-          "card_name": "Briar",
+          "card_name": "エネルギー転送",
           "count": 1,
           "category": "Trainer"
         },
         {
-          "card_name": "Crispin",
+          "card_name": "オーガポン みどりのめんex",
           "count": 1,
           "category": "Trainer"
         },
         {
-          "card_name": "Hilda",
+          "card_name": "キチキギスex",
           "count": 1,
           "category": "Trainer"
         },
         {
-          "card_name": "Fire Energy",
-          "count": 3,
-          "category": "Energy"
-        },
-        {
-          "card_name": "Psychic Energy",
-          "count": 3,
-          "category": "Energy"
-        },
-        {
-          "card_name": "Darkness Energy",
+          "card_name": "シアノ",
           "count": 1,
-          "category": "Energy"
+          "category": "Trainer"
         },
         {
-          "card_name": "Neo Upper Energy",
+          "card_name": "タケルライコ",
           "count": 1,
-          "category": "Energy"
+          "category": "Trainer"
+        },
+        {
+          "card_name": "テツノイサハex",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "テラスタルオーブ",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "テラパゴスex",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "パオジアン",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "プライムキャッチャー(ACE SPEC)",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "ボスの指令",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "ラティアスex",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "リーリエの決心",
+          "count": 1,
+          "category": "Trainer"
         }
       ]
     },
     {
-      "tournament_name": "City League Ōsaka",
-      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4323",
-      "date": "2026-03-18",
-      "standing": 2,
-      "player_name": "オニギリ",
+      "tournament_name": "群馬県 Duel Stade Ganryu　高崎店",
+      "tournament_url": "jp-952709",
+      "date": "2026-03-14",
+      "standing": 1,
+      "player_name": "joker",
       "decklist": [
         {
-          "card_name": "Dreepy",
-          "count": 4,
-          "category": "Pokemon"
+          "card_name": "基本草エネルギー",
+          "count": 6,
+          "category": "Trainer"
         },
         {
-          "card_name": "Drakloak",
-          "count": 4,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Dragapult ex",
-          "count": 3,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Budew",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Duskull",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Fezandipiti ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Dusclops",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Dusknoir",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Munkidori",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Poké Pad",
+          "card_name": "アカマツ",
           "count": 4,
           "category": "Trainer"
         },
         {
-          "card_name": "Lillie's Determination",
+          "card_name": "オーガポン みどりのめんex",
           "count": 4,
           "category": "Trainer"
         },
         {
-          "card_name": "Ultra Ball",
+          "card_name": "ハイパーボール",
           "count": 4,
           "category": "Trainer"
         },
         {
-          "card_name": "Buddy-Buddy Poffin",
+          "card_name": "ポケパッド",
           "count": 4,
           "category": "Trainer"
         },
         {
-          "card_name": "Rare Candy",
+          "card_name": "ゼロの大空洞",
           "count": 3,
           "category": "Trainer"
         },
         {
-          "card_name": "Night Stretcher",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Boss's Orders",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Crispin",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Jamming Tower",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Dawn",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Unfair Stamp",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Rosa's Encouragement",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Special Red Card",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Psychic Energy",
-          "count": 4,
-          "category": "Energy"
-        },
-        {
-          "card_name": "Fire Energy",
+          "card_name": "ホーホー",
           "count": 3,
-          "category": "Energy"
+          "category": "Trainer"
         },
         {
-          "card_name": "Darkness Energy",
+          "card_name": "ヨルノズク",
+          "count": 3,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "スピンロトム",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "タケルライコex",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "テラスタルオーブ",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "リーリエのピッピex",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "基本超エネルギー",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "基本闘エネルギー",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "基本雷エネルギー",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "アンフェアスタンプ(ACE SPEC)",
           "count": 1,
-          "category": "Energy"
+          "category": "Trainer"
+        },
+        {
+          "card_name": "エネルギーつけかえ",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "エネルギー回収",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "エネルギー転送",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "ガラスのラッパ",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "キチキギスex",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "ジャミングタワー",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "タケシのスカウト",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "タケルライコ",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "テツノイサハex",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "テラパゴスex",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "ボスの指令",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "ラティアスex",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "リーリエの決心",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "夜のタンカ",
+          "count": 1,
+          "category": "Trainer"
         }
       ]
     }
   ],
   "radar": {
-    "meta_share": 54.7,
-    "weighted_share": 57.1,
-    "consistency": 66.3,
+    "meta_share": 44.4,
+    "weighted_share": 52.0,
+    "consistency": 76.7,
     "ceiling": 100,
-    "popularity": 100.0,
-    "core_density": 40.4
+    "popularity": 89.3,
+    "core_density": 0.0
   },
-  "evolution": [],
+  "evolution": [
+    {
+      "week": "2026-03-16",
+      "adopted": [
+        {
+          "card": "ボスの指令",
+          "from_pct": 24.7,
+          "to_pct": 50.7
+        }
+      ],
+      "dropped": []
+    }
+  ],
   "variants": [
     {
-      "name": "with Hoothoot",
-      "deck_count": 72,
-      "pct": 58.5
-    },
-    {
-      "name": "with Latias ex",
-      "deck_count": 27,
-      "pct": 22.0
+      "name": "with Budew",
+      "deck_count": 122,
+      "pct": 56.5
     },
     {
       "name": "Standard",
-      "deck_count": 13,
-      "pct": 10.6
+      "deck_count": 93,
+      "pct": 43.1
     }
   ],
   "weekly_shares": [
     {
       "week": "2026-03-09",
-      "meta_share": 9.0,
-      "deck_count": 57
+      "meta_share": 6.1,
+      "deck_count": 77
     },
     {
       "week": "2026-03-16",
-      "meta_share": 13.4,
-      "deck_count": 66
+      "meta_share": 11.9,
+      "deck_count": 139
     }
   ],
   "top4_card_stats": [
     {
+      "card_name": "ボスの指令",
+      "inclusion_pct": 61.5,
+      "avg_copies": 2.3,
+      "decks_with": 72,
+      "category": "Trainer",
+      "delta_vs_field": 20.8
+    },
+    {
+      "card_name": "ハイパーボール",
+      "inclusion_pct": 59.8,
+      "avg_copies": 3.6,
+      "decks_with": 70,
+      "category": "Trainer",
+      "delta_vs_field": 20.4
+    },
+    {
+      "card_name": "夜のタンカ",
+      "inclusion_pct": 56.4,
+      "avg_copies": 1.7,
+      "decks_with": 66,
+      "category": "Trainer",
+      "delta_vs_field": 20.3
+    },
+    {
+      "card_name": "リーリエの決心",
+      "inclusion_pct": 56.4,
+      "avg_copies": 3.4,
+      "decks_with": 66,
+      "category": "Trainer",
+      "delta_vs_field": 18.9
+    },
+    {
+      "card_name": "ポケパッド",
+      "inclusion_pct": 52.1,
+      "avg_copies": 3.6,
+      "decks_with": 61,
+      "category": "Trainer",
+      "delta_vs_field": 18.3
+    },
+    {
+      "card_name": "キチキギスex",
+      "inclusion_pct": 47.0,
+      "avg_copies": 1.0,
+      "decks_with": 55,
+      "category": "Trainer",
+      "delta_vs_field": 16.9
+    },
+    {
+      "card_name": "ニャースex",
+      "inclusion_pct": 46.2,
+      "avg_copies": 1.7,
+      "decks_with": 54,
+      "category": "Trainer",
+      "delta_vs_field": 15.6
+    },
+    {
+      "card_name": "スペシャルレッドカード",
+      "inclusion_pct": 41.9,
+      "avg_copies": 1.2,
+      "decks_with": 49,
+      "category": "Trainer",
+      "delta_vs_field": 13.2
+    },
+    {
+      "card_name": "アカマツ",
+      "inclusion_pct": 36.8,
+      "avg_copies": 2.5,
+      "decks_with": 43,
+      "category": "Trainer",
+      "delta_vs_field": 13.7
+    },
+    {
+      "card_name": "なかよしポフィン",
+      "inclusion_pct": 35.9,
+      "avg_copies": 3.6,
+      "decks_with": 42,
+      "category": "Trainer",
+      "delta_vs_field": 11.4
+    },
+    {
       "card_name": "Ultra Ball",
-      "inclusion_pct": 100.0,
+      "inclusion_pct": 34.2,
       "avg_copies": 4.0,
       "decks_with": 40,
       "category": "Trainer",
-      "delta_vs_field": 0.0
+      "delta_vs_field": -22.7
     },
     {
       "card_name": "Psychic Energy",
-      "inclusion_pct": 100.0,
+      "inclusion_pct": 34.2,
       "avg_copies": 3.4,
       "decks_with": 40,
       "category": "Energy",
-      "delta_vs_field": 0.0
+      "delta_vs_field": -22.7
     },
     {
       "card_name": "Poké Pad",
-      "inclusion_pct": 100.0,
+      "inclusion_pct": 34.2,
       "avg_copies": 3.9,
       "decks_with": 40,
       "category": "Trainer",
-      "delta_vs_field": 0.0
+      "delta_vs_field": -22.7
     },
     {
       "card_name": "Night Stretcher",
-      "inclusion_pct": 100.0,
+      "inclusion_pct": 34.2,
       "avg_copies": 1.7,
       "decks_with": 40,
       "category": "Trainer",
-      "delta_vs_field": 0.0
+      "delta_vs_field": -22.7
     },
     {
       "card_name": "Lillie's Determination",
-      "inclusion_pct": 100.0,
+      "inclusion_pct": 34.2,
       "avg_copies": 4.0,
       "decks_with": 40,
       "category": "Trainer",
-      "delta_vs_field": 0.0
+      "delta_vs_field": -22.7
     },
     {
       "card_name": "Fire Energy",
-      "inclusion_pct": 100.0,
+      "inclusion_pct": 34.2,
       "avg_copies": 3.0,
       "decks_with": 40,
       "category": "Energy",
-      "delta_vs_field": 0.0
+      "delta_vs_field": -22.7
     },
     {
       "card_name": "Fezandipiti ex",
-      "inclusion_pct": 100.0,
+      "inclusion_pct": 34.2,
       "avg_copies": 1.0,
       "decks_with": 40,
       "category": "Pokemon",
-      "delta_vs_field": 0.0
+      "delta_vs_field": -22.7
     },
     {
       "card_name": "Dreepy",
-      "inclusion_pct": 100.0,
+      "inclusion_pct": 34.2,
       "avg_copies": 4.0,
       "decks_with": 40,
       "category": "Pokemon",
-      "delta_vs_field": 0.0
+      "delta_vs_field": -22.7
     },
     {
       "card_name": "Drakloak",
-      "inclusion_pct": 100.0,
+      "inclusion_pct": 34.2,
       "avg_copies": 4.0,
       "decks_with": 40,
       "category": "Pokemon",
-      "delta_vs_field": 0.0
+      "delta_vs_field": -22.7
     },
     {
       "card_name": "Dragapult ex",
-      "inclusion_pct": 100.0,
+      "inclusion_pct": 34.2,
       "avg_copies": 3.0,
       "decks_with": 40,
       "category": "Pokemon",
-      "delta_vs_field": 0.0
+      "delta_vs_field": -22.7
     },
     {
       "card_name": "Crispin",
-      "inclusion_pct": 100.0,
+      "inclusion_pct": 34.2,
       "avg_copies": 1.8,
       "decks_with": 40,
       "category": "Trainer",
-      "delta_vs_field": 0.8
+      "delta_vs_field": -22.3
     },
     {
       "card_name": "Budew",
-      "inclusion_pct": 100.0,
+      "inclusion_pct": 34.2,
       "avg_copies": 1.6,
       "decks_with": 40,
       "category": "Pokemon",
-      "delta_vs_field": 0.8
+      "delta_vs_field": -22.3
     },
     {
       "card_name": "Boss's Orders",
-      "inclusion_pct": 100.0,
+      "inclusion_pct": 34.2,
       "avg_copies": 2.3,
       "decks_with": 40,
       "category": "Trainer",
-      "delta_vs_field": 0.0
+      "delta_vs_field": -22.7
+    },
+    {
+      "card_name": "基本超エネルギー",
+      "inclusion_pct": 33.3,
+      "avg_copies": 3.1,
+      "decks_with": 39,
+      "category": "Trainer",
+      "delta_vs_field": 11.5
+    },
+    {
+      "card_name": "アンフェアスタンプ(ACE SPEC)",
+      "inclusion_pct": 33.3,
+      "avg_copies": 1.0,
+      "decks_with": 39,
+      "category": "Trainer",
+      "delta_vs_field": 11.1
     },
     {
       "card_name": "Munkidori",
-      "inclusion_pct": 97.5,
+      "inclusion_pct": 33.3,
       "avg_copies": 1.3,
       "decks_with": 39,
       "category": "Pokemon",
-      "delta_vs_field": -0.1
+      "delta_vs_field": -22.3
     },
     {
       "card_name": "Darkness Energy",
-      "inclusion_pct": 97.5,
+      "inclusion_pct": 33.3,
       "avg_copies": 1.7,
       "decks_with": 39,
       "category": "Energy",
-      "delta_vs_field": -0.1
+      "delta_vs_field": -22.3
     },
     {
       "card_name": "Buddy-Buddy Poffin",
-      "inclusion_pct": 97.5,
+      "inclusion_pct": 33.3,
       "avg_copies": 4.0,
       "decks_with": 39,
       "category": "Trainer",
-      "delta_vs_field": -0.9
+      "delta_vs_field": -22.7
     },
     {
       "card_name": "Unfair Stamp",
-      "inclusion_pct": 95.0,
+      "inclusion_pct": 32.5,
       "avg_copies": 1.0,
       "decks_with": 38,
       "category": "Trainer",
-      "delta_vs_field": -0.1
+      "delta_vs_field": -21.7
     },
     {
       "card_name": "Special Red Card",
-      "inclusion_pct": 95.0,
+      "inclusion_pct": 32.5,
       "avg_copies": 1.2,
       "decks_with": 38,
+      "category": "Trainer",
+      "delta_vs_field": -21.2
+    },
+    {
+      "card_name": "スボミー",
+      "inclusion_pct": 30.8,
+      "avg_copies": 1.3,
+      "decks_with": 36,
+      "category": "Trainer",
+      "delta_vs_field": 8.6
+    },
+    {
+      "card_name": "Rare Candy",
+      "inclusion_pct": 29.9,
+      "avg_copies": 2.6,
+      "decks_with": 35,
+      "category": "Trainer",
+      "delta_vs_field": -20.6
+    },
+    {
+      "card_name": "Duskull",
+      "inclusion_pct": 28.2,
+      "avg_copies": 2.0,
+      "decks_with": 33,
+      "category": "Pokemon",
+      "delta_vs_field": -19.9
+    },
+    {
+      "card_name": "Dusknoir",
+      "inclusion_pct": 28.2,
+      "avg_copies": 1.0,
+      "decks_with": 33,
+      "category": "Pokemon",
+      "delta_vs_field": -19.9
+    },
+    {
+      "card_name": "Dusclops",
+      "inclusion_pct": 28.2,
+      "avg_copies": 1.0,
+      "decks_with": 33,
+      "category": "Pokemon",
+      "delta_vs_field": -19.0
+    },
+    {
+      "card_name": "基本悪エネルギー",
+      "inclusion_pct": 27.4,
+      "avg_copies": 3.2,
+      "decks_with": 32,
+      "category": "Trainer",
+      "delta_vs_field": 8.4
+    },
+    {
+      "card_name": "マシマシラ",
+      "inclusion_pct": 27.4,
+      "avg_copies": 1.7,
+      "decks_with": 32,
+      "category": "Trainer",
+      "delta_vs_field": 8.4
+    },
+    {
+      "card_name": "Rosa's Encouragement",
+      "inclusion_pct": 27.4,
+      "avg_copies": 1.0,
+      "decks_with": 32,
+      "category": "Trainer",
+      "delta_vs_field": -20.3
+    },
+    {
+      "card_name": "Team Rocket's Watchtower",
+      "inclusion_pct": 26.5,
+      "avg_copies": 1.1,
+      "decks_with": 31,
+      "category": "Trainer",
+      "delta_vs_field": -16.1
+    },
+    {
+      "card_name": "基本炎エネルギー",
+      "inclusion_pct": 24.8,
+      "avg_copies": 3.3,
+      "decks_with": 29,
+      "category": "Trainer",
+      "delta_vs_field": 9.1
+    },
+    {
+      "card_name": "ふしぎなアメ",
+      "inclusion_pct": 24.8,
+      "avg_copies": 2.4,
+      "decks_with": 29,
+      "category": "Trainer",
+      "delta_vs_field": 7.2
+    },
+    {
+      "card_name": "Risky Ruins",
+      "inclusion_pct": 24.8,
+      "avg_copies": 1.1,
+      "decks_with": 29,
+      "category": "Trainer",
+      "delta_vs_field": -20.6
+    },
+    {
+      "card_name": "ドロンチ",
+      "inclusion_pct": 23.1,
+      "avg_copies": 3.9,
+      "decks_with": 27,
+      "category": "Trainer",
+      "delta_vs_field": 8.7
+    },
+    {
+      "card_name": "ドラメシヤ",
+      "inclusion_pct": 23.1,
+      "avg_copies": 3.9,
+      "decks_with": 27,
+      "category": "Trainer",
+      "delta_vs_field": 8.7
+    },
+    {
+      "card_name": "ドラパルトex",
+      "inclusion_pct": 23.1,
+      "avg_copies": 2.8,
+      "decks_with": 27,
+      "category": "Trainer",
+      "delta_vs_field": 8.7
+    },
+    {
+      "card_name": "基本草エネルギー",
+      "inclusion_pct": 21.4,
+      "avg_copies": 7.6,
+      "decks_with": 25,
+      "category": "Trainer",
+      "delta_vs_field": 7.5
+    },
+    {
+      "card_name": "ラティアスex",
+      "inclusion_pct": 21.4,
+      "avg_copies": 1.6,
+      "decks_with": 25,
+      "category": "Trainer",
+      "delta_vs_field": 7.0
+    },
+    {
+      "card_name": "ゼロの大空洞",
+      "inclusion_pct": 19.7,
+      "avg_copies": 2.3,
+      "decks_with": 23,
+      "category": "Trainer",
+      "delta_vs_field": 7.2
+    },
+    {
+      "card_name": "基本闘エネルギー",
+      "inclusion_pct": 17.9,
+      "avg_copies": 5.7,
+      "decks_with": 21,
+      "category": "Trainer",
+      "delta_vs_field": 7.7
+    },
+    {
+      "card_name": "ロケット団の監視塔",
+      "inclusion_pct": 17.1,
+      "avg_copies": 1.1,
+      "decks_with": 20,
+      "category": "Trainer",
+      "delta_vs_field": 6.5
+    },
+    {
+      "card_name": "リーリエのピッピex",
+      "inclusion_pct": 17.1,
+      "avg_copies": 1.4,
+      "decks_with": 20,
+      "category": "Trainer",
+      "delta_vs_field": 4.6
+    },
+    {
+      "card_name": "エネルギーつけかえ",
+      "inclusion_pct": 17.1,
+      "avg_copies": 1.8,
+      "decks_with": 20,
+      "category": "Trainer",
+      "delta_vs_field": 6.0
+    },
+    {
+      "card_name": "ヨマワル",
+      "inclusion_pct": 16.2,
+      "avg_copies": 2.0,
+      "decks_with": 19,
+      "category": "Trainer",
+      "delta_vs_field": 6.5
+    },
+    {
+      "card_name": "ヨノワール",
+      "inclusion_pct": 16.2,
+      "avg_copies": 1.1,
+      "decks_with": 19,
+      "category": "Trainer",
+      "delta_vs_field": 6.5
+    },
+    {
+      "card_name": "メイのはげまし",
+      "inclusion_pct": 16.2,
+      "avg_copies": 1.0,
+      "decks_with": 19,
+      "category": "Trainer",
+      "delta_vs_field": 6.5
+    },
+    {
+      "card_name": "サマヨール",
+      "inclusion_pct": 16.2,
+      "avg_copies": 1.0,
+      "decks_with": 19,
+      "category": "Trainer",
+      "delta_vs_field": 6.9
+    },
+    {
+      "card_name": "シアノ",
+      "inclusion_pct": 15.4,
+      "avg_copies": 1.6,
+      "decks_with": 18,
+      "category": "Trainer",
+      "delta_vs_field": 5.7
+    },
+    {
+      "card_name": "オーガポン みどりのめんex",
+      "inclusion_pct": 15.4,
+      "avg_copies": 3.6,
+      "decks_with": 18,
+      "category": "Trainer",
+      "delta_vs_field": 4.8
+    },
+    {
+      "card_name": "Noctowl",
+      "inclusion_pct": 14.5,
+      "avg_copies": 1.0,
+      "decks_with": 17,
+      "category": "Pokemon",
+      "delta_vs_field": -18.8
+    },
+    {
+      "card_name": "Hoothoot",
+      "inclusion_pct": 14.5,
+      "avg_copies": 1.0,
+      "decks_with": 17,
+      "category": "Pokemon",
+      "delta_vs_field": -18.8
+    },
+    {
+      "card_name": "暗号マニアの解読",
+      "inclusion_pct": 13.7,
+      "avg_copies": 1.2,
+      "decks_with": 16,
+      "category": "Trainer",
+      "delta_vs_field": 5.4
+    },
+    {
+      "card_name": "危ない廃墟",
+      "inclusion_pct": 12.8,
+      "avg_copies": 1.1,
+      "decks_with": 15,
+      "category": "Trainer",
+      "delta_vs_field": 4.9
+    },
+    {
+      "card_name": "メガガルーラex",
+      "inclusion_pct": 12.8,
+      "avg_copies": 2.3,
+      "decks_with": 15,
+      "category": "Trainer",
+      "delta_vs_field": 4.0
+    },
+    {
+      "card_name": "ヒカリ",
+      "inclusion_pct": 12.8,
+      "avg_copies": 1.9,
+      "decks_with": 15,
+      "category": "Trainer",
+      "delta_vs_field": 3.5
+    },
+    {
+      "card_name": "Briar",
+      "inclusion_pct": 12.8,
+      "avg_copies": 1.0,
+      "decks_with": 15,
+      "category": "Trainer",
+      "delta_vs_field": -10.3
+    },
+    {
+      "card_name": "ヨルノズク",
+      "inclusion_pct": 12.0,
+      "avg_copies": 1.6,
+      "decks_with": 14,
+      "category": "Trainer",
+      "delta_vs_field": 4.6
+    },
+    {
+      "card_name": "ホーホー",
+      "inclusion_pct": 12.0,
+      "avg_copies": 1.6,
+      "decks_with": 14,
+      "category": "Trainer",
+      "delta_vs_field": 4.6
+    },
+    {
+      "card_name": "コダック",
+      "inclusion_pct": 12.0,
+      "avg_copies": 1.0,
+      "decks_with": 14,
+      "category": "Trainer",
+      "delta_vs_field": 3.7
+    },
+    {
+      "card_name": "むしとりセット",
+      "inclusion_pct": 11.1,
+      "avg_copies": 3.2,
+      "decks_with": 13,
+      "category": "Trainer",
+      "delta_vs_field": 4.2
+    },
+    {
+      "card_name": "ロケット団のラムダ",
+      "inclusion_pct": 10.3,
+      "avg_copies": 2.4,
+      "decks_with": 12,
+      "category": "Trainer",
+      "delta_vs_field": 1.5
+    },
+    {
+      "card_name": "シェイミ",
+      "inclusion_pct": 10.3,
+      "avg_copies": 1.0,
+      "decks_with": 12,
+      "category": "Trainer",
+      "delta_vs_field": 2.9
+    },
+    {
+      "card_name": "エネルギー回収",
+      "inclusion_pct": 10.3,
+      "avg_copies": 1.3,
+      "decks_with": 12,
+      "category": "Trainer",
+      "delta_vs_field": 3.8
+    },
+    {
+      "card_name": "ふうせん",
+      "inclusion_pct": 10.3,
+      "avg_copies": 1.2,
+      "decks_with": 12,
+      "category": "Trainer",
+      "delta_vs_field": 2.4
+    },
+    {
+      "card_name": "Latias ex",
+      "inclusion_pct": 10.3,
+      "avg_copies": 1.1,
+      "decks_with": 12,
+      "category": "Pokemon",
+      "delta_vs_field": -4.5
+    },
+    {
+      "card_name": "基本雷エネルギー",
+      "inclusion_pct": 9.4,
+      "avg_copies": 2.7,
+      "decks_with": 11,
+      "category": "Trainer",
+      "delta_vs_field": 3.4
+    },
+    {
+      "card_name": "テツノイサハex",
+      "inclusion_pct": 9.4,
+      "avg_copies": 1.1,
+      "decks_with": 11,
+      "category": "Trainer",
+      "delta_vs_field": 3.8
+    },
+    {
+      "card_name": "Shaymin",
+      "inclusion_pct": 9.4,
+      "avg_copies": 1.0,
+      "decks_with": 11,
+      "category": "Pokemon",
+      "delta_vs_field": -4.5
+    },
+    {
+      "card_name": "ファイトゴング",
+      "inclusion_pct": 8.5,
+      "avg_copies": 3.9,
+      "decks_with": 10,
+      "category": "Trainer",
+      "delta_vs_field": 3.9
+    },
+    {
+      "card_name": "パオジアン",
+      "inclusion_pct": 8.5,
+      "avg_copies": 1.0,
+      "decks_with": 10,
+      "category": "Trainer",
+      "delta_vs_field": 3.9
+    },
+    {
+      "card_name": "ジャミングタワー",
+      "inclusion_pct": 8.5,
+      "avg_copies": 1.1,
+      "decks_with": 10,
+      "category": "Trainer",
+      "delta_vs_field": 2.9
+    },
+    {
+      "card_name": "基本水エネルギー",
+      "inclusion_pct": 7.7,
+      "avg_copies": 3.7,
+      "decks_with": 9,
+      "category": "Trainer",
+      "delta_vs_field": 2.1
+    },
+    {
+      "card_name": "ブライア",
+      "inclusion_pct": 7.7,
+      "avg_copies": 1.0,
+      "decks_with": 9,
+      "category": "Trainer",
+      "delta_vs_field": 3.1
+    },
+    {
+      "card_name": "タケルライコex",
+      "inclusion_pct": 7.7,
+      "avg_copies": 2.8,
+      "decks_with": 9,
+      "category": "Trainer",
+      "delta_vs_field": 3.1
+    },
+    {
+      "card_name": "ジャッジマン",
+      "inclusion_pct": 7.7,
+      "avg_copies": 1.2,
+      "decks_with": 9,
+      "category": "Trainer",
+      "delta_vs_field": 1.7
+    },
+    {
+      "card_name": "ガラスのラッパ",
+      "inclusion_pct": 7.7,
+      "avg_copies": 1.7,
+      "decks_with": 9,
+      "category": "Trainer",
+      "delta_vs_field": 3.5
+    },
+    {
+      "card_name": "Lillie's Clefairy ex",
+      "inclusion_pct": 7.7,
+      "avg_copies": 1.0,
+      "decks_with": 9,
+      "category": "Pokemon",
+      "delta_vs_field": -1.6
+    },
+    {
+      "card_name": "活力の森",
+      "inclusion_pct": 6.8,
+      "avg_copies": 3.8,
+      "decks_with": 8,
+      "category": "Trainer",
+      "delta_vs_field": 2.2
+    },
+    {
+      "card_name": "ルナトーン",
+      "inclusion_pct": 6.8,
+      "avg_copies": 2.0,
+      "decks_with": 8,
+      "category": "Trainer",
+      "delta_vs_field": 3.1
+    },
+    {
+      "card_name": "ポケモンいれかえ",
+      "inclusion_pct": 6.8,
+      "avg_copies": 1.1,
+      "decks_with": 8,
+      "category": "Trainer",
+      "delta_vs_field": 3.1
+    },
+    {
+      "card_name": "タケシのスカウト",
+      "inclusion_pct": 6.8,
+      "avg_copies": 1.6,
+      "decks_with": 8,
+      "category": "Trainer",
+      "delta_vs_field": 1.2
+    },
+    {
+      "card_name": "ソルロック",
+      "inclusion_pct": 6.8,
+      "avg_copies": 2.6,
+      "decks_with": 8,
+      "category": "Trainer",
+      "delta_vs_field": 3.1
+    },
+    {
+      "card_name": "Meowth ex",
+      "inclusion_pct": 6.8,
+      "avg_copies": 2.0,
+      "decks_with": 8,
+      "category": "Pokemon",
+      "delta_vs_field": -2.5
+    },
+    {
+      "card_name": "Dawn",
+      "inclusion_pct": 6.8,
+      "avg_copies": 1.1,
+      "decks_with": 8,
+      "category": "Trainer",
+      "delta_vs_field": -1.5
+    },
+    {
+      "card_name": "Area Zero Underdepths",
+      "inclusion_pct": 6.8,
+      "avg_copies": 1.1,
+      "decks_with": 8,
+      "category": "Trainer",
+      "delta_vs_field": -1.5
+    },
+    {
+      "card_name": "トウコ",
+      "inclusion_pct": 6.0,
+      "avg_copies": 2.0,
+      "decks_with": 7,
+      "category": "Trainer",
+      "delta_vs_field": 1.8
+    },
+    {
+      "card_name": "からておうの稽古",
+      "inclusion_pct": 6.0,
+      "avg_copies": 1.0,
+      "decks_with": 7,
+      "category": "Trainer",
+      "delta_vs_field": 2.3
+    },
+    {
+      "card_name": "探検家の先導",
+      "inclusion_pct": 5.1,
+      "avg_copies": 2.8,
+      "decks_with": 6,
+      "category": "Trainer",
+      "delta_vs_field": 2.3
+    },
+    {
+      "card_name": "ポケギア3.0",
+      "inclusion_pct": 5.1,
+      "avg_copies": 2.8,
+      "decks_with": 6,
+      "category": "Trainer",
+      "delta_vs_field": 1.4
+    },
+    {
+      "card_name": "プライムキャッチャー(ACE SPEC)",
+      "inclusion_pct": 5.1,
+      "avg_copies": 1.0,
+      "decks_with": 6,
+      "category": "Trainer",
+      "delta_vs_field": 2.3
+    },
+    {
+      "card_name": "ヒーローマント(ACE SPEC)",
+      "inclusion_pct": 5.1,
+      "avg_copies": 1.0,
+      "decks_with": 6,
+      "category": "Trainer",
+      "delta_vs_field": 0.9
+    },
+    {
+      "card_name": "パワープロテイン",
+      "inclusion_pct": 5.1,
+      "avg_copies": 3.3,
+      "decks_with": 6,
+      "category": "Trainer",
+      "delta_vs_field": 2.3
+    },
+    {
+      "card_name": "バトルコロシアム",
+      "inclusion_pct": 5.1,
+      "avg_copies": 2.3,
+      "decks_with": 6,
+      "category": "Trainer",
+      "delta_vs_field": 2.3
+    },
+    {
+      "card_name": "Jamming Tower",
+      "inclusion_pct": 5.1,
+      "avg_copies": 1.2,
+      "decks_with": 6,
+      "category": "Trainer",
+      "delta_vs_field": -5.5
+    },
+    {
+      "card_name": "ロック闘エネルギー",
+      "inclusion_pct": 4.3,
+      "avg_copies": 1.4,
+      "decks_with": 5,
+      "category": "Trainer",
+      "delta_vs_field": 2.0
+    },
+    {
+      "card_name": "リオル",
+      "inclusion_pct": 4.3,
+      "avg_copies": 3.8,
+      "decks_with": 5,
+      "category": "Trainer",
+      "delta_vs_field": 2.0
+    },
+    {
+      "card_name": "モモワロウex",
+      "inclusion_pct": 4.3,
+      "avg_copies": 1.0,
+      "decks_with": 5,
+      "category": "Trainer",
+      "delta_vs_field": 1.1
+    },
+    {
+      "card_name": "メガルカリオex",
+      "inclusion_pct": 4.3,
+      "avg_copies": 2.8,
+      "decks_with": 5,
+      "category": "Trainer",
+      "delta_vs_field": 2.0
+    },
+    {
+      "card_name": "ミツルの思いやり",
+      "inclusion_pct": 4.3,
+      "avg_copies": 1.4,
+      "decks_with": 5,
+      "category": "Trainer",
+      "delta_vs_field": 1.5
+    },
+    {
+      "card_name": "ミストエネルギー",
+      "inclusion_pct": 4.3,
+      "avg_copies": 2.0,
+      "decks_with": 5,
+      "category": "Trainer",
+      "delta_vs_field": 1.5
+    },
+    {
+      "card_name": "ノコッチ",
+      "inclusion_pct": 4.3,
+      "avg_copies": 2.4,
+      "decks_with": 5,
+      "category": "Trainer",
+      "delta_vs_field": 2.0
+    },
+    {
+      "card_name": "ノココッチ",
+      "inclusion_pct": 4.3,
+      "avg_copies": 2.0,
+      "decks_with": 5,
+      "category": "Trainer",
+      "delta_vs_field": 2.0
+    },
+    {
+      "card_name": "テラスタルオーブ",
+      "inclusion_pct": 4.3,
+      "avg_copies": 1.8,
+      "decks_with": 5,
+      "category": "Trainer",
+      "delta_vs_field": 1.5
+    },
+    {
+      "card_name": "タケルライコ",
+      "inclusion_pct": 4.3,
+      "avg_copies": 1.0,
+      "decks_with": 5,
+      "category": "Trainer",
+      "delta_vs_field": 2.0
+    },
+    {
+      "card_name": "ゼイユ",
+      "inclusion_pct": 4.3,
+      "avg_copies": 3.6,
+      "decks_with": 5,
+      "category": "Trainer",
+      "delta_vs_field": 2.0
+    },
+    {
+      "card_name": "シークレットボックス(ACE SPEC)",
+      "inclusion_pct": 4.3,
+      "avg_copies": 1.0,
+      "decks_with": 5,
+      "category": "Trainer",
+      "delta_vs_field": 1.1
+    },
+    {
+      "card_name": "エネルギー転送",
+      "inclusion_pct": 4.3,
+      "avg_copies": 1.0,
+      "decks_with": 5,
+      "category": "Trainer",
+      "delta_vs_field": 2.0
+    },
+    {
+      "card_name": "ロケット団のレシーバー",
+      "inclusion_pct": 3.4,
+      "avg_copies": 3.5,
+      "decks_with": 4,
+      "category": "Trainer",
+      "delta_vs_field": 1.1
+    },
+    {
+      "card_name": "ミネズミ",
+      "inclusion_pct": 3.4,
+      "avg_copies": 1.0,
+      "decks_with": 4,
+      "category": "Trainer",
+      "delta_vs_field": 1.5
+    },
+    {
+      "card_name": "マクノシタ",
+      "inclusion_pct": 3.4,
+      "avg_copies": 2.0,
+      "decks_with": 4,
+      "category": "Trainer",
+      "delta_vs_field": 1.5
+    },
+    {
+      "card_name": "マキシマムベルト(ACE SPEC)",
+      "inclusion_pct": 3.4,
+      "avg_copies": 1.0,
+      "decks_with": 4,
+      "category": "Trainer",
+      "delta_vs_field": 1.5
+    },
+    {
+      "card_name": "ハリテヤマ",
+      "inclusion_pct": 3.4,
+      "avg_copies": 2.0,
+      "decks_with": 4,
+      "category": "Trainer",
+      "delta_vs_field": 1.5
+    },
+    {
+      "card_name": "スピンロトム",
+      "inclusion_pct": 3.4,
+      "avg_copies": 2.0,
+      "decks_with": 4,
+      "category": "Trainer",
+      "delta_vs_field": 1.5
+    },
+    {
+      "card_name": "スイレンのお世話",
+      "inclusion_pct": 3.4,
+      "avg_copies": 1.2,
+      "decks_with": 4,
+      "category": "Trainer",
+      "delta_vs_field": 1.1
+    },
+    {
+      "card_name": "ジャンボアイス",
+      "inclusion_pct": 3.4,
+      "avg_copies": 2.0,
+      "decks_with": 4,
+      "category": "Trainer",
+      "delta_vs_field": 1.1
+    },
+    {
+      "card_name": "グラビティーマウンテン",
+      "inclusion_pct": 3.4,
+      "avg_copies": 1.2,
+      "decks_with": 4,
+      "category": "Trainer",
+      "delta_vs_field": 1.5
+    },
+    {
+      "card_name": "ガチグマ アカツキex",
+      "inclusion_pct": 3.4,
+      "avg_copies": 1.0,
+      "decks_with": 4,
+      "category": "Trainer",
+      "delta_vs_field": 0.6
+    },
+    {
+      "card_name": "くさりもち",
+      "inclusion_pct": 3.4,
+      "avg_copies": 1.2,
+      "decks_with": 4,
+      "category": "Trainer",
+      "delta_vs_field": 1.1
+    },
+    {
+      "card_name": "Team Rocket's Petrel",
+      "inclusion_pct": 3.4,
+      "avg_copies": 1.0,
+      "decks_with": 4,
+      "category": "Trainer",
+      "delta_vs_field": -0.8
+    },
+    {
+      "card_name": "Nの城",
+      "inclusion_pct": 3.4,
+      "avg_copies": 2.0,
+      "decks_with": 4,
+      "category": "Trainer",
+      "delta_vs_field": 1.1
+    },
+    {
+      "card_name": "Nのレシラム",
+      "inclusion_pct": 3.4,
+      "avg_copies": 1.0,
+      "decks_with": 4,
+      "category": "Trainer",
+      "delta_vs_field": 1.1
+    },
+    {
+      "card_name": "Nのポイントアップ",
+      "inclusion_pct": 3.4,
+      "avg_copies": 3.0,
+      "decks_with": 4,
+      "category": "Trainer",
+      "delta_vs_field": 1.1
+    },
+    {
+      "card_name": "Nのヒヒダルマ",
+      "inclusion_pct": 3.4,
+      "avg_copies": 2.0,
+      "decks_with": 4,
+      "category": "Trainer",
+      "delta_vs_field": 1.1
+    },
+    {
+      "card_name": "Nのダルマッカ",
+      "inclusion_pct": 3.4,
+      "avg_copies": 2.0,
+      "decks_with": 4,
+      "category": "Trainer",
+      "delta_vs_field": 1.1
+    },
+    {
+      "card_name": "Nのゾロアークex",
+      "inclusion_pct": 3.4,
+      "avg_copies": 4.0,
+      "decks_with": 4,
+      "category": "Trainer",
+      "delta_vs_field": 1.1
+    },
+    {
+      "card_name": "Nのゾロア",
+      "inclusion_pct": 3.4,
+      "avg_copies": 4.0,
+      "decks_with": 4,
+      "category": "Trainer",
+      "delta_vs_field": 1.1
+    },
+    {
+      "card_name": "Nのゼクロム",
+      "inclusion_pct": 3.4,
+      "avg_copies": 1.8,
+      "decks_with": 4,
+      "category": "Trainer",
+      "delta_vs_field": 1.1
+    },
+    {
+      "card_name": "基本鋼エネルギー",
+      "inclusion_pct": 2.6,
+      "avg_copies": 10.3,
+      "decks_with": 3,
+      "category": "Trainer",
+      "delta_vs_field": 0.3
+    },
+    {
+      "card_name": "ロケット団のフリーザー",
+      "inclusion_pct": 2.6,
+      "avg_copies": 1.7,
+      "decks_with": 3,
       "category": "Trainer",
       "delta_vs_field": 0.7
     },
     {
-      "card_name": "Rare Candy",
-      "inclusion_pct": 87.5,
-      "avg_copies": 2.6,
-      "decks_with": 35,
+      "card_name": "ロケット団のファクトリー",
+      "inclusion_pct": 2.6,
+      "avg_copies": 2.7,
+      "decks_with": 3,
       "category": "Trainer",
-      "delta_vs_field": -1.1
+      "delta_vs_field": 1.2
     },
     {
-      "card_name": "Duskull",
-      "inclusion_pct": 82.5,
+      "card_name": "ユキワラシ",
+      "inclusion_pct": 2.6,
+      "avg_copies": 3.0,
+      "decks_with": 3,
+      "category": "Trainer",
+      "delta_vs_field": -0.2
+    },
+    {
+      "card_name": "ユキメノコ",
+      "inclusion_pct": 2.6,
       "avg_copies": 2.0,
-      "decks_with": 33,
-      "category": "Pokemon",
-      "delta_vs_field": -2.1
-    },
-    {
-      "card_name": "Dusknoir",
-      "inclusion_pct": 82.5,
-      "avg_copies": 1.0,
-      "decks_with": 33,
-      "category": "Pokemon",
-      "delta_vs_field": -2.1
-    },
-    {
-      "card_name": "Dusclops",
-      "inclusion_pct": 82.5,
-      "avg_copies": 1.0,
-      "decks_with": 33,
-      "category": "Pokemon",
-      "delta_vs_field": -0.4
-    },
-    {
-      "card_name": "Rosa's Encouragement",
-      "inclusion_pct": 80.0,
-      "avg_copies": 1.0,
-      "decks_with": 32,
+      "decks_with": 3,
       "category": "Trainer",
-      "delta_vs_field": -3.7
+      "delta_vs_field": -0.2
     },
     {
-      "card_name": "Team Rocket's Watchtower",
-      "inclusion_pct": 77.5,
-      "avg_copies": 1.1,
-      "decks_with": 31,
+      "card_name": "メガミミロップex",
+      "inclusion_pct": 2.6,
+      "avg_copies": 1.0,
+      "decks_with": 3,
       "category": "Trainer",
-      "delta_vs_field": 2.7
+      "delta_vs_field": 1.2
     },
     {
-      "card_name": "Risky Ruins",
-      "inclusion_pct": 72.5,
-      "avg_copies": 1.1,
-      "decks_with": 29,
+      "card_name": "メガフシギバナex",
+      "inclusion_pct": 2.6,
+      "avg_copies": 2.3,
+      "decks_with": 3,
       "category": "Trainer",
-      "delta_vs_field": -7.2
+      "delta_vs_field": 0.7
     },
     {
-      "card_name": "Noctowl",
-      "inclusion_pct": 42.5,
-      "avg_copies": 1.0,
-      "decks_with": 17,
-      "category": "Pokemon",
-      "delta_vs_field": -16.0
-    },
-    {
-      "card_name": "Hoothoot",
-      "inclusion_pct": 42.5,
-      "avg_copies": 1.0,
-      "decks_with": 17,
-      "category": "Pokemon",
-      "delta_vs_field": -16.0
-    },
-    {
-      "card_name": "Briar",
-      "inclusion_pct": 37.5,
-      "avg_copies": 1.0,
-      "decks_with": 15,
-      "category": "Trainer",
-      "delta_vs_field": -3.2
-    },
-    {
-      "card_name": "Latias ex",
-      "inclusion_pct": 30.0,
-      "avg_copies": 1.1,
-      "decks_with": 12,
-      "category": "Pokemon",
-      "delta_vs_field": 4.0
-    },
-    {
-      "card_name": "Shaymin",
-      "inclusion_pct": 27.5,
-      "avg_copies": 1.0,
-      "decks_with": 11,
-      "category": "Pokemon",
-      "delta_vs_field": 3.1
-    },
-    {
-      "card_name": "Lillie's Clefairy ex",
-      "inclusion_pct": 22.5,
-      "avg_copies": 1.0,
-      "decks_with": 9,
-      "category": "Trainer",
-      "delta_vs_field": 6.2
-    },
-    {
-      "card_name": "Meowth ex",
-      "inclusion_pct": 20.0,
+      "card_name": "メガニウム",
+      "inclusion_pct": 2.6,
       "avg_copies": 2.0,
-      "decks_with": 8,
-      "category": "Pokemon",
-      "delta_vs_field": 3.7
-    },
-    {
-      "card_name": "Dawn",
-      "inclusion_pct": 20.0,
-      "avg_copies": 1.1,
-      "decks_with": 8,
+      "decks_with": 3,
       "category": "Trainer",
-      "delta_vs_field": 5.4
+      "delta_vs_field": 0.7
     },
     {
-      "card_name": "Area Zero Underdepths",
-      "inclusion_pct": 20.0,
-      "avg_copies": 1.1,
-      "decks_with": 8,
-      "category": "Trainer",
-      "delta_vs_field": 5.4
-    },
-    {
-      "card_name": "Jamming Tower",
-      "inclusion_pct": 15.0,
-      "avg_copies": 1.2,
-      "decks_with": 6,
-      "category": "Trainer",
-      "delta_vs_field": -3.7
-    },
-    {
-      "card_name": "Team Rocket's Petrel",
-      "inclusion_pct": 10.0,
+      "card_name": "ミミロル",
+      "inclusion_pct": 2.6,
       "avg_copies": 1.0,
-      "decks_with": 4,
+      "decks_with": 3,
       "category": "Trainer",
-      "delta_vs_field": 2.7
+      "delta_vs_field": 1.2
+    },
+    {
+      "card_name": "ミニーブ",
+      "inclusion_pct": 2.6,
+      "avg_copies": 2.0,
+      "decks_with": 3,
+      "category": "Trainer",
+      "delta_vs_field": 0.7
+    },
+    {
+      "card_name": "マツバの確信",
+      "inclusion_pct": 2.6,
+      "avg_copies": 1.0,
+      "decks_with": 3,
+      "category": "Trainer",
+      "delta_vs_field": 0.3
+    },
+    {
+      "card_name": "ベイリーフ",
+      "inclusion_pct": 2.6,
+      "avg_copies": 2.7,
+      "decks_with": 3,
+      "category": "Trainer",
+      "delta_vs_field": 0.7
+    },
+    {
+      "card_name": "プレシャスキャリー(ACE SPEC)",
+      "inclusion_pct": 2.6,
+      "avg_copies": 1.0,
+      "decks_with": 3,
+      "category": "Trainer",
+      "delta_vs_field": 0.7
+    },
+    {
+      "card_name": "フシギダネ",
+      "inclusion_pct": 2.6,
+      "avg_copies": 2.7,
+      "decks_with": 3,
+      "category": "Trainer",
+      "delta_vs_field": 0.7
+    },
+    {
+      "card_name": "フシギソウ",
+      "inclusion_pct": 2.6,
+      "avg_copies": 2.3,
+      "decks_with": 3,
+      "category": "Trainer",
+      "delta_vs_field": 0.7
+    },
+    {
+      "card_name": "ネオアッパーエネルギー",
+      "inclusion_pct": 2.6,
+      "avg_copies": 1.0,
+      "decks_with": 3,
+      "category": "Trainer",
+      "delta_vs_field": 1.2
+    },
+    {
+      "card_name": "テレパス超エネルギー",
+      "inclusion_pct": 2.6,
+      "avg_copies": 3.7,
+      "decks_with": 3,
+      "category": "Trainer",
+      "delta_vs_field": 1.2
+    },
+    {
+      "card_name": "チコリータ",
+      "inclusion_pct": 2.6,
+      "avg_copies": 2.0,
+      "decks_with": 3,
+      "category": "Trainer",
+      "delta_vs_field": 0.7
+    },
+    {
+      "card_name": "シャリタツ",
+      "inclusion_pct": 2.6,
+      "avg_copies": 1.0,
+      "decks_with": 3,
+      "category": "Trainer",
+      "delta_vs_field": -0.2
+    },
+    {
+      "card_name": "クセロシキのたくらみ",
+      "inclusion_pct": 2.6,
+      "avg_copies": 1.0,
+      "decks_with": 3,
+      "category": "Trainer",
+      "delta_vs_field": 1.2
+    },
+    {
+      "card_name": "オーガポン いどのめんex",
+      "inclusion_pct": 2.6,
+      "avg_copies": 1.3,
+      "decks_with": 3,
+      "category": "Trainer",
+      "delta_vs_field": -0.2
+    },
+    {
+      "card_name": "オーガポン いしずえのめんex",
+      "inclusion_pct": 2.6,
+      "avg_copies": 1.0,
+      "decks_with": 3,
+      "category": "Trainer",
+      "delta_vs_field": 0.7
+    },
+    {
+      "card_name": "オリーヴァex",
+      "inclusion_pct": 2.6,
+      "avg_copies": 2.0,
+      "decks_with": 3,
+      "category": "Trainer",
+      "delta_vs_field": 0.7
+    },
+    {
+      "card_name": "オリーニョ",
+      "inclusion_pct": 2.6,
+      "avg_copies": 2.0,
+      "decks_with": 3,
+      "category": "Trainer",
+      "delta_vs_field": 0.7
+    },
+    {
+      "card_name": "エネルギーリサイクル",
+      "inclusion_pct": 2.6,
+      "avg_copies": 1.3,
+      "decks_with": 3,
+      "category": "Trainer",
+      "delta_vs_field": -0.2
+    },
+    {
+      "card_name": "イグニッションエネルギー",
+      "inclusion_pct": 2.6,
+      "avg_copies": 1.7,
+      "decks_with": 3,
+      "category": "Trainer",
+      "delta_vs_field": 0.7
+    },
+    {
+      "card_name": "アンズの秘技",
+      "inclusion_pct": 2.6,
+      "avg_copies": 1.0,
+      "decks_with": 3,
+      "category": "Trainer",
+      "delta_vs_field": 0.7
+    },
+    {
+      "card_name": "なみのりビーチ",
+      "inclusion_pct": 2.6,
+      "avg_copies": 2.0,
+      "decks_with": 3,
+      "category": "Trainer",
+      "delta_vs_field": 0.7
     },
     {
       "card_name": "Psyduck",
-      "inclusion_pct": 7.5,
+      "inclusion_pct": 2.6,
       "avg_copies": 1.0,
       "decks_with": 3,
       "category": "Pokemon",
-      "delta_vs_field": 1.0
+      "delta_vs_field": -1.1
+    },
+    {
+      "card_name": "Nの筋書き",
+      "inclusion_pct": 2.6,
+      "avg_copies": 1.0,
+      "decks_with": 3,
+      "category": "Trainer",
+      "delta_vs_field": 1.2
     },
     {
       "card_name": "Moltres",
-      "inclusion_pct": 7.5,
+      "inclusion_pct": 2.6,
       "avg_copies": 1.0,
       "decks_with": 3,
       "category": "Pokemon",
-      "delta_vs_field": 0.2
+      "delta_vs_field": -1.6
     },
     {
       "card_name": "Brock's Scouting",
-      "inclusion_pct": 7.5,
+      "inclusion_pct": 2.6,
       "avg_copies": 1.7,
       "decks_with": 3,
+      "category": "Trainer",
+      "delta_vs_field": -2.0
+    },
+    {
+      "card_name": "Bloodmoon Ursaluna ex",
+      "inclusion_pct": 2.6,
+      "avg_copies": 1.0,
+      "decks_with": 3,
+      "category": "Pokemon",
+      "delta_vs_field": -0.2
+    },
+    {
+      "card_name": "ロケット団エネルギー",
+      "inclusion_pct": 1.7,
+      "avg_copies": 4.0,
+      "decks_with": 2,
+      "category": "Trainer",
+      "delta_vs_field": 0.8
+    },
+    {
+      "card_name": "ロケット団のワナイダー",
+      "inclusion_pct": 1.7,
+      "avg_copies": 4.0,
+      "decks_with": 2,
+      "category": "Trainer",
+      "delta_vs_field": 0.8
+    },
+    {
+      "card_name": "ロケット団のランス",
+      "inclusion_pct": 1.7,
+      "avg_copies": 3.0,
+      "decks_with": 2,
+      "category": "Trainer",
+      "delta_vs_field": 0.8
+    },
+    {
+      "card_name": "ロケット団のミュウツーex",
+      "inclusion_pct": 1.7,
+      "avg_copies": 1.5,
+      "decks_with": 2,
+      "category": "Trainer",
+      "delta_vs_field": 0.8
+    },
+    {
+      "card_name": "ロケット団のミミッキュ",
+      "inclusion_pct": 1.7,
+      "avg_copies": 2.0,
+      "decks_with": 2,
+      "category": "Trainer",
+      "delta_vs_field": 0.8
+    },
+    {
+      "card_name": "ロケット団のタマンチュラ",
+      "inclusion_pct": 1.7,
+      "avg_copies": 4.0,
+      "decks_with": 2,
+      "category": "Trainer",
+      "delta_vs_field": 0.8
+    },
+    {
+      "card_name": "ロケット団のサカキ",
+      "inclusion_pct": 1.7,
+      "avg_copies": 3.0,
+      "decks_with": 2,
+      "category": "Trainer",
+      "delta_vs_field": 0.8
+    },
+    {
+      "card_name": "ロケット団のアポロ",
+      "inclusion_pct": 1.7,
+      "avg_copies": 2.0,
+      "decks_with": 2,
+      "category": "Trainer",
+      "delta_vs_field": 0.8
+    },
+    {
+      "card_name": "ロケット団のアテナ",
+      "inclusion_pct": 1.7,
+      "avg_copies": 3.0,
+      "decks_with": 2,
+      "category": "Trainer",
+      "delta_vs_field": 0.8
+    },
+    {
+      "card_name": "レガシーエネルギー",
+      "inclusion_pct": 1.7,
+      "avg_copies": 1.0,
+      "decks_with": 2,
+      "category": "Trainer",
+      "delta_vs_field": 0.8
+    },
+    {
+      "card_name": "リーリエのしんじゅ",
+      "inclusion_pct": 1.7,
+      "avg_copies": 2.0,
+      "decks_with": 2,
+      "category": "Trainer",
+      "delta_vs_field": 0.8
+    },
+    {
+      "card_name": "ラッキーメット",
+      "inclusion_pct": 1.7,
+      "avg_copies": 1.5,
+      "decks_with": 2,
+      "category": "Trainer",
+      "delta_vs_field": 0.8
+    },
+    {
+      "card_name": "モグリュー",
+      "inclusion_pct": 1.7,
+      "avg_copies": 1.0,
+      "decks_with": 2,
+      "category": "Trainer",
+      "delta_vs_field": 0.8
+    },
+    {
+      "card_name": "メガユキメノコex",
+      "inclusion_pct": 1.7,
+      "avg_copies": 1.5,
+      "decks_with": 2,
+      "category": "Trainer",
+      "delta_vs_field": 0.8
+    },
+    {
+      "card_name": "メガメガニウムex",
+      "inclusion_pct": 1.7,
+      "avg_copies": 1.0,
+      "decks_with": 2,
+      "category": "Trainer",
+      "delta_vs_field": 0.8
+    },
+    {
+      "card_name": "メガゲッコウガex",
+      "inclusion_pct": 1.7,
+      "avg_copies": 2.5,
+      "decks_with": 2,
+      "category": "Trainer",
+      "delta_vs_field": 0.3
+    },
+    {
+      "card_name": "マリィのベロバー",
+      "inclusion_pct": 1.7,
+      "avg_copies": 3.0,
+      "decks_with": 2,
       "category": "Trainer",
       "delta_vs_field": -0.6
     },
     {
-      "card_name": "Bloodmoon Ursaluna ex",
-      "inclusion_pct": 7.5,
+      "card_name": "マリィのギモー",
+      "inclusion_pct": 1.7,
+      "avg_copies": 2.0,
+      "decks_with": 2,
+      "category": "Trainer",
+      "delta_vs_field": -0.6
+    },
+    {
+      "card_name": "マリィのオーロンゲex",
+      "inclusion_pct": 1.7,
+      "avg_copies": 3.0,
+      "decks_with": 2,
+      "category": "Trainer",
+      "delta_vs_field": -0.6
+    },
+    {
+      "card_name": "プリズムタワー",
+      "inclusion_pct": 1.7,
+      "avg_copies": 2.0,
+      "decks_with": 2,
+      "category": "Trainer",
+      "delta_vs_field": 0.8
+    },
+    {
+      "card_name": "プリズムエネルギー",
+      "inclusion_pct": 1.7,
+      "avg_copies": 2.5,
+      "decks_with": 2,
+      "category": "Trainer",
+      "delta_vs_field": 0.8
+    },
+    {
+      "card_name": "ブレイブバングル",
+      "inclusion_pct": 1.7,
       "avg_copies": 1.0,
-      "decks_with": 3,
-      "category": "Pokemon",
-      "delta_vs_field": 2.6
+      "decks_with": 2,
+      "category": "Trainer",
+      "delta_vs_field": 0.8
+    },
+    {
+      "card_name": "ファイヤー",
+      "inclusion_pct": 1.7,
+      "avg_copies": 1.0,
+      "decks_with": 2,
+      "category": "Trainer",
+      "delta_vs_field": 0.8
+    },
+    {
+      "card_name": "ビードル",
+      "inclusion_pct": 1.7,
+      "avg_copies": 4.0,
+      "decks_with": 2,
+      "category": "Trainer",
+      "delta_vs_field": 0.8
+    },
+    {
+      "card_name": "パーフェクトミキサー(ACE SPEC)",
+      "inclusion_pct": 1.7,
+      "avg_copies": 1.0,
+      "decks_with": 2,
+      "category": "Trainer",
+      "delta_vs_field": 0.8
+    },
+    {
+      "card_name": "パルデア ケンタロス",
+      "inclusion_pct": 1.7,
+      "avg_copies": 1.0,
+      "decks_with": 2,
+      "category": "Trainer",
+      "delta_vs_field": 0.8
+    },
+    {
+      "card_name": "テラパゴスex",
+      "inclusion_pct": 1.7,
+      "avg_copies": 1.0,
+      "decks_with": 2,
+      "category": "Trainer",
+      "delta_vs_field": 0.8
+    },
+    {
+      "card_name": "ダークボール",
+      "inclusion_pct": 1.7,
+      "avg_copies": 2.0,
+      "decks_with": 2,
+      "category": "Trainer",
+      "delta_vs_field": 0.8
+    },
+    {
+      "card_name": "ソウブレイズex",
+      "inclusion_pct": 1.7,
+      "avg_copies": 3.0,
+      "decks_with": 2,
+      "category": "Trainer",
+      "delta_vs_field": 0.8
+    },
+    {
+      "card_name": "スピアーex",
+      "inclusion_pct": 1.7,
+      "avg_copies": 4.0,
+      "decks_with": 2,
+      "category": "Trainer",
+      "delta_vs_field": 0.8
+    },
+    {
+      "card_name": "スパイクタウンジム",
+      "inclusion_pct": 1.7,
+      "avg_copies": 3.5,
+      "decks_with": 2,
+      "category": "Trainer",
+      "delta_vs_field": -0.6
+    },
+    {
+      "card_name": "スグリ",
+      "inclusion_pct": 1.7,
+      "avg_copies": 1.0,
+      "decks_with": 2,
+      "category": "Trainer",
+      "delta_vs_field": 0.8
+    },
+    {
+      "card_name": "ジーランス",
+      "inclusion_pct": 1.7,
+      "avg_copies": 1.0,
+      "decks_with": 2,
+      "category": "Trainer",
+      "delta_vs_field": 0.8
+    },
+    {
+      "card_name": "シロナのロゼリア",
+      "inclusion_pct": 1.7,
+      "avg_copies": 3.0,
+      "decks_with": 2,
+      "category": "Trainer",
+      "delta_vs_field": 0.8
+    },
+    {
+      "card_name": "シロナのロズレイド",
+      "inclusion_pct": 1.7,
+      "avg_copies": 3.0,
+      "decks_with": 2,
+      "category": "Trainer",
+      "delta_vs_field": 0.8
+    },
+    {
+      "card_name": "シロナのミカルゲ",
+      "inclusion_pct": 1.7,
+      "avg_copies": 1.0,
+      "decks_with": 2,
+      "category": "Trainer",
+      "delta_vs_field": 0.8
+    },
+    {
+      "card_name": "シロナのフカマル",
+      "inclusion_pct": 1.7,
+      "avg_copies": 4.0,
+      "decks_with": 2,
+      "category": "Trainer",
+      "delta_vs_field": 0.8
+    },
+    {
+      "card_name": "シロナのパワーウエイト",
+      "inclusion_pct": 1.7,
+      "avg_copies": 3.0,
+      "decks_with": 2,
+      "category": "Trainer",
+      "delta_vs_field": 0.8
+    },
+    {
+      "card_name": "シロナのガブリアスex",
+      "inclusion_pct": 1.7,
+      "avg_copies": 3.0,
+      "decks_with": 2,
+      "category": "Trainer",
+      "delta_vs_field": 0.8
+    },
+    {
+      "card_name": "シロナのガバイト",
+      "inclusion_pct": 1.7,
+      "avg_copies": 4.0,
+      "decks_with": 2,
+      "category": "Trainer",
+      "delta_vs_field": 0.8
+    },
+    {
+      "card_name": "コクーン",
+      "inclusion_pct": 1.7,
+      "avg_copies": 4.0,
+      "decks_with": 2,
+      "category": "Trainer",
+      "delta_vs_field": 0.8
+    },
+    {
+      "card_name": "ゲノセクトex",
+      "inclusion_pct": 1.7,
+      "avg_copies": 2.0,
+      "decks_with": 2,
+      "category": "Trainer",
+      "delta_vs_field": -0.2
+    },
+    {
+      "card_name": "ゲッコウガex",
+      "inclusion_pct": 1.7,
+      "avg_copies": 1.5,
+      "decks_with": 2,
+      "category": "Trainer",
+      "delta_vs_field": 0.3
+    },
+    {
+      "card_name": "ゲコガシラ",
+      "inclusion_pct": 1.7,
+      "avg_copies": 3.0,
+      "decks_with": 2,
+      "category": "Trainer",
+      "delta_vs_field": 0.3
+    },
+    {
+      "card_name": "ケロマツ",
+      "inclusion_pct": 1.7,
+      "avg_copies": 4.0,
+      "decks_with": 2,
+      "category": "Trainer",
+      "delta_vs_field": 0.3
+    },
+    {
+      "card_name": "グロウ草エネルギー",
+      "inclusion_pct": 1.7,
+      "avg_copies": 2.0,
+      "decks_with": 2,
+      "category": "Trainer",
+      "delta_vs_field": 0.8
+    },
+    {
+      "card_name": "カルボウ",
+      "inclusion_pct": 1.7,
+      "avg_copies": 4.0,
+      "decks_with": 2,
+      "category": "Trainer",
+      "delta_vs_field": 0.8
+    },
+    {
+      "card_name": "イベルタル",
+      "inclusion_pct": 1.7,
+      "avg_copies": 1.0,
+      "decks_with": 2,
+      "category": "Trainer",
+      "delta_vs_field": -0.6
+    },
+    {
+      "card_name": "アイリスの闘志",
+      "inclusion_pct": 1.7,
+      "avg_copies": 1.5,
+      "decks_with": 2,
+      "category": "Trainer",
+      "delta_vs_field": 0.8
     },
     {
       "card_name": "Neo Upper Energy",
-      "inclusion_pct": 5.0,
+      "inclusion_pct": 1.7,
       "avg_copies": 1.0,
       "decks_with": 2,
       "category": "Energy",
-      "delta_vs_field": 0.1
+      "delta_vs_field": -1.1
+    },
+    {
+      "card_name": "重力玉",
+      "inclusion_pct": 0.9,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.4
+    },
+    {
+      "card_name": "改造ハンマー",
+      "inclusion_pct": 0.9,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.4
+    },
+    {
+      "card_name": "危険な密林",
+      "inclusion_pct": 0.9,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.4
+    },
+    {
+      "card_name": "力の砂時計",
+      "inclusion_pct": 0.9,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.4
+    },
+    {
+      "card_name": "偉大な大樹(ACE SPEC)",
+      "inclusion_pct": 0.9,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "ワニノコ",
+      "inclusion_pct": 0.9,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.4
+    },
+    {
+      "card_name": "ワカシャモ",
+      "inclusion_pct": 0.9,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": -0.5
+    },
+    {
+      "card_name": "ロケット団のニューラ",
+      "inclusion_pct": 0.9,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.4
+    },
+    {
+      "card_name": "リーフィアex",
+      "inclusion_pct": 0.9,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.4
+    },
+    {
+      "card_name": "リッチエネルギー",
+      "inclusion_pct": 0.9,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.4
+    },
+    {
+      "card_name": "ユンゲラー",
+      "inclusion_pct": 0.9,
+      "avg_copies": 4.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.4
+    },
+    {
+      "card_name": "モモワロウ",
+      "inclusion_pct": 0.9,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.4
+    },
+    {
+      "card_name": "モクロー",
+      "inclusion_pct": 0.9,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.4
+    },
+    {
+      "card_name": "メタング",
+      "inclusion_pct": 0.9,
+      "avg_copies": 4.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.4
+    },
+    {
+      "card_name": "メタグロス",
+      "inclusion_pct": 0.9,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.4
+    },
+    {
+      "card_name": "メガドラミドロex",
+      "inclusion_pct": 0.9,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.4
+    },
+    {
+      "card_name": "メガスターミーex",
+      "inclusion_pct": 0.9,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.4
+    },
+    {
+      "card_name": "メガクチートex",
+      "inclusion_pct": 0.9,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": -0.5
+    },
+    {
+      "card_name": "メガエアームドex",
+      "inclusion_pct": 0.9,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": -0.5
+    },
+    {
+      "card_name": "ミロカロスex",
+      "inclusion_pct": 0.9,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.4
+    },
+    {
+      "card_name": "ポケモンキャッチャー",
+      "inclusion_pct": 0.9,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.4
+    },
+    {
+      "card_name": "ホルード",
+      "inclusion_pct": 0.9,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.4
+    },
+    {
+      "card_name": "ホルビー",
+      "inclusion_pct": 0.9,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.4
+    },
+    {
+      "card_name": "ホミカの演奏",
+      "inclusion_pct": 0.9,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.4
+    },
+    {
+      "card_name": "プルリル",
+      "inclusion_pct": 0.9,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.4
+    },
+    {
+      "card_name": "ブースターex",
+      "inclusion_pct": 0.9,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.4
+    },
+    {
+      "card_name": "ブルンゲルex",
+      "inclusion_pct": 0.9,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.4
+    },
+    {
+      "card_name": "ブリジュラスex",
+      "inclusion_pct": 0.9,
+      "avg_copies": 4.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.4
+    },
+    {
+      "card_name": "フーディン",
+      "inclusion_pct": 0.9,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.4
+    },
+    {
+      "card_name": "フクスロー",
+      "inclusion_pct": 0.9,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.4
+    },
+    {
+      "card_name": "ビビヨン",
+      "inclusion_pct": 0.9,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.4
+    },
+    {
+      "card_name": "ヒンバス",
+      "inclusion_pct": 0.9,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.4
+    },
+    {
+      "card_name": "ヒトデマン",
+      "inclusion_pct": 0.9,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.4
+    },
+    {
+      "card_name": "パンクメット",
+      "inclusion_pct": 0.9,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.4
+    },
+    {
+      "card_name": "バシャーモex",
+      "inclusion_pct": 0.9,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": -0.5
+    },
+    {
+      "card_name": "ハッコウシティ",
+      "inclusion_pct": 0.9,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.4
+    },
+    {
+      "card_name": "ハイダイ",
+      "inclusion_pct": 0.9,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "ディアルガ",
+      "inclusion_pct": 0.9,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.4
+    },
+    {
+      "card_name": "チラーミィ",
+      "inclusion_pct": 0.9,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.4
+    },
+    {
+      "card_name": "チラチーノex",
+      "inclusion_pct": 0.9,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.4
+    },
+    {
+      "card_name": "ダンバル",
+      "inclusion_pct": 0.9,
+      "avg_copies": 4.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.4
+    },
+    {
+      "card_name": "ダイゴのメタング",
+      "inclusion_pct": 0.9,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": -0.5
+    },
+    {
+      "card_name": "ダイゴのメタグロスex",
+      "inclusion_pct": 0.9,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": -0.5
+    },
+    {
+      "card_name": "ダイゴのダンバル",
+      "inclusion_pct": 0.9,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": -0.5
+    },
+    {
+      "card_name": "タラゴン",
+      "inclusion_pct": 0.9,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.4
+    },
+    {
+      "card_name": "セレビィ",
+      "inclusion_pct": 0.9,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.4
+    },
+    {
+      "card_name": "ジュラルドン",
+      "inclusion_pct": 0.9,
+      "avg_copies": 4.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.4
+    },
+    {
+      "card_name": "ジュナイパーex",
+      "inclusion_pct": 0.9,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.4
+    },
+    {
+      "card_name": "ザルード",
+      "inclusion_pct": 0.9,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.4
+    },
+    {
+      "card_name": "ゴヨウ",
+      "inclusion_pct": 0.9,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.4
+    },
+    {
+      "card_name": "コライドン",
+      "inclusion_pct": 0.9,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.4
+    },
+    {
+      "card_name": "コフーライ",
+      "inclusion_pct": 0.9,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.4
+    },
+    {
+      "card_name": "コフキムシ",
+      "inclusion_pct": 0.9,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.4
+    },
+    {
+      "card_name": "コック",
+      "inclusion_pct": 0.9,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.4
+    },
+    {
+      "card_name": "ゲノセクト",
+      "inclusion_pct": 0.9,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.4
+    },
+    {
+      "card_name": "ケーシィ",
+      "inclusion_pct": 0.9,
+      "avg_copies": 4.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.4
+    },
+    {
+      "card_name": "クラッシュハンマー",
+      "inclusion_pct": 0.9,
+      "avg_copies": 4.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.4
+    },
+    {
+      "card_name": "クズモー",
+      "inclusion_pct": 0.9,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.4
+    },
+    {
+      "card_name": "ガメノデス",
+      "inclusion_pct": 0.9,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.4
+    },
+    {
+      "card_name": "ガチグマ アカツキ",
+      "inclusion_pct": 0.9,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.4
+    },
+    {
+      "card_name": "カメテテ",
+      "inclusion_pct": 0.9,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.4
+    },
+    {
+      "card_name": "カミツオロチex",
+      "inclusion_pct": 0.9,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.4
+    },
+    {
+      "card_name": "カミッチュ",
+      "inclusion_pct": 0.9,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.4
+    },
+    {
+      "card_name": "カプ・ブルル",
+      "inclusion_pct": 0.9,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.4
+    },
+    {
+      "card_name": "カプ・コケコex",
+      "inclusion_pct": 0.9,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "カジッチュ",
+      "inclusion_pct": 0.9,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.4
+    },
+    {
+      "card_name": "カキツバタ",
+      "inclusion_pct": 0.9,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.4
+    },
+    {
+      "card_name": "エーフィex",
+      "inclusion_pct": 0.9,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.4
+    },
+    {
+      "card_name": "イーブイex",
+      "inclusion_pct": 0.9,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.4
+    },
+    {
+      "card_name": "イーブイ",
+      "inclusion_pct": 0.9,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.4
+    },
+    {
+      "card_name": "イワパレス",
+      "inclusion_pct": 0.9,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.4
+    },
+    {
+      "card_name": "イシズマイ",
+      "inclusion_pct": 0.9,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.4
+    },
+    {
+      "card_name": "イイネイヌ",
+      "inclusion_pct": 0.9,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.4
+    },
+    {
+      "card_name": "アチャモ",
+      "inclusion_pct": 0.9,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": -0.5
+    },
+    {
+      "card_name": "アセロラのいたずら",
+      "inclusion_pct": 0.9,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.4
+    },
+    {
+      "card_name": "アクロマの執念",
+      "inclusion_pct": 0.9,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.0
+    },
+    {
+      "card_name": "つりざおMAX(ACE SPEC)",
+      "inclusion_pct": 0.9,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.4
+    },
+    {
+      "card_name": "せいなるはい",
+      "inclusion_pct": 0.9,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.4
+    },
+    {
+      "card_name": "きらめく結晶(ACE SPEC)",
+      "inclusion_pct": 0.9,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer",
+      "delta_vs_field": 0.4
     },
     {
       "card_name": "Switch",
-      "inclusion_pct": 2.5,
+      "inclusion_pct": 0.9,
       "avg_copies": 1.0,
       "decks_with": 1,
       "category": "Trainer",
-      "delta_vs_field": 0.1
+      "delta_vs_field": -0.5
     },
     {
       "card_name": "Mega Lopunny ex",
-      "inclusion_pct": 2.5,
+      "inclusion_pct": 0.9,
       "avg_copies": 1.0,
       "decks_with": 1,
       "category": "Pokemon",
-      "delta_vs_field": 1.7
+      "delta_vs_field": 0.4
     },
     {
       "card_name": "Mega Kangaskhan ex",
-      "inclusion_pct": 2.5,
+      "inclusion_pct": 0.9,
       "avg_copies": 2.0,
       "decks_with": 1,
       "category": "Pokemon",
-      "delta_vs_field": 0.9
+      "delta_vs_field": 0.0
     },
     {
       "card_name": "Kieran",
-      "inclusion_pct": 2.5,
+      "inclusion_pct": 0.9,
       "avg_copies": 1.0,
       "decks_with": 1,
       "category": "Trainer",
-      "delta_vs_field": 0.1
+      "delta_vs_field": -0.5
     },
     {
       "card_name": "Judge",
-      "inclusion_pct": 2.5,
+      "inclusion_pct": 0.9,
       "avg_copies": 1.0,
       "decks_with": 1,
       "category": "Trainer",
-      "delta_vs_field": 0.9
+      "delta_vs_field": 0.0
     },
     {
       "card_name": "Hilda",
-      "inclusion_pct": 2.5,
+      "inclusion_pct": 0.9,
       "avg_copies": 1.0,
       "decks_with": 1,
       "category": "Trainer",
-      "delta_vs_field": -1.6
+      "delta_vs_field": -1.4
     },
     {
       "card_name": "Energy Switch",
-      "inclusion_pct": 2.5,
+      "inclusion_pct": 0.9,
       "avg_copies": 1.0,
       "decks_with": 1,
       "category": "Trainer",
-      "delta_vs_field": 0.9
+      "delta_vs_field": 0.0
     },
     {
       "card_name": "Ciphermaniac's Codebreaking",
-      "inclusion_pct": 2.5,
+      "inclusion_pct": 0.9,
       "avg_copies": 1.0,
       "decks_with": 1,
       "category": "Trainer",
-      "delta_vs_field": 0.9
+      "delta_vs_field": 0.0
     },
     {
       "card_name": "Chien-Pao",
-      "inclusion_pct": 2.5,
+      "inclusion_pct": 0.9,
       "avg_copies": 1.0,
       "decks_with": 1,
       "category": "Pokemon",
-      "delta_vs_field": 0.9
+      "delta_vs_field": 0.0
     },
     {
       "card_name": "Buneary",
-      "inclusion_pct": 2.5,
+      "inclusion_pct": 0.9,
       "avg_copies": 1.0,
       "decks_with": 1,
       "category": "Pokemon",
-      "delta_vs_field": 1.7
+      "delta_vs_field": 0.4
     },
     {
       "card_name": "Acerola's Mischief",
-      "inclusion_pct": 2.5,
+      "inclusion_pct": 0.9,
       "avg_copies": 1.0,
       "decks_with": 1,
       "category": "Trainer",
-      "delta_vs_field": 1.7
+      "delta_vs_field": 0.4
+    },
+    {
+      "card_name": "ラブトロス",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Trainer",
+      "delta_vs_field": -0.5
+    },
+    {
+      "card_name": "メガヘラクロスex",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Trainer",
+      "delta_vs_field": -0.5
+    },
+    {
+      "card_name": "メガシグナル",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Trainer",
+      "delta_vs_field": -0.5
+    },
+    {
+      "card_name": "メガアブソルex",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Trainer",
+      "delta_vs_field": -0.5
+    },
+    {
+      "card_name": "ポッチャマ",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Trainer",
+      "delta_vs_field": -0.5
+    },
+    {
+      "card_name": "デオキシス",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Trainer",
+      "delta_vs_field": -0.5
+    },
+    {
+      "card_name": "エンペルトex",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Trainer",
+      "delta_vs_field": -0.5
+    },
+    {
+      "card_name": "ウネルミナモex",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Trainer",
+      "delta_vs_field": -0.5
+    },
+    {
+      "card_name": "ウガツホムラex",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Trainer",
+      "delta_vs_field": -0.5
+    },
+    {
+      "card_name": "ウガツホムラ",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Trainer",
+      "delta_vs_field": -0.5
     },
     {
       "card_name": "Wondrous Patch",
@@ -3316,7 +7208,7 @@
       "avg_copies": 0,
       "decks_with": 0,
       "category": "Trainer",
-      "delta_vs_field": -0.8
+      "delta_vs_field": -0.5
     },
     {
       "card_name": "Prism Energy",
@@ -3324,7 +7216,7 @@
       "avg_copies": 0,
       "decks_with": 0,
       "category": "Energy",
-      "delta_vs_field": -0.8
+      "delta_vs_field": -0.5
     },
     {
       "card_name": "Hop's Wooloo",
@@ -3332,7 +7224,7 @@
       "avg_copies": 0,
       "decks_with": 0,
       "category": "Pokemon",
-      "delta_vs_field": -0.8
+      "delta_vs_field": -0.5
     },
     {
       "card_name": "Hop's Dubwool",
@@ -3340,7 +7232,7 @@
       "avg_copies": 0,
       "decks_with": 0,
       "category": "Pokemon",
-      "delta_vs_field": -0.8
+      "delta_vs_field": -0.5
     },
     {
       "card_name": "Chi-Yu",
@@ -3348,9 +7240,17 @@
       "avg_copies": 0,
       "decks_with": 0,
       "category": "Pokemon",
-      "delta_vs_field": -0.8
+      "delta_vs_field": -0.5
+    },
+    {
+      "card_name": "AZの安らぎ",
+      "inclusion_pct": 0,
+      "avg_copies": 0,
+      "decks_with": 0,
+      "category": "Trainer",
+      "delta_vs_field": -0.5
     }
   ],
-  "top4_sample_size": 40,
+  "top4_sample_size": 117,
   "top4_low_sample": false
 }

@@ -2,8 +2,8 @@
   "archetype": "Blaziken Clefairy",
   "slug": "blaziken-clefairy",
   "tier": "Rogue",
-  "meta_share": 0.1,
-  "weighted_share": 0.1,
+  "meta_share": 0.0,
+  "weighted_share": 0.0,
   "deck_count": 1,
   "best_placement": 10,
   "sprite_filenames": [
@@ -114,7 +114,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
       "decks_with": 1,
-      "category": "Trainer"
+      "category": "Pokemon"
     },
     {
       "card_name": "Latias ex",
@@ -305,7 +305,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
       "decks_with": 1,
-      "category": "Trainer"
+      "category": "Pokemon"
     },
     {
       "card_name": "Latias ex",
@@ -416,6 +416,11 @@
           "category": "Pokemon"
         },
         {
+          "card_name": "Lillie's Clefairy ex",
+          "count": 2,
+          "category": "Pokemon"
+        },
+        {
           "card_name": "Mega Kangaskhan ex",
           "count": 2,
           "category": "Pokemon"
@@ -491,11 +496,6 @@
           "category": "Trainer"
         },
         {
-          "card_name": "Lillie's Clefairy ex",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
           "card_name": "Boss's Orders",
           "count": 2,
           "category": "Trainer"
@@ -539,11 +539,11 @@
     }
   ],
   "radar": {
-    "meta_share": 0.4,
-    "weighted_share": 0.4,
+    "meta_share": 0.2,
+    "weighted_share": 0.1,
     "consistency": 55.0,
     "ceiling": 25,
-    "popularity": 0.8,
+    "popularity": 0.4,
     "core_density": 100.0
   },
   "evolution": [],
@@ -551,7 +551,7 @@
   "weekly_shares": [
     {
       "week": "2026-03-09",
-      "meta_share": 0.2,
+      "meta_share": 0.1,
       "deck_count": 1
     },
     {

@@ -8,7 +8,7 @@
   "category": "Trainer",
   "rarity": null,
   "total_appearances": 161,
-  "usage_pct": 14.3,
+  "usage_pct": 6.7,
   "avg_copies": 2.7,
   "unique_archetypes": 51,
   "weighted_score": 261.6,
@@ -46,21 +46,21 @@
       "slug": "barbaracle-okidogi",
       "usage_count": 13,
       "avg_copies": 2.5,
-      "tier": "C"
+      "tier": "Rogue"
     },
     {
       "name": "Mega Venusaur",
       "slug": "mega-venusaur",
       "usage_count": 12,
       "avg_copies": 3.2,
-      "tier": "C"
+      "tier": "Rogue"
     },
     {
       "name": "Mega Kangaskhan Ogerpon",
       "slug": "mega-kangaskhan-ogerpon",
       "usage_count": 11,
       "avg_copies": 2.5,
-      "tier": "B"
+      "tier": "C"
     },
     {
       "name": "Ogerpon Ogerpon Wellspring",
@@ -74,42 +74,42 @@
       "slug": "clefairy-ogerpon",
       "usage_count": 9,
       "avg_copies": 3.3,
-      "tier": "C"
+      "tier": "Rogue"
     },
     {
       "name": "Garchomp Roserade",
       "slug": "garchomp-roserade",
       "usage_count": 8,
       "avg_copies": 1.6,
-      "tier": "B"
+      "tier": "C"
     },
     {
       "name": "Archaludon ex",
       "slug": "archaludon-ex",
       "usage_count": 6,
       "avg_copies": 3.2,
-      "tier": "Rogue"
+      "tier": "B"
     },
     {
       "name": "Raging Bolt ex",
       "slug": "raging-bolt-ex",
       "usage_count": 5,
       "avg_copies": 2.2,
-      "tier": "B"
+      "tier": "C"
     },
     {
       "name": "Mega Lucario",
       "slug": "mega-lucario",
       "usage_count": 4,
       "avg_copies": 1.0,
-      "tier": "B"
+      "tier": "A"
     },
     {
       "name": "Mega Froslass Mega Starmie",
       "slug": "mega-froslass-mega-starmie",
       "usage_count": 4,
       "avg_copies": 3.0,
-      "tier": "C"
+      "tier": "Rogue"
     },
     {
       "name": "Honchkrow Porygon2",
@@ -137,7 +137,7 @@
       "slug": "mega-lucario-solrock",
       "usage_count": 3,
       "avg_copies": 2.3,
-      "tier": "C"
+      "tier": "Rogue"
     },
     {
       "name": "Munkidori Toxtricity",
@@ -361,7 +361,7 @@
       "slug": "darmanitan-zoroark",
       "usage_count": 1,
       "avg_copies": 1.0,
-      "tier": "B"
+      "tier": "C"
     },
     {
       "name": "Archaludon Zacian Crowned",
@@ -382,7 +382,7 @@
       "slug": "alakazam-dudunsparce",
       "usage_count": 1,
       "avg_copies": 3.0,
-      "tier": "C"
+      "tier": "B"
     },
     {
       "name": "Aegislash Genesect",
@@ -395,12 +395,12 @@
   "weekly_usage": [
     {
       "week": "2026-03-09",
-      "usage_pct": 14.7,
+      "usage_pct": 7.4,
       "avg_copies": 2.7
     },
     {
       "week": "2026-03-16",
-      "usage_pct": 13.8,
+      "usage_pct": 5.9,
       "avg_copies": 2.7
     }
   ],
@@ -408,105 +408,105 @@
     {
       "card_name": "Ethan's Sudowoodo",
       "support": 6,
-      "lift": 6.981,
+      "lift": 15.106,
       "jaccard": 0.037,
       "weighted_score": 11.4
     },
     {
       "card_name": "Fezandipiti",
       "support": 23,
-      "lift": 6.981,
+      "lift": 15.106,
       "jaccard": 0.143,
       "weighted_score": 43.6
     },
     {
       "card_name": "Crustle",
       "support": 28,
-      "lift": 6.306,
+      "lift": 13.644,
       "jaccard": 0.171,
       "weighted_score": 50.7
     },
     {
       "card_name": "Dwebble",
       "support": 28,
-      "lift": 6.306,
+      "lift": 13.644,
       "jaccard": 0.171,
       "weighted_score": 50.7
     },
     {
       "card_name": "Archaludon ex",
       "support": 8,
-      "lift": 6.206,
+      "lift": 13.427,
       "jaccard": 0.049,
       "weighted_score": 12.6
     },
     {
       "card_name": "Duraludon",
       "support": 8,
-      "lift": 6.206,
+      "lift": 13.427,
       "jaccard": 0.049,
       "weighted_score": 12.6
     },
     {
       "card_name": "Okidogi",
       "support": 14,
-      "lift": 5.749,
+      "lift": 12.44,
       "jaccard": 0.085,
       "weighted_score": 23.4
     },
     {
       "card_name": "Bloodmoon Ursaluna",
       "support": 14,
-      "lift": 5.43,
+      "lift": 11.749,
       "jaccard": 0.085,
       "weighted_score": 23.4
     },
     {
       "card_name": "Relicanth",
       "support": 7,
-      "lift": 5.43,
+      "lift": 11.749,
       "jaccard": 0.043,
       "weighted_score": 11.1
     },
     {
       "card_name": "Tarragon",
       "support": 13,
-      "lift": 5.339,
+      "lift": 11.551,
       "jaccard": 0.079,
       "weighted_score": 22.2
     },
     {
       "card_name": "Cornerstone Mask Ogerpon ex",
       "support": 35,
-      "lift": 5.199,
+      "lift": 11.249,
       "jaccard": 0.202,
       "weighted_score": 60.8
     },
     {
       "card_name": "Growth Grass Energy",
       "support": 22,
-      "lift": 5.12,
+      "lift": 11.077,
       "jaccard": 0.13,
       "weighted_score": 40.6
     },
     {
       "card_name": "Prism Energy",
       "support": 27,
-      "lift": 4.833,
+      "lift": 10.458,
       "jaccard": 0.156,
       "weighted_score": 48.6
     },
     {
       "card_name": "Hop's Bag",
       "support": 6,
-      "lift": 4.654,
+      "lift": 10.07,
       "jaccard": 0.037,
       "weighted_score": 8.1
     },
     {
       "card_name": "Hop's Choice Band",
       "support": 6,
-      "lift": 4.654,
+      "lift": 10.07,
       "jaccard": 0.037,
       "weighted_score": 8.1
     }

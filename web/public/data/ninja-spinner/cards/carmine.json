@@ -8,7 +8,7 @@
   "category": "Trainer",
   "rarity": null,
   "total_appearances": 97,
-  "usage_pct": 8.6,
+  "usage_pct": 4.0,
   "avg_copies": 2.6,
   "unique_archetypes": 21,
   "weighted_score": 159.0,
@@ -39,35 +39,35 @@
       "slug": "mega-lucario",
       "usage_count": 33,
       "avg_copies": 2.3,
-      "tier": "B"
+      "tier": "A"
     },
     {
       "name": "Ceruledge ex",
       "slug": "ceruledge-ex",
       "usage_count": 13,
       "avg_copies": 3.9,
-      "tier": "C"
+      "tier": "Rogue"
     },
     {
       "name": "Raging Bolt ex",
       "slug": "raging-bolt-ex",
       "usage_count": 5,
       "avg_copies": 1.0,
-      "tier": "B"
+      "tier": "C"
     },
     {
       "name": "Mega Lucario Solrock",
       "slug": "mega-lucario-solrock",
       "usage_count": 5,
       "avg_copies": 2.2,
-      "tier": "C"
+      "tier": "Rogue"
     },
     {
       "name": "Mega Froslass Mega Starmie",
       "slug": "mega-froslass-mega-starmie",
       "usage_count": 5,
       "avg_copies": 3.6,
-      "tier": "C"
+      "tier": "Rogue"
     },
     {
       "name": "Mega Diancie Dusknoir",
@@ -81,14 +81,14 @@
       "slug": "archaludon-ex",
       "usage_count": 5,
       "avg_copies": 3.4,
-      "tier": "Rogue"
+      "tier": "B"
     },
     {
       "name": "Barbaracle Okidogi",
       "slug": "barbaracle-okidogi",
       "usage_count": 4,
       "avg_copies": 3.3,
-      "tier": "C"
+      "tier": "Rogue"
     },
     {
       "name": "Mega Starmie Drakloak",
@@ -109,7 +109,7 @@
       "slug": "mega-kangaskhan-ogerpon",
       "usage_count": 3,
       "avg_copies": 1.0,
-      "tier": "B"
+      "tier": "C"
     },
     {
       "name": "Typhlosion",
@@ -144,7 +144,7 @@
       "slug": "mega-venusaur",
       "usage_count": 1,
       "avg_copies": 3.0,
-      "tier": "C"
+      "tier": "Rogue"
     },
     {
       "name": "Mega Starmie Crobat",
@@ -158,7 +158,7 @@
       "slug": "mega-meganium-mega-venusaur",
       "usage_count": 1,
       "avg_copies": 1.0,
-      "tier": "Rogue"
+      "tier": "C"
     },
     {
       "name": "Mega Diancie Mega Kangaskhan",
@@ -185,12 +185,12 @@
   "weekly_usage": [
     {
       "week": "2026-03-09",
-      "usage_pct": 9.0,
+      "usage_pct": 4.5,
       "avg_copies": 2.6
     },
     {
       "week": "2026-03-16",
-      "usage_pct": 8.1,
+      "usage_pct": 3.5,
       "avg_copies": 2.7
     }
   ],
@@ -198,105 +198,105 @@
     {
       "card_name": "Ceruledge ex",
       "support": 15,
-      "lift": 10.863,
+      "lift": 23.505,
       "jaccard": 0.153,
       "weighted_score": 21.8
     },
     {
       "card_name": "Charcadet",
       "support": 15,
-      "lift": 10.863,
+      "lift": 23.505,
       "jaccard": 0.153,
       "weighted_score": 21.8
     },
     {
       "card_name": "Drilbur",
       "support": 11,
-      "lift": 10.622,
+      "lift": 22.983,
       "jaccard": 0.112,
       "weighted_score": 16.7
     },
     {
       "card_name": "Brilliant Blender",
       "support": 14,
-      "lift": 9.543,
+      "lift": 20.648,
       "jaccard": 0.14,
       "weighted_score": 20.6
     },
     {
       "card_name": "Archaludon ex",
       "support": 5,
-      "lift": 6.438,
+      "lift": 13.929,
       "jaccard": 0.05,
       "weighted_score": 7.4
     },
     {
       "card_name": "Duraludon",
       "support": 5,
-      "lift": 6.438,
+      "lift": 13.929,
       "jaccard": 0.05,
       "weighted_score": 7.4
     },
     {
       "card_name": "Relicanth",
       "support": 5,
-      "lift": 6.438,
+      "lift": 13.929,
       "jaccard": 0.05,
       "weighted_score": 7.4
     },
     {
       "card_name": "Prism Tower",
       "support": 11,
-      "lift": 5.542,
+      "lift": 11.991,
       "jaccard": 0.101,
       "weighted_score": 15.9
     },
     {
       "card_name": "Mega Diancie ex",
       "support": 7,
-      "lift": 5.408,
+      "lift": 11.7,
       "jaccard": 0.067,
       "weighted_score": 9.3
     },
     {
       "card_name": "Lunatone",
       "support": 60,
-      "lift": 5.15,
+      "lift": 11.143,
       "jaccard": 0.349,
       "weighted_score": 98.0
     },
     {
       "card_name": "Solrock",
       "support": 60,
-      "lift": 5.15,
+      "lift": 11.143,
       "jaccard": 0.349,
       "weighted_score": 98.0
     },
     {
       "card_name": "Hariyama",
       "support": 35,
-      "lift": 4.886,
+      "lift": 10.573,
       "jaccard": 0.241,
       "weighted_score": 61.4
     },
     {
       "card_name": "Makuhita",
       "support": 35,
-      "lift": 4.886,
+      "lift": 10.573,
       "jaccard": 0.241,
       "weighted_score": 61.4
     },
     {
       "card_name": "Mega Lucario ex",
       "support": 41,
-      "lift": 4.848,
+      "lift": 10.489,
       "jaccard": 0.266,
       "weighted_score": 70.3
     },
     {
       "card_name": "Riolu",
       "support": 41,
-      "lift": 4.848,
+      "lift": 10.489,
       "jaccard": 0.266,
       "weighted_score": 70.3
     }

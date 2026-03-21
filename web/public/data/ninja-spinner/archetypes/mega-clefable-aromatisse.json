@@ -2,7 +2,7 @@
   "archetype": "Mega Clefable Aromatisse",
   "slug": "mega-clefable-aromatisse",
   "tier": "Rogue",
-  "meta_share": 0.1,
+  "meta_share": 0.0,
   "weighted_share": 0.1,
   "deck_count": 1,
   "best_placement": 4,
@@ -93,7 +93,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Trainer"
+      "category": "Pokemon"
     },
     {
       "card_name": "Latias ex",
@@ -249,7 +249,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Trainer"
+      "category": "Pokemon"
     },
     {
       "card_name": "Latias ex",
@@ -330,6 +330,11 @@
       "standing": 4,
       "player_name": "聖夜",
       "decklist": [
+        {
+          "card_name": "Lillie's Clefairy ex",
+          "count": 1,
+          "category": "Pokemon"
+        },
         {
           "card_name": "Duskull",
           "count": 1,
@@ -421,11 +426,6 @@
           "category": "Trainer"
         },
         {
-          "card_name": "Lillie's Clefairy ex",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
           "card_name": "Max Rod",
           "count": 1,
           "category": "Trainer"
@@ -444,11 +444,11 @@
     }
   ],
   "radar": {
-    "meta_share": 0.4,
-    "weighted_share": 0.5,
+    "meta_share": 0.2,
+    "weighted_share": 0.2,
     "consistency": 85.0,
     "ceiling": 75,
-    "popularity": 0.8,
+    "popularity": 0.4,
     "core_density": 100.0
   },
   "evolution": [],
@@ -456,7 +456,7 @@
   "weekly_shares": [
     {
       "week": "2026-03-09",
-      "meta_share": 0.2,
+      "meta_share": 0.1,
       "deck_count": 1
     },
     {
@@ -559,7 +559,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Trainer",
+      "category": "Pokemon",
       "delta_vs_field": 0.0
     },
     {

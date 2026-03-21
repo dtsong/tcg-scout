@@ -2,8 +2,8 @@
   "archetype": "Slowking",
   "slug": "slowking",
   "tier": "Rogue",
-  "meta_share": 0.4,
-  "weighted_share": 0.3,
+  "meta_share": 0.2,
+  "weighted_share": 0.2,
   "deck_count": 4,
   "best_placement": 2,
   "sprite_filenames": [
@@ -283,7 +283,7 @@
       "inclusion_pct": 75.0,
       "avg_copies": 1.0,
       "decks_with": 3,
-      "category": "Trainer"
+      "category": "Pokemon"
     },
     {
       "card_name": "Ciphermaniac's Codebreaking",
@@ -479,6 +479,11 @@
           "category": "Pokemon"
         },
         {
+          "card_name": "Lillie's Clefairy ex",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
           "card_name": "Mega Kangaskhan ex",
           "count": 1,
           "category": "Pokemon"
@@ -536,11 +541,6 @@
         {
           "card_name": "Hilda",
           "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Lillie's Clefairy ex",
-          "count": 1,
           "category": "Trainer"
         },
         {
@@ -762,6 +762,11 @@
           "category": "Pokemon"
         },
         {
+          "card_name": "Lillie's Clefairy ex",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
           "card_name": "Annihilape",
           "count": 1,
           "category": "Pokemon"
@@ -824,11 +829,6 @@
         {
           "card_name": "Hilda",
           "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Lillie's Clefairy ex",
-          "count": 1,
           "category": "Trainer"
         },
         {
@@ -906,6 +906,11 @@
           "category": "Pokemon"
         },
         {
+          "card_name": "Lillie's Clefairy ex",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
           "card_name": "Yungoos",
           "count": 1,
           "category": "Pokemon"
@@ -976,11 +981,6 @@
           "category": "Trainer"
         },
         {
-          "card_name": "Lillie's Clefairy ex",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
           "card_name": "Boss's Orders",
           "count": 1,
           "category": "Trainer"
@@ -1014,11 +1014,11 @@
     }
   ],
   "radar": {
-    "meta_share": 1.8,
-    "weighted_share": 1.7,
+    "meta_share": 0.8,
+    "weighted_share": 0.8,
     "consistency": 55.0,
     "ceiling": 90,
-    "popularity": 3.3,
+    "popularity": 1.7,
     "core_density": 41.9
   },
   "evolution": [
@@ -1073,27 +1073,7 @@
       ],
       "dropped": [
         {
-          "card": "Max Rod",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Yungoos",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Psyduck",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Spectrier",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Iris's Fighting Spirit",
+          "card": "Frillish",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -1103,17 +1083,32 @@
           "to_pct": 0.0
         },
         {
+          "card": "Gumshoos",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Spectrier",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
           "card": "Unfair Stamp",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
-          "card": "Frillish",
+          "card": "Counter Gain",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
-          "card": "Gumshoos",
+          "card": "Psyduck",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Yungoos",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -1123,7 +1118,12 @@
           "to_pct": 0.0
         },
         {
-          "card": "Counter Gain",
+          "card": "Max Rod",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Iris's Fighting Spirit",
           "from_pct": 50.0,
           "to_pct": 0.0
         }
@@ -1155,12 +1155,12 @@
   "weekly_shares": [
     {
       "week": "2026-03-09",
-      "meta_share": 0.3,
+      "meta_share": 0.2,
       "deck_count": 2
     },
     {
       "week": "2026-03-16",
-      "meta_share": 0.4,
+      "meta_share": 0.2,
       "deck_count": 2
     }
   ],
@@ -1306,7 +1306,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Trainer",
+      "category": "Pokemon",
       "delta_vs_field": 25.0
     },
     {

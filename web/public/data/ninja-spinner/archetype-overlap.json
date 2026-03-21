@@ -1,13 +1,10 @@
 {
   "archetypes": [
     {
-      "archetype": "Dragapult Meowth",
-      "slug": "dragapult-meowth",
-      "sprite_filenames": [
-        "dragapult.png",
-        "meowth.png"
-      ],
-      "weighted_share": 11.4
+      "archetype": "Unknown",
+      "slug": "unknown",
+      "sprite_filenames": [],
+      "weighted_share": 9.6
     },
     {
       "archetype": "Mega Lucario",
@@ -16,60 +13,16 @@
         "hariyama.png",
         "lucario-mega.png"
       ],
-      "weighted_share": 6.9
+      "weighted_share": 10.2
     },
     {
-      "archetype": "Dragapult Dusknoir",
-      "slug": "dragapult-dusknoir",
+      "archetype": "Dragapult Meowth",
+      "slug": "dragapult-meowth",
       "sprite_filenames": [
         "dragapult.png",
-        "dusknoir.png"
+        "meowth.png"
       ],
-      "weighted_share": 5.4
-    },
-    {
-      "archetype": "Darmanitan Zoroark",
-      "slug": "darmanitan-zoroark",
-      "sprite_filenames": [
-        "darmanitan.png",
-        "zoroark.png"
-      ],
-      "weighted_share": 4.6
-    },
-    {
-      "archetype": "Raging Bolt ex",
-      "slug": "raging-bolt-ex",
-      "sprite_filenames": [
-        "raging-bolt.png"
-      ],
-      "weighted_share": 4.4
-    },
-    {
-      "archetype": "Blaziken Dragapult",
-      "slug": "blaziken-dragapult",
-      "sprite_filenames": [
-        "blaziken.png",
-        "dragapult.png"
-      ],
-      "weighted_share": 3.3
-    },
-    {
-      "archetype": "Garchomp Roserade",
-      "slug": "garchomp-roserade",
-      "sprite_filenames": [
-        "garchomp.png",
-        "roserade.png"
-      ],
-      "weighted_share": 2.9
-    },
-    {
-      "archetype": "Mega Kangaskhan Ogerpon",
-      "slug": "mega-kangaskhan-ogerpon",
-      "sprite_filenames": [
-        "kangaskhan-mega.png",
-        "ogerpon.png"
-      ],
-      "weighted_share": 3.5
+      "weighted_share": 10.4
     },
     {
       "archetype": "Mewtwo Spidops",
@@ -78,25 +31,42 @@
         "mewtwo.png",
         "spidops.png"
       ],
-      "weighted_share": 3.0
+      "weighted_share": 6.1
     },
     {
-      "archetype": "Arboliva Ogerpon",
-      "slug": "arboliva-ogerpon",
+      "archetype": "Mega Kangaskhan Latias",
+      "slug": "mega-kangaskhan-latias",
       "sprite_filenames": [
-        "arboliva.png",
-        "ogerpon.png"
+        "kangaskhan-mega.png",
+        "latias.png"
       ],
-      "weighted_share": 2.8
+      "weighted_share": 5.4
     },
     {
-      "archetype": "Grimmsnarl Munkidori",
-      "slug": "grimmsnarl-munkidori",
+      "archetype": "Archaludon ex",
+      "slug": "archaludon-ex",
       "sprite_filenames": [
-        "grimmsnarl.png",
-        "munkidori.png"
+        "archaludon.png"
       ],
-      "weighted_share": 2.9
+      "weighted_share": 3.4
+    },
+    {
+      "archetype": "Dipplin Thwackey",
+      "slug": "dipplin-thwackey",
+      "sprite_filenames": [
+        "dipplin.png",
+        "thwackey.png"
+      ],
+      "weighted_share": 4.2
+    },
+    {
+      "archetype": "Dragapult Dusknoir",
+      "slug": "dragapult-dusknoir",
+      "sprite_filenames": [
+        "dragapult.png",
+        "dusknoir.png"
+      ],
+      "weighted_share": 3.4
     },
     {
       "archetype": "Alakazam Dudunsparce",
@@ -105,290 +75,315 @@
         "alakazam.png",
         "dudunsparce.png"
       ],
-      "weighted_share": 2.7
+      "weighted_share": 3.8
     },
     {
-      "archetype": "Crustle Munkidori",
-      "slug": "crustle-munkidori",
+      "archetype": "Blaziken Dragapult",
+      "slug": "blaziken-dragapult",
       "sprite_filenames": [
-        "crustle.png",
-        "munkidori.png"
+        "blaziken.png",
+        "dragapult.png"
       ],
-      "weighted_share": 2.7
+      "weighted_share": 3.7
     },
     {
-      "archetype": "Clefairy Ogerpon",
-      "slug": "clefairy-ogerpon",
+      "archetype": "Zoroark ex",
+      "slug": "zoroark-ex",
       "sprite_filenames": [
-        "clefairy.png",
-        "ogerpon.png"
+        "zoroark.png"
       ],
-      "weighted_share": 2.3
+      "weighted_share": 3.4
     },
     {
-      "archetype": "Mega Venusaur",
-      "slug": "mega-venusaur",
+      "archetype": "Darmanitan Zoroark",
+      "slug": "darmanitan-zoroark",
       "sprite_filenames": [
-        "ogerpon.png",
-        "venusaur-mega.png"
+        "darmanitan.png",
+        "zoroark.png"
       ],
-      "weighted_share": 1.8
+      "weighted_share": 2.1
+    },
+    {
+      "archetype": "Raging Bolt ex",
+      "slug": "raging-bolt-ex",
+      "sprite_filenames": [
+        "raging-bolt.png"
+      ],
+      "weighted_share": 2.0
+    },
+    {
+      "archetype": "Dusknoir Greninja",
+      "slug": "dusknoir-greninja",
+      "sprite_filenames": [
+        "dusknoir.png",
+        "greninja.png"
+      ],
+      "weighted_share": 1.3
+    },
+    {
+      "archetype": "Mega Greninja Dudunsparce",
+      "slug": "mega-greninja-dudunsparce",
+      "sprite_filenames": [
+        "greninja-mega.png",
+        "dudunsparce.png"
+      ],
+      "weighted_share": 2.4
     }
   ],
   "matrix": [
     [
       1.0,
-      0.167,
-      0.733,
-      0.308,
-      0.19,
-      0.514,
+      0.312,
+      0.163,
+      0.842,
+      0.947,
+      0.895,
+      0.8,
+      0.0,
+      0.216,
       0.214,
-      0.209,
-      0.093,
-      0.275,
-      0.263,
-      0.163,
-      0.2,
-      0.186,
-      0.167
+      0.842,
+      0.0,
+      0.0,
+      0.571,
+      0.353
     ],
     [
-      0.167,
+      0.312,
       1.0,
-      0.159,
-      0.163,
-      0.14,
-      0.156,
-      0.282,
-      0.133,
-      0.122,
-      0.19,
-      0.146,
-      0.089,
-      0.119,
-      0.136,
-      0.231
-    ],
-    [
-      0.733,
-      0.159,
-      1.0,
-      0.325,
-      0.238,
-      0.667,
-      0.205,
       0.256,
-      0.089,
-      0.262,
-      0.282,
-      0.209,
-      0.19,
-      0.233,
-      0.214
-    ],
-    [
-      0.308,
-      0.163,
-      0.325,
-      1.0,
-      0.214,
-      0.317,
-      0.182,
-      0.233,
+      0.345,
+      0.323,
+      0.333,
+      0.333,
       0.091,
-      0.238,
-      0.225,
-      0.133,
+      0.256,
+      0.31,
+      0.345,
+      0.089,
+      0.067,
+      0.37,
+      0.389
+    ],
+    [
+      0.163,
+      0.256,
+      1.0,
+      0.175,
       0.167,
-      0.209,
-      0.19
+      0.171,
+      0.171,
+      0.647,
+      0.213,
+      0.615,
+      0.175,
+      0.267,
+      0.167,
+      0.184,
+      0.381
     ],
     [
-      0.19,
-      0.14,
-      0.238,
-      0.214,
+      0.842,
+      0.345,
+      0.175,
       1.0,
-      0.233,
-      0.109,
-      0.625,
-      0.146,
-      0.275,
-      0.116,
-      0.087,
-      0.143,
-      0.594,
-      0.225
-    ],
-    [
-      0.514,
-      0.156,
+      0.889,
+      0.941,
+      0.941,
+      0.0,
+      0.235,
+      0.231,
+      1.0,
+      0.0,
+      0.0,
       0.667,
-      0.317,
-      0.233,
+      0.344
+    ],
+    [
+      0.947,
+      0.323,
+      0.167,
+      0.889,
       1.0,
-      0.227,
-      0.279,
-      0.136,
-      0.256,
-      0.342,
-      0.233,
-      0.244,
-      0.256,
+      0.944,
+      0.842,
+      0.0,
+      0.222,
+      0.22,
+      0.889,
+      0.0,
+      0.0,
+      0.6,
+      0.364
+    ],
+    [
+      0.895,
+      0.333,
+      0.171,
+      0.941,
+      0.944,
+      1.0,
+      0.889,
+      0.0,
+      0.229,
+      0.225,
+      0.941,
+      0.0,
+      0.0,
+      0.632,
+      0.333
+    ],
+    [
+      0.8,
+      0.333,
+      0.171,
+      0.941,
+      0.842,
+      0.889,
+      1.0,
+      0.0,
+      0.229,
+      0.225,
+      0.941,
+      0.0,
+      0.0,
+      0.632,
+      0.333
+    ],
+    [
+      0.0,
+      0.091,
+      0.647,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.109,
+      0.462,
+      0.0,
+      0.308,
+      0.22,
+      0.0,
       0.209
     ],
     [
-      0.214,
-      0.282,
-      0.205,
-      0.182,
+      0.216,
+      0.256,
+      0.213,
+      0.235,
+      0.222,
+      0.229,
+      0.229,
       0.109,
-      0.227,
       1.0,
-      0.104,
-      0.091,
-      0.156,
-      0.225,
-      0.186,
-      0.14,
-      0.106,
-      0.163
-    ],
-    [
-      0.209,
-      0.133,
-      0.256,
-      0.233,
-      0.625,
-      0.279,
-      0.104,
-      1.0,
-      0.114,
-      0.233,
-      0.163,
-      0.106,
+      0.289,
+      0.235,
+      0.061,
+      0.02,
       0.25,
-      0.828,
-      0.214
+      0.325
     ],
     [
-      0.093,
-      0.122,
-      0.089,
-      0.091,
-      0.146,
-      0.136,
-      0.091,
-      0.114,
-      1.0,
-      0.143,
-      0.098,
-      0.044,
-      0.154,
-      0.116,
-      0.122
-    ],
-    [
-      0.275,
-      0.19,
-      0.262,
-      0.238,
-      0.275,
-      0.256,
-      0.156,
-      0.233,
-      0.143,
-      1.0,
-      0.195,
-      0.159,
-      0.167,
-      0.238,
-      0.471
-    ],
-    [
-      0.263,
-      0.146,
-      0.282,
-      0.225,
-      0.116,
-      0.342,
-      0.225,
-      0.163,
-      0.098,
-      0.195,
-      1.0,
-      0.2,
-      0.211,
-      0.14,
-      0.119
-    ],
-    [
-      0.163,
-      0.089,
-      0.209,
-      0.133,
-      0.087,
-      0.233,
-      0.186,
-      0.106,
-      0.044,
-      0.159,
-      0.2,
-      1.0,
-      0.143,
-      0.133,
-      0.14
-    ],
-    [
-      0.2,
-      0.119,
-      0.19,
-      0.167,
-      0.143,
-      0.244,
-      0.14,
-      0.25,
-      0.154,
-      0.167,
-      0.211,
-      0.143,
-      1.0,
-      0.225,
-      0.175
-    ],
-    [
-      0.186,
-      0.136,
-      0.233,
-      0.209,
-      0.594,
-      0.256,
-      0.106,
-      0.828,
-      0.116,
-      0.238,
-      0.14,
-      0.133,
-      0.225,
-      1.0,
-      0.22
-    ],
-    [
-      0.167,
+      0.214,
+      0.31,
+      0.615,
       0.231,
-      0.214,
-      0.19,
-      0.225,
-      0.209,
-      0.163,
-      0.214,
-      0.122,
-      0.471,
-      0.119,
-      0.14,
-      0.175,
       0.22,
+      0.225,
+      0.225,
+      0.462,
+      0.289,
+      1.0,
+      0.231,
+      0.289,
+      0.213,
+      0.243,
+      0.405
+    ],
+    [
+      0.842,
+      0.345,
+      0.175,
+      1.0,
+      0.889,
+      0.941,
+      0.941,
+      0.0,
+      0.235,
+      0.231,
+      1.0,
+      0.0,
+      0.0,
+      0.667,
+      0.344
+    ],
+    [
+      0.0,
+      0.089,
+      0.267,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.308,
+      0.061,
+      0.289,
+      0.0,
+      1.0,
+      0.214,
+      0.0,
+      0.178
+    ],
+    [
+      0.0,
+      0.067,
+      0.167,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.22,
+      0.02,
+      0.213,
+      0.0,
+      0.214,
+      1.0,
+      0.0,
+      0.106
+    ],
+    [
+      0.571,
+      0.37,
+      0.184,
+      0.667,
+      0.6,
+      0.632,
+      0.632,
+      0.0,
+      0.25,
+      0.243,
+      0.667,
+      0.0,
+      0.0,
+      1.0,
+      0.323
+    ],
+    [
+      0.353,
+      0.389,
+      0.381,
+      0.344,
+      0.364,
+      0.333,
+      0.333,
+      0.209,
+      0.325,
+      0.405,
+      0.344,
+      0.178,
+      0.106,
+      0.323,
       1.0
     ]
   ]

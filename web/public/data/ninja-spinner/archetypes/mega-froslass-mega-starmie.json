@@ -1,9 +1,9 @@
 {
   "archetype": "Mega Froslass Mega Starmie",
   "slug": "mega-froslass-mega-starmie",
-  "tier": "C",
-  "meta_share": 1.2,
-  "weighted_share": 1.2,
+  "tier": "Rogue",
+  "meta_share": 0.5,
+  "weighted_share": 0.6,
   "deck_count": 13,
   "best_placement": 1,
   "sprite_filenames": [
@@ -2061,11 +2061,11 @@
     }
   ],
   "radar": {
-    "meta_share": 5.8,
-    "weighted_share": 5.9,
+    "meta_share": 2.7,
+    "weighted_share": 2.8,
     "consistency": 69.2,
     "ceiling": 100,
-    "popularity": 10.6,
+    "popularity": 5.4,
     "core_density": 26.9
   },
   "evolution": [
@@ -2088,12 +2088,12 @@
           "to_pct": 75.0
         },
         {
-          "card": "Surfing Beach",
+          "card": "Ignition Energy",
           "from_pct": 44.4,
           "to_pct": 50.0
         },
         {
-          "card": "Ignition Energy",
+          "card": "Surfing Beach",
           "from_pct": 44.4,
           "to_pct": 50.0
         }
@@ -2121,12 +2121,12 @@
   "weekly_shares": [
     {
       "week": "2026-03-09",
-      "meta_share": 1.4,
+      "meta_share": 0.7,
       "deck_count": 9
     },
     {
       "week": "2026-03-16",
-      "meta_share": 0.8,
+      "meta_share": 0.3,
       "deck_count": 4
     }
   ],

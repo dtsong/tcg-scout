@@ -2,8 +2,8 @@
   "archetype": "Meowth Ogerpon",
   "slug": "meowth-ogerpon",
   "tier": "Rogue",
-  "meta_share": 0.6,
-  "weighted_share": 0.7,
+  "meta_share": 0.3,
+  "weighted_share": 0.3,
   "deck_count": 7,
   "best_placement": 1,
   "sprite_filenames": [
@@ -51,7 +51,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 1.4,
       "decks_with": 7,
-      "category": "Trainer"
+      "category": "Pokemon"
     },
     {
       "card_name": "Lightning Energy",
@@ -193,7 +193,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 1.4,
       "decks_with": 7,
-      "category": "Trainer"
+      "category": "Pokemon"
     },
     {
       "card_name": "Lightning Energy",
@@ -522,6 +522,11 @@
           "category": "Pokemon"
         },
         {
+          "card_name": "Lillie's Clefairy ex",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
           "card_name": "Koraidon",
           "count": 1,
           "category": "Pokemon"
@@ -574,11 +579,6 @@
         {
           "card_name": "Bug Catching Set",
           "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Lillie's Clefairy ex",
-          "count": 1,
           "category": "Trainer"
         },
         {
@@ -638,6 +638,11 @@
         {
           "card_name": "Meowth ex",
           "count": 4,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Lillie's Clefairy ex",
+          "count": 2,
           "category": "Pokemon"
         },
         {
@@ -707,11 +712,6 @@
         },
         {
           "card_name": "Poké Pad",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Lillie's Clefairy ex",
           "count": 2,
           "category": "Trainer"
         },
@@ -830,6 +830,11 @@
           "category": "Pokemon"
         },
         {
+          "card_name": "Lillie's Clefairy ex",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
           "card_name": "Ultra Ball",
           "count": 4,
           "category": "Trainer"
@@ -876,11 +881,6 @@
         },
         {
           "card_name": "Lillie's Pearl",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Lillie's Clefairy ex",
           "count": 1,
           "category": "Trainer"
         },
@@ -979,6 +979,11 @@
           "category": "Pokemon"
         },
         {
+          "card_name": "Lillie's Clefairy ex",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
           "card_name": "Raging Bolt",
           "count": 1,
           "category": "Pokemon"
@@ -1044,11 +1049,6 @@
           "category": "Trainer"
         },
         {
-          "card_name": "Lillie's Clefairy ex",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
           "card_name": "Energy Retrieval",
           "count": 1,
           "category": "Trainer"
@@ -1108,6 +1108,11 @@
           "category": "Pokemon"
         },
         {
+          "card_name": "Lillie's Clefairy ex",
+          "count": 2,
+          "category": "Pokemon"
+        },
+        {
           "card_name": "Mega Kangaskhan ex",
           "count": 2,
           "category": "Pokemon"
@@ -1160,11 +1165,6 @@
         {
           "card_name": "Area Zero Underdepths",
           "count": 3,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Lillie's Clefairy ex",
-          "count": 2,
           "category": "Trainer"
         },
         {
@@ -1277,6 +1277,11 @@
           "category": "Pokemon"
         },
         {
+          "card_name": "Lillie's Clefairy ex",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
           "card_name": "Iron Leaves ex",
           "count": 1,
           "category": "Pokemon"
@@ -1323,11 +1328,6 @@
         },
         {
           "card_name": "Brock's Scouting",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Lillie's Clefairy ex",
           "count": 1,
           "category": "Trainer"
         },
@@ -1406,6 +1406,11 @@
           "category": "Pokemon"
         },
         {
+          "card_name": "Lillie's Clefairy ex",
+          "count": 2,
+          "category": "Pokemon"
+        },
+        {
           "card_name": "Mega Kangaskhan ex",
           "count": 2,
           "category": "Pokemon"
@@ -1462,11 +1467,6 @@
         },
         {
           "card_name": "Night Stretcher",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Lillie's Clefairy ex",
           "count": 2,
           "category": "Trainer"
         },
@@ -1534,11 +1534,11 @@
     }
   ],
   "radar": {
-    "meta_share": 3.1,
-    "weighted_share": 3.3,
+    "meta_share": 1.4,
+    "weighted_share": 1.5,
     "consistency": 65.0,
     "ceiling": 100,
-    "popularity": 5.7,
+    "popularity": 2.9,
     "core_density": 42.6
   },
   "evolution": [
@@ -1546,7 +1546,7 @@
       "week": "2026-03-16",
       "adopted": [
         {
-          "card": "Prime Catcher",
+          "card": "Lillie's Pearl",
           "from_pct": 0.0,
           "to_pct": 66.7
         },
@@ -1556,7 +1556,7 @@
           "to_pct": 66.7
         },
         {
-          "card": "Lillie's Pearl",
+          "card": "Prime Catcher",
           "from_pct": 0.0,
           "to_pct": 66.7
         },
@@ -1600,12 +1600,12 @@
   "weekly_shares": [
     {
       "week": "2026-03-09",
-      "meta_share": 0.6,
+      "meta_share": 0.3,
       "deck_count": 4
     },
     {
       "week": "2026-03-16",
-      "meta_share": 0.6,
+      "meta_share": 0.3,
       "deck_count": 3
     }
   ],
@@ -1687,7 +1687,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 1.5,
       "decks_with": 2,
-      "category": "Trainer",
+      "category": "Pokemon",
       "delta_vs_field": 0.0
     },
     {

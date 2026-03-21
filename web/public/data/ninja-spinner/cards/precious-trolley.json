@@ -8,7 +8,7 @@
   "category": "Trainer",
   "rarity": null,
   "total_appearances": 25,
-  "usage_pct": 2.2,
+  "usage_pct": 1.0,
   "avg_copies": 1.0,
   "unique_archetypes": 14,
   "weighted_score": 42.1,
@@ -34,7 +34,7 @@
       "slug": "raging-bolt-ex",
       "usage_count": 4,
       "avg_copies": 1.0,
-      "tier": "B"
+      "tier": "C"
     },
     {
       "name": "Empoleon Metagross",
@@ -62,7 +62,7 @@
       "slug": "mega-venusaur",
       "usage_count": 1,
       "avg_copies": 1.0,
-      "tier": "C"
+      "tier": "Rogue"
     },
     {
       "name": "Mega Skarmory Metagross",
@@ -124,12 +124,12 @@
   "weekly_usage": [
     {
       "week": "2026-03-09",
-      "usage_pct": 2.1,
+      "usage_pct": 1.0,
       "avg_copies": 1.0
     },
     {
       "week": "2026-03-16",
-      "usage_pct": 2.4,
+      "usage_pct": 1.0,
       "avg_copies": 1.0
     }
   ],
@@ -137,105 +137,105 @@
     {
       "card_name": "Joltik",
       "support": 6,
-      "lift": 38.537,
+      "lift": 83.383,
       "jaccard": 0.231,
       "weighted_score": 10.6
     },
     {
       "card_name": "Mega Skarmory ex",
       "support": 6,
-      "lift": 38.537,
+      "lift": 83.383,
       "jaccard": 0.231,
       "weighted_score": 9.4
     },
     {
       "card_name": "Empoleon ex",
       "support": 5,
-      "lift": 32.114,
+      "lift": 69.486,
       "jaccard": 0.185,
       "weighted_score": 7.9
     },
     {
       "card_name": "Piplup",
       "support": 5,
-      "lift": 32.114,
+      "lift": 69.486,
       "jaccard": 0.185,
       "weighted_score": 7.9
     },
     {
       "card_name": "Steven's Beldum",
       "support": 11,
-      "lift": 30.91,
+      "lift": 66.88,
       "jaccard": 0.367,
       "weighted_score": 17.5
     },
     {
       "card_name": "Steven's Metagross ex",
       "support": 11,
-      "lift": 30.91,
+      "lift": 66.88,
       "jaccard": 0.367,
       "weighted_score": 17.5
     },
     {
       "card_name": "Steven's Metang",
       "support": 11,
-      "lift": 30.91,
+      "lift": 66.88,
       "jaccard": 0.367,
       "weighted_score": 17.5
     },
     {
       "card_name": "Genesect ex",
       "support": 15,
-      "lift": 28.1,
+      "lift": 60.8,
       "jaccard": 0.441,
       "weighted_score": 24.5
     },
     {
       "card_name": "Mega Mawile ex",
       "support": 10,
-      "lift": 21.41,
+      "lift": 46.324,
       "jaccard": 0.278,
       "weighted_score": 15.8
     },
     {
       "card_name": "Jumbo Ice Cream",
       "support": 7,
-      "lift": 19.67,
+      "lift": 42.56,
       "jaccard": 0.206,
       "weighted_score": 11.9
     },
     {
       "card_name": "Energy Recycler",
       "support": 17,
-      "lift": 18.642,
+      "lift": 40.336,
       "jaccard": 0.347,
       "weighted_score": 28.2
     },
     {
       "card_name": "Team Rocket's Transceiver",
       "support": 14,
-      "lift": 10.152,
+      "lift": 21.966,
       "jaccard": 0.192,
       "weighted_score": 23.0
     },
     {
       "card_name": "Energy Search",
       "support": 6,
-      "lift": 5.995,
+      "lift": 12.971,
       "jaccard": 0.094,
       "weighted_score": 9.6
     },
     {
       "card_name": "Team Rocket's Petrel",
       "support": 25,
-      "lift": 4.443,
+      "lift": 9.613,
       "jaccard": 0.099,
       "weighted_score": 42.1
     },
     {
       "card_name": "Brock's Scouting",
       "support": 11,
-      "lift": 3.053,
+      "lift": 6.605,
       "jaccard": 0.062,
       "weighted_score": 18.8
     }

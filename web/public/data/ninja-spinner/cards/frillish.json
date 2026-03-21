@@ -8,7 +8,7 @@
   "category": "Pokemon",
   "rarity": null,
   "total_appearances": 21,
-  "usage_pct": 1.9,
+  "usage_pct": 0.9,
   "avg_copies": 2.0,
   "unique_archetypes": 13,
   "weighted_score": 31.4,
@@ -74,7 +74,7 @@
       "slug": "mega-kangaskhan-ogerpon",
       "usage_count": 1,
       "avg_copies": 2.0,
-      "tier": "B"
+      "tier": "C"
     },
     {
       "name": "Mega Gardevoir Latias",
@@ -116,7 +116,7 @@
       "slug": "clefairy-ogerpon",
       "usage_count": 1,
       "avg_copies": 2.0,
-      "tier": "C"
+      "tier": "Rogue"
     },
     {
       "name": "Alakazam Dragapult",
@@ -129,12 +129,12 @@
   "weekly_usage": [
     {
       "week": "2026-03-09",
-      "usage_pct": 1.6,
+      "usage_pct": 0.8,
       "avg_copies": 1.9
     },
     {
       "week": "2026-03-16",
-      "usage_pct": 2.2,
+      "usage_pct": 1.0,
       "avg_copies": 2.1
     }
   ],
@@ -142,105 +142,105 @@
     {
       "card_name": "Jellicent ex",
       "support": 14,
-      "lift": 53.524,
+      "lift": 115.81,
       "jaccard": 0.667,
       "weighted_score": 21.9
     },
     {
       "card_name": "Mystery Garden",
       "support": 12,
-      "lift": 35.683,
+      "lift": 77.206,
       "jaccard": 0.444,
       "weighted_score": 16.1
     },
     {
       "card_name": "Mega Diancie ex",
       "support": 9,
-      "lift": 32.114,
+      "lift": 69.486,
       "jaccard": 0.333,
       "weighted_score": 11.4
     },
     {
       "card_name": "Powerglass",
       "support": 7,
-      "lift": 14.41,
+      "lift": 31.179,
       "jaccard": 0.175,
       "weighted_score": 9.0
     },
     {
       "card_name": "Wondrous Patch",
       "support": 13,
-      "lift": 10.232,
+      "lift": 22.14,
       "jaccard": 0.171,
       "weighted_score": 17.3
     },
     {
       "card_name": "Telepath Psychic Energy",
       "support": 16,
-      "lift": 8.396,
+      "lift": 18.166,
       "jaccard": 0.15,
       "weighted_score": 22.7
     },
     {
       "card_name": "Colress's Tenacity",
       "support": 6,
-      "lift": 4.941,
+      "lift": 10.69,
       "jaccard": 0.075,
       "weighted_score": 8.6
     },
     {
       "card_name": "Ignition Energy",
       "support": 5,
-      "lift": 3.431,
+      "lift": 7.424,
       "jaccard": 0.053,
       "weighted_score": 6.3
     },
     {
       "card_name": "Lillie's Clefairy ex",
       "support": 20,
-      "lift": 3.041,
+      "lift": 6.58,
       "jaccard": 0.057,
       "weighted_score": 30.2
     },
     {
       "card_name": "Hilda",
       "support": 11,
-      "lift": 2.817,
+      "lift": 6.095,
       "jaccard": 0.05,
       "weighted_score": 14.9
     },
     {
       "card_name": "Latias ex",
       "support": 19,
-      "lift": 2.802,
+      "lift": 6.062,
       "jaccard": 0.052,
       "weighted_score": 29.0
     },
     {
       "card_name": "Dusclops",
       "support": 10,
-      "lift": 2.663,
+      "lift": 5.762,
       "jaccard": 0.047,
       "weighted_score": 13.4
     },
     {
       "card_name": "Dusknoir",
       "support": 10,
-      "lift": 2.624,
+      "lift": 5.677,
       "jaccard": 0.047,
       "weighted_score": 13.4
     },
     {
       "card_name": "Duskull",
       "support": 10,
-      "lift": 2.624,
+      "lift": 5.677,
       "jaccard": 0.047,
       "weighted_score": 13.4
     },
     {
       "card_name": "Judge",
       "support": 9,
-      "lift": 1.991,
+      "lift": 4.307,
       "jaccard": 0.035,
       "weighted_score": 14.0
     }

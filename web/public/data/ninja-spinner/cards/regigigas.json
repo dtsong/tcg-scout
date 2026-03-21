@@ -8,7 +8,7 @@
   "category": "Pokemon",
   "rarity": null,
   "total_appearances": 15,
-  "usage_pct": 1.3,
+  "usage_pct": 0.6,
   "avg_copies": 1.0,
   "unique_archetypes": 6,
   "weighted_score": 22.7,
@@ -27,14 +27,14 @@
       "slug": "mega-venusaur",
       "usage_count": 8,
       "avg_copies": 1.0,
-      "tier": "C"
+      "tier": "Rogue"
     },
     {
       "name": "Mega Meganium",
       "slug": "mega-meganium",
       "usage_count": 3,
       "avg_copies": 1.0,
-      "tier": "C"
+      "tier": "Rogue"
     },
     {
       "name": "Slowking",
@@ -48,7 +48,7 @@
       "slug": "mega-meganium-mega-venusaur",
       "usage_count": 1,
       "avg_copies": 1.0,
-      "tier": "Rogue"
+      "tier": "C"
     },
     {
       "name": "Genesect Metagross",
@@ -68,12 +68,12 @@
   "weekly_usage": [
     {
       "week": "2026-03-09",
-      "usage_pct": 0.9,
+      "usage_pct": 0.5,
       "avg_copies": 1.0
     },
     {
       "week": "2026-03-16",
-      "usage_pct": 1.8,
+      "usage_pct": 0.8,
       "avg_copies": 1.0
     }
   ],
@@ -81,105 +81,105 @@
     {
       "card_name": "Max Rod",
       "support": 8,
-      "lift": 27.248,
+      "lift": 58.958,
       "jaccard": 0.276,
       "weighted_score": 12.6
     },
     {
       "card_name": "Bulbasaur",
       "support": 12,
-      "lift": 23.056,
+      "lift": 49.887,
       "jaccard": 0.286,
       "weighted_score": 18.0
     },
     {
       "card_name": "Ivysaur",
       "support": 12,
-      "lift": 23.056,
+      "lift": 49.887,
       "jaccard": 0.286,
       "weighted_score": 18.0
     },
     {
       "card_name": "Mega Venusaur ex",
       "support": 12,
-      "lift": 23.056,
+      "lift": 49.887,
       "jaccard": 0.286,
       "weighted_score": 18.0
     },
     {
       "card_name": "Mega Meganium ex",
       "support": 5,
-      "lift": 19.719,
+      "lift": 42.667,
       "jaccard": 0.172,
       "weighted_score": 7.9
     },
     {
       "card_name": "Bayleef",
       "support": 10,
-      "lift": 11.894,
+      "lift": 25.735,
       "jaccard": 0.147,
       "weighted_score": 15.6
     },
     {
       "card_name": "Chikorita",
       "support": 10,
-      "lift": 11.894,
+      "lift": 25.735,
       "jaccard": 0.147,
       "weighted_score": 15.6
     },
     {
       "card_name": "Meganium",
       "support": 10,
-      "lift": 11.894,
+      "lift": 25.735,
       "jaccard": 0.147,
       "weighted_score": 15.6
     },
     {
       "card_name": "Forest of Vitality",
       "support": 12,
-      "lift": 9.465,
+      "lift": 20.48,
       "jaccard": 0.122,
       "weighted_score": 18.0
     },
     {
       "card_name": "Wally's Compassion",
       "support": 10,
-      "lift": 6.751,
+      "lift": 14.607,
       "jaccard": 0.086,
       "weighted_score": 15.3
     },
     {
       "card_name": "Bug Catching Set",
       "support": 12,
-      "lift": 5.801,
+      "lift": 12.552,
       "jaccard": 0.076,
       "weighted_score": 18.0
     },
     {
       "card_name": "Teal Mask Ogerpon ex",
       "support": 12,
-      "lift": 3.747,
+      "lift": 8.107,
       "jaccard": 0.049,
       "weighted_score": 18.0
     },
     {
       "card_name": "Switch",
       "support": 8,
-      "lift": 3.012,
+      "lift": 6.518,
       "jaccard": 0.039,
       "weighted_score": 12.4
     },
     {
       "card_name": "Judge",
       "support": 8,
-      "lift": 2.477,
+      "lift": 5.36,
       "jaccard": 0.032,
       "weighted_score": 11.1
     },
     {
       "card_name": "Pokégear 3.0",
       "support": 5,
-      "lift": 2.327,
+      "lift": 5.035,
       "jaccard": 0.029,
       "weighted_score": 6.6
     }

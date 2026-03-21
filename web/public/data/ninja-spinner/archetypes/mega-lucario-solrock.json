@@ -1,9 +1,9 @@
 {
   "archetype": "Mega Lucario Solrock",
   "slug": "mega-lucario-solrock",
-  "tier": "C",
-  "meta_share": 1.2,
-  "weighted_share": 1.2,
+  "tier": "Rogue",
+  "meta_share": 0.5,
+  "weighted_share": 0.5,
   "deck_count": 13,
   "best_placement": 1,
   "sprite_filenames": [
@@ -2016,11 +2016,11 @@
     }
   ],
   "radar": {
-    "meta_share": 5.8,
-    "weighted_share": 5.8,
+    "meta_share": 2.7,
+    "weighted_share": 2.7,
     "consistency": 63.1,
     "ceiling": 100,
-    "popularity": 10.6,
+    "popularity": 5.4,
     "core_density": 27.1
   },
   "evolution": [
@@ -2038,12 +2038,12 @@
           "to_pct": 60.0
         },
         {
-          "card": "Team Rocket's Watchtower",
+          "card": "Cornerstone Mask Ogerpon ex",
           "from_pct": 12.5,
           "to_pct": 60.0
         },
         {
-          "card": "Cornerstone Mask Ogerpon ex",
+          "card": "Team Rocket's Watchtower",
           "from_pct": 12.5,
           "to_pct": 60.0
         },
@@ -2081,12 +2081,12 @@
   "weekly_shares": [
     {
       "week": "2026-03-09",
-      "meta_share": 1.3,
+      "meta_share": 0.6,
       "deck_count": 8
     },
     {
       "week": "2026-03-16",
-      "meta_share": 1.0,
+      "meta_share": 0.4,
       "deck_count": 5
     }
   ],

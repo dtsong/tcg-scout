@@ -2,7 +2,7 @@
   "archetype": "Aegislash Genesect",
   "slug": "aegislash-genesect",
   "tier": "Rogue",
-  "meta_share": 0.2,
+  "meta_share": 0.1,
   "weighted_share": 0.1,
   "deck_count": 2,
   "best_placement": 6,
@@ -575,11 +575,11 @@
     }
   ],
   "radar": {
-    "meta_share": 0.9,
-    "weighted_share": 0.8,
+    "meta_share": 0.4,
+    "weighted_share": 0.4,
     "consistency": 57.5,
     "ceiling": 50,
-    "popularity": 1.6,
+    "popularity": 0.8,
     "core_density": 45.2
   },
   "evolution": [
@@ -588,16 +588,6 @@
       "adopted": [
         {
           "card": "Precious Trolley",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Smoochum",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Mist Energy",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -612,11 +602,6 @@
           "to_pct": 100.0
         },
         {
-          "card": "Pokégear 3.0",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
           "card": "Bloodmoon Ursaluna ex",
           "from_pct": 0.0,
           "to_pct": 100.0
@@ -625,21 +610,31 @@
           "card": "Hassel",
           "from_pct": 0.0,
           "to_pct": 100.0
+        },
+        {
+          "card": "Mist Energy",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Smoochum",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Pokégear 3.0",
+          "from_pct": 0.0,
+          "to_pct": 100.0
         }
       ],
       "dropped": [
         {
-          "card": "Fezandipiti ex",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Battle Cage",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Dawn",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Hilda",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -649,7 +644,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "Prime Catcher",
+          "card": "Battle Cage",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -659,7 +654,12 @@
           "to_pct": 0.0
         },
         {
-          "card": "Hilda",
+          "card": "Fezandipiti ex",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Prime Catcher",
           "from_pct": 100.0,
           "to_pct": 0.0
         }
@@ -670,12 +670,12 @@
   "weekly_shares": [
     {
       "week": "2026-03-09",
-      "meta_share": 0.2,
+      "meta_share": 0.1,
       "deck_count": 1
     },
     {
       "week": "2026-03-16",
-      "meta_share": 0.2,
+      "meta_share": 0.1,
       "deck_count": 1
     }
   ],

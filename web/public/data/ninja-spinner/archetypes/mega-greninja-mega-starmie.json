@@ -2,8 +2,8 @@
   "archetype": "Mega Greninja Mega Starmie",
   "slug": "mega-greninja-mega-starmie",
   "tier": "Rogue",
-  "meta_share": 0.4,
-  "weighted_share": 0.4,
+  "meta_share": 0.2,
+  "weighted_share": 0.2,
   "deck_count": 5,
   "best_placement": 2,
   "sprite_filenames": [
@@ -1028,11 +1028,11 @@
     }
   ],
   "radar": {
-    "meta_share": 2.2,
-    "weighted_share": 2.2,
+    "meta_share": 1.0,
+    "weighted_share": 1.0,
     "consistency": 63.0,
     "ceiling": 90,
-    "popularity": 4.1,
+    "popularity": 2.1,
     "core_density": 31.8
   },
   "evolution": [
@@ -1057,12 +1057,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "Munkidori",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Fan Rotom",
+          "card": "Energy Search",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -1072,17 +1067,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "Tool Scrapper",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Crispin",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Pokégear 3.0",
+          "card": "Fan Rotom",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -1092,17 +1077,32 @@
           "to_pct": 0.0
         },
         {
+          "card": "Tatsugiri",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Munkidori",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
           "card": "Morty's Conviction",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
-          "card": "Energy Search",
+          "card": "Crispin",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
-          "card": "Tatsugiri",
+          "card": "Tool Scrapper",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Pokégear 3.0",
           "from_pct": 50.0,
           "to_pct": 0.0
         }
@@ -1129,12 +1129,12 @@
   "weekly_shares": [
     {
       "week": "2026-03-09",
-      "meta_share": 0.3,
+      "meta_share": 0.2,
       "deck_count": 2
     },
     {
       "week": "2026-03-16",
-      "meta_share": 0.6,
+      "meta_share": 0.3,
       "deck_count": 3
     }
   ],

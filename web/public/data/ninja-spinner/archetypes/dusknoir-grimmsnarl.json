@@ -2,8 +2,8 @@
   "archetype": "Dusknoir Grimmsnarl",
   "slug": "dusknoir-grimmsnarl",
   "tier": "Rogue",
-  "meta_share": 0.1,
-  "weighted_share": 0.1,
+  "meta_share": 0.0,
+  "weighted_share": 0.0,
   "deck_count": 1,
   "best_placement": 13,
   "sprite_filenames": [
@@ -86,21 +86,21 @@
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
       "decks_with": 1,
-      "category": "Trainer"
+      "category": "Pokemon"
     },
     {
       "card_name": "Marnie's Impidimp",
       "inclusion_pct": 100.0,
       "avg_copies": 3.0,
       "decks_with": 1,
-      "category": "Trainer"
+      "category": "Pokemon"
     },
     {
       "card_name": "Marnie's Grimmsnarl ex",
       "inclusion_pct": 100.0,
       "avg_copies": 3.0,
       "decks_with": 1,
-      "category": "Trainer"
+      "category": "Pokemon"
     },
     {
       "card_name": "Lillie's Determination",
@@ -242,21 +242,21 @@
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
       "decks_with": 1,
-      "category": "Trainer"
+      "category": "Pokemon"
     },
     {
       "card_name": "Marnie's Impidimp",
       "inclusion_pct": 100.0,
       "avg_copies": 3.0,
       "decks_with": 1,
-      "category": "Trainer"
+      "category": "Pokemon"
     },
     {
       "card_name": "Marnie's Grimmsnarl ex",
       "inclusion_pct": 100.0,
       "avg_copies": 3.0,
       "decks_with": 1,
-      "category": "Trainer"
+      "category": "Pokemon"
     },
     {
       "card_name": "Lillie's Determination",
@@ -331,6 +331,16 @@
       "player_name": "ベッチさん",
       "decklist": [
         {
+          "card_name": "Marnie's Impidimp",
+          "count": 3,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Marnie's Grimmsnarl ex",
+          "count": 3,
+          "category": "Pokemon"
+        },
+        {
           "card_name": "Duskull",
           "count": 3,
           "category": "Pokemon"
@@ -338,6 +348,11 @@
         {
           "card_name": "Munkidori",
           "count": 3,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Marnie's Morgrem",
+          "count": 2,
           "category": "Pokemon"
         },
         {
@@ -386,16 +401,6 @@
           "category": "Trainer"
         },
         {
-          "card_name": "Marnie's Impidimp",
-          "count": 3,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Marnie's Grimmsnarl ex",
-          "count": 3,
-          "category": "Trainer"
-        },
-        {
           "card_name": "Spikemuth Gym",
           "count": 3,
           "category": "Trainer"
@@ -403,11 +408,6 @@
         {
           "card_name": "Rare Candy",
           "count": 3,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Marnie's Morgrem",
-          "count": 2,
           "category": "Trainer"
         },
         {
@@ -444,11 +444,11 @@
     }
   ],
   "radar": {
-    "meta_share": 0.4,
-    "weighted_share": 0.4,
+    "meta_share": 0.2,
+    "weighted_share": 0.1,
     "consistency": 40.0,
     "ceiling": 25,
-    "popularity": 0.8,
+    "popularity": 0.4,
     "core_density": 100.0
   },
   "evolution": [],
@@ -456,7 +456,7 @@
   "weekly_shares": [
     {
       "week": "2026-03-09",
-      "meta_share": 0.2,
+      "meta_share": 0.1,
       "deck_count": 1
     },
     {

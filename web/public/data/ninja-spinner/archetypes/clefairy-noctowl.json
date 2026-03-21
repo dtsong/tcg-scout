@@ -2,7 +2,7 @@
   "archetype": "Clefairy Noctowl",
   "slug": "clefairy-noctowl",
   "tier": "Rogue",
-  "meta_share": 0.1,
+  "meta_share": 0.0,
   "weighted_share": 0.1,
   "deck_count": 1,
   "best_placement": 4,
@@ -128,7 +128,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
       "decks_with": 1,
-      "category": "Trainer"
+      "category": "Pokemon"
     },
     {
       "card_name": "Lightning Energy",
@@ -340,7 +340,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
       "decks_with": 1,
-      "category": "Trainer"
+      "category": "Pokemon"
     },
     {
       "card_name": "Lightning Energy",
@@ -453,6 +453,11 @@
           "category": "Pokemon"
         },
         {
+          "card_name": "Lillie's Clefairy ex",
+          "count": 2,
+          "category": "Pokemon"
+        },
+        {
           "card_name": "Fan Rotom",
           "count": 2,
           "category": "Pokemon"
@@ -528,11 +533,6 @@
           "category": "Trainer"
         },
         {
-          "card_name": "Lillie's Clefairy ex",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
           "card_name": "Boss's Orders",
           "count": 2,
           "category": "Trainer"
@@ -596,11 +596,11 @@
     }
   ],
   "radar": {
-    "meta_share": 0.4,
-    "weighted_share": 0.5,
+    "meta_share": 0.2,
+    "weighted_share": 0.2,
     "consistency": 85.0,
     "ceiling": 75,
-    "popularity": 0.8,
+    "popularity": 0.4,
     "core_density": 100.0
   },
   "evolution": [],
@@ -608,7 +608,7 @@
   "weekly_shares": [
     {
       "week": "2026-03-09",
-      "meta_share": 0.2,
+      "meta_share": 0.1,
       "deck_count": 1
     },
     {
@@ -751,7 +751,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
       "decks_with": 1,
-      "category": "Trainer",
+      "category": "Pokemon",
       "delta_vs_field": 0.0
     },
     {

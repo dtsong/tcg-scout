@@ -2,8 +2,8 @@
   "archetype": "Mega Kangaskhan Clefairy",
   "slug": "mega-kangaskhan-clefairy",
   "tier": "Rogue",
-  "meta_share": 0.2,
-  "weighted_share": 0.3,
+  "meta_share": 0.1,
+  "weighted_share": 0.1,
   "deck_count": 2,
   "best_placement": 1,
   "sprite_filenames": [
@@ -72,7 +72,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 2.5,
       "decks_with": 2,
-      "category": "Trainer"
+      "category": "Pokemon"
     },
     {
       "card_name": "Latias ex",
@@ -214,7 +214,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 2.5,
       "decks_with": 2,
-      "category": "Trainer"
+      "category": "Pokemon"
     },
     {
       "card_name": "Latias ex",
@@ -401,6 +401,11 @@
       "player_name": "りょうちゃん",
       "decklist": [
         {
+          "card_name": "Lillie's Clefairy ex",
+          "count": 2,
+          "category": "Pokemon"
+        },
+        {
           "card_name": "Mega Kangaskhan ex",
           "count": 2,
           "category": "Pokemon"
@@ -491,11 +496,6 @@
           "category": "Trainer"
         },
         {
-          "card_name": "Lillie's Clefairy ex",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
           "card_name": "Pokégear 3.0",
           "count": 2,
           "category": "Trainer"
@@ -554,6 +554,11 @@
       "standing": 4,
       "player_name": "リーフィアおじさん",
       "decklist": [
+        {
+          "card_name": "Lillie's Clefairy ex",
+          "count": 3,
+          "category": "Pokemon"
+        },
         {
           "card_name": "Mega Kangaskhan ex",
           "count": 3,
@@ -630,11 +635,6 @@
           "category": "Trainer"
         },
         {
-          "card_name": "Lillie's Clefairy ex",
-          "count": 3,
-          "category": "Trainer"
-        },
-        {
           "card_name": "Boss's Orders",
           "count": 2,
           "category": "Trainer"
@@ -683,11 +683,11 @@
     }
   ],
   "radar": {
-    "meta_share": 0.9,
-    "weighted_share": 1.4,
+    "meta_share": 0.4,
+    "weighted_share": 0.7,
     "consistency": 92.5,
     "ceiling": 100,
-    "popularity": 1.6,
+    "popularity": 0.8,
     "core_density": 58.8
   },
   "evolution": [],
@@ -700,7 +700,7 @@
     },
     {
       "week": "2026-03-16",
-      "meta_share": 0.4,
+      "meta_share": 0.2,
       "deck_count": 2
     }
   ],
@@ -774,7 +774,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 2.5,
       "decks_with": 2,
-      "category": "Trainer",
+      "category": "Pokemon",
       "delta_vs_field": 0.0
     },
     {

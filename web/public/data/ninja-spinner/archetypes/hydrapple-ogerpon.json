@@ -2,8 +2,8 @@
   "archetype": "Hydrapple Ogerpon",
   "slug": "hydrapple-ogerpon",
   "tier": "Rogue",
-  "meta_share": 0.5,
-  "weighted_share": 0.5,
+  "meta_share": 0.2,
+  "weighted_share": 0.2,
   "deck_count": 6,
   "best_placement": 3,
   "sprite_filenames": [
@@ -1253,11 +1253,11 @@
     }
   ],
   "radar": {
-    "meta_share": 2.7,
-    "weighted_share": 2.5,
+    "meta_share": 1.2,
+    "weighted_share": 1.1,
     "consistency": 63.3,
     "ceiling": 75,
-    "popularity": 4.9,
+    "popularity": 2.5,
     "core_density": 35.6
   },
   "evolution": [
@@ -1270,12 +1270,12 @@
           "to_pct": 50.0
         },
         {
-          "card": "Tera Orb",
+          "card": "Carmine",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
         {
-          "card": "Carmine",
+          "card": "Tera Orb",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -1285,32 +1285,7 @@
           "to_pct": 50.0
         },
         {
-          "card": "Psyduck",
-          "from_pct": 25.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Budew",
-          "from_pct": 25.0,
-          "to_pct": 50.0
-        },
-        {
           "card": "Zarude",
-          "from_pct": 25.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Judge",
-          "from_pct": 25.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Festival Grounds",
-          "from_pct": 25.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Growth Grass Energy",
           "from_pct": 25.0,
           "to_pct": 50.0
         },
@@ -1320,7 +1295,32 @@
           "to_pct": 50.0
         },
         {
+          "card": "Growth Grass Energy",
+          "from_pct": 25.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Psyduck",
+          "from_pct": 25.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Judge",
+          "from_pct": 25.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Budew",
+          "from_pct": 25.0,
+          "to_pct": 50.0
+        },
+        {
           "card": "Meowth ex",
+          "from_pct": 25.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Festival Grounds",
           "from_pct": 25.0,
           "to_pct": 50.0
         }
@@ -1369,12 +1369,12 @@
   "weekly_shares": [
     {
       "week": "2026-03-09",
-      "meta_share": 0.6,
+      "meta_share": 0.3,
       "deck_count": 4
     },
     {
       "week": "2026-03-16",
-      "meta_share": 0.4,
+      "meta_share": 0.2,
       "deck_count": 2
     }
   ],

@@ -8,7 +8,7 @@
   "category": "Trainer",
   "rarity": null,
   "total_appearances": 502,
-  "usage_pct": 44.7,
+  "usage_pct": 20.8,
   "avg_copies": 2.6,
   "unique_archetypes": 66,
   "weighted_score": 832.1,
@@ -53,14 +53,14 @@
       "slug": "raging-bolt-ex",
       "usage_count": 45,
       "avg_copies": 4.0,
-      "tier": "B"
+      "tier": "C"
     },
     {
       "name": "Mega Kangaskhan Ogerpon",
       "slug": "mega-kangaskhan-ogerpon",
       "usage_count": 36,
       "avg_copies": 3.7,
-      "tier": "B"
+      "tier": "C"
     },
     {
       "name": "Blaziken Dragapult",
@@ -81,35 +81,35 @@
       "slug": "clefairy-ogerpon",
       "usage_count": 24,
       "avg_copies": 2.8,
-      "tier": "C"
+      "tier": "Rogue"
     },
     {
       "name": "Noctowl Ogerpon",
       "slug": "noctowl-ogerpon",
       "usage_count": 16,
       "avg_copies": 3.9,
-      "tier": "C"
+      "tier": "Rogue"
     },
     {
       "name": "Mega Froslass Mega Starmie",
       "slug": "mega-froslass-mega-starmie",
       "usage_count": 12,
       "avg_copies": 2.0,
-      "tier": "C"
+      "tier": "Rogue"
     },
     {
       "name": "Flareon Noctowl",
       "slug": "flareon-noctowl",
       "usage_count": 12,
       "avg_copies": 2.7,
-      "tier": "C"
+      "tier": "Rogue"
     },
     {
       "name": "Dragapult ex",
       "slug": "dragapult-ex",
       "usage_count": 12,
       "avg_copies": 2.5,
-      "tier": "C"
+      "tier": "Rogue"
     },
     {
       "name": "Ogerpon Ogerpon Wellspring",
@@ -200,7 +200,7 @@
       "slug": "ceruledge-ex",
       "usage_count": 2,
       "avg_copies": 1.0,
-      "tier": "C"
+      "tier": "Rogue"
     },
     {
       "name": "Munkidori Solrock",
@@ -221,7 +221,7 @@
       "slug": "mega-venusaur",
       "usage_count": 1,
       "avg_copies": 2.0,
-      "tier": "C"
+      "tier": "Rogue"
     },
     {
       "name": "Mega Slowbro Latias",
@@ -235,7 +235,7 @@
       "slug": "mega-lucario-solrock",
       "usage_count": 1,
       "avg_copies": 3.0,
-      "tier": "C"
+      "tier": "Rogue"
     },
     {
       "name": "Mega Lucario Crustle",
@@ -277,7 +277,7 @@
       "slug": "mega-kangaskhan-latias",
       "usage_count": 1,
       "avg_copies": 3.0,
-      "tier": "Rogue"
+      "tier": "B"
     },
     {
       "name": "Mega Kangaskhan Arboliva",
@@ -312,7 +312,7 @@
       "slug": "mega-greninja-dragapult",
       "usage_count": 1,
       "avg_copies": 2.0,
-      "tier": "C"
+      "tier": "Rogue"
     },
     {
       "name": "Mega Gengar Hydreigon",
@@ -389,7 +389,7 @@
       "slug": "garchomp-roserade",
       "usage_count": 1,
       "avg_copies": 2.0,
-      "tier": "B"
+      "tier": "C"
     },
     {
       "name": "Garchomp",
@@ -500,12 +500,12 @@
   "weekly_usage": [
     {
       "week": "2026-03-09",
-      "usage_pct": 44.0,
+      "usage_pct": 22.1,
       "avg_copies": 2.5
     },
     {
       "week": "2026-03-16",
-      "usage_pct": 45.5,
+      "usage_pct": 19.4,
       "avg_copies": 2.7
     }
   ],
@@ -513,105 +513,105 @@
     {
       "card_name": "Blaziken",
       "support": 6,
-      "lift": 2.239,
+      "lift": 4.845,
       "jaccard": 0.012,
       "weighted_score": 9.6
     },
     {
       "card_name": "Community Center",
       "support": 7,
-      "lift": 2.239,
+      "lift": 4.845,
       "jaccard": 0.014,
       "weighted_score": 11.4
     },
     {
       "card_name": "Dusk Ball",
       "support": 13,
-      "lift": 2.239,
+      "lift": 4.845,
       "jaccard": 0.026,
       "weighted_score": 21.5
     },
     {
       "card_name": "Eevee ex",
       "support": 13,
-      "lift": 2.239,
+      "lift": 4.845,
       "jaccard": 0.026,
       "weighted_score": 24.5
     },
     {
       "card_name": "Fezandipiti",
       "support": 23,
-      "lift": 2.239,
+      "lift": 4.845,
       "jaccard": 0.046,
       "weighted_score": 43.6
     },
     {
       "card_name": "Flareon ex",
       "support": 14,
-      "lift": 2.239,
+      "lift": 4.845,
       "jaccard": 0.028,
       "weighted_score": 26.0
     },
     {
       "card_name": "Glass Trumpet",
       "support": 76,
-      "lift": 2.239,
+      "lift": 4.845,
       "jaccard": 0.151,
       "weighted_score": 132.5
     },
     {
       "card_name": "Iron Leaves ex",
       "support": 101,
-      "lift": 2.239,
+      "lift": 4.845,
       "jaccard": 0.201,
       "weighted_score": 173.6
     },
     {
       "card_name": "Joltik",
       "support": 7,
-      "lift": 2.239,
+      "lift": 4.845,
       "jaccard": 0.014,
       "weighted_score": 11.8
     },
     {
       "card_name": "Koraidon",
       "support": 11,
-      "lift": 2.239,
+      "lift": 4.845,
       "jaccard": 0.022,
       "weighted_score": 19.1
     },
     {
       "card_name": "Leafeon ex",
       "support": 16,
-      "lift": 2.239,
+      "lift": 4.845,
       "jaccard": 0.032,
       "weighted_score": 28.4
     },
     {
       "card_name": "Paldean Tauros",
       "support": 5,
-      "lift": 2.239,
+      "lift": 4.845,
       "jaccard": 0.01,
       "weighted_score": 9.6
     },
     {
       "card_name": "Pikachu ex",
       "support": 6,
-      "lift": 2.239,
+      "lift": 4.845,
       "jaccard": 0.012,
       "weighted_score": 9.8
     },
     {
       "card_name": "Raging Bolt",
       "support": 39,
-      "lift": 2.239,
+      "lift": 4.845,
       "jaccard": 0.078,
       "weighted_score": 63.2
     },
     {
       "card_name": "Sparkling Crystal",
       "support": 19,
-      "lift": 2.239,
+      "lift": 4.845,
       "jaccard": 0.038,
       "weighted_score": 33.3
     }
