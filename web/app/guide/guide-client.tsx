@@ -41,48 +41,90 @@ const SCENARIOS = [
   },
 ];
 
-const TOOL_SECTIONS = [
+const TOOL_SECTIONS: {
+  id: string;
+  title: string;
+  intro?: string;
+  bullets: string[];
+}[] = [
   {
     id: "dashboard",
     title: "Dashboard",
-    content:
-      "Tiers are based on meta share: S (15%+), A (8-15%), B (3-8%), C (1-3%), and Rogue (under 1%). Weighted share factors in placement finish using placement weights (1st = 3.0x, 2nd = 2.5x, 3rd-4th = 2.0x, 5th-8th = 1.5x, 9th-16th = 1.2x, 17th+ = 1.0x), so decks that consistently finish well rank higher. \"Biggest Copy-Count Shifts\" highlights cards whose usage changed the most between the first and second halves of the measured period. \"Winning Edge\" compares card usage in 1st-place decks versus the overall field for S, A, and B tier archetypes. The ACE SPEC chart shows which ACE SPECs appear most across top-tier decks.",
+    intro:
+      "Overview of the current meta with tier rankings and card trends.",
+    bullets: [
+      "Tiers are based on meta share: S (15%+), A (8-15%), B (3-8%), C (1-3%), Rogue (under 1%)",
+      "Weighted share factors in placement finish (1st = 3.0x, 2nd = 2.5x, 3rd-4th = 2.0x, 5th-8th = 1.5x, 9th-16th = 1.2x, 17th+ = 1.0x), so decks that consistently finish well rank higher",
+      "\"Biggest Copy-Count Shifts\" highlights cards whose usage changed the most between the first and second halves of the measured period",
+      "\"Winning Edge\" compares card usage in 1st-place decks versus the overall field for S, A, and B tier archetypes",
+      "ACE SPEC chart shows which ACE SPECs appear most across top-tier decks",
+    ],
   },
   {
     id: "archetypes",
     title: "Archetypes",
-    content:
-      "Browse all archetypes and their tournament results. The Performance Advantage Matrix shows head-to-head standing differentials (how much better one archetype performs when it faces another, requiring at least 10 co-occurrences). The Card Overlap Matrix uses Jaccard similarity to measure how much two archetypes share cards; 30%+ overlap suggests shared engines. Each archetype detail page shows inclusion rates, card breakdown, and tournament history.",
+    intro: "Browse all archetypes and their tournament results.",
+    bullets: [
+      "Performance Advantage Matrix shows head-to-head standing differentials (how much better one archetype performs against another, minimum 10 co-occurrences)",
+      "Card Overlap Matrix uses Jaccard similarity to measure shared cards between archetypes; 30%+ overlap suggests shared engines",
+      "Each archetype detail page shows inclusion rates, card breakdown, and tournament history",
+      "Deep dive reports break down an archetype's core engine, tech choices, and matchup spread",
+    ],
   },
   {
     id: "format-edge",
     title: "Format Edge",
-    content:
-      "Cards here are overrepresented in top-4 finishing decks compared to all decks in the field, broken down by archetype. For example, a card at 80% in top-4 decks but only 55% overall has a +25 point edge. Avg Edge averages across all archetypes where the card appears; Best Edge shows the single strongest archetype edge. This is distinct from Winning Edge (dashboard), which compares 1st-place finishes only.",
+    intro:
+      "Cards overrepresented in top-4 finishing decks compared to the overall field, broken down by archetype.",
+    bullets: [
+      "A card at 80% in top-4 decks but only 55% overall has a +25 point edge",
+      "Avg Edge averages across all archetypes where the card appears; Best Edge shows the single strongest archetype edge",
+      "Distinct from Winning Edge (dashboard), which compares 1st-place finishes only",
+      "Useful for identifying cards that correlate with strong tournament finishes within specific archetypes",
+    ],
   },
   {
     id: "cards",
     title: "Cards",
-    content:
-      "Browse all cards tracked across archetypes. Each card shows usage rate, deck count, and average copies. Card detail pages break down usage by archetype and show which decks include the card.",
+    intro: "Browse all cards tracked across archetypes.",
+    bullets: [
+      "Each card shows usage rate, deck count, and average copies",
+      "Card detail pages break down usage by archetype and show which decks include the card",
+      "Filter and sort to find cards by usage patterns across the meta",
+    ],
   },
   {
     id: "buy-list",
     title: "Buy List",
-    content:
-      "Cards are priority-scored across S, A, and B tier archetypes. Staples appear in most decks of an archetype; Flex cards appear in some builds. Higher priority means the card is widely needed across multiple top-tier decks.",
+    intro:
+      "Priority-scored card list across S, A, and B tier archetypes.",
+    bullets: [
+      "Staples appear in most decks of an archetype; Flex cards appear in some builds",
+      "Higher priority means the card is widely needed across multiple top-tier decks",
+      "Use this to figure out which cards to pick up first when building for the current meta",
+    ],
   },
   {
     id: "trends",
     title: "Trends",
-    content:
-      "Cards are measured for usage change between the first and second halves of the measured period. Surging cards are gaining play; declining cards are losing play. The \"Winning Edge\" table shows cards that appear more frequently in 1st-place decks compared to the overall field.",
+    intro:
+      "Track how card usage is shifting over time.",
+    bullets: [
+      "Cards are measured for usage change between the first and second halves of the measured period",
+      "Surging cards are gaining play; declining cards are losing play",
+      "\"Winning Edge\" table shows cards that appear more frequently in 1st-place decks compared to the overall field",
+    ],
   },
   {
     id: "champions-league",
     title: "Champions League",
-    content:
-      "Full translated decklists from Japan's Champions League events. Results are organized by division (Masters, Seniors, Juniors). These results are not included in archetype scoring since CL placements lack archetype classification.",
+    intro:
+      "Full translated decklists from Japan's Champions League events.",
+    bullets: [
+      "Results are organized by division (Masters, Seniors, Juniors)",
+      "Browse complete decklists with card-by-card translations",
+      "These results are not included in archetype scoring since CL placements lack archetype classification",
+    ],
   },
 ];
 
@@ -230,7 +272,12 @@ export function GuideClient() {
                 </button>
                 {isOpen && (
                   <div className="px-4 pb-4 text-surface-300 text-sm font-body leading-relaxed">
-                    {section.content}
+                    {section.intro && <p className="mb-2">{section.intro}</p>}
+                    <ul className="space-y-1.5 list-disc list-inside marker:text-surface-500">
+                      {section.bullets.map((bullet) => (
+                        <li key={bullet}>{bullet}</li>
+                      ))}
+                    </ul>
                   </div>
                 )}
               </div>
