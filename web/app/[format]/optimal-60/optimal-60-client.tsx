@@ -293,19 +293,25 @@ export function Optimal60Client({
           Optimal 60
         </h1>
         <p className="text-sm text-surface-400 max-w-2xl">
-          Data-backed decklists for top archetypes, blending{" "}
-          <span className="text-teal-400">{index.cl_event}</span>{" "}
-          ({index.cl_player_count.toLocaleString()} players) with broader City League results.
+          {index.cl_event ? (
+            <>
+              Data-backed decklists for top archetypes, blending{" "}
+              <span className="text-teal-400">{index.cl_event}</span>{" "}
+              ({index.cl_player_count.toLocaleString()} players) with broader City League results.
+            </>
+          ) : (
+            <>
+              Data-backed decklists for top archetypes, built from weighted
+              consensus across City League tournament results.
+            </>
+          )}
         </p>
       </div>
 
       {/* Format context */}
-      <div className="bg-surface-800 border-l-4 border-teal-500/50 rounded-r-lg p-4">
+      <div className="bg-surface-800 border-l-4 border-surface-500 rounded-r-lg p-4">
         <p className="text-xs text-slate-400 leading-relaxed">
-          {index.format_note} International tournaments (best-of-3) may favor
-          slightly different card counts than the BO1 data shown here. Cards
-          that reward consistency in longer sets (extra copies of key Supporters,
-          counter-tech) may be underrepresented.
+          {index.format_note}
         </p>
       </div>
 

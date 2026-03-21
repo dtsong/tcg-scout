@@ -2490,14 +2490,6 @@ def export_optimal_60(conn: sqlite3.Connection, output_dir: Path, *, format_slug
         logger.warning("Skipping optimal 60 export: no snapshot available")
         return
 
-    # Check if CL tournament data exists
-    cl_count = conn.execute(
-        "SELECT COUNT(*) FROM tournaments WHERE tournament_type = 'champions-league'"
-    ).fetchone()[0]
-    if cl_count == 0:
-        logger.info("Skipping optimal 60 export: no champions-league tournaments")
-        return
-
     category_lookup = build_category_lookup(conn)
     weighted_shares = _compute_weighted_shares(conn, snapshot)
     optimal_dir = output_dir / "optimal-60"
@@ -2507,11 +2499,11 @@ def export_optimal_60(conn: sqlite3.Connection, output_dir: Path, *, format_slug
             f.unlink()
     optimal_dir.mkdir(parents=True, exist_ok=True)
 
-    # Get CL event metadata
+    # Get CL event metadata (if any)
     cl_event = conn.execute(
         "SELECT name, player_count FROM tournaments WHERE tournament_type = 'champions-league' LIMIT 1"
     ).fetchone()
-    cl_event_name = cl_event["name"] if cl_event else "Champions League"
+    cl_event_name = cl_event["name"] if cl_event else None
     cl_player_count = cl_event["player_count"] if cl_event else 0
 
     index_entries = []

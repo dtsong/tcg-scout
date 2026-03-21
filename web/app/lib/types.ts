@@ -433,7 +433,7 @@ export interface Optimal60IndexEntry {
 export interface Optimal60Index {
   format: string;
   generated_at: string;
-  cl_event: string;
+  cl_event: string | null;
   cl_player_count: number;
   format_note: string;
   archetypes: Optimal60IndexEntry[];

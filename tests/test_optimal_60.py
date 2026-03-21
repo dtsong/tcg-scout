@@ -341,8 +341,9 @@ class TestExportOptimal60:
         assert "meta_inclusion_pct" in card
         assert "insight" in card
 
-    def test_export_skips_without_cl_data(self, tmp_path):
-        """Export should skip gracefully when no CL tournaments exist."""
+    def test_export_works_without_cl_data(self, tmp_path):
+        """Export should produce index even without CL tournaments."""
+        import json
         import sqlite3
 
         from db import SCHEMA
@@ -351,20 +352,39 @@ class TestExportOptimal60:
         conn = sqlite3.connect(":memory:")
         conn.row_factory = sqlite3.Row
         conn.executescript(SCHEMA)
-        # Add tournament_type column
-        cols = {row[1] for row in conn.execute("PRAGMA table_info(tournaments)")}
-        if "tournament_type" not in cols:
-            conn.execute(
-                "ALTER TABLE tournaments ADD COLUMN tournament_type TEXT DEFAULT 'city-league'"
-            )
 
+        # Add a regular tournament with placements
+        conn.execute(
+            "INSERT INTO tournaments (id, name, date, player_count, division) "
+            "VALUES ('t1', 'Test CL', '2026-03-01', 64, 'open')"
+        )
+        for pid in range(1, 5):
+            conn.execute(
+                "INSERT INTO placements (id, tournament_id, standing, player_name, archetype) "
+                "VALUES (?, 't1', ?, 'Player', 'Test Deck')",
+                (pid, pid),
+            )
+            conn.execute(
+                "INSERT INTO decklist_cards (placement_id, card_id, card_name, count) "
+                "VALUES (?, 'card-1', 'Nest Ball', 4)",
+                (pid,),
+            )
         conn.execute(
             "INSERT INTO meta_snapshots (id, generated_at, tournament_count, deck_count) "
-            "VALUES (1, '2026-03-20', 1, 1)"
+            "VALUES (1, '2026-03-20', 1, 4)"
+        )
+        conn.execute(
+            "INSERT INTO archetype_stats (snapshot_id, archetype, meta_share, deck_count, best_placement, tier) "
+            "VALUES (1, 'Test Deck', 100.0, 4, 1, 'S')"
         )
         conn.commit()
 
-        # Should not create files
-        export_optimal_60(conn, tmp_path, format_slug="nihil-zero")
-        assert not (tmp_path / "optimal-60" / "index.json").exists()
+        export_optimal_60(conn, tmp_path, format_slug="test-format")
+
+        index_path = tmp_path / "optimal-60" / "index.json"
+        assert index_path.exists()
+        index = json.loads(index_path.read_text())
+        assert index["cl_event"] is None
+        assert len(index["archetypes"]) >= 1
+        conn.close()
         conn.close()
