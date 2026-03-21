@@ -36,14 +36,14 @@
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
       "decks_with": 4,
-      "category": "Trainer"
+      "category": "Pokemon"
     },
     {
       "card_name": "Team Rocket's Honchkrow",
       "inclusion_pct": 100.0,
       "avg_copies": 3.8,
       "decks_with": 4,
-      "category": "Trainer"
+      "category": "Pokemon"
     },
     {
       "card_name": "Team Rocket's Giovanni",
@@ -136,14 +136,14 @@
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
       "decks_with": 4,
-      "category": "Trainer"
+      "category": "Pokemon"
     },
     {
       "card_name": "Team Rocket's Honchkrow",
       "inclusion_pct": 100.0,
       "avg_copies": 3.8,
       "decks_with": 4,
-      "category": "Trainer"
+      "category": "Pokemon"
     },
     {
       "card_name": "Team Rocket's Giovanni",
@@ -276,7 +276,7 @@
       "inclusion_pct": 25.0,
       "avg_copies": 2.0,
       "decks_with": 1,
-      "category": "Trainer"
+      "category": "Pokemon"
     },
     {
       "card_name": "Punk Helmet",
@@ -311,12 +311,12 @@
         {
           "card_name": "Team Rocket's Honchkrow",
           "count": 4,
-          "category": "Trainer"
+          "category": "Pokemon"
         },
         {
           "card_name": "Team Rocket's Murkrow",
           "count": 4,
-          "category": "Trainer"
+          "category": "Pokemon"
         },
         {
           "card_name": "Team Rocket's Archer",
@@ -408,12 +408,17 @@
       "player_name": "とりあたmax",
       "decklist": [
         {
-          "card_name": "Night Stretcher",
+          "card_name": "Team Rocket's Murkrow",
           "count": 4,
-          "category": "Trainer"
+          "category": "Pokemon"
         },
         {
-          "card_name": "Team Rocket's Murkrow",
+          "card_name": "Team Rocket's Honchkrow",
+          "count": 3,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Night Stretcher",
           "count": 4,
           "category": "Trainer"
         },
@@ -450,11 +455,6 @@
         {
           "card_name": "Pokégear 3.0",
           "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Team Rocket's Honchkrow",
-          "count": 3,
           "category": "Trainer"
         },
         {
@@ -519,12 +519,12 @@
         {
           "card_name": "Team Rocket's Honchkrow",
           "count": 4,
-          "category": "Trainer"
+          "category": "Pokemon"
         },
         {
           "card_name": "Team Rocket's Murkrow",
           "count": 4,
-          "category": "Trainer"
+          "category": "Pokemon"
         },
         {
           "card_name": "Team Rocket's Archer",
@@ -628,12 +628,17 @@
         {
           "card_name": "Team Rocket's Honchkrow",
           "count": 4,
-          "category": "Trainer"
+          "category": "Pokemon"
         },
         {
           "card_name": "Team Rocket's Murkrow",
           "count": 4,
-          "category": "Trainer"
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Team Rocket's Mimikyu",
+          "count": 2,
+          "category": "Pokemon"
         },
         {
           "card_name": "Team Rocket's Archer",
@@ -677,11 +682,6 @@
         },
         {
           "card_name": "Team Rocket's Factory",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Team Rocket's Mimikyu",
           "count": 2,
           "category": "Trainer"
         },
@@ -756,6 +756,11 @@
           "to_pct": 100.0
         },
         {
+          "card": "Tool Scrapper",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
           "card": "Punk Helmet",
           "from_pct": 0.0,
           "to_pct": 50.0
@@ -764,24 +769,9 @@
           "card": "Ultra Ball",
           "from_pct": 0.0,
           "to_pct": 50.0
-        },
-        {
-          "card": "Tool Scrapper",
-          "from_pct": 0.0,
-          "to_pct": 50.0
         }
       ],
       "dropped": [
-        {
-          "card": "Team Rocket's Porygon",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Team Rocket's Porygon2",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
         {
           "card": "Unfair Stamp",
           "from_pct": 100.0,
@@ -796,6 +786,16 @@
           "card": "Team Rocket's Mimikyu",
           "from_pct": 100.0,
           "to_pct": 0.0
+        },
+        {
+          "card": "Team Rocket's Porygon2",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Team Rocket's Porygon",
+          "from_pct": 100.0,
+          "to_pct": 0.0
         }
       ]
     },
@@ -803,17 +803,17 @@
       "week": "2026-02-23",
       "adopted": [
         {
+          "card": "Team Rocket's Porygon2",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
           "card": "Lucky Helmet",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
           "card": "Team Rocket's Porygon",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Team Rocket's Porygon2",
           "from_pct": 0.0,
           "to_pct": 100.0
         }
@@ -825,7 +825,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "Punk Helmet",
+          "card": "Tool Scrapper",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -835,14 +835,25 @@
           "to_pct": 0.0
         },
         {
-          "card": "Tool Scrapper",
+          "card": "Punk Helmet",
           "from_pct": 50.0,
           "to_pct": 0.0
         }
       ]
     }
   ],
-  "variants": [],
+  "variants": [
+    {
+      "name": "Standard",
+      "deck_count": 3,
+      "pct": 75.0
+    },
+    {
+      "name": "with Team Rocket's Mimikyu",
+      "deck_count": 1,
+      "pct": 25.0
+    }
+  ],
   "weekly_shares": [
     {
       "week": "2026-01-19",
@@ -910,7 +921,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
       "decks_with": 1,
-      "category": "Trainer",
+      "category": "Pokemon",
       "delta_vs_field": 0.0
     },
     {
@@ -918,7 +929,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 4.0,
       "decks_with": 1,
-      "category": "Trainer",
+      "category": "Pokemon",
       "delta_vs_field": 0.0
     },
     {
@@ -1078,7 +1089,7 @@
       "inclusion_pct": 0,
       "avg_copies": 0,
       "decks_with": 0,
-      "category": "Trainer",
+      "category": "Pokemon",
       "delta_vs_field": -25.0
     },
     {

@@ -1,73 +1,44 @@
 {
   "card_name": "Team Rocket's Honchkrow",
   "card_slug": "team-rocket-s-honchkrow",
-  "card_id": "me02.5-127",
-  "set_code": "me02.5",
-  "set_number": "127",
-  "image_url": "https://assets.tcgdex.net/en/me/me02.5/127/high.png",
+  "card_id": null,
+  "set_code": null,
+  "set_number": null,
+  "image_url": null,
   "category": "Trainer",
-  "rarity": "",
-  "total_appearances": 239,
-  "usage_pct": 3.5,
-  "avg_copies": 3.3,
-  "unique_archetypes": 6,
-  "weighted_score": 383.7,
-  "win_rate_proxy": 1.61,
-  "top_archetype": "Honchkrow Porygon-Z",
+  "rarity": null,
+  "total_appearances": 39,
+  "usage_pct": 3.3,
+  "avg_copies": 3.2,
+  "unique_archetypes": 3,
+  "weighted_score": 62.1,
+  "win_rate_proxy": 1.59,
+  "top_archetype": "Honchkrow Porygon2",
   "trend_direction": "stable",
   "copy_distribution": [
     {
-      "copies": 1,
-      "count": 2
-    },
-    {
-      "copies": 2,
-      "count": 1
-    },
-    {
       "copies": 3,
-      "count": 152
+      "count": 30
     },
     {
       "copies": 4,
-      "count": 84
+      "count": 9
     }
   ],
   "archetypes": [
     {
-      "name": "Honchkrow Porygon-Z",
-      "slug": "honchkrow-porygon-z",
-      "usage_count": 163,
-      "avg_copies": 3.4,
-      "tier": "C"
-    },
-    {
       "name": "Honchkrow Porygon2",
       "slug": "honchkrow-porygon2",
-      "usage_count": 68,
-      "avg_copies": 3.3,
+      "usage_count": 31,
+      "avg_copies": 3.2,
       "tier": "C"
     },
     {
-      "name": "Honchkrow",
-      "slug": "honchkrow",
-      "usage_count": 4,
-      "avg_copies": 3.8,
+      "name": "Honchkrow Porygon-Z",
+      "slug": "honchkrow-porygon-z",
+      "usage_count": 7,
+      "avg_copies": 3.4,
       "tier": "Rogue"
-    },
-    {
-      "name": "Honchkrow Spidops",
-      "slug": "honchkrow-spidops",
-      "usage_count": 2,
-      "avg_copies": 2.0,
-      "tier": "Rogue"
-    },
-    {
-      "name": "Mewtwo Spidops",
-      "slug": "mewtwo-spidops",
-      "usage_count": 1,
-      "avg_copies": 1.0,
-      "tier": "B"
     },
     {
       "name": "Articuno Honchkrow",
@@ -79,146 +50,116 @@
   ],
   "weekly_usage": [
     {
-      "week": "2026-01-19",
-      "usage_pct": 6.0,
-      "avg_copies": 3.1
-    },
-    {
-      "week": "2026-01-26",
-      "usage_pct": 3.8,
-      "avg_copies": 3.4
-    },
-    {
-      "week": "2026-02-02",
-      "usage_pct": 4.1,
-      "avg_copies": 3.4
-    },
-    {
-      "week": "2026-02-09",
-      "usage_pct": 2.0,
-      "avg_copies": 3.5
-    },
-    {
-      "week": "2026-02-16",
-      "usage_pct": 4.7,
-      "avg_copies": 3.3
-    },
-    {
-      "week": "2026-02-23",
-      "usage_pct": 3.9,
-      "avg_copies": 3.4
-    },
-    {
       "week": "2026-03-02",
-      "usage_pct": 3.1,
+      "usage_pct": 3.3,
       "avg_copies": 3.2
     }
   ],
   "synergy_partners": [
     {
+      "card_name": "Miracle Headset",
+      "support": 38,
+      "lift": 30.359,
+      "jaccard": 0.974,
+      "weighted_score": 60.9
+    },
+    {
       "card_name": "Roto-Stick",
-      "support": 101,
-      "lift": 28.268,
-      "jaccard": 0.423,
-      "weighted_score": 169.5
+      "support": 34,
+      "lift": 30.359,
+      "jaccard": 0.872,
+      "weighted_score": 54.0
     },
     {
       "card_name": "Team Rocket's Porygon",
-      "support": 234,
-      "lift": 28.268,
-      "jaccard": 0.979,
-      "weighted_score": 374.5
+      "support": 39,
+      "lift": 30.359,
+      "jaccard": 1.0,
+      "weighted_score": 62.1
     },
     {
       "card_name": "Team Rocket's Porygon-Z",
-      "support": 163,
-      "lift": 28.268,
-      "jaccard": 0.682,
-      "weighted_score": 257.3
+      "support": 7,
+      "lift": 30.359,
+      "jaccard": 0.179,
+      "weighted_score": 10.8
     },
     {
       "card_name": "Team Rocket's Porygon2",
-      "support": 234,
-      "lift": 28.268,
-      "jaccard": 0.979,
-      "weighted_score": 374.5
-    },
-    {
-      "card_name": "Miracle Headset",
-      "support": 191,
-      "lift": 27.831,
-      "jaccard": 0.789,
-      "weighted_score": 302.2
+      "support": 39,
+      "lift": 30.359,
+      "jaccard": 1.0,
+      "weighted_score": 62.1
     },
     {
       "card_name": "Team Rocket's Murkrow",
-      "support": 239,
-      "lift": 26.598,
-      "jaccard": 0.941,
-      "weighted_score": 383.7
+      "support": 39,
+      "lift": 29.6,
+      "jaccard": 0.975,
+      "weighted_score": 62.1
     },
     {
-      "card_name": "Hyper Aroma",
-      "support": 7,
-      "lift": 24.734,
-      "jaccard": 0.029,
-      "weighted_score": 14.2
-    },
-    {
-      "card_name": "Survival Brace",
-      "support": 18,
-      "lift": 19.57,
-      "jaccard": 0.073,
-      "weighted_score": 31.6
-    },
-    {
-      "card_name": "Neutralization Zone",
-      "support": 9,
-      "lift": 15.901,
-      "jaccard": 0.037,
-      "weighted_score": 14.6
+      "card_name": "Ignition Energy",
+      "support": 39,
+      "lift": 18.215,
+      "jaccard": 0.6,
+      "weighted_score": 62.1
     },
     {
       "card_name": "Team Rocket's Archer",
-      "support": 239,
-      "lift": 14.529,
-      "jaccard": 0.514,
-      "weighted_score": 383.7
+      "support": 39,
+      "lift": 10.764,
+      "jaccard": 0.355,
+      "weighted_score": 62.1
     },
     {
       "card_name": "Team Rocket's Ariana",
-      "support": 239,
-      "lift": 14.467,
-      "jaccard": 0.512,
-      "weighted_score": 383.7
-    },
-    {
-      "card_name": "Team Rocket's Giovanni",
-      "support": 239,
-      "lift": 14.467,
-      "jaccard": 0.512,
-      "weighted_score": 383.7
-    },
-    {
-      "card_name": "Team Rocket's Proton",
-      "support": 239,
-      "lift": 14.467,
-      "jaccard": 0.512,
-      "weighted_score": 383.7
+      "support": 39,
+      "lift": 10.764,
+      "jaccard": 0.355,
+      "weighted_score": 62.1
     },
     {
       "card_name": "Team Rocket's Energy",
-      "support": 239,
-      "lift": 14.344,
-      "jaccard": 0.507,
-      "weighted_score": 383.7
+      "support": 39,
+      "lift": 10.764,
+      "jaccard": 0.355,
+      "weighted_score": 62.1
     },
     {
-      "card_name": "Punk Helmet",
-      "support": 35,
-      "lift": 14.339,
-      "jaccard": 0.128,
-      "weighted_score": 55.9
+      "card_name": "Team Rocket's Giovanni",
+      "support": 39,
+      "lift": 10.764,
+      "jaccard": 0.355,
+      "weighted_score": 62.1
+    },
+    {
+      "card_name": "Team Rocket's Proton",
+      "support": 39,
+      "lift": 10.764,
+      "jaccard": 0.355,
+      "weighted_score": 62.1
+    },
+    {
+      "card_name": "Team Rocket's Factory",
+      "support": 39,
+      "lift": 10.571,
+      "jaccard": 0.348,
+      "weighted_score": 62.1
+    },
+    {
+      "card_name": "Team Rocket's Transceiver",
+      "support": 39,
+      "lift": 9.95,
+      "jaccard": 0.328,
+      "weighted_score": 62.1
+    },
+    {
+      "card_name": "Team Rocket's Articuno",
+      "support": 38,
+      "lift": 8.674,
+      "jaccard": 0.284,
+      "weighted_score": 60.9
     }
   ]
 }

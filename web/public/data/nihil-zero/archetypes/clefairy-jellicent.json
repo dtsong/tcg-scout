@@ -79,7 +79,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
       "decks_with": 2,
-      "category": "Trainer"
+      "category": "Pokemon"
     },
     {
       "card_name": "Judge",
@@ -186,7 +186,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
       "decks_with": 2,
-      "category": "Trainer"
+      "category": "Pokemon"
     },
     {
       "card_name": "Judge",
@@ -364,6 +364,11 @@
           "category": "Pokemon"
         },
         {
+          "card_name": "Lillie's Clefairy ex",
+          "count": 2,
+          "category": "Pokemon"
+        },
+        {
           "card_name": "Munkidori",
           "count": 2,
           "category": "Pokemon"
@@ -430,11 +435,6 @@
         },
         {
           "card_name": "Lillie's Pearl",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Lillie's Clefairy ex",
           "count": 2,
           "category": "Trainer"
         },
@@ -508,6 +508,11 @@
           "category": "Pokemon"
         },
         {
+          "card_name": "Lillie's Clefairy ex",
+          "count": 2,
+          "category": "Pokemon"
+        },
+        {
           "card_name": "Togepi",
           "count": 2,
           "category": "Pokemon"
@@ -555,11 +560,6 @@
         {
           "card_name": "Hilda",
           "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Lillie's Clefairy ex",
-          "count": 2,
           "category": "Trainer"
         },
         {
@@ -623,22 +623,12 @@
       "week": "2026-02-09",
       "adopted": [
         {
-          "card": "Latias ex",
+          "card": "Crispin",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Fezandipiti ex",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Munkidori",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Switch",
+          "card": "Unfair Stamp",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -658,12 +648,7 @@
           "to_pct": 100.0
         },
         {
-          "card": "Crispin",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Unfair Stamp",
+          "card": "Munkidori",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -671,11 +656,36 @@
           "card": "Poké Pad",
           "from_pct": 0.0,
           "to_pct": 100.0
+        },
+        {
+          "card": "Latias ex",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Switch",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Fezandipiti ex",
+          "from_pct": 0.0,
+          "to_pct": 100.0
         }
       ],
       "dropped": [
         {
-          "card": "Togetic",
+          "card": "Maximum Belt",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Air Balloon",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Tool Scrapper",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -690,22 +700,12 @@
           "to_pct": 0.0
         },
         {
-          "card": "Air Balloon",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Maximum Belt",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Togepi",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Tool Scrapper",
+          "card": "Togetic",
           "from_pct": 100.0,
           "to_pct": 0.0
         }
@@ -884,7 +884,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
       "decks_with": 1,
-      "category": "Trainer",
+      "category": "Pokemon",
       "delta_vs_field": 0.0
     },
     {

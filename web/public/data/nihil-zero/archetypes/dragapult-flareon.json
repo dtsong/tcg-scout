@@ -389,7 +389,7 @@
       "inclusion_pct": 50.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Trainer"
+      "category": "Pokemon"
     },
     {
       "card_name": "Lightning Energy",
@@ -518,6 +518,11 @@
           "category": "Pokemon"
         },
         {
+          "card_name": "Lillie's Clefairy ex",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
           "card_name": "Leafeon ex",
           "count": 1,
           "category": "Pokemon"
@@ -604,11 +609,6 @@
         },
         {
           "card_name": "Lillie's Pearl",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Lillie's Clefairy ex",
           "count": 1,
           "category": "Trainer"
         },
@@ -832,27 +832,7 @@
       "week": "2026-02-02",
       "adopted": [
         {
-          "card": "Lillie's Clefairy ex",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Lillie's Pearl",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
           "card": "Tapu Koko ex",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Wellspring Mask Ogerpon ex",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Hoothoot",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -867,12 +847,17 @@
           "to_pct": 100.0
         },
         {
-          "card": "Noctowl",
+          "card": "Tool Scrapper",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Fan Rotom",
+          "card": "Wellspring Mask Ogerpon ex",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Lillie's Clefairy ex",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -882,12 +867,32 @@
           "to_pct": 100.0
         },
         {
-          "card": "Tool Scrapper",
+          "card": "Noctowl",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Lillie's Pearl",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Fan Rotom",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Hoothoot",
           "from_pct": 0.0,
           "to_pct": 100.0
         }
       ],
       "dropped": [
+        {
+          "card": "Hilda",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
         {
           "card": "Blowtorch",
           "from_pct": 100.0,
@@ -899,7 +904,17 @@
           "to_pct": 0.0
         },
         {
+          "card": "Briar",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
           "card": "Dawn",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Marill",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -909,22 +924,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "Briar",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Hilda",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Azumarill",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Marill",
           "from_pct": 100.0,
           "to_pct": 0.0
         }

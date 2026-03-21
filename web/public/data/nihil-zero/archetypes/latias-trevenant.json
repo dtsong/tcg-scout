@@ -51,7 +51,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 5,
-      "category": "Trainer"
+      "category": "Pokemon"
     },
     {
       "card_name": "Latias ex",
@@ -172,7 +172,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 5,
-      "category": "Trainer"
+      "category": "Pokemon"
     },
     {
       "card_name": "Latias ex",
@@ -417,6 +417,11 @@
           "category": "Pokemon"
         },
         {
+          "card_name": "Lillie's Clefairy ex",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
           "card_name": "Munkidori",
           "count": 1,
           "category": "Pokemon"
@@ -468,11 +473,6 @@
         },
         {
           "card_name": "Tool Scrapper",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Lillie's Clefairy ex",
           "count": 1,
           "category": "Trainer"
         },
@@ -551,6 +551,11 @@
           "category": "Pokemon"
         },
         {
+          "card_name": "Lillie's Clefairy ex",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
           "card_name": "Munkidori",
           "count": 1,
           "category": "Pokemon"
@@ -607,11 +612,6 @@
         },
         {
           "card_name": "Judge",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Lillie's Clefairy ex",
           "count": 1,
           "category": "Trainer"
         },
@@ -690,6 +690,11 @@
           "category": "Pokemon"
         },
         {
+          "card_name": "Lillie's Clefairy ex",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
           "card_name": "Bloodmoon Ursaluna ex",
           "count": 1,
           "category": "Pokemon"
@@ -750,11 +755,6 @@
           "category": "Trainer"
         },
         {
-          "card_name": "Lillie's Clefairy ex",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
           "card_name": "Secret Box",
           "count": 1,
           "category": "Trainer"
@@ -809,6 +809,11 @@
           "category": "Pokemon"
         },
         {
+          "card_name": "Lillie's Clefairy ex",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
           "card_name": "Poké Pad",
           "count": 4,
           "category": "Trainer"
@@ -856,11 +861,6 @@
         {
           "card_name": "Hilda",
           "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Lillie's Clefairy ex",
-          "count": 1,
           "category": "Trainer"
         },
         {
@@ -914,6 +914,11 @@
         },
         {
           "card_name": "Hop's Zacian ex",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Lillie's Clefairy ex",
           "count": 1,
           "category": "Pokemon"
         },
@@ -973,11 +978,6 @@
           "category": "Trainer"
         },
         {
-          "card_name": "Lillie's Clefairy ex",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
           "card_name": "Repel",
           "count": 1,
           "category": "Trainer"
@@ -1023,17 +1023,22 @@
           "to_pct": 100.0
         },
         {
-          "card": "Fezandipiti ex",
+          "card": "Hop's Zacian ex",
           "from_pct": 33.3,
           "to_pct": 100.0
         },
         {
-          "card": "Hop's Zacian ex",
+          "card": "Fezandipiti ex",
           "from_pct": 33.3,
           "to_pct": 100.0
         }
       ],
       "dropped": [
+        {
+          "card": "Tool Scrapper",
+          "from_pct": 66.7,
+          "to_pct": 0.0
+        },
         {
           "card": "Team Rocket's Petrel",
           "from_pct": 66.7,
@@ -1043,11 +1048,6 @@
           "card": "Morty's Conviction",
           "from_pct": 66.7,
           "to_pct": 0.0
-        },
-        {
-          "card": "Tool Scrapper",
-          "from_pct": 66.7,
-          "to_pct": 0.0
         }
       ]
     },
@@ -1055,17 +1055,7 @@
       "week": "2026-02-23",
       "adopted": [
         {
-          "card": "Switch",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Repel",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Team Rocket's Transceiver",
+          "card": "Mist Energy",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -1075,17 +1065,22 @@
           "to_pct": 100.0
         },
         {
-          "card": "Mist Energy",
+          "card": "Repel",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Switch",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Team Rocket's Transceiver",
           "from_pct": 0.0,
           "to_pct": 100.0
         }
       ],
       "dropped": [
-        {
-          "card": "Hop's Cramorant",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
         {
           "card": "Munkidori",
           "from_pct": 100.0,
@@ -1093,6 +1088,11 @@
         },
         {
           "card": "Bloodmoon Ursaluna ex",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Hop's Cramorant",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -1273,7 +1273,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Trainer",
+      "category": "Pokemon",
       "delta_vs_field": 0.0
     },
     {
