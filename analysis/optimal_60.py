@@ -101,12 +101,10 @@ def compute_optimal_60(
     # Classify placements as CL or meta
     cl_pids = set()
     meta_pids = set()
-    weight_by_pid: dict[int, float] = {}
 
     for r in rows:
         pid = r["placement_id"]
         is_cl = r["tournament_type"] == "champions-league" or r["tournament_id"] in cl_ids
-        weight_by_pid[pid] = _get_placement_weight(r["standing"], is_cl, boost)
         if is_cl:
             cl_pids.add(pid)
         else:
@@ -114,9 +112,16 @@ def compute_optimal_60(
 
     cl_deck_count = len(cl_pids)
     meta_deck_count = len(meta_pids)
-
-    # If below CL threshold, fall back to standard consensus
     has_cl_data = cl_deck_count >= min_cl_decks
+
+    # Only apply CL boost if we have enough CL data; otherwise treat as regular placements
+    effective_boost = boost if has_cl_data else 1.0
+
+    weight_by_pid: dict[int, float] = {}
+    for r in rows:
+        pid = r["placement_id"]
+        is_cl = pid in cl_pids
+        weight_by_pid[pid] = _get_placement_weight(r["standing"], is_cl, effective_boost)
 
     total_weight = sum(weight_by_pid.values())
     placement_ids = list(weight_by_pid.keys())

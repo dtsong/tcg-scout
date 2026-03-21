@@ -651,6 +651,7 @@ def scrape_jp(
 @cli.command("scrape-tournament")
 @click.argument("tournament_id", type=int)
 @click.option("--name", default=None, help="Tournament name (default: auto-detected)")
+@click.option("--date", default=None, help="Tournament date YYYY-MM-DD (required)")
 @click.option("--max-placements", default=64, help="Max placements to scrape")
 @click.option("--fetch-decklists/--no-decklists", default=True, help="Fetch decklists")
 @click.option(
@@ -665,6 +666,7 @@ def scrape_tournament(
     ctx: click.Context,
     tournament_id: int,
     name: str | None,
+    date: str | None,
     max_placements: int,
     fetch_decklists: bool,
     tournament_type: str,
@@ -672,8 +674,11 @@ def scrape_tournament(
 ) -> None:
     """Scrape a single Limitless tournament by ID.
 
-    Example: scout scrape-tournament 547 --name "Fukuoka CL 2026" --player-count 7000
+    Example: scout scrape-tournament 547 --name "Fukuoka CL 2026" --date 2026-03-20 --player-count 7000
     """
+    if not date:
+        console.print("[red]--date is required (e.g. --date 2026-03-20)[/red]")
+        return
     from scraper.limitless import LimitlessClient
 
     fmt = ctx.obj["format"]
@@ -710,7 +715,7 @@ def scrape_tournament(
             (
                 tournament_url,
                 tournament_name,
-                "2026-03-20",  # Fukuoka CL date
+                date,
                 player_count,
                 "JP",
                 "open",
