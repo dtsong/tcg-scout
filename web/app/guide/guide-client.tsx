@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ChevronDown } from "lucide-react";
 
 const SCENARIOS = [
@@ -190,6 +190,21 @@ export function GuideClient() {
   const [openSections, setOpenSections] = useState<Set<string>>(
     new Set(["dashboard"])
   );
+
+  // Open and scroll to section from URL hash (e.g. /guide#buy-list)
+  useEffect(() => {
+    const hash = window.location.hash.replace("#", "");
+    if (!hash) return;
+    // Check if this hash matches a tool section
+    const sectionIds = TOOL_SECTIONS.map((s) => s.id);
+    if (sectionIds.includes(hash)) {
+      setOpenSections((prev) => new Set([...prev, hash]));
+      // Scroll after DOM updates
+      requestAnimationFrame(() => {
+        document.getElementById(hash)?.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    }
+  }, []);
 
   function toggleSection(id: string) {
     setOpenSections((prev) => {
