@@ -1386,19 +1386,14 @@
       "week": "2026-02-02",
       "adopted": [
         {
-          "card": "Mega Kangaskhan ex",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
           "card": "Prime Catcher",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Energy Recycler",
+          "card": "Mega Kangaskhan ex",
           "from_pct": 0.0,
-          "to_pct": 50.0
+          "to_pct": 100.0
         },
         {
           "card": "Sandy Shocks",
@@ -1406,24 +1401,24 @@
           "to_pct": 50.0
         },
         {
-          "card": "Lillie's Clefairy ex",
+          "card": "Battle Cage",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
         {
-          "card": "Battle Cage",
+          "card": "Energy Recycler",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Lillie's Clefairy ex",
           "from_pct": 0.0,
           "to_pct": 50.0
         }
       ],
       "dropped": [
         {
-          "card": "Carmine",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Wellspring Mask Ogerpon ex",
+          "card": "Sparkling Crystal",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -1433,7 +1428,12 @@
           "to_pct": 0.0
         },
         {
-          "card": "Sparkling Crystal",
+          "card": "Carmine",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Wellspring Mask Ogerpon ex",
           "from_pct": 100.0,
           "to_pct": 0.0
         }
@@ -1455,12 +1455,12 @@
           "to_pct": 0.0
         },
         {
-          "card": "Chien-Pao",
+          "card": "Sandy Shocks",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
-          "card": "Sandy Shocks",
+          "card": "Chien-Pao",
           "from_pct": 50.0,
           "to_pct": 0.0
         }
@@ -1527,6 +1527,11 @@
     },
     {
       "week": "2026-03-02",
+      "meta_share": 0.0,
+      "deck_count": 0
+    },
+    {
+      "week": "2026-03-16",
       "meta_share": 0.0,
       "deck_count": 0
     }

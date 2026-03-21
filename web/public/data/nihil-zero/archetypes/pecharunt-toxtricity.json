@@ -628,11 +628,6 @@
           "to_pct": 100.0
         },
         {
-          "card": "Larry's Skill",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
           "card": "Pokégear 3.0",
           "from_pct": 0.0,
           "to_pct": 100.0
@@ -641,16 +636,16 @@
           "card": "Gravity Mountain",
           "from_pct": 0.0,
           "to_pct": 100.0
+        },
+        {
+          "card": "Larry's Skill",
+          "from_pct": 0.0,
+          "to_pct": 100.0
         }
       ],
       "dropped": [
         {
           "card": "Tatsugiri",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Team Rocket's Watchtower",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -671,6 +666,11 @@
         },
         {
           "card": "Risky Ruins",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Team Rocket's Watchtower",
           "from_pct": 100.0,
           "to_pct": 0.0
         }
@@ -711,6 +711,11 @@
     },
     {
       "week": "2026-03-02",
+      "meta_share": 0.0,
+      "deck_count": 0
+    },
+    {
+      "week": "2026-03-16",
       "meta_share": 0.0,
       "deck_count": 0
     }

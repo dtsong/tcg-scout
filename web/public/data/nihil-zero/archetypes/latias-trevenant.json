@@ -1023,22 +1023,17 @@
           "to_pct": 100.0
         },
         {
-          "card": "Hop's Zacian ex",
+          "card": "Fezandipiti ex",
           "from_pct": 33.3,
           "to_pct": 100.0
         },
         {
-          "card": "Fezandipiti ex",
+          "card": "Hop's Zacian ex",
           "from_pct": 33.3,
           "to_pct": 100.0
         }
       ],
       "dropped": [
-        {
-          "card": "Tool Scrapper",
-          "from_pct": 66.7,
-          "to_pct": 0.0
-        },
         {
           "card": "Team Rocket's Petrel",
           "from_pct": 66.7,
@@ -1048,6 +1043,11 @@
           "card": "Morty's Conviction",
           "from_pct": 66.7,
           "to_pct": 0.0
+        },
+        {
+          "card": "Tool Scrapper",
+          "from_pct": 66.7,
+          "to_pct": 0.0
         }
       ]
     },
@@ -1055,17 +1055,17 @@
       "week": "2026-02-23",
       "adopted": [
         {
-          "card": "Mist Energy",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
           "card": "Team Rocket's Petrel",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Repel",
+          "card": "Team Rocket's Transceiver",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Mist Energy",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -1075,14 +1075,14 @@
           "to_pct": 100.0
         },
         {
-          "card": "Team Rocket's Transceiver",
+          "card": "Repel",
           "from_pct": 0.0,
           "to_pct": 100.0
         }
       ],
       "dropped": [
         {
-          "card": "Munkidori",
+          "card": "Pokégear 3.0",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -1092,12 +1092,12 @@
           "to_pct": 0.0
         },
         {
-          "card": "Hop's Cramorant",
+          "card": "Munkidori",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Pokégear 3.0",
+          "card": "Hop's Cramorant",
           "from_pct": 100.0,
           "to_pct": 0.0
         }
@@ -1159,6 +1159,11 @@
     },
     {
       "week": "2026-03-02",
+      "meta_share": 0.0,
+      "deck_count": 0
+    },
+    {
+      "week": "2026-03-16",
       "meta_share": 0.0,
       "deck_count": 0
     }

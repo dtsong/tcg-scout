@@ -1,47 +1,65 @@
 {
   "card_name": "N's Zorua",
   "card_slug": "n-s-zorua",
-  "card_id": null,
-  "set_code": null,
-  "set_number": null,
-  "image_url": null,
+  "card_id": "svp-189",
+  "set_code": "svp",
+  "set_number": "189",
+  "image_url": "https://assets.tcgdex.net/en/sv/svp/189/high.png",
   "category": "Pokemon",
-  "rarity": null,
-  "total_appearances": 64,
-  "usage_pct": 5.4,
-  "avg_copies": 4.0,
-  "unique_archetypes": 6,
-  "weighted_score": 97.7,
-  "win_rate_proxy": 1.53,
+  "rarity": "",
+  "total_appearances": 332,
+  "usage_pct": 4.9,
+  "avg_copies": 3.9,
+  "unique_archetypes": 25,
+  "weighted_score": 525.9,
+  "win_rate_proxy": 1.58,
   "top_archetype": "Darmanitan Zoroark",
   "trend_direction": "stable",
   "copy_distribution": [
     {
+      "copies": 1,
+      "count": 2
+    },
+    {
       "copies": 2,
-      "count": 1
+      "count": 8
     },
     {
       "copies": 3,
-      "count": 1
+      "count": 4
     },
     {
       "copies": 4,
-      "count": 62
+      "count": 318
     }
   ],
   "archetypes": [
     {
       "name": "Darmanitan Zoroark",
       "slug": "darmanitan-zoroark",
-      "usage_count": 45,
+      "usage_count": 212,
       "avg_copies": 4.0,
       "tier": "B"
     },
     {
       "name": "Zoroark ex",
       "slug": "zoroark-ex",
-      "usage_count": 9,
+      "usage_count": 57,
       "avg_copies": 4.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Pecharunt Zoroark",
+      "slug": "pecharunt-zoroark",
+      "usage_count": 19,
+      "avg_copies": 4.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Dusknoir Zoroark",
+      "slug": "dusknoir-zoroark",
+      "usage_count": 11,
+      "avg_copies": 3.9,
       "tier": "Rogue"
     },
     {
@@ -52,9 +70,114 @@
       "tier": "Rogue"
     },
     {
-      "name": "Pecharunt Zoroark",
-      "slug": "pecharunt-zoroark",
+      "name": "Archaludon Zoroark",
+      "slug": "archaludon-zoroark",
+      "usage_count": 5,
+      "avg_copies": 4.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Munkidori Zoroark",
+      "slug": "munkidori-zoroark",
+      "usage_count": 3,
+      "avg_copies": 4.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Dusclops Zoroark",
+      "slug": "dusclops-zoroark",
       "usage_count": 2,
+      "avg_copies": 4.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Slowking Zoroark",
+      "slug": "slowking-zoroark",
+      "usage_count": 1,
+      "avg_copies": 2.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Mega Gengar Hydreigon",
+      "slug": "mega-gengar-hydreigon",
+      "usage_count": 1,
+      "avg_copies": 2.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Mega Gardevoir Zoroark",
+      "slug": "mega-gardevoir-zoroark",
+      "usage_count": 1,
+      "avg_copies": 2.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Mega Dragonite Mega Starmie",
+      "slug": "mega-dragonite-mega-starmie",
+      "usage_count": 1,
+      "avg_copies": 1.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Mega Diancie Zoroark",
+      "slug": "mega-diancie-zoroark",
+      "usage_count": 1,
+      "avg_copies": 4.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Mega Charizard X Zoroark",
+      "slug": "mega-charizard-x-zoroark",
+      "usage_count": 1,
+      "avg_copies": 3.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Mega Charizard X Typhlosion",
+      "slug": "mega-charizard-x-typhlosion",
+      "usage_count": 1,
+      "avg_copies": 1.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Mega Charizard Mega Charizard X Y",
+      "slug": "mega-charizard-mega-charizard-x-y",
+      "usage_count": 1,
+      "avg_copies": 2.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Hydreigon Zoroark",
+      "slug": "hydreigon-zoroark",
+      "usage_count": 1,
+      "avg_copies": 2.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Greninja Zoroark",
+      "slug": "greninja-zoroark",
+      "usage_count": 1,
+      "avg_copies": 4.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Fezandipiti Zoroark",
+      "slug": "fezandipiti-zoroark",
+      "usage_count": 1,
+      "avg_copies": 4.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Dragapult Zoroark",
+      "slug": "dragapult-zoroark",
+      "usage_count": 1,
+      "avg_copies": 2.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Diggersby Zoroark",
+      "slug": "diggersby-zoroark",
+      "usage_count": 1,
       "avg_copies": 4.0,
       "tier": "Rogue"
     },
@@ -66,8 +189,22 @@
       "tier": "Rogue"
     },
     {
+      "name": "Blaziken Zoroark",
+      "slug": "blaziken-zoroark",
+      "usage_count": 1,
+      "avg_copies": 3.0,
+      "tier": "Rogue"
+    },
+    {
       "name": "Blaziken Greninja",
       "slug": "blaziken-greninja",
+      "usage_count": 1,
+      "avg_copies": 2.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Alakazam Zoroark",
+      "slug": "alakazam-zoroark",
       "usage_count": 1,
       "avg_copies": 2.0,
       "tier": "Rogue"
@@ -75,116 +212,151 @@
   ],
   "weekly_usage": [
     {
+      "week": "2026-01-19",
+      "usage_pct": 3.6,
+      "avg_copies": 3.8
+    },
+    {
+      "week": "2026-01-26",
+      "usage_pct": 4.4,
+      "avg_copies": 3.9
+    },
+    {
+      "week": "2026-02-02",
+      "usage_pct": 4.3,
+      "avg_copies": 3.9
+    },
+    {
+      "week": "2026-02-09",
+      "usage_pct": 5.1,
+      "avg_copies": 4.0
+    },
+    {
+      "week": "2026-02-16",
+      "usage_pct": 6.2,
+      "avg_copies": 4.0
+    },
+    {
+      "week": "2026-02-23",
+      "usage_pct": 6.0,
+      "avg_copies": 4.0
+    },
+    {
       "week": "2026-03-02",
       "usage_pct": 5.4,
+      "avg_copies": 4.0
+    },
+    {
+      "week": "2026-03-16",
+      "usage_pct": 3.1,
       "avg_copies": 4.0
     }
   ],
   "synergy_partners": [
     {
-      "card_name": "Janine's Secret Art",
-      "support": 57,
-      "lift": 18.5,
-      "jaccard": 0.891,
-      "weighted_score": 87.1
-    },
-    {
       "card_name": "N's Castle",
-      "support": 61,
-      "lift": 18.5,
-      "jaccard": 0.953,
-      "weighted_score": 93.8
+      "support": 303,
+      "lift": 20.446,
+      "jaccard": 0.913,
+      "weighted_score": 484.1
     },
     {
       "card_name": "N's Darmanitan",
-      "support": 57,
-      "lift": 18.5,
-      "jaccard": 0.891,
-      "weighted_score": 87.9
+      "support": 256,
+      "lift": 20.446,
+      "jaccard": 0.771,
+      "weighted_score": 414.8
     },
     {
       "card_name": "N's Darumaka",
-      "support": 57,
-      "lift": 18.5,
-      "jaccard": 0.891,
-      "weighted_score": 87.9
+      "support": 256,
+      "lift": 20.446,
+      "jaccard": 0.771,
+      "weighted_score": 414.8
     },
     {
       "card_name": "N's PP Up",
-      "support": 62,
-      "lift": 18.5,
-      "jaccard": 0.969,
-      "weighted_score": 95.0
+      "support": 316,
+      "lift": 20.446,
+      "jaccard": 0.952,
+      "weighted_score": 502.7
     },
     {
       "card_name": "N's Reshiram",
-      "support": 56,
-      "lift": 18.5,
-      "jaccard": 0.875,
-      "weighted_score": 86.2
+      "support": 304,
+      "lift": 20.446,
+      "jaccard": 0.916,
+      "weighted_score": 483.5
     },
     {
       "card_name": "N's Zekrom",
-      "support": 63,
-      "lift": 18.5,
-      "jaccard": 0.984,
-      "weighted_score": 96.5
+      "support": 318,
+      "lift": 20.446,
+      "jaccard": 0.958,
+      "weighted_score": 505.4
     },
     {
       "card_name": "N's Zoroark ex",
-      "support": 64,
-      "lift": 18.5,
+      "support": 332,
+      "lift": 20.446,
       "jaccard": 1.0,
-      "weighted_score": 97.7
+      "weighted_score": 525.9
+    },
+    {
+      "card_name": "Janine's Secret Art",
+      "support": 224,
+      "lift": 20.087,
+      "jaccard": 0.667,
+      "weighted_score": 354.1
     },
     {
       "card_name": "Binding Mochi",
-      "support": 61,
-      "lift": 17.098,
-      "jaccard": 0.884,
-      "weighted_score": 93.5
+      "support": 295,
+      "lift": 18.222,
+      "jaccard": 0.802,
+      "weighted_score": 468.3
     },
     {
       "card_name": "Pecharunt ex",
-      "support": 62,
-      "lift": 15.931,
-      "jaccard": 0.838,
-      "weighted_score": 95.0
-    },
-    {
-      "card_name": "Black Belt's Training",
-      "support": 53,
-      "lift": 8.914,
-      "jaccard": 0.438,
-      "weighted_score": 81.2
-    },
-    {
-      "card_name": "Yveltal",
-      "support": 18,
-      "lift": 6.937,
-      "jaccard": 0.191,
-      "weighted_score": 25.3
-    },
-    {
-      "card_name": "Buneary",
-      "support": 6,
-      "lift": 5.842,
-      "jaccard": 0.078,
-      "weighted_score": 8.3
-    },
-    {
-      "card_name": "Mega Lopunny ex",
-      "support": 6,
-      "lift": 5.842,
-      "jaccard": 0.078,
-      "weighted_score": 8.3
+      "support": 309,
+      "lift": 15.26,
+      "jaccard": 0.707,
+      "weighted_score": 490.3
     },
     {
       "card_name": "Cyrano",
-      "support": 61,
-      "lift": 5.4,
-      "jaccard": 0.288,
-      "weighted_score": 93.8
+      "support": 293,
+      "lift": 9.216,
+      "jaccard": 0.425,
+      "weighted_score": 465.9
+    },
+    {
+      "card_name": "Black Belt's Training",
+      "support": 232,
+      "lift": 9.018,
+      "jaccard": 0.371,
+      "weighted_score": 368.0
+    },
+    {
+      "card_name": "Eri",
+      "support": 8,
+      "lift": 8.178,
+      "jaccard": 0.023,
+      "weighted_score": 13.0
+    },
+    {
+      "card_name": "Yveltal",
+      "support": 86,
+      "lift": 6.371,
+      "jaccard": 0.165,
+      "weighted_score": 132.6
+    },
+    {
+      "card_name": "Pecharunt",
+      "support": 8,
+      "lift": 6.058,
+      "jaccard": 0.023,
+      "weighted_score": 15.6
     }
   ]
 }

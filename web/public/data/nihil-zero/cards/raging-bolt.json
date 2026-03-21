@@ -7,166 +7,215 @@
   "image_url": null,
   "category": "Pokemon",
   "rarity": null,
-  "total_appearances": 41,
-  "usage_pct": 3.5,
+  "total_appearances": 103,
+  "usage_pct": 1.5,
   "avg_copies": 1.1,
-  "unique_archetypes": 4,
-  "weighted_score": 65.8,
-  "win_rate_proxy": 1.6,
+  "unique_archetypes": 6,
+  "weighted_score": 158.9,
+  "win_rate_proxy": 1.54,
   "top_archetype": "Noctowl Ogerpon",
-  "trend_direction": "stable",
+  "trend_direction": "surging",
   "copy_distribution": [
     {
       "copies": 1,
-      "count": 35
+      "count": 94
     },
     {
       "copies": 2,
-      "count": 6
+      "count": 9
     }
   ],
   "archetypes": [
     {
       "name": "Noctowl Ogerpon",
       "slug": "noctowl-ogerpon",
-      "usage_count": 20,
+      "usage_count": 50,
       "avg_copies": 1.0,
       "tier": "C"
     },
     {
       "name": "Raging Bolt ex",
       "slug": "raging-bolt-ex",
-      "usage_count": 17,
-      "avg_copies": 1.3,
+      "usage_count": 45,
+      "avg_copies": 1.2,
       "tier": "C"
     },
     {
       "name": "Meowth Ogerpon",
       "slug": "meowth-ogerpon",
-      "usage_count": 2,
-      "avg_copies": 1.5,
-      "tier": "C"
+      "usage_count": 4,
+      "avg_copies": 1.3,
+      "tier": "Rogue"
     },
     {
       "name": "Mega Kangaskhan Ogerpon",
       "slug": "mega-kangaskhan-ogerpon",
       "usage_count": 2,
       "avg_copies": 1.0,
-      "tier": "C"
+      "tier": "Rogue"
+    },
+    {
+      "name": "Noctowl Raging Bolt",
+      "slug": "noctowl-raging-bolt",
+      "usage_count": 1,
+      "avg_copies": 1.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Latias Pikachu",
+      "slug": "latias-pikachu",
+      "usage_count": 1,
+      "avg_copies": 1.0,
+      "tier": "Rogue"
     }
   ],
   "weekly_usage": [
     {
+      "week": "2026-01-19",
+      "usage_pct": 0.0,
+      "avg_copies": 0
+    },
+    {
+      "week": "2026-01-26",
+      "usage_pct": 0.1,
+      "avg_copies": 1.0
+    },
+    {
+      "week": "2026-02-02",
+      "usage_pct": 0.3,
+      "avg_copies": 1.0
+    },
+    {
+      "week": "2026-02-09",
+      "usage_pct": 1.0,
+      "avg_copies": 1.1
+    },
+    {
+      "week": "2026-02-16",
+      "usage_pct": 2.3,
+      "avg_copies": 1.0
+    },
+    {
+      "week": "2026-02-23",
+      "usage_pct": 3.6,
+      "avg_copies": 1.0
+    },
+    {
       "week": "2026-03-02",
       "usage_pct": 3.5,
-      "avg_copies": 1.1
+      "avg_copies": 1.2
+    },
+    {
+      "week": "2026-03-16",
+      "usage_pct": 9.4,
+      "avg_copies": 1.0
     }
   ],
   "synergy_partners": [
     {
-      "card_name": "Terapagos ex",
-      "support": 17,
-      "lift": 16.929,
-      "jaccard": 0.321,
-      "weighted_score": 23.7
-    },
-    {
       "card_name": "Raging Bolt ex",
-      "support": 41,
-      "lift": 16.0,
-      "jaccard": 0.554,
-      "weighted_score": 65.8
+      "support": 103,
+      "lift": 28.283,
+      "jaccard": 0.429,
+      "weighted_score": 158.9
     },
     {
-      "card_name": "Glass Trumpet",
-      "support": 41,
-      "lift": 15.579,
-      "jaccard": 0.539,
-      "weighted_score": 65.8
-    },
-    {
-      "card_name": "Energy Retrieval",
-      "support": 39,
-      "lift": 13.569,
-      "jaccard": 0.459,
-      "weighted_score": 61.8
-    },
-    {
-      "card_name": "Tera Orb",
-      "support": 28,
-      "lift": 11.551,
-      "jaccard": 0.337,
-      "weighted_score": 42.3
+      "card_name": "Terapagos ex",
+      "support": 47,
+      "lift": 27.411,
+      "jaccard": 0.278,
+      "weighted_score": 69.6
     },
     {
       "card_name": "Iron Leaves ex",
-      "support": 38,
-      "lift": 10.654,
-      "jaccard": 0.358,
-      "weighted_score": 61.1
+      "support": 89,
+      "lift": 23.651,
+      "jaccard": 0.34,
+      "weighted_score": 137.8
+    },
+    {
+      "card_name": "Community Center",
+      "support": 8,
+      "lift": 22.923,
+      "jaccard": 0.068,
+      "weighted_score": 10.0
+    },
+    {
+      "card_name": "Glass Trumpet",
+      "support": 102,
+      "lift": 22.185,
+      "jaccard": 0.336,
+      "weighted_score": 157.7
+    },
+    {
+      "card_name": "Energy Retrieval",
+      "support": 93,
+      "lift": 18.461,
+      "jaccard": 0.272,
+      "weighted_score": 142.9
+    },
+    {
+      "card_name": "Tera Orb",
+      "support": 81,
+      "lift": 11.168,
+      "jaccard": 0.162,
+      "weighted_score": 122.5
+    },
+    {
+      "card_name": "Dusk Ball",
+      "support": 7,
+      "lift": 9.045,
+      "jaccard": 0.048,
+      "weighted_score": 9.6
     },
     {
       "card_name": "Energy Search",
-      "support": 19,
-      "lift": 9.3,
-      "jaccard": 0.235,
-      "weighted_score": 27.7
-    },
-    {
-      "card_name": "Fan Rotom",
-      "support": 23,
-      "lift": 8.856,
-      "jaccard": 0.247,
-      "weighted_score": 33.4
+      "support": 56,
+      "lift": 9.023,
+      "jaccard": 0.123,
+      "weighted_score": 83.5
     },
     {
       "card_name": "Area Zero Underdepths",
-      "support": 41,
-      "lift": 4.933,
-      "jaccard": 0.171,
-      "weighted_score": 65.8
-    },
-    {
-      "card_name": "Teal Mask Ogerpon ex",
-      "support": 41,
-      "lift": 4.536,
-      "jaccard": 0.157,
-      "weighted_score": 65.8
+      "support": 102,
+      "lift": 8.178,
+      "jaccard": 0.124,
+      "weighted_score": 157.7
     },
     {
       "card_name": "Hoothoot",
-      "support": 24,
-      "lift": 4.226,
-      "jaccard": 0.133,
-      "weighted_score": 34.9
+      "support": 64,
+      "lift": 7.613,
+      "jaccard": 0.108,
+      "weighted_score": 94.9
     },
     {
       "card_name": "Noctowl",
-      "support": 24,
-      "lift": 4.226,
-      "jaccard": 0.133,
-      "weighted_score": 34.9
+      "support": 64,
+      "lift": 7.613,
+      "jaccard": 0.108,
+      "weighted_score": 94.9
     },
     {
-      "card_name": "Jamming Tower",
-      "support": 19,
-      "lift": 3.758,
-      "jaccard": 0.113,
-      "weighted_score": 27.5
+      "card_name": "Teal Mask Ogerpon ex",
+      "support": 102,
+      "lift": 7.528,
+      "jaccard": 0.114,
+      "weighted_score": 157.7
     },
     {
-      "card_name": "Energy Switch",
-      "support": 41,
-      "lift": 3.7,
-      "jaccard": 0.128,
-      "weighted_score": 65.8
+      "card_name": "Fan Rotom",
+      "support": 63,
+      "lift": 6.643,
+      "jaccard": 0.095,
+      "weighted_score": 93.4
     },
     {
       "card_name": "Mega Kangaskhan ex",
-      "support": 21,
-      "lift": 3.465,
-      "jaccard": 0.108,
-      "weighted_score": 36.6
+      "support": 45,
+      "lift": 6.547,
+      "jaccard": 0.088,
+      "weighted_score": 73.7
     }
   ]
 }

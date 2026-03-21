@@ -2,11 +2,11 @@
   "archetype": "Dragapult Noctowl",
   "slug": "dragapult-noctowl",
   "format": "nihil-zero",
-  "generated_at": "2026-03-21T02:18:53.852899+00:00",
+  "generated_at": "2026-03-21T07:19:12.335661+00:00",
   "tier": "C",
-  "meta_share": 1.54,
+  "meta_share": 1.55,
   "weighted_share": 1.56,
-  "deck_count": 104,
+  "deck_count": 105,
   "best_placement": 1,
   "sprite_filenames": [
     "dragapult.png",
@@ -14,8 +14,8 @@
   ],
   "consensus_60": {
     "quality_score": 88.2,
-    "total_pokemon": 26,
-    "total_trainer": 34,
+    "total_pokemon": 27,
+    "total_trainer": 33,
     "total_energy": 0,
     "cards": [
       {
@@ -157,7 +157,7 @@
         "card_name": "Rare Candy",
         "count": 1,
         "category": "Trainer",
-        "weighted_inclusion_pct": 90.3,
+        "weighted_inclusion_pct": 90.4,
         "weighted_avg_copies": 1.4,
         "confidence": 0.91,
         "consensus": "core"
@@ -174,17 +174,17 @@
       {
         "card_name": "Lillie's Clefairy ex",
         "count": 1,
-        "category": "Trainer",
+        "category": "Pokemon",
         "weighted_inclusion_pct": 87.8,
         "weighted_avg_copies": 1.0,
-        "confidence": 0.88,
+        "confidence": 0.89,
         "consensus": "core"
       },
       {
         "card_name": "Switch",
         "count": 1,
         "category": "Trainer",
-        "weighted_inclusion_pct": 87.5,
+        "weighted_inclusion_pct": 87.6,
         "weighted_avg_copies": 1.0,
         "confidence": 0.88,
         "consensus": "core"
@@ -195,77 +195,77 @@
         "category": "Trainer",
         "weighted_inclusion_pct": 87.2,
         "weighted_avg_copies": 2.0,
-        "confidence": 0.89,
+        "confidence": 0.9,
         "consensus": "core"
       },
       {
         "card_name": "Air Balloon",
         "count": 1,
         "category": "Trainer",
-        "weighted_inclusion_pct": 70.0,
+        "weighted_inclusion_pct": 70.2,
         "weighted_avg_copies": 1.0,
-        "confidence": 0.68,
+        "confidence": 0.69,
         "consensus": "common"
       },
       {
         "card_name": "Judge",
         "count": 1,
         "category": "Trainer",
-        "weighted_inclusion_pct": 59.6,
+        "weighted_inclusion_pct": 59.2,
         "weighted_avg_copies": 1.1,
-        "confidence": 0.59,
+        "confidence": 0.58,
         "consensus": "common"
       },
       {
         "card_name": "Munkidori",
         "count": 1,
         "category": "Pokemon",
-        "weighted_inclusion_pct": 57.2,
+        "weighted_inclusion_pct": 57.5,
         "weighted_avg_copies": 1.0,
         "confidence": 0.6,
-        "consensus": "common"
-      },
-      {
-        "card_name": "Fezandipiti ex",
-        "count": 1,
-        "category": "Pokemon",
-        "weighted_inclusion_pct": 51.1,
-        "weighted_avg_copies": 1.0,
-        "confidence": 0.53,
         "consensus": "common"
       },
       {
         "card_name": "Dawn",
         "count": 2,
         "category": "Trainer",
-        "weighted_inclusion_pct": 50.6,
+        "weighted_inclusion_pct": 50.9,
         "weighted_avg_copies": 2.2,
         "confidence": 0.5,
+        "consensus": "common"
+      },
+      {
+        "card_name": "Fezandipiti ex",
+        "count": 1,
+        "category": "Pokemon",
+        "weighted_inclusion_pct": 50.8,
+        "weighted_avg_copies": 1.0,
+        "confidence": 0.52,
         "consensus": "common"
       },
       {
         "card_name": "Chien-Pao",
         "count": 1,
         "category": "Pokemon",
-        "weighted_inclusion_pct": 37.0,
+        "weighted_inclusion_pct": 36.8,
         "weighted_avg_copies": 1.0,
-        "confidence": 0.36,
+        "confidence": 0.35,
         "consensus": "tech"
       },
       {
         "card_name": "Latias ex",
         "count": 1,
         "category": "Pokemon",
-        "weighted_inclusion_pct": 32.5,
+        "weighted_inclusion_pct": 32.4,
         "weighted_avg_copies": 1.0,
-        "confidence": 0.33,
+        "confidence": 0.32,
         "consensus": "tech"
       },
       {
         "card_name": "Duskull",
         "count": 1,
         "category": "Pokemon",
-        "weighted_inclusion_pct": 21.2,
+        "weighted_inclusion_pct": 21.1,
         "weighted_avg_copies": 1.3,
         "confidence": 0.21,
         "consensus": "tech"
@@ -274,7 +274,7 @@
         "card_name": "Energy Search",
         "count": 1,
         "category": "Trainer",
-        "weighted_inclusion_pct": 20.4,
+        "weighted_inclusion_pct": 20.3,
         "weighted_avg_copies": 1.0,
         "confidence": 0.18,
         "consensus": "tech"
@@ -283,7 +283,7 @@
         "card_name": "Dusknoir",
         "count": 1,
         "category": "Pokemon",
-        "weighted_inclusion_pct": 20.0,
+        "weighted_inclusion_pct": 19.9,
         "weighted_avg_copies": 1.0,
         "confidence": 0.2,
         "consensus": "tech"
@@ -297,9 +297,58 @@
       "2026-02-02",
       "2026-02-09",
       "2026-02-23",
-      "2026-03-02"
+      "2026-03-02",
+      "2026-03-16"
     ],
     "cards": [
+      {
+        "card_name": "Judge",
+        "category": "Trainer",
+        "timeline": [
+          67.9,
+          65.6,
+          42.9,
+          53.8,
+          50.0,
+          50.0,
+          0.0
+        ],
+        "copies_timeline": [
+          1.1,
+          1.0,
+          1.1,
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ],
+        "trend": "dropped",
+        "total_delta": -67.9
+      },
+      {
+        "card_name": "Fezandipiti ex",
+        "category": "Pokemon",
+        "timeline": [
+          53.6,
+          40.6,
+          47.6,
+          61.5,
+          100.0,
+          87.5,
+          0.0
+        ],
+        "copies_timeline": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ],
+        "trend": "dropped",
+        "total_delta": -53.6
+      },
       {
         "card_name": "Chien-Pao",
         "category": "Pokemon",
@@ -309,6 +358,7 @@
           38.1,
           23.1,
           0.0,
+          0.0,
           0.0
         ],
         "copies_timeline": [
@@ -316,6 +366,7 @@
           1.0,
           1.0,
           1.0,
+          0.0,
           0.0,
           0.0
         ],
@@ -331,6 +382,7 @@
           47.6,
           69.2,
           0.0,
+          100.0,
           100.0
         ],
         "copies_timeline": [
@@ -339,142 +391,11 @@
           1.1,
           1.0,
           0.0,
+          1.0,
           1.0
         ],
         "trend": "shifted",
         "total_delta": 50.0
-      },
-      {
-        "card_name": "Fezandipiti ex",
-        "category": "Pokemon",
-        "timeline": [
-          53.6,
-          40.6,
-          47.6,
-          61.5,
-          100.0,
-          87.5
-        ],
-        "copies_timeline": [
-          1.0,
-          1.0,
-          1.0,
-          1.0,
-          1.0,
-          1.0
-        ],
-        "trend": "shifted",
-        "total_delta": 33.9
-      },
-      {
-        "card_name": "Sparkling Crystal",
-        "category": "Trainer",
-        "timeline": [
-          96.4,
-          96.9,
-          81.0,
-          92.3,
-          100.0,
-          62.5
-        ],
-        "copies_timeline": [
-          1.0,
-          1.0,
-          1.0,
-          1.0,
-          1.0,
-          1.0
-        ],
-        "trend": "shifted",
-        "total_delta": -33.9
-      },
-      {
-        "card_name": "Unfair Stamp",
-        "category": "Trainer",
-        "timeline": [
-          3.6,
-          3.1,
-          19.0,
-          7.7,
-          0.0,
-          37.5
-        ],
-        "copies_timeline": [
-          1.0,
-          1.0,
-          1.0,
-          1.0,
-          0.0,
-          1.0
-        ],
-        "trend": "adopted",
-        "total_delta": 33.9
-      },
-      {
-        "card_name": "Air Balloon",
-        "category": "Trainer",
-        "timeline": [
-          60.7,
-          62.5,
-          85.7,
-          61.5,
-          50.0,
-          87.5
-        ],
-        "copies_timeline": [
-          1.0,
-          1.0,
-          1.0,
-          1.0,
-          1.0,
-          1.0
-        ],
-        "trend": "shifted",
-        "total_delta": 26.8
-      },
-      {
-        "card_name": "Counter Gain",
-        "category": "Trainer",
-        "timeline": [
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          25.0
-        ],
-        "copies_timeline": [
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          1.0
-        ],
-        "trend": "shifted",
-        "total_delta": 25.0
-      },
-      {
-        "card_name": "Switch",
-        "category": "Trainer",
-        "timeline": [
-          96.4,
-          87.5,
-          76.2,
-          92.3,
-          100.0,
-          75.0
-        ],
-        "copies_timeline": [
-          1.0,
-          1.0,
-          1.0,
-          1.0,
-          1.0,
-          1.0
-        ],
-        "trend": "shifted",
-        "total_delta": -21.4
       },
       {
         "card_name": "Dawn",
@@ -485,7 +406,8 @@
           33.3,
           53.8,
           50.0,
-          37.5
+          37.5,
+          100.0
         ],
         "copies_timeline": [
           2.0,
@@ -493,45 +415,146 @@
           1.4,
           2.0,
           4.0,
+          1.0,
           1.0
         ],
-        "trend": "stable",
-        "total_delta": -19.6
+        "trend": "shifted",
+        "total_delta": 42.9
       },
       {
-        "card_name": "Judge",
+        "card_name": "Air Balloon",
         "category": "Trainer",
         "timeline": [
-          67.9,
-          65.6,
-          42.9,
-          53.8,
+          60.7,
+          62.5,
+          85.7,
+          61.5,
           50.0,
-          50.0
+          87.5,
+          100.0
         ],
         "copies_timeline": [
-          1.1,
           1.0,
-          1.1,
+          1.0,
+          1.0,
+          1.0,
           1.0,
           1.0,
           1.0
+        ],
+        "trend": "shifted",
+        "total_delta": 39.3
+      },
+      {
+        "card_name": "Latias ex",
+        "category": "Pokemon",
+        "timeline": [
+          32.1,
+          34.4,
+          23.8,
+          46.2,
+          50.0,
+          25.0,
+          0.0
+        ],
+        "copies_timeline": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ],
+        "trend": "dropped",
+        "total_delta": -32.1
+      },
+      {
+        "card_name": "Budew",
+        "category": "Pokemon",
+        "timeline": [
+          17.9,
+          12.5,
+          33.3,
+          7.7,
+          50.0,
+          12.5,
+          0.0
+        ],
+        "copies_timeline": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ],
+        "trend": "stable",
+        "total_delta": -17.9
+      },
+      {
+        "card_name": "Dusknoir",
+        "category": "Pokemon",
+        "timeline": [
+          17.9,
+          18.8,
+          28.6,
+          15.4,
+          0.0,
+          25.0,
+          0.0
+        ],
+        "copies_timeline": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        "trend": "stable",
+        "total_delta": -17.9
+      },
+      {
+        "card_name": "Duskull",
+        "category": "Pokemon",
+        "timeline": [
+          17.9,
+          21.9,
+          28.6,
+          15.4,
+          0.0,
+          25.0,
+          0.0
+        ],
+        "copies_timeline": [
+          1.2,
+          1.1,
+          1.5,
+          1.0,
+          0.0,
+          1.5,
+          0.0
         ],
         "trend": "stable",
         "total_delta": -17.9
       },
       {
         "card_name": "Lillie's Clefairy ex",
-        "category": "Trainer",
+        "category": "Pokemon",
         "timeline": [
           82.1,
           84.4,
           100.0,
           84.6,
           100.0,
+          100.0,
           100.0
         ],
         "copies_timeline": [
+          1.0,
           1.0,
           1.0,
           1.0,
@@ -551,6 +574,7 @@
           95.2,
           100.0,
           100.0,
+          100.0,
           100.0
         ],
         "copies_timeline": [
@@ -559,7 +583,8 @@
           1.6,
           1.5,
           1.5,
-          1.2
+          1.2,
+          1.0
         ],
         "trend": "stable",
         "total_delta": 17.9
@@ -573,6 +598,7 @@
           85.7,
           100.0,
           50.0,
+          100.0,
           100.0
         ],
         "copies_timeline": [
@@ -581,7 +607,8 @@
           2.6,
           2.2,
           2.0,
-          1.8
+          1.8,
+          1.0
         ],
         "trend": "stable",
         "total_delta": 10.7
@@ -595,6 +622,7 @@
           4.8,
           7.7,
           0.0,
+          0.0,
           0.0
         ],
         "copies_timeline": [
@@ -602,6 +630,7 @@
           1.0,
           1.0,
           1.0,
+          0.0,
           0.0,
           0.0
         ],
@@ -609,15 +638,16 @@
         "total_delta": -10.7
       },
       {
-        "card_name": "Energy Search",
-        "category": "Trainer",
+        "card_name": "Bloodmoon Ursaluna ex",
+        "category": "Pokemon",
         "timeline": [
-          3.6,
-          25.0,
-          14.3,
+          7.1,
+          3.1,
+          9.5,
           30.8,
           100.0,
-          12.5
+          12.5,
+          0.0
         ],
         "copies_timeline": [
           1.0,
@@ -625,73 +655,8 @@
           1.0,
           1.0,
           1.0,
-          1.0
-        ],
-        "trend": "stable",
-        "total_delta": 8.9
-      },
-      {
-        "card_name": "Dusknoir",
-        "category": "Pokemon",
-        "timeline": [
-          17.9,
-          18.8,
-          28.6,
-          15.4,
-          0.0,
-          25.0
-        ],
-        "copies_timeline": [
           1.0,
-          1.0,
-          1.0,
-          1.0,
-          0.0,
-          1.0
-        ],
-        "trend": "stable",
-        "total_delta": 7.1
-      },
-      {
-        "card_name": "Duskull",
-        "category": "Pokemon",
-        "timeline": [
-          17.9,
-          21.9,
-          28.6,
-          15.4,
-          0.0,
-          25.0
-        ],
-        "copies_timeline": [
-          1.2,
-          1.1,
-          1.5,
-          1.0,
-          0.0,
-          1.5
-        ],
-        "trend": "stable",
-        "total_delta": 7.1
-      },
-      {
-        "card_name": "Latias ex",
-        "category": "Pokemon",
-        "timeline": [
-          32.1,
-          34.4,
-          23.8,
-          46.2,
-          50.0,
-          25.0
-        ],
-        "copies_timeline": [
-          1.0,
-          1.0,
-          1.0,
-          1.0,
-          1.0,
-          1.0
+          0.0
         ],
         "trend": "stable",
         "total_delta": -7.1
@@ -705,6 +670,7 @@
           4.8,
           0.0,
           50.0,
+          0.0,
           0.0
         ],
         "copies_timeline": [
@@ -713,6 +679,7 @@
           1.0,
           0.0,
           1.0,
+          0.0,
           0.0
         ],
         "trend": "stable",
@@ -727,6 +694,7 @@
           100.0,
           100.0,
           100.0,
+          100.0,
           100.0
         ],
         "copies_timeline": [
@@ -735,7 +703,8 @@
           2.4,
           2.2,
           2.5,
-          2.6
+          2.6,
+          3.0
         ],
         "trend": "stable",
         "total_delta": 7.1
@@ -749,6 +718,7 @@
           100.0,
           100.0,
           100.0,
+          100.0,
           100.0
         ],
         "copies_timeline": [
@@ -757,21 +727,23 @@
           2.4,
           2.2,
           2.5,
-          2.2
+          2.2,
+          3.0
         ],
         "trend": "stable",
         "total_delta": 7.1
       },
       {
-        "card_name": "Bloodmoon Ursaluna ex",
-        "category": "Pokemon",
+        "card_name": "Energy Search",
+        "category": "Trainer",
         "timeline": [
-          7.1,
-          3.1,
-          9.5,
+          3.6,
+          25.0,
+          14.3,
           30.8,
           100.0,
-          12.5
+          12.5,
+          0.0
         ],
         "copies_timeline": [
           1.0,
@@ -779,23 +751,26 @@
           1.0,
           1.0,
           1.0,
-          1.0
+          1.0,
+          0.0
         ],
         "trend": "stable",
-        "total_delta": 5.4
+        "total_delta": -3.6
       },
       {
-        "card_name": "Budew",
-        "category": "Pokemon",
+        "card_name": "Sparkling Crystal",
+        "category": "Trainer",
         "timeline": [
-          17.9,
-          12.5,
-          33.3,
-          7.7,
-          50.0,
-          12.5
+          96.4,
+          96.9,
+          81.0,
+          92.3,
+          100.0,
+          62.5,
+          100.0
         ],
         "copies_timeline": [
+          1.0,
           1.0,
           1.0,
           1.0,
@@ -804,12 +779,61 @@
           1.0
         ],
         "trend": "stable",
-        "total_delta": -5.4
+        "total_delta": 3.6
+      },
+      {
+        "card_name": "Switch",
+        "category": "Trainer",
+        "timeline": [
+          96.4,
+          87.5,
+          76.2,
+          92.3,
+          100.0,
+          75.0,
+          100.0
+        ],
+        "copies_timeline": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "trend": "stable",
+        "total_delta": 3.6
+      },
+      {
+        "card_name": "Unfair Stamp",
+        "category": "Trainer",
+        "timeline": [
+          3.6,
+          3.1,
+          19.0,
+          7.7,
+          0.0,
+          37.5,
+          0.0
+        ],
+        "copies_timeline": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        "trend": "stable",
+        "total_delta": -3.6
       },
       {
         "card_name": "Area Zero Underdepths",
         "category": "Trainer",
         "timeline": [
+          100.0,
           100.0,
           100.0,
           100.0,
@@ -823,7 +847,8 @@
           2.6,
           2.6,
           2.5,
-          2.6
+          2.6,
+          3.0
         ],
         "trend": "stable",
         "total_delta": 0.0
@@ -837,6 +862,7 @@
           100.0,
           100.0,
           100.0,
+          100.0,
           100.0
         ],
         "copies_timeline": [
@@ -845,7 +871,8 @@
           2.1,
           2.1,
           2.0,
-          2.1
+          2.1,
+          2.0
         ],
         "trend": "stable",
         "total_delta": 0.0
@@ -859,6 +886,7 @@
           100.0,
           100.0,
           100.0,
+          100.0,
           100.0
         ],
         "copies_timeline": [
@@ -867,7 +895,32 @@
           3.3,
           3.8,
           4.0,
-          3.1
+          3.1,
+          3.0
+        ],
+        "trend": "stable",
+        "total_delta": 0.0
+      },
+      {
+        "card_name": "Counter Gain",
+        "category": "Trainer",
+        "timeline": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          25.0,
+          0.0
+        ],
+        "copies_timeline": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0
         ],
         "trend": "stable",
         "total_delta": 0.0
@@ -881,6 +934,7 @@
           100.0,
           100.0,
           100.0,
+          100.0,
           100.0
         ],
         "copies_timeline": [
@@ -889,7 +943,8 @@
           3.1,
           3.0,
           2.5,
-          2.9
+          2.9,
+          4.0
         ],
         "trend": "stable",
         "total_delta": 0.0
@@ -903,9 +958,11 @@
           100.0,
           100.0,
           100.0,
+          100.0,
           100.0
         ],
         "copies_timeline": [
+          2.0,
           2.0,
           2.0,
           2.0,
@@ -925,6 +982,7 @@
           100.0,
           100.0,
           100.0,
+          100.0,
           100.0
         ],
         "copies_timeline": [
@@ -932,6 +990,7 @@
           2.9,
           2.9,
           3.1,
+          3.0,
           3.0,
           3.0
         ],
@@ -947,6 +1006,7 @@
           100.0,
           100.0,
           100.0,
+          100.0,
           100.0
         ],
         "copies_timeline": [
@@ -955,7 +1015,8 @@
           3.1,
           3.2,
           3.5,
-          3.2
+          3.2,
+          3.0
         ],
         "trend": "stable",
         "total_delta": 0.0
@@ -969,6 +1030,7 @@
           100.0,
           100.0,
           100.0,
+          100.0,
           100.0
         ],
         "copies_timeline": [
@@ -977,7 +1039,8 @@
           2.0,
           1.9,
           1.5,
-          1.8
+          1.8,
+          2.0
         ],
         "trend": "stable",
         "total_delta": 0.0
@@ -991,6 +1054,7 @@
           100.0,
           100.0,
           100.0,
+          100.0,
           100.0
         ],
         "copies_timeline": [
@@ -999,7 +1063,8 @@
           3.6,
           3.4,
           3.0,
-          3.5
+          3.5,
+          4.0
         ],
         "trend": "stable",
         "total_delta": 0.0
@@ -1013,6 +1078,7 @@
           0.0,
           0.0,
           50.0,
+          0.0,
           0.0
         ],
         "copies_timeline": [
@@ -1021,6 +1087,7 @@
           0.0,
           0.0,
           1.0,
+          0.0,
           0.0
         ],
         "trend": "stable",
@@ -1035,6 +1102,7 @@
           100.0,
           100.0,
           100.0,
+          100.0,
           100.0
         ],
         "copies_timeline": [
@@ -1042,6 +1110,7 @@
           1.9,
           2.0,
           1.9,
+          2.0,
           2.0,
           2.0
         ],
@@ -1057,6 +1126,7 @@
           100.0,
           100.0,
           100.0,
+          100.0,
           100.0
         ],
         "copies_timeline": [
@@ -1065,7 +1135,8 @@
           3.5,
           3.3,
           3.0,
-          3.2
+          3.2,
+          4.0
         ],
         "trend": "stable",
         "total_delta": 0.0
@@ -1079,6 +1150,7 @@
           100.0,
           100.0,
           100.0,
+          100.0,
           100.0
         ],
         "copies_timeline": [
@@ -1087,7 +1159,8 @@
           3.9,
           3.9,
           4.0,
-          3.8
+          3.8,
+          4.0
         ],
         "trend": "stable",
         "total_delta": 0.0
@@ -1101,6 +1174,7 @@
           100.0,
           100.0,
           50.0,
+          100.0,
           100.0
         ],
         "copies_timeline": [
@@ -1109,7 +1183,8 @@
           2.3,
           2.0,
           3.0,
-          1.9
+          1.9,
+          3.0
         ],
         "trend": "stable",
         "total_delta": 0.0
@@ -1125,11 +1200,11 @@
       "to_pct": 100.0
     },
     {
-      "card_name": "Energy Search",
-      "event": "declined",
-      "week": "2026-03-02",
-      "from_pct": 100.0,
-      "to_pct": 12.5
+      "card_name": "Fezandipiti ex",
+      "event": "disappeared",
+      "week": "2026-03-16",
+      "from_pct": 87.5,
+      "to_pct": 0.0
     },
     {
       "card_name": "Bloodmoon Ursaluna ex",
@@ -1137,6 +1212,27 @@
       "week": "2026-03-02",
       "from_pct": 100.0,
       "to_pct": 12.5
+    },
+    {
+      "card_name": "Energy Search",
+      "event": "declined",
+      "week": "2026-03-02",
+      "from_pct": 100.0,
+      "to_pct": 12.5
+    },
+    {
+      "card_name": "Dawn",
+      "event": "surged",
+      "week": "2026-03-16",
+      "from_pct": 37.5,
+      "to_pct": 100.0
+    },
+    {
+      "card_name": "Judge",
+      "event": "disappeared",
+      "week": "2026-03-16",
+      "from_pct": 50.0,
+      "to_pct": 0.0
     },
     {
       "card_name": "Lillie's Determination",
@@ -1174,11 +1270,11 @@
       "to_pct": 50.0
     },
     {
-      "card_name": "Fezandipiti ex",
+      "card_name": "Air Balloon",
       "event": "surged",
-      "week": "2026-02-23",
-      "from_pct": 61.5,
-      "to_pct": 100.0
+      "week": "2026-03-02",
+      "from_pct": 50.0,
+      "to_pct": 87.5
     },
     {
       "card_name": "Sparkling Crystal",
@@ -1195,25 +1291,11 @@
       "to_pct": 37.5
     },
     {
-      "card_name": "Air Balloon",
-      "event": "surged",
-      "week": "2026-03-02",
-      "from_pct": 50.0,
-      "to_pct": 87.5
-    },
-    {
-      "card_name": "Counter Gain",
-      "event": "appeared",
-      "week": "2026-03-02",
-      "from_pct": 0.0,
-      "to_pct": 25.0
-    },
-    {
-      "card_name": "Switch",
+      "card_name": "Latias ex",
       "event": "declined",
       "week": "2026-03-02",
-      "from_pct": 100.0,
-      "to_pct": 75.0
+      "from_pct": 50.0,
+      "to_pct": 25.0
     },
     {
       "card_name": "Dusknoir",
@@ -1230,10 +1312,17 @@
       "to_pct": 25.0
     },
     {
-      "card_name": "Latias ex",
+      "card_name": "Switch",
       "event": "declined",
       "week": "2026-03-02",
-      "from_pct": 50.0,
+      "from_pct": 100.0,
+      "to_pct": 75.0
+    },
+    {
+      "card_name": "Counter Gain",
+      "event": "appeared",
+      "week": "2026-03-02",
+      "from_pct": 0.0,
       "to_pct": 25.0
     },
     {
@@ -1249,27 +1338,13 @@
       "week": "2026-02-23",
       "from_pct": 23.1,
       "to_pct": 0.0
-    },
-    {
-      "card_name": "Dawn",
-      "event": "declined",
-      "week": "2026-02-02",
-      "from_pct": 56.2,
-      "to_pct": 33.3
-    },
-    {
-      "card_name": "Judge",
-      "event": "declined",
-      "week": "2026-02-02",
-      "from_pct": 65.6,
-      "to_pct": 42.9
     }
   ],
   "placement_distribution": [
     {
       "bracket": "1st",
       "count": 10,
-      "pct": 9.6
+      "pct": 9.5
     },
     {
       "bracket": "2nd",
@@ -1279,19 +1354,24 @@
     {
       "bracket": "3rd-4th",
       "count": 17,
-      "pct": 16.3
+      "pct": 16.2
     },
     {
       "bracket": "5th-8th",
       "count": 23,
-      "pct": 22.1
+      "pct": 21.9
     },
     {
       "bracket": "9th-16th",
       "count": 52,
-      "pct": 50.0
+      "pct": 49.5
+    },
+    {
+      "bracket": "17th+",
+      "count": 1,
+      "pct": 1.0
     }
   ],
-  "tournament_count": 89,
+  "tournament_count": 90,
   "narrative": {}
 }

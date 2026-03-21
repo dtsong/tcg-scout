@@ -7,46 +7,88 @@
   "image_url": null,
   "category": "Trainer",
   "rarity": null,
-  "total_appearances": 35,
-  "usage_pct": 3.0,
+  "total_appearances": 84,
+  "usage_pct": 1.2,
   "avg_copies": 2.4,
-  "unique_archetypes": 6,
-  "weighted_score": 58.9,
-  "win_rate_proxy": 1.68,
+  "unique_archetypes": 15,
+  "weighted_score": 132.2,
+  "win_rate_proxy": 1.57,
   "top_archetype": "Alakazam Dudunsparce",
   "trend_direction": "stable",
   "copy_distribution": [
     {
       "copies": 1,
-      "count": 3
+      "count": 10
     },
     {
       "copies": 2,
-      "count": 15
+      "count": 33
     },
     {
       "copies": 3,
-      "count": 16
+      "count": 37
     },
     {
       "copies": 4,
-      "count": 1
+      "count": 4
     }
   ],
   "archetypes": [
     {
       "name": "Alakazam Dudunsparce",
       "slug": "alakazam-dudunsparce",
-      "usage_count": 30,
-      "avg_copies": 2.6,
+      "usage_count": 58,
+      "avg_copies": 2.7,
       "tier": "B"
     },
     {
       "name": "Mewtwo Spidops",
       "slug": "mewtwo-spidops",
-      "usage_count": 1,
+      "usage_count": 5,
       "avg_copies": 2.0,
       "tier": "B"
+    },
+    {
+      "name": "Mega Venusaur",
+      "slug": "mega-venusaur",
+      "usage_count": 5,
+      "avg_copies": 2.0,
+      "tier": "B"
+    },
+    {
+      "name": "Mega Lucario Solrock",
+      "slug": "mega-lucario-solrock",
+      "usage_count": 3,
+      "avg_copies": 2.0,
+      "tier": "C"
+    },
+    {
+      "name": "Honchkrow Porygon2",
+      "slug": "honchkrow-porygon2",
+      "usage_count": 2,
+      "avg_copies": 2.0,
+      "tier": "C"
+    },
+    {
+      "name": "Archaludon ex",
+      "slug": "archaludon-ex",
+      "usage_count": 2,
+      "avg_copies": 2.0,
+      "tier": "C"
+    },
+    {
+      "name": "Spidops",
+      "slug": "spidops",
+      "usage_count": 1,
+      "avg_copies": 2.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Mega Starmie Dusknoir",
+      "slug": "mega-starmie-dusknoir",
+      "usage_count": 1,
+      "avg_copies": 3.0,
+      "tier": "Rogue"
     },
     {
       "name": "Mega Starmie Dudunsparce",
@@ -56,22 +98,43 @@
       "tier": "Rogue"
     },
     {
-      "name": "Mega Lucario Solrock",
-      "slug": "mega-lucario-solrock",
+      "name": "Mega Lucario",
+      "slug": "mega-lucario",
+      "usage_count": 1,
+      "avg_copies": 1.0,
+      "tier": "A"
+    },
+    {
+      "name": "Mega Kangaskhan Latias",
+      "slug": "mega-kangaskhan-latias",
+      "usage_count": 1,
+      "avg_copies": 1.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Mega Diancie Dusknoir",
+      "slug": "mega-diancie-dusknoir",
       "usage_count": 1,
       "avg_copies": 1.0,
       "tier": "C"
     },
     {
-      "name": "Honchkrow Porygon2",
-      "slug": "honchkrow-porygon2",
+      "name": "Honchkrow",
+      "slug": "honchkrow",
       "usage_count": 1,
       "avg_copies": 2.0,
-      "tier": "C"
+      "tier": "Rogue"
     },
     {
-      "name": "Archaludon ex",
-      "slug": "archaludon-ex",
+      "name": "Grimmsnarl Munkidori",
+      "slug": "grimmsnarl-munkidori",
+      "usage_count": 1,
+      "avg_copies": 2.0,
+      "tier": "B"
+    },
+    {
+      "name": "Dragapult Hydreigon",
+      "slug": "dragapult-hydreigon",
       "usage_count": 1,
       "avg_copies": 2.0,
       "tier": "Rogue"
@@ -79,116 +142,151 @@
   ],
   "weekly_usage": [
     {
+      "week": "2026-01-19",
+      "usage_pct": 0.7,
+      "avg_copies": 2.0
+    },
+    {
+      "week": "2026-01-26",
+      "usage_pct": 0.3,
+      "avg_copies": 2.0
+    },
+    {
+      "week": "2026-02-02",
+      "usage_pct": 0.3,
+      "avg_copies": 2.3
+    },
+    {
+      "week": "2026-02-09",
+      "usage_pct": 0.1,
+      "avg_copies": 1.5
+    },
+    {
+      "week": "2026-02-16",
+      "usage_pct": 0.8,
+      "avg_copies": 2.0
+    },
+    {
+      "week": "2026-02-23",
+      "usage_pct": 3.5,
+      "avg_copies": 2.6
+    },
+    {
       "week": "2026-03-02",
       "usage_pct": 3.0,
       "avg_copies": 2.4
+    },
+    {
+      "week": "2026-03-16",
+      "usage_pct": 0.0,
+      "avg_copies": 0
     }
   ],
   "synergy_partners": [
     {
-      "card_name": "Abra",
-      "support": 30,
-      "lift": 19.516,
-      "jaccard": 0.526,
-      "weighted_score": 52.1
-    },
-    {
-      "card_name": "Alakazam",
-      "support": 30,
-      "lift": 19.516,
-      "jaccard": 0.526,
-      "weighted_score": 52.1
-    },
-    {
-      "card_name": "Kadabra",
-      "support": 30,
-      "lift": 19.516,
-      "jaccard": 0.526,
-      "weighted_score": 52.1
-    },
-    {
-      "card_name": "Enriching Energy",
-      "support": 30,
-      "lift": 19.148,
-      "jaccard": 0.517,
-      "weighted_score": 52.1
+      "card_name": "Genesect",
+      "support": 61,
+      "lift": 25.15,
+      "jaccard": 0.279,
+      "weighted_score": 100.5
     },
     {
       "card_name": "Enhanced Hammer",
-      "support": 26,
-      "lift": 19.12,
-      "jaccard": 0.473,
-      "weighted_score": 44.4
+      "support": 48,
+      "lift": 13.375,
+      "jaccard": 0.147,
+      "weighted_score": 79.3
+    },
+    {
+      "card_name": "Enriching Energy",
+      "support": 57,
+      "lift": 13.16,
+      "jaccard": 0.151,
+      "weighted_score": 95.1
+    },
+    {
+      "card_name": "Alakazam",
+      "support": 58,
+      "lift": 12.841,
+      "jaccard": 0.148,
+      "weighted_score": 96.6
+    },
+    {
+      "card_name": "Kadabra",
+      "support": 58,
+      "lift": 12.841,
+      "jaccard": 0.148,
+      "weighted_score": 96.6
+    },
+    {
+      "card_name": "Abra",
+      "support": 58,
+      "lift": 12.771,
+      "jaccard": 0.148,
+      "weighted_score": 96.6
     },
     {
       "card_name": "Dudunsparce",
-      "support": 31,
-      "lift": 19.067,
-      "jaccard": 0.525,
-      "weighted_score": 53.3
+      "support": 59,
+      "lift": 11.919,
+      "jaccard": 0.139,
+      "weighted_score": 97.8
     },
     {
       "card_name": "Dunsparce",
-      "support": 31,
-      "lift": 19.067,
-      "jaccard": 0.525,
-      "weighted_score": 53.3
-    },
-    {
-      "card_name": "Genesect",
-      "support": 29,
-      "lift": 16.082,
-      "jaccard": 0.433,
-      "weighted_score": 50.9
+      "support": 59,
+      "lift": 11.919,
+      "jaccard": 0.139,
+      "weighted_score": 97.8
     },
     {
       "card_name": "Sacred Ash",
-      "support": 28,
-      "lift": 15.035,
-      "jaccard": 0.4,
-      "weighted_score": 49.7
-    },
-    {
-      "card_name": "Wondrous Patch",
-      "support": 23,
-      "lift": 11.613,
-      "jaccard": 0.291,
-      "weighted_score": 38.5
+      "support": 56,
+      "lift": 11.342,
+      "jaccard": 0.131,
+      "weighted_score": 94.2
     },
     {
       "card_name": "Telepath Psychic Energy",
-      "support": 30,
-      "lift": 10.251,
-      "jaccard": 0.288,
-      "weighted_score": 52.1
+      "support": 59,
+      "lift": 6.91,
+      "jaccard": 0.083,
+      "weighted_score": 97.8
     },
     {
-      "card_name": "Battle Cage",
-      "support": 31,
-      "lift": 7.945,
-      "jaccard": 0.228,
-      "weighted_score": 53.3
-    },
-    {
-      "card_name": "Hilda",
-      "support": 31,
-      "lift": 6.133,
-      "jaccard": 0.177,
-      "weighted_score": 53.3
+      "card_name": "Wondrous Patch",
+      "support": 39,
+      "lift": 5.297,
+      "jaccard": 0.061,
+      "weighted_score": 63.0
     },
     {
       "card_name": "Lana's Aid",
-      "support": 22,
-      "lift": 4.929,
-      "jaccard": 0.134,
-      "weighted_score": 37.3
+      "support": 44,
+      "lift": 5.183,
+      "jaccard": 0.061,
+      "weighted_score": 70.1
     },
     {
-      "card_name": "Shaymin",
-      "support": 29,
-      "lift": 4.857,
-      "jaccard": 0.139,
-      "weighted_score": 50.6
+      "card_name": "Battle Cage",
+      "support": 60,
+      "lift": 4.863,
+      "jaccard": 0.059,
+      "weighted_score": 99.0
+    },
+    {
+      "card_name": "Hilda",
+      "support": 61,
+      "lift": 3.445,
+      "jaccard": 0.042,
+      "weighted_score": 99.9
+    },
+    {
+      "card_name": "Psyduck",
+      "support": 61,
+      "lift": 3.14,
+      "jaccard": 0.038,
+      "weighted_score": 100.2
     }
   ]
 }
