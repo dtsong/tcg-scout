@@ -1,0 +1,283 @@
+{
+  "card_name": "Nのゾロアークex",
+  "card_slug": "n-ex",
+  "card_id": null,
+  "set_code": null,
+  "set_number": null,
+  "image_url": null,
+  "category": "Trainer",
+  "rarity": null,
+  "total_appearances": 86,
+  "usage_pct": 3.6,
+  "avg_copies": 3.8,
+  "unique_archetypes": 18,
+  "weighted_score": 132.6,
+  "win_rate_proxy": 1.54,
+  "top_archetype": "Mewtwo Spidops",
+  "trend_direction": "stable",
+  "copy_distribution": [
+    {
+      "copies": 1,
+      "count": 1
+    },
+    {
+      "copies": 2,
+      "count": 3
+    },
+    {
+      "copies": 3,
+      "count": 6
+    },
+    {
+      "copies": 4,
+      "count": 78
+    }
+  ],
+  "archetypes": [
+    {
+      "name": "Mewtwo Spidops",
+      "slug": "mewtwo-spidops",
+      "usage_count": 13,
+      "avg_copies": 3.9,
+      "tier": "B"
+    },
+    {
+      "name": "Mega Kangaskhan Latias",
+      "slug": "mega-kangaskhan-latias",
+      "usage_count": 12,
+      "avg_copies": 3.8,
+      "tier": "B"
+    },
+    {
+      "name": "Dipplin Thwackey",
+      "slug": "dipplin-thwackey",
+      "usage_count": 11,
+      "avg_copies": 3.7,
+      "tier": "B"
+    },
+    {
+      "name": "Mega Lucario",
+      "slug": "mega-lucario",
+      "usage_count": 9,
+      "avg_copies": 3.8,
+      "tier": "A"
+    },
+    {
+      "name": "Unknown",
+      "slug": "unknown",
+      "usage_count": 6,
+      "avg_copies": 4.0,
+      "tier": "A"
+    },
+    {
+      "name": "Archaludon ex",
+      "slug": "archaludon-ex",
+      "usage_count": 6,
+      "avg_copies": 3.5,
+      "tier": "B"
+    },
+    {
+      "name": "Dragapult Meowth",
+      "slug": "dragapult-meowth",
+      "usage_count": 5,
+      "avg_copies": 4.0,
+      "tier": "A"
+    },
+    {
+      "name": "Ogerpon Ogerpon Wellspring",
+      "slug": "ogerpon-ogerpon-wellspring",
+      "usage_count": 4,
+      "avg_copies": 4.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Zoroark ex",
+      "slug": "zoroark-ex",
+      "usage_count": 3,
+      "avg_copies": 4.0,
+      "tier": "C"
+    },
+    {
+      "name": "Spidops",
+      "slug": "spidops",
+      "usage_count": 3,
+      "avg_copies": 4.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Jellicent",
+      "slug": "jellicent",
+      "usage_count": 3,
+      "avg_copies": 3.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Alakazam Dudunsparce",
+      "slug": "alakazam-dudunsparce",
+      "usage_count": 3,
+      "avg_copies": 3.7,
+      "tier": "B"
+    },
+    {
+      "name": "Dragapult Dusknoir",
+      "slug": "dragapult-dusknoir",
+      "usage_count": 2,
+      "avg_copies": 4.0,
+      "tier": "B"
+    },
+    {
+      "name": "Blaziken Dragapult",
+      "slug": "blaziken-dragapult",
+      "usage_count": 2,
+      "avg_copies": 4.0,
+      "tier": "B"
+    },
+    {
+      "name": "Mega Meganium Mega Venusaur",
+      "slug": "mega-meganium-mega-venusaur",
+      "usage_count": 1,
+      "avg_copies": 4.0,
+      "tier": "C"
+    },
+    {
+      "name": "Mega Kangaskhan Dragapult",
+      "slug": "mega-kangaskhan-dragapult",
+      "usage_count": 1,
+      "avg_copies": 4.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Mega Greninja Dudunsparce",
+      "slug": "mega-greninja-dudunsparce",
+      "usage_count": 1,
+      "avg_copies": 4.0,
+      "tier": "C"
+    },
+    {
+      "name": "Flareon Noctowl",
+      "slug": "flareon-noctowl",
+      "usage_count": 1,
+      "avg_copies": 4.0,
+      "tier": "Rogue"
+    }
+  ],
+  "weekly_usage": [
+    {
+      "week": "2026-03-09",
+      "usage_pct": 3.5,
+      "avg_copies": 3.8
+    },
+    {
+      "week": "2026-03-16",
+      "usage_pct": 3.6,
+      "avg_copies": 3.9
+    }
+  ],
+  "synergy_partners": [
+    {
+      "card_name": "Nのゼクロム",
+      "support": 83,
+      "lift": 27.636,
+      "jaccard": 0.943,
+      "weighted_score": 127.2
+    },
+    {
+      "card_name": "Nのゾロア",
+      "support": 88,
+      "lift": 27.636,
+      "jaccard": 1.0,
+      "weighted_score": 134.6
+    },
+    {
+      "card_name": "Nのダルマッカ",
+      "support": 74,
+      "lift": 27.636,
+      "jaccard": 0.841,
+      "weighted_score": 113.9
+    },
+    {
+      "card_name": "Nのヒヒダルマ",
+      "support": 74,
+      "lift": 27.636,
+      "jaccard": 0.841,
+      "weighted_score": 113.9
+    },
+    {
+      "card_name": "Nのポイントアップ",
+      "support": 84,
+      "lift": 27.636,
+      "jaccard": 0.955,
+      "weighted_score": 129.2
+    },
+    {
+      "card_name": "Nのレシラム",
+      "support": 80,
+      "lift": 27.636,
+      "jaccard": 0.909,
+      "weighted_score": 123.3
+    },
+    {
+      "card_name": "Nの城",
+      "support": 80,
+      "lift": 27.636,
+      "jaccard": 0.909,
+      "weighted_score": 123.0
+    },
+    {
+      "card_name": "アンズの秘技",
+      "support": 70,
+      "lift": 27.636,
+      "jaccard": 0.795,
+      "weighted_score": 109.8
+    },
+    {
+      "card_name": "くさりもち",
+      "support": 78,
+      "lift": 25.662,
+      "jaccard": 0.83,
+      "weighted_score": 119.6
+    },
+    {
+      "card_name": "モモワロウex",
+      "support": 86,
+      "lift": 22.212,
+      "jaccard": 0.789,
+      "weighted_score": 132.2
+    },
+    {
+      "card_name": "からておうの稽古",
+      "support": 68,
+      "lift": 16.779,
+      "jaccard": 0.515,
+      "weighted_score": 104.0
+    },
+    {
+      "card_name": "シアノ",
+      "support": 81,
+      "lift": 8.643,
+      "jaccard": 0.305,
+      "weighted_score": 124.5
+    },
+    {
+      "card_name": "イベルタル",
+      "support": 12,
+      "lift": 7.056,
+      "jaccard": 0.098,
+      "weighted_score": 20.1
+    },
+    {
+      "card_name": "基本悪エネルギー",
+      "support": 87,
+      "lift": 4.309,
+      "jaccard": 0.156,
+      "weighted_score": 133.4
+    },
+    {
+      "card_name": "マシマシラ",
+      "support": 81,
+      "lift": 4.033,
+      "jaccard": 0.144,
+      "weighted_score": 124.0
+    }
+  ]
+}

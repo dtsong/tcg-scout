@@ -1,0 +1,381 @@
+{
+  "format": "ninja-spinner",
+  "generated_at": "2026-03-21T09:59:30.770502+00:00",
+  "cl_event": null,
+  "cl_player_count": 0,
+  "format_note": "All data sources are Japanese BO1 events. See narrative for BO3 context.",
+  "archetypes": [
+    {
+      "archetype": "Unknown",
+      "slug": "unknown",
+      "tier": "A",
+      "meta_share": 9.95,
+      "sprite_filenames": [],
+      "quality_score": 51.8,
+      "cl_deck_count": 0,
+      "city_league_deck_count": 242,
+      "has_cl_data": false,
+      "cl_placements": [],
+      "cl_best_finish": null,
+      "innovation_index": 100.0,
+      "core_lock_rate": 6.7
+    },
+    {
+      "archetype": "Mega Lucario",
+      "slug": "mega-lucario",
+      "tier": "A",
+      "meta_share": 9.25,
+      "sprite_filenames": [
+        "hariyama.png",
+        "lucario-mega.png"
+      ],
+      "quality_score": 39.3,
+      "cl_deck_count": 0,
+      "city_league_deck_count": 225,
+      "has_cl_data": false,
+      "cl_placements": [],
+      "cl_best_finish": null,
+      "innovation_index": 100.0,
+      "core_lock_rate": 0.0
+    },
+    {
+      "archetype": "Dragapult Meowth",
+      "slug": "dragapult-meowth",
+      "tier": "A",
+      "meta_share": 8.88,
+      "sprite_filenames": [
+        "dragapult.png",
+        "meowth.png"
+      ],
+      "quality_score": 49.2,
+      "cl_deck_count": 0,
+      "city_league_deck_count": 216,
+      "has_cl_data": false,
+      "cl_placements": [],
+      "cl_best_finish": null,
+      "innovation_index": 100.0,
+      "core_lock_rate": 0.0
+    },
+    {
+      "archetype": "Mewtwo Spidops",
+      "slug": "mewtwo-spidops",
+      "tier": "B",
+      "meta_share": 7.69,
+      "sprite_filenames": [
+        "mewtwo.png",
+        "spidops.png"
+      ],
+      "quality_score": 42.0,
+      "cl_deck_count": 0,
+      "city_league_deck_count": 187,
+      "has_cl_data": false,
+      "cl_placements": [],
+      "cl_best_finish": null,
+      "innovation_index": 100.0,
+      "core_lock_rate": 0.0
+    },
+    {
+      "archetype": "Mega Kangaskhan Latias",
+      "slug": "mega-kangaskhan-latias",
+      "tier": "B",
+      "meta_share": 7.28,
+      "sprite_filenames": [
+        "kangaskhan-mega.png",
+        "latias.png"
+      ],
+      "quality_score": 50.8,
+      "cl_deck_count": 0,
+      "city_league_deck_count": 177,
+      "has_cl_data": false,
+      "cl_placements": [],
+      "cl_best_finish": null,
+      "innovation_index": 100.0,
+      "core_lock_rate": 3.3
+    },
+    {
+      "archetype": "Archaludon ex",
+      "slug": "archaludon-ex",
+      "tier": "B",
+      "meta_share": 4.52,
+      "sprite_filenames": [
+        "archaludon.png"
+      ],
+      "quality_score": 46.4,
+      "cl_deck_count": 0,
+      "city_league_deck_count": 110,
+      "has_cl_data": false,
+      "cl_placements": [],
+      "cl_best_finish": null,
+      "innovation_index": 100.0,
+      "core_lock_rate": 6.7
+    },
+    {
+      "archetype": "Dipplin Thwackey",
+      "slug": "dipplin-thwackey",
+      "tier": "B",
+      "meta_share": 4.36,
+      "sprite_filenames": [
+        "dipplin.png",
+        "thwackey.png"
+      ],
+      "quality_score": 46.9,
+      "cl_deck_count": 0,
+      "city_league_deck_count": 106,
+      "has_cl_data": false,
+      "cl_placements": [],
+      "cl_best_finish": null,
+      "innovation_index": 100.0,
+      "core_lock_rate": 3.3
+    },
+    {
+      "archetype": "Dragapult Dusknoir",
+      "slug": "dragapult-dusknoir",
+      "tier": "B",
+      "meta_share": 3.54,
+      "sprite_filenames": [
+        "dragapult.png",
+        "dusknoir.png"
+      ],
+      "quality_score": 67.6,
+      "cl_deck_count": 0,
+      "city_league_deck_count": 86,
+      "has_cl_data": false,
+      "cl_placements": [],
+      "cl_best_finish": null,
+      "innovation_index": 100.0,
+      "core_lock_rate": 0.0
+    },
+    {
+      "archetype": "Alakazam Dudunsparce",
+      "slug": "alakazam-dudunsparce",
+      "tier": "B",
+      "meta_share": 3.08,
+      "sprite_filenames": [
+        "alakazam.png",
+        "dudunsparce.png"
+      ],
+      "quality_score": 40.3,
+      "cl_deck_count": 0,
+      "city_league_deck_count": 75,
+      "has_cl_data": false,
+      "cl_placements": [],
+      "cl_best_finish": null,
+      "innovation_index": 100.0,
+      "core_lock_rate": 0.0
+    },
+    {
+      "archetype": "Blaziken Dragapult",
+      "slug": "blaziken-dragapult",
+      "tier": "B",
+      "meta_share": 3.08,
+      "sprite_filenames": [
+        "blaziken.png",
+        "dragapult.png"
+      ],
+      "quality_score": 43.5,
+      "cl_deck_count": 0,
+      "city_league_deck_count": 75,
+      "has_cl_data": false,
+      "cl_placements": [],
+      "cl_best_finish": null,
+      "innovation_index": 100.0,
+      "core_lock_rate": 0.0
+    },
+    {
+      "archetype": "Zoroark ex",
+      "slug": "zoroark-ex",
+      "tier": "C",
+      "meta_share": 2.38,
+      "sprite_filenames": [
+        "zoroark.png"
+      ],
+      "quality_score": 45.8,
+      "cl_deck_count": 0,
+      "city_league_deck_count": 58,
+      "has_cl_data": false,
+      "cl_placements": [],
+      "cl_best_finish": null,
+      "innovation_index": 100.0,
+      "core_lock_rate": 0.0
+    },
+    {
+      "archetype": "Darmanitan Zoroark",
+      "slug": "darmanitan-zoroark",
+      "tier": "C",
+      "meta_share": 2.18,
+      "sprite_filenames": [
+        "darmanitan.png",
+        "zoroark.png"
+      ],
+      "quality_score": 97.7,
+      "cl_deck_count": 0,
+      "city_league_deck_count": 53,
+      "has_cl_data": false,
+      "cl_placements": [],
+      "cl_best_finish": null,
+      "innovation_index": 100.0,
+      "core_lock_rate": 91.7
+    },
+    {
+      "archetype": "Raging Bolt ex",
+      "slug": "raging-bolt-ex",
+      "tier": "C",
+      "meta_share": 1.85,
+      "sprite_filenames": [
+        "raging-bolt.png"
+      ],
+      "quality_score": 88.4,
+      "cl_deck_count": 0,
+      "city_league_deck_count": 45,
+      "has_cl_data": false,
+      "cl_placements": [],
+      "cl_best_finish": null,
+      "innovation_index": 100.0,
+      "core_lock_rate": 68.3
+    },
+    {
+      "archetype": "Dusknoir Greninja",
+      "slug": "dusknoir-greninja",
+      "tier": "C",
+      "meta_share": 1.64,
+      "sprite_filenames": [
+        "dusknoir.png",
+        "greninja.png"
+      ],
+      "quality_score": 38.6,
+      "cl_deck_count": 0,
+      "city_league_deck_count": 40,
+      "has_cl_data": false,
+      "cl_placements": [],
+      "cl_best_finish": null,
+      "innovation_index": 100.0,
+      "core_lock_rate": 0.0
+    },
+    {
+      "archetype": "Mega Greninja Dudunsparce",
+      "slug": "mega-greninja-dudunsparce",
+      "tier": "C",
+      "meta_share": 1.6,
+      "sprite_filenames": [
+        "greninja-mega.png",
+        "dudunsparce.png"
+      ],
+      "quality_score": 43.4,
+      "cl_deck_count": 0,
+      "city_league_deck_count": 39,
+      "has_cl_data": false,
+      "cl_placements": [],
+      "cl_best_finish": null,
+      "innovation_index": 100.0,
+      "core_lock_rate": 0.0
+    },
+    {
+      "archetype": "Mega Kangaskhan Ogerpon",
+      "slug": "mega-kangaskhan-ogerpon",
+      "tier": "C",
+      "meta_share": 1.6,
+      "sprite_filenames": [
+        "kangaskhan-mega.png",
+        "ogerpon.png"
+      ],
+      "quality_score": 74.2,
+      "cl_deck_count": 0,
+      "city_league_deck_count": 39,
+      "has_cl_data": false,
+      "cl_placements": [],
+      "cl_best_finish": null,
+      "innovation_index": 100.0,
+      "core_lock_rate": 36.7
+    },
+    {
+      "archetype": "Garchomp Roserade",
+      "slug": "garchomp-roserade",
+      "tier": "C",
+      "meta_share": 1.56,
+      "sprite_filenames": [
+        "garchomp.png",
+        "roserade.png"
+      ],
+      "quality_score": 91.3,
+      "cl_deck_count": 0,
+      "city_league_deck_count": 38,
+      "has_cl_data": false,
+      "cl_placements": [],
+      "cl_best_finish": null,
+      "innovation_index": 100.0,
+      "core_lock_rate": 75.0
+    },
+    {
+      "archetype": "Arboliva Ogerpon",
+      "slug": "arboliva-ogerpon",
+      "tier": "C",
+      "meta_share": 1.32,
+      "sprite_filenames": [
+        "arboliva.png",
+        "ogerpon.png"
+      ],
+      "quality_score": 97.7,
+      "cl_deck_count": 0,
+      "city_league_deck_count": 32,
+      "has_cl_data": false,
+      "cl_placements": [],
+      "cl_best_finish": null,
+      "innovation_index": 100.0,
+      "core_lock_rate": 76.7
+    },
+    {
+      "archetype": "Crustle Munkidori",
+      "slug": "crustle-munkidori",
+      "tier": "C",
+      "meta_share": 1.32,
+      "sprite_filenames": [
+        "crustle.png",
+        "munkidori.png"
+      ],
+      "quality_score": 71.4,
+      "cl_deck_count": 0,
+      "city_league_deck_count": 32,
+      "has_cl_data": false,
+      "cl_placements": [],
+      "cl_best_finish": null,
+      "innovation_index": 100.0,
+      "core_lock_rate": 0.0
+    },
+    {
+      "archetype": "Grimmsnarl Munkidori",
+      "slug": "grimmsnarl-munkidori",
+      "tier": "C",
+      "meta_share": 1.32,
+      "sprite_filenames": [
+        "grimmsnarl.png",
+        "munkidori.png"
+      ],
+      "quality_score": 95.2,
+      "cl_deck_count": 0,
+      "city_league_deck_count": 32,
+      "has_cl_data": false,
+      "cl_placements": [],
+      "cl_best_finish": null,
+      "innovation_index": 100.0,
+      "core_lock_rate": 85.0
+    },
+    {
+      "archetype": "Mega Meganium Mega Venusaur",
+      "slug": "mega-meganium-mega-venusaur",
+      "tier": "C",
+      "meta_share": 1.15,
+      "sprite_filenames": [
+        "meganium-mega.png",
+        "venusaur-mega.png"
+      ],
+      "quality_score": 41.4,
+      "cl_deck_count": 0,
+      "city_league_deck_count": 28,
+      "has_cl_data": false,
+      "cl_placements": [],
+      "cl_best_finish": null,
+      "innovation_index": 100.0,
+      "core_lock_rate": 3.3
+    }
+  ]
+}

@@ -1,0 +1,847 @@
+{
+  "archetype": "Raging Bolt ex",
+  "slug": "raging-bolt-ex",
+  "format": "ninja-spinner",
+  "generated_at": "2026-03-21T09:59:30.347208+00:00",
+  "tier": "C",
+  "meta_share": 1.85,
+  "weighted_share": 2.02,
+  "deck_count": 45,
+  "best_placement": 1,
+  "sprite_filenames": [
+    "raging-bolt.png"
+  ],
+  "consensus_60": {
+    "quality_score": 68.5,
+    "total_pokemon": 21,
+    "total_trainer": 39,
+    "total_energy": 0,
+    "cards": [
+      {
+        "card_name": "Crispin",
+        "count": 4,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 100.0,
+        "weighted_avg_copies": 4.0,
+        "confidence": 1.0,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Ultra Ball",
+        "count": 4,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 100.0,
+        "weighted_avg_copies": 3.9,
+        "confidence": 1.0,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Teal Mask Ogerpon ex",
+        "count": 4,
+        "category": "Pokemon",
+        "weighted_inclusion_pct": 100.0,
+        "weighted_avg_copies": 3.9,
+        "confidence": 1.0,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Raging Bolt ex",
+        "count": 3,
+        "category": "Pokemon",
+        "weighted_inclusion_pct": 100.0,
+        "weighted_avg_copies": 2.9,
+        "confidence": 1.0,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Boss's Orders",
+        "count": 2,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 98.1,
+        "weighted_avg_copies": 1.9,
+        "confidence": 0.98,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Latias ex",
+        "count": 2,
+        "category": "Pokemon",
+        "weighted_inclusion_pct": 98.1,
+        "weighted_avg_copies": 1.9,
+        "confidence": 0.98,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Fezandipiti ex",
+        "count": 1,
+        "category": "Pokemon",
+        "weighted_inclusion_pct": 98.1,
+        "weighted_avg_copies": 1.0,
+        "confidence": 0.98,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Area Zero Underdepths",
+        "count": 3,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 96.2,
+        "weighted_avg_copies": 2.9,
+        "confidence": 0.96,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Energy Retrieval",
+        "count": 1,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 95.9,
+        "weighted_avg_copies": 1.4,
+        "confidence": 0.96,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Energy Switch",
+        "count": 2,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 93.7,
+        "weighted_avg_copies": 1.9,
+        "confidence": 0.93,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Meowth ex",
+        "count": 2,
+        "category": "Pokemon",
+        "weighted_inclusion_pct": 92.8,
+        "weighted_avg_copies": 2.5,
+        "confidence": 0.93,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Iron Leaves ex",
+        "count": 1,
+        "category": "Pokemon",
+        "weighted_inclusion_pct": 86.2,
+        "weighted_avg_copies": 1.1,
+        "confidence": 0.84,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Night Stretcher",
+        "count": 1,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 85.8,
+        "weighted_avg_copies": 1.4,
+        "confidence": 0.87,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Glass Trumpet",
+        "count": 2,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 82.7,
+        "weighted_avg_copies": 1.6,
+        "confidence": 0.82,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Lillie's Determination",
+        "count": 1,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 81.9,
+        "weighted_avg_copies": 1.3,
+        "confidence": 0.8,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Mega Kangaskhan ex",
+        "count": 2,
+        "category": "Pokemon",
+        "weighted_inclusion_pct": 80.1,
+        "weighted_avg_copies": 2.3,
+        "confidence": 0.82,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Cyrano",
+        "count": 1,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 75.8,
+        "weighted_avg_copies": 1.4,
+        "confidence": 0.76,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Lillie's Clefairy ex",
+        "count": 1,
+        "category": "Pokemon",
+        "weighted_inclusion_pct": 58.9,
+        "weighted_avg_copies": 1.2,
+        "confidence": 0.6,
+        "consensus": "common"
+      },
+      {
+        "card_name": "Special Red Card",
+        "count": 1,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 57.0,
+        "weighted_avg_copies": 1.0,
+        "confidence": 0.6,
+        "consensus": "common"
+      },
+      {
+        "card_name": "Ciphermaniac's Codebreaking",
+        "count": 1,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 54.4,
+        "weighted_avg_copies": 1.0,
+        "confidence": 0.51,
+        "consensus": "common"
+      },
+      {
+        "card_name": "Bug Catching Set",
+        "count": 2,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 52.9,
+        "weighted_avg_copies": 2.4,
+        "confidence": 0.56,
+        "consensus": "common"
+      },
+      {
+        "card_name": "Unfair Stamp",
+        "count": 1,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 49.4,
+        "weighted_avg_copies": 1.0,
+        "confidence": 0.51,
+        "consensus": "tech"
+      },
+      {
+        "card_name": "Chien-Pao",
+        "count": 1,
+        "category": "Pokemon",
+        "weighted_inclusion_pct": 42.7,
+        "weighted_avg_copies": 1.0,
+        "confidence": 0.42,
+        "consensus": "tech"
+      },
+      {
+        "card_name": "Raging Bolt",
+        "count": 1,
+        "category": "Pokemon",
+        "weighted_inclusion_pct": 41.3,
+        "weighted_avg_copies": 1.1,
+        "confidence": 0.42,
+        "consensus": "tech"
+      },
+      {
+        "card_name": "Prime Catcher",
+        "count": 1,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 33.3,
+        "weighted_avg_copies": 1.0,
+        "confidence": 0.33,
+        "consensus": "tech"
+      },
+      {
+        "card_name": "Tera Orb",
+        "count": 2,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 27.6,
+        "weighted_avg_copies": 1.8,
+        "confidence": 0.27,
+        "consensus": "tech"
+      },
+      {
+        "card_name": "Jamming Tower",
+        "count": 1,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 20.8,
+        "weighted_avg_copies": 1.0,
+        "confidence": 0.2,
+        "consensus": "tech"
+      },
+      {
+        "card_name": "Brock's Scouting",
+        "count": 1,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 20.5,
+        "weighted_avg_copies": 1.1,
+        "confidence": 0.18,
+        "consensus": "tech"
+      },
+      {
+        "card_name": "Judge",
+        "count": 1,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 18.7,
+        "weighted_avg_copies": 1.2,
+        "confidence": 0.2,
+        "consensus": "tech"
+      },
+      {
+        "card_name": "Team Rocket's Petrel",
+        "count": 2,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 18.5,
+        "weighted_avg_copies": 2.5,
+        "confidence": 0.18,
+        "consensus": "tech"
+      },
+      {
+        "card_name": "Briar",
+        "count": 1,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 17.0,
+        "weighted_avg_copies": 1.0,
+        "confidence": 0.16,
+        "consensus": "tech"
+      },
+      {
+        "card_name": "Dusk Ball",
+        "count": 2,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 15.7,
+        "weighted_avg_copies": 2.1,
+        "confidence": 0.16,
+        "consensus": "tech"
+      },
+      {
+        "card_name": "Koraidon",
+        "count": 1,
+        "category": "Pokemon",
+        "weighted_inclusion_pct": 15.1,
+        "weighted_avg_copies": 1.0,
+        "confidence": 0.16,
+        "consensus": "tech"
+      },
+      {
+        "card_name": "Energy Search",
+        "count": 1,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 13.4,
+        "weighted_avg_copies": 1.1,
+        "confidence": 0.13,
+        "consensus": "tech"
+      },
+      {
+        "card_name": "Battle Cage",
+        "count": 1,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 12.2,
+        "weighted_avg_copies": 1.2,
+        "confidence": 0.13,
+        "consensus": "tech"
+      },
+      {
+        "card_name": "Joltik",
+        "count": 2,
+        "category": "Pokemon",
+        "weighted_inclusion_pct": 10.4,
+        "weighted_avg_copies": 2.0,
+        "confidence": 0.09,
+        "consensus": "tech"
+      }
+    ]
+  },
+  "tech_evolution": {
+    "weeks": [
+      "2026-03-09",
+      "2026-03-16"
+    ],
+    "cards": [
+      {
+        "card_name": "Raging Bolt",
+        "category": "Pokemon",
+        "timeline": [
+          59.1,
+          26.1
+        ],
+        "copies_timeline": [
+          1.2,
+          1.2
+        ],
+        "trend": "shifted",
+        "total_delta": -33.0
+      },
+      {
+        "card_name": "Ciphermaniac's Codebreaking",
+        "category": "Trainer",
+        "timeline": [
+          63.6,
+          39.1
+        ],
+        "copies_timeline": [
+          1.0,
+          1.1
+        ],
+        "trend": "shifted",
+        "total_delta": -24.5
+      },
+      {
+        "card_name": "Unfair Stamp",
+        "category": "Trainer",
+        "timeline": [
+          63.6,
+          39.1
+        ],
+        "copies_timeline": [
+          1.0,
+          1.0
+        ],
+        "trend": "shifted",
+        "total_delta": -24.5
+      },
+      {
+        "card_name": "Koraidon",
+        "category": "Pokemon",
+        "timeline": [
+          4.5,
+          26.1
+        ],
+        "copies_timeline": [
+          1.0,
+          1.0
+        ],
+        "trend": "shifted",
+        "total_delta": 21.6
+      },
+      {
+        "card_name": "Brock's Scouting",
+        "category": "Trainer",
+        "timeline": [
+          9.1,
+          26.1
+        ],
+        "copies_timeline": [
+          2.0,
+          1.0
+        ],
+        "trend": "stable",
+        "total_delta": 17.0
+      },
+      {
+        "card_name": "Lillie's Clefairy ex",
+        "category": "Pokemon",
+        "timeline": [
+          68.2,
+          52.2
+        ],
+        "copies_timeline": [
+          1.3,
+          1.1
+        ],
+        "trend": "stable",
+        "total_delta": -16.0
+      },
+      {
+        "card_name": "Energy Switch",
+        "category": "Trainer",
+        "timeline": [
+          100.0,
+          87.0
+        ],
+        "copies_timeline": [
+          2.0,
+          1.9
+        ],
+        "trend": "stable",
+        "total_delta": -13.0
+      },
+      {
+        "card_name": "Iron Leaves ex",
+        "category": "Pokemon",
+        "timeline": [
+          90.9,
+          78.3
+        ],
+        "copies_timeline": [
+          1.1,
+          1.1
+        ],
+        "trend": "stable",
+        "total_delta": -12.6
+      },
+      {
+        "card_name": "Special Red Card",
+        "category": "Trainer",
+        "timeline": [
+          54.5,
+          65.2
+        ],
+        "copies_timeline": [
+          1.0,
+          1.0
+        ],
+        "trend": "stable",
+        "total_delta": 10.7
+      },
+      {
+        "card_name": "Glass Trumpet",
+        "category": "Trainer",
+        "timeline": [
+          86.4,
+          78.3
+        ],
+        "copies_timeline": [
+          1.6,
+          1.7
+        ],
+        "trend": "stable",
+        "total_delta": -8.1
+      },
+      {
+        "card_name": "Mega Kangaskhan ex",
+        "category": "Pokemon",
+        "timeline": [
+          86.4,
+          78.3
+        ],
+        "copies_timeline": [
+          2.2,
+          2.3
+        ],
+        "trend": "stable",
+        "total_delta": -8.1
+      },
+      {
+        "card_name": "Team Rocket's Petrel",
+        "category": "Trainer",
+        "timeline": [
+          13.6,
+          21.7
+        ],
+        "copies_timeline": [
+          2.0,
+          2.6
+        ],
+        "trend": "stable",
+        "total_delta": 8.1
+      },
+      {
+        "card_name": "Bug Catching Set",
+        "category": "Trainer",
+        "timeline": [
+          59.1,
+          52.2
+        ],
+        "copies_timeline": [
+          2.4,
+          2.3
+        ],
+        "trend": "stable",
+        "total_delta": -6.9
+      },
+      {
+        "card_name": "Chien-Pao",
+        "category": "Pokemon",
+        "timeline": [
+          45.5,
+          39.1
+        ],
+        "copies_timeline": [
+          1.0,
+          1.0
+        ],
+        "trend": "stable",
+        "total_delta": -6.4
+      },
+      {
+        "card_name": "Jamming Tower",
+        "category": "Trainer",
+        "timeline": [
+          22.7,
+          17.4
+        ],
+        "copies_timeline": [
+          1.0,
+          1.0
+        ],
+        "trend": "stable",
+        "total_delta": -5.3
+      },
+      {
+        "card_name": "Boss's Orders",
+        "category": "Trainer",
+        "timeline": [
+          100.0,
+          95.7
+        ],
+        "copies_timeline": [
+          1.9,
+          1.9
+        ],
+        "trend": "stable",
+        "total_delta": -4.3
+      },
+      {
+        "card_name": "Fezandipiti ex",
+        "category": "Pokemon",
+        "timeline": [
+          100.0,
+          95.7
+        ],
+        "copies_timeline": [
+          1.0,
+          1.0
+        ],
+        "trend": "stable",
+        "total_delta": -4.3
+      },
+      {
+        "card_name": "Latias ex",
+        "category": "Pokemon",
+        "timeline": [
+          100.0,
+          95.7
+        ],
+        "copies_timeline": [
+          1.9,
+          2.0
+        ],
+        "trend": "stable",
+        "total_delta": -4.3
+      },
+      {
+        "card_name": "Meowth ex",
+        "category": "Pokemon",
+        "timeline": [
+          95.5,
+          91.3
+        ],
+        "copies_timeline": [
+          2.4,
+          2.5
+        ],
+        "trend": "stable",
+        "total_delta": -4.2
+      },
+      {
+        "card_name": "Judge",
+        "category": "Trainer",
+        "timeline": [
+          18.2,
+          21.7
+        ],
+        "copies_timeline": [
+          1.2,
+          1.2
+        ],
+        "trend": "stable",
+        "total_delta": 3.5
+      },
+      {
+        "card_name": "Lillie's Determination",
+        "category": "Trainer",
+        "timeline": [
+          81.8,
+          78.3
+        ],
+        "copies_timeline": [
+          1.2,
+          1.4
+        ],
+        "trend": "stable",
+        "total_delta": -3.5
+      },
+      {
+        "card_name": "Cyrano",
+        "category": "Trainer",
+        "timeline": [
+          77.3,
+          73.9
+        ],
+        "copies_timeline": [
+          1.4,
+          1.4
+        ],
+        "trend": "stable",
+        "total_delta": -3.4
+      },
+      {
+        "card_name": "Prime Catcher",
+        "category": "Trainer",
+        "timeline": [
+          31.8,
+          34.8
+        ],
+        "copies_timeline": [
+          1.0,
+          1.0
+        ],
+        "trend": "stable",
+        "total_delta": 3.0
+      },
+      {
+        "card_name": "Tera Orb",
+        "category": "Trainer",
+        "timeline": [
+          27.3,
+          26.1
+        ],
+        "copies_timeline": [
+          1.7,
+          2.0
+        ],
+        "trend": "stable",
+        "total_delta": -1.2
+      },
+      {
+        "card_name": "Night Stretcher",
+        "category": "Trainer",
+        "timeline": [
+          86.4,
+          87.0
+        ],
+        "copies_timeline": [
+          1.5,
+          1.4
+        ],
+        "trend": "stable",
+        "total_delta": 0.6
+      },
+      {
+        "card_name": "Area Zero Underdepths",
+        "category": "Trainer",
+        "timeline": [
+          95.5,
+          95.7
+        ],
+        "copies_timeline": [
+          2.9,
+          2.9
+        ],
+        "trend": "stable",
+        "total_delta": 0.2
+      },
+      {
+        "card_name": "Energy Retrieval",
+        "category": "Trainer",
+        "timeline": [
+          95.5,
+          95.7
+        ],
+        "copies_timeline": [
+          1.3,
+          1.6
+        ],
+        "trend": "stable",
+        "total_delta": 0.2
+      },
+      {
+        "card_name": "Crispin",
+        "category": "Trainer",
+        "timeline": [
+          100.0,
+          100.0
+        ],
+        "copies_timeline": [
+          4.0,
+          4.0
+        ],
+        "trend": "stable",
+        "total_delta": 0.0
+      },
+      {
+        "card_name": "Raging Bolt ex",
+        "category": "Pokemon",
+        "timeline": [
+          100.0,
+          100.0
+        ],
+        "copies_timeline": [
+          2.7,
+          3.0
+        ],
+        "trend": "stable",
+        "total_delta": 0.0
+      },
+      {
+        "card_name": "Teal Mask Ogerpon ex",
+        "category": "Pokemon",
+        "timeline": [
+          100.0,
+          100.0
+        ],
+        "copies_timeline": [
+          4.0,
+          3.8
+        ],
+        "trend": "stable",
+        "total_delta": 0.0
+      },
+      {
+        "card_name": "Ultra Ball",
+        "category": "Trainer",
+        "timeline": [
+          100.0,
+          100.0
+        ],
+        "copies_timeline": [
+          4.0,
+          3.9
+        ],
+        "trend": "stable",
+        "total_delta": 0.0
+      }
+    ]
+  },
+  "notable_techs": [
+    {
+      "card_name": "Raging Bolt",
+      "event": "declined",
+      "week": "2026-03-16",
+      "from_pct": 59.1,
+      "to_pct": 26.1
+    },
+    {
+      "card_name": "Ciphermaniac's Codebreaking",
+      "event": "declined",
+      "week": "2026-03-16",
+      "from_pct": 63.6,
+      "to_pct": 39.1
+    },
+    {
+      "card_name": "Unfair Stamp",
+      "event": "declined",
+      "week": "2026-03-16",
+      "from_pct": 63.6,
+      "to_pct": 39.1
+    },
+    {
+      "card_name": "Koraidon",
+      "event": "appeared",
+      "week": "2026-03-16",
+      "from_pct": 4.5,
+      "to_pct": 26.1
+    }
+  ],
+  "placement_distribution": [
+    {
+      "bracket": "1st",
+      "count": 5,
+      "pct": 11.1
+    },
+    {
+      "bracket": "2nd",
+      "count": 3,
+      "pct": 6.7
+    },
+    {
+      "bracket": "3rd-4th",
+      "count": 11,
+      "pct": 24.4
+    },
+    {
+      "bracket": "5th-8th",
+      "count": 11,
+      "pct": 24.4
+    },
+    {
+      "bracket": "9th-16th",
+      "count": 15,
+      "pct": 33.3
+    }
+  ],
+  "tournament_count": 34,
+  "narrative": {}
+}

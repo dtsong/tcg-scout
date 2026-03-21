@@ -1,0 +1,1526 @@
+{
+  "archetype": "Mega Meganium Mega Venusaur",
+  "slug": "mega-meganium-mega-venusaur",
+  "format": "ninja-spinner",
+  "generated_at": "2026-03-21T09:59:30.372051+00:00",
+  "tier": "C",
+  "meta_share": 1.15,
+  "weighted_share": 0.88,
+  "deck_count": 28,
+  "best_placement": 6,
+  "sprite_filenames": [
+    "meganium-mega.png",
+    "venusaur-mega.png"
+  ],
+  "consensus_60": {
+    "quality_score": 42.9,
+    "total_pokemon": 0,
+    "total_trainer": 60,
+    "total_energy": 0,
+    "cards": [
+      {
+        "card_name": "リーリエの決心",
+        "count": 4,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 80.0,
+        "weighted_avg_copies": 3.6,
+        "confidence": 0.81,
+        "consensus": "core"
+      },
+      {
+        "card_name": "ボスの指令",
+        "count": 2,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 80.0,
+        "weighted_avg_copies": 2.5,
+        "confidence": 0.81,
+        "consensus": "core"
+      },
+      {
+        "card_name": "夜のタンカ",
+        "count": 2,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 76.4,
+        "weighted_avg_copies": 2.0,
+        "confidence": 0.78,
+        "consensus": "core"
+      },
+      {
+        "card_name": "ハイパーボール",
+        "count": 4,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 69.1,
+        "weighted_avg_copies": 3.5,
+        "confidence": 0.7,
+        "consensus": "common"
+      },
+      {
+        "card_name": "ポケパッド",
+        "count": 3,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 69.1,
+        "weighted_avg_copies": 3.4,
+        "confidence": 0.7,
+        "consensus": "common"
+      },
+      {
+        "card_name": "キチキギスex",
+        "count": 1,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 54.5,
+        "weighted_avg_copies": 1.0,
+        "confidence": 0.56,
+        "consensus": "common"
+      },
+      {
+        "card_name": "なかよしポフィン",
+        "count": 4,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 50.9,
+        "weighted_avg_copies": 3.6,
+        "confidence": 0.52,
+        "consensus": "common"
+      },
+      {
+        "card_name": "スペシャルレッドカード",
+        "count": 1,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 50.9,
+        "weighted_avg_copies": 1.2,
+        "confidence": 0.52,
+        "consensus": "common"
+      },
+      {
+        "card_name": "ふしぎなアメ",
+        "count": 2,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 43.6,
+        "weighted_avg_copies": 2.1,
+        "confidence": 0.44,
+        "consensus": "tech"
+      },
+      {
+        "card_name": "ニャースex",
+        "count": 2,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 43.6,
+        "weighted_avg_copies": 1.6,
+        "confidence": 0.44,
+        "consensus": "tech"
+      },
+      {
+        "card_name": "スボミー",
+        "count": 1,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 43.6,
+        "weighted_avg_copies": 1.2,
+        "confidence": 0.44,
+        "consensus": "tech"
+      },
+      {
+        "card_name": "アンフェアスタンプ(ACE SPEC)",
+        "count": 1,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 36.4,
+        "weighted_avg_copies": 1.0,
+        "confidence": 0.37,
+        "consensus": "tech"
+      },
+      {
+        "card_name": "基本悪エネルギー",
+        "count": 5,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 32.7,
+        "weighted_avg_copies": 5.4,
+        "confidence": 0.33,
+        "consensus": "tech"
+      },
+      {
+        "card_name": "マシマシラ",
+        "count": 3,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 32.7,
+        "weighted_avg_copies": 2.7,
+        "confidence": 0.33,
+        "consensus": "tech"
+      },
+      {
+        "card_name": "基本超エネルギー",
+        "count": 2,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 32.7,
+        "weighted_avg_copies": 2.4,
+        "confidence": 0.33,
+        "consensus": "tech"
+      },
+      {
+        "card_name": "ロケット団のラムダ",
+        "count": 2,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 29.1,
+        "weighted_avg_copies": 2.1,
+        "confidence": 0.3,
+        "consensus": "tech"
+      },
+      {
+        "card_name": "基本草エネルギー",
+        "count": 9,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 25.5,
+        "weighted_avg_copies": 9.4,
+        "confidence": 0.26,
+        "consensus": "tech"
+      },
+      {
+        "card_name": "ヒカリ",
+        "count": 2,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 25.5,
+        "weighted_avg_copies": 2.1,
+        "confidence": 0.26,
+        "consensus": "tech"
+      },
+      {
+        "card_name": "ジャッジマン",
+        "count": 2,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 25.5,
+        "weighted_avg_copies": 1.9,
+        "confidence": 0.26,
+        "consensus": "tech"
+      },
+      {
+        "card_name": "シェイミ",
+        "count": 1,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 25.5,
+        "weighted_avg_copies": 1.0,
+        "confidence": 0.26,
+        "consensus": "tech"
+      },
+      {
+        "card_name": "基本炎エネルギー",
+        "count": 4,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 21.8,
+        "weighted_avg_copies": 4.0,
+        "confidence": 0.22,
+        "consensus": "tech"
+      },
+      {
+        "card_name": "むしとりセット",
+        "count": 3,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 21.8,
+        "weighted_avg_copies": 3.7,
+        "confidence": 0.22,
+        "consensus": "tech"
+      }
+    ]
+  },
+  "tech_evolution": {
+    "weeks": [
+      "2026-03-09",
+      "2026-03-16"
+    ],
+    "cards": [
+      {
+        "card_name": "Bayleef",
+        "category": "Pokemon",
+        "timeline": [
+          100.0,
+          8.0
+        ],
+        "copies_timeline": [
+          3.0,
+          2.0
+        ],
+        "trend": "dropped",
+        "total_delta": -92.0
+      },
+      {
+        "card_name": "Boss's Orders",
+        "category": "Trainer",
+        "timeline": [
+          100.0,
+          8.0
+        ],
+        "copies_timeline": [
+          2.0,
+          2.0
+        ],
+        "trend": "dropped",
+        "total_delta": -92.0
+      },
+      {
+        "card_name": "Bug Catching Set",
+        "category": "Trainer",
+        "timeline": [
+          100.0,
+          8.0
+        ],
+        "copies_timeline": [
+          4.0,
+          4.0
+        ],
+        "trend": "dropped",
+        "total_delta": -92.0
+      },
+      {
+        "card_name": "Bulbasaur",
+        "category": "Pokemon",
+        "timeline": [
+          100.0,
+          8.0
+        ],
+        "copies_timeline": [
+          2.0,
+          2.0
+        ],
+        "trend": "dropped",
+        "total_delta": -92.0
+      },
+      {
+        "card_name": "Chikorita",
+        "category": "Pokemon",
+        "timeline": [
+          100.0,
+          8.0
+        ],
+        "copies_timeline": [
+          3.0,
+          2.5
+        ],
+        "trend": "dropped",
+        "total_delta": -92.0
+      },
+      {
+        "card_name": "Dawn",
+        "category": "Trainer",
+        "timeline": [
+          100.0,
+          8.0
+        ],
+        "copies_timeline": [
+          2.0,
+          2.0
+        ],
+        "trend": "dropped",
+        "total_delta": -92.0
+      },
+      {
+        "card_name": "Fezandipiti ex",
+        "category": "Pokemon",
+        "timeline": [
+          100.0,
+          8.0
+        ],
+        "copies_timeline": [
+          1.0,
+          1.0
+        ],
+        "trend": "dropped",
+        "total_delta": -92.0
+      },
+      {
+        "card_name": "Forest of Vitality",
+        "category": "Trainer",
+        "timeline": [
+          100.0,
+          8.0
+        ],
+        "copies_timeline": [
+          3.5,
+          3.5
+        ],
+        "trend": "dropped",
+        "total_delta": -92.0
+      },
+      {
+        "card_name": "Ivysaur",
+        "category": "Pokemon",
+        "timeline": [
+          100.0,
+          8.0
+        ],
+        "copies_timeline": [
+          2.0,
+          2.0
+        ],
+        "trend": "dropped",
+        "total_delta": -92.0
+      },
+      {
+        "card_name": "Lillie's Determination",
+        "category": "Trainer",
+        "timeline": [
+          100.0,
+          8.0
+        ],
+        "copies_timeline": [
+          3.5,
+          4.0
+        ],
+        "trend": "dropped",
+        "total_delta": -92.0
+      },
+      {
+        "card_name": "Max Rod",
+        "category": "Trainer",
+        "timeline": [
+          100.0,
+          8.0
+        ],
+        "copies_timeline": [
+          1.0,
+          1.0
+        ],
+        "trend": "dropped",
+        "total_delta": -92.0
+      },
+      {
+        "card_name": "Mega Meganium ex",
+        "category": "Pokemon",
+        "timeline": [
+          100.0,
+          8.0
+        ],
+        "copies_timeline": [
+          1.0,
+          1.0
+        ],
+        "trend": "dropped",
+        "total_delta": -92.0
+      },
+      {
+        "card_name": "Mega Venusaur ex",
+        "category": "Pokemon",
+        "timeline": [
+          100.0,
+          8.0
+        ],
+        "copies_timeline": [
+          2.0,
+          2.0
+        ],
+        "trend": "dropped",
+        "total_delta": -92.0
+      },
+      {
+        "card_name": "Meganium",
+        "category": "Pokemon",
+        "timeline": [
+          100.0,
+          8.0
+        ],
+        "copies_timeline": [
+          2.0,
+          2.0
+        ],
+        "trend": "dropped",
+        "total_delta": -92.0
+      },
+      {
+        "card_name": "Night Stretcher",
+        "category": "Trainer",
+        "timeline": [
+          100.0,
+          8.0
+        ],
+        "copies_timeline": [
+          1.5,
+          1.5
+        ],
+        "trend": "dropped",
+        "total_delta": -92.0
+      },
+      {
+        "card_name": "Poké Pad",
+        "category": "Trainer",
+        "timeline": [
+          100.0,
+          8.0
+        ],
+        "copies_timeline": [
+          2.5,
+          3.0
+        ],
+        "trend": "dropped",
+        "total_delta": -92.0
+      },
+      {
+        "card_name": "Teal Mask Ogerpon ex",
+        "category": "Pokemon",
+        "timeline": [
+          100.0,
+          8.0
+        ],
+        "copies_timeline": [
+          2.5,
+          3.0
+        ],
+        "trend": "dropped",
+        "total_delta": -92.0
+      },
+      {
+        "card_name": "Ultra Ball",
+        "category": "Trainer",
+        "timeline": [
+          100.0,
+          8.0
+        ],
+        "copies_timeline": [
+          2.5,
+          3.0
+        ],
+        "trend": "dropped",
+        "total_delta": -92.0
+      },
+      {
+        "card_name": "Wally's Compassion",
+        "category": "Trainer",
+        "timeline": [
+          100.0,
+          8.0
+        ],
+        "copies_timeline": [
+          1.5,
+          1.5
+        ],
+        "trend": "dropped",
+        "total_delta": -92.0
+      },
+      {
+        "card_name": "ボスの指令",
+        "category": "Trainer",
+        "timeline": [
+          0.0,
+          88.0
+        ],
+        "copies_timeline": [
+          0.0,
+          2.5
+        ],
+        "trend": "adopted",
+        "total_delta": 88.0
+      },
+      {
+        "card_name": "リーリエの決心",
+        "category": "Trainer",
+        "timeline": [
+          0.0,
+          88.0
+        ],
+        "copies_timeline": [
+          0.0,
+          3.6
+        ],
+        "trend": "adopted",
+        "total_delta": 88.0
+      },
+      {
+        "card_name": "夜のタンカ",
+        "category": "Trainer",
+        "timeline": [
+          0.0,
+          84.0
+        ],
+        "copies_timeline": [
+          0.0,
+          2.0
+        ],
+        "trend": "adopted",
+        "total_delta": 84.0
+      },
+      {
+        "card_name": "ハイパーボール",
+        "category": "Trainer",
+        "timeline": [
+          0.0,
+          76.0
+        ],
+        "copies_timeline": [
+          0.0,
+          3.5
+        ],
+        "trend": "adopted",
+        "total_delta": 76.0
+      },
+      {
+        "card_name": "ポケパッド",
+        "category": "Trainer",
+        "timeline": [
+          0.0,
+          76.0
+        ],
+        "copies_timeline": [
+          0.0,
+          3.4
+        ],
+        "trend": "adopted",
+        "total_delta": 76.0
+      },
+      {
+        "card_name": "キチキギスex",
+        "category": "Trainer",
+        "timeline": [
+          0.0,
+          60.0
+        ],
+        "copies_timeline": [
+          0.0,
+          1.0
+        ],
+        "trend": "adopted",
+        "total_delta": 60.0
+      },
+      {
+        "card_name": "なかよしポフィン",
+        "category": "Trainer",
+        "timeline": [
+          0.0,
+          56.0
+        ],
+        "copies_timeline": [
+          0.0,
+          3.6
+        ],
+        "trend": "adopted",
+        "total_delta": 56.0
+      },
+      {
+        "card_name": "スペシャルレッドカード",
+        "category": "Trainer",
+        "timeline": [
+          0.0,
+          56.0
+        ],
+        "copies_timeline": [
+          0.0,
+          1.2
+        ],
+        "trend": "adopted",
+        "total_delta": 56.0
+      },
+      {
+        "card_name": "Air Balloon",
+        "category": "Trainer",
+        "timeline": [
+          50.0,
+          0.0
+        ],
+        "copies_timeline": [
+          1.0,
+          0.0
+        ],
+        "trend": "dropped",
+        "total_delta": -50.0
+      },
+      {
+        "card_name": "Buddy-Buddy Poffin",
+        "category": "Trainer",
+        "timeline": [
+          50.0,
+          0.0
+        ],
+        "copies_timeline": [
+          1.0,
+          0.0
+        ],
+        "trend": "dropped",
+        "total_delta": -50.0
+      },
+      {
+        "card_name": "Celebi",
+        "category": "Pokemon",
+        "timeline": [
+          50.0,
+          0.0
+        ],
+        "copies_timeline": [
+          1.0,
+          0.0
+        ],
+        "trend": "dropped",
+        "total_delta": -50.0
+      },
+      {
+        "card_name": "Ciphermaniac's Codebreaking",
+        "category": "Trainer",
+        "timeline": [
+          50.0,
+          0.0
+        ],
+        "copies_timeline": [
+          2.0,
+          0.0
+        ],
+        "trend": "dropped",
+        "total_delta": -50.0
+      },
+      {
+        "card_name": "Energy Recycler",
+        "category": "Trainer",
+        "timeline": [
+          50.0,
+          0.0
+        ],
+        "copies_timeline": [
+          1.0,
+          0.0
+        ],
+        "trend": "dropped",
+        "total_delta": -50.0
+      },
+      {
+        "card_name": "Special Red Card",
+        "category": "Trainer",
+        "timeline": [
+          50.0,
+          0.0
+        ],
+        "copies_timeline": [
+          1.0,
+          0.0
+        ],
+        "trend": "dropped",
+        "total_delta": -50.0
+      },
+      {
+        "card_name": "Switch",
+        "category": "Trainer",
+        "timeline": [
+          50.0,
+          0.0
+        ],
+        "copies_timeline": [
+          1.0,
+          0.0
+        ],
+        "trend": "dropped",
+        "total_delta": -50.0
+      },
+      {
+        "card_name": "Yanma",
+        "category": "Pokemon",
+        "timeline": [
+          50.0,
+          0.0
+        ],
+        "copies_timeline": [
+          2.0,
+          0.0
+        ],
+        "trend": "dropped",
+        "total_delta": -50.0
+      },
+      {
+        "card_name": "Yanmega ex",
+        "category": "Pokemon",
+        "timeline": [
+          50.0,
+          0.0
+        ],
+        "copies_timeline": [
+          2.0,
+          0.0
+        ],
+        "trend": "dropped",
+        "total_delta": -50.0
+      },
+      {
+        "card_name": "ふしぎなアメ",
+        "category": "Trainer",
+        "timeline": [
+          0.0,
+          48.0
+        ],
+        "copies_timeline": [
+          0.0,
+          2.1
+        ],
+        "trend": "adopted",
+        "total_delta": 48.0
+      },
+      {
+        "card_name": "スボミー",
+        "category": "Trainer",
+        "timeline": [
+          0.0,
+          48.0
+        ],
+        "copies_timeline": [
+          0.0,
+          1.2
+        ],
+        "trend": "adopted",
+        "total_delta": 48.0
+      },
+      {
+        "card_name": "ニャースex",
+        "category": "Trainer",
+        "timeline": [
+          0.0,
+          48.0
+        ],
+        "copies_timeline": [
+          0.0,
+          1.6
+        ],
+        "trend": "adopted",
+        "total_delta": 48.0
+      },
+      {
+        "card_name": "Energy Retrieval",
+        "category": "Trainer",
+        "timeline": [
+          50.0,
+          4.0
+        ],
+        "copies_timeline": [
+          1.0,
+          2.0
+        ],
+        "trend": "dropped",
+        "total_delta": -46.0
+      },
+      {
+        "card_name": "Judge",
+        "category": "Trainer",
+        "timeline": [
+          50.0,
+          8.0
+        ],
+        "copies_timeline": [
+          1.0,
+          1.5
+        ],
+        "trend": "dropped",
+        "total_delta": -42.0
+      },
+      {
+        "card_name": "Meowth ex",
+        "category": "Pokemon",
+        "timeline": [
+          50.0,
+          8.0
+        ],
+        "copies_timeline": [
+          1.0,
+          1.0
+        ],
+        "trend": "dropped",
+        "total_delta": -42.0
+      },
+      {
+        "card_name": "アンフェアスタンプ(ACE SPEC)",
+        "category": "Trainer",
+        "timeline": [
+          0.0,
+          40.0
+        ],
+        "copies_timeline": [
+          0.0,
+          1.0
+        ],
+        "trend": "adopted",
+        "total_delta": 40.0
+      },
+      {
+        "card_name": "マシマシラ",
+        "category": "Trainer",
+        "timeline": [
+          0.0,
+          36.0
+        ],
+        "copies_timeline": [
+          0.0,
+          2.7
+        ],
+        "trend": "adopted",
+        "total_delta": 36.0
+      },
+      {
+        "card_name": "基本悪エネルギー",
+        "category": "Trainer",
+        "timeline": [
+          0.0,
+          36.0
+        ],
+        "copies_timeline": [
+          0.0,
+          5.4
+        ],
+        "trend": "adopted",
+        "total_delta": 36.0
+      },
+      {
+        "card_name": "基本超エネルギー",
+        "category": "Trainer",
+        "timeline": [
+          0.0,
+          36.0
+        ],
+        "copies_timeline": [
+          0.0,
+          2.4
+        ],
+        "trend": "adopted",
+        "total_delta": 36.0
+      },
+      {
+        "card_name": "ロケット団のラムダ",
+        "category": "Trainer",
+        "timeline": [
+          0.0,
+          32.0
+        ],
+        "copies_timeline": [
+          0.0,
+          2.1
+        ],
+        "trend": "adopted",
+        "total_delta": 32.0
+      },
+      {
+        "card_name": "シェイミ",
+        "category": "Trainer",
+        "timeline": [
+          0.0,
+          28.0
+        ],
+        "copies_timeline": [
+          0.0,
+          1.0
+        ],
+        "trend": "shifted",
+        "total_delta": 28.0
+      },
+      {
+        "card_name": "ジャッジマン",
+        "category": "Trainer",
+        "timeline": [
+          0.0,
+          28.0
+        ],
+        "copies_timeline": [
+          0.0,
+          1.9
+        ],
+        "trend": "shifted",
+        "total_delta": 28.0
+      },
+      {
+        "card_name": "ヒカリ",
+        "category": "Trainer",
+        "timeline": [
+          0.0,
+          28.0
+        ],
+        "copies_timeline": [
+          0.0,
+          2.1
+        ],
+        "trend": "shifted",
+        "total_delta": 28.0
+      },
+      {
+        "card_name": "基本草エネルギー",
+        "category": "Trainer",
+        "timeline": [
+          0.0,
+          28.0
+        ],
+        "copies_timeline": [
+          0.0,
+          9.4
+        ],
+        "trend": "shifted",
+        "total_delta": 28.0
+      },
+      {
+        "card_name": "ふうせん",
+        "category": "Trainer",
+        "timeline": [
+          0.0,
+          24.0
+        ],
+        "copies_timeline": [
+          0.0,
+          1.3
+        ],
+        "trend": "shifted",
+        "total_delta": 24.0
+      },
+      {
+        "card_name": "むしとりセット",
+        "category": "Trainer",
+        "timeline": [
+          0.0,
+          24.0
+        ],
+        "copies_timeline": [
+          0.0,
+          3.7
+        ],
+        "trend": "shifted",
+        "total_delta": 24.0
+      },
+      {
+        "card_name": "アカマツ",
+        "category": "Trainer",
+        "timeline": [
+          0.0,
+          24.0
+        ],
+        "copies_timeline": [
+          0.0,
+          1.7
+        ],
+        "trend": "shifted",
+        "total_delta": 24.0
+      },
+      {
+        "card_name": "エネルギーつけかえ",
+        "category": "Trainer",
+        "timeline": [
+          0.0,
+          24.0
+        ],
+        "copies_timeline": [
+          0.0,
+          2.2
+        ],
+        "trend": "shifted",
+        "total_delta": 24.0
+      },
+      {
+        "card_name": "シークレットボックス(ACE SPEC)",
+        "category": "Trainer",
+        "timeline": [
+          0.0,
+          24.0
+        ],
+        "copies_timeline": [
+          0.0,
+          1.0
+        ],
+        "trend": "shifted",
+        "total_delta": 24.0
+      },
+      {
+        "card_name": "基本炎エネルギー",
+        "category": "Trainer",
+        "timeline": [
+          0.0,
+          24.0
+        ],
+        "copies_timeline": [
+          0.0,
+          4.0
+        ],
+        "trend": "shifted",
+        "total_delta": 24.0
+      },
+      {
+        "card_name": "オーガポン みどりのめんex",
+        "category": "Trainer",
+        "timeline": [
+          0.0,
+          20.0
+        ],
+        "copies_timeline": [
+          0.0,
+          3.6
+        ],
+        "trend": "stable",
+        "total_delta": 20.0
+      },
+      {
+        "card_name": "サマヨール",
+        "category": "Trainer",
+        "timeline": [
+          0.0,
+          20.0
+        ],
+        "copies_timeline": [
+          0.0,
+          1.2
+        ],
+        "trend": "stable",
+        "total_delta": 20.0
+      },
+      {
+        "card_name": "ポケモンいれかえ",
+        "category": "Trainer",
+        "timeline": [
+          0.0,
+          20.0
+        ],
+        "copies_timeline": [
+          0.0,
+          1.2
+        ],
+        "trend": "stable",
+        "total_delta": 20.0
+      },
+      {
+        "card_name": "ヨノワール",
+        "category": "Trainer",
+        "timeline": [
+          0.0,
+          20.0
+        ],
+        "copies_timeline": [
+          0.0,
+          1.2
+        ],
+        "trend": "stable",
+        "total_delta": 20.0
+      },
+      {
+        "card_name": "ヨマワル",
+        "category": "Trainer",
+        "timeline": [
+          0.0,
+          20.0
+        ],
+        "copies_timeline": [
+          0.0,
+          2.2
+        ],
+        "trend": "stable",
+        "total_delta": 20.0
+      },
+      {
+        "card_name": "ロケット団の監視塔",
+        "category": "Trainer",
+        "timeline": [
+          0.0,
+          20.0
+        ],
+        "copies_timeline": [
+          0.0,
+          1.2
+        ],
+        "trend": "stable",
+        "total_delta": 20.0
+      }
+    ]
+  },
+  "notable_techs": [
+    {
+      "card_name": "Bayleef",
+      "event": "disappeared",
+      "week": "2026-03-16",
+      "from_pct": 100.0,
+      "to_pct": 8.0
+    },
+    {
+      "card_name": "Boss's Orders",
+      "event": "disappeared",
+      "week": "2026-03-16",
+      "from_pct": 100.0,
+      "to_pct": 8.0
+    },
+    {
+      "card_name": "Bug Catching Set",
+      "event": "disappeared",
+      "week": "2026-03-16",
+      "from_pct": 100.0,
+      "to_pct": 8.0
+    },
+    {
+      "card_name": "Bulbasaur",
+      "event": "disappeared",
+      "week": "2026-03-16",
+      "from_pct": 100.0,
+      "to_pct": 8.0
+    },
+    {
+      "card_name": "Chikorita",
+      "event": "disappeared",
+      "week": "2026-03-16",
+      "from_pct": 100.0,
+      "to_pct": 8.0
+    },
+    {
+      "card_name": "Dawn",
+      "event": "disappeared",
+      "week": "2026-03-16",
+      "from_pct": 100.0,
+      "to_pct": 8.0
+    },
+    {
+      "card_name": "Fezandipiti ex",
+      "event": "disappeared",
+      "week": "2026-03-16",
+      "from_pct": 100.0,
+      "to_pct": 8.0
+    },
+    {
+      "card_name": "Forest of Vitality",
+      "event": "disappeared",
+      "week": "2026-03-16",
+      "from_pct": 100.0,
+      "to_pct": 8.0
+    },
+    {
+      "card_name": "Ivysaur",
+      "event": "disappeared",
+      "week": "2026-03-16",
+      "from_pct": 100.0,
+      "to_pct": 8.0
+    },
+    {
+      "card_name": "Lillie's Determination",
+      "event": "disappeared",
+      "week": "2026-03-16",
+      "from_pct": 100.0,
+      "to_pct": 8.0
+    },
+    {
+      "card_name": "Max Rod",
+      "event": "disappeared",
+      "week": "2026-03-16",
+      "from_pct": 100.0,
+      "to_pct": 8.0
+    },
+    {
+      "card_name": "Mega Meganium ex",
+      "event": "disappeared",
+      "week": "2026-03-16",
+      "from_pct": 100.0,
+      "to_pct": 8.0
+    },
+    {
+      "card_name": "Mega Venusaur ex",
+      "event": "disappeared",
+      "week": "2026-03-16",
+      "from_pct": 100.0,
+      "to_pct": 8.0
+    },
+    {
+      "card_name": "Meganium",
+      "event": "disappeared",
+      "week": "2026-03-16",
+      "from_pct": 100.0,
+      "to_pct": 8.0
+    },
+    {
+      "card_name": "Night Stretcher",
+      "event": "disappeared",
+      "week": "2026-03-16",
+      "from_pct": 100.0,
+      "to_pct": 8.0
+    },
+    {
+      "card_name": "Poké Pad",
+      "event": "disappeared",
+      "week": "2026-03-16",
+      "from_pct": 100.0,
+      "to_pct": 8.0
+    },
+    {
+      "card_name": "Teal Mask Ogerpon ex",
+      "event": "disappeared",
+      "week": "2026-03-16",
+      "from_pct": 100.0,
+      "to_pct": 8.0
+    },
+    {
+      "card_name": "Ultra Ball",
+      "event": "disappeared",
+      "week": "2026-03-16",
+      "from_pct": 100.0,
+      "to_pct": 8.0
+    },
+    {
+      "card_name": "Wally's Compassion",
+      "event": "disappeared",
+      "week": "2026-03-16",
+      "from_pct": 100.0,
+      "to_pct": 8.0
+    },
+    {
+      "card_name": "ボスの指令",
+      "event": "appeared",
+      "week": "2026-03-16",
+      "from_pct": 0.0,
+      "to_pct": 88.0
+    },
+    {
+      "card_name": "リーリエの決心",
+      "event": "appeared",
+      "week": "2026-03-16",
+      "from_pct": 0.0,
+      "to_pct": 88.0
+    },
+    {
+      "card_name": "夜のタンカ",
+      "event": "appeared",
+      "week": "2026-03-16",
+      "from_pct": 0.0,
+      "to_pct": 84.0
+    },
+    {
+      "card_name": "ハイパーボール",
+      "event": "appeared",
+      "week": "2026-03-16",
+      "from_pct": 0.0,
+      "to_pct": 76.0
+    },
+    {
+      "card_name": "ポケパッド",
+      "event": "appeared",
+      "week": "2026-03-16",
+      "from_pct": 0.0,
+      "to_pct": 76.0
+    },
+    {
+      "card_name": "キチキギスex",
+      "event": "appeared",
+      "week": "2026-03-16",
+      "from_pct": 0.0,
+      "to_pct": 60.0
+    },
+    {
+      "card_name": "なかよしポフィン",
+      "event": "appeared",
+      "week": "2026-03-16",
+      "from_pct": 0.0,
+      "to_pct": 56.0
+    },
+    {
+      "card_name": "スペシャルレッドカード",
+      "event": "appeared",
+      "week": "2026-03-16",
+      "from_pct": 0.0,
+      "to_pct": 56.0
+    },
+    {
+      "card_name": "Air Balloon",
+      "event": "disappeared",
+      "week": "2026-03-16",
+      "from_pct": 50.0,
+      "to_pct": 0.0
+    },
+    {
+      "card_name": "Buddy-Buddy Poffin",
+      "event": "disappeared",
+      "week": "2026-03-16",
+      "from_pct": 50.0,
+      "to_pct": 0.0
+    },
+    {
+      "card_name": "Celebi",
+      "event": "disappeared",
+      "week": "2026-03-16",
+      "from_pct": 50.0,
+      "to_pct": 0.0
+    },
+    {
+      "card_name": "Ciphermaniac's Codebreaking",
+      "event": "disappeared",
+      "week": "2026-03-16",
+      "from_pct": 50.0,
+      "to_pct": 0.0
+    },
+    {
+      "card_name": "Energy Recycler",
+      "event": "disappeared",
+      "week": "2026-03-16",
+      "from_pct": 50.0,
+      "to_pct": 0.0
+    },
+    {
+      "card_name": "Special Red Card",
+      "event": "disappeared",
+      "week": "2026-03-16",
+      "from_pct": 50.0,
+      "to_pct": 0.0
+    },
+    {
+      "card_name": "Switch",
+      "event": "disappeared",
+      "week": "2026-03-16",
+      "from_pct": 50.0,
+      "to_pct": 0.0
+    },
+    {
+      "card_name": "Yanma",
+      "event": "disappeared",
+      "week": "2026-03-16",
+      "from_pct": 50.0,
+      "to_pct": 0.0
+    },
+    {
+      "card_name": "Yanmega ex",
+      "event": "disappeared",
+      "week": "2026-03-16",
+      "from_pct": 50.0,
+      "to_pct": 0.0
+    },
+    {
+      "card_name": "ふしぎなアメ",
+      "event": "appeared",
+      "week": "2026-03-16",
+      "from_pct": 0.0,
+      "to_pct": 48.0
+    },
+    {
+      "card_name": "スボミー",
+      "event": "appeared",
+      "week": "2026-03-16",
+      "from_pct": 0.0,
+      "to_pct": 48.0
+    },
+    {
+      "card_name": "ニャースex",
+      "event": "appeared",
+      "week": "2026-03-16",
+      "from_pct": 0.0,
+      "to_pct": 48.0
+    },
+    {
+      "card_name": "Energy Retrieval",
+      "event": "disappeared",
+      "week": "2026-03-16",
+      "from_pct": 50.0,
+      "to_pct": 4.0
+    },
+    {
+      "card_name": "Judge",
+      "event": "disappeared",
+      "week": "2026-03-16",
+      "from_pct": 50.0,
+      "to_pct": 8.0
+    },
+    {
+      "card_name": "Meowth ex",
+      "event": "disappeared",
+      "week": "2026-03-16",
+      "from_pct": 50.0,
+      "to_pct": 8.0
+    },
+    {
+      "card_name": "アンフェアスタンプ(ACE SPEC)",
+      "event": "appeared",
+      "week": "2026-03-16",
+      "from_pct": 0.0,
+      "to_pct": 40.0
+    },
+    {
+      "card_name": "マシマシラ",
+      "event": "appeared",
+      "week": "2026-03-16",
+      "from_pct": 0.0,
+      "to_pct": 36.0
+    },
+    {
+      "card_name": "基本悪エネルギー",
+      "event": "appeared",
+      "week": "2026-03-16",
+      "from_pct": 0.0,
+      "to_pct": 36.0
+    },
+    {
+      "card_name": "基本超エネルギー",
+      "event": "appeared",
+      "week": "2026-03-16",
+      "from_pct": 0.0,
+      "to_pct": 36.0
+    },
+    {
+      "card_name": "ロケット団のラムダ",
+      "event": "appeared",
+      "week": "2026-03-16",
+      "from_pct": 0.0,
+      "to_pct": 32.0
+    },
+    {
+      "card_name": "シェイミ",
+      "event": "appeared",
+      "week": "2026-03-16",
+      "from_pct": 0.0,
+      "to_pct": 28.0
+    },
+    {
+      "card_name": "ジャッジマン",
+      "event": "appeared",
+      "week": "2026-03-16",
+      "from_pct": 0.0,
+      "to_pct": 28.0
+    },
+    {
+      "card_name": "ヒカリ",
+      "event": "appeared",
+      "week": "2026-03-16",
+      "from_pct": 0.0,
+      "to_pct": 28.0
+    },
+    {
+      "card_name": "基本草エネルギー",
+      "event": "appeared",
+      "week": "2026-03-16",
+      "from_pct": 0.0,
+      "to_pct": 28.0
+    },
+    {
+      "card_name": "ふうせん",
+      "event": "appeared",
+      "week": "2026-03-16",
+      "from_pct": 0.0,
+      "to_pct": 24.0
+    },
+    {
+      "card_name": "むしとりセット",
+      "event": "appeared",
+      "week": "2026-03-16",
+      "from_pct": 0.0,
+      "to_pct": 24.0
+    },
+    {
+      "card_name": "アカマツ",
+      "event": "appeared",
+      "week": "2026-03-16",
+      "from_pct": 0.0,
+      "to_pct": 24.0
+    },
+    {
+      "card_name": "エネルギーつけかえ",
+      "event": "appeared",
+      "week": "2026-03-16",
+      "from_pct": 0.0,
+      "to_pct": 24.0
+    },
+    {
+      "card_name": "シークレットボックス(ACE SPEC)",
+      "event": "appeared",
+      "week": "2026-03-16",
+      "from_pct": 0.0,
+      "to_pct": 24.0
+    },
+    {
+      "card_name": "基本炎エネルギー",
+      "event": "appeared",
+      "week": "2026-03-16",
+      "from_pct": 0.0,
+      "to_pct": 24.0
+    }
+  ],
+  "placement_distribution": [
+    {
+      "bracket": "5th-8th",
+      "count": 2,
+      "pct": 7.1
+    },
+    {
+      "bracket": "9th-16th",
+      "count": 26,
+      "pct": 92.9
+    }
+  ],
+  "tournament_count": 7,
+  "narrative": {}
+}

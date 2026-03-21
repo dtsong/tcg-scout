@@ -1,0 +1,960 @@
+{
+  "archetype": "Typhlosion",
+  "slug": "typhlosion",
+  "format": "ninja-spinner",
+  "generated_at": "2026-03-21T09:59:30.416655+00:00",
+  "tier": "Rogue",
+  "meta_share": 0.16,
+  "weighted_share": 0.18,
+  "deck_count": 4,
+  "best_placement": 2,
+  "sprite_filenames": [
+    "typhlosion.png"
+  ],
+  "consensus_60": {
+    "quality_score": 89.6,
+    "total_pokemon": 18,
+    "total_trainer": 42,
+    "total_energy": 0,
+    "cards": [
+      {
+        "card_name": "Ethan's Adventure",
+        "count": 4,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 100.0,
+        "weighted_avg_copies": 4.0,
+        "confidence": 1.0,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Ethan's Cyndaquil",
+        "count": 4,
+        "category": "Pokemon",
+        "weighted_inclusion_pct": 100.0,
+        "weighted_avg_copies": 4.0,
+        "confidence": 1.0,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Ethan's Quilava",
+        "count": 4,
+        "category": "Pokemon",
+        "weighted_inclusion_pct": 100.0,
+        "weighted_avg_copies": 4.0,
+        "confidence": 1.0,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Buddy-Buddy Poffin",
+        "count": 4,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 100.0,
+        "weighted_avg_copies": 4.0,
+        "confidence": 1.0,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Poké Pad",
+        "count": 4,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 100.0,
+        "weighted_avg_copies": 3.7,
+        "confidence": 1.0,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Ultra Ball",
+        "count": 4,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 100.0,
+        "weighted_avg_copies": 3.7,
+        "confidence": 1.0,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Ethan's Typhlosion",
+        "count": 3,
+        "category": "Pokemon",
+        "weighted_inclusion_pct": 100.0,
+        "weighted_avg_copies": 3.2,
+        "confidence": 1.0,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Night Stretcher",
+        "count": 3,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 100.0,
+        "weighted_avg_copies": 3.0,
+        "confidence": 1.0,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Boss's Orders",
+        "count": 2,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 100.0,
+        "weighted_avg_copies": 2.2,
+        "confidence": 1.0,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Rare Candy",
+        "count": 2,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 100.0,
+        "weighted_avg_copies": 2.2,
+        "confidence": 1.0,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Brave Bangle",
+        "count": 2,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 100.0,
+        "weighted_avg_copies": 2.2,
+        "confidence": 1.0,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Lillie's Determination",
+        "count": 2,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 100.0,
+        "weighted_avg_copies": 1.7,
+        "confidence": 1.0,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Psyduck",
+        "count": 1,
+        "category": "Pokemon",
+        "weighted_inclusion_pct": 100.0,
+        "weighted_avg_copies": 1.0,
+        "confidence": 1.0,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Shaymin",
+        "count": 1,
+        "category": "Pokemon",
+        "weighted_inclusion_pct": 100.0,
+        "weighted_avg_copies": 1.0,
+        "confidence": 1.0,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Redeemable Ticket",
+        "count": 1,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 100.0,
+        "weighted_avg_copies": 1.0,
+        "confidence": 1.0,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Team Rocket's Petrel",
+        "count": 2,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 82.6,
+        "weighted_avg_copies": 2.2,
+        "confidence": 0.75,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Battle Cage",
+        "count": 2,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 82.6,
+        "weighted_avg_copies": 2.0,
+        "confidence": 0.75,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Victini",
+        "count": 1,
+        "category": "Pokemon",
+        "weighted_inclusion_pct": 82.6,
+        "weighted_avg_copies": 1.2,
+        "confidence": 0.75,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Fezandipiti ex",
+        "count": 1,
+        "category": "Pokemon",
+        "weighted_inclusion_pct": 82.6,
+        "weighted_avg_copies": 1.0,
+        "confidence": 0.75,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Air Balloon",
+        "count": 1,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 82.6,
+        "weighted_avg_copies": 1.0,
+        "confidence": 0.75,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Budew",
+        "count": 1,
+        "category": "Pokemon",
+        "weighted_inclusion_pct": 82.6,
+        "weighted_avg_copies": 1.0,
+        "confidence": 0.75,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Gravity Mountain",
+        "count": 1,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 82.6,
+        "weighted_avg_copies": 1.0,
+        "confidence": 0.75,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Kieran",
+        "count": 1,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 82.6,
+        "weighted_avg_copies": 1.0,
+        "confidence": 0.75,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Secret Box",
+        "count": 1,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 82.6,
+        "weighted_avg_copies": 1.0,
+        "confidence": 0.75,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Special Red Card",
+        "count": 1,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 82.6,
+        "weighted_avg_copies": 1.0,
+        "confidence": 0.75,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Tatsugiri",
+        "count": 1,
+        "category": "Pokemon",
+        "weighted_inclusion_pct": 65.2,
+        "weighted_avg_copies": 1.0,
+        "confidence": 0.5,
+        "consensus": "common"
+      },
+      {
+        "card_name": "Carmine",
+        "count": 1,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 65.2,
+        "weighted_avg_copies": 1.0,
+        "confidence": 0.5,
+        "consensus": "common"
+      },
+      {
+        "card_name": "Meowth ex",
+        "count": 1,
+        "category": "Pokemon",
+        "weighted_inclusion_pct": 65.2,
+        "weighted_avg_copies": 1.0,
+        "confidence": 0.5,
+        "consensus": "common"
+      },
+      {
+        "card_name": "Lana's Aid",
+        "count": 1,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 34.8,
+        "weighted_avg_copies": 1.0,
+        "confidence": 0.5,
+        "consensus": "tech"
+      },
+      {
+        "card_name": "Morty's Conviction",
+        "count": 2,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 17.4,
+        "weighted_avg_copies": 2.0,
+        "confidence": 0.25,
+        "consensus": "tech"
+      },
+      {
+        "card_name": "Prism Tower",
+        "count": 1,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 17.4,
+        "weighted_avg_copies": 2.0,
+        "confidence": 0.25,
+        "consensus": "tech"
+      }
+    ]
+  },
+  "tech_evolution": {
+    "weeks": [
+      "2026-03-09",
+      "2026-03-16"
+    ],
+    "cards": [
+      {
+        "card_name": "Carmine",
+        "category": "Trainer",
+        "timeline": [
+          100.0,
+          33.3
+        ],
+        "copies_timeline": [
+          1.0,
+          1.0
+        ],
+        "trend": "shifted",
+        "total_delta": -66.7
+      },
+      {
+        "card_name": "Lana's Aid",
+        "category": "Trainer",
+        "timeline": [
+          0.0,
+          66.7
+        ],
+        "copies_timeline": [
+          0.0,
+          1.0
+        ],
+        "trend": "adopted",
+        "total_delta": 66.7
+      },
+      {
+        "card_name": "Meowth ex",
+        "category": "Pokemon",
+        "timeline": [
+          100.0,
+          33.3
+        ],
+        "copies_timeline": [
+          1.0,
+          1.0
+        ],
+        "trend": "shifted",
+        "total_delta": -66.7
+      },
+      {
+        "card_name": "Tatsugiri",
+        "category": "Pokemon",
+        "timeline": [
+          100.0,
+          33.3
+        ],
+        "copies_timeline": [
+          1.0,
+          1.0
+        ],
+        "trend": "shifted",
+        "total_delta": -66.7
+      },
+      {
+        "card_name": "Air Balloon",
+        "category": "Trainer",
+        "timeline": [
+          100.0,
+          66.7
+        ],
+        "copies_timeline": [
+          1.0,
+          1.0
+        ],
+        "trend": "shifted",
+        "total_delta": -33.3
+      },
+      {
+        "card_name": "Battle Cage",
+        "category": "Trainer",
+        "timeline": [
+          100.0,
+          66.7
+        ],
+        "copies_timeline": [
+          2.0,
+          2.0
+        ],
+        "trend": "shifted",
+        "total_delta": -33.3
+      },
+      {
+        "card_name": "Budew",
+        "category": "Pokemon",
+        "timeline": [
+          100.0,
+          66.7
+        ],
+        "copies_timeline": [
+          1.0,
+          1.0
+        ],
+        "trend": "shifted",
+        "total_delta": -33.3
+      },
+      {
+        "card_name": "Fezandipiti ex",
+        "category": "Pokemon",
+        "timeline": [
+          100.0,
+          66.7
+        ],
+        "copies_timeline": [
+          1.0,
+          1.0
+        ],
+        "trend": "shifted",
+        "total_delta": -33.3
+      },
+      {
+        "card_name": "Gravity Mountain",
+        "category": "Trainer",
+        "timeline": [
+          100.0,
+          66.7
+        ],
+        "copies_timeline": [
+          1.0,
+          1.0
+        ],
+        "trend": "shifted",
+        "total_delta": -33.3
+      },
+      {
+        "card_name": "Kieran",
+        "category": "Trainer",
+        "timeline": [
+          100.0,
+          66.7
+        ],
+        "copies_timeline": [
+          1.0,
+          1.0
+        ],
+        "trend": "shifted",
+        "total_delta": -33.3
+      },
+      {
+        "card_name": "Legacy Energy",
+        "category": "Energy",
+        "timeline": [
+          0.0,
+          33.3
+        ],
+        "copies_timeline": [
+          0.0,
+          1.0
+        ],
+        "trend": "adopted",
+        "total_delta": 33.3
+      },
+      {
+        "card_name": "Moltres",
+        "category": "Pokemon",
+        "timeline": [
+          0.0,
+          33.3
+        ],
+        "copies_timeline": [
+          0.0,
+          1.0
+        ],
+        "trend": "adopted",
+        "total_delta": 33.3
+      },
+      {
+        "card_name": "Morty's Conviction",
+        "category": "Trainer",
+        "timeline": [
+          0.0,
+          33.3
+        ],
+        "copies_timeline": [
+          0.0,
+          2.0
+        ],
+        "trend": "adopted",
+        "total_delta": 33.3
+      },
+      {
+        "card_name": "Pokégear 3.0",
+        "category": "Trainer",
+        "timeline": [
+          0.0,
+          33.3
+        ],
+        "copies_timeline": [
+          0.0,
+          1.0
+        ],
+        "trend": "adopted",
+        "total_delta": 33.3
+      },
+      {
+        "card_name": "Prism Tower",
+        "category": "Trainer",
+        "timeline": [
+          0.0,
+          33.3
+        ],
+        "copies_timeline": [
+          0.0,
+          2.0
+        ],
+        "trend": "adopted",
+        "total_delta": 33.3
+      },
+      {
+        "card_name": "Sacred Ash",
+        "category": "Trainer",
+        "timeline": [
+          0.0,
+          33.3
+        ],
+        "copies_timeline": [
+          0.0,
+          1.0
+        ],
+        "trend": "adopted",
+        "total_delta": 33.3
+      },
+      {
+        "card_name": "Secret Box",
+        "category": "Trainer",
+        "timeline": [
+          100.0,
+          66.7
+        ],
+        "copies_timeline": [
+          1.0,
+          1.0
+        ],
+        "trend": "shifted",
+        "total_delta": -33.3
+      },
+      {
+        "card_name": "Special Red Card",
+        "category": "Trainer",
+        "timeline": [
+          100.0,
+          66.7
+        ],
+        "copies_timeline": [
+          1.0,
+          1.0
+        ],
+        "trend": "shifted",
+        "total_delta": -33.3
+      },
+      {
+        "card_name": "Team Rocket's Petrel",
+        "category": "Trainer",
+        "timeline": [
+          100.0,
+          66.7
+        ],
+        "copies_timeline": [
+          2.0,
+          2.5
+        ],
+        "trend": "shifted",
+        "total_delta": -33.3
+      },
+      {
+        "card_name": "Victini",
+        "category": "Pokemon",
+        "timeline": [
+          100.0,
+          66.7
+        ],
+        "copies_timeline": [
+          1.0,
+          1.5
+        ],
+        "trend": "shifted",
+        "total_delta": -33.3
+      },
+      {
+        "card_name": "Boss's Orders",
+        "category": "Trainer",
+        "timeline": [
+          100.0,
+          100.0
+        ],
+        "copies_timeline": [
+          2.0,
+          2.3
+        ],
+        "trend": "stable",
+        "total_delta": 0.0
+      },
+      {
+        "card_name": "Brave Bangle",
+        "category": "Trainer",
+        "timeline": [
+          100.0,
+          100.0
+        ],
+        "copies_timeline": [
+          2.0,
+          2.3
+        ],
+        "trend": "stable",
+        "total_delta": 0.0
+      },
+      {
+        "card_name": "Buddy-Buddy Poffin",
+        "category": "Trainer",
+        "timeline": [
+          100.0,
+          100.0
+        ],
+        "copies_timeline": [
+          4.0,
+          4.0
+        ],
+        "trend": "stable",
+        "total_delta": 0.0
+      },
+      {
+        "card_name": "Ethan's Adventure",
+        "category": "Trainer",
+        "timeline": [
+          100.0,
+          100.0
+        ],
+        "copies_timeline": [
+          4.0,
+          4.0
+        ],
+        "trend": "stable",
+        "total_delta": 0.0
+      },
+      {
+        "card_name": "Ethan's Cyndaquil",
+        "category": "Pokemon",
+        "timeline": [
+          100.0,
+          100.0
+        ],
+        "copies_timeline": [
+          4.0,
+          4.0
+        ],
+        "trend": "stable",
+        "total_delta": 0.0
+      },
+      {
+        "card_name": "Ethan's Quilava",
+        "category": "Pokemon",
+        "timeline": [
+          100.0,
+          100.0
+        ],
+        "copies_timeline": [
+          4.0,
+          4.0
+        ],
+        "trend": "stable",
+        "total_delta": 0.0
+      },
+      {
+        "card_name": "Ethan's Typhlosion",
+        "category": "Pokemon",
+        "timeline": [
+          100.0,
+          100.0
+        ],
+        "copies_timeline": [
+          3.0,
+          3.3
+        ],
+        "trend": "stable",
+        "total_delta": 0.0
+      },
+      {
+        "card_name": "Lillie's Determination",
+        "category": "Trainer",
+        "timeline": [
+          100.0,
+          100.0
+        ],
+        "copies_timeline": [
+          1.0,
+          2.3
+        ],
+        "trend": "stable",
+        "total_delta": 0.0
+      },
+      {
+        "card_name": "Night Stretcher",
+        "category": "Trainer",
+        "timeline": [
+          100.0,
+          100.0
+        ],
+        "copies_timeline": [
+          3.0,
+          3.0
+        ],
+        "trend": "stable",
+        "total_delta": 0.0
+      },
+      {
+        "card_name": "Poké Pad",
+        "category": "Trainer",
+        "timeline": [
+          100.0,
+          100.0
+        ],
+        "copies_timeline": [
+          4.0,
+          3.3
+        ],
+        "trend": "stable",
+        "total_delta": 0.0
+      },
+      {
+        "card_name": "Psyduck",
+        "category": "Pokemon",
+        "timeline": [
+          100.0,
+          100.0
+        ],
+        "copies_timeline": [
+          1.0,
+          1.0
+        ],
+        "trend": "stable",
+        "total_delta": 0.0
+      },
+      {
+        "card_name": "Rare Candy",
+        "category": "Trainer",
+        "timeline": [
+          100.0,
+          100.0
+        ],
+        "copies_timeline": [
+          2.0,
+          2.3
+        ],
+        "trend": "stable",
+        "total_delta": 0.0
+      },
+      {
+        "card_name": "Redeemable Ticket",
+        "category": "Trainer",
+        "timeline": [
+          100.0,
+          100.0
+        ],
+        "copies_timeline": [
+          1.0,
+          1.0
+        ],
+        "trend": "stable",
+        "total_delta": 0.0
+      },
+      {
+        "card_name": "Shaymin",
+        "category": "Pokemon",
+        "timeline": [
+          100.0,
+          100.0
+        ],
+        "copies_timeline": [
+          1.0,
+          1.0
+        ],
+        "trend": "stable",
+        "total_delta": 0.0
+      },
+      {
+        "card_name": "Ultra Ball",
+        "category": "Trainer",
+        "timeline": [
+          100.0,
+          100.0
+        ],
+        "copies_timeline": [
+          4.0,
+          3.3
+        ],
+        "trend": "stable",
+        "total_delta": 0.0
+      }
+    ]
+  },
+  "notable_techs": [
+    {
+      "card_name": "Carmine",
+      "event": "declined",
+      "week": "2026-03-16",
+      "from_pct": 100.0,
+      "to_pct": 33.3
+    },
+    {
+      "card_name": "Lana's Aid",
+      "event": "appeared",
+      "week": "2026-03-16",
+      "from_pct": 0.0,
+      "to_pct": 66.7
+    },
+    {
+      "card_name": "Meowth ex",
+      "event": "declined",
+      "week": "2026-03-16",
+      "from_pct": 100.0,
+      "to_pct": 33.3
+    },
+    {
+      "card_name": "Tatsugiri",
+      "event": "declined",
+      "week": "2026-03-16",
+      "from_pct": 100.0,
+      "to_pct": 33.3
+    },
+    {
+      "card_name": "Air Balloon",
+      "event": "declined",
+      "week": "2026-03-16",
+      "from_pct": 100.0,
+      "to_pct": 66.7
+    },
+    {
+      "card_name": "Battle Cage",
+      "event": "declined",
+      "week": "2026-03-16",
+      "from_pct": 100.0,
+      "to_pct": 66.7
+    },
+    {
+      "card_name": "Budew",
+      "event": "declined",
+      "week": "2026-03-16",
+      "from_pct": 100.0,
+      "to_pct": 66.7
+    },
+    {
+      "card_name": "Fezandipiti ex",
+      "event": "declined",
+      "week": "2026-03-16",
+      "from_pct": 100.0,
+      "to_pct": 66.7
+    },
+    {
+      "card_name": "Gravity Mountain",
+      "event": "declined",
+      "week": "2026-03-16",
+      "from_pct": 100.0,
+      "to_pct": 66.7
+    },
+    {
+      "card_name": "Kieran",
+      "event": "declined",
+      "week": "2026-03-16",
+      "from_pct": 100.0,
+      "to_pct": 66.7
+    },
+    {
+      "card_name": "Legacy Energy",
+      "event": "appeared",
+      "week": "2026-03-16",
+      "from_pct": 0.0,
+      "to_pct": 33.3
+    },
+    {
+      "card_name": "Moltres",
+      "event": "appeared",
+      "week": "2026-03-16",
+      "from_pct": 0.0,
+      "to_pct": 33.3
+    },
+    {
+      "card_name": "Morty's Conviction",
+      "event": "appeared",
+      "week": "2026-03-16",
+      "from_pct": 0.0,
+      "to_pct": 33.3
+    },
+    {
+      "card_name": "Pokégear 3.0",
+      "event": "appeared",
+      "week": "2026-03-16",
+      "from_pct": 0.0,
+      "to_pct": 33.3
+    },
+    {
+      "card_name": "Prism Tower",
+      "event": "appeared",
+      "week": "2026-03-16",
+      "from_pct": 0.0,
+      "to_pct": 33.3
+    },
+    {
+      "card_name": "Sacred Ash",
+      "event": "appeared",
+      "week": "2026-03-16",
+      "from_pct": 0.0,
+      "to_pct": 33.3
+    },
+    {
+      "card_name": "Secret Box",
+      "event": "declined",
+      "week": "2026-03-16",
+      "from_pct": 100.0,
+      "to_pct": 66.7
+    },
+    {
+      "card_name": "Special Red Card",
+      "event": "declined",
+      "week": "2026-03-16",
+      "from_pct": 100.0,
+      "to_pct": 66.7
+    },
+    {
+      "card_name": "Team Rocket's Petrel",
+      "event": "declined",
+      "week": "2026-03-16",
+      "from_pct": 100.0,
+      "to_pct": 66.7
+    },
+    {
+      "card_name": "Victini",
+      "event": "declined",
+      "week": "2026-03-16",
+      "from_pct": 100.0,
+      "to_pct": 66.7
+    }
+  ],
+  "placement_distribution": [
+    {
+      "bracket": "2nd",
+      "count": 1,
+      "pct": 25.0
+    },
+    {
+      "bracket": "3rd-4th",
+      "count": 1,
+      "pct": 25.0
+    },
+    {
+      "bracket": "9th-16th",
+      "count": 2,
+      "pct": 50.0
+    }
+  ],
+  "tournament_count": 4,
+  "narrative": {}
+}
