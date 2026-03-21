@@ -1,0 +1,1461 @@
+{
+  "archetype": "Grimmsnarl Munkidori",
+  "slug": "grimmsnarl-munkidori",
+  "format": "nihil-zero",
+  "generated_at": "2026-03-21T02:18:53.742967+00:00",
+  "tier": "B",
+  "meta_share": 3.32,
+  "weighted_share": 3.49,
+  "deck_count": 224,
+  "best_placement": 1,
+  "sprite_filenames": [
+    "grimmsnarl.png",
+    "munkidori.png"
+  ],
+  "consensus_60": {
+    "quality_score": 84.4,
+    "total_pokemon": 14,
+    "total_trainer": 46,
+    "total_energy": 0,
+    "cards": [
+      {
+        "card_name": "Lillie's Determination",
+        "count": 4,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 100.0,
+        "weighted_avg_copies": 4.0,
+        "confidence": 1.0,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Munkidori",
+        "count": 4,
+        "category": "Pokemon",
+        "weighted_inclusion_pct": 100.0,
+        "weighted_avg_copies": 4.0,
+        "confidence": 1.0,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Spikemuth Gym",
+        "count": 4,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 100.0,
+        "weighted_avg_copies": 3.6,
+        "confidence": 1.0,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Marnie's Impidimp",
+        "count": 3,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 100.0,
+        "weighted_avg_copies": 3.3,
+        "confidence": 1.0,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Rare Candy",
+        "count": 3,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 100.0,
+        "weighted_avg_copies": 2.9,
+        "confidence": 1.0,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Buddy-Buddy Poffin",
+        "count": 3,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 100.0,
+        "weighted_avg_copies": 2.9,
+        "confidence": 1.0,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Night Stretcher",
+        "count": 3,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 100.0,
+        "weighted_avg_copies": 2.8,
+        "confidence": 1.0,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Marnie's Grimmsnarl ex",
+        "count": 3,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 100.0,
+        "weighted_avg_copies": 2.8,
+        "confidence": 1.0,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Boss's Orders",
+        "count": 3,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 100.0,
+        "weighted_avg_copies": 2.8,
+        "confidence": 1.0,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Marnie's Morgrem",
+        "count": 2,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 100.0,
+        "weighted_avg_copies": 2.0,
+        "confidence": 1.0,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Poké Pad",
+        "count": 4,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 99.7,
+        "weighted_avg_copies": 3.8,
+        "confidence": 1.0,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Team Rocket's Petrel",
+        "count": 4,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 98.7,
+        "weighted_avg_copies": 3.5,
+        "confidence": 0.99,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Budew",
+        "count": 1,
+        "category": "Pokemon",
+        "weighted_inclusion_pct": 96.9,
+        "weighted_avg_copies": 1.2,
+        "confidence": 0.96,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Snorunt",
+        "count": 2,
+        "category": "Pokemon",
+        "weighted_inclusion_pct": 94.8,
+        "weighted_avg_copies": 2.0,
+        "confidence": 0.95,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Froslass",
+        "count": 2,
+        "category": "Pokemon",
+        "weighted_inclusion_pct": 94.8,
+        "weighted_avg_copies": 2.0,
+        "confidence": 0.95,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Air Balloon",
+        "count": 1,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 89.8,
+        "weighted_avg_copies": 1.1,
+        "confidence": 0.9,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Tatsugiri",
+        "count": 1,
+        "category": "Pokemon",
+        "weighted_inclusion_pct": 78.3,
+        "weighted_avg_copies": 1.0,
+        "confidence": 0.78,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Unfair Stamp",
+        "count": 1,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 78.1,
+        "weighted_avg_copies": 1.0,
+        "confidence": 0.79,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Shaymin",
+        "count": 1,
+        "category": "Pokemon",
+        "weighted_inclusion_pct": 41.2,
+        "weighted_avg_copies": 1.0,
+        "confidence": 0.41,
+        "consensus": "tech"
+      },
+      {
+        "card_name": "Energy Switch",
+        "count": 1,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 34.5,
+        "weighted_avg_copies": 1.2,
+        "confidence": 0.34,
+        "consensus": "tech"
+      },
+      {
+        "card_name": "Ultra Ball",
+        "count": 2,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 34.2,
+        "weighted_avg_copies": 1.5,
+        "confidence": 0.33,
+        "consensus": "tech"
+      },
+      {
+        "card_name": "Psyduck",
+        "count": 1,
+        "category": "Pokemon",
+        "weighted_inclusion_pct": 30.5,
+        "weighted_avg_copies": 1.0,
+        "confidence": 0.32,
+        "consensus": "tech"
+      },
+      {
+        "card_name": "Judge",
+        "count": 1,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 26.4,
+        "weighted_avg_copies": 1.4,
+        "confidence": 0.25,
+        "consensus": "tech"
+      },
+      {
+        "card_name": "Morty's Conviction",
+        "count": 2,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 25.8,
+        "weighted_avg_copies": 1.9,
+        "confidence": 0.23,
+        "consensus": "tech"
+      },
+      {
+        "card_name": "Tool Scrapper",
+        "count": 1,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 25.1,
+        "weighted_avg_copies": 1.0,
+        "confidence": 0.25,
+        "consensus": "tech"
+      },
+      {
+        "card_name": "Yveltal",
+        "count": 1,
+        "category": "Pokemon",
+        "weighted_inclusion_pct": 24.6,
+        "weighted_avg_copies": 1.0,
+        "confidence": 0.26,
+        "consensus": "tech"
+      },
+      {
+        "card_name": "Bloodmoon Ursaluna ex",
+        "count": 1,
+        "category": "Pokemon",
+        "weighted_inclusion_pct": 22.9,
+        "weighted_avg_copies": 1.0,
+        "confidence": 0.22,
+        "consensus": "tech"
+      },
+      {
+        "card_name": "Secret Box",
+        "count": 1,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 20.4,
+        "weighted_avg_copies": 1.0,
+        "confidence": 0.19,
+        "consensus": "tech"
+      }
+    ]
+  },
+  "tech_evolution": {
+    "weeks": [
+      "2026-01-19",
+      "2026-01-26",
+      "2026-02-02",
+      "2026-02-09",
+      "2026-02-16",
+      "2026-02-23",
+      "2026-03-02"
+    ],
+    "cards": [
+      {
+        "card_name": "Judge",
+        "category": "Trainer",
+        "timeline": [
+          100.0,
+          53.8,
+          26.9,
+          23.2,
+          0.0,
+          21.2,
+          21.7
+        ],
+        "copies_timeline": [
+          2.0,
+          1.3,
+          1.4,
+          1.5,
+          0.0,
+          1.3,
+          1.1
+        ],
+        "trend": "shifted",
+        "total_delta": -78.3
+      },
+      {
+        "card_name": "Ultra Ball",
+        "category": "Trainer",
+        "timeline": [
+          100.0,
+          30.8,
+          57.7,
+          23.2,
+          14.3,
+          45.5,
+          28.3
+        ],
+        "copies_timeline": [
+          1.3,
+          1.2,
+          1.2,
+          1.4,
+          1.0,
+          1.7,
+          1.6
+        ],
+        "trend": "shifted",
+        "total_delta": -71.7
+      },
+      {
+        "card_name": "Fezandipiti ex",
+        "category": "Pokemon",
+        "timeline": [
+          66.7,
+          15.4,
+          3.8,
+          3.7,
+          0.0,
+          3.0,
+          1.7
+        ],
+        "copies_timeline": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          1.0,
+          1.0
+        ],
+        "trend": "dropped",
+        "total_delta": -65.0
+      },
+      {
+        "card_name": "Secret Box",
+        "category": "Trainer",
+        "timeline": [
+          66.7,
+          61.5,
+          23.1,
+          23.2,
+          0.0,
+          12.1,
+          5.0
+        ],
+        "copies_timeline": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          1.0,
+          1.0
+        ],
+        "trend": "dropped",
+        "total_delta": -61.7
+      },
+      {
+        "card_name": "Unfair Stamp",
+        "category": "Trainer",
+        "timeline": [
+          33.3,
+          23.1,
+          76.9,
+          74.4,
+          100.0,
+          87.9,
+          95.0
+        ],
+        "copies_timeline": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "trend": "shifted",
+        "total_delta": 61.7
+      },
+      {
+        "card_name": "Morty's Conviction",
+        "category": "Trainer",
+        "timeline": [
+          66.7,
+          46.2,
+          34.6,
+          26.8,
+          14.3,
+          15.2,
+          11.7
+        ],
+        "copies_timeline": [
+          2.5,
+          2.0,
+          1.8,
+          1.9,
+          2.0,
+          1.6,
+          1.7
+        ],
+        "trend": "shifted",
+        "total_delta": -55.0
+      },
+      {
+        "card_name": "Bloodmoon Ursaluna ex",
+        "category": "Pokemon",
+        "timeline": [
+          66.7,
+          23.1,
+          42.3,
+          20.7,
+          0.0,
+          27.3,
+          13.3
+        ],
+        "copies_timeline": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          1.0,
+          1.0
+        ],
+        "trend": "shifted",
+        "total_delta": -53.4
+      },
+      {
+        "card_name": "Tatsugiri",
+        "category": "Pokemon",
+        "timeline": [
+          33.3,
+          38.5,
+          65.4,
+          80.5,
+          85.7,
+          84.8,
+          86.7
+        ],
+        "copies_timeline": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "trend": "shifted",
+        "total_delta": 53.4
+      },
+      {
+        "card_name": "Energy Recycler",
+        "category": "Trainer",
+        "timeline": [
+          33.3,
+          15.4,
+          0.0,
+          4.9,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "copies_timeline": [
+          2.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "trend": "dropped",
+        "total_delta": -33.3
+      },
+      {
+        "card_name": "Pecharunt ex",
+        "category": "Pokemon",
+        "timeline": [
+          33.3,
+          7.7,
+          0.0,
+          2.4,
+          0.0,
+          3.0,
+          0.0
+        ],
+        "copies_timeline": [
+          1.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        "trend": "dropped",
+        "total_delta": -33.3
+      },
+      {
+        "card_name": "Poké Pad",
+        "category": "Trainer",
+        "timeline": [
+          66.7,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ],
+        "copies_timeline": [
+          3.5,
+          3.6,
+          3.7,
+          3.9,
+          4.0,
+          3.8,
+          3.9
+        ],
+        "trend": "shifted",
+        "total_delta": 33.3
+      },
+      {
+        "card_name": "Pokémon Catcher",
+        "category": "Trainer",
+        "timeline": [
+          33.3,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "copies_timeline": [
+          2.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "trend": "dropped",
+        "total_delta": -33.3
+      },
+      {
+        "card_name": "Punk Helmet",
+        "category": "Trainer",
+        "timeline": [
+          33.3,
+          0.0,
+          0.0,
+          1.2,
+          0.0,
+          3.0,
+          0.0
+        ],
+        "copies_timeline": [
+          2.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        "trend": "dropped",
+        "total_delta": -33.3
+      },
+      {
+        "card_name": "Team Rocket's Factory",
+        "category": "Trainer",
+        "timeline": [
+          33.3,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "copies_timeline": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "trend": "dropped",
+        "total_delta": -33.3
+      },
+      {
+        "card_name": "Team Rocket's Watchtower",
+        "category": "Trainer",
+        "timeline": [
+          33.3,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "copies_timeline": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "trend": "dropped",
+        "total_delta": -33.3
+      },
+      {
+        "card_name": "Froslass",
+        "category": "Pokemon",
+        "timeline": [
+          66.7,
+          100.0,
+          96.2,
+          93.9,
+          100.0,
+          87.9,
+          98.3
+        ],
+        "copies_timeline": [
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0
+        ],
+        "trend": "shifted",
+        "total_delta": 31.6
+      },
+      {
+        "card_name": "Marnie's Morpeko",
+        "category": "Trainer",
+        "timeline": [
+          33.3,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          3.0,
+          1.7
+        ],
+        "copies_timeline": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0
+        ],
+        "trend": "dropped",
+        "total_delta": -31.6
+      },
+      {
+        "card_name": "Snorunt",
+        "category": "Pokemon",
+        "timeline": [
+          66.7,
+          100.0,
+          96.2,
+          93.9,
+          100.0,
+          87.9,
+          98.3
+        ],
+        "copies_timeline": [
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0
+        ],
+        "trend": "shifted",
+        "total_delta": 31.6
+      },
+      {
+        "card_name": "Psyduck",
+        "category": "Pokemon",
+        "timeline": [
+          0.0,
+          0.0,
+          38.5,
+          41.5,
+          57.1,
+          15.2,
+          30.0
+        ],
+        "copies_timeline": [
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "trend": "adopted",
+        "total_delta": 30.0
+      },
+      {
+        "card_name": "Yveltal",
+        "category": "Pokemon",
+        "timeline": [
+          0.0,
+          30.8,
+          15.4,
+          22.0,
+          14.3,
+          42.4,
+          30.0
+        ],
+        "copies_timeline": [
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.1,
+          1.0
+        ],
+        "trend": "adopted",
+        "total_delta": 30.0
+      },
+      {
+        "card_name": "Shaymin",
+        "category": "Pokemon",
+        "timeline": [
+          66.7,
+          92.3,
+          46.2,
+          34.1,
+          28.6,
+          36.4,
+          38.3
+        ],
+        "copies_timeline": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "trend": "shifted",
+        "total_delta": -28.4
+      },
+      {
+        "card_name": "Tool Scrapper",
+        "category": "Trainer",
+        "timeline": [
+          33.3,
+          53.8,
+          57.7,
+          30.5,
+          42.9,
+          6.1,
+          5.0
+        ],
+        "copies_timeline": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "trend": "dropped",
+        "total_delta": -28.3
+      },
+      {
+        "card_name": "Maractus",
+        "category": "Pokemon",
+        "timeline": [
+          33.3,
+          7.7,
+          7.7,
+          0.0,
+          0.0,
+          0.0,
+          6.7
+        ],
+        "copies_timeline": [
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "trend": "dropped",
+        "total_delta": -26.6
+      },
+      {
+        "card_name": "Iris's Fighting Spirit",
+        "category": "Trainer",
+        "timeline": [
+          0.0,
+          30.8,
+          15.4,
+          8.5,
+          0.0,
+          6.1,
+          21.7
+        ],
+        "copies_timeline": [
+          0.0,
+          1.8,
+          1.5,
+          1.6,
+          0.0,
+          2.5,
+          2.2
+        ],
+        "trend": "shifted",
+        "total_delta": 21.7
+      },
+      {
+        "card_name": "Air Balloon",
+        "category": "Trainer",
+        "timeline": [
+          66.7,
+          92.3,
+          92.3,
+          92.7,
+          85.7,
+          87.9,
+          86.7
+        ],
+        "copies_timeline": [
+          1.5,
+          1.2,
+          1.0,
+          1.2,
+          1.3,
+          1.2,
+          1.0
+        ],
+        "trend": "stable",
+        "total_delta": 20.0
+      },
+      {
+        "card_name": "Energy Switch",
+        "category": "Trainer",
+        "timeline": [
+          33.3,
+          69.2,
+          42.3,
+          41.5,
+          42.9,
+          30.3,
+          15.0
+        ],
+        "copies_timeline": [
+          2.0,
+          1.3,
+          1.2,
+          1.2,
+          1.0,
+          1.3,
+          1.2
+        ],
+        "trend": "stable",
+        "total_delta": -18.3
+      },
+      {
+        "card_name": "Meowth ex",
+        "category": "Pokemon",
+        "timeline": [
+          0.0,
+          0.0,
+          3.8,
+          4.9,
+          14.3,
+          21.2,
+          13.3
+        ],
+        "copies_timeline": [
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "trend": "stable",
+        "total_delta": 13.3
+      },
+      {
+        "card_name": "Budew",
+        "category": "Pokemon",
+        "timeline": [
+          100.0,
+          84.6,
+          96.2,
+          97.6,
+          100.0,
+          100.0,
+          95.0
+        ],
+        "copies_timeline": [
+          1.0,
+          1.0,
+          1.2,
+          1.2,
+          1.6,
+          1.2,
+          1.1
+        ],
+        "trend": "stable",
+        "total_delta": -5.0
+      },
+      {
+        "card_name": "Pokégear 3.0",
+        "category": "Trainer",
+        "timeline": [
+          0.0,
+          7.7,
+          7.7,
+          7.3,
+          28.6,
+          12.1,
+          3.3
+        ],
+        "copies_timeline": [
+          0.0,
+          2.0,
+          2.5,
+          2.3,
+          1.0,
+          1.5,
+          2.0
+        ],
+        "trend": "stable",
+        "total_delta": 3.3
+      },
+      {
+        "card_name": "Team Rocket's Petrel",
+        "category": "Trainer",
+        "timeline": [
+          100.0,
+          100.0,
+          100.0,
+          97.6,
+          100.0,
+          100.0,
+          98.3
+        ],
+        "copies_timeline": [
+          3.7,
+          2.8,
+          3.3,
+          3.6,
+          3.9,
+          3.7,
+          3.5
+        ],
+        "trend": "stable",
+        "total_delta": -1.7
+      },
+      {
+        "card_name": "Boss's Orders",
+        "category": "Trainer",
+        "timeline": [
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ],
+        "copies_timeline": [
+          2.0,
+          2.4,
+          2.5,
+          2.8,
+          3.0,
+          2.9,
+          3.0
+        ],
+        "trend": "stable",
+        "total_delta": 0.0
+      },
+      {
+        "card_name": "Buddy-Buddy Poffin",
+        "category": "Trainer",
+        "timeline": [
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ],
+        "copies_timeline": [
+          2.7,
+          2.8,
+          2.8,
+          2.9,
+          3.1,
+          3.1,
+          3.0
+        ],
+        "trend": "stable",
+        "total_delta": 0.0
+      },
+      {
+        "card_name": "Lillie's Determination",
+        "category": "Trainer",
+        "timeline": [
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ],
+        "copies_timeline": [
+          4.0,
+          4.0,
+          4.0,
+          4.0,
+          4.0,
+          4.0,
+          4.0
+        ],
+        "trend": "stable",
+        "total_delta": 0.0
+      },
+      {
+        "card_name": "Marnie's Grimmsnarl ex",
+        "category": "Trainer",
+        "timeline": [
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ],
+        "copies_timeline": [
+          2.3,
+          2.4,
+          2.7,
+          2.9,
+          3.0,
+          2.8,
+          2.9
+        ],
+        "trend": "stable",
+        "total_delta": 0.0
+      },
+      {
+        "card_name": "Marnie's Impidimp",
+        "category": "Trainer",
+        "timeline": [
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ],
+        "copies_timeline": [
+          3.3,
+          3.1,
+          3.1,
+          3.2,
+          3.0,
+          3.2,
+          3.6
+        ],
+        "trend": "stable",
+        "total_delta": 0.0
+      },
+      {
+        "card_name": "Marnie's Morgrem",
+        "category": "Trainer",
+        "timeline": [
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ],
+        "copies_timeline": [
+          2.3,
+          1.9,
+          1.9,
+          2.0,
+          1.9,
+          2.0,
+          2.0
+        ],
+        "trend": "stable",
+        "total_delta": 0.0
+      },
+      {
+        "card_name": "Munkidori",
+        "category": "Pokemon",
+        "timeline": [
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ],
+        "copies_timeline": [
+          3.7,
+          4.0,
+          4.0,
+          4.0,
+          4.0,
+          3.9,
+          4.0
+        ],
+        "trend": "stable",
+        "total_delta": 0.0
+      },
+      {
+        "card_name": "Night Stretcher",
+        "category": "Trainer",
+        "timeline": [
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ],
+        "copies_timeline": [
+          2.0,
+          2.9,
+          2.8,
+          2.9,
+          3.0,
+          2.8,
+          2.6
+        ],
+        "trend": "stable",
+        "total_delta": 0.0
+      },
+      {
+        "card_name": "Rare Candy",
+        "category": "Trainer",
+        "timeline": [
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ],
+        "copies_timeline": [
+          2.3,
+          2.7,
+          2.9,
+          2.8,
+          3.0,
+          2.9,
+          3.0
+        ],
+        "trend": "stable",
+        "total_delta": 0.0
+      },
+      {
+        "card_name": "Spikemuth Gym",
+        "category": "Trainer",
+        "timeline": [
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ],
+        "copies_timeline": [
+          2.7,
+          3.2,
+          3.6,
+          3.5,
+          4.0,
+          3.6,
+          3.7
+        ],
+        "trend": "stable",
+        "total_delta": 0.0
+      }
+    ]
+  },
+  "notable_techs": [
+    {
+      "card_name": "Ultra Ball",
+      "event": "declined",
+      "week": "2026-01-26",
+      "from_pct": 100.0,
+      "to_pct": 30.8
+    },
+    {
+      "card_name": "Unfair Stamp",
+      "event": "surged",
+      "week": "2026-02-02",
+      "from_pct": 23.1,
+      "to_pct": 76.9
+    },
+    {
+      "card_name": "Fezandipiti ex",
+      "event": "declined",
+      "week": "2026-01-26",
+      "from_pct": 66.7,
+      "to_pct": 15.4
+    },
+    {
+      "card_name": "Judge",
+      "event": "declined",
+      "week": "2026-01-26",
+      "from_pct": 100.0,
+      "to_pct": 53.8
+    },
+    {
+      "card_name": "Shaymin",
+      "event": "declined",
+      "week": "2026-02-02",
+      "from_pct": 92.3,
+      "to_pct": 46.2
+    },
+    {
+      "card_name": "Bloodmoon Ursaluna ex",
+      "event": "declined",
+      "week": "2026-01-26",
+      "from_pct": 66.7,
+      "to_pct": 23.1
+    },
+    {
+      "card_name": "Psyduck",
+      "event": "declined",
+      "week": "2026-02-23",
+      "from_pct": 57.1,
+      "to_pct": 15.2
+    },
+    {
+      "card_name": "Secret Box",
+      "event": "declined",
+      "week": "2026-02-02",
+      "from_pct": 61.5,
+      "to_pct": 23.1
+    },
+    {
+      "card_name": "Tool Scrapper",
+      "event": "disappeared",
+      "week": "2026-02-23",
+      "from_pct": 42.9,
+      "to_pct": 6.1
+    },
+    {
+      "card_name": "Energy Switch",
+      "event": "surged",
+      "week": "2026-01-26",
+      "from_pct": 33.3,
+      "to_pct": 69.2
+    },
+    {
+      "card_name": "Poké Pad",
+      "event": "surged",
+      "week": "2026-01-26",
+      "from_pct": 66.7,
+      "to_pct": 100.0
+    },
+    {
+      "card_name": "Pokémon Catcher",
+      "event": "disappeared",
+      "week": "2026-01-26",
+      "from_pct": 33.3,
+      "to_pct": 0.0
+    },
+    {
+      "card_name": "Punk Helmet",
+      "event": "disappeared",
+      "week": "2026-01-26",
+      "from_pct": 33.3,
+      "to_pct": 0.0
+    },
+    {
+      "card_name": "Team Rocket's Factory",
+      "event": "disappeared",
+      "week": "2026-01-26",
+      "from_pct": 33.3,
+      "to_pct": 0.0
+    },
+    {
+      "card_name": "Team Rocket's Watchtower",
+      "event": "disappeared",
+      "week": "2026-01-26",
+      "from_pct": 33.3,
+      "to_pct": 0.0
+    },
+    {
+      "card_name": "Froslass",
+      "event": "surged",
+      "week": "2026-01-26",
+      "from_pct": 66.7,
+      "to_pct": 100.0
+    },
+    {
+      "card_name": "Marnie's Morpeko",
+      "event": "disappeared",
+      "week": "2026-01-26",
+      "from_pct": 33.3,
+      "to_pct": 0.0
+    },
+    {
+      "card_name": "Snorunt",
+      "event": "surged",
+      "week": "2026-01-26",
+      "from_pct": 66.7,
+      "to_pct": 100.0
+    },
+    {
+      "card_name": "Yveltal",
+      "event": "appeared",
+      "week": "2026-01-26",
+      "from_pct": 0.0,
+      "to_pct": 30.8
+    },
+    {
+      "card_name": "Iris's Fighting Spirit",
+      "event": "appeared",
+      "week": "2026-01-26",
+      "from_pct": 0.0,
+      "to_pct": 30.8
+    },
+    {
+      "card_name": "Tatsugiri",
+      "event": "surged",
+      "week": "2026-02-02",
+      "from_pct": 38.5,
+      "to_pct": 65.4
+    },
+    {
+      "card_name": "Pecharunt ex",
+      "event": "disappeared",
+      "week": "2026-01-26",
+      "from_pct": 33.3,
+      "to_pct": 7.7
+    },
+    {
+      "card_name": "Maractus",
+      "event": "disappeared",
+      "week": "2026-01-26",
+      "from_pct": 33.3,
+      "to_pct": 7.7
+    },
+    {
+      "card_name": "Air Balloon",
+      "event": "surged",
+      "week": "2026-01-26",
+      "from_pct": 66.7,
+      "to_pct": 92.3
+    },
+    {
+      "card_name": "Pokégear 3.0",
+      "event": "appeared",
+      "week": "2026-02-16",
+      "from_pct": 7.3,
+      "to_pct": 28.6
+    },
+    {
+      "card_name": "Morty's Conviction",
+      "event": "declined",
+      "week": "2026-01-26",
+      "from_pct": 66.7,
+      "to_pct": 46.2
+    }
+  ],
+  "placement_distribution": [
+    {
+      "bracket": "1st",
+      "count": 24,
+      "pct": 10.7
+    },
+    {
+      "bracket": "2nd",
+      "count": 13,
+      "pct": 5.8
+    },
+    {
+      "bracket": "3rd-4th",
+      "count": 31,
+      "pct": 13.8
+    },
+    {
+      "bracket": "5th-8th",
+      "count": 60,
+      "pct": 26.8
+    },
+    {
+      "bracket": "9th-16th",
+      "count": 96,
+      "pct": 42.9
+    }
+  ],
+  "tournament_count": 181,
+  "narrative": {}
+}

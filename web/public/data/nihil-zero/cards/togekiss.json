@@ -1,43 +1,147 @@
 {
   "card_name": "Togekiss",
   "card_slug": "togekiss",
-  "card_id": null,
-  "set_code": null,
-  "set_number": null,
-  "image_url": null,
+  "card_id": "svp-038",
+  "set_code": "svp",
+  "set_number": "038",
+  "image_url": "https://assets.tcgdex.net/en/sv/svp/038/high.png",
   "category": "Pokemon",
-  "rarity": null,
-  "total_appearances": 6,
-  "usage_pct": 0.5,
+  "rarity": "",
+  "total_appearances": 93,
+  "usage_pct": 1.4,
   "avg_copies": 1.0,
-  "unique_archetypes": 2,
-  "weighted_score": 7.8,
-  "win_rate_proxy": 1.3,
+  "unique_archetypes": 12,
+  "weighted_score": 139.8,
+  "win_rate_proxy": 1.5,
   "top_archetype": "Alakazam Dudunsparce",
   "trend_direction": "stable",
   "copy_distribution": [
     {
       "copies": 1,
-      "count": 6
+      "count": 92
+    },
+    {
+      "copies": 2,
+      "count": 1
     }
   ],
   "archetypes": [
     {
       "name": "Alakazam Dudunsparce",
       "slug": "alakazam-dudunsparce",
-      "usage_count": 5,
+      "usage_count": 74,
       "avg_copies": 1.0,
       "tier": "B"
     },
     {
       "name": "Mega Diancie Dusknoir",
       "slug": "mega-diancie-dusknoir",
+      "usage_count": 5,
+      "avg_copies": 1.0,
+      "tier": "C"
+    },
+    {
+      "name": "Garchomp Roserade",
+      "slug": "garchomp-roserade",
+      "usage_count": 4,
+      "avg_copies": 1.0,
+      "tier": "B"
+    },
+    {
+      "name": "Dragapult ex",
+      "slug": "dragapult-ex",
+      "usage_count": 2,
+      "avg_copies": 1.0,
+      "tier": "B"
+    },
+    {
+      "name": "Mega Lucario",
+      "slug": "mega-lucario",
+      "usage_count": 1,
+      "avg_copies": 1.0,
+      "tier": "A"
+    },
+    {
+      "name": "Mega Gardevoir Togekiss",
+      "slug": "mega-gardevoir-togekiss",
+      "usage_count": 1,
+      "avg_copies": 2.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Mega Gardevoir Jellicent",
+      "slug": "mega-gardevoir-jellicent",
+      "usage_count": 1,
+      "avg_copies": 1.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Dusknoir Jellicent",
+      "slug": "dusknoir-jellicent",
+      "usage_count": 1,
+      "avg_copies": 1.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Dipplin Rillaboom",
+      "slug": "dipplin-rillaboom",
+      "usage_count": 1,
+      "avg_copies": 1.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Clefairy Jellicent",
+      "slug": "clefairy-jellicent",
+      "usage_count": 1,
+      "avg_copies": 1.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Alakazam Reuniclus",
+      "slug": "alakazam-reuniclus",
+      "usage_count": 1,
+      "avg_copies": 1.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Alakazam Dragapult",
+      "slug": "alakazam-dragapult",
       "usage_count": 1,
       "avg_copies": 1.0,
       "tier": "Rogue"
     }
   ],
   "weekly_usage": [
+    {
+      "week": "2026-01-19",
+      "usage_pct": 2.8,
+      "avg_copies": 1.0
+    },
+    {
+      "week": "2026-01-26",
+      "usage_pct": 1.7,
+      "avg_copies": 1.0
+    },
+    {
+      "week": "2026-02-02",
+      "usage_pct": 1.4,
+      "avg_copies": 1.0
+    },
+    {
+      "week": "2026-02-09",
+      "usage_pct": 1.5,
+      "avg_copies": 1.0
+    },
+    {
+      "week": "2026-02-16",
+      "usage_pct": 2.3,
+      "avg_copies": 1.0
+    },
+    {
+      "week": "2026-02-23",
+      "usage_pct": 0.7,
+      "avg_copies": 1.2
+    },
     {
       "week": "2026-03-02",
       "usage_pct": 0.5,
@@ -47,108 +151,108 @@
   "synergy_partners": [
     {
       "card_name": "Togepi",
-      "support": 6,
-      "lift": 197.333,
+      "support": 93,
+      "lift": 72.645,
       "jaccard": 1.0,
-      "weighted_score": 7.8
-    },
-    {
-      "card_name": "Abra",
-      "support": 5,
-      "lift": 18.974,
-      "jaccard": 0.094,
-      "weighted_score": 6.6
-    },
-    {
-      "card_name": "Alakazam",
-      "support": 5,
-      "lift": 18.974,
-      "jaccard": 0.094,
-      "weighted_score": 6.6
-    },
-    {
-      "card_name": "Kadabra",
-      "support": 5,
-      "lift": 18.974,
-      "jaccard": 0.094,
-      "weighted_score": 6.6
+      "weighted_score": 139.8
     },
     {
       "card_name": "Enriching Energy",
-      "support": 5,
-      "lift": 18.616,
-      "jaccard": 0.093,
-      "weighted_score": 6.6
+      "support": 74,
+      "lift": 15.359,
+      "jaccard": 0.201,
+      "weighted_score": 111.7
+    },
+    {
+      "card_name": "Alakazam",
+      "support": 76,
+      "lift": 15.126,
+      "jaccard": 0.199,
+      "weighted_score": 114.1
+    },
+    {
+      "card_name": "Kadabra",
+      "support": 76,
+      "lift": 15.126,
+      "jaccard": 0.199,
+      "weighted_score": 114.1
+    },
+    {
+      "card_name": "Abra",
+      "support": 76,
+      "lift": 15.044,
+      "jaccard": 0.198,
+      "weighted_score": 114.1
+    },
+    {
+      "card_name": "Enhanced Hammer",
+      "support": 55,
+      "lift": 13.778,
+      "jaccard": 0.168,
+      "weighted_score": 81.6
     },
     {
       "card_name": "Dudunsparce",
-      "support": 5,
-      "lift": 17.939,
-      "jaccard": 0.089,
-      "weighted_score": 6.6
+      "support": 75,
+      "lift": 13.621,
+      "jaccard": 0.179,
+      "weighted_score": 112.9
     },
     {
       "card_name": "Dunsparce",
-      "support": 5,
-      "lift": 17.939,
-      "jaccard": 0.089,
-      "weighted_score": 6.6
+      "support": 75,
+      "lift": 13.621,
+      "jaccard": 0.179,
+      "weighted_score": 112.9
     },
     {
       "card_name": "Sacred Ash",
-      "support": 5,
-      "lift": 15.661,
-      "jaccard": 0.078,
-      "weighted_score": 6.6
+      "support": 58,
+      "lift": 10.56,
+      "jaccard": 0.134,
+      "weighted_score": 89.7
     },
     {
       "card_name": "Wondrous Patch",
-      "support": 5,
-      "lift": 14.726,
-      "jaccard": 0.074,
-      "weighted_score": 6.6
+      "support": 79,
+      "lift": 9.645,
+      "jaccard": 0.13,
+      "weighted_score": 118.3
     },
     {
       "card_name": "Telepath Psychic Energy",
-      "support": 6,
-      "lift": 11.96,
-      "jaccard": 0.061,
-      "weighted_score": 7.8
+      "support": 81,
+      "lift": 8.54,
+      "jaccard": 0.116,
+      "weighted_score": 122.0
     },
     {
-      "card_name": "Battle Cage",
-      "support": 5,
-      "lift": 7.475,
-      "jaccard": 0.038,
-      "weighted_score": 6.6
+      "card_name": "Fan Rotom",
+      "support": 55,
+      "lift": 6.434,
+      "jaccard": 0.083,
+      "weighted_score": 84.9
     },
     {
       "card_name": "Lana's Aid",
-      "support": 5,
-      "lift": 6.534,
-      "jaccard": 0.033,
-      "weighted_score": 6.6
+      "support": 60,
+      "lift": 6.372,
+      "jaccard": 0.084,
+      "weighted_score": 87.2
+    },
+    {
+      "card_name": "Battle Cage",
+      "support": 79,
+      "lift": 5.762,
+      "jaccard": 0.078,
+      "weighted_score": 118.0
     },
     {
       "card_name": "Hilda",
-      "support": 5,
-      "lift": 5.77,
-      "jaccard": 0.029,
-      "weighted_score": 6.6
-    },
-    {
-      "card_name": "Dawn",
-      "support": 5,
-      "lift": 3.869,
-      "jaccard": 0.02,
-      "weighted_score": 6.6
-    },
-    {
-      "card_name": "Rare Candy",
-      "support": 6,
-      "lift": 2.709,
-      "jaccard": 0.014,
-      "weighted_score": 7.8
+      "support": 80,
+      "lift": 4.061,
+      "jaccard": 0.055,
+      "weighted_score": 119.2
     }
   ]
 }

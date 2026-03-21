@@ -1,0 +1,952 @@
+{
+  "archetype": "Mega Froslass Dusknoir",
+  "slug": "mega-froslass-dusknoir",
+  "format": "nihil-zero",
+  "generated_at": "2026-03-21T02:18:54.065231+00:00",
+  "tier": "Rogue",
+  "meta_share": 0.04,
+  "weighted_share": 0.05,
+  "deck_count": 3,
+  "best_placement": 2,
+  "sprite_filenames": [
+    "froslass-mega.png",
+    "dusknoir.png"
+  ],
+  "consensus_60": {
+    "quality_score": 82.9,
+    "total_pokemon": 16,
+    "total_trainer": 42,
+    "total_energy": 2,
+    "cards": [
+      {
+        "card_name": "Buddy-Buddy Poffin",
+        "count": 4,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 100.0,
+        "weighted_avg_copies": 3.6,
+        "confidence": 1.0,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Snorunt",
+        "count": 3,
+        "category": "Pokemon",
+        "weighted_inclusion_pct": 100.0,
+        "weighted_avg_copies": 3.3,
+        "confidence": 1.0,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Hilda",
+        "count": 3,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 100.0,
+        "weighted_avg_copies": 3.3,
+        "confidence": 1.0,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Poké Pad",
+        "count": 3,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 100.0,
+        "weighted_avg_copies": 3.0,
+        "confidence": 1.0,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Duskull",
+        "count": 3,
+        "category": "Pokemon",
+        "weighted_inclusion_pct": 100.0,
+        "weighted_avg_copies": 3.0,
+        "confidence": 1.0,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Pokégear 3.0",
+        "count": 3,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 100.0,
+        "weighted_avg_copies": 2.9,
+        "confidence": 1.0,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Salvatore",
+        "count": 3,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 100.0,
+        "weighted_avg_copies": 2.9,
+        "confidence": 1.0,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Rare Candy",
+        "count": 2,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 100.0,
+        "weighted_avg_copies": 2.4,
+        "confidence": 1.0,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Ultra Ball",
+        "count": 2,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 100.0,
+        "weighted_avg_copies": 2.4,
+        "confidence": 1.0,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Dusknoir",
+        "count": 2,
+        "category": "Pokemon",
+        "weighted_inclusion_pct": 100.0,
+        "weighted_avg_copies": 2.4,
+        "confidence": 1.0,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Mega Froslass ex",
+        "count": 2,
+        "category": "Pokemon",
+        "weighted_inclusion_pct": 100.0,
+        "weighted_avg_copies": 2.0,
+        "confidence": 1.0,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Boss's Orders",
+        "count": 2,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 100.0,
+        "weighted_avg_copies": 2.0,
+        "confidence": 1.0,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Night Stretcher",
+        "count": 2,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 100.0,
+        "weighted_avg_copies": 1.7,
+        "confidence": 1.0,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Wally's Compassion",
+        "count": 2,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 100.0,
+        "weighted_avg_copies": 1.6,
+        "confidence": 1.0,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Dusclops",
+        "count": 1,
+        "category": "Pokemon",
+        "weighted_inclusion_pct": 100.0,
+        "weighted_avg_copies": 1.4,
+        "confidence": 1.0,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Lillie's Determination",
+        "count": 4,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 78.9,
+        "weighted_avg_copies": 3.6,
+        "confidence": 0.67,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Lucian",
+        "count": 4,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 64.9,
+        "weighted_avg_copies": 4.0,
+        "confidence": 0.67,
+        "consensus": "common"
+      },
+      {
+        "card_name": "Team Rocket's Petrel",
+        "count": 2,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 64.9,
+        "weighted_avg_copies": 2.0,
+        "confidence": 0.67,
+        "consensus": "common"
+      },
+      {
+        "card_name": "Acerola's Mischief",
+        "count": 1,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 64.9,
+        "weighted_avg_copies": 1.0,
+        "confidence": 0.67,
+        "consensus": "common"
+      },
+      {
+        "card_name": "Switch",
+        "count": 1,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 64.9,
+        "weighted_avg_copies": 1.0,
+        "confidence": 0.67,
+        "consensus": "common"
+      },
+      {
+        "card_name": "Hero's Cape",
+        "count": 1,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 64.9,
+        "weighted_avg_copies": 1.0,
+        "confidence": 0.67,
+        "consensus": "common"
+      },
+      {
+        "card_name": "Team Rocket's Watchtower",
+        "count": 1,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 56.1,
+        "weighted_avg_copies": 1.4,
+        "confidence": 0.67,
+        "consensus": "common"
+      },
+      {
+        "card_name": "Ignition Energy",
+        "count": 2,
+        "category": "Energy",
+        "weighted_inclusion_pct": 35.1,
+        "weighted_avg_copies": 2.0,
+        "confidence": 0.33,
+        "consensus": "tech"
+      },
+      {
+        "card_name": "Fezandipiti ex",
+        "count": 1,
+        "category": "Pokemon",
+        "weighted_inclusion_pct": 35.1,
+        "weighted_avg_copies": 1.0,
+        "confidence": 0.33,
+        "consensus": "tech"
+      },
+      {
+        "card_name": "Budew",
+        "count": 1,
+        "category": "Pokemon",
+        "weighted_inclusion_pct": 35.1,
+        "weighted_avg_copies": 1.0,
+        "confidence": 0.33,
+        "consensus": "tech"
+      },
+      {
+        "card_name": "Psyduck",
+        "count": 1,
+        "category": "Pokemon",
+        "weighted_inclusion_pct": 35.1,
+        "weighted_avg_copies": 1.0,
+        "confidence": 0.33,
+        "consensus": "tech"
+      },
+      {
+        "card_name": "Shaymin",
+        "count": 1,
+        "category": "Pokemon",
+        "weighted_inclusion_pct": 35.1,
+        "weighted_avg_copies": 1.0,
+        "confidence": 0.33,
+        "consensus": "tech"
+      },
+      {
+        "card_name": "Judge",
+        "count": 1,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 35.1,
+        "weighted_avg_copies": 1.0,
+        "confidence": 0.33,
+        "consensus": "tech"
+      },
+      {
+        "card_name": "Colress's Tenacity",
+        "count": 1,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 35.1,
+        "weighted_avg_copies": 1.0,
+        "confidence": 0.33,
+        "consensus": "tech"
+      },
+      {
+        "card_name": "Latias ex",
+        "count": 1,
+        "category": "Pokemon",
+        "weighted_inclusion_pct": 35.1,
+        "weighted_avg_copies": 1.0,
+        "confidence": 0.33,
+        "consensus": "tech"
+      }
+    ]
+  },
+  "tech_evolution": {
+    "weeks": [
+      "2026-02-09",
+      "2026-03-02"
+    ],
+    "cards": [
+      {
+        "card_name": "Lillie's Determination",
+        "category": "Trainer",
+        "timeline": [
+          100.0,
+          0.0
+        ],
+        "copies_timeline": [
+          3.5,
+          0.0
+        ],
+        "trend": "dropped",
+        "total_delta": -100.0
+      },
+      {
+        "card_name": "Mega Signal",
+        "category": "Trainer",
+        "timeline": [
+          0.0,
+          100.0
+        ],
+        "copies_timeline": [
+          0.0,
+          1.0
+        ],
+        "trend": "adopted",
+        "total_delta": 100.0
+      },
+      {
+        "card_name": "Naveen",
+        "category": "Trainer",
+        "timeline": [
+          0.0,
+          100.0
+        ],
+        "copies_timeline": [
+          0.0,
+          2.0
+        ],
+        "trend": "adopted",
+        "total_delta": 100.0
+      },
+      {
+        "card_name": "Acerola's Mischief",
+        "category": "Trainer",
+        "timeline": [
+          50.0,
+          100.0
+        ],
+        "copies_timeline": [
+          1.0,
+          1.0
+        ],
+        "trend": "shifted",
+        "total_delta": 50.0
+      },
+      {
+        "card_name": "Budew",
+        "category": "Pokemon",
+        "timeline": [
+          50.0,
+          0.0
+        ],
+        "copies_timeline": [
+          1.0,
+          0.0
+        ],
+        "trend": "dropped",
+        "total_delta": -50.0
+      },
+      {
+        "card_name": "Colress's Tenacity",
+        "category": "Trainer",
+        "timeline": [
+          50.0,
+          0.0
+        ],
+        "copies_timeline": [
+          1.0,
+          0.0
+        ],
+        "trend": "dropped",
+        "total_delta": -50.0
+      },
+      {
+        "card_name": "Fezandipiti ex",
+        "category": "Pokemon",
+        "timeline": [
+          50.0,
+          0.0
+        ],
+        "copies_timeline": [
+          1.0,
+          0.0
+        ],
+        "trend": "dropped",
+        "total_delta": -50.0
+      },
+      {
+        "card_name": "Hero's Cape",
+        "category": "Trainer",
+        "timeline": [
+          50.0,
+          100.0
+        ],
+        "copies_timeline": [
+          1.0,
+          1.0
+        ],
+        "trend": "shifted",
+        "total_delta": 50.0
+      },
+      {
+        "card_name": "Ignition Energy",
+        "category": "Energy",
+        "timeline": [
+          50.0,
+          0.0
+        ],
+        "copies_timeline": [
+          2.0,
+          0.0
+        ],
+        "trend": "dropped",
+        "total_delta": -50.0
+      },
+      {
+        "card_name": "Jamming Tower",
+        "category": "Trainer",
+        "timeline": [
+          50.0,
+          0.0
+        ],
+        "copies_timeline": [
+          1.0,
+          0.0
+        ],
+        "trend": "dropped",
+        "total_delta": -50.0
+      },
+      {
+        "card_name": "Judge",
+        "category": "Trainer",
+        "timeline": [
+          50.0,
+          0.0
+        ],
+        "copies_timeline": [
+          1.0,
+          0.0
+        ],
+        "trend": "dropped",
+        "total_delta": -50.0
+      },
+      {
+        "card_name": "Latias ex",
+        "category": "Pokemon",
+        "timeline": [
+          50.0,
+          0.0
+        ],
+        "copies_timeline": [
+          1.0,
+          0.0
+        ],
+        "trend": "dropped",
+        "total_delta": -50.0
+      },
+      {
+        "card_name": "Lucian",
+        "category": "Trainer",
+        "timeline": [
+          50.0,
+          100.0
+        ],
+        "copies_timeline": [
+          4.0,
+          4.0
+        ],
+        "trend": "shifted",
+        "total_delta": 50.0
+      },
+      {
+        "card_name": "Meowth ex",
+        "category": "Pokemon",
+        "timeline": [
+          50.0,
+          0.0
+        ],
+        "copies_timeline": [
+          1.0,
+          0.0
+        ],
+        "trend": "dropped",
+        "total_delta": -50.0
+      },
+      {
+        "card_name": "Prime Catcher",
+        "category": "Trainer",
+        "timeline": [
+          50.0,
+          0.0
+        ],
+        "copies_timeline": [
+          1.0,
+          0.0
+        ],
+        "trend": "dropped",
+        "total_delta": -50.0
+      },
+      {
+        "card_name": "Psyduck",
+        "category": "Pokemon",
+        "timeline": [
+          50.0,
+          0.0
+        ],
+        "copies_timeline": [
+          1.0,
+          0.0
+        ],
+        "trend": "dropped",
+        "total_delta": -50.0
+      },
+      {
+        "card_name": "Shaymin",
+        "category": "Pokemon",
+        "timeline": [
+          50.0,
+          0.0
+        ],
+        "copies_timeline": [
+          1.0,
+          0.0
+        ],
+        "trend": "dropped",
+        "total_delta": -50.0
+      },
+      {
+        "card_name": "Switch",
+        "category": "Trainer",
+        "timeline": [
+          50.0,
+          100.0
+        ],
+        "copies_timeline": [
+          1.0,
+          1.0
+        ],
+        "trend": "shifted",
+        "total_delta": 50.0
+      },
+      {
+        "card_name": "Team Rocket's Petrel",
+        "category": "Trainer",
+        "timeline": [
+          50.0,
+          100.0
+        ],
+        "copies_timeline": [
+          2.0,
+          2.0
+        ],
+        "trend": "shifted",
+        "total_delta": 50.0
+      },
+      {
+        "card_name": "Team Rocket's Watchtower",
+        "category": "Trainer",
+        "timeline": [
+          50.0,
+          100.0
+        ],
+        "copies_timeline": [
+          1.0,
+          2.0
+        ],
+        "trend": "shifted",
+        "total_delta": 50.0
+      },
+      {
+        "card_name": "Boss's Orders",
+        "category": "Trainer",
+        "timeline": [
+          100.0,
+          100.0
+        ],
+        "copies_timeline": [
+          2.0,
+          2.0
+        ],
+        "trend": "stable",
+        "total_delta": 0.0
+      },
+      {
+        "card_name": "Buddy-Buddy Poffin",
+        "category": "Trainer",
+        "timeline": [
+          100.0,
+          100.0
+        ],
+        "copies_timeline": [
+          3.5,
+          4.0
+        ],
+        "trend": "stable",
+        "total_delta": 0.0
+      },
+      {
+        "card_name": "Dusclops",
+        "category": "Pokemon",
+        "timeline": [
+          100.0,
+          100.0
+        ],
+        "copies_timeline": [
+          1.5,
+          1.0
+        ],
+        "trend": "stable",
+        "total_delta": 0.0
+      },
+      {
+        "card_name": "Dusknoir",
+        "category": "Pokemon",
+        "timeline": [
+          100.0,
+          100.0
+        ],
+        "copies_timeline": [
+          2.5,
+          2.0
+        ],
+        "trend": "stable",
+        "total_delta": 0.0
+      },
+      {
+        "card_name": "Duskull",
+        "category": "Pokemon",
+        "timeline": [
+          100.0,
+          100.0
+        ],
+        "copies_timeline": [
+          3.0,
+          3.0
+        ],
+        "trend": "stable",
+        "total_delta": 0.0
+      },
+      {
+        "card_name": "Hilda",
+        "category": "Trainer",
+        "timeline": [
+          100.0,
+          100.0
+        ],
+        "copies_timeline": [
+          3.0,
+          4.0
+        ],
+        "trend": "stable",
+        "total_delta": 0.0
+      },
+      {
+        "card_name": "Mega Froslass ex",
+        "category": "Pokemon",
+        "timeline": [
+          100.0,
+          100.0
+        ],
+        "copies_timeline": [
+          2.0,
+          2.0
+        ],
+        "trend": "stable",
+        "total_delta": 0.0
+      },
+      {
+        "card_name": "Night Stretcher",
+        "category": "Trainer",
+        "timeline": [
+          100.0,
+          100.0
+        ],
+        "copies_timeline": [
+          2.0,
+          1.0
+        ],
+        "trend": "stable",
+        "total_delta": 0.0
+      },
+      {
+        "card_name": "Poké Pad",
+        "category": "Trainer",
+        "timeline": [
+          100.0,
+          100.0
+        ],
+        "copies_timeline": [
+          3.0,
+          3.0
+        ],
+        "trend": "stable",
+        "total_delta": 0.0
+      },
+      {
+        "card_name": "Pokégear 3.0",
+        "category": "Trainer",
+        "timeline": [
+          100.0,
+          100.0
+        ],
+        "copies_timeline": [
+          2.5,
+          4.0
+        ],
+        "trend": "stable",
+        "total_delta": 0.0
+      },
+      {
+        "card_name": "Rare Candy",
+        "category": "Trainer",
+        "timeline": [
+          100.0,
+          100.0
+        ],
+        "copies_timeline": [
+          2.5,
+          2.0
+        ],
+        "trend": "stable",
+        "total_delta": 0.0
+      },
+      {
+        "card_name": "Salvatore",
+        "category": "Trainer",
+        "timeline": [
+          100.0,
+          100.0
+        ],
+        "copies_timeline": [
+          2.5,
+          4.0
+        ],
+        "trend": "stable",
+        "total_delta": 0.0
+      },
+      {
+        "card_name": "Snorunt",
+        "category": "Pokemon",
+        "timeline": [
+          100.0,
+          100.0
+        ],
+        "copies_timeline": [
+          3.0,
+          4.0
+        ],
+        "trend": "stable",
+        "total_delta": 0.0
+      },
+      {
+        "card_name": "Ultra Ball",
+        "category": "Trainer",
+        "timeline": [
+          100.0,
+          100.0
+        ],
+        "copies_timeline": [
+          2.5,
+          2.0
+        ],
+        "trend": "stable",
+        "total_delta": 0.0
+      },
+      {
+        "card_name": "Wally's Compassion",
+        "category": "Trainer",
+        "timeline": [
+          100.0,
+          100.0
+        ],
+        "copies_timeline": [
+          1.5,
+          2.0
+        ],
+        "trend": "stable",
+        "total_delta": 0.0
+      }
+    ]
+  },
+  "notable_techs": [
+    {
+      "card_name": "Lillie's Determination",
+      "event": "disappeared",
+      "week": "2026-03-02",
+      "from_pct": 100.0,
+      "to_pct": 0.0
+    },
+    {
+      "card_name": "Mega Signal",
+      "event": "appeared",
+      "week": "2026-03-02",
+      "from_pct": 0.0,
+      "to_pct": 100.0
+    },
+    {
+      "card_name": "Naveen",
+      "event": "appeared",
+      "week": "2026-03-02",
+      "from_pct": 0.0,
+      "to_pct": 100.0
+    },
+    {
+      "card_name": "Acerola's Mischief",
+      "event": "surged",
+      "week": "2026-03-02",
+      "from_pct": 50.0,
+      "to_pct": 100.0
+    },
+    {
+      "card_name": "Budew",
+      "event": "disappeared",
+      "week": "2026-03-02",
+      "from_pct": 50.0,
+      "to_pct": 0.0
+    },
+    {
+      "card_name": "Colress's Tenacity",
+      "event": "disappeared",
+      "week": "2026-03-02",
+      "from_pct": 50.0,
+      "to_pct": 0.0
+    },
+    {
+      "card_name": "Fezandipiti ex",
+      "event": "disappeared",
+      "week": "2026-03-02",
+      "from_pct": 50.0,
+      "to_pct": 0.0
+    },
+    {
+      "card_name": "Hero's Cape",
+      "event": "surged",
+      "week": "2026-03-02",
+      "from_pct": 50.0,
+      "to_pct": 100.0
+    },
+    {
+      "card_name": "Ignition Energy",
+      "event": "disappeared",
+      "week": "2026-03-02",
+      "from_pct": 50.0,
+      "to_pct": 0.0
+    },
+    {
+      "card_name": "Jamming Tower",
+      "event": "disappeared",
+      "week": "2026-03-02",
+      "from_pct": 50.0,
+      "to_pct": 0.0
+    },
+    {
+      "card_name": "Judge",
+      "event": "disappeared",
+      "week": "2026-03-02",
+      "from_pct": 50.0,
+      "to_pct": 0.0
+    },
+    {
+      "card_name": "Latias ex",
+      "event": "disappeared",
+      "week": "2026-03-02",
+      "from_pct": 50.0,
+      "to_pct": 0.0
+    },
+    {
+      "card_name": "Lucian",
+      "event": "surged",
+      "week": "2026-03-02",
+      "from_pct": 50.0,
+      "to_pct": 100.0
+    },
+    {
+      "card_name": "Meowth ex",
+      "event": "disappeared",
+      "week": "2026-03-02",
+      "from_pct": 50.0,
+      "to_pct": 0.0
+    },
+    {
+      "card_name": "Prime Catcher",
+      "event": "disappeared",
+      "week": "2026-03-02",
+      "from_pct": 50.0,
+      "to_pct": 0.0
+    },
+    {
+      "card_name": "Psyduck",
+      "event": "disappeared",
+      "week": "2026-03-02",
+      "from_pct": 50.0,
+      "to_pct": 0.0
+    },
+    {
+      "card_name": "Shaymin",
+      "event": "disappeared",
+      "week": "2026-03-02",
+      "from_pct": 50.0,
+      "to_pct": 0.0
+    },
+    {
+      "card_name": "Switch",
+      "event": "surged",
+      "week": "2026-03-02",
+      "from_pct": 50.0,
+      "to_pct": 100.0
+    },
+    {
+      "card_name": "Team Rocket's Petrel",
+      "event": "surged",
+      "week": "2026-03-02",
+      "from_pct": 50.0,
+      "to_pct": 100.0
+    },
+    {
+      "card_name": "Team Rocket's Watchtower",
+      "event": "surged",
+      "week": "2026-03-02",
+      "from_pct": 50.0,
+      "to_pct": 100.0
+    }
+  ],
+  "placement_distribution": [
+    {
+      "bracket": "2nd",
+      "count": 1,
+      "pct": 33.3
+    },
+    {
+      "bracket": "3rd-4th",
+      "count": 1,
+      "pct": 33.3
+    },
+    {
+      "bracket": "9th-16th",
+      "count": 1,
+      "pct": 33.3
+    }
+  ],
+  "tournament_count": 3,
+  "narrative": {}
+}

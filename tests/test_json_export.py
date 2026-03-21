@@ -255,7 +255,7 @@ class TestGetFormatConfig:
     def test_valid_slug(self):
         cfg = get_format_config("nihil-zero")
         assert cfg["name"] == "Nihil Zero"
-        assert cfg["db_name"] == "nihil-zero.db"
+        assert cfg["db_name"] == "scout.db"
 
     def test_invalid_slug(self):
         import pytest

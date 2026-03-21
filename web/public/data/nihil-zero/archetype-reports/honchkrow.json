@@ -1,0 +1,755 @@
+{
+  "archetype": "Honchkrow",
+  "slug": "honchkrow",
+  "format": "nihil-zero",
+  "generated_at": "2026-03-21T02:18:54.040848+00:00",
+  "tier": "Rogue",
+  "meta_share": 0.06,
+  "weighted_share": 0.06,
+  "deck_count": 4,
+  "best_placement": 4,
+  "sprite_filenames": [
+    "honchkrow.png"
+  ],
+  "consensus_60": {
+    "quality_score": 94.6,
+    "total_pokemon": 0,
+    "total_trainer": 52,
+    "total_energy": 8,
+    "cards": [
+      {
+        "card_name": "Team Rocket's Murkrow",
+        "count": 4,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 100.0,
+        "weighted_avg_copies": 4.0,
+        "confidence": 1.0,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Team Rocket's Archer",
+        "count": 4,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 100.0,
+        "weighted_avg_copies": 4.0,
+        "confidence": 1.0,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Team Rocket's Ariana",
+        "count": 4,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 100.0,
+        "weighted_avg_copies": 4.0,
+        "confidence": 1.0,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Team Rocket's Giovanni",
+        "count": 4,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 100.0,
+        "weighted_avg_copies": 4.0,
+        "confidence": 1.0,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Team Rocket's Petrel",
+        "count": 4,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 100.0,
+        "weighted_avg_copies": 4.0,
+        "confidence": 1.0,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Team Rocket's Proton",
+        "count": 4,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 100.0,
+        "weighted_avg_copies": 4.0,
+        "confidence": 1.0,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Team Rocket's Transceiver",
+        "count": 4,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 100.0,
+        "weighted_avg_copies": 4.0,
+        "confidence": 1.0,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Team Rocket's Energy",
+        "count": 4,
+        "category": "Energy",
+        "weighted_inclusion_pct": 100.0,
+        "weighted_avg_copies": 4.0,
+        "confidence": 1.0,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Ignition Energy",
+        "count": 4,
+        "category": "Energy",
+        "weighted_inclusion_pct": 100.0,
+        "weighted_avg_copies": 3.8,
+        "confidence": 1.0,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Team Rocket's Honchkrow",
+        "count": 4,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 100.0,
+        "weighted_avg_copies": 3.7,
+        "confidence": 1.0,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Team Rocket's Factory",
+        "count": 3,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 100.0,
+        "weighted_avg_copies": 3.1,
+        "confidence": 1.0,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Night Stretcher",
+        "count": 3,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 100.0,
+        "weighted_avg_copies": 2.8,
+        "confidence": 1.0,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Pokégear 3.0",
+        "count": 2,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 100.0,
+        "weighted_avg_copies": 2.4,
+        "confidence": 1.0,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Poké Pad",
+        "count": 2,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 100.0,
+        "weighted_avg_copies": 2.2,
+        "confidence": 1.0,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Team Rocket's Articuno",
+        "count": 2,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 79.7,
+        "weighted_avg_copies": 1.7,
+        "confidence": 0.75,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Miracle Headset",
+        "count": 1,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 79.7,
+        "weighted_avg_copies": 1.0,
+        "confidence": 0.75,
+        "consensus": "core"
+      },
+      {
+        "card_name": "Roto-Stick",
+        "count": 4,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 74.6,
+        "weighted_avg_copies": 4.0,
+        "confidence": 0.75,
+        "consensus": "common"
+      },
+      {
+        "card_name": "Team Rocket's Porygon",
+        "count": 1,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 45.8,
+        "weighted_avg_copies": 1.0,
+        "confidence": 0.5,
+        "consensus": "tech"
+      },
+      {
+        "card_name": "Team Rocket's Porygon2",
+        "count": 1,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 45.8,
+        "weighted_avg_copies": 1.0,
+        "confidence": 0.5,
+        "consensus": "tech"
+      },
+      {
+        "card_name": "Ultra Ball",
+        "count": 1,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 45.8,
+        "weighted_avg_copies": 1.0,
+        "confidence": 0.5,
+        "consensus": "tech"
+      }
+    ]
+  },
+  "tech_evolution": {
+    "weeks": [
+      "2026-01-19",
+      "2026-02-09",
+      "2026-02-23"
+    ],
+    "cards": [
+      {
+        "card_name": "Brave Bangle",
+        "category": "Trainer",
+        "timeline": [
+          100.0,
+          50.0,
+          0.0
+        ],
+        "copies_timeline": [
+          2.0,
+          2.0,
+          0.0
+        ],
+        "trend": "dropped",
+        "total_delta": -100.0
+      },
+      {
+        "card_name": "Hilda",
+        "category": "Trainer",
+        "timeline": [
+          100.0,
+          0.0,
+          0.0
+        ],
+        "copies_timeline": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "trend": "dropped",
+        "total_delta": -100.0
+      },
+      {
+        "card_name": "Lucky Helmet",
+        "category": "Trainer",
+        "timeline": [
+          0.0,
+          0.0,
+          100.0
+        ],
+        "copies_timeline": [
+          0.0,
+          0.0,
+          2.0
+        ],
+        "trend": "adopted",
+        "total_delta": 100.0
+      },
+      {
+        "card_name": "Miracle Headset",
+        "category": "Trainer",
+        "timeline": [
+          0.0,
+          100.0,
+          100.0
+        ],
+        "copies_timeline": [
+          0.0,
+          1.0,
+          1.0
+        ],
+        "trend": "adopted",
+        "total_delta": 100.0
+      },
+      {
+        "card_name": "Roto-Stick",
+        "category": "Trainer",
+        "timeline": [
+          100.0,
+          100.0,
+          0.0
+        ],
+        "copies_timeline": [
+          4.0,
+          4.0,
+          0.0
+        ],
+        "trend": "dropped",
+        "total_delta": -100.0
+      },
+      {
+        "card_name": "Team Rocket's Articuno",
+        "category": "Trainer",
+        "timeline": [
+          0.0,
+          100.0,
+          100.0
+        ],
+        "copies_timeline": [
+          0.0,
+          1.5,
+          2.0
+        ],
+        "trend": "adopted",
+        "total_delta": 100.0
+      },
+      {
+        "card_name": "Team Rocket's Mimikyu",
+        "category": "Trainer",
+        "timeline": [
+          100.0,
+          0.0,
+          0.0
+        ],
+        "copies_timeline": [
+          2.0,
+          0.0,
+          0.0
+        ],
+        "trend": "dropped",
+        "total_delta": -100.0
+      },
+      {
+        "card_name": "Ultra Ball",
+        "category": "Trainer",
+        "timeline": [
+          0.0,
+          50.0,
+          100.0
+        ],
+        "copies_timeline": [
+          0.0,
+          1.0,
+          1.0
+        ],
+        "trend": "adopted",
+        "total_delta": 100.0
+      },
+      {
+        "card_name": "Unfair Stamp",
+        "category": "Trainer",
+        "timeline": [
+          100.0,
+          0.0,
+          0.0
+        ],
+        "copies_timeline": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "trend": "dropped",
+        "total_delta": -100.0
+      },
+      {
+        "card_name": "Ignition Energy",
+        "category": "Energy",
+        "timeline": [
+          100.0,
+          100.0,
+          100.0
+        ],
+        "copies_timeline": [
+          3.0,
+          4.0,
+          4.0
+        ],
+        "trend": "stable",
+        "total_delta": 0.0
+      },
+      {
+        "card_name": "Night Stretcher",
+        "category": "Trainer",
+        "timeline": [
+          100.0,
+          100.0,
+          100.0
+        ],
+        "copies_timeline": [
+          2.0,
+          2.5,
+          4.0
+        ],
+        "trend": "stable",
+        "total_delta": 0.0
+      },
+      {
+        "card_name": "Poké Pad",
+        "category": "Trainer",
+        "timeline": [
+          100.0,
+          100.0,
+          100.0
+        ],
+        "copies_timeline": [
+          3.0,
+          2.0,
+          2.0
+        ],
+        "trend": "stable",
+        "total_delta": 0.0
+      },
+      {
+        "card_name": "Pokégear 3.0",
+        "category": "Trainer",
+        "timeline": [
+          100.0,
+          100.0,
+          100.0
+        ],
+        "copies_timeline": [
+          2.0,
+          2.0,
+          4.0
+        ],
+        "trend": "stable",
+        "total_delta": 0.0
+      },
+      {
+        "card_name": "Punk Helmet",
+        "category": "Trainer",
+        "timeline": [
+          0.0,
+          50.0,
+          0.0
+        ],
+        "copies_timeline": [
+          0.0,
+          3.0,
+          0.0
+        ],
+        "trend": "stable",
+        "total_delta": 0.0
+      },
+      {
+        "card_name": "Team Rocket's Archer",
+        "category": "Trainer",
+        "timeline": [
+          100.0,
+          100.0,
+          100.0
+        ],
+        "copies_timeline": [
+          4.0,
+          4.0,
+          4.0
+        ],
+        "trend": "stable",
+        "total_delta": 0.0
+      },
+      {
+        "card_name": "Team Rocket's Ariana",
+        "category": "Trainer",
+        "timeline": [
+          100.0,
+          100.0,
+          100.0
+        ],
+        "copies_timeline": [
+          4.0,
+          4.0,
+          4.0
+        ],
+        "trend": "stable",
+        "total_delta": 0.0
+      },
+      {
+        "card_name": "Team Rocket's Energy",
+        "category": "Energy",
+        "timeline": [
+          100.0,
+          100.0,
+          100.0
+        ],
+        "copies_timeline": [
+          4.0,
+          4.0,
+          4.0
+        ],
+        "trend": "stable",
+        "total_delta": 0.0
+      },
+      {
+        "card_name": "Team Rocket's Factory",
+        "category": "Trainer",
+        "timeline": [
+          100.0,
+          100.0,
+          100.0
+        ],
+        "copies_timeline": [
+          2.0,
+          3.5,
+          3.0
+        ],
+        "trend": "stable",
+        "total_delta": 0.0
+      },
+      {
+        "card_name": "Team Rocket's Giovanni",
+        "category": "Trainer",
+        "timeline": [
+          100.0,
+          100.0,
+          100.0
+        ],
+        "copies_timeline": [
+          4.0,
+          4.0,
+          4.0
+        ],
+        "trend": "stable",
+        "total_delta": 0.0
+      },
+      {
+        "card_name": "Team Rocket's Honchkrow",
+        "category": "Trainer",
+        "timeline": [
+          100.0,
+          100.0,
+          100.0
+        ],
+        "copies_timeline": [
+          4.0,
+          4.0,
+          3.0
+        ],
+        "trend": "stable",
+        "total_delta": 0.0
+      },
+      {
+        "card_name": "Team Rocket's Murkrow",
+        "category": "Trainer",
+        "timeline": [
+          100.0,
+          100.0,
+          100.0
+        ],
+        "copies_timeline": [
+          4.0,
+          4.0,
+          4.0
+        ],
+        "trend": "stable",
+        "total_delta": 0.0
+      },
+      {
+        "card_name": "Team Rocket's Petrel",
+        "category": "Trainer",
+        "timeline": [
+          100.0,
+          100.0,
+          100.0
+        ],
+        "copies_timeline": [
+          4.0,
+          4.0,
+          4.0
+        ],
+        "trend": "stable",
+        "total_delta": 0.0
+      },
+      {
+        "card_name": "Team Rocket's Porygon",
+        "category": "Trainer",
+        "timeline": [
+          100.0,
+          0.0,
+          100.0
+        ],
+        "copies_timeline": [
+          1.0,
+          0.0,
+          1.0
+        ],
+        "trend": "stable",
+        "total_delta": 0.0
+      },
+      {
+        "card_name": "Team Rocket's Porygon2",
+        "category": "Trainer",
+        "timeline": [
+          100.0,
+          0.0,
+          100.0
+        ],
+        "copies_timeline": [
+          1.0,
+          0.0,
+          1.0
+        ],
+        "trend": "stable",
+        "total_delta": 0.0
+      },
+      {
+        "card_name": "Team Rocket's Proton",
+        "category": "Trainer",
+        "timeline": [
+          100.0,
+          100.0,
+          100.0
+        ],
+        "copies_timeline": [
+          4.0,
+          4.0,
+          4.0
+        ],
+        "trend": "stable",
+        "total_delta": 0.0
+      },
+      {
+        "card_name": "Team Rocket's Transceiver",
+        "category": "Trainer",
+        "timeline": [
+          100.0,
+          100.0,
+          100.0
+        ],
+        "copies_timeline": [
+          4.0,
+          4.0,
+          4.0
+        ],
+        "trend": "stable",
+        "total_delta": 0.0
+      },
+      {
+        "card_name": "Tool Scrapper",
+        "category": "Trainer",
+        "timeline": [
+          0.0,
+          50.0,
+          0.0
+        ],
+        "copies_timeline": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "trend": "stable",
+        "total_delta": 0.0
+      }
+    ]
+  },
+  "notable_techs": [
+    {
+      "card_name": "Hilda",
+      "event": "disappeared",
+      "week": "2026-02-09",
+      "from_pct": 100.0,
+      "to_pct": 0.0
+    },
+    {
+      "card_name": "Lucky Helmet",
+      "event": "appeared",
+      "week": "2026-02-23",
+      "from_pct": 0.0,
+      "to_pct": 100.0
+    },
+    {
+      "card_name": "Miracle Headset",
+      "event": "appeared",
+      "week": "2026-02-09",
+      "from_pct": 0.0,
+      "to_pct": 100.0
+    },
+    {
+      "card_name": "Roto-Stick",
+      "event": "disappeared",
+      "week": "2026-02-23",
+      "from_pct": 100.0,
+      "to_pct": 0.0
+    },
+    {
+      "card_name": "Team Rocket's Articuno",
+      "event": "appeared",
+      "week": "2026-02-09",
+      "from_pct": 0.0,
+      "to_pct": 100.0
+    },
+    {
+      "card_name": "Team Rocket's Mimikyu",
+      "event": "disappeared",
+      "week": "2026-02-09",
+      "from_pct": 100.0,
+      "to_pct": 0.0
+    },
+    {
+      "card_name": "Unfair Stamp",
+      "event": "disappeared",
+      "week": "2026-02-09",
+      "from_pct": 100.0,
+      "to_pct": 0.0
+    },
+    {
+      "card_name": "Team Rocket's Porygon",
+      "event": "disappeared",
+      "week": "2026-02-09",
+      "from_pct": 100.0,
+      "to_pct": 0.0
+    },
+    {
+      "card_name": "Team Rocket's Porygon2",
+      "event": "disappeared",
+      "week": "2026-02-09",
+      "from_pct": 100.0,
+      "to_pct": 0.0
+    },
+    {
+      "card_name": "Brave Bangle",
+      "event": "declined",
+      "week": "2026-02-09",
+      "from_pct": 100.0,
+      "to_pct": 50.0
+    },
+    {
+      "card_name": "Ultra Ball",
+      "event": "appeared",
+      "week": "2026-02-09",
+      "from_pct": 0.0,
+      "to_pct": 50.0
+    },
+    {
+      "card_name": "Punk Helmet",
+      "event": "appeared",
+      "week": "2026-02-09",
+      "from_pct": 0.0,
+      "to_pct": 50.0
+    },
+    {
+      "card_name": "Tool Scrapper",
+      "event": "appeared",
+      "week": "2026-02-09",
+      "from_pct": 0.0,
+      "to_pct": 50.0
+    }
+  ],
+  "placement_distribution": [
+    {
+      "bracket": "3rd-4th",
+      "count": 1,
+      "pct": 25.0
+    },
+    {
+      "bracket": "5th-8th",
+      "count": 1,
+      "pct": 25.0
+    },
+    {
+      "bracket": "9th-16th",
+      "count": 2,
+      "pct": 50.0
+    }
+  ],
+  "tournament_count": 4,
+  "narrative": {}
+}

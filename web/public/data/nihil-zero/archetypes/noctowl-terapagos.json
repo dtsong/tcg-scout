@@ -354,7 +354,7 @@
       "inclusion_pct": 50.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Lightning Energy",
@@ -608,11 +608,6 @@
           "category": "Pokemon"
         },
         {
-          "card_name": "Lillie's Clefairy ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
           "card_name": "Chien-Pao",
           "count": 1,
           "category": "Pokemon"
@@ -670,6 +665,11 @@
         {
           "card_name": "Glass Trumpet",
           "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Lillie's Clefairy ex",
+          "count": 1,
           "category": "Trainer"
         },
         {
@@ -743,27 +743,7 @@
       "week": "2026-01-26",
       "adopted": [
         {
-          "card": "Wellspring Mask Ogerpon ex",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
           "card": "Lillie's Clefairy ex",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Tera Orb",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Iron Leaves ex",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Briar",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -773,7 +753,17 @@
           "to_pct": 100.0
         },
         {
+          "card": "Wellspring Mask Ogerpon ex",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
           "card": "Pikachu ex",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Iron Leaves ex",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -781,16 +771,21 @@
           "card": "Cyrano",
           "from_pct": 0.0,
           "to_pct": 100.0
+        },
+        {
+          "card": "Briar",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Tera Orb",
+          "from_pct": 0.0,
+          "to_pct": 100.0
         }
       ],
       "dropped": [
         {
-          "card": "Air Balloon",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Brock's Scouting",
+          "card": "Mega Kangaskhan ex",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -800,7 +795,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "Mega Kangaskhan ex",
+          "card": "Brock's Scouting",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -810,12 +805,17 @@
           "to_pct": 0.0
         },
         {
-          "card": "Judge",
+          "card": "Meowth ex",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Meowth ex",
+          "card": "Air Balloon",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Judge",
           "from_pct": 100.0,
           "to_pct": 0.0
         }
