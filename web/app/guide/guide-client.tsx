@@ -54,7 +54,7 @@ const TOOL_SECTIONS: {
       "Overview of the current meta with tier rankings and card trends.",
     bullets: [
       "Tiers are based on meta share: S (15%+), A (8-15%), B (3-8%), C (1-3%), Rogue (under 1%)",
-      "Weighted share factors in placement finish (1st = 3.0x, 2nd = 2.5x, 3rd-4th = 2.0x, 5th-8th = 1.5x, 9th-16th = 1.2x, 17th+ = 1.0x) -- decks that consistently finish well rank higher",
+      "Weighted share factors in placement finish (1st = 3.0x, 2nd = 2.5x, 3rd-4th = 2.0x, 5th-8th = 1.5x, 9th-16th = 1.2x, 17th+ = 1.0x), so decks that consistently finish well rank higher",
       "\"Biggest Copy-Count Shifts\" highlights cards whose usage changed the most between the first and second halves of the measured period",
       "\"Winning Edge\" compares card usage in 1st-place decks versus the overall field for S, A, and B tier archetypes",
       "ACE SPEC chart shows which ACE SPECs appear most across top-tier decks",
@@ -274,8 +274,8 @@ export function GuideClient() {
                   <div className="px-4 pb-4 text-surface-300 text-sm font-body leading-relaxed">
                     {section.intro && <p className="mb-2">{section.intro}</p>}
                     <ul className="space-y-1.5 list-disc list-inside marker:text-surface-500">
-                      {section.bullets.map((bullet, i) => (
-                        <li key={i}>{bullet}</li>
+                      {section.bullets.map((bullet) => (
+                        <li key={bullet}>{bullet}</li>
                       ))}
                     </ul>
                   </div>

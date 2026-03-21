@@ -59,6 +59,22 @@ describe("GuideClient", () => {
     ).toBeInTheDocument();
   });
 
+  it("renders intro paragraph and bullet items when section is open", () => {
+    render(<GuideClient />);
+    // Dashboard is open by default — check intro and bullets
+    expect(
+      screen.getByText(
+        "Overview of the current meta with tier rankings and card trends."
+      )
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(/ACE SPEC chart shows which ACE SPECs/)
+    ).toBeInTheDocument();
+    // Bullets render as list items
+    const bullets = screen.getAllByRole("listitem");
+    expect(bullets.length).toBeGreaterThanOrEqual(5);
+  });
+
   it("renders the glossary table", () => {
     render(<GuideClient />);
     expect(screen.getByText("Metric Glossary")).toBeInTheDocument();
