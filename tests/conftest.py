@@ -152,12 +152,12 @@ def db() -> sqlite3.Connection:
         (1, "2026-03-10T00:00:00", 3, 6),
     )
     conn.executemany(
-        "INSERT INTO archetype_stats (snapshot_id, archetype, meta_share, deck_count, best_placement, tier) "
-        "VALUES (?, ?, ?, ?, ?, ?)",
+        "INSERT INTO archetype_stats (snapshot_id, archetype, meta_share, deck_count, best_placement, tier, weighted_share) "
+        "VALUES (?, ?, ?, ?, ?, ?, ?)",
         [
-            (1, "Charizard ex", 50.0, 3, 1, "S"),
-            (1, "Dragapult ex", 33.33, 2, 2, "S"),
-            (1, "Raging Bolt ex", 16.67, 1, 16, "S"),
+            (1, "Charizard ex", 50.0, 3, 1, "S", 54.39),
+            (1, "Dragapult ex", 33.33, 2, 2, "S", 35.09),
+            (1, "Raging Bolt ex", 16.67, 1, 16, "S", 10.53),
         ],
     )
 

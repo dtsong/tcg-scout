@@ -60,6 +60,50 @@ class TestInitDb:
         assert db_path.exists()
 
 
+class TestMigrations:
+    def test_adds_weighted_share_to_existing_db(self):
+        """Simulate upgrading a DB that predates the weighted_share column."""
+        conn = sqlite3.connect(":memory:")
+        conn.row_factory = sqlite3.Row
+        # Create schema without weighted_share
+        conn.execute(
+            """CREATE TABLE archetype_stats (
+                snapshot_id INTEGER,
+                archetype TEXT,
+                meta_share REAL,
+                deck_count INTEGER,
+                best_placement INTEGER,
+                tier TEXT,
+                PRIMARY KEY (snapshot_id, archetype)
+            )"""
+        )
+        # Also need the other tables for init_db to succeed
+        conn.execute(
+            "CREATE TABLE IF NOT EXISTS tournaments (id TEXT PRIMARY KEY, name TEXT, date TEXT, player_count INTEGER, division TEXT)"
+        )
+        conn.execute(
+            "CREATE TABLE IF NOT EXISTS cards (id TEXT PRIMARY KEY, name_en TEXT NOT NULL)"
+        )
+        conn.execute("CREATE TABLE IF NOT EXISTS placements (id INTEGER PRIMARY KEY)")
+        conn.execute("CREATE TABLE IF NOT EXISTS decklist_cards (id INTEGER PRIMARY KEY)")
+        conn.execute("CREATE TABLE IF NOT EXISTS cl_events (id INTEGER PRIMARY KEY)")
+        conn.execute("CREATE TABLE IF NOT EXISTS cl_placements (id INTEGER PRIMARY KEY)")
+        conn.execute("CREATE TABLE IF NOT EXISTS cl_decklist_cards (id INTEGER PRIMARY KEY)")
+        conn.execute("CREATE TABLE IF NOT EXISTS meta_snapshots (id INTEGER PRIMARY KEY)")
+        conn.commit()
+
+        # Verify column doesn't exist yet
+        cols = {row[1] for row in conn.execute("PRAGMA table_info(archetype_stats)")}
+        assert "weighted_share" not in cols
+
+        init_db(conn)
+
+        # Verify migration added the column
+        cols = {row[1] for row in conn.execute("PRAGMA table_info(archetype_stats)")}
+        assert "weighted_share" in cols
+        conn.close()
+
+
 class TestResetDb:
     def test_drops_and_recreates(self, tmp_path, monkeypatch):
         monkeypatch.setattr("db.DATA_DIR", tmp_path)

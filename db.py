@@ -1,9 +1,12 @@
 """SQLite database schema and connection helpers."""
 
+import logging
 import sqlite3
 from pathlib import Path
 
 from config import DEFAULT_FORMAT, FORMATS
+
+logger = logging.getLogger(__name__)
 
 DATA_DIR = Path(__file__).parent / "data"
 DB_PATH = DATA_DIR / FORMATS[DEFAULT_FORMAT]["db_name"]
@@ -63,6 +66,7 @@ CREATE TABLE IF NOT EXISTS archetype_stats (
     deck_count INTEGER NOT NULL,
     best_placement INTEGER,
     tier TEXT CHECK(tier IN ('S','A','B','C','Rogue')),
+    weighted_share REAL,
     PRIMARY KEY (snapshot_id, archetype)
 );
 
@@ -147,6 +151,11 @@ def init_db(conn: sqlite3.Connection | None = None) -> None:
         conn.execute(
             "ALTER TABLE tournaments ADD COLUMN tournament_type TEXT DEFAULT 'city-league'"
         )
+    # Migration: ensure weighted_share column exists on archetype_stats
+    as_cols = {row[1] for row in conn.execute("PRAGMA table_info(archetype_stats)")}
+    if "weighted_share" not in as_cols:
+        conn.execute("ALTER TABLE archetype_stats ADD COLUMN weighted_share REAL")
+        logger.info("Migration: added weighted_share column to archetype_stats")
     conn.commit()
     if close:
         conn.close()

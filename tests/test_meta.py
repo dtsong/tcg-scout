@@ -70,6 +70,30 @@ class TestComputeMetaSnapshot:
         # Raging Bolt ex: 1/6 = 16.67% -> S
         assert tier_map["Raging Bolt ex"] == "S"
 
+    def test_stores_weighted_share(self, db):
+        db.execute("DELETE FROM archetype_stats")
+        db.execute("DELETE FROM meta_snapshots")
+        db.commit()
+
+        snapshot_id = compute_meta_snapshot(db)
+
+        stats = db.execute(
+            "SELECT archetype, weighted_share FROM archetype_stats WHERE snapshot_id = ?",
+            (snapshot_id,),
+        ).fetchall()
+
+        ws = {row["archetype"]: row["weighted_share"] for row in stats}
+        # All should be non-NULL
+        for arch, share in ws.items():
+            assert share is not None, f"{arch} has NULL weighted_share"
+
+        # Should sum to ~100
+        assert abs(sum(ws.values()) - 100.0) < 0.5
+
+        # Higher placements should yield higher weighted share
+        assert ws["Charizard ex"] > ws["Dragapult ex"]
+        assert ws["Dragapult ex"] > ws["Raging Bolt ex"]
+
 
 # --- get_latest_snapshot ---
 
@@ -84,6 +108,11 @@ class TestGetLatestSnapshot:
         assert "deck_count" in result
         assert "archetypes" in result
         assert isinstance(result["archetypes"], list)
+
+    def test_archetypes_include_weighted_share(self, db):
+        result = get_latest_snapshot(db)
+        for arch in result["archetypes"]:
+            assert "weighted_share" in dict(arch), f"{arch['archetype']} missing weighted_share"
 
     def test_archetypes_sorted_by_share_desc(self, db):
         result = get_latest_snapshot(db)

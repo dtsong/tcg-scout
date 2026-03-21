@@ -40,6 +40,13 @@ When running `node`, `npm`, `npx`, or any Node.js tools:
 source ~/.nvm/nvm.sh && nvm use default --silent && <command>
 ```
 
+## Databases
+
+- `data/scout.db` (Nihil Zero format) -- **frozen**, no new tournament data will be ingested
+- `data/nihil-zero.db` -- **frozen**, no new tournament data will be ingested
+- `data/ninja-spinner.db` -- **active**, current rotation format receiving new data
+- Tournaments have a `division` column (open/senior/junior); meta analysis filters to open only
+
 ## Architecture
 
 ### Data Flow

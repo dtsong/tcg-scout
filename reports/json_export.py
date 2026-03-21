@@ -391,12 +391,29 @@ def _get_sprite_filenames(archetype_name: str) -> list[str]:
 
 
 def _compute_weighted_shares(conn: sqlite3.Connection, snapshot: dict) -> dict[str, float]:
-    """Compute performance-weighted meta share for each archetype.
+    """Return performance-weighted meta share for each archetype.
 
-    Weights placements by finish position (top 16 differentiated for 64-player City Leagues).
-    Champions League results excluded from scoring -- archetype is classified at
-    export time (export_champions_league) rather than stored in cl_placements.
+    Uses cached weighted_share from archetype_stats if available (computed during
+    meta snapshot). Falls back to computing from scratch for older snapshots.
     """
+    # Try cached values first (handle both dict and sqlite3.Row objects)
+    archetypes = snapshot.get("archetypes", [])
+    try:
+        cached = {
+            a["archetype"]: a["weighted_share"]
+            for a in archetypes
+            if a["weighted_share"] is not None
+        }
+        if cached:
+            return cached
+    except (KeyError, IndexError):
+        # KeyError: dict archetypes missing weighted_share key (pre-migration data)
+        # IndexError: sqlite3.Row objects without weighted_share column
+        logger.info(
+            "weighted_share not in snapshot archetypes (pre-migration data), computing from scratch"
+        )
+
+    # Fallback: compute from scratch (for snapshots without cached values)
     rows = conn.execute(
         """
         SELECT p.archetype, p.standing
@@ -485,6 +502,22 @@ def _compute_archetype_trends(conn: sqlite3.Connection) -> dict[str, dict]:
         result[arch] = {"trend": trend, "trend_delta": delta}
 
     return result
+
+
+def _bulk_fetch_archetype_placements(
+    conn: sqlite3.Connection,
+) -> dict[str, list[dict]]:
+    """Fetch all open placements grouped by archetype in a single query.
+
+    Returns {archetype_name: [{"id": int, "standing": int}, ...]}.
+    """
+    rows = conn.execute(
+        "SELECT id, standing, archetype FROM open_placements ORDER BY archetype"
+    ).fetchall()
+    result: dict[str, list[dict]] = defaultdict(list)
+    for row in rows:
+        result[row["archetype"]].append({"id": row["id"], "standing": row["standing"]})
+    return dict(result)
 
 
 def _get_latest_tournament_date(conn: sqlite3.Connection) -> str | None:
@@ -787,16 +820,18 @@ def _compute_windowed_ace_specs(
     conn: sqlite3.Connection,
     date_from: str,
     date_to: str,
+    total_decks: int | None = None,
 ) -> list[dict]:
     """Compute ACE SPEC distribution filtered to a specific date window."""
-    total_decks = conn.execute(
-        """
-        SELECT COUNT(*) FROM open_placements p
-        JOIN tournaments t ON t.id = p.tournament_id
-        WHERE t.date >= ? AND t.date <= ?
-        """,
-        (date_from, date_to),
-    ).fetchone()[0]
+    if total_decks is None:
+        total_decks = conn.execute(
+            """
+            SELECT COUNT(*) FROM open_placements p
+            JOIN tournaments t ON t.id = p.tournament_id
+            WHERE t.date >= ? AND t.date <= ?
+            """,
+            (date_from, date_to),
+        ).fetchone()[0]
 
     if total_decks == 0:
         return []
@@ -828,25 +863,25 @@ def _compute_windowed_ace_specs(
     ]
 
 
-def _compute_windowed_staples_flex(
+def _compute_windowed_card_usage(
     conn: sqlite3.Connection,
     date_from: str,
     date_to: str,
-    threshold_min: float,
-    threshold_max: float | None = None,
+    total_decks: int | None = None,
 ) -> list[dict]:
-    """Compute staples or flex cards filtered to a date window.
+    """Compute per-card usage stats filtered to a date window.
 
-    threshold_min/max are usage percentages (e.g. 40 for staples, 20-40 for flex).
+    Returns list of {card_name, deck_count, usage_pct, avg_copies} sorted by deck_count DESC.
     """
-    total_decks = conn.execute(
-        """
-        SELECT COUNT(*) FROM open_placements p
-        JOIN tournaments t ON t.id = p.tournament_id
-        WHERE t.date >= ? AND t.date <= ?
-        """,
-        (date_from, date_to),
-    ).fetchone()[0]
+    if total_decks is None:
+        total_decks = conn.execute(
+            """
+            SELECT COUNT(*) FROM open_placements p
+            JOIN tournaments t ON t.id = p.tournament_id
+            WHERE t.date >= ? AND t.date <= ?
+            """,
+            (date_from, date_to),
+        ).fetchone()[0]
 
     if total_decks == 0:
         return []
@@ -867,23 +902,27 @@ def _compute_windowed_staples_flex(
         (date_from, date_to, *_basic_energy_params()),
     ).fetchall()
 
-    result = []
-    for row in rows:
-        pct = row["deck_count"] * 100.0 / total_decks
-        if pct < threshold_min:
-            continue
-        if threshold_max is not None and pct >= threshold_max:
-            continue
-        result.append(
-            {
-                "card_name": row["card_name"],
-                "deck_count": row["deck_count"],
-                "usage_pct": round(pct, 1),
-                "avg_copies": row["avg_copies"],
-            }
-        )
+    return [
+        {
+            "card_name": row["card_name"],
+            "deck_count": row["deck_count"],
+            "usage_pct": round(row["deck_count"] * 100.0 / total_decks, 1),
+            "avg_copies": row["avg_copies"],
+        }
+        for row in rows
+    ]
 
-    return result
+
+def _filter_by_usage(
+    cards: list[dict], threshold_min: float, threshold_max: float | None = None
+) -> list[dict]:
+    """Filter card usage list by usage_pct thresholds."""
+    return [
+        c
+        for c in cards
+        if c["usage_pct"] >= threshold_min
+        and (threshold_max is None or c["usage_pct"] < threshold_max)
+    ]
 
 
 def _compute_windowed_buylist(
@@ -1020,16 +1059,24 @@ def export_windowed(
         trends = _compute_windowed_trends(conn, date_from, date_to)
         _write_json(trends, output_dir / f"trends-{suffix}.json")
 
+        # Pre-compute windowed deck count and card usage (shared by ace-specs, staples, flex)
+        windowed_total = meta["deck_count"] or 0
+
         # ACE SPECs
-        specs = _compute_windowed_ace_specs(conn, date_from, date_to)
+        specs = _compute_windowed_ace_specs(conn, date_from, date_to, total_decks=windowed_total)
         _write_json(specs, output_dir / f"ace-specs-{suffix}.json")
 
+        # Card usage query (run once, used for both staples and flex)
+        card_usage = _compute_windowed_card_usage(
+            conn, date_from, date_to, total_decks=windowed_total
+        )
+
         # Staples (40%+ usage)
-        staples = _compute_windowed_staples_flex(conn, date_from, date_to, 40)
+        staples = _filter_by_usage(card_usage, 40)
         _write_json(staples, output_dir / f"staples-{suffix}.json")
 
         # Flex (20-40% usage)
-        flex = _compute_windowed_staples_flex(conn, date_from, date_to, 20, 40)
+        flex = _filter_by_usage(card_usage, 20, 40)
         _write_json(flex, output_dir / f"flex-{suffix}.json")
 
 
@@ -1517,6 +1564,7 @@ def export_archetypes(conn: sqlite3.Connection, output_dir: Path) -> None:
 
     weighted_shares = _compute_weighted_shares(conn, snapshot)
     category_lookup = build_category_lookup(conn)
+    all_placements = _bulk_fetch_archetype_placements(conn)
 
     arch_dir = output_dir / "archetypes"
     arch_dir.mkdir(parents=True, exist_ok=True)
@@ -1528,11 +1576,8 @@ def export_archetypes(conn: sqlite3.Connection, output_dir: Path) -> None:
         archetype_name = arch["archetype"]
         slug = _slugify(archetype_name)
 
-        # Get all placements for this archetype
-        placements = conn.execute(
-            "SELECT id, standing FROM open_placements WHERE archetype = ?",
-            (archetype_name,),
-        ).fetchall()
+        # Get all placements for this archetype (from bulk-fetched data)
+        placements = all_placements.get(archetype_name, [])
 
         if not placements:
             continue
@@ -1711,6 +1756,7 @@ def export_card_analysis(conn: sqlite3.Connection, output_dir: Path) -> None:
         return
 
     category_lookup = build_category_lookup(conn)
+    all_placements = _bulk_fetch_archetype_placements(conn)
 
     archetype_tiers = {}
     for arch in snapshot["archetypes"]:
@@ -1720,10 +1766,7 @@ def export_card_analysis(conn: sqlite3.Connection, output_dir: Path) -> None:
 
     for arch in snapshot["archetypes"]:
         archetype_name = arch["archetype"]
-        placements = conn.execute(
-            "SELECT id, standing FROM open_placements WHERE archetype = ?",
-            (archetype_name,),
-        ).fetchall()
+        placements = all_placements.get(archetype_name, [])
 
         placement_ids = [p["id"] for p in placements]
         top4_ids = [p["id"] for p in placements if p["standing"] <= 4]
@@ -2395,6 +2438,7 @@ def export_deep_dive(conn: sqlite3.Connection, output_dir: Path, *, format_slug:
 
     category_lookup = build_category_lookup(conn)
     weighted_shares = _compute_weighted_shares(conn, snapshot)
+    all_placements = _bulk_fetch_archetype_placements(conn)
     report_dir = output_dir / "archetype-reports"
     report_dir.mkdir(parents=True, exist_ok=True)
 
@@ -2403,11 +2447,8 @@ def export_deep_dive(conn: sqlite3.Connection, output_dir: Path, *, format_slug:
         archetype_name = arch["archetype"]
         slug = _slugify(archetype_name)
 
-        # Get placements
-        placements = conn.execute(
-            "SELECT id, standing FROM open_placements WHERE archetype = ?",
-            (archetype_name,),
-        ).fetchall()
+        # Get placements (from bulk-fetched data)
+        placements = all_placements.get(archetype_name, [])
 
         if not placements:
             logger.debug("Skipping %s: no placements found", archetype_name)
