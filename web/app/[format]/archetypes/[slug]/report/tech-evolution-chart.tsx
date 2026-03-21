@@ -117,7 +117,8 @@ export function TechEvolutionChart({
                   }
                   return "";
                 }}
-                formatter={(value) => [`${Number(value).toFixed(1)}%`]}
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                formatter={(value: any, name: any) => [`${Number(value).toFixed(1)}%`, name]}
               />
               <Legend content={() => null} />
               {topCards.map((card, i) => (

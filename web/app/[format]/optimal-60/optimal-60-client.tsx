@@ -1,7 +1,9 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import { ChevronDown, Search } from "lucide-react";
 import { SpriteRow } from "@/app/components/sprite-row";
+import { TierBadge } from "@/app/components/tier-badge";
 import { StatCard } from "@/app/components/stat-card";
 import { cn, formatPct } from "@/app/lib/utils";
 import type {
@@ -10,6 +12,7 @@ import type {
   Optimal60Detail,
   Optimal60Card,
   Optimal60Consensus,
+  Tier,
 } from "@/app/lib/types";
 
 // --- Consensus tier config ---
@@ -154,7 +157,7 @@ function CategoryColumn({
   );
 }
 
-// --- Archetype selector tile ---
+// --- Archetype selector dropdown ---
 
 function formatOrdinal(n: number): string {
   const s = ["th", "st", "nd", "rd"];
@@ -162,38 +165,160 @@ function formatOrdinal(n: number): string {
   return n + (s[(v - 20) % 10] || s[v] || s[0]);
 }
 
-function ArchetypeTile({
-  entry,
-  active,
-  onClick,
+function ArchetypeSelector({
+  archetypes,
+  selectedSlug,
+  onSelect,
 }: {
-  entry: Optimal60IndexEntry;
-  active: boolean;
-  onClick: () => void;
+  archetypes: Optimal60IndexEntry[];
+  selectedSlug: string;
+  onSelect: (slug: string) => void;
 }) {
+  const [open, setOpen] = useState(false);
+  const [search, setSearch] = useState("");
+  const ref = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  const selected = archetypes.find((a) => a.slug === selectedSlug);
+
+  // Close on outside click
+  useEffect(() => {
+    function handleClick(e: MouseEvent) {
+      if (ref.current && !ref.current.contains(e.target as Node)) {
+        setOpen(false);
+        setSearch("");
+      }
+    }
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
+  }, []);
+
+  // Focus search on open
+  useEffect(() => {
+    if (open) inputRef.current?.focus();
+  }, [open]);
+
+  const filtered = search
+    ? archetypes.filter((a) => a.archetype.toLowerCase().includes(search.toLowerCase()))
+    : archetypes;
+
+  // Group by tier
+  const tiers: Tier[] = ["S", "A", "B", "C", "Rogue"];
+  const grouped = tiers
+    .map((tier) => ({
+      tier,
+      entries: filtered.filter((a) => a.tier === tier),
+    }))
+    .filter((g) => g.entries.length > 0);
+
   return (
-    <button
-      onClick={onClick}
-      className={cn(
-        "flex items-center gap-2 px-3 py-2 rounded-lg border transition-all",
-        active
-          ? "bg-surface-600 border-surface-400 ring-1 ring-accent/30"
-          : "bg-surface-800 border-surface-600 hover:border-surface-500 hover:bg-surface-700",
+    <div ref={ref} className="relative">
+      {/* Trigger button */}
+      <button
+        onClick={() => setOpen(!open)}
+        className={cn(
+          "w-full flex items-center justify-between gap-3 px-4 py-3 rounded-lg border transition-all",
+          open
+            ? "bg-surface-700 border-surface-400"
+            : "bg-surface-800 border-surface-600 hover:border-surface-500",
+        )}
+      >
+        {selected ? (
+          <div className="flex items-center gap-3 min-w-0">
+            <SpriteRow filenames={selected.sprite_filenames ?? []} size={26} />
+            <span className="text-base font-medium text-slate-100 truncate">
+              {selected.archetype}
+            </span>
+            <TierBadge tier={selected.tier} />
+            <span className="text-xs font-mono text-surface-400">
+              {selected.meta_share.toFixed(1)}%
+            </span>
+            {selected.cl_best_finish != null && (
+              <span className="text-[10px] font-mono text-teal-400">
+                CL {formatOrdinal(selected.cl_best_finish)}
+              </span>
+            )}
+          </div>
+        ) : (
+          <span className="text-sm text-surface-400">Select archetype...</span>
+        )}
+        <ChevronDown
+          className={cn(
+            "w-4 h-4 text-surface-400 shrink-0 transition-transform",
+            open && "rotate-180",
+          )}
+        />
+      </button>
+
+      {/* Dropdown panel */}
+      {open && (
+        <div className="absolute z-30 top-full left-0 right-0 mt-1 bg-surface-800 border border-surface-500 rounded-lg shadow-2xl shadow-black/40 overflow-hidden">
+          {/* Search */}
+          <div className="p-2 border-b border-surface-600">
+            <div className="relative">
+              <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-surface-400" />
+              <input
+                ref={inputRef}
+                type="text"
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                placeholder="Search archetypes..."
+                className="w-full bg-surface-700 border border-surface-600 rounded-md pl-8 pr-3 py-1.5 text-sm text-slate-200 placeholder-surface-400 focus:outline-none focus:border-surface-400"
+              />
+            </div>
+          </div>
+
+          {/* Scrollable list grouped by tier */}
+          <div className="max-h-80 overflow-y-auto">
+            {grouped.map(({ tier, entries }) => (
+              <div key={tier}>
+                <div className="px-3 py-1.5 text-[10px] font-semibold text-surface-400 uppercase tracking-wider bg-surface-800 sticky top-0">
+                  {tier === "Rogue" ? "Rogue" : `Tier ${tier}`}
+                  <span className="ml-1 text-surface-500">{entries.length}</span>
+                </div>
+                {entries.map((entry) => (
+                  <button
+                    key={entry.slug}
+                    onClick={() => {
+                      onSelect(entry.slug);
+                      setOpen(false);
+                      setSearch("");
+                    }}
+                    className={cn(
+                      "w-full flex items-center gap-2.5 px-3 py-2 text-left transition-colors",
+                      entry.slug === selectedSlug
+                        ? "bg-accent/10"
+                        : "hover:bg-surface-700",
+                    )}
+                  >
+                    <SpriteRow filenames={entry.sprite_filenames ?? []} size={20} />
+                    <span
+                      className={cn(
+                        "text-sm truncate flex-1",
+                        entry.slug === selectedSlug ? "text-accent" : "text-slate-300",
+                      )}
+                    >
+                      {entry.archetype}
+                    </span>
+                    <span className="text-[10px] font-mono text-surface-400 shrink-0">
+                      {entry.meta_share.toFixed(1)}%
+                    </span>
+                    {entry.cl_best_finish != null && (
+                      <span className="text-[9px] font-mono text-teal-400 shrink-0">
+                        CL {formatOrdinal(entry.cl_best_finish)}
+                      </span>
+                    )}
+                  </button>
+                ))}
+              </div>
+            ))}
+            {filtered.length === 0 && (
+              <div className="px-3 py-4 text-sm text-surface-400 text-center">No matches</div>
+            )}
+          </div>
+        </div>
       )}
-    >
-      <SpriteRow filenames={entry.sprite_filenames ?? []} size={22} />
-      <span className={cn("text-sm whitespace-nowrap", active ? "text-slate-100" : "text-slate-300")}>
-        {entry.archetype}
-      </span>
-      <span className="text-[10px] font-mono text-surface-400 ml-0.5">
-        {entry.meta_share.toFixed(1)}%
-      </span>
-      {entry.cl_best_finish != null && (
-        <span className="text-[9px] font-mono text-teal-400 ml-0.5">
-          CL {formatOrdinal(entry.cl_best_finish)}
-        </span>
-      )}
-    </button>
+    </div>
   );
 }
 
@@ -316,16 +441,11 @@ export function Optimal60Client({
       </div>
 
       {/* Archetype selector */}
-      <div className="flex flex-wrap gap-2 pb-2">
-        {index.archetypes.map((entry) => (
-          <ArchetypeTile
-            key={entry.slug}
-            entry={entry}
-            active={entry.slug === selectedSlug}
-            onClick={() => setSelectedSlug(entry.slug)}
-          />
-        ))}
-      </div>
+      <ArchetypeSelector
+        archetypes={index.archetypes}
+        selectedSlug={selectedSlug}
+        onSelect={setSelectedSlug}
+      />
 
       {/* Selected archetype stats */}
       {selected && (
