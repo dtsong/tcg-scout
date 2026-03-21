@@ -317,6 +317,79 @@ class TestArchetypeCrossRef:
         assert matched[0]["archetype"] == "Unknown"
 
 
+@pytest.mark.skipif(not _POKEMON_JP_AVAILABLE, reason="scraper.pokemon_jp requires 'kernel' module")
+class TestMergeCardData:
+    def test_perfect_alignment_prefers_img_names(self):
+        """When img_cards and text_data have same length, img names win."""
+        from scraper.pokemon_jp import PokemonJPClient
+
+        img_cards = [
+            {"name": "リザードンex", "setCode": "SV5"},
+            {"name": "ネストボール", "setCode": "SV5"},
+        ]
+        text_data = [
+            {
+                "name": "Charizard",
+                "setCode": "",
+                "cardNumber": "001",
+                "count": 2,
+                "category": "Pokemon",
+            },
+            {
+                "name": "Nest Ball",
+                "setCode": "",
+                "cardNumber": "100",
+                "count": 4,
+                "category": "Trainer",
+            },
+        ]
+        result = PokemonJPClient._merge_card_data(img_cards, text_data, "http://test")
+        assert len(result) == 2
+        assert result[0].name_jp == "リザードンex"
+        assert result[0].set_code == "SV5"
+        assert result[0].count == 2
+        assert result[0].card_number == "001"
+        assert result[1].name_jp == "ネストボール"
+        assert result[1].count == 4
+
+    def test_text_only_fallback(self):
+        """When no img_cards, text_data names are used."""
+        from scraper.pokemon_jp import PokemonJPClient
+
+        text_data = [
+            {
+                "name": "CardA",
+                "setCode": "SV5",
+                "cardNumber": "001",
+                "count": 3,
+                "category": "Pokemon",
+            },
+        ]
+        result = PokemonJPClient._merge_card_data([], text_data, "http://test")
+        assert len(result) == 1
+        assert result[0].name_jp == "CardA"
+        assert result[0].count == 3
+
+    def test_img_only_fallback(self):
+        """When no text_data, img_cards are used with count=1."""
+        from scraper.pokemon_jp import PokemonJPClient
+
+        img_cards = [
+            {"name": "リザードンex", "setCode": "SV5"},
+        ]
+        result = PokemonJPClient._merge_card_data(img_cards, [], "http://test")
+        assert len(result) == 1
+        assert result[0].name_jp == "リザードンex"
+        assert result[0].count == 1
+
+    def test_empty_inputs(self):
+        """Empty inputs return empty list."""
+        from scraper.pokemon_jp import PokemonJPClient
+
+        result = PokemonJPClient._merge_card_data([], [], "http://test")
+        assert result == []
+
+
 class TestTranslateCLDecklist:
     def test_translates_known_cards(self, db):
         """JP card names are translated to EN using card_mappings table."""
