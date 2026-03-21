@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { TierBadge } from "@/app/components/tier-badge";
 import { SpriteRow } from "@/app/components/sprite-row";
 import { StatCard } from "@/app/components/stat-card";
 import { cn, formatPct } from "@/app/lib/utils";
@@ -157,6 +156,12 @@ function CategoryColumn({
 
 // --- Archetype selector tile ---
 
+function formatOrdinal(n: number): string {
+  const s = ["th", "st", "nd", "rd"];
+  const v = n % 100;
+  return n + (s[(v - 20) % 10] || s[v] || s[0]);
+}
+
 function ArchetypeTile({
   entry,
   active,
@@ -170,20 +175,22 @@ function ArchetypeTile({
     <button
       onClick={onClick}
       className={cn(
-        "flex items-center gap-2 px-3 py-2 rounded-lg border transition-all shrink-0",
+        "flex items-center gap-2 px-3 py-2 rounded-lg border transition-all",
         active
           ? "bg-surface-600 border-surface-400 ring-1 ring-accent/30"
           : "bg-surface-800 border-surface-600 hover:border-surface-500 hover:bg-surface-700",
       )}
     >
-      <TierBadge tier={entry.tier} className="w-6 h-6 text-[10px]" />
       <SpriteRow filenames={entry.sprite_filenames ?? []} size={22} />
       <span className={cn("text-sm whitespace-nowrap", active ? "text-slate-100" : "text-slate-300")}>
         {entry.archetype}
       </span>
-      {entry.has_cl_data && (
-        <span className="text-[9px] font-mono text-teal-400/60 ml-1">
-          CL
+      <span className="text-[10px] font-mono text-surface-400 ml-0.5">
+        {entry.meta_share.toFixed(1)}%
+      </span>
+      {entry.cl_best_finish != null && (
+        <span className="text-[9px] font-mono text-teal-400 ml-0.5">
+          CL {formatOrdinal(entry.cl_best_finish)}
         </span>
       )}
     </button>
@@ -303,7 +310,7 @@ export function Optimal60Client({
       </div>
 
       {/* Archetype selector */}
-      <div className="flex gap-2 overflow-x-auto pb-2 -mx-4 px-4 scrollbar-thin scrollbar-thumb-surface-600">
+      <div className="flex flex-wrap gap-2 pb-2">
         {index.archetypes.map((entry) => (
           <ArchetypeTile
             key={entry.slug}
@@ -316,20 +323,60 @@ export function Optimal60Client({
 
       {/* Selected archetype stats */}
       {selected && (
-        <div className="grid grid-cols-2 sm:grid-cols-5 gap-4">
-          <StatCard label="Tier" value={selected.tier} />
-          <StatCard label="Meta Share" value={formatPct(selected.meta_share)} />
-          <StatCard label="Quality" value={selected.quality_score.toFixed(1)} />
-          <StatCard
-            label="CL Decks"
-            value={selected.cl_deck_count}
-            tooltip="Number of decklists from Fukuoka Champions League"
-          />
-          <StatCard
-            label="City League Decks"
-            value={selected.city_league_deck_count}
-            tooltip="Number of decklists from City League tournaments"
-          />
+        <div className="space-y-4">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            <StatCard
+              label="Meta Share"
+              value={formatPct(selected.meta_share)}
+              tooltip="Percentage of all tournament decks that play this archetype across the Nihil Zero format"
+            />
+            <StatCard
+              label="Quality Score"
+              value={selected.quality_score.toFixed(1)}
+              tooltip="How much of this deck's 60 cards are locked in. Higher = more consensus on the exact list. Lower = more flex slots and variation."
+            />
+            <StatCard
+              label="Sample Size"
+              value={selected.city_league_deck_count + selected.cl_deck_count}
+              tooltip={`Built from ${selected.city_league_deck_count} City League decklists${selected.cl_deck_count > 0 ? ` and ${selected.cl_deck_count} Fukuoka CL decklists (weighted 5x)` : ""}`}
+            />
+            {selected.cl_best_finish != null ? (
+              <StatCard
+                label="Fukuoka CL"
+                value={formatOrdinal(selected.cl_best_finish)}
+                tooltip={`Best CL finish. All CL placements: ${selected.cl_placements.map(formatOrdinal).join(", ")}`}
+              />
+            ) : (
+              <StatCard
+                label="Fukuoka CL"
+                value="--"
+                tooltip="No top-32 finishes at Fukuoka Champions League"
+              />
+            )}
+          </div>
+          {/* CL placements detail */}
+          {selected.cl_placements.length > 0 && (
+            <div className="flex items-center gap-2 text-xs">
+              <span className="text-surface-400">Fukuoka CL finishes:</span>
+              <div className="flex gap-1">
+                {selected.cl_placements.map((p, i) => (
+                  <span
+                    key={i}
+                    className={cn(
+                      "px-1.5 py-0.5 rounded font-mono text-[11px]",
+                      p <= 8
+                        ? "bg-teal-500/15 text-teal-400"
+                        : p <= 16
+                          ? "bg-teal-500/8 text-teal-400/70"
+                          : "bg-surface-700 text-surface-400",
+                    )}
+                  >
+                    {formatOrdinal(p)}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       )}
 

@@ -96,7 +96,7 @@ export function MatchupHeatMatrix({ data }: { data: MatchupMatrixData }) {
                   {text}
                 </div>
               );
-              if (isDiag) return cell;
+              if (isDiag) return <Fragment key={`cell-${i}-${j}`}>{cell}</Fragment>;
               return (
                 <Tooltip
                   key={`cell-${i}-${j}`}

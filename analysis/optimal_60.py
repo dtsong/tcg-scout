@@ -4,7 +4,7 @@ import sqlite3
 from collections import defaultdict
 from statistics import variance
 
-from analysis.card_stats import BASIC_ENERGY_NAMES, classify_card
+from analysis.card_stats import classify_card
 from config import (
     CL_BOOST_FACTOR,
     CL_TOURNAMENT_IDS,
@@ -121,9 +121,7 @@ def compute_optimal_60(
     total_weight = sum(weight_by_pid.values())
     placement_ids = list(weight_by_pid.keys())
 
-    # Fetch card rows
-    energy_names = sorted(BASIC_ENERGY_NAMES)
-    energy_ph = ",".join("?" * len(energy_names))
+    # Fetch card rows (include basic energy — Optimal 60 shows complete decklists)
     pid_ph = ",".join("?" * len(placement_ids))
 
     card_rows = conn.execute(
@@ -131,9 +129,8 @@ def compute_optimal_60(
         SELECT dc.placement_id, dc.card_name, dc.count
         FROM decklist_cards dc
         WHERE dc.placement_id IN ({pid_ph})
-          AND dc.card_name NOT IN ({energy_ph})
         """,
-        (*placement_ids, *energy_names),
+        placement_ids,
     ).fetchall()
 
     if not card_rows:

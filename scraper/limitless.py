@@ -328,21 +328,34 @@ class LimitlessClient:
             # Column 1: player name
             player_name = cells[1].get_text(strip=True) or None
 
-            # Column 2: deck / archetype
-            deck_cell = cells[2]
-            deck_link = deck_cell.find("a")
-
+            # Find deck/archetype cell and decklist URL
+            # Column layout varies: JP City Leagues have deck in col 2,
+            # international tournaments may have Country in col 2, Deck in col 3, List in col 4
             decklist_url: str | None = None
             archetype = ""
             sprite_urls: list[str] = []
 
-            if deck_link:
-                href = deck_link.get("href", "")
-                if href:
-                    decklist_url = urljoin(self._base_url, href)
-                archetype, sprite_urls = self._extract_archetype_and_sprites(deck_link)
-            else:
-                archetype = deck_cell.get_text(strip=True)
+            for cell in cells[2:]:
+                imgs = cell.find_all("img")
+                has_sprites = any("pokemon" in (img.get("src", "") or "") for img in imgs)
+                cell_link = cell.find("a")
+
+                if has_sprites and cell_link and not sprite_urls:
+                    # This is the archetype/deck cell — extract sprites
+                    archetype, sprite_urls = self._extract_archetype_and_sprites(cell_link)
+                    # Only use this href as decklist if it looks like a list URL
+                    href = cell_link.get("href", "")
+                    if href and "/decks/list/" in href:
+                        decklist_url = urljoin(self._base_url, href)
+                elif cell_link:
+                    href = cell_link.get("href", "")
+                    # Separate decklist column (e.g. /decks/list/24428)
+                    if "/decks/list/" in href:
+                        decklist_url = urljoin(self._base_url, href)
+
+            if not archetype and not sprite_urls:
+                # Fallback: try cells[2] as plain text archetype
+                archetype = cells[2].get_text(strip=True)
 
             # Normalize archetype using sprite URLs
             archetype = normalize_archetype(sprite_urls, html_archetype=archetype)

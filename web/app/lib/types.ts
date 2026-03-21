@@ -403,6 +403,8 @@ export interface Optimal60Detail {
   cl_deck_count: number;
   city_league_deck_count: number;
   has_cl_data: boolean;
+  cl_placements: number[];
+  cl_best_finish: number | null;
   total_pokemon: number;
   total_trainer: number;
   total_energy: number;
@@ -422,6 +424,8 @@ export interface Optimal60IndexEntry {
   cl_deck_count: number;
   city_league_deck_count: number;
   has_cl_data: boolean;
+  cl_placements: number[];
+  cl_best_finish: number | null;
   innovation_index: number;
   core_lock_rate: number;
 }

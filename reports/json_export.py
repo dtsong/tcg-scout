@@ -2513,7 +2513,24 @@ def export_optimal_60(conn: sqlite3.Connection, output_dir: Path, *, format_slug
     index_entries = []
     count = 0
 
+    # S/A/B/C tiers + any archetype with CL representation
+    eligible_tiers = {"S", "A", "B", "C"}
+    cl_archetypes = {
+        row[0]
+        for row in conn.execute(
+            """
+            SELECT DISTINCT p.archetype
+            FROM placements p
+            JOIN tournaments t ON t.id = p.tournament_id
+            WHERE t.tournament_type = 'champions-league'
+            """
+        ).fetchall()
+    }
+
     for arch in snapshot["archetypes"]:
+        if arch["tier"] not in eligible_tiers and arch["archetype"] not in cl_archetypes:
+            continue
+
         archetype_name = arch["archetype"]
         slug = _slugify(archetype_name)
 
@@ -2522,6 +2539,23 @@ def export_optimal_60(conn: sqlite3.Connection, output_dir: Path, *, format_slug
             continue
 
         sprite_filenames = _get_sprite_filenames(archetype_name)
+
+        # Get CL placement standings for this archetype
+        cl_placements = [
+            row["standing"]
+            for row in conn.execute(
+                """
+                SELECT p.standing
+                FROM placements p
+                JOIN tournaments t ON t.id = p.tournament_id
+                WHERE t.tournament_type = 'champions-league'
+                  AND p.archetype = ?
+                ORDER BY p.standing
+                """,
+                (archetype_name,),
+            ).fetchall()
+        ]
+        cl_best_finish = min(cl_placements) if cl_placements else None
 
         detail = {
             "archetype": archetype_name,
@@ -2536,6 +2570,8 @@ def export_optimal_60(conn: sqlite3.Connection, output_dir: Path, *, format_slug
             "cl_deck_count": result["cl_deck_count"],
             "city_league_deck_count": result["city_league_deck_count"],
             "has_cl_data": result["has_cl_data"],
+            "cl_placements": cl_placements,
+            "cl_best_finish": cl_best_finish,
             "total_pokemon": result["total_pokemon"],
             "total_trainer": result["total_trainer"],
             "total_energy": result["total_energy"],
@@ -2559,6 +2595,8 @@ def export_optimal_60(conn: sqlite3.Connection, output_dir: Path, *, format_slug
                 "cl_deck_count": result["cl_deck_count"],
                 "city_league_deck_count": result["city_league_deck_count"],
                 "has_cl_data": result["has_cl_data"],
+                "cl_placements": cl_placements,
+                "cl_best_finish": cl_best_finish,
                 "innovation_index": result["innovation_index"],
                 "core_lock_rate": result["core_lock_rate"],
             }
