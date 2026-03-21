@@ -331,9 +331,9 @@ export function Optimal60Client({
               tooltip="Percentage of all tournament decks that play this archetype across the Nihil Zero format"
             />
             <StatCard
-              label="Quality Score"
-              value={selected.quality_score.toFixed(1)}
-              tooltip="How much of this deck's 60 cards are locked in. Higher = more consensus on the exact list. Lower = more flex slots and variation."
+              label="List Consensus"
+              value={`${selected.quality_score.toFixed(0)}%`}
+              tooltip="Average inclusion rate across the 60 cards. 90%+ means most players agree on the exact list. Lower scores mean more flex slots where players disagree."
             />
             <StatCard
               label="Sample Size"
@@ -417,19 +417,19 @@ export function Optimal60Client({
               </span>
               <span className="text-xs text-surface-500">|</span>
               <span className="text-xs text-surface-400">
-                Quality:{" "}
                 <span className="font-mono text-slate-300">
-                  {detail.quality_score.toFixed(1)}
-                </span>
+                  {detail.core_lock_rate.toFixed(0)}%
+                </span>{" "}
+                of slots are locked in across all lists
               </span>
               {detail.has_cl_data && (
                 <>
                   <span className="text-xs text-surface-500">|</span>
                   <span className="text-xs text-surface-400">
-                    Core lock:{" "}
                     <span className="font-mono text-slate-300">
-                      {detail.core_lock_rate.toFixed(0)}%
-                    </span>
+                      {detail.innovation_index.toFixed(0)}%
+                    </span>{" "}
+                    of cards differ between CL and meta
                   </span>
                 </>
               )}
