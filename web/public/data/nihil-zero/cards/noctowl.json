@@ -7,18 +7,18 @@
   "image_url": "https://assets.tcgdex.net/en/sv/svp/141/high.png",
   "category": "Pokemon",
   "rarity": "",
-  "total_appearances": 549,
-  "usage_pct": 8.1,
+  "total_appearances": 554,
+  "usage_pct": 8.2,
   "avg_copies": 2.6,
   "unique_archetypes": 32,
-  "weighted_score": 860.1,
-  "win_rate_proxy": 1.57,
+  "weighted_score": 866.8,
+  "win_rate_proxy": 1.56,
   "top_archetype": "Dragapult Meowth",
   "trend_direction": "surging",
   "copy_distribution": [
     {
       "copies": 1,
-      "count": 180
+      "count": 181
     },
     {
       "copies": 2,
@@ -26,11 +26,11 @@
     },
     {
       "copies": 3,
-      "count": 196
+      "count": 198
     },
     {
       "copies": 4,
-      "count": 157
+      "count": 159
     }
   ],
   "archetypes": [
@@ -51,7 +51,7 @@
     {
       "name": "Dragapult Noctowl",
       "slug": "dragapult-noctowl",
-      "usage_count": 104,
+      "usage_count": 105,
       "avg_copies": 3.5,
       "tier": "C"
     },
@@ -65,22 +65,22 @@
     {
       "name": "Dragapult Dusknoir",
       "slug": "dragapult-dusknoir",
-      "usage_count": 31,
+      "usage_count": 32,
       "avg_copies": 1.0,
       "tier": "A"
     },
     {
       "name": "Tera Box",
       "slug": "tera-box",
-      "usage_count": 19,
+      "usage_count": 20,
       "avg_copies": 3.7,
       "tier": "Rogue"
     },
     {
       "name": "Raging Bolt ex",
       "slug": "raging-bolt-ex",
-      "usage_count": 11,
-      "avg_copies": 2.7,
+      "usage_count": 13,
+      "avg_copies": 2.8,
       "tier": "C"
     },
     {
@@ -294,113 +294,118 @@
       "week": "2026-03-02",
       "usage_pct": 13.5,
       "avg_copies": 1.7
+    },
+    {
+      "week": "2026-03-16",
+      "usage_pct": 15.6,
+      "avg_copies": 3.0
     }
   ],
   "synergy_partners": [
     {
       "card_name": "Espeon ex",
       "support": 25,
-      "lift": 12.306,
-      "jaccard": 0.046,
+      "lift": 12.253,
+      "jaccard": 0.045,
       "weighted_score": 40.6
     },
     {
       "card_name": "Hoothoot",
-      "support": 549,
-      "lift": 12.306,
+      "support": 554,
+      "lift": 12.253,
       "jaccard": 1.0,
-      "weighted_score": 860.1
+      "weighted_score": 866.8
     },
     {
       "card_name": "Jolteon ex",
       "support": 29,
-      "lift": 12.306,
-      "jaccard": 0.053,
+      "lift": 12.253,
+      "jaccard": 0.052,
       "weighted_score": 45.7
     },
     {
       "card_name": "Flareon ex",
       "support": 100,
-      "lift": 12.184,
-      "jaccard": 0.182,
+      "lift": 12.131,
+      "jaccard": 0.18,
       "weighted_score": 153.9
     },
     {
       "card_name": "Eevee ex",
       "support": 98,
-      "lift": 12.182,
-      "jaccard": 0.178,
+      "lift": 12.129,
+      "jaccard": 0.177,
       "weighted_score": 151.2
     },
     {
       "card_name": "Sylveon ex",
       "support": 49,
-      "lift": 12.06,
-      "jaccard": 0.089,
+      "lift": 12.008,
+      "jaccard": 0.088,
       "weighted_score": 72.4
     },
     {
       "card_name": "Leafeon ex",
       "support": 97,
-      "lift": 12.057,
-      "jaccard": 0.176,
+      "lift": 12.005,
+      "jaccard": 0.174,
       "weighted_score": 149.7
     },
     {
       "card_name": "Sparkling Crystal",
-      "support": 237,
-      "lift": 11.856,
+      "support": 239,
+      "lift": 11.808,
       "jaccard": 0.425,
-      "weighted_score": 364.0
+      "weighted_score": 366.2
     },
     {
       "card_name": "Eevee",
       "support": 101,
-      "lift": 11.837,
-      "jaccard": 0.183,
+      "lift": 11.786,
+      "jaccard": 0.181,
       "weighted_score": 155.1
     },
     {
       "card_name": "Terapagos ex",
-      "support": 92,
-      "lift": 10.292,
-      "jaccard": 0.162,
-      "weighted_score": 147.5
+      "support": 94,
+      "lift": 10.193,
+      "jaccard": 0.164,
+      "weighted_score": 150.7
     },
     {
       "card_name": "Pikachu ex",
       "support": 27,
-      "lift": 10.069,
-      "jaccard": 0.049,
+      "lift": 10.025,
+      "jaccard": 0.048,
       "weighted_score": 35.3
     },
     {
       "card_name": "Tera Orb",
-      "support": 347,
-      "lift": 9.009,
-      "jaccard": 0.513,
-      "weighted_score": 538.4
+      "support": 351,
+      "lift": 8.997,
+      "jaccard": 0.515,
+      "weighted_score": 543.6
     },
     {
       "card_name": "Tapu Koko ex",
       "support": 9,
-      "lift": 8.52,
+      "lift": 8.483,
       "jaccard": 0.016,
       "weighted_score": 13.3
     },
     {
       "card_name": "Wellspring Mask Ogerpon ex",
-      "support": 257,
-      "lift": 8.109,
-      "jaccard": 0.377,
-      "weighted_score": 394.7
+      "support": 259,
+      "lift": 8.034,
+      "jaccard": 0.375,
+      "weighted_score": 396.9
     },
     {
       "card_name": "Raging Bolt",
-      "support": 62,
-      "lift": 7.63,
-      "jaccard": 0.106,
-      "weighted_score": 91.9
+      "support": 64,
+      "lift": 7.613,
+      "jaccard": 0.108,
+      "weighted_score": 94.9
     }
   ]
 }

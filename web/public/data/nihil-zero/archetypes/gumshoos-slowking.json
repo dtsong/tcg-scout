@@ -659,11 +659,6 @@
       "week": "2026-02-02",
       "adopted": [
         {
-          "card": "Budew",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
           "card": "Energy Retrieval",
           "from_pct": 0.0,
           "to_pct": 100.0
@@ -679,12 +674,17 @@
           "to_pct": 100.0
         },
         {
-          "card": "Scoop Up Cyclone",
+          "card": "Regigigas",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Regigigas",
+          "card": "Budew",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Scoop Up Cyclone",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -696,12 +696,32 @@
       ],
       "dropped": [
         {
+          "card": "Buddy-Buddy Poffin",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Walrein",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "N's Vanilluxe",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Shaymin",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
           "card": "Smoochum",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Boss's Orders",
+          "card": "Hilda",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -716,32 +736,12 @@
           "to_pct": 0.0
         },
         {
+          "card": "Boss's Orders",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
           "card": "Haxorus",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Walrein",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Shaymin",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Buddy-Buddy Poffin",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Hilda",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "N's Vanilluxe",
           "from_pct": 100.0,
           "to_pct": 0.0
         }
@@ -782,6 +782,11 @@
     },
     {
       "week": "2026-03-02",
+      "meta_share": 0.0,
+      "deck_count": 0
+    },
+    {
+      "week": "2026-03-16",
       "meta_share": 0.0,
       "deck_count": 0
     }

@@ -7,11 +7,11 @@
   "image_url": "https://assets.tcgdex.net/en/me/me01/077/high.png",
   "category": "Pokemon",
   "rarity": "",
-  "total_appearances": 851,
+  "total_appearances": 854,
   "usage_pct": 12.6,
   "avg_copies": 3.0,
   "unique_archetypes": 13,
-  "weighted_score": 1313.3,
+  "weighted_score": 1316.7,
   "win_rate_proxy": 1.54,
   "top_archetype": "Mega Lucario",
   "trend_direction": "declining",
@@ -26,7 +26,7 @@
     },
     {
       "copies": 3,
-      "count": 801
+      "count": 804
     },
     {
       "copies": 4,
@@ -37,7 +37,7 @@
     {
       "name": "Mega Lucario",
       "slug": "mega-lucario",
-      "usage_count": 611,
+      "usage_count": 612,
       "avg_copies": 3.0,
       "tier": "A"
     },
@@ -51,7 +51,7 @@
     {
       "name": "Mega Lucario ex",
       "slug": "mega-lucario-ex",
-      "usage_count": 21,
+      "usage_count": 23,
       "avg_copies": 3.1,
       "tier": "Rogue"
     },
@@ -161,113 +161,118 @@
       "week": "2026-03-02",
       "usage_pct": 5.9,
       "avg_copies": 3.0
+    },
+    {
+      "week": "2026-03-16",
+      "usage_pct": 9.4,
+      "avg_copies": 3.0
     }
   ],
   "synergy_partners": [
     {
       "card_name": "Core Memory",
       "support": 16,
-      "lift": 7.939,
+      "lift": 7.948,
       "jaccard": 0.019,
       "weighted_score": 25.9
     },
     {
       "card_name": "Mega Zygarde ex",
       "support": 7,
-      "lift": 7.939,
+      "lift": 7.948,
       "jaccard": 0.008,
       "weighted_score": 13.4
     },
     {
       "card_name": "Riolu",
-      "support": 851,
-      "lift": 7.939,
+      "support": 854,
+      "lift": 7.948,
       "jaccard": 1.0,
-      "weighted_score": 1313.3
+      "weighted_score": 1316.7
     },
     {
       "card_name": "Hariyama",
-      "support": 713,
-      "lift": 7.928,
-      "jaccard": 0.837,
-      "weighted_score": 1093.6
+      "support": 714,
+      "lift": 7.937,
+      "jaccard": 0.835,
+      "weighted_score": 1094.8
     },
     {
       "card_name": "Makuhita",
-      "support": 713,
-      "lift": 7.928,
-      "jaccard": 0.837,
-      "weighted_score": 1093.6
+      "support": 714,
+      "lift": 7.937,
+      "jaccard": 0.835,
+      "weighted_score": 1094.8
     },
     {
       "card_name": "Gravity Mountain",
-      "support": 653,
-      "lift": 6.921,
-      "jaccard": 0.69,
-      "weighted_score": 1010.3
+      "support": 656,
+      "lift": 6.934,
+      "jaccard": 0.691,
+      "weighted_score": 1013.7
     },
     {
       "card_name": "Carbink",
       "support": 11,
-      "lift": 6.718,
+      "lift": 6.726,
       "jaccard": 0.013,
       "weighted_score": 16.7
     },
     {
       "card_name": "Lunatone",
-      "support": 849,
-      "lift": 6.456,
+      "support": 852,
+      "lift": 6.468,
       "jaccard": 0.812,
-      "weighted_score": 1309.6
+      "weighted_score": 1313.0
     },
     {
       "card_name": "Solrock",
-      "support": 849,
-      "lift": 6.456,
+      "support": 852,
+      "lift": 6.468,
       "jaccard": 0.812,
-      "weighted_score": 1309.6
+      "weighted_score": 1313.0
     },
     {
       "card_name": "Premium Power Pro",
-      "support": 847,
-      "lift": 5.966,
-      "jaccard": 0.749,
-      "weighted_score": 1306.9
+      "support": 850,
+      "lift": 5.979,
+      "jaccard": 0.75,
+      "weighted_score": 1310.3
     },
     {
       "card_name": "Maximum Belt",
-      "support": 430,
-      "lift": 5.244,
-      "jaccard": 0.401,
-      "weighted_score": 648.6
+      "support": 431,
+      "lift": 5.23,
+      "jaccard": 0.4,
+      "weighted_score": 649.8
     },
     {
       "card_name": "Fighting Gong",
-      "support": 851,
-      "lift": 5.042,
-      "jaccard": 0.635,
-      "weighted_score": 1313.3
+      "support": 854,
+      "lift": 5.054,
+      "jaccard": 0.636,
+      "weighted_score": 1316.7
     },
     {
       "card_name": "Wally's Compassion",
-      "support": 521,
-      "lift": 4.34,
-      "jaccard": 0.406,
-      "weighted_score": 803.1
+      "support": 523,
+      "lift": 4.353,
+      "jaccard": 0.407,
+      "weighted_score": 805.5
     },
     {
       "card_name": "Rock Fighting Energy",
-      "support": 230,
-      "lift": 4.031,
+      "support": 231,
+      "lift": 4.044,
       "jaccard": 0.214,
-      "weighted_score": 344.5
+      "weighted_score": 345.7
     },
     {
       "card_name": "Carmine",
-      "support": 421,
-      "lift": 3.629,
+      "support": 422,
+      "lift": 3.638,
       "jaccard": 0.312,
-      "weighted_score": 652.8
+      "weighted_score": 654.0
     }
   ]
 }

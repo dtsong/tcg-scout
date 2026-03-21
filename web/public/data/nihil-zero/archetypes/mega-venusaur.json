@@ -2,7 +2,7 @@
   "archetype": "Mega Venusaur",
   "slug": "mega-venusaur",
   "tier": "B",
-  "meta_share": 3.2,
+  "meta_share": 3.1,
   "weighted_share": 3.1,
   "deck_count": 214,
   "best_placement": 1,
@@ -606,7 +606,7 @@
       "inclusion_pct": 1.4,
       "avg_copies": 1.0,
       "decks_with": 3,
-      "category": "Trainer"
+      "category": "Pokemon"
     },
     {
       "card_name": "Latias ex",
@@ -1534,6 +1534,11 @@
           "category": "Pokemon"
         },
         {
+          "card_name": "Lillie's Clefairy ex",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
           "card_name": "Wellspring Mask Ogerpon ex",
           "count": 1,
           "category": "Pokemon"
@@ -1580,11 +1585,6 @@
         },
         {
           "card_name": "Tool Scrapper",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Lillie's Clefairy ex",
           "count": 1,
           "category": "Trainer"
         },
@@ -2913,7 +2913,7 @@
   ],
   "radar": {
     "meta_share": 15.8,
-    "weighted_share": 15.5,
+    "weighted_share": 15.4,
     "consistency": 62.4,
     "ceiling": 100,
     "popularity": 35.0,
@@ -2992,17 +2992,17 @@
       "week": "2026-02-23",
       "adopted": [
         {
-          "card": "Bayleef",
-          "from_pct": 16.7,
-          "to_pct": 58.3
-        },
-        {
           "card": "Chikorita",
           "from_pct": 16.7,
           "to_pct": 58.3
         },
         {
           "card": "Meganium",
+          "from_pct": 16.7,
+          "to_pct": 58.3
+        },
+        {
+          "card": "Bayleef",
           "from_pct": 16.7,
           "to_pct": 58.3
         },
@@ -3082,6 +3082,11 @@
       "week": "2026-03-02",
       "meta_share": 2.0,
       "deck_count": 25
+    },
+    {
+      "week": "2026-03-16",
+      "meta_share": 0.0,
+      "deck_count": 0
     }
   ],
   "top4_card_stats": [
@@ -3610,7 +3615,7 @@
       "inclusion_pct": 2.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Trainer",
+      "category": "Pokemon",
       "delta_vs_field": 0.6
     },
     {

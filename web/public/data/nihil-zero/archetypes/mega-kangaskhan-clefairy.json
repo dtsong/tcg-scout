@@ -79,7 +79,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
       "decks_with": 3,
-      "category": "Trainer"
+      "category": "Pokemon"
     },
     {
       "card_name": "Latias ex",
@@ -186,7 +186,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
       "decks_with": 3,
-      "category": "Trainer"
+      "category": "Pokemon"
     },
     {
       "card_name": "Latias ex",
@@ -420,6 +420,11 @@
           "category": "Pokemon"
         },
         {
+          "card_name": "Lillie's Clefairy ex",
+          "count": 2,
+          "category": "Pokemon"
+        },
+        {
           "card_name": "Mega Kangaskhan ex",
           "count": 2,
           "category": "Pokemon"
@@ -481,11 +486,6 @@
         },
         {
           "card_name": "Judge",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Lillie's Clefairy ex",
           "count": 2,
           "category": "Trainer"
         },
@@ -558,6 +558,11 @@
       "standing": 12,
       "player_name": "エイチツー",
       "decklist": [
+        {
+          "card_name": "Lillie's Clefairy ex",
+          "count": 2,
+          "category": "Pokemon"
+        },
         {
           "card_name": "Mega Kangaskhan ex",
           "count": 2,
@@ -634,11 +639,6 @@
           "category": "Trainer"
         },
         {
-          "card_name": "Lillie's Clefairy ex",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
           "card_name": "Boss's Orders",
           "count": 2,
           "category": "Trainer"
@@ -700,6 +700,11 @@
         {
           "card_name": "Bouffalant",
           "count": 3,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Lillie's Clefairy ex",
+          "count": 2,
           "category": "Pokemon"
         },
         {
@@ -783,11 +788,6 @@
           "category": "Trainer"
         },
         {
-          "card_name": "Lillie's Clefairy ex",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
           "card_name": "Crispin",
           "count": 2,
           "category": "Trainer"
@@ -848,7 +848,7 @@
       "week": "2026-03-02",
       "adopted": [
         {
-          "card": "Judge",
+          "card": "Black Belt's Training",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -858,7 +858,7 @@
           "to_pct": 50.0
         },
         {
-          "card": "Energy Switch",
+          "card": "Chien-Pao",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -868,22 +868,7 @@
           "to_pct": 50.0
         },
         {
-          "card": "Teal Mask Ogerpon ex",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Chien-Pao",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
           "card": "Wellspring Mask Ogerpon ex",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Black Belt's Training",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -893,7 +878,12 @@
           "to_pct": 50.0
         },
         {
-          "card": "Cyrano",
+          "card": "Energy Switch",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Judge",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -906,9 +896,24 @@
           "card": "Xerosic's Machinations",
           "from_pct": 0.0,
           "to_pct": 50.0
+        },
+        {
+          "card": "Teal Mask Ogerpon ex",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Cyrano",
+          "from_pct": 0.0,
+          "to_pct": 50.0
         }
       ],
       "dropped": [
+        {
+          "card": "Bloodmoon Ursaluna ex",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
         {
           "card": "Lillie's Pearl",
           "from_pct": 100.0,
@@ -916,11 +921,6 @@
         },
         {
           "card": "Energy Search",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Bloodmoon Ursaluna ex",
           "from_pct": 100.0,
           "to_pct": 0.0
         }
@@ -963,6 +963,11 @@
       "week": "2026-03-02",
       "meta_share": 0.2,
       "deck_count": 2
+    },
+    {
+      "week": "2026-03-16",
+      "meta_share": 0.0,
+      "deck_count": 0
     }
   ],
   "top4_card_stats": [],

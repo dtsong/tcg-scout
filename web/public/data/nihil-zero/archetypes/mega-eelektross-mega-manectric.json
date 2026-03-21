@@ -319,14 +319,14 @@
       "inclusion_pct": 50.0,
       "avg_copies": 2.0,
       "decks_with": 1,
-      "category": "Trainer"
+      "category": "Pokemon"
     },
     {
       "card_name": "Iono's Kilowattrel",
       "inclusion_pct": 50.0,
       "avg_copies": 2.0,
       "decks_with": 1,
-      "category": "Trainer"
+      "category": "Pokemon"
     },
     {
       "card_name": "Fezandipiti ex",
@@ -513,6 +513,16 @@
           "category": "Pokemon"
         },
         {
+          "card_name": "Iono's Wattrel",
+          "count": 2,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Iono's Kilowattrel",
+          "count": 2,
+          "category": "Pokemon"
+        },
+        {
           "card_name": "Mega Manectric ex",
           "count": 2,
           "category": "Pokemon"
@@ -573,16 +583,6 @@
           "category": "Trainer"
         },
         {
-          "card_name": "Iono's Wattrel",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Iono's Kilowattrel",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
           "card_name": "Battle Cage",
           "count": 2,
           "category": "Trainer"
@@ -623,16 +623,6 @@
       "week": "2026-03-02",
       "adopted": [
         {
-          "card": "Budew",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Stunfisk",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
           "card": "Iono's Kilowattrel",
           "from_pct": 0.0,
           "to_pct": 100.0
@@ -646,26 +636,26 @@
           "card": "Iono's Wattrel",
           "from_pct": 0.0,
           "to_pct": 100.0
+        },
+        {
+          "card": "Stunfisk",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Budew",
+          "from_pct": 0.0,
+          "to_pct": 100.0
         }
       ],
       "dropped": [
         {
-          "card": "Zekrom ex",
+          "card": "Tool Scrapper",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Fezandipiti ex",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Explorer's Guidance",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Maximum Belt",
+          "card": "Tapu Koko",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -675,12 +665,22 @@
           "to_pct": 0.0
         },
         {
-          "card": "Tool Scrapper",
+          "card": "Maximum Belt",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Tapu Koko",
+          "card": "Zekrom ex",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Explorer's Guidance",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Fezandipiti ex",
           "from_pct": 100.0,
           "to_pct": 0.0
         }
@@ -723,6 +723,11 @@
       "week": "2026-03-02",
       "meta_share": 0.1,
       "deck_count": 1
+    },
+    {
+      "week": "2026-03-16",
+      "meta_share": 0.0,
+      "deck_count": 0
     }
   ],
   "top4_card_stats": [],

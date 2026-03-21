@@ -1637,7 +1637,7 @@
       "week": "2026-01-26",
       "adopted": [
         {
-          "card": "Carbink",
+          "card": "Unfair Stamp",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -1647,7 +1647,7 @@
           "to_pct": 100.0
         },
         {
-          "card": "Unfair Stamp",
+          "card": "Carbink",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -1669,12 +1669,12 @@
           "to_pct": 0.0
         },
         {
-          "card": "Xerosic's Machinations",
+          "card": "Hilda",
           "from_pct": 60.0,
           "to_pct": 0.0
         },
         {
-          "card": "Hilda",
+          "card": "Xerosic's Machinations",
           "from_pct": 60.0,
           "to_pct": 0.0
         }
@@ -1689,17 +1689,7 @@
           "to_pct": 50.0
         },
         {
-          "card": "Gravity Mountain",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
           "card": "Wally's Compassion",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Ciphermaniac's Codebreaking",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -1707,16 +1697,26 @@
           "card": "Judge",
           "from_pct": 0.0,
           "to_pct": 50.0
+        },
+        {
+          "card": "Gravity Mountain",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Ciphermaniac's Codebreaking",
+          "from_pct": 0.0,
+          "to_pct": 50.0
         }
       ],
       "dropped": [
         {
-          "card": "Carbink",
+          "card": "Shaymin",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Shaymin",
+          "card": "Carbink",
           "from_pct": 100.0,
           "to_pct": 0.0
         }
@@ -1726,12 +1726,12 @@
       "week": "2026-02-23",
       "adopted": [
         {
-          "card": "Scoop Up Cyclone",
+          "card": "Rock Fighting Energy",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Rock Fighting Energy",
+          "card": "Scoop Up Cyclone",
           "from_pct": 0.0,
           "to_pct": 100.0
         }
@@ -1743,17 +1743,17 @@
           "to_pct": 0.0
         },
         {
-          "card": "Switch",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Meowth ex",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
           "card": "Wally's Compassion",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Switch",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -1815,6 +1815,11 @@
     },
     {
       "week": "2026-03-02",
+      "meta_share": 0.0,
+      "deck_count": 0
+    },
+    {
+      "week": "2026-03-16",
       "meta_share": 0.0,
       "deck_count": 0
     }

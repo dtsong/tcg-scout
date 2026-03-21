@@ -7,11 +7,11 @@
   "image_url": "https://assets.tcgdex.net/en/sv/svp/166/high.png",
   "category": "Pokemon",
   "rarity": "",
-  "total_appearances": 883,
-  "usage_pct": 13.1,
+  "total_appearances": 893,
+  "usage_pct": 13.2,
   "avg_copies": 3.6,
   "unique_archetypes": 35,
-  "weighted_score": 1404.0,
+  "weighted_score": 1419.1,
   "win_rate_proxy": 1.59,
   "top_archetype": "Mega Venusaur",
   "trend_direction": "surging",
@@ -22,15 +22,15 @@
     },
     {
       "copies": 2,
-      "count": 84
+      "count": 86
     },
     {
       "copies": 3,
-      "count": 219
+      "count": 220
     },
     {
       "copies": 4,
-      "count": 579
+      "count": 586
     }
   ],
   "archetypes": [
@@ -44,7 +44,7 @@
     {
       "name": "Raging Bolt ex",
       "slug": "raging-bolt-ex",
-      "usage_count": 109,
+      "usage_count": 114,
       "avg_copies": 4.0,
       "tier": "C"
     },
@@ -72,7 +72,7 @@
     {
       "name": "Clefairy Ogerpon",
       "slug": "clefairy-ogerpon",
-      "usage_count": 66,
+      "usage_count": 67,
       "avg_copies": 3.3,
       "tier": "Rogue"
     },
@@ -93,14 +93,21 @@
     {
       "name": "Ogerpon Ogerpon Wellspring",
       "slug": "ogerpon-ogerpon-wellspring",
-      "usage_count": 26,
+      "usage_count": 27,
       "avg_copies": 3.1,
       "tier": "Rogue"
     },
     {
       "name": "Mega Absol Box",
       "slug": "mega-absol-box",
-      "usage_count": 26,
+      "usage_count": 27,
+      "avg_copies": 2.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Tera Box",
+      "slug": "tera-box",
+      "usage_count": 19,
       "avg_copies": 2.0,
       "tier": "Rogue"
     },
@@ -109,13 +116,6 @@
       "slug": "hydrapple-ogerpon",
       "usage_count": 19,
       "avg_copies": 3.7,
-      "tier": "Rogue"
-    },
-    {
-      "name": "Tera Box",
-      "slug": "tera-box",
-      "usage_count": 18,
-      "avg_copies": 2.0,
       "tier": "Rogue"
     },
     {
@@ -142,8 +142,8 @@
     {
       "name": "Meganium Ogerpon",
       "slug": "meganium-ogerpon",
-      "usage_count": 3,
-      "avg_copies": 3.7,
+      "usage_count": 4,
+      "avg_copies": 3.8,
       "tier": "Rogue"
     },
     {
@@ -315,113 +315,118 @@
       "week": "2026-03-02",
       "usage_pct": 22.0,
       "avg_copies": 3.5
+    },
+    {
+      "week": "2026-03-16",
+      "usage_pct": 31.2,
+      "avg_copies": 3.5
     }
   ],
   "synergy_partners": [
     {
       "card_name": "Arboliva ex",
-      "support": 81,
-      "lift": 7.651,
+      "support": 82,
+      "lift": 7.601,
       "jaccard": 0.092,
-      "weighted_score": 148.4
+      "weighted_score": 150.9
     },
     {
       "card_name": "Bulbasaur",
       "support": 305,
-      "lift": 7.651,
-      "jaccard": 0.345,
+      "lift": 7.601,
+      "jaccard": 0.342,
       "weighted_score": 471.4
     },
     {
       "card_name": "Celebi",
       "support": 74,
-      "lift": 7.651,
-      "jaccard": 0.084,
+      "lift": 7.601,
+      "jaccard": 0.083,
       "weighted_score": 117.3
     },
     {
       "card_name": "Dolliv",
-      "support": 81,
-      "lift": 7.651,
+      "support": 82,
+      "lift": 7.601,
       "jaccard": 0.092,
-      "weighted_score": 148.4
+      "weighted_score": 150.9
     },
     {
       "card_name": "Hydrapple ex",
       "support": 21,
-      "lift": 7.651,
+      "lift": 7.601,
       "jaccard": 0.024,
       "weighted_score": 31.7
     },
     {
       "card_name": "Ivysaur",
       "support": 305,
-      "lift": 7.651,
-      "jaccard": 0.345,
+      "lift": 7.601,
+      "jaccard": 0.342,
       "weighted_score": 471.4
     },
     {
       "card_name": "Koraidon",
       "support": 9,
-      "lift": 7.651,
+      "lift": 7.601,
       "jaccard": 0.01,
       "weighted_score": 12.0
     },
     {
       "card_name": "Mega Venusaur ex",
       "support": 305,
-      "lift": 7.651,
-      "jaccard": 0.345,
+      "lift": 7.601,
+      "jaccard": 0.342,
       "weighted_score": 471.4
     },
     {
       "card_name": "Shuckle",
       "support": 6,
-      "lift": 7.651,
+      "lift": 7.601,
       "jaccard": 0.007,
       "weighted_score": 7.2
     },
     {
       "card_name": "Smoliv",
-      "support": 81,
-      "lift": 7.651,
+      "support": 82,
+      "lift": 7.601,
       "jaccard": 0.092,
-      "weighted_score": 148.4
+      "weighted_score": 150.9
     },
     {
       "card_name": "Tapu Bulu",
       "support": 7,
-      "lift": 7.651,
+      "lift": 7.601,
       "jaccard": 0.008,
       "weighted_score": 10.6
     },
     {
       "card_name": "Zarude",
       "support": 5,
-      "lift": 7.651,
+      "lift": 7.601,
       "jaccard": 0.006,
       "weighted_score": 7.1
     },
     {
       "card_name": "Bayleef",
-      "support": 308,
-      "lift": 7.626,
-      "jaccard": 0.348,
-      "weighted_score": 509.2
+      "support": 309,
+      "lift": 7.577,
+      "jaccard": 0.346,
+      "weighted_score": 511.7
     },
     {
       "card_name": "Chikorita",
-      "support": 308,
-      "lift": 7.626,
-      "jaccard": 0.348,
-      "weighted_score": 509.2
+      "support": 309,
+      "lift": 7.577,
+      "jaccard": 0.346,
+      "weighted_score": 511.7
     },
     {
       "card_name": "Meganium",
-      "support": 308,
-      "lift": 7.626,
-      "jaccard": 0.348,
-      "weighted_score": 509.2
+      "support": 309,
+      "lift": 7.577,
+      "jaccard": 0.346,
+      "weighted_score": 511.7
     }
   ]
 }

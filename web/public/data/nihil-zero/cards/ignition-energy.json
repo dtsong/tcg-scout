@@ -7,14 +7,14 @@
   "image_url": "https://assets.tcgdex.net/en/me/me02/124/high.png",
   "category": "Energy",
   "rarity": "",
-  "total_appearances": 474,
+  "total_appearances": 475,
   "usage_pct": 7.0,
   "avg_copies": 3.0,
   "unique_archetypes": 36,
-  "weighted_score": 752.1,
+  "weighted_score": 753.6,
   "win_rate_proxy": 1.59,
   "top_archetype": "Honchkrow Porygon-Z",
-  "trend_direction": "declining",
+  "trend_direction": "stable",
   "copy_distribution": [
     {
       "copies": 1,
@@ -30,7 +30,7 @@
     },
     {
       "copies": 4,
-      "count": 231
+      "count": 232
     }
   ],
   "archetypes": [
@@ -51,7 +51,7 @@
     {
       "name": "Honchkrow Porygon2",
       "slug": "honchkrow-porygon2",
-      "usage_count": 68,
+      "usage_count": 69,
       "avg_copies": 4.0,
       "tier": "C"
     },
@@ -322,111 +322,116 @@
       "week": "2026-03-02",
       "usage_pct": 5.3,
       "avg_copies": 3.3
+    },
+    {
+      "week": "2026-03-16",
+      "usage_pct": 3.1,
+      "avg_copies": 4.0
     }
   ],
   "synergy_partners": [
     {
       "card_name": "Aegislash",
       "support": 5,
-      "lift": 14.253,
+      "lift": 14.291,
       "jaccard": 0.011,
       "weighted_score": 7.1
     },
     {
       "card_name": "Hyper Aroma",
       "support": 8,
-      "lift": 14.253,
+      "lift": 14.291,
       "jaccard": 0.017,
       "weighted_score": 15.4
     },
     {
       "card_name": "Roto-Stick",
-      "support": 101,
-      "lift": 14.253,
-      "jaccard": 0.213,
-      "weighted_score": 169.5
+      "support": 102,
+      "lift": 14.291,
+      "jaccard": 0.215,
+      "weighted_score": 171.0
     },
     {
       "card_name": "Team Rocket's Porygon",
-      "support": 234,
-      "lift": 14.253,
-      "jaccard": 0.494,
-      "weighted_score": 374.5
+      "support": 235,
+      "lift": 14.291,
+      "jaccard": 0.495,
+      "weighted_score": 376.0
     },
     {
       "card_name": "Team Rocket's Porygon-Z",
       "support": 163,
-      "lift": 14.253,
-      "jaccard": 0.344,
+      "lift": 14.291,
+      "jaccard": 0.343,
       "weighted_score": 257.3
     },
     {
       "card_name": "Team Rocket's Porygon2",
-      "support": 234,
-      "lift": 14.253,
-      "jaccard": 0.494,
-      "weighted_score": 374.5
+      "support": 235,
+      "lift": 14.291,
+      "jaccard": 0.495,
+      "weighted_score": 376.0
     },
     {
       "card_name": "Team Rocket's Honchkrow",
-      "support": 236,
-      "lift": 14.074,
-      "jaccard": 0.495,
-      "weighted_score": 377.7
+      "support": 237,
+      "lift": 14.112,
+      "jaccard": 0.496,
+      "weighted_score": 379.2
     },
     {
       "card_name": "Miracle Headset",
-      "support": 191,
-      "lift": 14.033,
-      "jaccard": 0.4,
-      "weighted_score": 302.2
+      "support": 192,
+      "lift": 14.071,
+      "jaccard": 0.402,
+      "weighted_score": 303.7
     },
     {
       "card_name": "Frogadier",
       "support": 89,
-      "lift": 13.94,
+      "lift": 13.976,
       "jaccard": 0.187,
       "weighted_score": 144.8
     },
     {
       "card_name": "Froakie",
       "support": 89,
-      "lift": 13.64,
+      "lift": 13.676,
       "jaccard": 0.186,
       "weighted_score": 144.8
     },
     {
       "card_name": "Greninja ex",
       "support": 89,
-      "lift": 13.64,
+      "lift": 13.676,
       "jaccard": 0.186,
       "weighted_score": 144.8
     },
     {
       "card_name": "Team Rocket's Murkrow",
-      "support": 236,
-      "lift": 13.243,
-      "jaccard": 0.48,
-      "weighted_score": 377.7
+      "support": 237,
+      "lift": 13.282,
+      "jaccard": 0.481,
+      "weighted_score": 379.2
     },
     {
       "card_name": "Grand Tree",
       "support": 85,
-      "lift": 13.169,
-      "jaccard": 0.177,
+      "lift": 13.203,
+      "jaccard": 0.176,
       "weighted_score": 136.8
     },
     {
       "card_name": "Survival Brace",
       "support": 19,
-      "lift": 10.416,
-      "jaccard": 0.04,
+      "lift": 10.443,
+      "jaccard": 0.039,
       "weighted_score": 32.8
     },
     {
       "card_name": "Dudunsparce ex",
       "support": 6,
-      "lift": 9.502,
+      "lift": 9.527,
       "jaccard": 0.013,
       "weighted_score": 9.3
     }

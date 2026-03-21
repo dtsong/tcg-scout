@@ -854,12 +854,12 @@
       "week": "2026-02-02",
       "adopted": [
         {
-          "card": "Diggersby",
+          "card": "Team Rocket's Watchtower",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
         {
-          "card": "Lana's Aid",
+          "card": "Diggersby",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -869,12 +869,12 @@
           "to_pct": 50.0
         },
         {
-          "card": "Hassel",
+          "card": "Lana's Aid",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
         {
-          "card": "Team Rocket's Watchtower",
+          "card": "Hassel",
           "from_pct": 0.0,
           "to_pct": 50.0
         }
@@ -902,6 +902,11 @@
           "to_pct": 0.0
         },
         {
+          "card": "Team Rocket's Watchtower",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
           "card": "Diggersby",
           "from_pct": 50.0,
           "to_pct": 0.0
@@ -913,11 +918,6 @@
         },
         {
           "card": "Hassel",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Team Rocket's Watchtower",
           "from_pct": 50.0,
           "to_pct": 0.0
         }
@@ -971,6 +971,11 @@
       "week": "2026-03-02",
       "meta_share": 0.1,
       "deck_count": 1
+    },
+    {
+      "week": "2026-03-16",
+      "meta_share": 0.0,
+      "deck_count": 0
     }
   ],
   "top4_card_stats": [

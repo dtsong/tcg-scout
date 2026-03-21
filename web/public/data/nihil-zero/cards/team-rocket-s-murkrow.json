@@ -5,13 +5,13 @@
   "set_code": "me02.5",
   "set_number": "126",
   "image_url": "https://assets.tcgdex.net/en/me/me02.5/126/high.png",
-  "category": "Trainer",
+  "category": "Pokemon",
   "rarity": "",
-  "total_appearances": 254,
+  "total_appearances": 255,
   "usage_pct": 3.8,
   "avg_copies": 3.8,
   "unique_archetypes": 7,
-  "weighted_score": 407.0,
+  "weighted_score": 408.5,
   "win_rate_proxy": 1.6,
   "top_archetype": "Honchkrow Porygon-Z",
   "trend_direction": "stable",
@@ -30,7 +30,7 @@
     },
     {
       "copies": 4,
-      "count": 234
+      "count": 235
     }
   ],
   "archetypes": [
@@ -44,7 +44,7 @@
     {
       "name": "Honchkrow Porygon2",
       "slug": "honchkrow-porygon2",
-      "usage_count": 68,
+      "usage_count": 69,
       "avg_copies": 4.0,
       "tier": "C"
     },
@@ -119,113 +119,118 @@
       "week": "2026-03-02",
       "usage_pct": 3.2,
       "avg_copies": 3.9
+    },
+    {
+      "week": "2026-03-16",
+      "usage_pct": 3.1,
+      "avg_copies": 4.0
     }
   ],
   "synergy_partners": [
     {
       "card_name": "Roto-Stick",
-      "support": 101,
-      "lift": 26.598,
-      "jaccard": 0.398,
-      "weighted_score": 169.5
+      "support": 102,
+      "lift": 26.62,
+      "jaccard": 0.4,
+      "weighted_score": 171.0
     },
     {
       "card_name": "Team Rocket's Honchkrow",
-      "support": 239,
-      "lift": 26.598,
+      "support": 240,
+      "lift": 26.62,
       "jaccard": 0.941,
-      "weighted_score": 383.7
+      "weighted_score": 385.2
     },
     {
       "card_name": "Team Rocket's Porygon",
-      "support": 234,
-      "lift": 26.598,
-      "jaccard": 0.921,
-      "weighted_score": 374.5
+      "support": 235,
+      "lift": 26.62,
+      "jaccard": 0.922,
+      "weighted_score": 376.0
     },
     {
       "card_name": "Team Rocket's Porygon-Z",
       "support": 163,
-      "lift": 26.598,
-      "jaccard": 0.642,
+      "lift": 26.62,
+      "jaccard": 0.639,
       "weighted_score": 257.3
     },
     {
       "card_name": "Team Rocket's Porygon2",
-      "support": 234,
-      "lift": 26.598,
-      "jaccard": 0.921,
-      "weighted_score": 374.5
+      "support": 235,
+      "lift": 26.62,
+      "jaccard": 0.922,
+      "weighted_score": 376.0
     },
     {
       "card_name": "Miracle Headset",
-      "support": 191,
-      "lift": 26.187,
-      "jaccard": 0.743,
-      "weighted_score": 302.2
+      "support": 192,
+      "lift": 26.21,
+      "jaccard": 0.744,
+      "weighted_score": 303.7
     },
     {
       "card_name": "Hyper Aroma",
       "support": 7,
-      "lift": 23.274,
+      "lift": 23.292,
       "jaccard": 0.027,
       "weighted_score": 14.2
     },
     {
       "card_name": "Survival Brace",
       "support": 18,
-      "lift": 18.414,
-      "jaccard": 0.069,
+      "lift": 18.429,
+      "jaccard": 0.068,
       "weighted_score": 31.6
     },
     {
       "card_name": "Neutralization Zone",
       "support": 11,
-      "lift": 18.286,
+      "lift": 18.301,
       "jaccard": 0.042,
       "weighted_score": 17.0
     },
     {
       "card_name": "Team Rocket's Archer",
-      "support": 253,
-      "lift": 14.472,
-      "jaccard": 0.543,
-      "weighted_score": 405.8
+      "support": 254,
+      "lift": 14.417,
+      "jaccard": 0.54,
+      "weighted_score": 407.3
     },
     {
       "card_name": "Team Rocket's Ariana",
-      "support": 254,
-      "lift": 14.467,
-      "jaccard": 0.544,
-      "weighted_score": 407.0
+      "support": 255,
+      "lift": 14.412,
+      "jaccard": 0.541,
+      "weighted_score": 408.5
     },
     {
       "card_name": "Team Rocket's Giovanni",
-      "support": 254,
-      "lift": 14.467,
-      "jaccard": 0.544,
-      "weighted_score": 407.0
+      "support": 255,
+      "lift": 14.412,
+      "jaccard": 0.541,
+      "weighted_score": 408.5
     },
     {
       "card_name": "Team Rocket's Proton",
-      "support": 254,
-      "lift": 14.467,
-      "jaccard": 0.544,
-      "weighted_score": 407.0
+      "support": 255,
+      "lift": 14.412,
+      "jaccard": 0.541,
+      "weighted_score": 408.5
     },
     {
       "card_name": "Team Rocket's Energy",
-      "support": 254,
-      "lift": 14.344,
-      "jaccard": 0.539,
-      "weighted_score": 407.0
+      "support": 255,
+      "lift": 14.291,
+      "jaccard": 0.537,
+      "weighted_score": 408.5
     },
     {
       "card_name": "Team Rocket's Factory",
-      "support": 254,
-      "lift": 13.93,
-      "jaccard": 0.524,
-      "weighted_score": 407.0
+      "support": 255,
+      "lift": 13.881,
+      "jaccard": 0.521,
+      "weighted_score": 408.5
     }
   ]
 }

@@ -245,113 +245,118 @@
       "week": "2026-03-02",
       "usage_pct": 1.2,
       "avg_copies": 2.9
+    },
+    {
+      "week": "2026-03-16",
+      "usage_pct": 0.0,
+      "avg_copies": 0
     }
   ],
   "synergy_partners": [
     {
       "card_name": "Kirlia",
       "support": 5,
-      "lift": 34.825,
+      "lift": 34.99,
       "jaccard": 0.026,
       "weighted_score": 7.9
     },
     {
       "card_name": "Mega Gardevoir ex",
       "support": 5,
-      "lift": 34.825,
+      "lift": 34.99,
       "jaccard": 0.026,
       "weighted_score": 7.9
     },
     {
       "card_name": "Mega Diancie ex",
       "support": 172,
-      "lift": 30.405,
+      "lift": 30.549,
       "jaccard": 0.785,
       "weighted_score": 253.4
     },
     {
       "card_name": "Ralts",
       "support": 5,
-      "lift": 29.021,
+      "lift": 29.158,
       "jaccard": 0.026,
       "weighted_score": 7.9
     },
     {
       "card_name": "Powerglass",
       "support": 164,
-      "lift": 28.274,
+      "lift": 28.407,
       "jaccard": 0.707,
       "weighted_score": 242.4
     },
     {
       "card_name": "Flutter Mane",
       "support": 91,
-      "lift": 23.65,
+      "lift": 23.762,
       "jaccard": 0.384,
       "weighted_score": 132.5
     },
     {
       "card_name": "Clefable",
       "support": 5,
-      "lift": 19.347,
+      "lift": 19.439,
       "jaccard": 0.025,
       "weighted_score": 6.3
     },
     {
       "card_name": "Frillish",
       "support": 80,
-      "lift": 18.45,
+      "lift": 18.538,
       "jaccard": 0.302,
       "weighted_score": 119.9
     },
     {
       "card_name": "Jellicent ex",
       "support": 47,
-      "lift": 16.368,
+      "lift": 16.445,
       "jaccard": 0.19,
       "weighted_score": 71.6
     },
     {
       "card_name": "Wondrous Patch",
       "support": 188,
-      "lift": 11.003,
+      "lift": 11.056,
       "jaccard": 0.313,
       "weighted_score": 280.0
     },
     {
       "card_name": "Telepath Psychic Energy",
       "support": 192,
-      "lift": 9.704,
-      "jaccard": 0.278,
+      "lift": 9.736,
+      "jaccard": 0.277,
       "weighted_score": 285.1
     },
     {
       "card_name": "Mega Signal",
       "support": 35,
-      "lift": 8.897,
+      "lift": 8.939,
       "jaccard": 0.118,
       "weighted_score": 50.4
     },
     {
       "card_name": "Colress's Tenacity",
       "support": 70,
-      "lift": 8.208,
+      "lift": 8.247,
       "jaccard": 0.166,
       "weighted_score": 103.1
     },
     {
-      "card_name": "Prime Catcher",
-      "support": 63,
-      "lift": 6.987,
-      "jaccard": 0.142,
-      "weighted_score": 90.7
-    },
-    {
       "card_name": "Secret Box",
       "support": 82,
-      "lift": 6.982,
+      "lift": 7.015,
       "jaccard": 0.157,
       "weighted_score": 122.2
+    },
+    {
+      "card_name": "Prime Catcher",
+      "support": 63,
+      "lift": 6.998,
+      "jaccard": 0.141,
+      "weighted_score": 90.7
     }
   ]
 }

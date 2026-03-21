@@ -160,6 +160,21 @@ def classify_card(card_name: str, category_lookup: dict[str, str] | None = None)
         "cipher",
         "steven's",
     )
+    # Check Pokemon name set BEFORE trainer heuristics to avoid
+    # misclassifying cards like "Lillie's Clefairy ex" as Trainer
+    if _POKEMON_NAMES:
+        base_name = lower.removesuffix(" ex")
+        candidates = [lower, base_name]
+        if base_name.startswith("mega "):
+            candidates.append(base_name.removeprefix("mega "))
+        # Handle possessive names like "Lillie's Clefairy ex" or "Marnie's Grimmsnarl ex"
+        if "'s " in base_name:
+            after_possessive = base_name.split("'s ", 1)[1]
+            candidates.append(after_possessive)
+            candidates.append(after_possessive.removeprefix("mega "))
+        if any(c in _POKEMON_NAMES for c in candidates):
+            return "Pokemon"
+
     for kw in trainer_keywords:
         if kw in lower:
             return "Trainer"
@@ -167,15 +182,8 @@ def classify_card(card_name: str, category_lookup: dict[str, str] | None = None)
         if name in lower:
             return "Trainer"
 
-    # Check against authoritative Pokemon name set from tcgdex
+    # If we had the Pokemon name set and card didn't match anything, default Trainer
     if _POKEMON_NAMES:
-        base_name = lower.removesuffix(" ex")
-        candidates = [lower, base_name]
-        if base_name.startswith("mega "):
-            candidates.append(base_name.removeprefix("mega "))
-        if any(c in _POKEMON_NAMES for c in candidates):
-            return "Pokemon"
-        # Unknown card not matching any known Pokemon — default to Trainer
         return "Trainer"
 
     return "Trainer"

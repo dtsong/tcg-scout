@@ -7,18 +7,18 @@
   "image_url": null,
   "category": "Trainer",
   "rarity": null,
-  "total_appearances": 314,
+  "total_appearances": 315,
   "usage_pct": 4.6,
   "avg_copies": 1.0,
   "unique_archetypes": 71,
-  "weighted_score": 473.0,
-  "win_rate_proxy": 1.51,
+  "weighted_score": 474.0,
+  "win_rate_proxy": 1.5,
   "top_archetype": "Mega Diancie Dusknoir",
-  "trend_direction": "stable",
+  "trend_direction": "declining",
   "copy_distribution": [
     {
       "copies": 1,
-      "count": 314
+      "count": 315
     }
   ],
   "archetypes": [
@@ -37,18 +37,18 @@
       "tier": "B"
     },
     {
+      "name": "Raging Bolt ex",
+      "slug": "raging-bolt-ex",
+      "usage_count": 22,
+      "avg_copies": 1.0,
+      "tier": "C"
+    },
+    {
       "name": "Mega Froslass Mega Starmie",
       "slug": "mega-froslass-mega-starmie",
       "usage_count": 22,
       "avg_copies": 1.0,
       "tier": "B"
-    },
-    {
-      "name": "Raging Bolt ex",
-      "slug": "raging-bolt-ex",
-      "usage_count": 21,
-      "avg_copies": 1.0,
-      "tier": "C"
     },
     {
       "name": "Barbaracle Okidogi",
@@ -555,111 +555,116 @@
       "week": "2026-03-02",
       "usage_pct": 1.9,
       "avg_copies": 1.0
+    },
+    {
+      "week": "2026-03-16",
+      "usage_pct": 3.1,
+      "avg_copies": 1.0
     }
   ],
   "synergy_partners": [
     {
       "card_name": "Yanma",
       "support": 11,
-      "lift": 13.149,
+      "lift": 13.169,
       "jaccard": 0.034,
       "weighted_score": 18.8
     },
     {
       "card_name": "Yanmega ex",
       "support": 11,
-      "lift": 13.149,
+      "lift": 13.169,
       "jaccard": 0.034,
       "weighted_score": 18.8
     },
     {
       "card_name": "Flutter Mane",
       "support": 44,
-      "lift": 7.065,
+      "lift": 7.076,
       "jaccard": 0.109,
       "weighted_score": 61.5
     },
     {
       "card_name": "Mystery Garden",
       "support": 63,
-      "lift": 6.987,
-      "jaccard": 0.142,
+      "lift": 6.998,
+      "jaccard": 0.141,
       "weighted_score": 90.7
     },
     {
       "card_name": "Mega Diancie ex",
       "support": 60,
-      "lift": 6.553,
+      "lift": 6.563,
       "jaccard": 0.133,
       "weighted_score": 86.3
     },
     {
       "card_name": "Powerglass",
       "support": 61,
-      "lift": 6.497,
+      "lift": 6.507,
       "jaccard": 0.134,
       "weighted_score": 87.5
     },
     {
       "card_name": "Ethan's Adventure",
       "support": 5,
-      "lift": 6.328,
+      "lift": 6.338,
       "jaccard": 0.015,
       "weighted_score": 6.6
     },
     {
       "card_name": "Dusk Ball",
-      "support": 12,
-      "lift": 5.164,
-      "jaccard": 0.034,
-      "weighted_score": 18.2
+      "support": 13,
+      "lift": 5.493,
+      "jaccard": 0.037,
+      "weighted_score": 19.2
     },
     {
       "card_name": "Raging Bolt ex",
-      "support": 54,
-      "lift": 4.944,
-      "jaccard": 0.109,
-      "weighted_score": 83.2
+      "support": 55,
+      "lift": 4.938,
+      "jaccard": 0.11,
+      "weighted_score": 84.2
     },
     {
       "card_name": "Carvanha",
       "support": 9,
-      "lift": 4.841,
+      "lift": 4.849,
       "jaccard": 0.026,
       "weighted_score": 12.4
     },
     {
       "card_name": "Mega Sharpedo ex",
       "support": 9,
-      "lift": 4.841,
+      "lift": 4.849,
       "jaccard": 0.026,
       "weighted_score": 12.4
     },
     {
       "card_name": "Lively Stadium",
       "support": 11,
-      "lift": 4.83,
+      "lift": 4.838,
       "jaccard": 0.031,
       "weighted_score": 18.0
     },
     {
       "card_name": "Lillie's Pearl",
       "support": 17,
-      "lift": 4.572,
+      "lift": 4.523,
       "jaccard": 0.045,
       "weighted_score": 26.6
     },
     {
       "card_name": "Bloodmoon Ursaluna",
       "support": 24,
-      "lift": 3.742,
+      "lift": 3.748,
       "jaccard": 0.056,
       "weighted_score": 37.3
     },
     {
       "card_name": "Hop's Zacian ex",
       "support": 5,
-      "lift": 3.71,
+      "lift": 3.715,
       "jaccard": 0.015,
       "weighted_score": 7.4
     }

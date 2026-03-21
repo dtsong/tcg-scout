@@ -648,6 +648,123 @@ def scrape_jp(
         conn.close()
 
 
+@cli.command("scrape-tournament")
+@click.argument("tournament_id", type=int)
+@click.option("--name", default=None, help="Tournament name (default: auto-detected)")
+@click.option("--date", default=None, help="Tournament date YYYY-MM-DD (required)")
+@click.option("--max-placements", default=64, help="Max placements to scrape")
+@click.option("--fetch-decklists/--no-decklists", default=True, help="Fetch decklists")
+@click.option(
+    "--tournament-type",
+    default="champions-league",
+    type=click.Choice(["city-league", "champions-league"]),
+    help="Tournament type tag",
+)
+@click.option("--player-count", default=0, help="Player count (for metadata)")
+@click.pass_context
+def scrape_tournament(
+    ctx: click.Context,
+    tournament_id: int,
+    name: str | None,
+    date: str | None,
+    max_placements: int,
+    fetch_decklists: bool,
+    tournament_type: str,
+    player_count: int,
+) -> None:
+    """Scrape a single Limitless tournament by ID.
+
+    Example: scout scrape-tournament 547 --name "Fukuoka CL 2026" --date 2026-03-20 --player-count 7000
+    """
+    if not date:
+        console.print("[red]--date is required (e.g. --date 2026-03-20)[/red]")
+        return
+    from scraper.limitless import LimitlessClient
+
+    fmt = ctx.obj["format"]
+    conn = get_format_connection(fmt)
+    init_db(conn)
+
+    tournament_url = f"https://limitlesstcg.com/tournaments/{tournament_id}"
+    tournament_name = name or f"Limitless Tournament {tournament_id}"
+
+    client = LimitlessClient()
+    try:
+        # Check if already scraped
+        existing = conn.execute(
+            "SELECT id FROM tournaments WHERE id = ?", (tournament_url,)
+        ).fetchone()
+        if existing:
+            console.print(f"[yellow]Tournament {tournament_id} already in database.[/yellow]")
+            return
+
+        console.print(f"[cyan]Scraping {tournament_url}...[/cyan]")
+        placements = client.fetch_jp_city_league_placements(tournament_url, max_placements)
+
+        if not placements:
+            console.print("[yellow]No placements found.[/yellow]")
+            return
+
+        console.print(f"Found [bold]{len(placements)}[/bold] placements")
+
+        # Store tournament
+        conn.execute(
+            "INSERT OR REPLACE INTO tournaments "
+            "(id, name, date, player_count, country, division, tournament_type) "
+            "VALUES (?, ?, ?, ?, ?, ?, ?)",
+            (
+                tournament_url,
+                tournament_name,
+                date,
+                player_count,
+                "JP",
+                "open",
+                tournament_type,
+            ),
+        )
+
+        total_decklists = 0
+        for i, placement in enumerate(placements, 1):
+            console.print(
+                f"  [{i}/{len(placements)}] #{placement.placement} "
+                f"{placement.player_name or 'Unknown'} — {placement.archetype}"
+            )
+
+            cursor = conn.execute(
+                "INSERT INTO placements (tournament_id, standing, player_name, archetype) "
+                "VALUES (?, ?, ?, ?)",
+                (tournament_url, placement.placement, placement.player_name, placement.archetype),
+            )
+            placement_id = cursor.lastrowid
+
+            if fetch_decklists and placement.decklist_url:
+                decklist = client.fetch_decklist(placement.decklist_url)
+                if decklist and decklist.cards:
+                    for card in decklist.cards:
+                        conn.execute(
+                            "INSERT OR REPLACE INTO decklist_cards "
+                            "(placement_id, card_id, card_name, count) "
+                            "VALUES (?, ?, ?, ?)",
+                            (
+                                placement_id,
+                                card.get("card_id", card.get("name", "unknown")),
+                                card.get("name"),
+                                card.get("count", 1),
+                            ),
+                        )
+                    total_decklists += 1
+                    console.print(f"    {len(decklist.cards)} cards")
+
+        conn.commit()
+        console.print(
+            f"\n[green]Done! Stored {len(placements)} placements "
+            f"and {total_decklists} decklists for {tournament_name}.[/green]"
+        )
+    finally:
+        client.close()
+        conn.close()
+
+
 @cli.command("backfill-archetypes")
 @click.option("--start", default=None, help="Override start date (YYYY-MM-DD)")
 @click.option("--end", default=None, help="Override end date (YYYY-MM-DD)")

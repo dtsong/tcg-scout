@@ -2,11 +2,11 @@
   "archetype": "Mewtwo Spidops",
   "slug": "mewtwo-spidops",
   "format": "nihil-zero",
-  "generated_at": "2026-03-21T02:18:53.760798+00:00",
+  "generated_at": "2026-03-21T07:47:26.523630+00:00",
   "tier": "B",
-  "meta_share": 3.21,
-  "weighted_share": 3.22,
-  "deck_count": 217,
+  "meta_share": 3.24,
+  "weighted_share": 3.24,
+  "deck_count": 220,
   "best_placement": 1,
   "sprite_filenames": [
     "mewtwo.png",
@@ -14,8 +14,8 @@
   ],
   "consensus_60": {
     "quality_score": 89.2,
-    "total_pokemon": 0,
-    "total_trainer": 56,
+    "total_pokemon": 17,
+    "total_trainer": 39,
     "total_energy": 4,
     "cards": [
       {
@@ -39,7 +39,7 @@
       {
         "card_name": "Team Rocket's Tarountula",
         "count": 4,
-        "category": "Trainer",
+        "category": "Pokemon",
         "weighted_inclusion_pct": 100.0,
         "weighted_avg_copies": 4.0,
         "confidence": 1.0,
@@ -48,7 +48,7 @@
       {
         "card_name": "Team Rocket's Spidops",
         "count": 4,
-        "category": "Trainer",
+        "category": "Pokemon",
         "weighted_inclusion_pct": 100.0,
         "weighted_avg_copies": 4.0,
         "confidence": 1.0,
@@ -93,7 +93,7 @@
       {
         "card_name": "Team Rocket's Mewtwo ex",
         "count": 2,
-        "category": "Trainer",
+        "category": "Pokemon",
         "weighted_inclusion_pct": 100.0,
         "weighted_avg_copies": 2.0,
         "confidence": 1.0,
@@ -102,7 +102,7 @@
       {
         "card_name": "Team Rocket's Articuno",
         "count": 2,
-        "category": "Trainer",
+        "category": "Pokemon",
         "weighted_inclusion_pct": 100.0,
         "weighted_avg_copies": 1.9,
         "confidence": 1.0,
@@ -112,7 +112,7 @@
         "card_name": "Team Rocket's Archer",
         "count": 2,
         "category": "Trainer",
-        "weighted_inclusion_pct": 99.6,
+        "weighted_inclusion_pct": 99.7,
         "weighted_avg_copies": 2.0,
         "confidence": 1.0,
         "consensus": "core"
@@ -138,7 +138,7 @@
       {
         "card_name": "Team Rocket's Mimikyu",
         "count": 2,
-        "category": "Trainer",
+        "category": "Pokemon",
         "weighted_inclusion_pct": 99.2,
         "weighted_avg_copies": 1.7,
         "confidence": 0.99,
@@ -165,8 +165,8 @@
       {
         "card_name": "Lillie's Clefairy ex",
         "count": 1,
-        "category": "Trainer",
-        "weighted_inclusion_pct": 86.0,
+        "category": "Pokemon",
+        "weighted_inclusion_pct": 86.1,
         "weighted_avg_copies": 1.0,
         "confidence": 0.86,
         "consensus": "core"
@@ -175,7 +175,7 @@
         "card_name": "Lillie's Determination",
         "count": 4,
         "category": "Trainer",
-        "weighted_inclusion_pct": 81.8,
+        "weighted_inclusion_pct": 81.9,
         "weighted_avg_copies": 3.5,
         "confidence": 0.81,
         "consensus": "core"
@@ -184,26 +184,26 @@
         "card_name": "Team Rocket's Petrel",
         "count": 1,
         "category": "Trainer",
-        "weighted_inclusion_pct": 74.4,
+        "weighted_inclusion_pct": 74.6,
         "weighted_avg_copies": 1.0,
         "confidence": 0.75,
-        "consensus": "common"
-      },
-      {
-        "card_name": "Brave Bangle",
-        "count": 1,
-        "category": "Trainer",
-        "weighted_inclusion_pct": 54.8,
-        "weighted_avg_copies": 1.2,
-        "confidence": 0.56,
         "consensus": "common"
       },
       {
         "card_name": "Maximum Belt",
         "count": 1,
         "category": "Trainer",
-        "weighted_inclusion_pct": 54.7,
+        "weighted_inclusion_pct": 55.2,
         "weighted_avg_copies": 1.0,
+        "confidence": 0.55,
+        "consensus": "common"
+      },
+      {
+        "card_name": "Brave Bangle",
+        "count": 1,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 54.5,
+        "weighted_avg_copies": 1.2,
         "confidence": 0.55,
         "consensus": "common"
       },
@@ -211,7 +211,7 @@
         "card_name": "Bug Catching Set",
         "count": 1,
         "category": "Trainer",
-        "weighted_inclusion_pct": 40.4,
+        "weighted_inclusion_pct": 40.7,
         "weighted_avg_copies": 1.2,
         "confidence": 0.4,
         "consensus": "tech"
@@ -228,8 +228,8 @@
       {
         "card_name": "Team Rocket's Wobbuffet",
         "count": 1,
-        "category": "Trainer",
-        "weighted_inclusion_pct": 27.5,
+        "category": "Pokemon",
+        "weighted_inclusion_pct": 27.6,
         "weighted_avg_copies": 1.0,
         "confidence": 0.28,
         "consensus": "tech"
@@ -237,8 +237,8 @@
       {
         "card_name": "Team Rocket's Sneasel",
         "count": 1,
-        "category": "Trainer",
-        "weighted_inclusion_pct": 25.2,
+        "category": "Pokemon",
+        "weighted_inclusion_pct": 25.0,
         "weighted_avg_copies": 1.0,
         "confidence": 0.25,
         "consensus": "tech"
@@ -247,7 +247,7 @@
         "card_name": "Hero's Cape",
         "count": 1,
         "category": "Trainer",
-        "weighted_inclusion_pct": 19.7,
+        "weighted_inclusion_pct": 19.5,
         "weighted_avg_copies": 1.0,
         "confidence": 0.18,
         "consensus": "tech"
@@ -262,57 +262,10 @@
       "2026-02-09",
       "2026-02-16",
       "2026-02-23",
-      "2026-03-02"
+      "2026-03-02",
+      "2026-03-16"
     ],
     "cards": [
-      {
-        "card_name": "Bug Catching Set",
-        "category": "Trainer",
-        "timeline": [
-          4.3,
-          9.5,
-          11.1,
-          18.5,
-          0.0,
-          68.4,
-          62.8
-        ],
-        "copies_timeline": [
-          2.0,
-          1.0,
-          2.0,
-          1.6,
-          0.0,
-          1.2,
-          1.1
-        ],
-        "trend": "adopted",
-        "total_delta": 58.5
-      },
-      {
-        "card_name": "Buddy-Buddy Poffin",
-        "category": "Trainer",
-        "timeline": [
-          65.2,
-          61.9,
-          77.8,
-          33.3,
-          33.3,
-          7.9,
-          9.0
-        ],
-        "copies_timeline": [
-          1.8,
-          1.6,
-          1.4,
-          1.0,
-          1.0,
-          1.0,
-          1.3
-        ],
-        "trend": "dropped",
-        "total_delta": -56.2
-      },
       {
         "card_name": "Maximum Belt",
         "category": "Trainer",
@@ -323,9 +276,11 @@
           33.3,
           33.3,
           73.7,
-          80.8
+          80.8,
+          100.0
         ],
         "copies_timeline": [
+          1.0,
           1.0,
           1.0,
           1.0,
@@ -335,79 +290,33 @@
           1.0
         ],
         "trend": "shifted",
-        "total_delta": 50.4
+        "total_delta": 69.6
       },
       {
-        "card_name": "Team Rocket's Wobbuffet",
+        "card_name": "Bug Catching Set",
         "category": "Trainer",
         "timeline": [
-          39.1,
-          42.9,
-          55.6,
-          51.9,
-          33.3,
-          23.7,
-          3.8
+          4.3,
+          9.5,
+          11.1,
+          18.5,
+          0.0,
+          68.4,
+          62.8,
+          66.7
         ],
         "copies_timeline": [
+          2.0,
           1.0,
-          1.0,
-          1.0,
-          1.0,
-          1.0,
-          1.0,
+          2.0,
+          1.6,
+          0.0,
+          1.2,
+          1.1,
           1.0
         ],
-        "trend": "dropped",
-        "total_delta": -35.3
-      },
-      {
-        "card_name": "Lillie's Determination",
-        "category": "Trainer",
-        "timeline": [
-          69.6,
-          71.4,
-          66.7,
-          48.1,
-          100.0,
-          89.5,
-          98.7
-        ],
-        "copies_timeline": [
-          3.3,
-          3.2,
-          2.8,
-          2.5,
-          2.7,
-          3.8,
-          3.7
-        ],
-        "trend": "shifted",
-        "total_delta": 29.1
-      },
-      {
-        "card_name": "Team Rocket's Sneasel",
-        "category": "Trainer",
-        "timeline": [
-          34.8,
-          33.3,
-          48.1,
-          63.0,
-          33.3,
-          10.5,
-          6.4
-        ],
-        "copies_timeline": [
-          1.0,
-          1.0,
-          1.0,
-          1.0,
-          1.0,
-          1.0,
-          1.0
-        ],
-        "trend": "dropped",
-        "total_delta": -28.4
+        "trend": "adopted",
+        "total_delta": 62.4
       },
       {
         "card_name": "Energy Search",
@@ -419,7 +328,8 @@
           29.6,
           33.3,
           2.6,
-          7.7
+          7.7,
+          0.0
         ],
         "copies_timeline": [
           1.0,
@@ -428,14 +338,145 @@
           1.1,
           1.0,
           1.0,
-          1.2
+          1.2,
+          0.0
         ],
         "trend": "dropped",
-        "total_delta": -27.1
+        "total_delta": -34.8
+      },
+      {
+        "card_name": "Hero's Cape",
+        "category": "Trainer",
+        "timeline": [
+          34.8,
+          38.1,
+          22.2,
+          18.5,
+          0.0,
+          15.8,
+          9.0,
+          0.0
+        ],
+        "copies_timeline": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          1.0,
+          1.0,
+          0.0
+        ],
+        "trend": "dropped",
+        "total_delta": -34.8
+      },
+      {
+        "card_name": "Team Rocket's Sneasel",
+        "category": "Pokemon",
+        "timeline": [
+          34.8,
+          33.3,
+          48.1,
+          63.0,
+          33.3,
+          10.5,
+          6.4,
+          0.0
+        ],
+        "copies_timeline": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ],
+        "trend": "dropped",
+        "total_delta": -34.8
+      },
+      {
+        "card_name": "Buddy-Buddy Poffin",
+        "category": "Trainer",
+        "timeline": [
+          65.2,
+          61.9,
+          77.8,
+          33.3,
+          33.3,
+          7.9,
+          9.0,
+          33.3
+        ],
+        "copies_timeline": [
+          1.8,
+          1.6,
+          1.4,
+          1.0,
+          1.0,
+          1.0,
+          1.3,
+          2.0
+        ],
+        "trend": "shifted",
+        "total_delta": -31.9
+      },
+      {
+        "card_name": "Lillie's Determination",
+        "category": "Trainer",
+        "timeline": [
+          69.6,
+          71.4,
+          66.7,
+          48.1,
+          100.0,
+          89.5,
+          98.7,
+          100.0
+        ],
+        "copies_timeline": [
+          3.3,
+          3.2,
+          2.8,
+          2.5,
+          2.7,
+          3.8,
+          3.7,
+          3.3
+        ],
+        "trend": "shifted",
+        "total_delta": 30.4
+      },
+      {
+        "card_name": "Team Rocket's Petrel",
+        "category": "Trainer",
+        "timeline": [
+          69.6,
+          76.2,
+          74.1,
+          85.2,
+          100.0,
+          60.5,
+          78.2,
+          100.0
+        ],
+        "copies_timeline": [
+          1.1,
+          1.1,
+          1.1,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "trend": "shifted",
+        "total_delta": 30.4
       },
       {
         "card_name": "Lillie's Clefairy ex",
-        "category": "Trainer",
+        "category": "Pokemon",
         "timeline": [
           73.9,
           57.1,
@@ -443,9 +484,11 @@
           81.5,
           100.0,
           94.7,
+          100.0,
           100.0
         ],
         "copies_timeline": [
+          1.0,
           1.0,
           1.0,
           1.0,
@@ -458,30 +501,6 @@
         "total_delta": 26.1
       },
       {
-        "card_name": "Hero's Cape",
-        "category": "Trainer",
-        "timeline": [
-          34.8,
-          38.1,
-          22.2,
-          18.5,
-          0.0,
-          15.8,
-          9.0
-        ],
-        "copies_timeline": [
-          1.0,
-          1.0,
-          1.0,
-          1.0,
-          0.0,
-          1.0,
-          1.0
-        ],
-        "trend": "dropped",
-        "total_delta": -25.8
-      },
-      {
         "card_name": "Secret Box",
         "category": "Trainer",
         "timeline": [
@@ -491,7 +510,8 @@
           44.4,
           0.0,
           7.9,
-          5.1
+          5.1,
+          0.0
         ],
         "copies_timeline": [
           1.0,
@@ -500,10 +520,11 @@
           1.0,
           0.0,
           1.0,
-          1.0
+          1.0,
+          0.0
         ],
-        "trend": "stable",
-        "total_delta": -16.6
+        "trend": "shifted",
+        "total_delta": -21.7
       },
       {
         "card_name": "Wondrous Patch",
@@ -515,7 +536,8 @@
           18.5,
           0.0,
           0.0,
-          1.3
+          1.3,
+          0.0
         ],
         "copies_timeline": [
           1.5,
@@ -524,10 +546,11 @@
           1.6,
           0.0,
           0.0,
-          1.0
+          1.0,
+          0.0
         ],
         "trend": "stable",
-        "total_delta": -16.1
+        "total_delta": -17.4
       },
       {
         "card_name": "Poké Pad",
@@ -539,6 +562,7 @@
           100.0,
           100.0,
           97.4,
+          100.0,
           100.0
         ],
         "copies_timeline": [
@@ -548,106 +572,11 @@
           2.3,
           2.7,
           2.0,
-          2.0
+          2.0,
+          1.7
         ],
         "trend": "stable",
         "total_delta": 13.0
-      },
-      {
-        "card_name": "Team Rocket's Petrel",
-        "category": "Trainer",
-        "timeline": [
-          69.6,
-          76.2,
-          74.1,
-          85.2,
-          100.0,
-          60.5,
-          78.2
-        ],
-        "copies_timeline": [
-          1.1,
-          1.1,
-          1.1,
-          1.0,
-          1.0,
-          1.0,
-          1.0
-        ],
-        "trend": "stable",
-        "total_delta": 8.6
-      },
-      {
-        "card_name": "Air Balloon",
-        "category": "Trainer",
-        "timeline": [
-          8.7,
-          4.8,
-          14.8,
-          22.2,
-          0.0,
-          7.9,
-          1.3
-        ],
-        "copies_timeline": [
-          1.0,
-          1.0,
-          1.2,
-          1.0,
-          0.0,
-          1.0,
-          1.0
-        ],
-        "trend": "stable",
-        "total_delta": -7.4
-      },
-      {
-        "card_name": "Energy Switch",
-        "category": "Trainer",
-        "timeline": [
-          91.3,
-          100.0,
-          92.6,
-          85.2,
-          100.0,
-          100.0,
-          98.7
-        ],
-        "copies_timeline": [
-          1.8,
-          1.8,
-          1.6,
-          1.9,
-          1.3,
-          1.3,
-          1.2
-        ],
-        "trend": "stable",
-        "total_delta": 7.4
-      },
-      {
-        "card_name": "Battle Cage",
-        "category": "Trainer",
-        "timeline": [
-          0.0,
-          14.3,
-          3.7,
-          22.2,
-          33.3,
-          0.0,
-          3.8
-        ],
-        "copies_timeline": [
-          0.0,
-          1.3,
-          1.0,
-          1.8,
-          2.0,
-          0.0,
-          1.3
-        ],
-        "trend": "stable",
-        "total_delta": 3.8
       },
       {
         "card_name": "Brave Bangle",
@@ -659,7 +588,8 @@
           74.1,
           66.7,
           63.2,
-          46.2
+          46.2,
+          33.3
         ],
         "copies_timeline": [
           1.4,
@@ -668,58 +598,115 @@
           1.4,
           1.5,
           1.1,
-          1.2
+          1.2,
+          1.0
         ],
         "trend": "stable",
-        "total_delta": 2.7
+        "total_delta": -10.2
       },
       {
-        "card_name": "Night Stretcher",
+        "card_name": "Air Balloon",
         "category": "Trainer",
         "timeline": [
-          100.0,
-          100.0,
-          100.0,
-          100.0,
-          100.0,
-          97.4,
-          98.7
+          8.7,
+          4.8,
+          14.8,
+          22.2,
+          0.0,
+          7.9,
+          1.3,
+          0.0
         ],
         "copies_timeline": [
-          2.2,
-          2.3,
-          2.1,
-          2.0,
-          2.0,
-          2.0,
-          2.0
+          1.0,
+          1.0,
+          1.2,
+          1.0,
+          0.0,
+          1.0,
+          1.0,
+          0.0
         ],
         "trend": "stable",
-        "total_delta": -1.3
+        "total_delta": -8.7
       },
       {
-        "card_name": "Team Rocket's Factory",
+        "card_name": "Energy Switch",
         "category": "Trainer",
         "timeline": [
+          91.3,
           100.0,
-          95.2,
+          92.6,
+          85.2,
           100.0,
           100.0,
-          100.0,
-          100.0,
-          98.7
+          98.7,
+          100.0
         ],
         "copies_timeline": [
-          2.9,
-          2.6,
-          2.8,
-          2.6,
-          2.3,
-          3.0,
-          2.9
+          1.8,
+          1.8,
+          1.6,
+          1.9,
+          1.3,
+          1.3,
+          1.2,
+          1.3
         ],
         "trend": "stable",
-        "total_delta": -1.3
+        "total_delta": 8.7
+      },
+      {
+        "card_name": "Team Rocket's Wobbuffet",
+        "category": "Pokemon",
+        "timeline": [
+          39.1,
+          42.9,
+          55.6,
+          51.9,
+          33.3,
+          23.7,
+          3.8,
+          33.3
+        ],
+        "copies_timeline": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "trend": "stable",
+        "total_delta": -5.8
+      },
+      {
+        "card_name": "Battle Cage",
+        "category": "Trainer",
+        "timeline": [
+          0.0,
+          14.3,
+          3.7,
+          22.2,
+          33.3,
+          0.0,
+          3.8,
+          0.0
+        ],
+        "copies_timeline": [
+          0.0,
+          1.3,
+          1.0,
+          1.8,
+          2.0,
+          0.0,
+          1.3,
+          0.0
+        ],
+        "trend": "stable",
+        "total_delta": 0.0
       },
       {
         "card_name": "Legacy Energy",
@@ -731,6 +718,7 @@
           0.0,
           33.3,
           0.0,
+          0.0,
           0.0
         ],
         "copies_timeline": [
@@ -740,7 +728,34 @@
           0.0,
           1.0,
           0.0,
+          0.0,
           0.0
+        ],
+        "trend": "stable",
+        "total_delta": 0.0
+      },
+      {
+        "card_name": "Night Stretcher",
+        "category": "Trainer",
+        "timeline": [
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          97.4,
+          98.7,
+          100.0
+        ],
+        "copies_timeline": [
+          2.2,
+          2.3,
+          2.1,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0
         ],
         "trend": "stable",
         "total_delta": 0.0
@@ -755,6 +770,7 @@
           96.3,
           100.0,
           100.0,
+          100.0,
           100.0
         ],
         "copies_timeline": [
@@ -764,7 +780,8 @@
           1.9,
           1.7,
           2.0,
-          1.9
+          1.9,
+          2.0
         ],
         "trend": "stable",
         "total_delta": 0.0
@@ -773,6 +790,7 @@
         "card_name": "Team Rocket's Ariana",
         "category": "Trainer",
         "timeline": [
+          100.0,
           100.0,
           100.0,
           100.0,
@@ -788,15 +806,17 @@
           3.6,
           3.3,
           3.2,
-          3.0
+          3.0,
+          3.3
         ],
         "trend": "stable",
         "total_delta": 0.0
       },
       {
         "card_name": "Team Rocket's Articuno",
-        "category": "Trainer",
+        "category": "Pokemon",
         "timeline": [
+          100.0,
           100.0,
           100.0,
           100.0,
@@ -810,6 +830,7 @@
           1.7,
           1.7,
           1.9,
+          2.0,
           2.0,
           2.0,
           2.0
@@ -827,9 +848,11 @@
           100.0,
           100.0,
           100.0,
+          100.0,
           100.0
         ],
         "copies_timeline": [
+          4.0,
           4.0,
           4.0,
           4.0,
@@ -842,9 +865,36 @@
         "total_delta": 0.0
       },
       {
+        "card_name": "Team Rocket's Factory",
+        "category": "Trainer",
+        "timeline": [
+          100.0,
+          95.2,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          98.7,
+          100.0
+        ],
+        "copies_timeline": [
+          2.9,
+          2.6,
+          2.8,
+          2.6,
+          2.3,
+          3.0,
+          2.9,
+          3.0
+        ],
+        "trend": "stable",
+        "total_delta": 0.0
+      },
+      {
         "card_name": "Team Rocket's Giovanni",
         "category": "Trainer",
         "timeline": [
+          100.0,
           100.0,
           100.0,
           100.0,
@@ -860,15 +910,17 @@
           3.0,
           3.0,
           3.0,
-          2.9
+          2.9,
+          3.0
         ],
         "trend": "stable",
         "total_delta": 0.0
       },
       {
         "card_name": "Team Rocket's Mewtwo ex",
-        "category": "Trainer",
+        "category": "Pokemon",
         "timeline": [
+          100.0,
           100.0,
           100.0,
           100.0,
@@ -884,6 +936,7 @@
           2.1,
           2.0,
           2.0,
+          2.0,
           2.0
         ],
         "trend": "stable",
@@ -891,7 +944,7 @@
       },
       {
         "card_name": "Team Rocket's Mimikyu",
-        "category": "Trainer",
+        "category": "Pokemon",
         "timeline": [
           100.0,
           100.0,
@@ -899,6 +952,7 @@
           100.0,
           100.0,
           97.4,
+          100.0,
           100.0
         ],
         "copies_timeline": [
@@ -908,7 +962,8 @@
           1.3,
           2.0,
           1.7,
-          1.9
+          1.9,
+          1.7
         ],
         "trend": "stable",
         "total_delta": 0.0
@@ -917,6 +972,7 @@
         "card_name": "Team Rocket's Proton",
         "category": "Trainer",
         "timeline": [
+          100.0,
           100.0,
           100.0,
           100.0,
@@ -932,15 +988,17 @@
           2.3,
           2.3,
           2.8,
-          2.9
+          2.9,
+          2.7
         ],
         "trend": "stable",
         "total_delta": 0.0
       },
       {
         "card_name": "Team Rocket's Spidops",
-        "category": "Trainer",
+        "category": "Pokemon",
         "timeline": [
+          100.0,
           100.0,
           100.0,
           100.0,
@@ -956,6 +1014,7 @@
           4.0,
           4.0,
           3.9,
+          4.0,
           4.0
         ],
         "trend": "stable",
@@ -963,8 +1022,9 @@
       },
       {
         "card_name": "Team Rocket's Tarountula",
-        "category": "Trainer",
+        "category": "Pokemon",
         "timeline": [
+          100.0,
           100.0,
           100.0,
           100.0,
@@ -974,6 +1034,7 @@
           100.0
         ],
         "copies_timeline": [
+          4.0,
           4.0,
           4.0,
           4.0,
@@ -995,9 +1056,11 @@
           100.0,
           100.0,
           100.0,
+          100.0,
           100.0
         ],
         "copies_timeline": [
+          4.0,
           4.0,
           4.0,
           4.0,
@@ -1019,6 +1082,7 @@
           100.0,
           100.0,
           100.0,
+          100.0,
           100.0
         ],
         "copies_timeline": [
@@ -1028,7 +1092,8 @@
           3.7,
           4.0,
           4.0,
-          3.9
+          3.9,
+          4.0
         ],
         "trend": "stable",
         "total_delta": 0.0
@@ -1043,6 +1108,7 @@
           0.0,
           33.3,
           0.0,
+          0.0,
           0.0
         ],
         "copies_timeline": [
@@ -1051,6 +1117,7 @@
           0.0,
           0.0,
           1.0,
+          0.0,
           0.0,
           0.0
         ],
@@ -1138,6 +1205,13 @@
       "to_pct": 33.3
     },
     {
+      "card_name": "Team Rocket's Wobbuffet",
+      "event": "appeared",
+      "week": "2026-03-16",
+      "from_pct": 3.8,
+      "to_pct": 33.3
+    },
+    {
       "card_name": "Air Balloon",
       "event": "disappeared",
       "week": "2026-02-16",
@@ -1154,24 +1228,29 @@
     {
       "bracket": "2nd",
       "count": 20,
-      "pct": 9.2
+      "pct": 9.1
     },
     {
       "bracket": "3rd-4th",
       "count": 25,
-      "pct": 11.5
+      "pct": 11.4
     },
     {
       "bracket": "5th-8th",
       "count": 49,
-      "pct": 22.6
+      "pct": 22.3
     },
     {
       "bracket": "9th-16th",
-      "count": 111,
-      "pct": 51.2
+      "count": 113,
+      "pct": 51.4
+    },
+    {
+      "bracket": "17th+",
+      "count": 1,
+      "pct": 0.5
     }
   ],
-  "tournament_count": 161,
+  "tournament_count": 162,
   "narrative": {}
 }

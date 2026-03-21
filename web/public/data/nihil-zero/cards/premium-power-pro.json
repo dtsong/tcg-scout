@@ -7,11 +7,11 @@
   "image_url": "https://assets.tcgdex.net/en/me/me01/124/high.png",
   "category": "Trainer",
   "rarity": "",
-  "total_appearances": 1127,
-  "usage_pct": 16.7,
+  "total_appearances": 1130,
+  "usage_pct": 16.6,
   "avg_copies": 3.5,
   "unique_archetypes": 18,
-  "weighted_score": 1723.8,
+  "weighted_score": 1727.2,
   "win_rate_proxy": 1.53,
   "top_archetype": "Mega Lucario",
   "trend_direction": "declining",
@@ -30,14 +30,14 @@
     },
     {
       "copies": 4,
-      "count": 835
+      "count": 838
     }
   ],
   "archetypes": [
     {
       "name": "Mega Lucario",
       "slug": "mega-lucario",
-      "usage_count": 611,
+      "usage_count": 612,
       "avg_copies": 4.0,
       "tier": "A"
     },
@@ -58,7 +58,7 @@
     {
       "name": "Mega Lucario ex",
       "slug": "mega-lucario-ex",
-      "usage_count": 21,
+      "usage_count": 23,
       "avg_copies": 4.0,
       "tier": "Rogue"
     },
@@ -196,113 +196,118 @@
       "week": "2026-03-02",
       "usage_pct": 8.8,
       "avg_copies": 3.3
+    },
+    {
+      "week": "2026-03-16",
+      "usage_pct": 9.4,
+      "avg_copies": 4.0
     }
   ],
   "synergy_partners": [
     {
       "card_name": "Core Memory",
       "support": 16,
-      "lift": 5.995,
+      "lift": 6.007,
       "jaccard": 0.014,
       "weighted_score": 25.9
     },
     {
       "card_name": "Mega Zygarde ex",
       "support": 7,
-      "lift": 5.995,
+      "lift": 6.007,
       "jaccard": 0.006,
       "weighted_score": 13.4
     },
     {
       "card_name": "Hariyama",
-      "support": 713,
-      "lift": 5.986,
-      "jaccard": 0.632,
-      "weighted_score": 1093.6
+      "support": 714,
+      "lift": 5.999,
+      "jaccard": 0.631,
+      "weighted_score": 1094.8
     },
     {
       "card_name": "Makuhita",
-      "support": 713,
-      "lift": 5.986,
-      "jaccard": 0.632,
-      "weighted_score": 1093.6
+      "support": 714,
+      "lift": 5.999,
+      "jaccard": 0.631,
+      "weighted_score": 1094.8
     },
     {
       "card_name": "Mega Lucario ex",
-      "support": 847,
-      "lift": 5.966,
-      "jaccard": 0.749,
-      "weighted_score": 1306.9
+      "support": 850,
+      "lift": 5.979,
+      "jaccard": 0.75,
+      "weighted_score": 1310.3
     },
     {
       "card_name": "Riolu",
-      "support": 847,
-      "lift": 5.966,
-      "jaccard": 0.749,
-      "weighted_score": 1306.9
+      "support": 850,
+      "lift": 5.979,
+      "jaccard": 0.75,
+      "weighted_score": 1310.3
     },
     {
       "card_name": "Rock Fighting Energy",
-      "support": 413,
-      "lift": 5.465,
+      "support": 414,
+      "lift": 5.478,
       "jaccard": 0.354,
-      "weighted_score": 612.9
+      "weighted_score": 614.1
     },
     {
       "card_name": "Cynthia's Gabite",
       "support": 269,
-      "lift": 5.43,
-      "jaccard": 0.233,
+      "lift": 5.441,
+      "jaccard": 0.232,
       "weighted_score": 400.3
     },
     {
       "card_name": "Cynthia's Garchomp ex",
       "support": 269,
-      "lift": 5.43,
-      "jaccard": 0.233,
+      "lift": 5.441,
+      "jaccard": 0.232,
       "weighted_score": 400.3
     },
     {
       "card_name": "Cynthia's Gible",
       "support": 269,
-      "lift": 5.43,
-      "jaccard": 0.233,
+      "lift": 5.441,
+      "jaccard": 0.232,
       "weighted_score": 400.3
     },
     {
       "card_name": "Cynthia's Power Weight",
       "support": 268,
-      "lift": 5.428,
-      "jaccard": 0.232,
+      "lift": 5.439,
+      "jaccard": 0.231,
       "weighted_score": 399.1
     },
     {
       "card_name": "Cynthia's Spiritomb",
       "support": 257,
-      "lift": 5.425,
-      "jaccard": 0.223,
+      "lift": 5.436,
+      "jaccard": 0.222,
       "weighted_score": 383.6
     },
     {
       "card_name": "Cynthia's Roselia",
       "support": 265,
-      "lift": 5.422,
+      "lift": 5.433,
       "jaccard": 0.229,
       "weighted_score": 395.5
     },
     {
       "card_name": "Cynthia's Roserade",
       "support": 265,
-      "lift": 5.422,
+      "lift": 5.433,
       "jaccard": 0.229,
       "weighted_score": 395.5
     },
     {
       "card_name": "Gravity Mountain",
-      "support": 655,
-      "lift": 5.242,
-      "jaccard": 0.536,
-      "weighted_score": 1013.8
+      "support": 658,
+      "lift": 5.256,
+      "jaccard": 0.538,
+      "weighted_score": 1017.2
     }
   ]
 }

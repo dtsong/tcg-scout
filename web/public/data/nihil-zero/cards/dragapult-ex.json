@@ -7,11 +7,11 @@
   "image_url": "https://assets.tcgdex.net/en/me/me02.5/160/high.png",
   "category": "Pokemon",
   "rarity": "",
-  "total_appearances": 1604,
-  "usage_pct": 23.7,
+  "total_appearances": 1614,
+  "usage_pct": 23.8,
   "avg_copies": 2.7,
   "unique_archetypes": 27,
-  "weighted_score": 2553.4,
+  "weighted_score": 2565.6,
   "win_rate_proxy": 1.59,
   "top_archetype": "Dragapult Dusknoir",
   "trend_direction": "surging",
@@ -22,11 +22,11 @@
     },
     {
       "copies": 2,
-      "count": 463
+      "count": 465
     },
     {
       "copies": 3,
-      "count": 1129
+      "count": 1137
     },
     {
       "copies": 4,
@@ -37,7 +37,7 @@
     {
       "name": "Dragapult Dusknoir",
       "slug": "dragapult-dusknoir",
-      "usage_count": 608,
+      "usage_count": 612,
       "avg_copies": 2.9,
       "tier": "A"
     },
@@ -58,14 +58,14 @@
     {
       "name": "Dragapult ex",
       "slug": "dragapult-ex",
-      "usage_count": 221,
-      "avg_copies": 3.0,
+      "usage_count": 226,
+      "avg_copies": 2.9,
       "tier": "B"
     },
     {
       "name": "Dragapult Noctowl",
       "slug": "dragapult-noctowl",
-      "usage_count": 104,
+      "usage_count": 105,
       "avg_copies": 2.0,
       "tier": "C"
     },
@@ -259,111 +259,116 @@
       "week": "2026-03-02",
       "usage_pct": 25.7,
       "avg_copies": 2.7
+    },
+    {
+      "week": "2026-03-16",
+      "usage_pct": 31.2,
+      "avg_copies": 2.8
     }
   ],
   "synergy_partners": [
     {
       "card_name": "Drakloak",
-      "support": 1604,
-      "lift": 4.201,
+      "support": 1614,
+      "lift": 4.195,
       "jaccard": 0.998,
-      "weighted_score": 2553.4
+      "weighted_score": 2565.6
     },
     {
       "card_name": "Dreepy",
-      "support": 1604,
-      "lift": 4.201,
+      "support": 1614,
+      "lift": 4.195,
       "jaccard": 0.998,
-      "weighted_score": 2553.4
+      "weighted_score": 2565.6
     },
     {
       "card_name": "Combusken",
       "support": 255,
-      "lift": 4.038,
-      "jaccard": 0.158,
+      "lift": 4.032,
+      "jaccard": 0.157,
       "weighted_score": 412.6
     },
     {
       "card_name": "Blaziken ex",
       "support": 261,
-      "lift": 4.012,
-      "jaccard": 0.161,
+      "lift": 4.006,
+      "jaccard": 0.16,
       "weighted_score": 422.4
     },
     {
       "card_name": "Torchic",
       "support": 261,
-      "lift": 4.012,
-      "jaccard": 0.161,
+      "lift": 4.006,
+      "jaccard": 0.16,
       "weighted_score": 422.4
     },
     {
       "card_name": "Rosa's Encouragement",
-      "support": 238,
-      "lift": 3.931,
+      "support": 239,
+      "lift": 3.926,
       "jaccard": 0.147,
-      "weighted_score": 373.1
+      "weighted_score": 374.6
     },
     {
       "card_name": "Reshiram ex",
       "support": 6,
-      "lift": 3.61,
+      "lift": 3.605,
       "jaccard": 0.004,
       "weighted_score": 10.1
     },
     {
       "card_name": "Team Rocket's Crobat ex",
       "support": 28,
-      "lift": 3.469,
+      "lift": 3.464,
       "jaccard": 0.017,
       "weighted_score": 47.4
     },
     {
       "card_name": "Team Rocket's Golbat",
       "support": 28,
-      "lift": 3.469,
+      "lift": 3.464,
       "jaccard": 0.017,
       "weighted_score": 47.4
     },
     {
       "card_name": "Team Rocket's Zubat",
       "support": 28,
-      "lift": 3.469,
+      "lift": 3.464,
       "jaccard": 0.017,
       "weighted_score": 47.4
     },
     {
       "card_name": "Jamming Tower",
-      "support": 969,
-      "lift": 3.149,
-      "jaccard": 0.502,
-      "weighted_score": 1540.4
+      "support": 974,
+      "lift": 3.144,
+      "jaccard": 0.501,
+      "weighted_score": 1546.4
     },
     {
       "card_name": "Dusknoir",
-      "support": 875,
-      "lift": 3.061,
-      "jaccard": 0.453,
-      "weighted_score": 1375.2
+      "support": 879,
+      "lift": 3.06,
+      "jaccard": 0.452,
+      "weighted_score": 1379.7
     },
     {
       "card_name": "Dusclops",
-      "support": 828,
-      "lift": 3.038,
+      "support": 832,
+      "lift": 3.037,
       "jaccard": 0.43,
-      "weighted_score": 1300.2
+      "weighted_score": 1304.7
     },
     {
       "card_name": "Duskull",
-      "support": 878,
-      "lift": 3.024,
+      "support": 882,
+      "lift": 3.023,
       "jaccard": 0.45,
-      "weighted_score": 1379.9
+      "weighted_score": 1384.4
     },
     {
       "card_name": "Neo Upper Energy",
       "support": 162,
-      "lift": 3.019,
+      "lift": 3.015,
       "jaccard": 0.097,
       "weighted_score": 248.1
     }

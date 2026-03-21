@@ -647,7 +647,7 @@
       "week": "2026-01-26",
       "adopted": [
         {
-          "card": "Tapu Bulu",
+          "card": "Judge",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -667,17 +667,12 @@
           "to_pct": 100.0
         },
         {
-          "card": "Judge",
+          "card": "Tapu Bulu",
           "from_pct": 0.0,
           "to_pct": 100.0
         }
       ],
       "dropped": [
-        {
-          "card": "Lilligant",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
         {
           "card": "Morty's Conviction",
           "from_pct": 100.0,
@@ -685,6 +680,11 @@
         },
         {
           "card": "Petilil",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Lilligant",
           "from_pct": 100.0,
           "to_pct": 0.0
         }
@@ -725,6 +725,11 @@
     },
     {
       "week": "2026-03-02",
+      "meta_share": 0.0,
+      "deck_count": 0
+    },
+    {
+      "week": "2026-03-16",
       "meta_share": 0.0,
       "deck_count": 0
     }

@@ -7,11 +7,11 @@
   "image_url": null,
   "category": "Energy",
   "rarity": null,
-  "total_appearances": 689,
+  "total_appearances": 690,
   "usage_pct": 10.2,
   "avg_copies": 3.1,
   "unique_archetypes": 56,
-  "weighted_score": 1097.3,
+  "weighted_score": 1098.3,
   "win_rate_proxy": 1.59,
   "top_archetype": "Alakazam Dudunsparce",
   "trend_direction": "stable",
@@ -30,7 +30,7 @@
     },
     {
       "copies": 4,
-      "count": 338
+      "count": 339
     }
   ],
   "archetypes": [
@@ -51,7 +51,7 @@
     {
       "name": "Clefairy Ogerpon",
       "slug": "clefairy-ogerpon",
-      "usage_count": 44,
+      "usage_count": 45,
       "avg_copies": 3.3,
       "tier": "Rogue"
     },
@@ -462,112 +462,117 @@
       "week": "2026-03-02",
       "usage_pct": 9.1,
       "avg_copies": 3.2
+    },
+    {
+      "week": "2026-03-16",
+      "usage_pct": 3.1,
+      "avg_copies": 4.0
     }
   ],
   "synergy_partners": [
     {
       "card_name": "Cofagrigus",
       "support": 6,
-      "lift": 9.806,
+      "lift": 9.838,
       "jaccard": 0.009,
       "weighted_score": 8.9
     },
     {
       "card_name": "Kirlia",
       "support": 5,
-      "lift": 9.806,
+      "lift": 9.838,
       "jaccard": 0.007,
       "weighted_score": 7.9
     },
     {
       "card_name": "Mega Gardevoir ex",
       "support": 5,
-      "lift": 9.806,
+      "lift": 9.838,
       "jaccard": 0.007,
       "weighted_score": 7.9
     },
     {
       "card_name": "Mega Slowbro ex",
       "support": 8,
-      "lift": 9.806,
+      "lift": 9.838,
       "jaccard": 0.012,
       "weighted_score": 11.0
     },
     {
       "card_name": "N's Vanilluxe",
       "support": 5,
-      "lift": 9.806,
+      "lift": 9.838,
       "jaccard": 0.007,
       "weighted_score": 6.8
     },
     {
       "card_name": "Zoroark",
       "support": 8,
-      "lift": 9.806,
+      "lift": 9.838,
       "jaccard": 0.012,
       "weighted_score": 10.5
     },
     {
       "card_name": "Mystery Garden",
       "support": 192,
-      "lift": 9.704,
-      "jaccard": 0.278,
+      "lift": 9.736,
+      "jaccard": 0.277,
       "weighted_score": 285.1
     },
     {
       "card_name": "Alakazam",
       "support": 349,
-      "lift": 9.376,
-      "jaccard": 0.495,
+      "lift": 9.406,
+      "jaccard": 0.494,
       "weighted_score": 571.5
     },
     {
       "card_name": "Kadabra",
       "support": 349,
-      "lift": 9.376,
-      "jaccard": 0.495,
+      "lift": 9.406,
+      "jaccard": 0.494,
       "weighted_score": 571.5
     },
     {
       "card_name": "Abra",
       "support": 349,
-      "lift": 9.325,
-      "jaccard": 0.494,
+      "lift": 9.355,
+      "jaccard": 0.493,
       "weighted_score": 571.5
     },
     {
       "card_name": "Hop's Phantump",
       "support": 29,
-      "lift": 9.173,
+      "lift": 9.203,
       "jaccard": 0.042,
       "weighted_score": 50.1
     },
     {
       "card_name": "Hop's Trevenant",
       "support": 29,
-      "lift": 9.173,
+      "lift": 9.203,
       "jaccard": 0.042,
       "weighted_score": 50.1
     },
     {
       "card_name": "Haxorus",
       "support": 13,
-      "lift": 9.105,
+      "lift": 9.135,
       "jaccard": 0.019,
       "weighted_score": 22.7
     },
     {
       "card_name": "Spectrier",
       "support": 12,
-      "lift": 9.051,
+      "lift": 9.081,
       "jaccard": 0.017,
       "weighted_score": 21.0
     },
     {
       "card_name": "Enriching Energy",
       "support": 322,
-      "lift": 9.021,
-      "jaccard": 0.449,
+      "lift": 9.051,
+      "jaccard": 0.448,
       "weighted_score": 533.6
     }
   ]

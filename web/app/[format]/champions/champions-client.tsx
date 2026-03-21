@@ -2,6 +2,7 @@
 
 import { Fragment, useState } from "react";
 import Link from "next/link";
+import { useParams } from "next/navigation";
 import { ChevronDown, ChevronRight } from "lucide-react";
 import { cn } from "@/app/lib/utils";
 import { SpriteRow } from "@/app/components/sprite-row";
@@ -69,48 +70,47 @@ function PlacementRow({ placement }: { placement: CLPlacement }) {
       {expanded && placement.decklist.length > 0 && (
         <tr>
           <td colSpan={4} className="bg-surface-700/30 px-4 py-4">
-            <div className="space-y-6">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               {(["Pokemon", "Trainer", "Energy"] as const).map((cat) => {
                 const cards = grouped[cat];
                 if (cards.length === 0) return null;
                 const total = cards.reduce((s, c) => s + c.count, 0);
                 return (
-                  <div key={cat}>
-                    <h4 className="text-xs text-surface-300 uppercase tracking-wider mb-3">
-                      {cat}{" "}
-                      <span className="text-surface-400">({total})</span>
-                    </h4>
-                    <div className="grid grid-cols-4 sm:grid-cols-6 lg:grid-cols-8 gap-3">
+                  <div key={cat} className="bg-surface-800 border border-surface-600 rounded-lg overflow-hidden">
+                    <div className="px-3 py-2 border-b border-surface-600 flex items-center justify-between">
+                      <h4 className="text-xs font-semibold text-surface-300 uppercase tracking-wider">
+                        {cat}
+                      </h4>
+                      <span className="text-[10px] font-mono text-surface-400">{total}</span>
+                    </div>
+                    <div className="p-2 space-y-0.5">
                       {cards.map((card, i) => {
                         const imageKey = `${cat}-${i}`;
+                        const cardName = card.card_name_en || card.card_name_jp;
                         return (
-                        <div key={i} className="flex flex-col items-center text-center">
-                          {card.image_url && !failedImages[imageKey] ? (
-                            <img
-                              src={card.image_url.replace("/high.png", "/low.png")}
-                              alt={card.card_name_en || card.card_name_jp}
-                              className="w-[72px] h-[100px] object-cover rounded"
-                              loading="lazy"
-                              decoding="async"
-                              onError={() => {
-                                console.warn(`Failed to load card image: ${card.image_url}`);
-                                setFailedImages((prev) => ({ ...prev, [imageKey]: true }));
-                              }}
-                            />
-                          ) : (
-                            <div className="w-[72px] h-[100px] rounded bg-surface-600 border border-surface-500 flex items-center justify-center p-1">
-                              <span className="text-[10px] text-surface-300 leading-tight text-center break-words">
-                                {card.card_name_en || card.card_name_jp}
+                          <div key={i} className="relative group">
+                            <div className="flex items-center gap-2 py-1.5 px-2 rounded hover:bg-surface-700/40 transition-colors">
+                              <span className="font-mono text-xs w-6 h-5 flex items-center justify-center rounded bg-surface-700 text-slate-300 shrink-0 tabular-nums">
+                                {card.count}
+                              </span>
+                              <span className="text-sm text-slate-300 truncate">
+                                {cardName}
                               </span>
                             </div>
-                          )}
-                          <span className="text-[10px] text-slate-300 mt-1 leading-tight line-clamp-2">
-                            {card.card_name_en || card.card_name_jp}
-                          </span>
-                          <span className="font-mono text-[10px] text-surface-400">
-                            x{card.count}
-                          </span>
-                        </div>
+                            {/* Card image preview on hover */}
+                            {card.image_url && !failedImages[imageKey] && (
+                              <div className="absolute left-full top-0 ml-2 z-30 hidden group-hover:block pointer-events-none">
+                                <img
+                                  src={card.image_url}
+                                  alt={cardName}
+                                  className="w-[200px] rounded-lg shadow-xl shadow-black/60 border border-surface-500"
+                                  loading="lazy"
+                                  decoding="async"
+                                  onError={() => setFailedImages((prev) => ({ ...prev, [imageKey]: true }))}
+                                />
+                              </div>
+                            )}
+                          </div>
                         );
                       })}
                     </div>
@@ -160,6 +160,7 @@ export function ChampionsClient({
 }: {
   divisions: Record<DivisionKey, CLDivision>;
 }) {
+  const { format } = useParams<{ format: string }>();
   const [activeDiv, setActiveDiv] = useState<DivisionKey>("masters");
   const division = divisions[activeDiv];
 
@@ -171,7 +172,7 @@ export function ChampionsClient({
         </h1>
         <p className="text-sm text-surface-300 mt-1">
           {division.event_name}, {division.date}{" "}
-          <Link href="/guide#champions-league" className="text-accent hover:text-accent/80 transition-colors">
+          <Link href={`/${format}/guide#champions-league`} className="text-accent hover:text-accent/80 transition-colors">
             How this works &rarr;
           </Link>
         </p>

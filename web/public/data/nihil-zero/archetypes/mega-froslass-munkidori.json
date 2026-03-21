@@ -1365,22 +1365,12 @@
       "week": "2026-02-02",
       "adopted": [
         {
-          "card": "Risky Ruins",
+          "card": "Maractus",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
           "card": "Kieran",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Iris's Fighting Spirit",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Dusclops",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -1395,7 +1385,7 @@
           "to_pct": 100.0
         },
         {
-          "card": "Maractus",
+          "card": "Dusclops",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -1410,12 +1400,22 @@
           "to_pct": 100.0
         },
         {
-          "card": "Duskull",
+          "card": "Risky Ruins",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
           "card": "Hassel",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Iris's Fighting Spirit",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Duskull",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -1427,17 +1427,7 @@
       ],
       "dropped": [
         {
-          "card": "Bronzor",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Energy Search",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Lillie's Determination",
+          "card": "Team Rocket's Watchtower",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -1447,7 +1437,17 @@
           "to_pct": 0.0
         },
         {
-          "card": "Team Rocket's Watchtower",
+          "card": "Energy Search",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Bronzor",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Lillie's Determination",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -1482,12 +1482,22 @@
       "week": "2026-03-02",
       "adopted": [
         {
-          "card": "Energy Switch",
+          "card": "Team Rocket's Watchtower",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
           "card": "Switch",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Energy Switch",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Judge",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -1505,41 +1515,11 @@
           "card": "Lillie's Determination",
           "from_pct": 0.0,
           "to_pct": 100.0
-        },
-        {
-          "card": "Judge",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Team Rocket's Watchtower",
-          "from_pct": 0.0,
-          "to_pct": 100.0
         }
       ],
       "dropped": [
         {
-          "card": "Telepath Psychic Energy",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Kieran",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Lana's Aid",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Iris's Fighting Spirit",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Dusclops",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -1549,17 +1529,37 @@
           "to_pct": 0.0
         },
         {
-          "card": "Ultra Ball",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Crispin",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
+          "card": "Dusclops",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
           "card": "Carmine",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Telepath Psychic Energy",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Lana's Aid",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Ultra Ball",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Iris's Fighting Spirit",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -1618,6 +1618,11 @@
       "week": "2026-03-02",
       "meta_share": 0.1,
       "deck_count": 1
+    },
+    {
+      "week": "2026-03-16",
+      "meta_share": 0.0,
+      "deck_count": 0
     }
   ],
   "top4_card_stats": [],

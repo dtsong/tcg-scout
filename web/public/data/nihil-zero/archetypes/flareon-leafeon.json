@@ -177,7 +177,7 @@
       "inclusion_pct": 87.5,
       "avg_copies": 1.3,
       "decks_with": 7,
-      "category": "Trainer"
+      "category": "Pokemon"
     },
     {
       "card_name": "Briar",
@@ -354,7 +354,7 @@
       "inclusion_pct": 87.5,
       "avg_copies": 1.3,
       "decks_with": 7,
-      "category": "Trainer"
+      "category": "Pokemon"
     },
     {
       "card_name": "Briar",
@@ -618,6 +618,11 @@
           "category": "Pokemon"
         },
         {
+          "card_name": "Lillie's Clefairy ex",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
           "card_name": "Fan Rotom",
           "count": 1,
           "category": "Pokemon"
@@ -694,11 +699,6 @@
         },
         {
           "card_name": "Judge",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Lillie's Clefairy ex",
           "count": 1,
           "category": "Trainer"
         },
@@ -812,6 +812,11 @@
           "category": "Pokemon"
         },
         {
+          "card_name": "Lillie's Clefairy ex",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
           "card_name": "Leafeon ex",
           "count": 1,
           "category": "Pokemon"
@@ -887,11 +892,6 @@
           "category": "Trainer"
         },
         {
-          "card_name": "Lillie's Clefairy ex",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
           "card_name": "Switch",
           "count": 1,
           "category": "Trainer"
@@ -958,6 +958,11 @@
         {
           "card_name": "Noctowl",
           "count": 3,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Lillie's Clefairy ex",
+          "count": 2,
           "category": "Pokemon"
         },
         {
@@ -1032,11 +1037,6 @@
         },
         {
           "card_name": "Night Stretcher",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Lillie's Clefairy ex",
           "count": 2,
           "category": "Trainer"
         },
@@ -1185,6 +1185,11 @@
           "category": "Pokemon"
         },
         {
+          "card_name": "Lillie's Clefairy ex",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
           "card_name": "Chien-Pao",
           "count": 1,
           "category": "Pokemon"
@@ -1241,11 +1246,6 @@
         },
         {
           "card_name": "N's Plan",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Lillie's Clefairy ex",
           "count": 1,
           "category": "Trainer"
         },
@@ -1503,6 +1503,11 @@
           "category": "Pokemon"
         },
         {
+          "card_name": "Lillie's Clefairy ex",
+          "count": 2,
+          "category": "Pokemon"
+        },
+        {
           "card_name": "Flareon ex",
           "count": 2,
           "category": "Pokemon"
@@ -1570,11 +1575,6 @@
         {
           "card_name": "Crispin",
           "count": 3,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Lillie's Clefairy ex",
-          "count": 2,
           "category": "Trainer"
         },
         {
@@ -1687,6 +1687,11 @@
           "category": "Pokemon"
         },
         {
+          "card_name": "Lillie's Clefairy ex",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
           "card_name": "Jolteon ex",
           "count": 1,
           "category": "Pokemon"
@@ -1763,11 +1768,6 @@
         },
         {
           "card_name": "Tool Scrapper",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Lillie's Clefairy ex",
           "count": 1,
           "category": "Trainer"
         },
@@ -1881,6 +1881,11 @@
           "category": "Pokemon"
         },
         {
+          "card_name": "Lillie's Clefairy ex",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
           "card_name": "Leafeon ex",
           "count": 1,
           "category": "Pokemon"
@@ -1971,11 +1976,6 @@
           "category": "Trainer"
         },
         {
-          "card_name": "Lillie's Clefairy ex",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
           "card_name": "Switch",
           "count": 1,
           "category": "Trainer"
@@ -2053,17 +2053,12 @@
       ],
       "dropped": [
         {
-          "card": "Dunsparce",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Lana's Aid",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
-          "card": "Dudunsparce",
+          "card": "Dunsparce",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -2079,6 +2074,11 @@
         },
         {
           "card": "Pokémon Catcher",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Dudunsparce",
           "from_pct": 50.0,
           "to_pct": 0.0
         }
@@ -2098,24 +2098,24 @@
           "to_pct": 100.0
         },
         {
-          "card": "Sylveon ex",
+          "card": "Chien-Pao",
           "from_pct": 25.0,
           "to_pct": 100.0
         },
         {
-          "card": "Chien-Pao",
+          "card": "Sylveon ex",
           "from_pct": 25.0,
           "to_pct": 100.0
         }
       ],
       "dropped": [
         {
-          "card": "Lillie's Determination",
+          "card": "Glass Trumpet",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Glass Trumpet",
+          "card": "Lillie's Determination",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -2157,12 +2157,12 @@
           "to_pct": 0.0
         },
         {
-          "card": "Air Balloon",
+          "card": "Miraidon ex",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Miraidon ex",
+          "card": "Air Balloon",
           "from_pct": 100.0,
           "to_pct": 0.0
         }
@@ -2221,6 +2221,11 @@
       "week": "2026-03-02",
       "meta_share": 0.1,
       "deck_count": 1
+    },
+    {
+      "week": "2026-03-16",
+      "meta_share": 0.0,
+      "deck_count": 0
     }
   ],
   "top4_card_stats": [],

@@ -122,6 +122,40 @@ class TestComputeWeightedShares:
         assert shares["Charizard ex"] > shares["Dragapult ex"]
         assert shares["Dragapult ex"] > shares["Raging Bolt ex"]
 
+    def test_returns_cached_values_when_available(self, db):
+        snapshot = {
+            "archetypes": [
+                {"archetype": "Charizard ex", "weighted_share": 55.0},
+                {"archetype": "Dragapult ex", "weighted_share": 35.0},
+                {"archetype": "Raging Bolt ex", "weighted_share": 10.0},
+            ]
+        }
+        shares = _compute_weighted_shares(db, snapshot)
+        assert shares == {"Charizard ex": 55.0, "Dragapult ex": 35.0, "Raging Bolt ex": 10.0}
+
+    def test_falls_back_when_weighted_share_is_none(self, db):
+        snapshot = {
+            "archetypes": [
+                {"archetype": "Charizard ex", "weighted_share": None},
+                {"archetype": "Dragapult ex", "weighted_share": None},
+            ]
+        }
+        shares = _compute_weighted_shares(db, snapshot)
+        # Should fall back to computation — all 3 archetypes present
+        assert "Charizard ex" in shares
+        assert "Raging Bolt ex" in shares
+
+    def test_falls_back_when_weighted_share_key_missing(self, db):
+        snapshot = {
+            "archetypes": [
+                {"archetype": "Charizard ex"},
+            ]
+        }
+        shares = _compute_weighted_shares(db, snapshot)
+        # Should fall back gracefully
+        assert "Charizard ex" in shares
+        assert abs(sum(shares.values()) - 100.0) < 0.5
+
 
 # --- export_meta ---
 

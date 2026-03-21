@@ -130,7 +130,7 @@ export function CardsClient({
           <h1 className="font-display text-2xl font-bold text-slate-100">Cards</h1>
           <p className="text-sm text-surface-300 mt-1">
             {cards.length} cards tracked across all archetypes{" "}
-            <Link href="/guide#cards" className="text-accent hover:text-accent/80 transition-colors">
+            <Link href={`/${format}/guide#cards`} className="text-accent hover:text-accent/80 transition-colors">
               How this works &rarr;
             </Link>
           </p>

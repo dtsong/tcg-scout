@@ -4,7 +4,7 @@ import logging
 import sqlite3
 from datetime import datetime
 
-from config import TIER_THRESHOLDS
+from config import PLACEMENT_WEIGHT_DEFAULT, PLACEMENT_WEIGHTS, TIER_THRESHOLDS
 
 logger = logging.getLogger(__name__)
 
@@ -67,6 +67,20 @@ def compute_meta_snapshot(
     )
     snapshot_id = cur.lastrowid
 
+    # Compute performance-weighted shares
+    weight_rows = conn.execute("SELECT archetype, standing FROM open_placements").fetchall()
+    weighted_sums: dict[str, float] = {}
+    total_weight = 0.0
+    for wr in weight_rows:
+        w = PLACEMENT_WEIGHTS.get(wr["standing"], PLACEMENT_WEIGHT_DEFAULT)
+        weighted_sums[wr["archetype"]] = weighted_sums.get(wr["archetype"], 0.0) + w
+        total_weight += w
+    weighted_shares = (
+        {arch: round(w / total_weight * 100, 2) for arch, w in weighted_sums.items()}
+        if total_weight > 0
+        else {}
+    )
+
     # Insert archetype stats
     for row in rows:
         meta_share = row["deck_count"] / total_decks * 100
@@ -74,8 +88,8 @@ def compute_meta_snapshot(
         conn.execute(
             """
             INSERT INTO archetype_stats
-                (snapshot_id, archetype, meta_share, deck_count, best_placement, tier)
-            VALUES (?, ?, ?, ?, ?, ?)
+                (snapshot_id, archetype, meta_share, deck_count, best_placement, tier, weighted_share)
+            VALUES (?, ?, ?, ?, ?, ?, ?)
             """,
             (
                 snapshot_id,
@@ -84,6 +98,7 @@ def compute_meta_snapshot(
                 row["deck_count"],
                 row["best_placement"],
                 tier,
+                weighted_shares.get(row["archetype"]),
             ),
         )
 
@@ -114,7 +129,7 @@ def get_latest_snapshot(conn: sqlite3.Connection) -> dict | None:
 
     stats = conn.execute(
         """
-        SELECT archetype, meta_share, deck_count, best_placement, tier
+        SELECT archetype, meta_share, deck_count, best_placement, tier, weighted_share
         FROM archetype_stats
         WHERE snapshot_id = ?
         ORDER BY meta_share DESC

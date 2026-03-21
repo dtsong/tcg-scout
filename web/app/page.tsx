@@ -189,7 +189,7 @@ export default function FormatSelectorPage() {
               </p>
               <p className="text-xs text-surface-300 mt-3">
                 New here?{" "}
-                <Link href="/guide" className="text-accent hover:text-accent/80 transition-colors">
+                <Link href="/nihil-zero/guide" className="text-accent hover:text-accent/80 transition-colors">
                   Read the guide
                 </Link>{" "}
                 to learn how Scout works. Have feedback or feature requests? Reach out:

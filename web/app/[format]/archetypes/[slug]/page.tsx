@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getArchetype, getArchetypeReport, getArchetypeSlugs, getFormats } from "@/app/lib/data";
+import { getArchetype, getArchetypeReport, getArchetypeSlugs, getFormats, getOptimal60Index } from "@/app/lib/data";
 import { TierBadge } from "@/app/components/tier-badge";
 import { SpriteRow } from "@/app/components/sprite-row";
 import { StatCard } from "@/app/components/stat-card";
@@ -115,6 +115,8 @@ export default async function ArchetypeDetailPage({
   const { format, slug } = await params;
   const arch = getArchetype(format, slug);
   const hasReport = getArchetypeReport(format, slug) !== null;
+  const optimal60Index = getOptimal60Index(format);
+  const hasOptimal60 = optimal60Index?.archetypes.some((a) => a.slug === slug) ?? false;
 
   const coreNames = new Set(arch.core_cards.map((c) => c.card_name));
   const { pokemon, trainer, energy } = groupByCategory(arch.all_cards);
@@ -148,14 +150,24 @@ export default async function ArchetypeDetailPage({
           <StatCard label="Best Finish" value={formatPlacement(arch.best_placement)} />
           <StatCard label="Core Cards" value={arch.core_cards.length} />
         </div>
-        {hasReport && (
-          <Link
-            href={`/${format}/archetypes/${slug}/report`}
-            className="inline-flex items-center gap-1.5 mt-4 px-3 py-1.5 text-xs font-medium text-amber-400 bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/20 rounded-md transition-colors"
-          >
-            View Deep Dive Report
-          </Link>
-        )}
+        <div className="flex flex-wrap gap-2 mt-4">
+          {hasReport && (
+            <Link
+              href={`/${format}/archetypes/${slug}/report`}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-amber-400 bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/20 rounded-md transition-colors"
+            >
+              View Deep Dive Report
+            </Link>
+          )}
+          {hasOptimal60 && (
+            <Link
+              href={`/${format}/optimal-60`}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-teal-400 bg-teal-500/10 hover:bg-teal-500/20 border border-teal-500/20 rounded-md transition-colors"
+            >
+              View Optimal 60
+            </Link>
+          )}
+        </div>
       </div>
 
       {/* Performance Trendline */}

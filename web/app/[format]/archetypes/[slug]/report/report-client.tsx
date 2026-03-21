@@ -15,9 +15,11 @@ import { PlacementDistribution } from "./placement-distribution";
 export function ReportClient({
   report,
   format,
+  hasOptimal60 = false,
 }: {
   report: ArchetypeReport;
   format: string;
+  hasOptimal60?: boolean;
 }) {
   const generatedDate = new Date(report.generated_at).toLocaleDateString("en-US", {
     year: "numeric",
@@ -90,6 +92,21 @@ export function ReportClient({
             </p>
           )}
         </section>
+      )}
+
+      {/* Optimal 60 callout */}
+      {hasOptimal60 && (
+        <Link
+          href={`/${format}/optimal-60`}
+          className="flex items-center gap-3 p-4 bg-teal-500/5 border border-teal-500/20 rounded-lg hover:bg-teal-500/10 transition-colors"
+        >
+          <span className="text-teal-400 text-sm font-medium">
+            Optimal 60 Available
+          </span>
+          <span className="text-xs text-surface-400">
+            See the CL-validated recommended list incorporating Fukuoka Champions League results
+          </span>
+        </Link>
       )}
 
       {/* Tech Evolution */}

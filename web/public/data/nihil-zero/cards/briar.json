@@ -7,18 +7,18 @@
   "image_url": null,
   "category": "Trainer",
   "rarity": null,
-  "total_appearances": 623,
-  "usage_pct": 9.2,
+  "total_appearances": 628,
+  "usage_pct": 9.3,
   "avg_copies": 1.0,
   "unique_archetypes": 35,
-  "weighted_score": 983.6,
+  "weighted_score": 989.5,
   "win_rate_proxy": 1.58,
   "top_archetype": "Dragapult Dusknoir",
   "trend_direction": "surging",
   "copy_distribution": [
     {
       "copies": 1,
-      "count": 622
+      "count": 627
     },
     {
       "copies": 2,
@@ -29,7 +29,7 @@
     {
       "name": "Dragapult Dusknoir",
       "slug": "dragapult-dusknoir",
-      "usage_count": 206,
+      "usage_count": 208,
       "avg_copies": 1.0,
       "tier": "A"
     },
@@ -85,7 +85,7 @@
     {
       "name": "Ogerpon Ogerpon Wellspring",
       "slug": "ogerpon-ogerpon-wellspring",
-      "usage_count": 16,
+      "usage_count": 17,
       "avg_copies": 1.0,
       "tier": "Rogue"
     },
@@ -97,18 +97,18 @@
       "tier": "C"
     },
     {
+      "name": "Raging Bolt ex",
+      "slug": "raging-bolt-ex",
+      "usage_count": 12,
+      "avg_copies": 1.0,
+      "tier": "C"
+    },
+    {
       "name": "Dusknoir Greninja",
       "slug": "dusknoir-greninja",
       "usage_count": 12,
       "avg_copies": 1.0,
       "tier": "Rogue"
-    },
-    {
-      "name": "Raging Bolt ex",
-      "slug": "raging-bolt-ex",
-      "usage_count": 10,
-      "avg_copies": 1.0,
-      "tier": "C"
     },
     {
       "name": "Flareon Leafeon",
@@ -307,113 +307,118 @@
       "week": "2026-03-02",
       "usage_pct": 14.6,
       "avg_copies": 1.0
+    },
+    {
+      "week": "2026-03-16",
+      "usage_pct": 15.6,
+      "avg_copies": 1.0
     }
   ],
   "synergy_partners": [
     {
       "card_name": "Jolteon ex",
       "support": 24,
-      "lift": 8.975,
+      "lift": 8.945,
       "jaccard": 0.038,
       "weighted_score": 39.4
     },
     {
       "card_name": "Flareon ex",
       "support": 76,
-      "lift": 8.16,
-      "jaccard": 0.117,
+      "lift": 8.133,
+      "jaccard": 0.116,
       "weighted_score": 120.9
     },
     {
       "card_name": "Leafeon ex",
       "support": 74,
-      "lift": 8.106,
-      "jaccard": 0.114,
+      "lift": 8.079,
+      "jaccard": 0.113,
       "weighted_score": 118.2
     },
     {
       "card_name": "Sylveon ex",
       "support": 37,
-      "lift": 8.025,
+      "lift": 7.999,
       "jaccard": 0.058,
       "weighted_score": 56.6
     },
     {
       "card_name": "Eevee ex",
       "support": 73,
-      "lift": 7.996,
+      "lift": 7.97,
       "jaccard": 0.112,
       "weighted_score": 117.0
     },
     {
       "card_name": "Eevee",
       "support": 76,
-      "lift": 7.849,
-      "jaccard": 0.117,
+      "lift": 7.824,
+      "jaccard": 0.116,
       "weighted_score": 120.9
     },
     {
       "card_name": "Espeon ex",
       "support": 18,
-      "lift": 7.808,
-      "jaccard": 0.029,
+      "lift": 7.782,
+      "jaccard": 0.028,
       "weighted_score": 31.6
     },
     {
       "card_name": "Ceruledge ex",
       "support": 29,
-      "lift": 7.314,
-      "jaccard": 0.046,
+      "lift": 7.29,
+      "jaccard": 0.045,
       "weighted_score": 43.2
     },
     {
       "card_name": "Charcadet",
       "support": 29,
-      "lift": 7.314,
-      "jaccard": 0.046,
+      "lift": 7.29,
+      "jaccard": 0.045,
       "weighted_score": 43.2
     },
     {
       "card_name": "Brilliant Blender",
       "support": 23,
-      "lift": 6.741,
+      "lift": 6.719,
       "jaccard": 0.036,
       "weighted_score": 35.1
     },
     {
       "card_name": "Drilbur",
       "support": 20,
-      "lift": 6.197,
+      "lift": 6.177,
       "jaccard": 0.031,
       "weighted_score": 28.4
     },
     {
       "card_name": "Rosa's Encouragement",
-      "support": 128,
-      "lift": 5.443,
+      "support": 129,
+      "lift": 5.447,
       "jaccard": 0.171,
-      "weighted_score": 199.2
+      "weighted_score": 200.7
     },
     {
       "card_name": "Blowtorch",
       "support": 18,
-      "lift": 4.539,
+      "lift": 4.422,
       "jaccard": 0.028,
       "weighted_score": 26.9
     },
     {
       "card_name": "Hoothoot",
-      "support": 223,
-      "lift": 4.405,
-      "jaccard": 0.235,
-      "weighted_score": 354.1
+      "support": 224,
+      "lift": 4.37,
+      "jaccard": 0.234,
+      "weighted_score": 355.6
     },
     {
       "card_name": "Noctowl",
-      "support": 223,
-      "lift": 4.405,
-      "jaccard": 0.235,
-      "weighted_score": 354.1
+      "support": 224,
+      "lift": 4.37,
+      "jaccard": 0.234,
+      "weighted_score": 355.6
     }
   ]
 }

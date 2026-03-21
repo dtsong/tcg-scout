@@ -7,18 +7,18 @@
   "image_url": null,
   "category": "Trainer",
   "rarity": null,
-  "total_appearances": 80,
+  "total_appearances": 81,
   "usage_pct": 1.2,
   "avg_copies": 2.0,
   "unique_archetypes": 20,
-  "weighted_score": 125.0,
+  "weighted_score": 126.0,
   "win_rate_proxy": 1.56,
   "top_archetype": "Clefairy Ogerpon",
   "trend_direction": "stable",
   "copy_distribution": [
     {
       "copies": 1,
-      "count": 28
+      "count": 29
     },
     {
       "copies": 2,
@@ -37,8 +37,8 @@
     {
       "name": "Clefairy Ogerpon",
       "slug": "clefairy-ogerpon",
-      "usage_count": 47,
-      "avg_copies": 2.6,
+      "usage_count": 48,
+      "avg_copies": 2.5,
       "tier": "Rogue"
     },
     {
@@ -210,111 +210,116 @@
       "week": "2026-03-02",
       "usage_pct": 2.3,
       "avg_copies": 1.8
+    },
+    {
+      "week": "2026-03-16",
+      "usage_pct": 3.1,
+      "avg_copies": 1.0
     }
   ],
   "synergy_partners": [
     {
       "card_name": "Lively Stadium",
       "support": 11,
-      "lift": 18.958,
-      "jaccard": 0.093,
+      "lift": 18.813,
+      "jaccard": 0.092,
       "weighted_score": 18.8
     },
     {
       "card_name": "Mega Kangaskhan ex",
-      "support": 59,
-      "lift": 11.172,
-      "jaccard": 0.126,
-      "weighted_score": 96.1
+      "support": 60,
+      "lift": 11.1,
+      "jaccard": 0.127,
+      "weighted_score": 97.1
     },
     {
       "card_name": "Chien-Pao",
       "support": 21,
-      "lift": 8.405,
-      "jaccard": 0.078,
+      "lift": 8.262,
+      "jaccard": 0.077,
       "weighted_score": 34.8
     },
     {
       "card_name": "Mist Energy",
-      "support": 23,
-      "lift": 7.801,
-      "jaccard": 0.075,
-      "weighted_score": 40.8
+      "support": 24,
+      "lift": 7.95,
+      "jaccard": 0.077,
+      "weighted_score": 41.8
+    },
+    {
+      "card_name": "Telepath Psychic Energy",
+      "support": 55,
+      "lift": 6.68,
+      "jaccard": 0.077,
+      "weighted_score": 86.1
     },
     {
       "card_name": "Terapagos ex",
       "support": 9,
-      "lift": 6.91,
-      "jaccard": 0.05,
+      "lift": 6.675,
+      "jaccard": 0.049,
       "weighted_score": 13.3
     },
     {
       "card_name": "Area Zero Underdepths",
-      "support": 64,
-      "lift": 6.673,
-      "jaccard": 0.077,
-      "weighted_score": 103.5
-    },
-    {
-      "card_name": "Telepath Psychic Energy",
-      "support": 54,
-      "lift": 6.619,
-      "jaccard": 0.076,
-      "weighted_score": 85.1
+      "support": 65,
+      "lift": 6.627,
+      "jaccard": 0.078,
+      "weighted_score": 104.5
     },
     {
       "card_name": "Iron Leaves ex",
       "support": 18,
-      "lift": 6.23,
-      "jaccard": 0.059,
+      "lift": 6.082,
+      "jaccard": 0.058,
       "weighted_score": 29.9
     },
     {
       "card_name": "Teal Mask Ogerpon ex",
-      "support": 60,
-      "lift": 5.738,
-      "jaccard": 0.066,
-      "weighted_score": 97.6
+      "support": 61,
+      "lift": 5.724,
+      "jaccard": 0.067,
+      "weighted_score": 98.6
     },
     {
       "card_name": "Ciphermaniac's Codebreaking",
-      "support": 33,
-      "lift": 5.585,
-      "jaccard": 0.06,
-      "weighted_score": 55.5
+      "support": 34,
+      "lift": 5.653,
+      "jaccard": 0.062,
+      "weighted_score": 56.5
     },
     {
       "card_name": "Tera Orb",
       "support": 27,
-      "lift": 4.81,
+      "lift": 4.734,
       "jaccard": 0.051,
       "weighted_score": 42.0
     },
     {
       "card_name": "Energy Switch",
-      "support": 62,
-      "lift": 4.713,
+      "support": 63,
+      "lift": 4.697,
       "jaccard": 0.055,
-      "weighted_score": 100.3
+      "weighted_score": 101.3
     },
     {
       "card_name": "Prime Catcher",
       "support": 17,
-      "lift": 4.572,
+      "lift": 4.523,
       "jaccard": 0.045,
       "weighted_score": 26.6
     },
     {
       "card_name": "Bloodmoon Ursaluna ex",
       "support": 27,
-      "lift": 4.569,
+      "lift": 4.516,
       "jaccard": 0.049,
       "weighted_score": 42.9
     },
     {
       "card_name": "Frillish",
       "support": 8,
-      "lift": 4.474,
+      "lift": 4.44,
       "jaccard": 0.036,
       "weighted_score": 11.3
     }

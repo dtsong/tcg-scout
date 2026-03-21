@@ -312,7 +312,7 @@
       "inclusion_pct": 50.0,
       "avg_copies": 1.0,
       "decks_with": 2,
-      "category": "Trainer"
+      "category": "Pokemon"
     },
     {
       "card_name": "Fezandipiti ex",
@@ -439,6 +439,11 @@
           "category": "Pokemon"
         },
         {
+          "card_name": "Lillie's Clefairy ex",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
           "card_name": "Latias ex",
           "count": 1,
           "category": "Pokemon"
@@ -481,11 +486,6 @@
         {
           "card_name": "Night Stretcher",
           "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Lillie's Clefairy ex",
-          "count": 1,
           "category": "Trainer"
         },
         {
@@ -707,6 +707,11 @@
           "category": "Pokemon"
         },
         {
+          "card_name": "Lillie's Clefairy ex",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
           "card_name": "Latias ex",
           "count": 1,
           "category": "Pokemon"
@@ -758,11 +763,6 @@
         },
         {
           "card_name": "Brock's Scouting",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Lillie's Clefairy ex",
           "count": 1,
           "category": "Trainer"
         },
@@ -946,17 +946,12 @@
       "week": "2026-02-23",
       "adopted": [
         {
+          "card": "Team Rocket's Watchtower",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
           "card": "Hero's Cape",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Brock's Scouting",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Shaymin",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -966,29 +961,19 @@
           "to_pct": 100.0
         },
         {
-          "card": "Team Rocket's Watchtower",
+          "card": "Shaymin",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Brock's Scouting",
           "from_pct": 0.0,
           "to_pct": 100.0
         }
       ],
       "dropped": [
         {
-          "card": "Lillie's Clefairy ex",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Budew",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Jamming Tower",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Fezandipiti ex",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -998,17 +983,32 @@
           "to_pct": 0.0
         },
         {
-          "card": "Psyduck",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Unfair Stamp",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
+          "card": "Psyduck",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
           "card": "Area Zero Underdepths",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Lillie's Clefairy ex",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Fezandipiti ex",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Budew",
           "from_pct": 100.0,
           "to_pct": 0.0
         }
@@ -1028,16 +1028,6 @@
           "to_pct": 100.0
         },
         {
-          "card": "Lillie's Clefairy ex",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Fezandipiti ex",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
           "card": "Legacy Energy",
           "from_pct": 0.0,
           "to_pct": 50.0
@@ -1048,12 +1038,22 @@
           "to_pct": 50.0
         },
         {
+          "card": "Judge",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
           "card": "Hilda",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
         {
-          "card": "Judge",
+          "card": "Lillie's Clefairy ex",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Fezandipiti ex",
           "from_pct": 0.0,
           "to_pct": 50.0
         }
@@ -1129,6 +1129,11 @@
       "week": "2026-03-02",
       "meta_share": 0.2,
       "deck_count": 2
+    },
+    {
+      "week": "2026-03-16",
+      "meta_share": 0.0,
+      "deck_count": 0
     }
   ],
   "top4_card_stats": [],

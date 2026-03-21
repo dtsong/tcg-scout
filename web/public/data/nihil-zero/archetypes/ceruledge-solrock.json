@@ -913,7 +913,7 @@
           "to_pct": 100.0
         },
         {
-          "card": "Blowtorch",
+          "card": "Meowth ex",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -923,7 +923,7 @@
           "to_pct": 50.0
         },
         {
-          "card": "Meowth ex",
+          "card": "Blowtorch",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -933,24 +933,19 @@
           "to_pct": 50.0
         },
         {
-          "card": "Explorer's Guidance",
+          "card": "Rock Fighting Energy",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
         {
-          "card": "Rock Fighting Energy",
+          "card": "Explorer's Guidance",
           "from_pct": 0.0,
           "to_pct": 50.0
         }
       ],
       "dropped": [
         {
-          "card": "Xerosic's Machinations",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Larry's Skill",
+          "card": "Team Rocket's Watchtower",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -970,12 +965,17 @@
           "to_pct": 0.0
         },
         {
+          "card": "Larry's Skill",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
           "card": "Judge",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Team Rocket's Watchtower",
+          "card": "Xerosic's Machinations",
           "from_pct": 100.0,
           "to_pct": 0.0
         }
@@ -996,17 +996,17 @@
           "to_pct": 0.0
         },
         {
-          "card": "Battle Cage",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Lucian",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
           "card": "Rock Fighting Energy",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Battle Cage",
           "from_pct": 50.0,
           "to_pct": 0.0
         }
@@ -1023,12 +1023,12 @@
       ],
       "dropped": [
         {
-          "card": "Blowtorch",
+          "card": "Drilbur",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Drilbur",
+          "card": "Blowtorch",
           "from_pct": 100.0,
           "to_pct": 0.0
         }
@@ -1092,6 +1092,11 @@
       "week": "2026-03-02",
       "meta_share": 0.1,
       "deck_count": 1
+    },
+    {
+      "week": "2026-03-16",
+      "meta_share": 0.0,
+      "deck_count": 0
     }
   ],
   "top4_card_stats": [],

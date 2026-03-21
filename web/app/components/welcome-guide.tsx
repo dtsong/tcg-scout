@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { useParams } from "next/navigation";
 import { X, Crosshair, Layers, ShoppingCart, TrendingUp, Trophy } from "lucide-react";
 
 const STORAGE_KEY = "scout-welcome-dismissed";
@@ -40,6 +41,7 @@ const GUIDE_ITEMS = [
 ];
 
 export function WelcomeGuide() {
+  const { format } = useParams<{ format: string }>();
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -92,7 +94,7 @@ export function WelcomeGuide() {
       <div className="mt-4 flex items-center justify-between">
         <p className="text-xs text-surface-400">
           For a full walkthrough, see the{" "}
-          <Link href="/guide" className="text-accent hover:text-accent/80 transition-colors">
+          <Link href={`/${format}/guide`} className="text-accent hover:text-accent/80 transition-colors">
             Guide
           </Link>
           . Use the date filter above to narrow results to the last 7 or 30 days.

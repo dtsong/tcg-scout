@@ -8,7 +8,7 @@ import { MetaBarChart } from "@/app/components/meta-bar-chart";
 import { DataTable } from "@/app/components/data-table";
 import { DateFilter } from "@/app/components/date-filter";
 import { useDateFilter, fetchWindowedData } from "@/app/components/date-filter-provider";
-import { formatPct, formatPlacement } from "@/app/lib/utils";
+import { cn, formatPct, formatPlacement } from "@/app/lib/utils";
 import { ArchetypeHeatMatrix } from "@/app/components/archetype-heat-matrix";
 import { InfoIcon } from "@/app/components/tooltip";
 import { MatchupHeatMatrix } from "@/app/components/matchup-heat-matrix";
@@ -57,9 +57,11 @@ export function ArchetypesClient({
   overlapMatrix?: OverlapMatrixData | null;
   matchupMatrix?: MatchupMatrixData | null;
 }) {
+  type ArchetypeTab = "table" | "matchups" | "overlap";
   const { activeWindow, customRange, setWindow } = useDateFilter();
   const [archetypes, setArchetypes] = useState(initialArchetypes);
   const [loading, setLoading] = useState(false);
+  const [activeTab, setActiveTab] = useState<ArchetypeTab>("table");
 
   const fetchWindowData = useCallback(
     async (window: TimeWindow) => {
@@ -95,7 +97,7 @@ export function ArchetypesClient({
         </h1>
         <p className="text-sm text-surface-300 mt-1">
           {archetypes.length} archetypes across {archetypes.reduce((sum, a) => sum + a.deck_count, 0).toLocaleString()} decklists{" "}
-          <Link href="/guide#archetypes" className="text-accent hover:text-accent/80 transition-colors">
+          <Link href={`/${format}/guide#archetypes`} className="text-accent hover:text-accent/80 transition-colors">
             How this works &rarr;
           </Link>
         </p>
@@ -117,8 +119,133 @@ export function ArchetypesClient({
         <MetaBarChart data={archetypes} />
       </div>
 
-      {/* Matchup Performance Matrix */}
-      {matchupMatrix && matchupMatrix.archetypes.length > 0 && (
+      {/* Tab bar */}
+      <div className="flex items-center gap-1 border-b border-surface-600">
+        <button
+          onClick={() => setActiveTab("table")}
+          className={cn(
+            "px-4 py-2 text-sm font-medium border-b-2 transition-colors -mb-px",
+            activeTab === "table"
+              ? "border-accent text-accent"
+              : "border-transparent text-surface-300 hover:text-slate-200",
+          )}
+        >
+          All Archetypes
+          <span className="ml-1.5 text-xs text-surface-400">{archetypes.length}</span>
+        </button>
+        {matchupMatrix && matchupMatrix.archetypes.length > 0 && (
+          <button
+            onClick={() => setActiveTab("matchups")}
+            className={cn(
+              "px-4 py-2 text-sm font-medium border-b-2 transition-colors -mb-px",
+              activeTab === "matchups"
+                ? "border-accent text-accent"
+                : "border-transparent text-surface-300 hover:text-slate-200",
+            )}
+          >
+            Matchups
+          </button>
+        )}
+        {overlapMatrix && overlapMatrix.archetypes.length > 0 && (
+          <button
+            onClick={() => setActiveTab("overlap")}
+            className={cn(
+              "px-4 py-2 text-sm font-medium border-b-2 transition-colors -mb-px",
+              activeTab === "overlap"
+                ? "border-accent text-accent"
+                : "border-transparent text-surface-300 hover:text-slate-200",
+            )}
+          >
+            Card Overlap
+          </button>
+        )}
+      </div>
+
+      {/* Tab content */}
+      {activeTab === "table" && (
+        <div className="bg-surface-800 border border-surface-600 rounded-lg overflow-hidden">
+          <DataTable
+            data={archetypes}
+            searchKey={(a) => a.archetype}
+            searchPlaceholder="Search archetypes..."
+            pageSizes={[25, 50]}
+            defaultPageSize={25}
+            columns={[
+              {
+                key: "tier",
+                header: "Tier",
+                render: (a) => <TierBadge tier={a.tier as Tier} />,
+                sortValue: (a) => {
+                  const order: Record<string, number> = { S: 0, A: 1, B: 2, C: 3, Rogue: 4 };
+                  return order[a.tier] ?? 5;
+                },
+              },
+              {
+                key: "archetype",
+                header: "Archetype",
+                render: (a) => (
+                  <Link
+                    href={`/${format}/archetypes/${a.slug}`}
+                    className="text-slate-200 hover:text-accent transition-colors inline-flex items-center gap-2"
+                  >
+                    <SpriteRow filenames={a.sprite_filenames ?? []} size={20} />
+                    {a.archetype}
+                  </Link>
+                ),
+                sortValue: (a) => a.archetype,
+              },
+              {
+                key: "weighted_share",
+                header: "Weighted",
+                align: "right",
+                render: (a) => (
+                  <span className="font-mono tabular-nums">
+                    {formatPct(a.weighted_share ?? a.meta_share)}
+                    {a.weighted_share != null && (
+                      <span className="text-surface-400 text-xs ml-1">({formatPct(a.meta_share)})</span>
+                    )}
+                  </span>
+                ),
+                sortValue: (a) => a.weighted_share ?? a.meta_share,
+              },
+              {
+                key: "deck_count",
+                header: "Decks",
+                align: "right",
+                hideOnMobile: true,
+                render: (a) => (
+                  <span className="font-mono tabular-nums text-surface-300">
+                    {a.deck_count}
+                  </span>
+                ),
+                sortValue: (a) => a.deck_count,
+              },
+              {
+                key: "best_placement",
+                header: "Best",
+                align: "right",
+                hideOnMobile: true,
+                render: (a) => (
+                  <span className="text-surface-300">
+                    {formatPlacement(a.best_placement)}
+                  </span>
+                ),
+                sortValue: (a) => a.best_placement,
+              },
+              {
+                key: "trend",
+                header: "Trend",
+                align: "right",
+                render: (a) => <TrendArrow trend={a.trend} delta={a.trend_delta} />,
+                sortValue: (a) =>
+                  a.trend === "new" ? 3 : a.trend === "up" ? 2 : a.trend === "down" ? 0 : 1,
+              },
+            ]}
+          />
+        </div>
+      )}
+
+      {activeTab === "matchups" && matchupMatrix && (
         <div className="bg-surface-800 border border-surface-600 rounded-lg p-4 sm:p-6">
           <h2 className="font-display text-sm font-semibold text-slate-200 mb-1 flex items-center gap-1.5">
             Performance Advantage
@@ -136,8 +263,7 @@ export function ArchetypesClient({
         </div>
       )}
 
-      {/* Archetype Card Overlap Matrix */}
-      {overlapMatrix && overlapMatrix.archetypes.length > 0 && (
+      {activeTab === "overlap" && overlapMatrix && (
         <div className="bg-surface-800 border border-surface-600 rounded-lg p-4 sm:p-6">
           <h2 className="font-display text-sm font-semibold text-slate-200 mb-1 flex items-center gap-1.5">
             Card Overlap Matrix
@@ -154,85 +280,6 @@ export function ArchetypesClient({
           <ArchetypeHeatMatrix data={overlapMatrix} format={format} />
         </div>
       )}
-
-      <div className="bg-surface-800 border border-surface-600 rounded-lg overflow-hidden">
-        <DataTable
-          data={archetypes}
-          searchKey={(a) => a.archetype}
-          searchPlaceholder="Search archetypes..."
-          columns={[
-            {
-              key: "tier",
-              header: "Tier",
-              render: (a) => <TierBadge tier={a.tier as Tier} />,
-              sortValue: (a) => {
-                const order: Record<string, number> = { S: 0, A: 1, B: 2, C: 3, Rogue: 4 };
-                return order[a.tier] ?? 5;
-              },
-            },
-            {
-              key: "archetype",
-              header: "Archetype",
-              render: (a) => (
-                <Link
-                  href={`/${format}/archetypes/${a.slug}`}
-                  className="text-slate-200 hover:text-accent transition-colors inline-flex items-center gap-2"
-                >
-                  <SpriteRow filenames={a.sprite_filenames ?? []} size={20} />
-                  {a.archetype}
-                </Link>
-              ),
-              sortValue: (a) => a.archetype,
-            },
-            {
-              key: "weighted_share",
-              header: "Weighted",
-              align: "right",
-              render: (a) => (
-                <span className="font-mono tabular-nums">
-                  {formatPct(a.weighted_share ?? a.meta_share)}
-                  {a.weighted_share != null && (
-                    <span className="text-surface-400 text-xs ml-1">({formatPct(a.meta_share)})</span>
-                  )}
-                </span>
-              ),
-              sortValue: (a) => a.weighted_share ?? a.meta_share,
-            },
-            {
-              key: "deck_count",
-              header: "Decks",
-              align: "right",
-              hideOnMobile: true,
-              render: (a) => (
-                <span className="font-mono tabular-nums text-surface-300">
-                  {a.deck_count}
-                </span>
-              ),
-              sortValue: (a) => a.deck_count,
-            },
-            {
-              key: "best_placement",
-              header: "Best",
-              align: "right",
-              hideOnMobile: true,
-              render: (a) => (
-                <span className="text-surface-300">
-                  {formatPlacement(a.best_placement)}
-                </span>
-              ),
-              sortValue: (a) => a.best_placement,
-            },
-            {
-              key: "trend",
-              header: "Trend",
-              align: "right",
-              render: (a) => <TrendArrow trend={a.trend} delta={a.trend_delta} />,
-              sortValue: (a) =>
-                a.trend === "new" ? 3 : a.trend === "up" ? 2 : a.trend === "down" ? 0 : 1,
-            },
-          ]}
-        />
-      </div>
 
       </div>
     </div>

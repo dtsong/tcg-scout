@@ -403,7 +403,7 @@
       "inclusion_pct": 19.0,
       "avg_copies": 1.0,
       "decks_with": 4,
-      "category": "Trainer"
+      "category": "Pokemon"
     },
     {
       "card_name": "Switch",
@@ -720,6 +720,11 @@
           "category": "Pokemon"
         },
         {
+          "card_name": "Lillie's Clefairy ex",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
           "card_name": "Poké Pad",
           "count": 4,
           "category": "Trainer"
@@ -766,11 +771,6 @@
         },
         {
           "card_name": "Team Rocket's Watchtower",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Lillie's Clefairy ex",
           "count": 1,
           "category": "Trainer"
         },
@@ -1291,6 +1291,11 @@
           "category": "Pokemon"
         },
         {
+          "card_name": "Lillie's Clefairy ex",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
           "card_name": "Budew",
           "count": 1,
           "category": "Pokemon"
@@ -1352,11 +1357,6 @@
         },
         {
           "card_name": "Team Rocket's Watchtower",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Lillie's Clefairy ex",
           "count": 1,
           "category": "Trainer"
         },
@@ -2761,6 +2761,11 @@
           "category": "Pokemon"
         },
         {
+          "card_name": "Lillie's Clefairy ex",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
           "card_name": "Poké Pad",
           "count": 4,
           "category": "Trainer"
@@ -2816,11 +2821,6 @@
           "category": "Trainer"
         },
         {
-          "card_name": "Lillie's Clefairy ex",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
           "card_name": "Psychic Energy",
           "count": 3,
           "category": "Energy"
@@ -2856,7 +2856,7 @@
       "week": "2026-01-26",
       "adopted": [
         {
-          "card": "Fezandipiti ex",
+          "card": "Team Rocket's Watchtower",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -2866,22 +2866,12 @@
           "to_pct": 100.0
         },
         {
-          "card": "Team Rocket's Watchtower",
+          "card": "Fezandipiti ex",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Budew",
-          "from_pct": 0.0,
-          "to_pct": 66.7
-        },
-        {
-          "card": "Sacred Ash",
-          "from_pct": 0.0,
-          "to_pct": 66.7
-        },
-        {
-          "card": "Crispin",
+          "card": "Tool Scrapper",
           "from_pct": 0.0,
           "to_pct": 66.7
         },
@@ -2891,7 +2881,17 @@
           "to_pct": 66.7
         },
         {
-          "card": "Tool Scrapper",
+          "card": "Crispin",
+          "from_pct": 0.0,
+          "to_pct": 66.7
+        },
+        {
+          "card": "Sacred Ash",
+          "from_pct": 0.0,
+          "to_pct": 66.7
+        },
+        {
+          "card": "Budew",
           "from_pct": 0.0,
           "to_pct": 66.7
         }
@@ -2903,12 +2903,12 @@
           "to_pct": 0.0
         },
         {
-          "card": "Duskull",
+          "card": "Dusknoir",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Dusknoir",
+          "card": "Duskull",
           "from_pct": 100.0,
           "to_pct": 0.0
         }
@@ -2933,16 +2933,6 @@
           "to_pct": 50.0
         },
         {
-          "card": "Lillie's Clefairy ex",
-          "from_pct": 33.3,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Latias ex",
-          "from_pct": 33.3,
-          "to_pct": 50.0
-        },
-        {
           "card": "Frillish",
           "from_pct": 33.3,
           "to_pct": 50.0
@@ -2953,22 +2943,27 @@
           "to_pct": 50.0
         },
         {
+          "card": "Enhanced Hammer",
+          "from_pct": 33.3,
+          "to_pct": 50.0
+        },
+        {
           "card": "Wondrous Patch",
           "from_pct": 33.3,
           "to_pct": 50.0
         },
         {
-          "card": "Enhanced Hammer",
+          "card": "Lillie's Clefairy ex",
+          "from_pct": 33.3,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Latias ex",
           "from_pct": 33.3,
           "to_pct": 50.0
         }
       ],
       "dropped": [
-        {
-          "card": "Budew",
-          "from_pct": 66.7,
-          "to_pct": 0.0
-        },
         {
           "card": "Morty's Conviction",
           "from_pct": 66.7,
@@ -2976,6 +2971,11 @@
         },
         {
           "card": "Sacred Ash",
+          "from_pct": 66.7,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Budew",
           "from_pct": 66.7,
           "to_pct": 0.0
         }
@@ -3002,17 +3002,17 @@
           "to_pct": 8.3
         },
         {
+          "card": "Crispin",
+          "from_pct": 50.0,
+          "to_pct": 16.7
+        },
+        {
           "card": "Wondrous Patch",
           "from_pct": 50.0,
           "to_pct": 16.7
         },
         {
           "card": "Lillie's Clefairy ex",
-          "from_pct": 50.0,
-          "to_pct": 16.7
-        },
-        {
-          "card": "Crispin",
           "from_pct": 50.0,
           "to_pct": 16.7
         }
@@ -3054,17 +3054,22 @@
       "week": "2026-03-02",
       "adopted": [
         {
-          "card": "Shaymin",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
           "card": "Enhanced Hammer",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Budew",
+          "card": "Shaymin",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Crispin",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Dusknoir",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -3079,7 +3084,12 @@
           "to_pct": 50.0
         },
         {
-          "card": "Crispin",
+          "card": "Ciphermaniac's Codebreaking",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Budew",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -3087,21 +3097,16 @@
           "card": "Duskull",
           "from_pct": 0.0,
           "to_pct": 50.0
-        },
-        {
-          "card": "Ciphermaniac's Codebreaking",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Dusknoir",
-          "from_pct": 0.0,
-          "to_pct": 50.0
         }
       ],
       "dropped": [
         {
-          "card": "Battle Cage",
+          "card": "Frillish",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Morty's Conviction",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -3111,12 +3116,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "Frillish",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Lillie's Determination",
+          "card": "Battle Cage",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -3126,7 +3126,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "Morty's Conviction",
+          "card": "Lillie's Determination",
           "from_pct": 100.0,
           "to_pct": 0.0
         }
@@ -3143,11 +3143,6 @@
       "name": "with Budew",
       "deck_count": 5,
       "pct": 23.8
-    },
-    {
-      "name": "Standard",
-      "deck_count": 3,
-      "pct": 14.3
     }
   ],
   "weekly_shares": [
@@ -3185,6 +3180,11 @@
       "week": "2026-03-02",
       "meta_share": 0.2,
       "deck_count": 2
+    },
+    {
+      "week": "2026-03-16",
+      "meta_share": 0.0,
+      "deck_count": 0
     }
   ],
   "top4_card_stats": [
@@ -3409,7 +3409,7 @@
       "inclusion_pct": 33.3,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Trainer",
+      "category": "Pokemon",
       "delta_vs_field": 14.3
     },
     {

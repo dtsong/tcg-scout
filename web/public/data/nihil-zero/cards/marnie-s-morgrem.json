@@ -5,13 +5,13 @@
   "set_code": null,
   "set_number": null,
   "image_url": null,
-  "category": "Trainer",
+  "category": "Pokemon",
   "rarity": null,
-  "total_appearances": 443,
-  "usage_pct": 6.6,
+  "total_appearances": 444,
+  "usage_pct": 6.5,
   "avg_copies": 2.0,
   "unique_archetypes": 8,
-  "weighted_score": 730.1,
+  "weighted_score": 731.1,
   "win_rate_proxy": 1.65,
   "top_archetype": "Grimmsnarl Munkidori",
   "trend_direction": "stable",
@@ -22,7 +22,7 @@
     },
     {
       "copies": 2,
-      "count": 424
+      "count": 425
     },
     {
       "copies": 3,
@@ -40,7 +40,7 @@
     {
       "name": "Froslass Grimmsnarl",
       "slug": "froslass-grimmsnarl",
-      "usage_count": 185,
+      "usage_count": 186,
       "avg_copies": 2.0,
       "tier": "C"
     },
@@ -122,113 +122,118 @@
       "week": "2026-03-02",
       "usage_pct": 5.2,
       "avg_copies": 2.0
+    },
+    {
+      "week": "2026-03-16",
+      "usage_pct": 3.1,
+      "avg_copies": 2.0
     }
   ],
   "synergy_partners": [
     {
       "card_name": "Marnie's Grimmsnarl ex",
-      "support": 443,
-      "lift": 15.251,
+      "support": 444,
+      "lift": 15.288,
       "jaccard": 1.0,
-      "weighted_score": 730.1
+      "weighted_score": 731.1
     },
     {
       "card_name": "Marnie's Impidimp",
-      "support": 443,
-      "lift": 15.251,
+      "support": 444,
+      "lift": 15.288,
       "jaccard": 1.0,
-      "weighted_score": 730.1
+      "weighted_score": 731.1
     },
     {
       "card_name": "Marnie's Morpeko",
       "support": 5,
-      "lift": 15.251,
+      "lift": 15.288,
       "jaccard": 0.011,
       "weighted_score": 7.8
     },
     {
       "card_name": "Spikemuth Gym",
-      "support": 443,
-      "lift": 15.251,
+      "support": 444,
+      "lift": 15.288,
       "jaccard": 1.0,
-      "weighted_score": 730.1
+      "weighted_score": 731.1
     },
     {
       "card_name": "Froslass",
-      "support": 418,
-      "lift": 9.601,
+      "support": 419,
+      "lift": 9.633,
       "jaccard": 0.607,
-      "weighted_score": 690.2
+      "weighted_score": 691.2
     },
     {
       "card_name": "Tatsugiri",
-      "support": 310,
-      "lift": 9.38,
+      "support": 311,
+      "lift": 9.415,
       "jaccard": 0.487,
-      "weighted_score": 507.4
+      "weighted_score": 508.4
     },
     {
       "card_name": "Snorunt",
-      "support": 418,
-      "lift": 8.866,
+      "support": 419,
+      "lift": 8.897,
       "jaccard": 0.562,
-      "weighted_score": 690.2
+      "weighted_score": 691.2
     },
     {
       "card_name": "Yveltal",
       "support": 122,
-      "lift": 6.766,
-      "jaccard": 0.205,
+      "lift": 6.758,
+      "jaccard": 0.204,
       "weighted_score": 195.1
     },
     {
       "card_name": "Iris's Fighting Spirit",
       "support": 62,
-      "lift": 6.346,
+      "lift": 6.362,
       "jaccard": 0.117,
       "weighted_score": 98.7
     },
     {
       "card_name": "Secret Box",
       "support": 157,
-      "lift": 5.854,
+      "lift": 5.869,
       "jaccard": 0.226,
       "weighted_score": 265.0
     },
     {
       "card_name": "Kofu",
       "support": 25,
-      "lift": 5.607,
+      "lift": 5.621,
       "jaccard": 0.051,
       "weighted_score": 41.2
     },
     {
       "card_name": "Morty's Conviction",
       "support": 131,
-      "lift": 4.136,
-      "jaccard": 0.165,
+      "lift": 4.138,
+      "jaccard": 0.164,
       "weighted_score": 227.0
     },
     {
       "card_name": "Repel",
       "support": 7,
-      "lift": 3.954,
+      "lift": 3.964,
       "jaccard": 0.015,
       "weighted_score": 12.2
     },
     {
       "card_name": "Drayton",
       "support": 24,
-      "lift": 3.813,
+      "lift": 3.822,
       "jaccard": 0.047,
       "weighted_score": 42.7
     },
     {
       "card_name": "Team Rocket's Petrel",
-      "support": 431,
-      "lift": 3.502,
-      "jaccard": 0.228,
-      "weighted_score": 709.3
+      "support": 432,
+      "lift": 3.498,
+      "jaccard": 0.227,
+      "weighted_score": 710.3
     }
   ]
 }

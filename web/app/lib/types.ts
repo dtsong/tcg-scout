@@ -366,6 +366,79 @@ export interface MetaReport {
   sections: ReportSection[];
 }
 
+// --- Optimal 60 types ---
+
+export type Optimal60Consensus =
+  | "core"
+  | "flex-core"
+  | "flex"
+  | "tech"
+  | "cl-signal";
+
+export interface Optimal60Card {
+  card_name: string;
+  count: number;
+  category: "Pokemon" | "Trainer" | "Energy";
+  consensus: Optimal60Consensus;
+  blended_inclusion_pct: number;
+  cl_inclusion_pct: number;
+  meta_inclusion_pct: number;
+  inclusion_delta: number;
+  blended_avg_copies: number;
+  cl_avg_copies: number;
+  meta_avg_copies: number;
+  insight: string | null;
+}
+
+export interface Optimal60Detail {
+  archetype: string;
+  slug: string;
+  format: string;
+  generated_at: string;
+  tier: Tier;
+  meta_share: number;
+  weighted_share: number;
+  sprite_filenames: string[];
+  quality_score: number;
+  cl_deck_count: number;
+  city_league_deck_count: number;
+  has_cl_data: boolean;
+  cl_placements: number[];
+  cl_best_finish: number | null;
+  total_pokemon: number;
+  total_trainer: number;
+  total_energy: number;
+  core_lock_rate: number;
+  innovation_index: number;
+  cards: Optimal60Card[];
+  narrative: Record<string, string>;
+}
+
+export interface Optimal60IndexEntry {
+  archetype: string;
+  slug: string;
+  tier: Tier;
+  meta_share: number;
+  sprite_filenames: string[];
+  quality_score: number;
+  cl_deck_count: number;
+  city_league_deck_count: number;
+  has_cl_data: boolean;
+  cl_placements: number[];
+  cl_best_finish: number | null;
+  innovation_index: number;
+  core_lock_rate: number;
+}
+
+export interface Optimal60Index {
+  format: string;
+  generated_at: string;
+  cl_event: string | null;
+  cl_player_count: number;
+  format_note: string;
+  archetypes: Optimal60IndexEntry[];
+}
+
 export interface ConsensusCard {
   card_name: string;
   count: number;
