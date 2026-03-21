@@ -381,7 +381,7 @@ export interface TechEvolutionCard {
   category: "Pokemon" | "Trainer" | "Energy";
   timeline: number[];
   copies_timeline: number[];
-  trend: "adopted" | "dropped" | "fluctuating" | "stable";
+  trend: "adopted" | "dropped" | "shifted" | "stable";
   total_delta: number;
 }
 
@@ -394,7 +394,7 @@ export interface NotableTech {
 }
 
 export interface PlacementBracket {
-  bracket: string;
+  bracket: "1st" | "2nd" | "3rd-4th" | "5th-8th" | "9th-16th" | "17th+";
   count: number;
   pct: number;
 }
@@ -424,6 +424,7 @@ export interface ArchetypeReport {
   notable_techs: NotableTech[];
   placement_distribution: PlacementBracket[];
   tournament_count: number;
+  /** Reserved for future use -- currently always empty ({}) from the Python export. */
   narrative: {
     summary?: string;
     consensus_rationale?: string;

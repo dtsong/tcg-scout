@@ -2471,7 +2471,13 @@ def export_deep_dive(conn: sqlite3.Connection, output_dir: Path, *, format_slug:
         _write_json(report, report_dir / f"{slug}.json")
         count += 1
 
-    logger.info("Exported %d archetype deep dive reports", count)
+    if count == 0:
+        logger.warning(
+            "No deep dive reports exported (%d archetypes in snapshot, none qualified)",
+            len(snapshot["archetypes"]),
+        )
+    else:
+        logger.info("Exported %d archetype deep dive reports", count)
 
 
 def export_all(
@@ -2511,8 +2517,8 @@ def export_all(
             logger.warning("Skipping %s export (data unavailable): %s", name, exc)
     try:
         export_deep_dive(conn, out, format_slug=slug)
-    except (sqlite3.OperationalError, ValueError) as exc:
-        logger.warning("Skipping deep dive reports export (data unavailable): %s", exc)
+    except sqlite3.OperationalError as exc:
+        logger.warning("Skipping deep dive reports export (table missing): %s", exc)
     export_windowed(conn, out, format_slug=slug)
 
     logger.info("Export complete")

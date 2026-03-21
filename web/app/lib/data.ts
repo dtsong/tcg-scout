@@ -208,11 +208,7 @@ export function getArchetypeReport(
     return readJson(`${format}/archetype-reports/${slug}.json`);
   } catch (err) {
     if (isFileNotFound(err)) return null;
-    console.error(
-      `Failed to load archetype report for ${format}/${slug}:`,
-      err,
-    );
-    return null;
+    throw err;
   }
 }
 

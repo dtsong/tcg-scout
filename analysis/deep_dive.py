@@ -53,6 +53,9 @@ def compute_weighted_consensus_60(
         (*placement_ids, *energy_names),
     ).fetchall()
 
+    if not card_rows:
+        return None
+
     # Aggregate per card: weighted inclusion, weighted avg copies, raw inclusion
     card_data: dict[str, dict] = defaultdict(
         lambda: {"weighted_sum": 0.0, "weighted_copies": 0.0, "raw_count": 0, "total_copies": 0}
@@ -221,7 +224,7 @@ def compute_weekly_card_timeline(
         elif first_pct >= 30 and last_pct < 10:
             trend = "dropped"
         elif abs(total_delta) > 20:
-            trend = "fluctuating"
+            trend = "shifted"
         else:
             trend = "stable"
 
@@ -290,28 +293,29 @@ def compute_notable_techs(timeline_data: dict | None) -> list[dict]:
         if len(tl) < 2:
             continue
 
-        # Find the most significant transition
+        # Find the largest week-over-week transition exceeding +/-20 points
         max_delta = 0
         best_event = None
         for i in range(1, len(tl)):
             delta = tl[i] - tl[i - 1]
-            if abs(delta) > abs(max_delta):
-                max_delta = delta
-                from_pct = tl[i - 1]
-                to_pct = tl[i]
-                if delta > 20:
-                    event = "appeared" if from_pct < 10 else "surged"
-                elif delta < -20:
-                    event = "disappeared" if to_pct < 10 else "declined"
-                else:
-                    continue
-                best_event = {
-                    "card_name": card["card_name"],
-                    "event": event,
-                    "week": weeks[i],
-                    "from_pct": round(from_pct, 1),
-                    "to_pct": round(to_pct, 1),
-                }
+            if abs(delta) <= abs(max_delta):
+                continue
+            from_pct = tl[i - 1]
+            to_pct = tl[i]
+            if delta > 20:
+                event = "appeared" if from_pct < 10 else "surged"
+            elif delta < -20:
+                event = "disappeared" if to_pct < 10 else "declined"
+            else:
+                continue
+            max_delta = delta
+            best_event = {
+                "card_name": card["card_name"],
+                "event": event,
+                "week": weeks[i],
+                "from_pct": round(from_pct, 1),
+                "to_pct": round(to_pct, 1),
+            }
 
         if best_event:
             notable.append(best_event)

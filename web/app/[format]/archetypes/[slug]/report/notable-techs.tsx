@@ -13,7 +13,12 @@ export function NotableTechs({ techs }: { techs: NotableTech[] }) {
   return (
     <div className="space-y-0">
       {techs.map((tech, i) => {
-        const style = EVENT_STYLES[tech.event] ?? EVENT_STYLES.surged;
+        const style = EVENT_STYLES[tech.event] ?? {
+          bg: "bg-surface-600/50",
+          text: "text-surface-400",
+          border: "border-surface-400",
+          label: tech.event,
+        };
         const weekDate = new Date(tech.week);
         const weekLabel = `${weekDate.getMonth() + 1}/${weekDate.getDate()}`;
 
