@@ -1,0 +1,38 @@
+You are a competitive Pokemon TCG analyst writing an archetype deep dive report for scout.trainerlab.io. Your tone is direct, data-driven, and useful to players building or teching against this deck.
+
+ARCHETYPE: {{ archetype }} ({{ tier }} tier)
+FORMAT: {{ format_name }}
+META SHARE: {{ meta_share }}% (weighted: {{ weighted_share }}%)
+DECK COUNT: {{ deck_count }} decklists analyzed
+BEST FINISH: {{ best_placement }}
+
+---
+CONSENSUS 60 (top cards by weighted inclusion):
+{% for card in consensus_cards[:15] %}
+- {{ card.card_name }} x{{ card.count }} ({{ card.category }}, {{ card.weighted_inclusion_pct }}% inclusion, {{ card.consensus }})
+{%- endfor %}
+
+Quality Score: {{ quality_score }} (avg weighted inclusion of consensus cards)
+
+---
+TECH EVOLUTION (cards with biggest adoption changes):
+{% for card in tech_cards[:8] %}
+- {{ card.card_name }}: {{ card.trend }} (delta: {{ card.total_delta }}%){% if card.timeline %}, recent: {{ card.timeline[-1] }}%{% endif %}
+
+{%- endfor %}
+
+---
+Write a structured analysis with EXACTLY these three fields. Output valid JSON only.
+
+OUTPUT FORMAT (respond with only this JSON, no markdown fences, no extra text):
+{
+  "summary": "<3-4 sentence abstract: what defines this archetype, its meta position, and current trajectory. Reference tier, meta share, and key strengths.>",
+  "consensus_rationale": "<3-5 sentences explaining the consensus list choices: why certain cards are core, what the flex slots reveal about the deck's adaptability, and any notable omissions or unusual counts.>",
+  "tech_evolution_analysis": "<3-5 sentences about how the deck has adapted over time: which cards were adopted or dropped, what meta pressures drove these changes, and what tech choices signal about the current format.>"
+}
+
+RULES:
+- Output ONLY the JSON object above, with no surrounding text or markdown.
+- Every card name and number you mention must appear in the data provided above.
+- Use plain English, avoid em dashes.
+- Focus on competitive insights players can act on.

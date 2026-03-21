@@ -7,74 +7,123 @@
   "image_url": null,
   "category": "Trainer",
   "rarity": null,
-  "total_appearances": 62,
-  "usage_pct": 5.2,
+  "total_appearances": 386,
+  "usage_pct": 5.7,
   "avg_copies": 1.5,
-  "unique_archetypes": 10,
-  "weighted_score": 93.2,
-  "win_rate_proxy": 1.5,
+  "unique_archetypes": 17,
+  "weighted_score": 601.4,
+  "win_rate_proxy": 1.56,
   "top_archetype": "Mewtwo Spidops",
-  "trend_direction": "stable",
+  "trend_direction": "declining",
   "copy_distribution": [
     {
       "copies": 1,
-      "count": 36
+      "count": 191
     },
     {
       "copies": 2,
-      "count": 24
+      "count": 190
     },
     {
       "copies": 3,
-      "count": 2
+      "count": 5
     }
   ],
   "archetypes": [
     {
       "name": "Mewtwo Spidops",
       "slug": "mewtwo-spidops",
-      "usage_count": 33,
-      "avg_copies": 1.1,
+      "usage_count": 121,
+      "avg_copies": 1.2,
       "tier": "B"
     },
     {
       "name": "Dipplin Thwackey",
       "slug": "dipplin-thwackey",
-      "usage_count": 10,
-      "avg_copies": 2.0,
-      "tier": "Rogue"
+      "usage_count": 110,
+      "avg_copies": 1.8,
+      "tier": "C"
     },
     {
       "name": "Dipplin Rillaboom",
       "slug": "dipplin-rillaboom",
-      "usage_count": 9,
-      "avg_copies": 2.1,
+      "usage_count": 65,
+      "avg_copies": 1.9,
       "tier": "Rogue"
     },
     {
-      "name": "Barbaracle Okidogi",
-      "slug": "barbaracle-okidogi",
-      "usage_count": 3,
-      "avg_copies": 1.0,
+      "name": "Honchkrow Porygon-Z",
+      "slug": "honchkrow-porygon-z",
+      "usage_count": 50,
+      "avg_copies": 1.1,
       "tier": "C"
     },
     {
       "name": "Spidops",
       "slug": "spidops",
-      "usage_count": 2,
-      "avg_copies": 1.5,
+      "usage_count": 8,
+      "avg_copies": 1.6,
       "tier": "Rogue"
     },
     {
-      "name": "Honchkrow Porygon2",
-      "slug": "honchkrow-porygon2",
-      "usage_count": 1,
+      "name": "Barbaracle Okidogi",
+      "slug": "barbaracle-okidogi",
+      "usage_count": 7,
       "avg_copies": 1.0,
       "tier": "C"
     },
     {
+      "name": "Honchkrow Porygon2",
+      "slug": "honchkrow-porygon2",
+      "usage_count": 5,
+      "avg_copies": 1.4,
+      "tier": "C"
+    },
+    {
+      "name": "Typhlosion",
+      "slug": "typhlosion",
+      "usage_count": 4,
+      "avg_copies": 2.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Dragapult Typhlosion",
+      "slug": "dragapult-typhlosion",
+      "usage_count": 4,
+      "avg_copies": 2.0,
+      "tier": "Rogue"
+    },
+    {
       "name": "Dudunsparce Typhlosion",
       "slug": "dudunsparce-typhlosion",
+      "usage_count": 3,
+      "avg_copies": 2.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Honchkrow",
+      "slug": "honchkrow",
+      "usage_count": 2,
+      "avg_copies": 2.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Crustle Munkidori",
+      "slug": "crustle-munkidori",
+      "usage_count": 2,
+      "avg_copies": 1.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Typhlosion Victini",
+      "slug": "typhlosion-victini",
+      "usage_count": 1,
+      "avg_copies": 2.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Honchkrow Spidops",
+      "slug": "honchkrow-spidops",
       "usage_count": 1,
       "avg_copies": 2.0,
       "tier": "Rogue"
@@ -87,21 +136,51 @@
       "tier": "Rogue"
     },
     {
-      "name": "Dragapult Typhlosion",
-      "slug": "dragapult-typhlosion",
+      "name": "Crobat Spidops",
+      "slug": "crobat-spidops",
       "usage_count": 1,
-      "avg_copies": 2.0,
+      "avg_copies": 1.0,
       "tier": "Rogue"
     },
     {
-      "name": "Crustle Munkidori",
-      "slug": "crustle-munkidori",
+      "name": "Barbaracle Solrock",
+      "slug": "barbaracle-solrock",
       "usage_count": 1,
       "avg_copies": 1.0,
-      "tier": "C"
+      "tier": "Rogue"
     }
   ],
   "weekly_usage": [
+    {
+      "week": "2026-01-19",
+      "usage_pct": 12.1,
+      "avg_copies": 1.6
+    },
+    {
+      "week": "2026-01-26",
+      "usage_pct": 6.7,
+      "avg_copies": 1.6
+    },
+    {
+      "week": "2026-02-02",
+      "usage_pct": 5.2,
+      "avg_copies": 1.5
+    },
+    {
+      "week": "2026-02-09",
+      "usage_pct": 3.8,
+      "avg_copies": 1.6
+    },
+    {
+      "week": "2026-02-16",
+      "usage_pct": 4.7,
+      "avg_copies": 1.5
+    },
+    {
+      "week": "2026-02-23",
+      "usage_pct": 4.5,
+      "avg_copies": 1.3
+    },
     {
       "week": "2026-03-02",
       "usage_pct": 5.2,
@@ -111,108 +190,108 @@
   "synergy_partners": [
     {
       "card_name": "Rillaboom",
-      "support": 9,
-      "lift": 19.097,
-      "jaccard": 0.145,
-      "weighted_score": 16.3
+      "support": 65,
+      "lift": 17.503,
+      "jaccard": 0.168,
+      "weighted_score": 110.5
+    },
+    {
+      "card_name": "Victini",
+      "support": 10,
+      "lift": 17.503,
+      "jaccard": 0.026,
+      "weighted_score": 14.2
     },
     {
       "card_name": "Seaking",
-      "support": 16,
-      "lift": 19.097,
-      "jaccard": 0.258,
-      "weighted_score": 26.0
-    },
-    {
-      "card_name": "Festival Grounds",
-      "support": 19,
-      "lift": 18.142,
-      "jaccard": 0.302,
-      "weighted_score": 29.9
-    },
-    {
-      "card_name": "Grookey",
-      "support": 19,
-      "lift": 18.142,
-      "jaccard": 0.302,
-      "weighted_score": 29.9
-    },
-    {
-      "card_name": "Thwackey",
-      "support": 19,
-      "lift": 18.142,
-      "jaccard": 0.302,
-      "weighted_score": 29.9
+      "support": 138,
+      "lift": 17.377,
+      "jaccard": 0.357,
+      "weighted_score": 221.9
     },
     {
       "card_name": "Goldeen",
-      "support": 18,
-      "lift": 18.092,
-      "jaccard": 0.286,
-      "weighted_score": 28.7
+      "support": 149,
+      "lift": 17.271,
+      "jaccard": 0.384,
+      "weighted_score": 241.0
+    },
+    {
+      "card_name": "Grookey",
+      "support": 175,
+      "lift": 17.111,
+      "jaccard": 0.449,
+      "weighted_score": 278.4
+    },
+    {
+      "card_name": "Thwackey",
+      "support": 175,
+      "lift": 17.111,
+      "jaccard": 0.449,
+      "weighted_score": 278.4
+    },
+    {
+      "card_name": "Festival Grounds",
+      "support": 175,
+      "lift": 16.737,
+      "jaccard": 0.444,
+      "weighted_score": 278.4
     },
     {
       "card_name": "Applin",
-      "support": 19,
-      "lift": 17.278,
-      "jaccard": 0.297,
-      "weighted_score": 29.9
+      "support": 175,
+      "lift": 15.548,
+      "jaccard": 0.429,
+      "weighted_score": 278.4
     },
     {
       "card_name": "Dipplin",
-      "support": 19,
-      "lift": 17.278,
-      "jaccard": 0.297,
-      "weighted_score": 29.9
+      "support": 175,
+      "lift": 15.548,
+      "jaccard": 0.429,
+      "weighted_score": 278.4
     },
     {
-      "card_name": "Team Rocket's Mewtwo ex",
-      "support": 35,
-      "lift": 9.414,
-      "jaccard": 0.357,
-      "weighted_score": 51.0
+      "card_name": "Lilligant",
+      "support": 14,
+      "lift": 15.315,
+      "jaccard": 0.036,
+      "weighted_score": 20.5
     },
     {
-      "card_name": "Team Rocket's Spidops",
-      "support": 35,
-      "lift": 9.414,
-      "jaccard": 0.357,
-      "weighted_score": 51.0
+      "card_name": "Petilil",
+      "support": 14,
+      "lift": 15.315,
+      "jaccard": 0.036,
+      "weighted_score": 20.5
     },
     {
-      "card_name": "Team Rocket's Tarountula",
-      "support": 35,
-      "lift": 9.414,
-      "jaccard": 0.357,
-      "weighted_score": 51.0
+      "card_name": "Rabsca",
+      "support": 14,
+      "lift": 15.315,
+      "jaccard": 0.036,
+      "weighted_score": 22.0
     },
     {
-      "card_name": "Team Rocket's Mimikyu",
-      "support": 35,
-      "lift": 8.68,
-      "jaccard": 0.337,
-      "weighted_score": 51.0
+      "card_name": "Rellor",
+      "support": 14,
+      "lift": 15.315,
+      "jaccard": 0.036,
+      "weighted_score": 22.0
     },
     {
-      "card_name": "Kieran",
-      "support": 18,
-      "lift": 7.015,
-      "jaccard": 0.194,
-      "weighted_score": 29.5
+      "card_name": "Redeemable Ticket",
+      "support": 15,
+      "lift": 14.585,
+      "jaccard": 0.039,
+      "weighted_score": 22.1
     },
     {
-      "card_name": "Team Rocket's Archer",
-      "support": 36,
-      "lift": 6.25,
-      "jaccard": 0.265,
-      "weighted_score": 52.5
-    },
-    {
-      "card_name": "Team Rocket's Ariana",
-      "support": 36,
-      "lift": 6.25,
-      "jaccard": 0.265,
-      "weighted_score": 52.5
+      "card_name": "Ethan's Cyndaquil",
+      "support": 13,
+      "lift": 14.221,
+      "jaccard": 0.033,
+      "weighted_score": 18.1
     }
   ]
 }

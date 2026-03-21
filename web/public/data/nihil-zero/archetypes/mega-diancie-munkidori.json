@@ -72,7 +72,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 1.8,
       "decks_with": 6,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Latias ex",
@@ -186,7 +186,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 1.8,
       "decks_with": 6,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Latias ex",
@@ -291,7 +291,7 @@
       "inclusion_pct": 16.7,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Switch",
@@ -397,11 +397,6 @@
           "category": "Pokemon"
         },
         {
-          "card_name": "Lillie's Clefairy ex",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
           "card_name": "Latias ex",
           "count": 2,
           "category": "Pokemon"
@@ -444,6 +439,11 @@
         {
           "card_name": "Powerglass",
           "count": 3,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Lillie's Clefairy ex",
+          "count": 2,
           "category": "Trainer"
         },
         {
@@ -496,11 +496,6 @@
           "category": "Pokemon"
         },
         {
-          "card_name": "Lillie's Clefairy ex",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
           "card_name": "Latias ex",
           "count": 2,
           "category": "Pokemon"
@@ -538,6 +533,11 @@
         {
           "card_name": "Powerglass",
           "count": 3,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Lillie's Clefairy ex",
+          "count": 2,
           "category": "Trainer"
         },
         {
@@ -597,16 +597,6 @@
         {
           "card_name": "Munkidori",
           "count": 4,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Team Rocket's Mimikyu",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Lillie's Clefairy ex",
-          "count": 1,
           "category": "Pokemon"
         },
         {
@@ -670,6 +660,16 @@
           "category": "Trainer"
         },
         {
+          "card_name": "Team Rocket's Mimikyu",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Lillie's Clefairy ex",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
           "card_name": "Mega Signal",
           "count": 1,
           "category": "Trainer"
@@ -711,11 +711,6 @@
         {
           "card_name": "Mega Diancie ex",
           "count": 3,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Lillie's Clefairy ex",
-          "count": 2,
           "category": "Pokemon"
         },
         {
@@ -766,6 +761,11 @@
         {
           "card_name": "Powerglass",
           "count": 3,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Lillie's Clefairy ex",
+          "count": 2,
           "category": "Trainer"
         },
         {
@@ -828,11 +828,6 @@
           "category": "Pokemon"
         },
         {
-          "card_name": "Lillie's Clefairy ex",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
           "card_name": "Latias ex",
           "count": 2,
           "category": "Pokemon"
@@ -869,6 +864,11 @@
         },
         {
           "card_name": "Night Stretcher",
+          "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Lillie's Clefairy ex",
           "count": 2,
           "category": "Trainer"
         },
@@ -942,11 +942,6 @@
           "category": "Pokemon"
         },
         {
-          "card_name": "Lillie's Clefairy ex",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
           "card_name": "Latias ex",
           "count": 2,
           "category": "Pokemon"
@@ -989,6 +984,11 @@
         {
           "card_name": "Powerglass",
           "count": 3,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Lillie's Clefairy ex",
+          "count": 2,
           "category": "Trainer"
         },
         {
@@ -1064,7 +1064,7 @@
       "week": "2026-02-09",
       "adopted": [
         {
-          "card": "Legacy Energy",
+          "card": "Energy Switch",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -1074,12 +1074,12 @@
           "to_pct": 50.0
         },
         {
-          "card": "Energy Switch",
+          "card": "Psyduck",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
         {
-          "card": "Psyduck",
+          "card": "Legacy Energy",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -1089,7 +1089,7 @@
           "to_pct": 50.0
         },
         {
-          "card": "Carmine",
+          "card": "Secret Box",
           "from_pct": 33.3,
           "to_pct": 50.0
         },
@@ -1099,7 +1099,7 @@
           "to_pct": 50.0
         },
         {
-          "card": "Secret Box",
+          "card": "Carmine",
           "from_pct": 33.3,
           "to_pct": 50.0
         }
@@ -1116,8 +1116,8 @@
   "variants": [
     {
       "name": "Standard",
-      "deck_count": 2,
-      "pct": 33.3
+      "deck_count": 3,
+      "pct": 50.0
     },
     {
       "name": "with Flutter Mane",
@@ -1126,11 +1126,6 @@
     },
     {
       "name": "with Psyduck",
-      "deck_count": 1,
-      "pct": 16.7
-    },
-    {
-      "name": "with Team Rocket's Mimikyu",
       "deck_count": 1,
       "pct": 16.7
     },

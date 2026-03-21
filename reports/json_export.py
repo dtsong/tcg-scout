@@ -19,6 +19,12 @@ from analysis.card_stats import (
     compute_card_detail,
     compute_card_stats,
 )
+from analysis.deep_dive import (
+    compute_notable_techs,
+    compute_placement_distribution,
+    compute_weekly_card_timeline,
+    compute_weighted_consensus_60,
+)
 from analysis.evolution import compute_archetype_evolution, compute_meta_evolution
 from analysis.matchup import compute_matchup_matrix
 from analysis.meta import get_latest_snapshot
@@ -2377,6 +2383,103 @@ def export_archetype_overlap(conn: sqlite3.Connection, output_dir: Path) -> None
         logger.info("Exported archetype overlap matrix (%d archetypes)", len(data["archetypes"]))
 
 
+def export_deep_dive(conn: sqlite3.Connection, output_dir: Path, *, format_slug: str = "") -> None:
+    """Export per-archetype deep dive report JSON files."""
+    from datetime import UTC, datetime
+
+    snapshot = get_latest_snapshot(conn)
+    if not snapshot:
+        logger.warning("Skipping deep dive export: no snapshot available")
+        return
+
+    category_lookup = build_category_lookup(conn)
+    weighted_shares = _compute_weighted_shares(conn, snapshot)
+    report_dir = output_dir / "archetype-reports"
+    report_dir.mkdir(parents=True, exist_ok=True)
+
+    count = 0
+    for arch in snapshot["archetypes"]:
+        archetype_name = arch["archetype"]
+        slug = _slugify(archetype_name)
+
+        # Get placements
+        placements = conn.execute(
+            "SELECT id, standing FROM open_placements WHERE archetype = ?",
+            (archetype_name,),
+        ).fetchall()
+
+        if not placements:
+            logger.debug("Skipping %s: no placements found", archetype_name)
+            continue
+
+        placement_ids = [p["id"] for p in placements]
+        deck_count = len(placement_ids)
+
+        # Check minimum decklists
+        has_decklists = conn.execute(
+            "SELECT COUNT(DISTINCT placement_id) FROM decklist_cards WHERE placement_id IN ({})".format(
+                ",".join("?" * len(placement_ids))
+            ),
+            placement_ids,
+        ).fetchone()[0]
+
+        if has_decklists < 3:
+            logger.debug("Skipping %s: only %d decklists", archetype_name, has_decklists)
+            continue
+
+        # Compute analyses
+        consensus = compute_weighted_consensus_60(conn, archetype_name, category_lookup)
+        timeline = compute_weekly_card_timeline(conn, archetype_name)
+        notable_techs = compute_notable_techs(timeline)
+        placement_dist = compute_placement_distribution(
+            [{"standing": p["standing"]} for p in placements]
+        )
+
+        # Tournament count
+        tournament_count = conn.execute(
+            """
+            SELECT COUNT(DISTINCT t.id)
+            FROM open_placements p
+            JOIN tournaments t ON t.id = p.tournament_id
+            WHERE p.archetype = ?
+            """,
+            (archetype_name,),
+        ).fetchone()[0]
+
+        best_placement = min(p["standing"] for p in placements)
+        sprite_filenames = _get_sprite_filenames(archetype_name)
+
+        report = {
+            "archetype": archetype_name,
+            "slug": slug,
+            "format": format_slug or "",
+            "generated_at": datetime.now(UTC).isoformat(),
+            "tier": arch["tier"],
+            "meta_share": arch["meta_share"],
+            "weighted_share": weighted_shares.get(archetype_name, arch["meta_share"]),
+            "deck_count": deck_count,
+            "best_placement": best_placement,
+            "sprite_filenames": sprite_filenames,
+            "consensus_60": consensus,
+            "tech_evolution": timeline,
+            "notable_techs": notable_techs,
+            "placement_distribution": placement_dist,
+            "tournament_count": tournament_count,
+            "narrative": {},
+        }
+
+        _write_json(report, report_dir / f"{slug}.json")
+        count += 1
+
+    if count == 0:
+        logger.warning(
+            "No deep dive reports exported (%d archetypes in snapshot, none qualified)",
+            len(snapshot["archetypes"]),
+        )
+    else:
+        logger.info("Exported %d archetype deep dive reports", count)
+
+
 def export_all(
     conn: sqlite3.Connection, output_dir: Path | None = None, format_slug: str | None = None
 ) -> Path:
@@ -2412,6 +2515,10 @@ def export_all(
             export_fn(conn, out)
         except (sqlite3.OperationalError, ValueError) as exc:
             logger.warning("Skipping %s export (data unavailable): %s", name, exc)
+    try:
+        export_deep_dive(conn, out, format_slug=slug)
+    except sqlite3.OperationalError as exc:
+        logger.warning("Skipping deep dive reports export (table missing): %s", exc)
     export_windowed(conn, out, format_slug=slug)
 
     logger.info("Export complete")

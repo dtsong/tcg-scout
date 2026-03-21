@@ -1,158 +1,237 @@
 {
   "card_name": "Steven's Metagross ex",
   "card_slug": "steven-s-metagross-ex",
-  "card_id": null,
-  "set_code": null,
-  "set_number": null,
-  "image_url": null,
+  "card_id": "me02.5-289",
+  "set_code": "me02.5",
+  "set_number": "289",
+  "image_url": "https://assets.tcgdex.net/en/me/me02.5/289/high.png",
   "category": "Trainer",
-  "rarity": null,
-  "total_appearances": 11,
-  "usage_pct": 0.9,
-  "avg_copies": 2.9,
-  "unique_archetypes": 2,
-  "weighted_score": 15.2,
-  "win_rate_proxy": 1.38,
+  "rarity": "",
+  "total_appearances": 103,
+  "usage_pct": 1.5,
+  "avg_copies": 2.6,
+  "unique_archetypes": 9,
+  "weighted_score": 153.3,
+  "win_rate_proxy": 1.49,
   "top_archetype": "Empoleon Metagross",
   "trend_direction": "stable",
   "copy_distribution": [
     {
       "copies": 2,
-      "count": 1
+      "count": 42
     },
     {
       "copies": 3,
-      "count": 10
+      "count": 61
     }
   ],
   "archetypes": [
     {
       "name": "Empoleon Metagross",
       "slug": "empoleon-metagross",
-      "usage_count": 9,
-      "avg_copies": 2.9,
+      "usage_count": 63,
+      "avg_copies": 2.6,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Jellicent Metagross",
+      "slug": "jellicent-metagross",
+      "usage_count": 17,
+      "avg_copies": 2.4,
       "tier": "Rogue"
     },
     {
       "name": "Genesect Metagross",
       "slug": "genesect-metagross",
-      "usage_count": 2,
+      "usage_count": 13,
+      "avg_copies": 2.8,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Metagross",
+      "slug": "metagross",
+      "usage_count": 4,
       "avg_copies": 3.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Aegislash Metagross",
+      "slug": "aegislash-metagross",
+      "usage_count": 2,
+      "avg_copies": 2.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Metagross Slowking",
+      "slug": "metagross-slowking",
+      "usage_count": 1,
+      "avg_copies": 2.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Dusknoir Metagross",
+      "slug": "dusknoir-metagross",
+      "usage_count": 1,
+      "avg_copies": 2.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Dudunsparce Metagross",
+      "slug": "dudunsparce-metagross",
+      "usage_count": 1,
+      "avg_copies": 3.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Clefairy Metagross",
+      "slug": "clefairy-metagross",
+      "usage_count": 1,
+      "avg_copies": 2.0,
       "tier": "Rogue"
     }
   ],
   "weekly_usage": [
     {
-      "week": "2026-03-02",
+      "week": "2026-01-19",
+      "usage_pct": 1.2,
+      "avg_copies": 2.4
+    },
+    {
+      "week": "2026-01-26",
+      "usage_pct": 1.6,
+      "avg_copies": 2.6
+    },
+    {
+      "week": "2026-02-02",
+      "usage_pct": 2.0,
+      "avg_copies": 2.5
+    },
+    {
+      "week": "2026-02-09",
+      "usage_pct": 2.2,
+      "avg_copies": 2.5
+    },
+    {
+      "week": "2026-02-16",
+      "usage_pct": 0.0,
+      "avg_copies": 0
+    },
+    {
+      "week": "2026-02-23",
       "usage_pct": 0.9,
+      "avg_copies": 2.8
+    },
+    {
+      "week": "2026-03-02",
+      "usage_pct": 1.0,
       "avg_copies": 2.9
     }
   ],
   "synergy_partners": [
     {
-      "card_name": "Empoleon ex",
-      "support": 10,
-      "lift": 107.636,
-      "jaccard": 0.909,
-      "weighted_score": 14.0
-    },
-    {
-      "card_name": "Genesect ex",
-      "support": 11,
-      "lift": 107.636,
-      "jaccard": 1.0,
-      "weighted_score": 15.2
-    },
-    {
-      "card_name": "Piplup",
-      "support": 10,
-      "lift": 107.636,
-      "jaccard": 0.909,
-      "weighted_score": 14.0
+      "card_name": "Mega Skarmory ex",
+      "support": 20,
+      "lift": 65.592,
+      "jaccard": 0.194,
+      "weighted_score": 29.4
     },
     {
       "card_name": "Steven's Beldum",
-      "support": 11,
-      "lift": 107.636,
+      "support": 103,
+      "lift": 65.592,
       "jaccard": 1.0,
-      "weighted_score": 15.2
+      "weighted_score": 153.3
     },
     {
       "card_name": "Steven's Metang",
-      "support": 11,
-      "lift": 107.636,
+      "support": 103,
+      "lift": 65.592,
       "jaccard": 1.0,
-      "weighted_score": 15.2
+      "weighted_score": 153.3
     },
     {
-      "card_name": "Mega Mawile ex",
-      "support": 9,
-      "lift": 56.984,
-      "jaccard": 0.474,
-      "weighted_score": 12.5
+      "card_name": "Empoleon ex",
+      "support": 72,
+      "lift": 64.694,
+      "jaccard": 0.692,
+      "weighted_score": 105.2
     },
     {
-      "card_name": "Energy Recycler",
+      "card_name": "Piplup",
+      "support": 72,
+      "lift": 64.694,
+      "jaccard": 0.692,
+      "weighted_score": 105.2
+    },
+    {
+      "card_name": "Dialga",
+      "support": 12,
+      "lift": 60.547,
+      "jaccard": 0.115,
+      "weighted_score": 18.8
+    },
+    {
+      "card_name": "Genesect ex",
+      "support": 100,
+      "lift": 59.092,
+      "jaccard": 0.877,
+      "weighted_score": 149.1
+    },
+    {
+      "card_name": "Super Potion",
       "support": 11,
-      "lift": 49.333,
-      "jaccard": 0.458,
-      "weighted_score": 15.2
+      "lift": 51.537,
+      "jaccard": 0.104,
+      "weighted_score": 17.8
     },
     {
       "card_name": "Precious Trolley",
-      "support": 6,
-      "lift": 46.13,
-      "jaccard": 0.316,
-      "weighted_score": 7.8
+      "support": 83,
+      "lift": 41.558,
+      "jaccard": 0.55,
+      "weighted_score": 122.9
     },
     {
       "card_name": "Jumbo Ice Cream",
-      "support": 6,
-      "lift": 33.99,
-      "jaccard": 0.25,
-      "weighted_score": 7.5
+      "support": 65,
+      "lift": 32.796,
+      "jaccard": 0.387,
+      "weighted_score": 93.8
+    },
+    {
+      "card_name": "Energy Recycler",
+      "support": 99,
+      "lift": 30.063,
+      "jaccard": 0.45,
+      "weighted_score": 146.9
+    },
+    {
+      "card_name": "Mega Mawile ex",
+      "support": 66,
+      "lift": 26.079,
+      "jaccard": 0.325,
+      "weighted_score": 94.9
+    },
+    {
+      "card_name": "Jellicent ex",
+      "support": 24,
+      "lift": 15.742,
+      "jaccard": 0.134,
+      "weighted_score": 36.5
+    },
+    {
+      "card_name": "Frillish",
+      "support": 24,
+      "lift": 10.425,
+      "jaccard": 0.104,
+      "weighted_score": 36.5
     },
     {
       "card_name": "Team Rocket's Transceiver",
-      "support": 7,
-      "lift": 6.332,
-      "jaccard": 0.057,
-      "weighted_score": 9.0
-    },
-    {
-      "card_name": "Brock's Scouting",
-      "support": 6,
-      "lift": 4.485,
-      "jaccard": 0.04,
-      "weighted_score": 8.9
-    },
-    {
-      "card_name": "Team Rocket's Petrel",
-      "support": 10,
-      "lift": 3.093,
-      "jaccard": 0.029,
-      "weighted_score": 13.7
-    },
-    {
-      "card_name": "Latias ex",
-      "support": 10,
-      "lift": 3.007,
-      "jaccard": 0.028,
-      "weighted_score": 14.0
-    },
-    {
-      "card_name": "Lillie's Clefairy ex",
-      "support": 11,
-      "lift": 2.779,
-      "jaccard": 0.026,
-      "weighted_score": 15.2
-    },
-    {
-      "card_name": "Rare Candy",
-      "support": 11,
-      "lift": 2.709,
-      "jaccard": 0.025,
-      "weighted_score": 15.2
+      "support": 79,
+      "lift": 9.22,
+      "jaccard": 0.135,
+      "weighted_score": 116.2
     }
   ]
 }

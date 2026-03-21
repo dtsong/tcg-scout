@@ -365,3 +365,69 @@ export interface MetaReport {
   data_hash: string;
   sections: ReportSection[];
 }
+
+export interface ConsensusCard {
+  card_name: string;
+  count: number;
+  category: "Pokemon" | "Trainer" | "Energy";
+  weighted_inclusion_pct: number;
+  weighted_avg_copies: number;
+  confidence: number;
+  consensus: "core" | "common" | "tech";
+}
+
+export interface TechEvolutionCard {
+  card_name: string;
+  category: "Pokemon" | "Trainer" | "Energy";
+  timeline: number[];
+  copies_timeline: number[];
+  trend: "adopted" | "dropped" | "shifted" | "stable";
+  total_delta: number;
+}
+
+export interface NotableTech {
+  card_name: string;
+  event: "appeared" | "disappeared" | "surged" | "declined";
+  week: string;
+  from_pct: number;
+  to_pct: number;
+}
+
+export interface PlacementBracket {
+  bracket: "1st" | "2nd" | "3rd-4th" | "5th-8th" | "9th-16th" | "17th+";
+  count: number;
+  pct: number;
+}
+
+export interface ArchetypeReport {
+  archetype: string;
+  slug: string;
+  format: string;
+  generated_at: string;
+  tier: Tier;
+  meta_share: number;
+  weighted_share: number;
+  deck_count: number;
+  best_placement: number;
+  sprite_filenames: string[];
+  consensus_60: {
+    quality_score: number;
+    total_pokemon: number;
+    total_trainer: number;
+    total_energy: number;
+    cards: ConsensusCard[];
+  } | null;
+  tech_evolution: {
+    weeks: string[];
+    cards: TechEvolutionCard[];
+  } | null;
+  notable_techs: NotableTech[];
+  placement_distribution: PlacementBracket[];
+  tournament_count: number;
+  /** Reserved for future use -- currently always empty ({}) from the Python export. */
+  narrative: {
+    summary?: string;
+    consensus_rationale?: string;
+    tech_evolution_analysis?: string;
+  };
+}

@@ -8,6 +8,7 @@ import type {
   WinningEdgeCard,
   AceSpec,
   ArchetypeDetail,
+  ArchetypeReport,
   CLDivision,
   FormatInfo,
   TimelineData,
@@ -198,3 +199,16 @@ export function getMetaReport(format: string): MetaReport | null {
     return null;
   }
 }
+
+export function getArchetypeReport(
+  format: string,
+  slug: string,
+): ArchetypeReport | null {
+  try {
+    return readJson(`${format}/archetype-reports/${slug}.json`);
+  } catch (err) {
+    if (isFileNotFound(err)) return null;
+    throw err;
+  }
+}
+

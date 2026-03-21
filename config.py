@@ -32,7 +32,7 @@ FORMATS = {
         "dataset_end": "2026-03-13",
         "rotation_date": "2026-04-10",
         "description": "Temporal Forces through Mega Evolution: Perfect Order",
-        "db_name": "nihil-zero.db",
+        "db_name": "scout.db",
     },
     "ninja-spinner": {
         "name": "Ninja Spinner",

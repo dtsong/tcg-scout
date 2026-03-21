@@ -1,169 +1,213 @@
 {
   "card_name": "Makuhita",
   "card_slug": "makuhita",
-  "card_id": null,
-  "set_code": null,
-  "set_number": null,
-  "image_url": null,
+  "card_id": "me01-072",
+  "set_code": "me01",
+  "set_number": "072",
+  "image_url": "https://assets.tcgdex.net/en/me/me01/072/high.png",
   "category": "Pokemon",
-  "rarity": null,
-  "total_appearances": 62,
-  "usage_pct": 5.2,
-  "avg_copies": 1.9,
-  "unique_archetypes": 3,
-  "weighted_score": 92.4,
-  "win_rate_proxy": 1.49,
+  "rarity": "",
+  "total_appearances": 714,
+  "usage_pct": 10.6,
+  "avg_copies": 2.1,
+  "unique_archetypes": 5,
+  "weighted_score": 1094.8,
+  "win_rate_proxy": 1.53,
   "top_archetype": "Mega Lucario",
-  "trend_direction": "stable",
+  "trend_direction": "declining",
   "copy_distribution": [
     {
       "copies": 1,
-      "count": 11
+      "count": 71
     },
     {
       "copies": 2,
-      "count": 49
+      "count": 511
     },
     {
       "copies": 3,
-      "count": 2
+      "count": 132
     }
   ],
   "archetypes": [
     {
       "name": "Mega Lucario",
       "slug": "mega-lucario",
-      "usage_count": 47,
-      "avg_copies": 2.0,
-      "tier": "B"
+      "usage_count": 611,
+      "avg_copies": 2.2,
+      "tier": "A"
     },
     {
       "name": "Mega Lucario Solrock",
       "slug": "mega-lucario-solrock",
-      "usage_count": 13,
-      "avg_copies": 1.3,
+      "usage_count": 91,
+      "avg_copies": 1.4,
       "tier": "C"
     },
     {
       "name": "Mega Lucario ex",
       "slug": "mega-lucario-ex",
-      "usage_count": 2,
+      "usage_count": 10,
       "avg_copies": 1.0,
       "tier": "Rogue"
+    },
+    {
+      "name": "Mega Lucario Dudunsparce",
+      "slug": "mega-lucario-dudunsparce",
+      "usage_count": 1,
+      "avg_copies": 1.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Barbaracle Okidogi",
+      "slug": "barbaracle-okidogi",
+      "usage_count": 1,
+      "avg_copies": 1.0,
+      "tier": "C"
     }
   ],
   "weekly_usage": [
     {
+      "week": "2026-01-19",
+      "usage_pct": 12.9,
+      "avg_copies": 2.5
+    },
+    {
+      "week": "2026-01-26",
+      "usage_pct": 16.5,
+      "avg_copies": 2.2
+    },
+    {
+      "week": "2026-02-02",
+      "usage_pct": 11.8,
+      "avg_copies": 2.1
+    },
+    {
+      "week": "2026-02-09",
+      "usage_pct": 10.5,
+      "avg_copies": 2.0
+    },
+    {
+      "week": "2026-02-16",
+      "usage_pct": 7.0,
+      "avg_copies": 1.8
+    },
+    {
+      "week": "2026-02-23",
+      "usage_pct": 8.9,
+      "avg_copies": 1.8
+    },
+    {
       "week": "2026-03-02",
-      "usage_pct": 5.2,
-      "avg_copies": 1.9
+      "usage_pct": 5.0,
+      "avg_copies": 1.8
     }
   ],
   "synergy_partners": [
     {
       "card_name": "Hariyama",
-      "support": 62,
-      "lift": 19.097,
+      "support": 714,
+      "lift": 9.462,
       "jaccard": 1.0,
-      "weighted_score": 92.4
+      "weighted_score": 1094.8
+    },
+    {
+      "card_name": "Mega Zygarde ex",
+      "support": 6,
+      "lift": 8.11,
+      "jaccard": 0.008,
+      "weighted_score": 10.9
     },
     {
       "card_name": "Mega Lucario ex",
-      "support": 62,
-      "lift": 16.676,
-      "jaccard": 0.873,
-      "weighted_score": 92.4
+      "support": 713,
+      "lift": 7.928,
+      "jaccard": 0.837,
+      "weighted_score": 1093.6
     },
     {
       "card_name": "Riolu",
-      "support": 62,
-      "lift": 16.676,
-      "jaccard": 0.873,
-      "weighted_score": 92.4
+      "support": 713,
+      "lift": 7.928,
+      "jaccard": 0.837,
+      "weighted_score": 1093.6
     },
     {
       "card_name": "Gravity Mountain",
-      "support": 51,
-      "lift": 13.342,
-      "jaccard": 0.607,
-      "weighted_score": 76.0
+      "support": 552,
+      "lift": 6.973,
+      "jaccard": 0.606,
+      "weighted_score": 849.8
     },
     {
-      "card_name": "Premium Power Pro",
-      "support": 62,
-      "lift": 11.608,
-      "jaccard": 0.608,
-      "weighted_score": 92.4
+      "card_name": "Core Memory",
+      "support": 11,
+      "lift": 6.505,
+      "jaccard": 0.015,
+      "weighted_score": 18.5
     },
     {
       "card_name": "Lunatone",
-      "support": 62,
-      "lift": 10.478,
-      "jaccard": 0.549,
-      "weighted_score": 92.4
+      "support": 714,
+      "lift": 6.471,
+      "jaccard": 0.684,
+      "weighted_score": 1094.8
     },
     {
       "card_name": "Solrock",
-      "support": 62,
-      "lift": 10.478,
-      "jaccard": 0.549,
-      "weighted_score": 92.4
+      "support": 714,
+      "lift": 6.471,
+      "jaccard": 0.684,
+      "weighted_score": 1094.8
     },
     {
-      "card_name": "Wally's Compassion",
-      "support": 39,
-      "lift": 8.561,
-      "jaccard": 0.355,
-      "weighted_score": 59.4
-    },
-    {
-      "card_name": "Rock Fighting Energy",
-      "support": 36,
-      "lift": 7.812,
-      "jaccard": 0.316,
-      "weighted_score": 50.1
+      "card_name": "Premium Power Pro",
+      "support": 713,
+      "lift": 5.986,
+      "jaccard": 0.632,
+      "weighted_score": 1093.6
     },
     {
       "card_name": "Maximum Belt",
-      "support": 46,
-      "lift": 7.706,
-      "jaccard": 0.354,
-      "weighted_score": 66.0
+      "support": 382,
+      "lift": 5.552,
+      "jaccard": 0.389,
+      "weighted_score": 575.2
+    },
+    {
+      "card_name": "Carbink",
+      "support": 7,
+      "lift": 5.095,
+      "jaccard": 0.01,
+      "weighted_score": 11.3
     },
     {
       "card_name": "Fighting Gong",
-      "support": 62,
-      "lift": 7.354,
-      "jaccard": 0.385,
-      "weighted_score": 92.4
+      "support": 714,
+      "lift": 5.042,
+      "jaccard": 0.533,
+      "weighted_score": 1094.8
+    },
+    {
+      "card_name": "Wally's Compassion",
+      "support": 436,
+      "lift": 4.329,
+      "jaccard": 0.354,
+      "weighted_score": 667.4
+    },
+    {
+      "card_name": "Rock Fighting Energy",
+      "support": 190,
+      "lift": 3.969,
+      "jaccard": 0.194,
+      "weighted_score": 280.4
     },
     {
       "card_name": "Carmine",
-      "support": 27,
-      "lift": 6.445,
-      "jaccard": 0.235,
-      "weighted_score": 40.4
-    },
-    {
-      "card_name": "Switch",
-      "support": 54,
-      "lift": 6.138,
-      "jaccard": 0.307,
-      "weighted_score": 80.5
-    },
-    {
-      "card_name": "Air Balloon",
-      "support": 60,
-      "lift": 4.476,
-      "jaccard": 0.233,
-      "weighted_score": 89.2
-    },
-    {
-      "card_name": "Genesect",
-      "support": 11,
-      "lift": 3.444,
-      "jaccard": 0.098,
-      "weighted_score": 15.8
+      "support": 360,
+      "lift": 3.699,
+      "jaccard": 0.282,
+      "weighted_score": 553.9
     }
   ]
 }

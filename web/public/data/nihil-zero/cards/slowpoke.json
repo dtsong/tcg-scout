@@ -7,170 +7,274 @@
   "image_url": null,
   "category": "Pokemon",
   "rarity": null,
-  "total_appearances": 8,
+  "total_appearances": 44,
   "usage_pct": 0.7,
-  "avg_copies": 3.9,
-  "unique_archetypes": 4,
-  "weighted_score": 15.3,
-  "win_rate_proxy": 1.91,
-  "top_archetype": "Latias Slowking",
+  "avg_copies": 3.7,
+  "unique_archetypes": 14,
+  "weighted_score": 79.5,
+  "win_rate_proxy": 1.81,
+  "top_archetype": "Slowking",
   "trend_direction": "stable",
   "copy_distribution": [
     {
       "copies": 1,
-      "count": 1
+      "count": 4
+    },
+    {
+      "copies": 2,
+      "count": 7
     },
     {
       "copies": 3,
-      "count": 2
+      "count": 14
     },
     {
       "copies": 4,
-      "count": 6
+      "count": 26
     }
   ],
   "archetypes": [
     {
-      "name": "Latias Slowking",
-      "slug": "latias-slowking",
-      "usage_count": 4,
-      "avg_copies": 3.2,
-      "tier": "Rogue"
-    },
-    {
-      "name": "Mega Kangaskhan Slowking",
-      "slug": "mega-kangaskhan-slowking",
-      "usage_count": 2,
-      "avg_copies": 3.5,
-      "tier": "Rogue"
-    },
-    {
       "name": "Slowking",
       "slug": "slowking",
-      "usage_count": 1,
-      "avg_copies": 4.0,
+      "usage_count": 14,
+      "avg_copies": 3.1,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Latias Slowking",
+      "slug": "latias-slowking",
+      "usage_count": 8,
+      "avg_copies": 3.4,
       "tier": "Rogue"
     },
     {
       "name": "Mega Slowbro Slowking",
       "slug": "mega-slowbro-slowking",
+      "usage_count": 5,
+      "avg_copies": 4.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Mega Kangaskhan Slowking",
+      "slug": "mega-kangaskhan-slowking",
+      "usage_count": 3,
+      "avg_copies": 3.3,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Dudunsparce Slowking",
+      "slug": "dudunsparce-slowking",
+      "usage_count": 3,
+      "avg_copies": 2.5,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Meowth Slowking",
+      "slug": "meowth-slowking",
+      "usage_count": 2,
+      "avg_copies": 4.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Gumshoos Slowking",
+      "slug": "gumshoos-slowking",
+      "usage_count": 2,
+      "avg_copies": 3.5,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Slowking Zoroark",
+      "slug": "slowking-zoroark",
+      "usage_count": 1,
+      "avg_copies": 2.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Metagross Slowking",
+      "slug": "metagross-slowking",
+      "usage_count": 1,
+      "avg_copies": 3.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Mega Slowbro Dusknoir",
+      "slug": "mega-slowbro-dusknoir",
+      "usage_count": 1,
+      "avg_copies": 2.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Mega Diancie Slowking",
+      "slug": "mega-diancie-slowking",
+      "usage_count": 1,
+      "avg_copies": 3.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Mega Diancie Mega Slowbro",
+      "slug": "mega-diancie-mega-slowbro",
+      "usage_count": 1,
+      "avg_copies": 3.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Dusknoir Slowking",
+      "slug": "dusknoir-slowking",
       "usage_count": 1,
       "avg_copies": 4.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Alakazam Slowking",
+      "slug": "alakazam-slowking",
+      "usage_count": 1,
+      "avg_copies": 3.0,
       "tier": "Rogue"
     }
   ],
   "weekly_usage": [
     {
+      "week": "2026-01-19",
+      "usage_pct": 0.7,
+      "avg_copies": 2.8
+    },
+    {
+      "week": "2026-01-26",
+      "usage_pct": 0.6,
+      "avg_copies": 2.3
+    },
+    {
+      "week": "2026-02-02",
+      "usage_pct": 1.1,
+      "avg_copies": 2.9
+    },
+    {
+      "week": "2026-02-09",
+      "usage_pct": 0.4,
+      "avg_copies": 3.8
+    },
+    {
+      "week": "2026-02-16",
+      "usage_pct": 3.9,
+      "avg_copies": 3.2
+    },
+    {
+      "week": "2026-02-23",
+      "usage_pct": 0.7,
+      "avg_copies": 4.0
+    },
+    {
       "week": "2026-03-02",
-      "usage_pct": 0.8,
-      "avg_copies": 3.4
+      "usage_pct": 0.9,
+      "avg_copies": 3.5
     }
   ],
   "synergy_partners": [
     {
       "card_name": "Academy at Night",
-      "support": 8,
-      "lift": 148.0,
-      "jaccard": 1.0,
-      "weighted_score": 14.1
+      "support": 42,
+      "lift": 153.545,
+      "jaccard": 0.955,
+      "weighted_score": 65.7
     },
     {
       "card_name": "Annihilape",
-      "support": 7,
-      "lift": 148.0,
-      "jaccard": 0.875,
-      "weighted_score": 12.6
+      "support": 40,
+      "lift": 153.545,
+      "jaccard": 0.909,
+      "weighted_score": 62.2
+    },
+    {
+      "card_name": "Boomerang Energy",
+      "support": 11,
+      "lift": 153.545,
+      "jaccard": 0.25,
+      "weighted_score": 17.5
+    },
+    {
+      "card_name": "Conkeldurr",
+      "support": 24,
+      "lift": 153.545,
+      "jaccard": 0.545,
+      "weighted_score": 35.9
     },
     {
       "card_name": "Haxorus",
-      "support": 6,
-      "lift": 148.0,
-      "jaccard": 0.75,
-      "weighted_score": 10.6
+      "support": 14,
+      "lift": 153.545,
+      "jaccard": 0.318,
+      "weighted_score": 24.2
     },
     {
-      "card_name": "Kyurem",
+      "card_name": "Mega Slowbro ex",
       "support": 8,
-      "lift": 148.0,
-      "jaccard": 1.0,
-      "weighted_score": 14.1
+      "lift": 153.545,
+      "jaccard": 0.182,
+      "weighted_score": 11.0
+    },
+    {
+      "card_name": "N's Vanilluxe",
+      "support": 5,
+      "lift": 153.545,
+      "jaccard": 0.114,
+      "weighted_score": 6.8
     },
     {
       "card_name": "Slowking",
+      "support": 42,
+      "lift": 153.545,
+      "jaccard": 0.955,
+      "weighted_score": 65.7
+    },
+    {
+      "card_name": "Zoroark",
       "support": 8,
-      "lift": 148.0,
-      "jaccard": 1.0,
-      "weighted_score": 14.1
+      "lift": 153.545,
+      "jaccard": 0.182,
+      "weighted_score": 10.5
+    },
+    {
+      "card_name": "Kyurem",
+      "support": 42,
+      "lift": 143.309,
+      "jaccard": 0.894,
+      "weighted_score": 65.7
+    },
+    {
+      "card_name": "Spectrier",
+      "support": 12,
+      "lift": 141.734,
+      "jaccard": 0.267,
+      "weighted_score": 21.0
+    },
+    {
+      "card_name": "Cofagrigus",
+      "support": 5,
+      "lift": 127.955,
+      "jaccard": 0.111,
+      "weighted_score": 7.4
     },
     {
       "card_name": "Smoochum",
-      "support": 6,
-      "lift": 98.667,
-      "jaccard": 0.545,
-      "weighted_score": 10.6
+      "support": 29,
+      "lift": 98.952,
+      "jaccard": 0.483,
+      "weighted_score": 46.0
     },
     {
-      "card_name": "Colress's Tenacity",
-      "support": 7,
-      "lift": 33.419,
-      "jaccard": 0.219,
-      "weighted_score": 12.6
-    },
-    {
-      "card_name": "Wondrous Patch",
-      "support": 8,
-      "lift": 17.672,
-      "jaccard": 0.119,
-      "weighted_score": 14.1
-    },
-    {
-      "card_name": "Telepath Psychic Energy",
-      "support": 8,
-      "lift": 11.96,
-      "jaccard": 0.081,
-      "weighted_score": 14.1
-    },
-    {
-      "card_name": "Lana's Aid",
-      "support": 6,
-      "lift": 5.881,
-      "jaccard": 0.039,
-      "weighted_score": 11.4
-    },
-    {
-      "card_name": "Ciphermaniac's Codebreaking",
-      "support": 7,
-      "lift": 5.34,
-      "jaccard": 0.036,
-      "weighted_score": 11.6
-    },
-    {
-      "card_name": "Hilda",
+      "card_name": "Zeraora",
       "support": 5,
-      "lift": 4.327,
-      "jaccard": 0.029,
-      "weighted_score": 8.9
+      "lift": 95.966,
+      "jaccard": 0.106,
+      "weighted_score": 9.2
     },
     {
-      "card_name": "Latias ex",
-      "support": 8,
-      "lift": 3.307,
-      "jaccard": 0.022,
-      "weighted_score": 14.1
-    },
-    {
-      "card_name": "Lillie's Clefairy ex",
-      "support": 6,
-      "lift": 2.085,
-      "jaccard": 0.014,
-      "weighted_score": 9.9
-    },
-    {
-      "card_name": "Fezandipiti ex",
-      "support": 8,
-      "lift": 1.647,
-      "jaccard": 0.011,
-      "weighted_score": 14.1
+      "card_name": "Counter Gain",
+      "support": 9,
+      "lift": 30.709,
+      "jaccard": 0.113,
+      "weighted_score": 14.3
     }
   ]
 }

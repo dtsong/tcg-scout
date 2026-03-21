@@ -7,30 +7,60 @@
   "image_url": null,
   "category": "Pokemon",
   "rarity": null,
-  "total_appearances": 47,
-  "usage_pct": 4.0,
+  "total_appearances": 81,
+  "usage_pct": 1.2,
   "avg_copies": 2.0,
   "unique_archetypes": 1,
-  "weighted_score": 89.0,
-  "win_rate_proxy": 1.89,
+  "weighted_score": 148.4,
+  "win_rate_proxy": 1.83,
   "top_archetype": "Arboliva Ogerpon",
   "trend_direction": "stable",
   "copy_distribution": [
     {
       "copies": 2,
-      "count": 47
+      "count": 81
     }
   ],
   "archetypes": [
     {
       "name": "Arboliva Ogerpon",
       "slug": "arboliva-ogerpon",
-      "usage_count": 47,
+      "usage_count": 81,
       "avg_copies": 2.0,
-      "tier": "B"
+      "tier": "C"
     }
   ],
   "weekly_usage": [
+    {
+      "week": "2026-01-19",
+      "usage_pct": 0.0,
+      "avg_copies": 0
+    },
+    {
+      "week": "2026-01-26",
+      "usage_pct": 0.2,
+      "avg_copies": 2.0
+    },
+    {
+      "week": "2026-02-02",
+      "usage_pct": 0.1,
+      "avg_copies": 2.0
+    },
+    {
+      "week": "2026-02-09",
+      "usage_pct": 0.2,
+      "avg_copies": 2.0
+    },
+    {
+      "week": "2026-02-16",
+      "usage_pct": 0.0,
+      "avg_copies": 0
+    },
+    {
+      "week": "2026-02-23",
+      "usage_pct": 2.7,
+      "avg_copies": 2.0
+    },
     {
       "week": "2026-03-02",
       "usage_pct": 4.0,
@@ -40,108 +70,108 @@
   "synergy_partners": [
     {
       "card_name": "Dolliv",
-      "support": 47,
-      "lift": 25.191,
+      "support": 81,
+      "lift": 83.407,
       "jaccard": 1.0,
-      "weighted_score": 89.0
+      "weighted_score": 148.4
     },
     {
       "card_name": "Smoliv",
-      "support": 47,
-      "lift": 25.191,
+      "support": 81,
+      "lift": 83.407,
       "jaccard": 1.0,
-      "weighted_score": 89.0
+      "weighted_score": 148.4
     },
     {
       "card_name": "Bayleef",
-      "support": 47,
-      "lift": 15.377,
-      "jaccard": 0.61,
-      "weighted_score": 89.0
+      "support": 81,
+      "lift": 21.864,
+      "jaccard": 0.262,
+      "weighted_score": 148.4
     },
     {
       "card_name": "Chikorita",
-      "support": 47,
-      "lift": 15.377,
-      "jaccard": 0.61,
-      "weighted_score": 89.0
+      "support": 81,
+      "lift": 21.864,
+      "jaccard": 0.262,
+      "weighted_score": 148.4
     },
     {
       "card_name": "Meganium",
-      "support": 47,
-      "lift": 15.377,
-      "jaccard": 0.61,
-      "weighted_score": 89.0
+      "support": 81,
+      "lift": 21.864,
+      "jaccard": 0.262,
+      "weighted_score": 148.4
     },
     {
       "card_name": "Forest of Vitality",
-      "support": 47,
-      "lift": 12.596,
-      "jaccard": 0.5,
-      "weighted_score": 89.0
-    },
-    {
-      "card_name": "Lana's Aid",
-      "support": 41,
-      "lift": 6.84,
-      "jaccard": 0.261,
-      "weighted_score": 80.4
+      "support": 81,
+      "lift": 14.134,
+      "jaccard": 0.169,
+      "weighted_score": 148.4
     },
     {
       "card_name": "Bug Catching Set",
-      "support": 47,
-      "lift": 6.689,
-      "jaccard": 0.266,
-      "weighted_score": 89.0
+      "support": 81,
+      "lift": 9.093,
+      "jaccard": 0.109,
+      "weighted_score": 148.4
     },
     {
-      "card_name": "Dawn",
-      "support": 47,
-      "lift": 4.643,
-      "jaccard": 0.184,
-      "weighted_score": 89.0
+      "card_name": "Lana's Aid",
+      "support": 67,
+      "lift": 8.17,
+      "jaccard": 0.096,
+      "weighted_score": 122.9
     },
     {
       "card_name": "Teal Mask Ogerpon ex",
-      "support": 47,
-      "lift": 4.536,
-      "jaccard": 0.18,
-      "weighted_score": 89.0
+      "support": 81,
+      "lift": 7.651,
+      "jaccard": 0.092,
+      "weighted_score": 148.4
+    },
+    {
+      "card_name": "Dawn",
+      "support": 81,
+      "lift": 4.209,
+      "jaccard": 0.05,
+      "weighted_score": 148.4
+    },
+    {
+      "card_name": "Briar",
+      "support": 22,
+      "lift": 2.945,
+      "jaccard": 0.032,
+      "weighted_score": 42.7
     },
     {
       "card_name": "Meowth ex",
-      "support": 47,
-      "lift": 2.493,
-      "jaccard": 0.099,
-      "weighted_score": 89.0
-    },
-    {
-      "card_name": "Judge",
-      "support": 34,
-      "lift": 2.454,
-      "jaccard": 0.094,
-      "weighted_score": 68.1
-    },
-    {
-      "card_name": "Budew",
-      "support": 46,
-      "lift": 2.224,
-      "jaccard": 0.088,
-      "weighted_score": 86.0
-    },
-    {
-      "card_name": "Air Balloon",
-      "support": 21,
-      "lift": 2.066,
-      "jaccard": 0.074,
-      "weighted_score": 43.8
+      "support": 81,
+      "lift": 2.837,
+      "jaccard": 0.034,
+      "weighted_score": 148.4
     },
     {
       "card_name": "Unfair Stamp",
-      "support": 46,
-      "lift": 1.663,
-      "jaccard": 0.066,
-      "weighted_score": 87.5
+      "support": 79,
+      "lift": 2.455,
+      "jaccard": 0.029,
+      "weighted_score": 145.4
+    },
+    {
+      "card_name": "Budew",
+      "support": 80,
+      "lift": 2.414,
+      "jaccard": 0.029,
+      "weighted_score": 145.4
+    },
+    {
+      "card_name": "Ciphermaniac's Codebreaking",
+      "support": 14,
+      "lift": 2.34,
+      "jaccard": 0.025,
+      "weighted_score": 25.7
     }
   ]
 }
