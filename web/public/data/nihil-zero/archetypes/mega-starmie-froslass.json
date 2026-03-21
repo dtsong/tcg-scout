@@ -703,11 +703,6 @@
       "week": "2026-01-26",
       "adopted": [
         {
-          "card": "Mega Signal",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
           "card": "Tatsugiri",
           "from_pct": 0.0,
           "to_pct": 100.0
@@ -718,12 +713,17 @@
           "to_pct": 100.0
         },
         {
+          "card": "Judge",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
           "card": "Ignition Energy",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Judge",
+          "card": "Hero's Cape",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -733,24 +733,24 @@
           "to_pct": 100.0
         },
         {
-          "card": "Hero's Cape",
+          "card": "Mega Signal",
           "from_pct": 0.0,
           "to_pct": 100.0
         }
       ],
       "dropped": [
         {
-          "card": "Wally's Compassion",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Meowth ex",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Tool Scrapper",
+          "card": "Wally's Compassion",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Handheld Fan",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -760,7 +760,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "Team Rocket's Watchtower",
+          "card": "Legacy Energy",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -770,12 +770,12 @@
           "to_pct": 0.0
         },
         {
-          "card": "Legacy Energy",
+          "card": "Team Rocket's Watchtower",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
-          "card": "Handheld Fan",
+          "card": "Tool Scrapper",
           "from_pct": 50.0,
           "to_pct": 0.0
         }
@@ -816,6 +816,11 @@
     },
     {
       "week": "2026-03-02",
+      "meta_share": 0.0,
+      "deck_count": 0
+    },
+    {
+      "week": "2026-03-16",
       "meta_share": 0.0,
       "deck_count": 0
     }

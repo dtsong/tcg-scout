@@ -2126,26 +2126,6 @@
       "week": "2026-02-02",
       "adopted": [
         {
-          "card": "Maximum Belt",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Air Balloon",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Brock's Scouting",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Black Belt's Training",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
           "card": "Xerosic's Machinations",
           "from_pct": 0.0,
           "to_pct": 50.0
@@ -2156,12 +2136,37 @@
           "to_pct": 50.0
         },
         {
+          "card": "Brock's Scouting",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Air Balloon",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Maximum Belt",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Black Belt's Training",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Cyrano",
+          "from_pct": 25.0,
+          "to_pct": 50.0
+        },
+        {
           "card": "Tool Scrapper",
           "from_pct": 25.0,
           "to_pct": 50.0
         },
         {
-          "card": "Switch",
+          "card": "Team Rocket's Petrel",
           "from_pct": 25.0,
           "to_pct": 50.0
         },
@@ -2176,12 +2181,7 @@
           "to_pct": 50.0
         },
         {
-          "card": "Team Rocket's Petrel",
-          "from_pct": 25.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Cyrano",
+          "card": "Switch",
           "from_pct": 25.0,
           "to_pct": 50.0
         }
@@ -2207,7 +2207,7 @@
           "to_pct": 50.0
         },
         {
-          "card": "Ciphermaniac's Codebreaking",
+          "card": "Meowth ex",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -2217,14 +2217,19 @@
           "to_pct": 50.0
         },
         {
-          "card": "Meowth ex",
+          "card": "Ciphermaniac's Codebreaking",
           "from_pct": 0.0,
           "to_pct": 50.0
         }
       ],
       "dropped": [
         {
-          "card": "Maximum Belt",
+          "card": "Team Rocket's Petrel",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Cyrano",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -2239,17 +2244,17 @@
           "to_pct": 0.0
         },
         {
+          "card": "Xerosic's Machinations",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Maximum Belt",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
           "card": "Binding Mochi",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Brock's Scouting",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Team Rocket's Petrel",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -2259,17 +2264,12 @@
           "to_pct": 0.0
         },
         {
-          "card": "Xerosic's Machinations",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Risky Ruins",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
-          "card": "Cyrano",
+          "card": "Brock's Scouting",
           "from_pct": 50.0,
           "to_pct": 0.0
         }
@@ -2278,6 +2278,11 @@
     {
       "week": "2026-02-16",
       "adopted": [
+        {
+          "card": "Cyrano",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
         {
           "card": "Gravity Gemstone",
           "from_pct": 0.0,
@@ -2289,54 +2294,29 @@
           "to_pct": 100.0
         },
         {
-          "card": "Brock's Scouting",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
           "card": "Secret Box",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Cyrano",
+          "card": "Brock's Scouting",
           "from_pct": 0.0,
           "to_pct": 100.0
         }
       ],
       "dropped": [
         {
-          "card": "Black Belt's Training",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Fezandipiti ex",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Tool Scrapper",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Hilda",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Janine's Secret Art",
-          "from_pct": 50.0,
+          "card": "Black Belt's Training",
+          "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
           "card": "Deluxe Bomb",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Rare Candy",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -2346,7 +2326,22 @@
           "to_pct": 0.0
         },
         {
-          "card": "Ciphermaniac's Codebreaking",
+          "card": "Rare Candy",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Meowth ex",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Janine's Secret Art",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Hilda",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -2356,7 +2351,12 @@
           "to_pct": 0.0
         },
         {
-          "card": "Meowth ex",
+          "card": "Ciphermaniac's Codebreaking",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Tool Scrapper",
           "from_pct": 50.0,
           "to_pct": 0.0
         }
@@ -2366,7 +2366,17 @@
       "week": "2026-02-23",
       "adopted": [
         {
+          "card": "Rare Candy",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
           "card": "Unfair Stamp",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Meowth ex",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -2376,27 +2386,17 @@
           "to_pct": 100.0
         },
         {
-          "card": "Black Belt's Training",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Rare Candy",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Ciphermaniac's Codebreaking",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
           "card": "Fezandipiti ex",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Meowth ex",
+          "card": "Black Belt's Training",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Ciphermaniac's Codebreaking",
           "from_pct": 0.0,
           "to_pct": 100.0
         }
@@ -2413,7 +2413,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "Brock's Scouting",
+          "card": "Judge",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -2423,12 +2423,12 @@
           "to_pct": 0.0
         },
         {
-          "card": "Judge",
+          "card": "Secret Box",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Secret Box",
+          "card": "Brock's Scouting",
           "from_pct": 100.0,
           "to_pct": 0.0
         }
@@ -2480,6 +2480,11 @@
     },
     {
       "week": "2026-03-02",
+      "meta_share": 0.0,
+      "deck_count": 0
+    },
+    {
+      "week": "2026-03-16",
       "meta_share": 0.0,
       "deck_count": 0
     }

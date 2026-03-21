@@ -213,7 +213,7 @@
       "inclusion_pct": 75.0,
       "avg_copies": 1.7,
       "decks_with": 3,
-      "category": "Trainer"
+      "category": "Pokemon"
     },
     {
       "card_name": "Roto-Stick",
@@ -241,14 +241,14 @@
       "inclusion_pct": 50.0,
       "avg_copies": 1.0,
       "decks_with": 2,
-      "category": "Trainer"
+      "category": "Pokemon"
     },
     {
       "card_name": "Team Rocket's Porygon",
       "inclusion_pct": 50.0,
       "avg_copies": 1.0,
       "decks_with": 2,
-      "category": "Trainer"
+      "category": "Pokemon"
     },
     {
       "card_name": "Brave Bangle",
@@ -319,6 +319,11 @@
           "category": "Pokemon"
         },
         {
+          "card_name": "Team Rocket's Articuno",
+          "count": 2,
+          "category": "Pokemon"
+        },
+        {
           "card_name": "Team Rocket's Archer",
           "count": 4,
           "category": "Trainer"
@@ -374,11 +379,6 @@
           "category": "Trainer"
         },
         {
-          "card_name": "Team Rocket's Articuno",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
           "card_name": "Miracle Headset",
           "count": 1,
           "category": "Trainer"
@@ -415,6 +415,21 @@
         {
           "card_name": "Team Rocket's Honchkrow",
           "count": 3,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Team Rocket's Articuno",
+          "count": 2,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Team Rocket's Porygon",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Team Rocket's Porygon2",
+          "count": 1,
           "category": "Pokemon"
         },
         {
@@ -468,23 +483,8 @@
           "category": "Trainer"
         },
         {
-          "card_name": "Team Rocket's Articuno",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
           "card_name": "Lucky Helmet",
           "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Team Rocket's Porygon",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Team Rocket's Porygon2",
-          "count": 1,
           "category": "Trainer"
         },
         {
@@ -524,6 +524,11 @@
         {
           "card_name": "Team Rocket's Murkrow",
           "count": 4,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Team Rocket's Articuno",
+          "count": 1,
           "category": "Pokemon"
         },
         {
@@ -592,11 +597,6 @@
           "category": "Trainer"
         },
         {
-          "card_name": "Team Rocket's Articuno",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
           "card_name": "Ultra Ball",
           "count": 1,
           "category": "Trainer"
@@ -638,6 +638,16 @@
         {
           "card_name": "Team Rocket's Mimikyu",
           "count": 2,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Team Rocket's Porygon",
+          "count": 1,
+          "category": "Pokemon"
+        },
+        {
+          "card_name": "Team Rocket's Porygon2",
+          "count": 1,
           "category": "Pokemon"
         },
         {
@@ -701,16 +711,6 @@
           "category": "Trainer"
         },
         {
-          "card_name": "Team Rocket's Porygon",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Team Rocket's Porygon2",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
           "card_name": "Unfair Stamp",
           "count": 1,
           "category": "Trainer"
@@ -746,12 +746,12 @@
       "week": "2026-02-09",
       "adopted": [
         {
-          "card": "Team Rocket's Articuno",
+          "card": "Miracle Headset",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Miracle Headset",
+          "card": "Team Rocket's Articuno",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -773,6 +773,16 @@
       ],
       "dropped": [
         {
+          "card": "Team Rocket's Porygon",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Team Rocket's Porygon2",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
           "card": "Unfair Stamp",
           "from_pct": 100.0,
           "to_pct": 0.0
@@ -786,16 +796,6 @@
           "card": "Team Rocket's Mimikyu",
           "from_pct": 100.0,
           "to_pct": 0.0
-        },
-        {
-          "card": "Team Rocket's Porygon2",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Team Rocket's Porygon",
-          "from_pct": 100.0,
-          "to_pct": 0.0
         }
       ]
     },
@@ -803,17 +803,17 @@
       "week": "2026-02-23",
       "adopted": [
         {
+          "card": "Team Rocket's Porygon",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
           "card": "Team Rocket's Porygon2",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
           "card": "Lucky Helmet",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Team Rocket's Porygon",
           "from_pct": 0.0,
           "to_pct": 100.0
         }
@@ -825,12 +825,12 @@
           "to_pct": 0.0
         },
         {
-          "card": "Tool Scrapper",
+          "card": "Brave Bangle",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
-          "card": "Brave Bangle",
+          "card": "Tool Scrapper",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -845,8 +845,13 @@
   "variants": [
     {
       "name": "Standard",
-      "deck_count": 3,
-      "pct": 75.0
+      "deck_count": 2,
+      "pct": 50.0
+    },
+    {
+      "name": "with Team Rocket's Porygon",
+      "deck_count": 1,
+      "pct": 25.0
     },
     {
       "name": "with Team Rocket's Mimikyu",
@@ -887,6 +892,11 @@
     },
     {
       "week": "2026-03-02",
+      "meta_share": 0.0,
+      "deck_count": 0
+    },
+    {
+      "week": "2026-03-16",
       "meta_share": 0.0,
       "deck_count": 0
     }
@@ -961,7 +971,7 @@
       "inclusion_pct": 100.0,
       "avg_copies": 2.0,
       "decks_with": 1,
-      "category": "Trainer",
+      "category": "Pokemon",
       "delta_vs_field": 25.0
     },
     {
@@ -1049,7 +1059,7 @@
       "inclusion_pct": 0,
       "avg_copies": 0,
       "decks_with": 0,
-      "category": "Trainer",
+      "category": "Pokemon",
       "delta_vs_field": -50.0
     },
     {
@@ -1057,7 +1067,7 @@
       "inclusion_pct": 0,
       "avg_copies": 0,
       "decks_with": 0,
-      "category": "Trainer",
+      "category": "Pokemon",
       "delta_vs_field": -50.0
     },
     {

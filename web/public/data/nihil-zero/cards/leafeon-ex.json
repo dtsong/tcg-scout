@@ -7,152 +7,215 @@
   "image_url": null,
   "category": "Pokemon",
   "rarity": null,
-  "total_appearances": 11,
-  "usage_pct": 0.9,
-  "avg_copies": 1.1,
-  "unique_archetypes": 2,
-  "weighted_score": 14.9,
-  "win_rate_proxy": 1.35,
+  "total_appearances": 99,
+  "usage_pct": 1.5,
+  "avg_copies": 1.0,
+  "unique_archetypes": 6,
+  "weighted_score": 152.1,
+  "win_rate_proxy": 1.54,
   "top_archetype": "Flareon Noctowl",
   "trend_direction": "stable",
   "copy_distribution": [
     {
       "copies": 1,
-      "count": 10
+      "count": 95
     },
     {
       "copies": 2,
-      "count": 1
+      "count": 4
     }
   ],
   "archetypes": [
     {
       "name": "Flareon Noctowl",
       "slug": "flareon-noctowl",
-      "usage_count": 10,
+      "usage_count": 85,
       "avg_copies": 1.0,
-      "tier": "Rogue"
+      "tier": "C"
     },
     {
       "name": "Flareon Leafeon",
       "slug": "flareon-leafeon",
+      "usage_count": 8,
+      "avg_copies": 1.5,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Flareon Jolteon",
+      "slug": "flareon-jolteon",
+      "usage_count": 2,
+      "avg_copies": 1.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Dragapult Flareon",
+      "slug": "dragapult-flareon",
+      "usage_count": 2,
+      "avg_copies": 1.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Dragapult Noctowl",
+      "slug": "dragapult-noctowl",
       "usage_count": 1,
-      "avg_copies": 2.0,
+      "avg_copies": 1.0,
+      "tier": "C"
+    },
+    {
+      "name": "Dragapult Glaceon",
+      "slug": "dragapult-glaceon",
+      "usage_count": 1,
+      "avg_copies": 1.0,
       "tier": "Rogue"
     }
   ],
   "weekly_usage": [
     {
+      "week": "2026-01-19",
+      "usage_pct": 1.2,
+      "avg_copies": 1.0
+    },
+    {
+      "week": "2026-01-26",
+      "usage_pct": 1.2,
+      "avg_copies": 1.1
+    },
+    {
+      "week": "2026-02-02",
+      "usage_pct": 2.1,
+      "avg_copies": 1.1
+    },
+    {
+      "week": "2026-02-09",
+      "usage_pct": 1.4,
+      "avg_copies": 1.0
+    },
+    {
+      "week": "2026-02-16",
+      "usage_pct": 5.5,
+      "avg_copies": 1.0
+    },
+    {
+      "week": "2026-02-23",
+      "usage_pct": 1.6,
+      "avg_copies": 1.0
+    },
+    {
       "week": "2026-03-02",
       "usage_pct": 0.9,
       "avg_copies": 1.1
+    },
+    {
+      "week": "2026-03-16",
+      "usage_pct": 0.0,
+      "avg_copies": 0
     }
   ],
   "synergy_partners": [
     {
+      "card_name": "Espeon ex",
+      "support": 25,
+      "lift": 68.566,
+      "jaccard": 0.253,
+      "weighted_score": 40.6
+    },
+    {
       "card_name": "Sylveon ex",
-      "support": 5,
-      "lift": 107.636,
-      "jaccard": 0.455,
-      "weighted_score": 6.6
+      "support": 49,
+      "lift": 67.194,
+      "jaccard": 0.49,
+      "weighted_score": 72.4
     },
     {
       "card_name": "Eevee ex",
-      "support": 11,
-      "lift": 98.667,
-      "jaccard": 0.917,
-      "weighted_score": 14.9
+      "support": 96,
+      "lift": 66.488,
+      "jaccard": 0.941,
+      "weighted_score": 148.5
+    },
+    {
+      "card_name": "Jolteon ex",
+      "support": 28,
+      "lift": 66.201,
+      "jaccard": 0.28,
+      "weighted_score": 44.5
     },
     {
       "card_name": "Flareon ex",
-      "support": 11,
-      "lift": 91.077,
-      "jaccard": 0.846,
-      "weighted_score": 14.9
+      "support": 97,
+      "lift": 65.85,
+      "jaccard": 0.942,
+      "weighted_score": 149.7
     },
     {
       "card_name": "Eevee",
-      "support": 11,
-      "lift": 84.571,
-      "jaccard": 0.786,
-      "weighted_score": 14.9
+      "support": 99,
+      "lift": 64.648,
+      "jaccard": 0.943,
+      "weighted_score": 152.1
+    },
+    {
+      "card_name": "N's Plan",
+      "support": 21,
+      "lift": 26.18,
+      "jaccard": 0.158,
+      "weighted_score": 28.8
     },
     {
       "card_name": "Sparkling Crystal",
-      "support": 10,
-      "lift": 44.848,
-      "jaccard": 0.4,
-      "weighted_score": 13.7
-    },
-    {
-      "card_name": "Tera Orb",
-      "support": 11,
-      "lift": 16.914,
-      "jaccard": 0.157,
-      "weighted_score": 14.9
-    },
-    {
-      "card_name": "Fan Rotom",
-      "support": 11,
-      "lift": 15.787,
-      "jaccard": 0.147,
-      "weighted_score": 14.9
-    },
-    {
-      "card_name": "Chien-Pao",
-      "support": 7,
-      "lift": 11.773,
-      "jaccard": 0.103,
-      "weighted_score": 9.8
+      "support": 92,
+      "lift": 25.436,
+      "jaccard": 0.361,
+      "weighted_score": 139.7
     },
     {
       "card_name": "Glass Trumpet",
-      "support": 8,
-      "lift": 11.33,
-      "jaccard": 0.101,
-      "weighted_score": 11.0
+      "support": 70,
+      "lift": 15.84,
+      "jaccard": 0.211,
+      "weighted_score": 110.4
     },
     {
       "card_name": "Wellspring Mask Ogerpon ex",
-      "support": 9,
-      "lift": 9.687,
-      "jaccard": 0.088,
-      "weighted_score": 12.5
+      "support": 89,
+      "lift": 15.449,
+      "jaccard": 0.22,
+      "weighted_score": 136.1
+    },
+    {
+      "card_name": "Tera Orb",
+      "support": 97,
+      "lift": 13.914,
+      "jaccard": 0.202,
+      "weighted_score": 149.7
+    },
+    {
+      "card_name": "Chien-Pao",
+      "support": 38,
+      "lift": 12.232,
+      "jaccard": 0.139,
+      "weighted_score": 57.1
     },
     {
       "card_name": "Hoothoot",
-      "support": 11,
-      "lift": 7.22,
-      "jaccard": 0.067,
-      "weighted_score": 14.9
+      "support": 97,
+      "lift": 12.005,
+      "jaccard": 0.174,
+      "weighted_score": 149.7
     },
     {
       "card_name": "Noctowl",
-      "support": 11,
-      "lift": 7.22,
-      "jaccard": 0.067,
-      "weighted_score": 14.9
+      "support": 97,
+      "lift": 12.005,
+      "jaccard": 0.174,
+      "weighted_score": 149.7
     },
     {
-      "card_name": "Switch",
-      "support": 11,
-      "lift": 7.048,
-      "jaccard": 0.065,
-      "weighted_score": 14.9
-    },
-    {
-      "card_name": "Black Belt's Training",
-      "support": 7,
-      "lift": 6.85,
-      "jaccard": 0.061,
-      "weighted_score": 9.8
-    },
-    {
-      "card_name": "Cyrano",
-      "support": 10,
-      "lift": 5.15,
-      "jaccard": 0.048,
-      "weighted_score": 13.4
+      "card_name": "Fan Rotom",
+      "support": 97,
+      "lift": 10.641,
+      "jaccard": 0.155,
+      "weighted_score": 149.7
     }
   ]
 }

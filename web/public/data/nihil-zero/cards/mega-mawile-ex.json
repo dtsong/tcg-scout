@@ -1,44 +1,100 @@
 {
   "card_name": "Mega Mawile ex",
   "card_slug": "mega-mawile-ex",
-  "card_id": null,
-  "set_code": null,
-  "set_number": null,
-  "image_url": null,
+  "card_id": "me01-094",
+  "set_code": "me01",
+  "set_number": "094",
+  "image_url": "https://assets.tcgdex.net/en/me/me01/094/high.png",
   "category": "Pokemon",
-  "rarity": null,
-  "total_appearances": 17,
-  "usage_pct": 1.4,
+  "rarity": "",
+  "total_appearances": 166,
+  "usage_pct": 2.4,
   "avg_copies": 1.0,
-  "unique_archetypes": 4,
-  "weighted_score": 25.1,
-  "win_rate_proxy": 1.48,
-  "top_archetype": "Empoleon Metagross",
+  "unique_archetypes": 14,
+  "weighted_score": 243.7,
+  "win_rate_proxy": 1.47,
+  "top_archetype": "Archaludon ex",
   "trend_direction": "stable",
   "copy_distribution": [
     {
       "copies": 1,
-      "count": 17
+      "count": 166
     }
   ],
   "archetypes": [
     {
+      "name": "Archaludon ex",
+      "slug": "archaludon-ex",
+      "usage_count": 87,
+      "avg_copies": 1.0,
+      "tier": "C"
+    },
+    {
       "name": "Empoleon Metagross",
       "slug": "empoleon-metagross",
-      "usage_count": 8,
+      "usage_count": 39,
       "avg_copies": 1.0,
       "tier": "Rogue"
     },
     {
-      "name": "Archaludon ex",
-      "slug": "archaludon-ex",
-      "usage_count": 7,
+      "name": "Jellicent Metagross",
+      "slug": "jellicent-metagross",
+      "usage_count": 13,
       "avg_copies": 1.0,
       "tier": "Rogue"
     },
     {
       "name": "Genesect Metagross",
       "slug": "genesect-metagross",
+      "usage_count": 9,
+      "avg_copies": 1.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Archaludon Zoroark",
+      "slug": "archaludon-zoroark",
+      "usage_count": 5,
+      "avg_copies": 1.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Metagross",
+      "slug": "metagross",
+      "usage_count": 4,
+      "avg_copies": 1.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Metang Orthworm",
+      "slug": "metang-orthworm",
+      "usage_count": 2,
+      "avg_copies": 1.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Tera Box",
+      "slug": "tera-box",
+      "usage_count": 1,
+      "avg_copies": 1.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Genesect Metang",
+      "slug": "genesect-metang",
+      "usage_count": 1,
+      "avg_copies": 1.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Empoleon Metang",
+      "slug": "empoleon-metang",
+      "usage_count": 1,
+      "avg_copies": 1.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Clefairy Metagross",
+      "slug": "clefairy-metagross",
       "usage_count": 1,
       "avg_copies": 1.0,
       "tier": "Rogue"
@@ -49,120 +105,169 @@
       "usage_count": 1,
       "avg_copies": 1.0,
       "tier": "Rogue"
+    },
+    {
+      "name": "Archaludon Dusknoir",
+      "slug": "archaludon-dusknoir",
+      "usage_count": 1,
+      "avg_copies": 1.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Archaludon Dudunsparce",
+      "slug": "archaludon-dudunsparce",
+      "usage_count": 1,
+      "avg_copies": 1.0,
+      "tier": "Rogue"
     }
   ],
   "weekly_usage": [
     {
+      "week": "2026-01-19",
+      "usage_pct": 4.4,
+      "avg_copies": 1.0
+    },
+    {
+      "week": "2026-01-26",
+      "usage_pct": 4.0,
+      "avg_copies": 1.0
+    },
+    {
+      "week": "2026-02-02",
+      "usage_pct": 2.6,
+      "avg_copies": 1.0
+    },
+    {
+      "week": "2026-02-09",
+      "usage_pct": 2.3,
+      "avg_copies": 1.0
+    },
+    {
+      "week": "2026-02-16",
+      "usage_pct": 0.0,
+      "avg_copies": 0
+    },
+    {
+      "week": "2026-02-23",
+      "usage_pct": 1.1,
+      "avg_copies": 1.0
+    },
+    {
       "week": "2026-03-02",
       "usage_pct": 1.4,
       "avg_copies": 1.0
+    },
+    {
+      "week": "2026-03-16",
+      "usage_pct": 0.0,
+      "avg_copies": 0
     }
   ],
   "synergy_partners": [
     {
-      "card_name": "Full Metal Lab",
-      "support": 9,
-      "lift": 62.682,
-      "jaccard": 0.5,
-      "weighted_score": 14.1
-    },
-    {
       "card_name": "Archaludon ex",
-      "support": 8,
-      "lift": 61.908,
-      "jaccard": 0.444,
-      "weighted_score": 12.6
+      "support": 96,
+      "lift": 32.443,
+      "jaccard": 0.503,
+      "weighted_score": 143.4
     },
     {
       "card_name": "Duraludon",
-      "support": 8,
-      "lift": 61.908,
-      "jaccard": 0.444,
-      "weighted_score": 12.6
+      "support": 96,
+      "lift": 32.443,
+      "jaccard": 0.503,
+      "weighted_score": 143.4
     },
     {
-      "card_name": "Genesect ex",
-      "support": 9,
-      "lift": 56.984,
-      "jaccard": 0.474,
-      "weighted_score": 12.5
+      "card_name": "Full Metal Lab",
+      "support": 82,
+      "lift": 31.047,
+      "jaccard": 0.427,
+      "weighted_score": 121.2
+    },
+    {
+      "card_name": "Relicanth",
+      "support": 90,
+      "lift": 30.166,
+      "jaccard": 0.455,
+      "weighted_score": 135.3
+    },
+    {
+      "card_name": "Iron Defender",
+      "support": 26,
+      "lift": 26.58,
+      "jaccard": 0.144,
+      "weighted_score": 38.0
     },
     {
       "card_name": "Steven's Beldum",
-      "support": 9,
-      "lift": 56.984,
-      "jaccard": 0.474,
-      "weighted_score": 12.5
+      "support": 66,
+      "lift": 26.202,
+      "jaccard": 0.325,
+      "weighted_score": 94.9
     },
     {
       "card_name": "Steven's Metagross ex",
-      "support": 9,
-      "lift": 56.984,
-      "jaccard": 0.474,
-      "weighted_score": 12.5
+      "support": 66,
+      "lift": 26.202,
+      "jaccard": 0.325,
+      "weighted_score": 94.9
     },
     {
       "card_name": "Steven's Metang",
-      "support": 9,
-      "lift": 56.984,
-      "jaccard": 0.474,
-      "weighted_score": 12.5
+      "support": 66,
+      "lift": 26.202,
+      "jaccard": 0.325,
+      "weighted_score": 94.9
     },
     {
       "card_name": "Empoleon ex",
-      "support": 8,
-      "lift": 55.718,
-      "jaccard": 0.421,
-      "weighted_score": 11.3
+      "support": 46,
+      "lift": 25.767,
+      "jaccard": 0.238,
+      "weighted_score": 64.1
     },
     {
       "card_name": "Piplup",
-      "support": 8,
-      "lift": 55.718,
-      "jaccard": 0.421,
-      "weighted_score": 11.3
+      "support": 46,
+      "lift": 25.767,
+      "jaccard": 0.238,
+      "weighted_score": 64.1
+    },
+    {
+      "card_name": "Genesect ex",
+      "support": 68,
+      "lift": 25.051,
+      "jaccard": 0.325,
+      "weighted_score": 97.6
+    },
+    {
+      "card_name": "Mega Skarmory ex",
+      "support": 11,
+      "lift": 22.49,
+      "jaccard": 0.063,
+      "weighted_score": 14.1
+    },
+    {
+      "card_name": "Sacred Charm",
+      "support": 6,
+      "lift": 20.446,
+      "jaccard": 0.035,
+      "weighted_score": 9.6
+    },
+    {
+      "card_name": "Larry's Skill",
+      "support": 68,
+      "lift": 19.582,
+      "jaccard": 0.283,
+      "weighted_score": 103.6
     },
     {
       "card_name": "Jumbo Ice Cream",
-      "support": 9,
-      "lift": 32.991,
-      "jaccard": 0.333,
-      "weighted_score": 11.7
-    },
-    {
-      "card_name": "Energy Recycler",
-      "support": 9,
-      "lift": 26.118,
-      "jaccard": 0.281,
-      "weighted_score": 12.5
-    },
-    {
-      "card_name": "Precious Trolley",
-      "support": 5,
-      "lift": 24.874,
-      "jaccard": 0.192,
-      "weighted_score": 6.3
-    },
-    {
-      "card_name": "Explorer's Guidance",
-      "support": 6,
-      "lift": 12.663,
-      "jaccard": 0.136,
-      "weighted_score": 9.9
-    },
-    {
-      "card_name": "Carmine",
-      "support": 8,
-      "lift": 6.965,
-      "jaccard": 0.09,
-      "weighted_score": 12.6
-    },
-    {
-      "card_name": "Team Rocket's Transceiver",
-      "support": 6,
-      "lift": 3.512,
-      "jaccard": 0.046,
-      "weighted_score": 7.5
+      "support": 62,
+      "lift": 19.502,
+      "jaccard": 0.265,
+      "weighted_score": 86.6
     }
   ]
 }

@@ -1,93 +1,205 @@
 {
   "card_name": "Team Rocket's Transceiver",
   "card_slug": "team-rocket-s-transceiver",
-  "card_id": null,
-  "set_code": null,
-  "set_number": null,
-  "image_url": null,
+  "card_id": "me02.5-209",
+  "set_code": "me02.5",
+  "set_number": "209",
+  "image_url": "https://assets.tcgdex.net/en/me/me02.5/209/high.png",
   "category": "Trainer",
-  "rarity": null,
-  "total_appearances": 119,
-  "usage_pct": 10.1,
-  "avg_copies": 3.9,
-  "unique_archetypes": 9,
-  "weighted_score": 178.8,
-  "win_rate_proxy": 1.5,
+  "rarity": "",
+  "total_appearances": 566,
+  "usage_pct": 8.3,
+  "avg_copies": 3.7,
+  "unique_archetypes": 26,
+  "weighted_score": 886.6,
+  "win_rate_proxy": 1.57,
   "top_archetype": "Mewtwo Spidops",
   "trend_direction": "stable",
   "copy_distribution": [
     {
       "copies": 1,
-      "count": 1
+      "count": 14
     },
     {
       "copies": 2,
-      "count": 5
+      "count": 58
     },
     {
       "copies": 3,
-      "count": 3
+      "count": 13
     },
     {
       "copies": 4,
-      "count": 110
+      "count": 481
     }
   ],
   "archetypes": [
     {
       "name": "Mewtwo Spidops",
       "slug": "mewtwo-spidops",
-      "usage_count": 69,
+      "usage_count": 220,
       "avg_copies": 4.0,
       "tier": "B"
     },
     {
-      "name": "Honchkrow Porygon2",
-      "slug": "honchkrow-porygon2",
-      "usage_count": 31,
+      "name": "Honchkrow Porygon-Z",
+      "slug": "honchkrow-porygon-z",
+      "usage_count": 163,
       "avg_copies": 4.0,
       "tier": "C"
     },
     {
-      "name": "Honchkrow Porygon-Z",
-      "slug": "honchkrow-porygon-z",
-      "usage_count": 7,
+      "name": "Honchkrow Porygon2",
+      "slug": "honchkrow-porygon2",
+      "usage_count": 69,
       "avg_copies": 4.0,
-      "tier": "Rogue"
+      "tier": "C"
     },
     {
       "name": "Empoleon Metagross",
       "slug": "empoleon-metagross",
-      "usage_count": 6,
-      "avg_copies": 2.2,
+      "usage_count": 55,
+      "avg_copies": 2.3,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Jellicent Metagross",
+      "slug": "jellicent-metagross",
+      "usage_count": 13,
+      "avg_copies": 1.9,
       "tier": "Rogue"
     },
     {
       "name": "Spidops",
       "slug": "spidops",
-      "usage_count": 2,
+      "usage_count": 8,
+      "avg_copies": 3.9,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Genesect Metagross",
+      "slug": "genesect-metagross",
+      "usage_count": 8,
+      "avg_copies": 2.3,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Honchkrow",
+      "slug": "honchkrow",
+      "usage_count": 4,
+      "avg_copies": 4.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Mega Kangaskhan Crustle",
+      "slug": "mega-kangaskhan-crustle",
+      "usage_count": 3,
+      "avg_copies": 2.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Crobat Spidops",
+      "slug": "crobat-spidops",
+      "usage_count": 3,
       "avg_copies": 4.0,
       "tier": "Rogue"
     },
     {
       "name": "Mega Kangaskhan Latias",
       "slug": "mega-kangaskhan-latias",
-      "usage_count": 1,
-      "avg_copies": 2.0,
+      "usage_count": 2,
+      "avg_copies": 3.0,
       "tier": "Rogue"
     },
     {
-      "name": "Genesect Metagross",
-      "slug": "genesect-metagross",
-      "usage_count": 1,
-      "avg_copies": 2.0,
+      "name": "Honchkrow Spidops",
+      "slug": "honchkrow-spidops",
+      "usage_count": 2,
+      "avg_copies": 4.0,
       "tier": "Rogue"
     },
     {
       "name": "Diggersby Munkidori",
       "slug": "diggersby-munkidori",
+      "usage_count": 2,
+      "avg_copies": 2.5,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Blissey Pikachu",
+      "slug": "blissey-pikachu",
+      "usage_count": 2,
+      "avg_copies": 1.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Trevenant Zacian Crowned",
+      "slug": "trevenant-zacian-crowned",
       "usage_count": 1,
-      "avg_copies": 3.0,
+      "avg_copies": 4.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Metang Orthworm",
+      "slug": "metang-orthworm",
+      "usage_count": 1,
+      "avg_copies": 4.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Metagross Slowking",
+      "slug": "metagross-slowking",
+      "usage_count": 1,
+      "avg_copies": 2.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Metagross",
+      "slug": "metagross",
+      "usage_count": 1,
+      "avg_copies": 4.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Latias Trevenant",
+      "slug": "latias-trevenant",
+      "usage_count": 1,
+      "avg_copies": 4.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Garchomp Roserade",
+      "slug": "garchomp-roserade",
+      "usage_count": 1,
+      "avg_copies": 1.0,
+      "tier": "B"
+    },
+    {
+      "name": "Froslass Grimmsnarl",
+      "slug": "froslass-grimmsnarl",
+      "usage_count": 1,
+      "avg_copies": 2.0,
+      "tier": "C"
+    },
+    {
+      "name": "Dusknoir Metagross",
+      "slug": "dusknoir-metagross",
+      "usage_count": 1,
+      "avg_copies": 2.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Dubwool Trevenant",
+      "slug": "dubwool-trevenant",
+      "usage_count": 1,
+      "avg_copies": 1.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Blaziken Zoroark",
+      "slug": "blaziken-zoroark",
+      "usage_count": 1,
+      "avg_copies": 1.0,
       "tier": "Rogue"
     },
     {
@@ -96,120 +208,162 @@
       "usage_count": 1,
       "avg_copies": 4.0,
       "tier": "Rogue"
+    },
+    {
+      "name": "Arbok Spidops",
+      "slug": "arbok-spidops",
+      "usage_count": 1,
+      "avg_copies": 4.0,
+      "tier": "Rogue"
     }
   ],
   "weekly_usage": [
     {
+      "week": "2026-01-19",
+      "usage_pct": 11.0,
+      "avg_copies": 3.8
+    },
+    {
+      "week": "2026-01-26",
+      "usage_pct": 7.3,
+      "avg_copies": 3.7
+    },
+    {
+      "week": "2026-02-02",
+      "usage_pct": 8.6,
+      "avg_copies": 3.6
+    },
+    {
+      "week": "2026-02-09",
+      "usage_pct": 5.6,
+      "avg_copies": 3.4
+    },
+    {
+      "week": "2026-02-16",
+      "usage_pct": 7.0,
+      "avg_copies": 4.0
+    },
+    {
+      "week": "2026-02-23",
+      "usage_pct": 9.4,
+      "avg_copies": 3.8
+    },
+    {
       "week": "2026-03-02",
-      "usage_pct": 10.1,
+      "usage_pct": 10.2,
       "avg_copies": 3.9
+    },
+    {
+      "week": "2026-03-16",
+      "usage_pct": 12.5,
+      "avg_copies": 4.0
     }
   ],
   "synergy_partners": [
     {
-      "card_name": "Miracle Headset",
-      "support": 38,
-      "lift": 9.95,
-      "jaccard": 0.319,
-      "weighted_score": 60.9
-    },
-    {
       "card_name": "Roto-Stick",
-      "support": 34,
-      "lift": 9.95,
-      "jaccard": 0.286,
-      "weighted_score": 54.0
+      "support": 102,
+      "lift": 11.993,
+      "jaccard": 0.18,
+      "weighted_score": 171.0
     },
     {
       "card_name": "Team Rocket's Archer",
-      "support": 110,
-      "lift": 9.95,
-      "jaccard": 0.924,
-      "weighted_score": 166.6
+      "support": 469,
+      "lift": 11.993,
+      "jaccard": 0.829,
+      "weighted_score": 745.0
     },
     {
       "card_name": "Team Rocket's Ariana",
-      "support": 110,
-      "lift": 9.95,
-      "jaccard": 0.924,
-      "weighted_score": 166.6
-    },
-    {
-      "card_name": "Team Rocket's Energy",
-      "support": 110,
-      "lift": 9.95,
-      "jaccard": 0.924,
-      "weighted_score": 166.6
-    },
-    {
-      "card_name": "Team Rocket's Factory",
-      "support": 112,
-      "lift": 9.95,
-      "jaccard": 0.941,
-      "weighted_score": 169.8
+      "support": 471,
+      "lift": 11.993,
+      "jaccard": 0.832,
+      "weighted_score": 747.4
     },
     {
       "card_name": "Team Rocket's Giovanni",
-      "support": 110,
-      "lift": 9.95,
-      "jaccard": 0.924,
-      "weighted_score": 166.6
+      "support": 471,
+      "lift": 11.993,
+      "jaccard": 0.832,
+      "weighted_score": 747.4
     },
     {
       "card_name": "Team Rocket's Honchkrow",
-      "support": 39,
-      "lift": 9.95,
-      "jaccard": 0.328,
-      "weighted_score": 62.1
+      "support": 240,
+      "lift": 11.993,
+      "jaccard": 0.424,
+      "weighted_score": 385.2
+    },
+    {
+      "card_name": "Team Rocket's Kangaskhan ex",
+      "support": 14,
+      "lift": 11.993,
+      "jaccard": 0.025,
+      "weighted_score": 20.3
     },
     {
       "card_name": "Team Rocket's Mewtwo ex",
-      "support": 71,
-      "lift": 9.95,
-      "jaccard": 0.597,
-      "weighted_score": 104.5
+      "support": 231,
+      "lift": 11.993,
+      "jaccard": 0.408,
+      "weighted_score": 362.2
     },
     {
       "card_name": "Team Rocket's Murkrow",
-      "support": 40,
-      "lift": 9.95,
-      "jaccard": 0.336,
-      "weighted_score": 63.3
+      "support": 255,
+      "lift": 11.993,
+      "jaccard": 0.451,
+      "weighted_score": 408.5
     },
     {
       "card_name": "Team Rocket's Porygon",
-      "support": 39,
-      "lift": 9.95,
-      "jaccard": 0.328,
-      "weighted_score": 62.1
+      "support": 235,
+      "lift": 11.993,
+      "jaccard": 0.415,
+      "weighted_score": 376.0
     },
     {
       "card_name": "Team Rocket's Porygon-Z",
-      "support": 7,
-      "lift": 9.95,
-      "jaccard": 0.059,
-      "weighted_score": 10.8
+      "support": 163,
+      "lift": 11.993,
+      "jaccard": 0.288,
+      "weighted_score": 257.3
     },
     {
       "card_name": "Team Rocket's Porygon2",
-      "support": 39,
-      "lift": 9.95,
-      "jaccard": 0.328,
-      "weighted_score": 62.1
+      "support": 235,
+      "lift": 11.993,
+      "jaccard": 0.415,
+      "weighted_score": 376.0
     },
     {
       "card_name": "Team Rocket's Proton",
-      "support": 110,
-      "lift": 9.95,
-      "jaccard": 0.924,
-      "weighted_score": 166.6
+      "support": 471,
+      "lift": 11.993,
+      "jaccard": 0.832,
+      "weighted_score": 747.4
     },
     {
       "card_name": "Team Rocket's Spidops",
-      "support": 71,
-      "lift": 9.95,
-      "jaccard": 0.597,
-      "weighted_score": 104.5
+      "support": 234,
+      "lift": 11.993,
+      "jaccard": 0.413,
+      "weighted_score": 368.2
+    },
+    {
+      "card_name": "Team Rocket's Tarountula",
+      "support": 234,
+      "lift": 11.993,
+      "jaccard": 0.413,
+      "weighted_score": 368.2
+    },
+    {
+      "card_name": "Team Rocket's Wobbuffet",
+      "support": 64,
+      "lift": 11.993,
+      "jaccard": 0.113,
+      "weighted_score": 100.3
     }
   ]
 }

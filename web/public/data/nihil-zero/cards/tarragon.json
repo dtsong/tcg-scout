@@ -7,46 +7,81 @@
   "image_url": null,
   "category": "Trainer",
   "rarity": null,
-  "total_appearances": 30,
-  "usage_pct": 2.5,
-  "avg_copies": 2.4,
-  "unique_archetypes": 5,
-  "weighted_score": 42.2,
-  "win_rate_proxy": 1.41,
+  "total_appearances": 132,
+  "usage_pct": 1.9,
+  "avg_copies": 2.3,
+  "unique_archetypes": 9,
+  "weighted_score": 207.1,
+  "win_rate_proxy": 1.57,
   "top_archetype": "Barbaracle Okidogi",
   "trend_direction": "stable",
   "copy_distribution": [
     {
       "copies": 1,
-      "count": 4
+      "count": 15
     },
     {
       "copies": 2,
-      "count": 11
+      "count": 56
     },
     {
       "copies": 3,
-      "count": 15
+      "count": 61
     }
   ],
   "archetypes": [
     {
       "name": "Barbaracle Okidogi",
       "slug": "barbaracle-okidogi",
-      "usage_count": 23,
+      "usage_count": 112,
       "avg_copies": 2.5,
       "tier": "C"
     },
     {
       "name": "Barbaracle Solrock",
       "slug": "barbaracle-solrock",
-      "usage_count": 4,
+      "usage_count": 8,
       "avg_copies": 2.5,
       "tier": "Rogue"
     },
     {
       "name": "Mega Lucario",
       "slug": "mega-lucario",
+      "usage_count": 4,
+      "avg_copies": 1.0,
+      "tier": "A"
+    },
+    {
+      "name": "Diggersby Munkidori",
+      "slug": "diggersby-munkidori",
+      "usage_count": 3,
+      "avg_copies": 1.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Okidogi Solrock",
+      "slug": "okidogi-solrock",
+      "usage_count": 1,
+      "avg_copies": 2.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Munkidori Solrock",
+      "slug": "munkidori-solrock",
+      "usage_count": 1,
+      "avg_copies": 1.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Mega Lucario Solrock",
+      "slug": "mega-lucario-solrock",
+      "usage_count": 1,
+      "avg_copies": 1.0,
+      "tier": "C"
+    },
+    {
+      "name": "Garchomp Roserade",
+      "slug": "garchomp-roserade",
       "usage_count": 1,
       "avg_copies": 1.0,
       "tier": "B"
@@ -57,127 +92,155 @@
       "usage_count": 1,
       "avg_copies": 1.0,
       "tier": "Rogue"
-    },
-    {
-      "name": "Diggersby Munkidori",
-      "slug": "diggersby-munkidori",
-      "usage_count": 1,
-      "avg_copies": 1.0,
-      "tier": "Rogue"
     }
   ],
   "weekly_usage": [
     {
-      "week": "2026-03-02",
+      "week": "2026-01-19",
+      "usage_pct": 0.9,
+      "avg_copies": 2.0
+    },
+    {
+      "week": "2026-01-26",
+      "usage_pct": 1.8,
+      "avg_copies": 2.5
+    },
+    {
+      "week": "2026-02-02",
+      "usage_pct": 1.6,
+      "avg_copies": 2.2
+    },
+    {
+      "week": "2026-02-09",
       "usage_pct": 2.5,
       "avg_copies": 2.4
+    },
+    {
+      "week": "2026-02-16",
+      "usage_pct": 2.3,
+      "avg_copies": 2.3
+    },
+    {
+      "week": "2026-02-23",
+      "usage_pct": 1.8,
+      "avg_copies": 2.2
+    },
+    {
+      "week": "2026-03-02",
+      "usage_pct": 2.3,
+      "avg_copies": 2.4
+    },
+    {
+      "week": "2026-03-16",
+      "usage_pct": 0.0,
+      "avg_copies": 0
     }
   ],
   "synergy_partners": [
     {
       "card_name": "Bloodmoon Ursaluna",
-      "support": 29,
-      "lift": 35.767,
-      "jaccard": 0.879,
-      "weighted_score": 40.7
+      "support": 122,
+      "lift": 45.462,
+      "jaccard": 0.824,
+      "weighted_score": 192.8
     },
     {
       "card_name": "Okidogi",
-      "support": 27,
-      "lift": 35.52,
+      "support": 121,
+      "lift": 45.418,
       "jaccard": 0.818,
-      "weighted_score": 37.2
-    },
-    {
-      "card_name": "Legacy Energy",
-      "support": 27,
-      "lift": 19.375,
-      "jaccard": 0.466,
-      "weighted_score": 37.2
+      "weighted_score": 189.9
     },
     {
       "card_name": "Prism Energy",
-      "support": 27,
-      "lift": 17.469,
-      "jaccard": 0.422,
-      "weighted_score": 37.2
+      "support": 121,
+      "lift": 28.283,
+      "jaccard": 0.524,
+      "weighted_score": 189.9
     },
     {
-      "card_name": "Explorer's Guidance",
-      "support": 14,
-      "lift": 16.743,
-      "jaccard": 0.286,
-      "weighted_score": 19.3
-    },
-    {
-      "card_name": "Lunatone",
+      "card_name": "Hassel",
       "support": 30,
-      "lift": 10.478,
-      "jaccard": 0.265,
-      "weighted_score": 42.2
-    },
-    {
-      "card_name": "Solrock",
-      "support": 30,
-      "lift": 10.478,
-      "jaccard": 0.265,
-      "weighted_score": 42.2
+      "lift": 19.528,
+      "jaccard": 0.166,
+      "weighted_score": 46.2
     },
     {
       "card_name": "Moltres",
-      "support": 10,
-      "lift": 9.867,
-      "jaccard": 0.167,
-      "weighted_score": 13.2
+      "support": 17,
+      "lift": 12.856,
+      "jaccard": 0.093,
+      "weighted_score": 23.0
     },
     {
-      "card_name": "Battle Cage",
-      "support": 27,
-      "lift": 8.073,
-      "jaccard": 0.2,
-      "weighted_score": 37.2
+      "card_name": "Legacy Energy",
+      "support": 98,
+      "lift": 12.823,
+      "jaccard": 0.23,
+      "weighted_score": 153.3
     },
     {
       "card_name": "Cornerstone Mask Ogerpon ex",
-      "support": 13,
-      "lift": 7.774,
-      "jaccard": 0.157,
-      "weighted_score": 16.2
+      "support": 61,
+      "lift": 10.93,
+      "jaccard": 0.17,
+      "weighted_score": 98.6
     },
     {
-      "card_name": "Fighting Gong",
-      "support": 30,
-      "lift": 7.354,
-      "jaccard": 0.186,
-      "weighted_score": 42.2
-    },
-    {
-      "card_name": "Morty's Conviction",
-      "support": 10,
-      "lift": 5.638,
-      "jaccard": 0.111,
-      "weighted_score": 15.3
-    },
-    {
-      "card_name": "Air Balloon",
-      "support": 30,
-      "lift": 4.625,
-      "jaccard": 0.117,
-      "weighted_score": 42.2
-    },
-    {
-      "card_name": "Pokégear 3.0",
+      "card_name": "Explorer's Guidance",
       "support": 23,
-      "lift": 4.282,
-      "jaccard": 0.105,
-      "weighted_score": 31.3
+      "lift": 8.388,
+      "jaccard": 0.092,
+      "weighted_score": 31.0
     },
     {
       "card_name": "Energy Retrieval",
-      "support": 8,
-      "lift": 3.804,
-      "jaccard": 0.076,
-      "weighted_score": 11.3
+      "support": 42,
+      "lift": 6.505,
+      "jaccard": 0.1,
+      "weighted_score": 66.9
+    },
+    {
+      "card_name": "Lunatone",
+      "support": 131,
+      "lift": 6.434,
+      "jaccard": 0.125,
+      "weighted_score": 205.1
+    },
+    {
+      "card_name": "Solrock",
+      "support": 131,
+      "lift": 6.434,
+      "jaccard": 0.125,
+      "weighted_score": 205.1
+    },
+    {
+      "card_name": "Battle Cage",
+      "support": 120,
+      "lift": 6.189,
+      "jaccard": 0.119,
+      "weighted_score": 188.1
+    },
+    {
+      "card_name": "Morty's Conviction",
+      "support": 49,
+      "lift": 5.206,
+      "jaccard": 0.086,
+      "weighted_score": 82.3
+    },
+    {
+      "card_name": "Fighting Gong",
+      "support": 132,
+      "lift": 5.054,
+      "jaccard": 0.098,
+      "weighted_score": 207.1
+    },
+    {
+      "card_name": "Kofu",
+      "support": 5,
+      "lift": 3.781,
+      "jaccard": 0.026,
+      "weighted_score": 6.9
     }
   ]
 }

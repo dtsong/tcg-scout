@@ -774,12 +774,12 @@
       "week": "2026-02-09",
       "adopted": [
         {
-          "card": "Jamming Tower",
+          "card": "Lana's Aid",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Lana's Aid",
+          "card": "Enriching Energy",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -789,19 +789,24 @@
           "to_pct": 100.0
         },
         {
-          "card": "Enriching Energy",
+          "card": "Jamming Tower",
           "from_pct": 0.0,
           "to_pct": 100.0
         }
       ],
       "dropped": [
         {
-          "card": "Crispin",
+          "card": "Air Balloon",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Air Balloon",
+          "card": "Lillie's Determination",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Crispin",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -816,8 +821,13 @@
           "to_pct": 0.0
         },
         {
-          "card": "Lillie's Determination",
-          "from_pct": 100.0,
+          "card": "Prime Catcher",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Counter Gain",
+          "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
@@ -832,16 +842,6 @@
         },
         {
           "card": "Lillie's Clefairy ex",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Counter Gain",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Prime Catcher",
           "from_pct": 50.0,
           "to_pct": 0.0
         }
@@ -882,6 +882,11 @@
     },
     {
       "week": "2026-03-02",
+      "meta_share": 0.0,
+      "deck_count": 0
+    },
+    {
+      "week": "2026-03-16",
       "meta_share": 0.0,
       "deck_count": 0
     }

@@ -755,22 +755,12 @@
           "to_pct": 100.0
         },
         {
-          "card": "Blowtorch",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Legacy Energy",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
           "card": "Xerosic's Machinations",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
         {
-          "card": "Psyduck",
+          "card": "Blowtorch",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -783,16 +773,26 @@
           "card": "Battle Cage",
           "from_pct": 0.0,
           "to_pct": 50.0
+        },
+        {
+          "card": "Legacy Energy",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Psyduck",
+          "from_pct": 0.0,
+          "to_pct": 50.0
         }
       ],
       "dropped": [
         {
-          "card": "Jamming Tower",
+          "card": "Hand Trimmer",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Hand Trimmer",
+          "card": "Jamming Tower",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -813,17 +813,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "Legacy Energy",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Xerosic's Machinations",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Psyduck",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -834,6 +824,16 @@
         },
         {
           "card": "Battle Cage",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Legacy Energy",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Psyduck",
           "from_pct": 50.0,
           "to_pct": 0.0
         }
@@ -885,6 +885,11 @@
     },
     {
       "week": "2026-03-02",
+      "meta_share": 0.0,
+      "deck_count": 0
+    },
+    {
+      "week": "2026-03-16",
       "meta_share": 0.0,
       "deck_count": 0
     }

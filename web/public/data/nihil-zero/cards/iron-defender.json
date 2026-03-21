@@ -1,44 +1,222 @@
 {
   "card_name": "Iron Defender",
   "card_slug": "iron-defender",
-  "card_id": null,
-  "set_code": null,
-  "set_number": null,
-  "image_url": null,
+  "card_id": "me01-118",
+  "set_code": "me01",
+  "set_number": "118",
+  "image_url": "https://assets.tcgdex.net/en/me/me01/118/high.png",
   "category": "Trainer",
-  "rarity": null,
-  "total_appearances": 3,
-  "usage_pct": 0.3,
-  "avg_copies": 2.3,
-  "unique_archetypes": 1,
-  "weighted_score": 4.7,
-  "win_rate_proxy": 1.57,
+  "rarity": "",
+  "total_appearances": 40,
+  "usage_pct": 0.6,
+  "avg_copies": 2.7,
+  "unique_archetypes": 5,
+  "weighted_score": 58.2,
+  "win_rate_proxy": 1.45,
   "top_archetype": "Archaludon ex",
   "trend_direction": "stable",
   "copy_distribution": [
     {
       "copies": 1,
-      "count": 1
+      "count": 4
+    },
+    {
+      "copies": 2,
+      "count": 10
     },
     {
       "copies": 3,
-      "count": 2
+      "count": 19
+    },
+    {
+      "copies": 4,
+      "count": 7
     }
   ],
   "archetypes": [
     {
       "name": "Archaludon ex",
       "slug": "archaludon-ex",
-      "usage_count": 3,
-      "avg_copies": 2.3,
+      "usage_count": 36,
+      "avg_copies": 2.8,
+      "tier": "C"
+    },
+    {
+      "name": "Metang Orthworm",
+      "slug": "metang-orthworm",
+      "usage_count": 1,
+      "avg_copies": 2.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Empoleon Metang",
+      "slug": "empoleon-metang",
+      "usage_count": 1,
+      "avg_copies": 2.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Archaludon Dusknoir",
+      "slug": "archaludon-dusknoir",
+      "usage_count": 1,
+      "avg_copies": 2.0,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Archaludon Cinderace",
+      "slug": "archaludon-cinderace",
+      "usage_count": 1,
+      "avg_copies": 3.0,
       "tier": "Rogue"
     }
   ],
   "weekly_usage": [
     {
+      "week": "2026-01-19",
+      "usage_pct": 0.7,
+      "avg_copies": 2.2
+    },
+    {
+      "week": "2026-01-26",
+      "usage_pct": 1.2,
+      "avg_copies": 3.2
+    },
+    {
+      "week": "2026-02-02",
+      "usage_pct": 1.0,
+      "avg_copies": 2.8
+    },
+    {
+      "week": "2026-02-09",
+      "usage_pct": 0.5,
+      "avg_copies": 2.2
+    },
+    {
+      "week": "2026-02-16",
+      "usage_pct": 0.0,
+      "avg_copies": 0
+    },
+    {
+      "week": "2026-02-23",
+      "usage_pct": 0.1,
+      "avg_copies": 4.0
+    },
+    {
       "week": "2026-03-02",
-      "usage_pct": 0.3,
+      "usage_pct": 0.2,
       "avg_copies": 2.3
+    },
+    {
+      "week": "2026-03-16",
+      "usage_pct": 0.0,
+      "avg_copies": 0
+    }
+  ],
+  "synergy_partners": [
+    {
+      "card_name": "Full Metal Lab",
+      "support": 39,
+      "lift": 61.281,
+      "jaccard": 0.358,
+      "weighted_score": 57.0
+    },
+    {
+      "card_name": "Archaludon ex",
+      "support": 38,
+      "lift": 53.294,
+      "jaccard": 0.309,
+      "weighted_score": 55.5
+    },
+    {
+      "card_name": "Duraludon",
+      "support": 38,
+      "lift": 53.294,
+      "jaccard": 0.309,
+      "weighted_score": 55.5
+    },
+    {
+      "card_name": "Relicanth",
+      "support": 34,
+      "lift": 47.293,
+      "jaccard": 0.266,
+      "weighted_score": 50.1
+    },
+    {
+      "card_name": "Explorer's Guidance",
+      "support": 30,
+      "lift": 36.106,
+      "jaccard": 0.199,
+      "weighted_score": 44.0
+    },
+    {
+      "card_name": "Larry's Skill",
+      "support": 24,
+      "lift": 28.682,
+      "jaccard": 0.152,
+      "weighted_score": 36.2
+    },
+    {
+      "card_name": "Mega Mawile ex",
+      "support": 26,
+      "lift": 26.58,
+      "jaccard": 0.144,
+      "weighted_score": 38.0
+    },
+    {
+      "card_name": "Handheld Fan",
+      "support": 13,
+      "lift": 23.469,
+      "jaccard": 0.107,
+      "weighted_score": 17.6
+    },
+    {
+      "card_name": "Jumbo Ice Cream",
+      "support": 10,
+      "lift": 13.054,
+      "jaccard": 0.062,
+      "weighted_score": 15.8
+    },
+    {
+      "card_name": "Legacy Energy",
+      "support": 22,
+      "lift": 9.5,
+      "jaccard": 0.054,
+      "weighted_score": 30.9
+    },
+    {
+      "card_name": "Carmine",
+      "support": 36,
+      "lift": 6.626,
+      "jaccard": 0.039,
+      "weighted_score": 53.1
+    },
+    {
+      "card_name": "Pokégear 3.0",
+      "support": 37,
+      "lift": 5.109,
+      "jaccard": 0.03,
+      "weighted_score": 54.0
+    },
+    {
+      "card_name": "Psyduck",
+      "support": 27,
+      "lift": 2.918,
+      "jaccard": 0.017,
+      "weighted_score": 37.6
+    },
+    {
+      "card_name": "Energy Search",
+      "support": 6,
+      "lift": 2.489,
+      "jaccard": 0.014,
+      "weighted_score": 8.8
+    },
+    {
+      "card_name": "Hero's Cape",
+      "support": 9,
+      "lift": 2.42,
+      "jaccard": 0.014,
+      "weighted_score": 15.6
     }
   ]
 }

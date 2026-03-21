@@ -1037,24 +1037,24 @@
       "week": "2026-02-02",
       "adopted": [
         {
-          "card": "Night Stretcher",
+          "card": "Judge",
           "from_pct": 0.0,
           "to_pct": 66.7
         },
         {
-          "card": "Judge",
+          "card": "Night Stretcher",
           "from_pct": 0.0,
           "to_pct": 66.7
         }
       ],
       "dropped": [
         {
-          "card": "Energy Recycler",
+          "card": "Prime Catcher",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Prime Catcher",
+          "card": "Energy Recycler",
           "from_pct": 100.0,
           "to_pct": 0.0
         }
@@ -1064,22 +1064,12 @@
       "week": "2026-02-09",
       "adopted": [
         {
-          "card": "Legacy Energy",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Switch",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
           "card": "Energy Switch",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
         {
-          "card": "Psyduck",
+          "card": "Legacy Energy",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -1089,12 +1079,22 @@
           "to_pct": 50.0
         },
         {
-          "card": "Carmine",
-          "from_pct": 33.3,
+          "card": "Switch",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Psyduck",
+          "from_pct": 0.0,
           "to_pct": 50.0
         },
         {
           "card": "Energy Search",
+          "from_pct": 33.3,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Carmine",
           "from_pct": 33.3,
           "to_pct": 50.0
         },
@@ -1173,6 +1173,11 @@
     },
     {
       "week": "2026-03-02",
+      "meta_share": 0.0,
+      "deck_count": 0
+    },
+    {
+      "week": "2026-03-16",
       "meta_share": 0.0,
       "deck_count": 0
     }
