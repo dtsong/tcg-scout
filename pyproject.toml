@@ -39,3 +39,7 @@ known-first-party = ["scraper", "analysis", "reports", "config", "db"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+markers = [
+    "integration: tests spanning multiple modules or the full pipeline",
+    "slow: tests that take >5s (frozen DB, large fixtures)",
+]

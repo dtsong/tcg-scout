@@ -1,12 +1,10 @@
 name: CI
 
-# Disabled while GitHub Actions minutes are exhausted -- using Cloud Build
-# on:
-#   push:
-#     branches: [main]
-#   pull_request:
-#     branches: [main]
-on: workflow_dispatch
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
 
 jobs:
   python:
@@ -28,8 +26,11 @@ jobs:
       - name: Ruff format
         run: ruff format --check .
 
-      - name: Tests
-        run: pytest tests/ -v
+      - name: Unit tests
+        run: pytest tests/ -m "not integration" -v
+
+      - name: Integration tests
+        run: pytest tests/ -m integration -v
 
   frontend:
     runs-on: ubuntu-latest
