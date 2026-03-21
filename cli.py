@@ -524,16 +524,26 @@ def import_cl(ctx: click.Context, data_dir: str) -> None:
     "--fetch-decklists/--no-decklists", default=True, help="Fetch decklists via Playwright"
 )
 @click.option("--top", default=64, help="Max placements to fetch decklists for")
+@click.option(
+    "--pool-size", default=5, help="Number of concurrent browser instances for decklist fetching"
+)
 @click.pass_context
 def scrape_jp(
-    ctx: click.Context, start: str | None, end: str | None, fetch_decklists: bool, top: int
+    ctx: click.Context,
+    start: str | None,
+    end: str | None,
+    fetch_decklists: bool,
+    top: int,
+    pool_size: int,
 ) -> None:
     """Scrape JP City League results from players.pokemon-card.com API.
 
     Uses plain HTTP for event listings and results (no browser required).
     Pass --fetch-decklists to also fetch decklists via Playwright (requires KERNEL_API_KEY).
+    Uses a pool of concurrent browsers (default 5) for faster decklist fetching.
     """
     import asyncio
+    import time
 
     from scraper.pokemon_jp import JPEventResult, JPPlacement, store_cl_city_league_results
     from scraper.pokemon_jp_api import PokemonJPAPIClient
@@ -546,7 +556,6 @@ def scrape_jp(
     init_db(conn)
 
     api_client = PokemonJPAPIClient()
-    jp_client = None
 
     try:
         # Fetch event listings via plain HTTP
@@ -565,16 +574,11 @@ def scrape_jp(
             f"[cyan]{len(new_events)} new events to process ({len(existing)} already in DB)[/cyan]"
         )
 
-        if fetch_decklists:
-            from dotenv import load_dotenv
-
-            load_dotenv()
-            from scraper.pokemon_jp import PokemonJPClient
-
-            jp_client = PokemonJPClient()
-
-        total_placements = 0
-        total_decklists = 0
+        # Phase 1: Fetch all events and placements via HTTP API (fast)
+        console.print("\n[bold cyan]Phase 1:[/bold cyan] Fetching event placements via API...")
+        deck_url_base = "https://www.pokemon-card.com/deck/confirm.html/deckID/"
+        events_data: list[JPEventResult] = []
+        all_deck_entries: list[tuple[str, str]] = []
 
         for i, event in enumerate(new_events, 1):
             event_name = (
@@ -582,15 +586,12 @@ def scrape_jp(
             )
             console.print(f"  [{i}/{len(new_events)}] {event_name} ({event.date})")
 
-            # Fetch placements via plain HTTP API
             results = api_client.fetch_event_results(event.event_id)
 
             if not results:
                 console.print("    [yellow]No results found, skipping[/yellow]")
                 continue
 
-            # Build JPPlacement list from API results
-            deck_url_base = "https://players.pokemon-card.com/deck/confirm.html/deckID/"
             placements = [
                 JPPlacement(
                     standing=r.rank,
@@ -609,42 +610,89 @@ def scrape_jp(
                 date=event.date,
                 placements=placements,
             )
+            events_data.append(jp_event)
 
-            # Fetch decklists for top placements if requested
-            decklists: dict[str, list] = {}
-            if fetch_decklists and jp_client:
-                decks_to_fetch = [p for p in placements if p.deck_url and p.standing <= top]
-                console.print(f"    Fetching {len(decks_to_fetch)} decklists...")
-                for j, placement in enumerate(decks_to_fetch, 1):
-                    console.print(
-                        f"      [{j}/{len(decks_to_fetch)}] "
-                        f"#{placement.standing} {placement.player_name}"
-                    )
-                    try:
-                        cards = asyncio.run(jp_client.fetch_decklist(placement.deck_url))
-                        if cards and placement.deck_code:
-                            decklists[placement.deck_code] = cards
-                            total_decklists += 1
-                            console.print(f"        {len(cards)} cards")
-                    except Exception as e:
-                        console.print(f"        [red]Error: {e}[/red]")
+            if fetch_decklists:
+                for p in placements:
+                    if p.deck_url and p.deck_code and p.standing <= top:
+                        all_deck_entries.append((p.deck_code, p.deck_url))
 
-            store_cl_city_league_results(conn, jp_event, decklists)
-            total_placements += len(placements)
+        console.print(
+            f"[green]Collected {sum(len(e.placements) for e in events_data)} placements "
+            f"across {len(events_data)} events[/green]"
+        )
+
+        # Phase 2: Batch fetch all decklists concurrently
+        all_decklists: dict[str, list] = {}
+        if fetch_decklists and all_deck_entries:
+            from dotenv import load_dotenv
+
+            load_dotenv()
+            from scraper.pokemon_jp import PokemonJPClient
+
             console.print(
-                f"    [green]Stored {len(placements)} placements"
-                + (f", {len(decklists)} decklists" if decklists else "")
-                + "[/green]"
+                f"\n[bold cyan]Phase 2:[/bold cyan] Fetching {len(all_deck_entries)} decklists "
+                f"with {pool_size} concurrent browsers..."
             )
+
+            completed = [0]
+            failed = [0]
+            t_start = time.monotonic()
+
+            def on_complete(deck_code: str, card_count: int) -> None:
+                completed[0] += 1
+                if card_count < 0:
+                    failed[0] += 1
+                    console.print(
+                        f"  [{completed[0]}/{len(all_deck_entries)}] {deck_code}: [red]failed[/red]"
+                    )
+                elif card_count == 0:
+                    console.print(
+                        f"  [{completed[0]}/{len(all_deck_entries)}] "
+                        f"{deck_code}: [yellow]0 cards[/yellow]"
+                    )
+                else:
+                    console.print(
+                        f"  [{completed[0]}/{len(all_deck_entries)}] "
+                        f"{deck_code}: {card_count} cards"
+                    )
+
+            async def run_batch() -> dict[str, list]:
+                jp_client = PokemonJPClient(pool_size=pool_size)
+                async with jp_client.browser_pool():
+                    return await jp_client.fetch_decklists_batch(
+                        all_deck_entries, on_complete=on_complete
+                    )
+
+            all_decklists = asyncio.run(run_batch())
+
+            elapsed = time.monotonic() - t_start
+            console.print(
+                f"[green]Fetched {len(all_decklists)} decklists in {elapsed:.0f}s "
+                f"({failed[0]} failed)[/green]"
+            )
+
+        # Phase 3: Store everything
+        console.print(f"\n[bold cyan]Phase 3:[/bold cyan] Storing {len(events_data)} events...")
+        total_placements = 0
+        total_decklists = 0
+
+        for jp_event in events_data:
+            event_decklists = {
+                p.deck_code: all_decklists[p.deck_code]
+                for p in jp_event.placements
+                if p.deck_code and p.deck_code in all_decklists
+            }
+            store_cl_city_league_results(conn, jp_event, event_decklists)
+            total_placements += len(jp_event.placements)
+            total_decklists += len(event_decklists)
 
         console.print(
             f"\n[green]Done! Stored {total_placements} placements "
-            f"and {total_decklists} decklists.[/green]"
+            f"and {total_decklists} decklists across {len(events_data)} events.[/green]"
         )
     finally:
         api_client.close()
-        if jp_client is not None:
-            pass  # PokemonJPClient has no explicit close
         conn.close()
 
 

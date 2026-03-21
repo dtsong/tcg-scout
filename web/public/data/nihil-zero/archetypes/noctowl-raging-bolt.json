@@ -1401,6 +1401,11 @@
           "to_pct": 50.0
         },
         {
+          "card": "Sandy Shocks",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
           "card": "Lillie's Clefairy ex",
           "from_pct": 0.0,
           "to_pct": 50.0
@@ -1409,31 +1414,26 @@
           "card": "Battle Cage",
           "from_pct": 0.0,
           "to_pct": 50.0
-        },
-        {
-          "card": "Sandy Shocks",
-          "from_pct": 0.0,
-          "to_pct": 50.0
         }
       ],
       "dropped": [
-        {
-          "card": "Wellspring Mask Ogerpon ex",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
         {
           "card": "Carmine",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Sparkling Crystal",
+          "card": "Wellspring Mask Ogerpon ex",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
           "card": "Energy Search",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Sparkling Crystal",
           "from_pct": 100.0,
           "to_pct": 0.0
         }
@@ -1527,11 +1527,6 @@
     },
     {
       "week": "2026-03-02",
-      "meta_share": 0.0,
-      "deck_count": 0
-    },
-    {
-      "week": "2026-03-16",
       "meta_share": 0.0,
       "deck_count": 0
     }

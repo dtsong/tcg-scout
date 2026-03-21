@@ -1,81 +1,49 @@
 {
   "card_name": "Greninja ex",
   "card_slug": "greninja-ex",
-  "card_id": "svp-054",
-  "set_code": "svp",
-  "set_number": "054",
-  "image_url": "https://assets.tcgdex.net/en/sv/svp/054/high.png",
+  "card_id": null,
+  "set_code": null,
+  "set_number": null,
+  "image_url": null,
   "category": "Pokemon",
-  "rarity": "",
-  "total_appearances": 93,
-  "usage_pct": 1.4,
+  "rarity": null,
+  "total_appearances": 14,
+  "usage_pct": 1.2,
   "avg_copies": 2.1,
-  "unique_archetypes": 8,
-  "weighted_score": 151.3,
-  "win_rate_proxy": 1.63,
+  "unique_archetypes": 5,
+  "weighted_score": 20.4,
+  "win_rate_proxy": 1.46,
   "top_archetype": "Dusknoir Greninja",
   "trend_direction": "stable",
   "copy_distribution": [
     {
-      "copies": 1,
-      "count": 1
-    },
-    {
       "copies": 2,
-      "count": 84
+      "count": 13
     },
     {
       "copies": 3,
-      "count": 8
+      "count": 1
     }
   ],
   "archetypes": [
     {
       "name": "Dusknoir Greninja",
       "slug": "dusknoir-greninja",
-      "usage_count": 51,
-      "avg_copies": 2.1,
+      "usage_count": 8,
+      "avg_copies": 2.0,
       "tier": "Rogue"
     },
     {
       "name": "Mega Starmie Greninja",
       "slug": "mega-starmie-greninja",
-      "usage_count": 25,
-      "avg_copies": 2.1,
-      "tier": "Rogue"
-    },
-    {
-      "name": "Mega Froslass Greninja",
-      "slug": "mega-froslass-greninja",
-      "usage_count": 10,
-      "avg_copies": 2.1,
-      "tier": "Rogue"
-    },
-    {
-      "name": "Greninja Noctowl",
-      "slug": "greninja-noctowl",
       "usage_count": 2,
       "avg_copies": 2.0,
       "tier": "Rogue"
     },
     {
-      "name": "Blaziken Greninja",
-      "slug": "blaziken-greninja",
+      "name": "Mega Froslass Greninja",
+      "slug": "mega-froslass-greninja",
       "usage_count": 2,
-      "avg_copies": 2.5,
-      "tier": "Rogue"
-    },
-    {
-      "name": "Tera Box",
-      "slug": "tera-box",
-      "usage_count": 1,
-      "avg_copies": 1.0,
-      "tier": "Rogue"
-    },
-    {
-      "name": "Greninja Zoroark",
-      "slug": "greninja-zoroark",
-      "usage_count": 1,
       "avg_copies": 2.0,
       "tier": "Rogue"
     },
@@ -85,155 +53,127 @@
       "usage_count": 1,
       "avg_copies": 3.0,
       "tier": "Rogue"
+    },
+    {
+      "name": "Blaziken Greninja",
+      "slug": "blaziken-greninja",
+      "usage_count": 1,
+      "avg_copies": 2.0,
+      "tier": "Rogue"
     }
   ],
   "weekly_usage": [
     {
-      "week": "2026-01-19",
-      "usage_pct": 0.9,
-      "avg_copies": 1.8
-    },
-    {
-      "week": "2026-01-26",
-      "usage_pct": 1.5,
-      "avg_copies": 2.1
-    },
-    {
-      "week": "2026-02-02",
-      "usage_pct": 1.3,
-      "avg_copies": 2.2
-    },
-    {
-      "week": "2026-02-09",
-      "usage_pct": 1.3,
-      "avg_copies": 2.0
-    },
-    {
-      "week": "2026-02-16",
-      "usage_pct": 0.8,
-      "avg_copies": 2.0
-    },
-    {
-      "week": "2026-02-23",
-      "usage_pct": 2.3,
-      "avg_copies": 2.0
-    },
-    {
       "week": "2026-03-02",
-      "usage_pct": 1.1,
+      "usage_pct": 1.2,
       "avg_copies": 2.1
-    },
-    {
-      "week": "2026-03-16",
-      "usage_pct": 0.0,
-      "avg_copies": 0
     }
   ],
   "synergy_partners": [
     {
       "card_name": "Froakie",
-      "support": 93,
-      "lift": 72.989,
+      "support": 14,
+      "lift": 84.571,
       "jaccard": 1.0,
-      "weighted_score": 151.3
+      "weighted_score": 20.4
     },
     {
       "card_name": "Frogadier",
-      "support": 91,
-      "lift": 72.989,
-      "jaccard": 0.978,
-      "weighted_score": 148.3
+      "support": 14,
+      "lift": 84.571,
+      "jaccard": 1.0,
+      "weighted_score": 20.4
     },
     {
       "card_name": "Grand Tree",
-      "support": 84,
-      "lift": 66.642,
-      "jaccard": 0.832,
-      "weighted_score": 135.6
+      "support": 13,
+      "lift": 84.571,
+      "jaccard": 0.929,
+      "weighted_score": 18.9
     },
     {
       "card_name": "Colress's Tenacity",
-      "support": 84,
-      "lift": 20.643,
-      "jaccard": 0.275,
-      "weighted_score": 135.6
-    },
-    {
-      "card_name": "Surfer",
-      "support": 23,
-      "lift": 16.957,
-      "jaccard": 0.136,
-      "weighted_score": 36.2
-    },
-    {
-      "card_name": "Ignition Energy",
-      "support": 89,
-      "lift": 13.676,
-      "jaccard": 0.186,
-      "weighted_score": 144.8
+      "support": 13,
+      "lift": 35.465,
+      "jaccard": 0.406,
+      "weighted_score": 18.9
     },
     {
       "card_name": "Mega Froslass ex",
-      "support": 44,
-      "lift": 10.26,
-      "jaccard": 0.122,
-      "weighted_score": 69.8
-    },
-    {
-      "card_name": "Mega Starmie ex",
       "support": 8,
-      "lift": 7.391,
-      "jaccard": 0.049,
-      "weighted_score": 13.1
+      "lift": 25.058,
+      "jaccard": 0.242,
+      "weighted_score": 12.6
     },
     {
-      "card_name": "Dusclops",
-      "support": 83,
-      "lift": 5.259,
-      "jaccard": 0.071,
-      "weighted_score": 132.6
-    },
-    {
-      "card_name": "Dusknoir",
-      "support": 85,
-      "lift": 5.136,
-      "jaccard": 0.07,
-      "weighted_score": 135.6
-    },
-    {
-      "card_name": "Duskull",
-      "support": 85,
-      "lift": 5.056,
-      "jaccard": 0.069,
-      "weighted_score": 135.6
-    },
-    {
-      "card_name": "Hilda",
-      "support": 89,
-      "lift": 4.54,
-      "jaccard": 0.062,
-      "weighted_score": 145.3
+      "card_name": "Ignition Energy",
+      "support": 13,
+      "lift": 16.914,
+      "jaccard": 0.197,
+      "weighted_score": 18.9
     },
     {
       "card_name": "Snorunt",
-      "support": 44,
-      "lift": 4.46,
-      "jaccard": 0.057,
-      "weighted_score": 69.8
+      "support": 8,
+      "lift": 7.688,
+      "jaccard": 0.085,
+      "weighted_score": 12.6
     },
     {
       "card_name": "Jamming Tower",
-      "support": 79,
-      "lift": 4.425,
-      "jaccard": 0.06,
-      "weighted_score": 127.8
+      "support": 11,
+      "lift": 6.372,
+      "jaccard": 0.074,
+      "weighted_score": 15.9
+    },
+    {
+      "card_name": "Hilda",
+      "support": 12,
+      "lift": 5.935,
+      "jaccard": 0.069,
+      "weighted_score": 17.4
+    },
+    {
+      "card_name": "Dusclops",
+      "support": 13,
+      "lift": 5.525,
+      "jaccard": 0.065,
+      "weighted_score": 18.9
+    },
+    {
+      "card_name": "Dusknoir",
+      "support": 13,
+      "lift": 5.363,
+      "jaccard": 0.063,
+      "weighted_score": 18.9
+    },
+    {
+      "card_name": "Duskull",
+      "support": 13,
+      "lift": 5.337,
+      "jaccard": 0.063,
+      "weighted_score": 18.9
     },
     {
       "card_name": "Switch",
-      "support": 71,
-      "lift": 2.992,
-      "jaccard": 0.04,
-      "weighted_score": 114.4
+      "support": 10,
+      "lift": 5.034,
+      "jaccard": 0.058,
+      "weighted_score": 15.0
+    },
+    {
+      "card_name": "Rare Candy",
+      "support": 14,
+      "lift": 2.709,
+      "jaccard": 0.032,
+      "weighted_score": 20.4
+    },
+    {
+      "card_name": "Latias ex",
+      "support": 11,
+      "lift": 2.599,
+      "jaccard": 0.03,
+      "weighted_score": 16.2
     }
   ]
 }

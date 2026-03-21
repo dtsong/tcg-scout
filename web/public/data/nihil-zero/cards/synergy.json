@@ -1,1049 +1,52 @@
 [
   {
-    "card_a": "Beldum",
-    "card_b": "Metang",
+    "card_a": "Carvanha",
+    "card_b": "Mega Sharpedo ex",
     "support": 5,
-    "lift": 1357.6,
+    "lift": 236.8,
     "jaccard": 1.0,
-    "weighted_score": 6.9,
+    "weighted_score": 9.4,
     "archetypes": [
-      "Archaludon Metang",
-      "Empoleon Metang",
-      "Genesect Metang",
-      "Metang Orthworm"
-    ]
-  },
-  {
-    "card_a": "Kirlia",
-    "card_b": "Mega Gardevoir ex",
-    "support": 5,
-    "lift": 1357.6,
-    "jaccard": 1.0,
-    "weighted_score": 7.9,
-    "archetypes": [
-      "Mega Gardevoir Jellicent",
-      "Mega Gardevoir Latias",
-      "Mega Gardevoir Togekiss",
-      "Mega Gardevoir Zoroark",
-      "Mega Gardevoir ex"
-    ]
-  },
-  {
-    "card_a": "Dragonair",
-    "card_b": "Dratini",
-    "support": 6,
-    "lift": 1131.333,
-    "jaccard": 1.0,
-    "weighted_score": 9.3,
-    "archetypes": [
-      "Flareon Leafeon",
-      "Flareon Noctowl",
-      "Mega Dragonite Blaziken",
-      "Mega Dragonite Mega Starmie"
-    ]
-  },
-  {
-    "card_a": "Dragonair",
-    "card_b": "Mega Dragonite ex",
-    "support": 6,
-    "lift": 1131.333,
-    "jaccard": 1.0,
-    "weighted_score": 9.3,
-    "archetypes": [
-      "Flareon Leafeon",
-      "Flareon Noctowl",
-      "Mega Dragonite Blaziken",
-      "Mega Dragonite Mega Starmie"
-    ]
-  },
-  {
-    "card_a": "Dratini",
-    "card_b": "Mega Dragonite ex",
-    "support": 6,
-    "lift": 1131.333,
-    "jaccard": 1.0,
-    "weighted_score": 9.3,
-    "archetypes": [
-      "Flareon Leafeon",
-      "Flareon Noctowl",
-      "Mega Dragonite Blaziken",
-      "Mega Dragonite Mega Starmie"
-    ]
-  },
-  {
-    "card_a": "Iono's Bellibolt ex",
-    "card_b": "Iono's Tadbulb",
-    "support": 6,
-    "lift": 1131.333,
-    "jaccard": 1.0,
-    "weighted_score": 7.5,
-    "archetypes": [
-      "Bellibolt Kilowattrel"
-    ]
-  },
-  {
-    "card_a": "Iono's Bellibolt ex",
-    "card_b": "Iono's Voltorb",
-    "support": 6,
-    "lift": 1131.333,
-    "jaccard": 1.0,
-    "weighted_score": 7.5,
-    "archetypes": [
-      "Bellibolt Kilowattrel"
-    ]
-  },
-  {
-    "card_a": "Iono's Tadbulb",
-    "card_b": "Iono's Voltorb",
-    "support": 6,
-    "lift": 1131.333,
-    "jaccard": 1.0,
-    "weighted_score": 7.5,
-    "archetypes": [
-      "Bellibolt Kilowattrel"
-    ]
-  },
-  {
-    "card_a": "Kirlia",
-    "card_b": "Ralts",
-    "support": 5,
-    "lift": 1131.333,
-    "jaccard": 0.833,
-    "weighted_score": 7.9,
-    "archetypes": [
-      "Mega Gardevoir Jellicent",
-      "Mega Gardevoir Latias",
-      "Mega Gardevoir Togekiss",
-      "Mega Gardevoir Zoroark",
-      "Mega Gardevoir ex"
-    ]
-  },
-  {
-    "card_a": "Mega Gardevoir ex",
-    "card_b": "Ralts",
-    "support": 5,
-    "lift": 1131.333,
-    "jaccard": 0.833,
-    "weighted_score": 7.9,
-    "archetypes": [
-      "Mega Gardevoir Jellicent",
-      "Mega Gardevoir Latias",
-      "Mega Gardevoir Togekiss",
-      "Mega Gardevoir Zoroark",
-      "Mega Gardevoir ex"
-    ]
-  },
-  {
-    "card_a": "Iono's Bellibolt ex",
-    "card_b": "Iono's Kilowattrel",
-    "support": 6,
-    "lift": 969.714,
-    "jaccard": 0.857,
-    "weighted_score": 7.5,
-    "archetypes": [
-      "Bellibolt Kilowattrel"
-    ]
-  },
-  {
-    "card_a": "Iono's Bellibolt ex",
-    "card_b": "Iono's Wattrel",
-    "support": 6,
-    "lift": 969.714,
-    "jaccard": 0.857,
-    "weighted_score": 7.5,
-    "archetypes": [
-      "Bellibolt Kilowattrel"
-    ]
-  },
-  {
-    "card_a": "Iono's Bellibolt ex",
-    "card_b": "Levincia",
-    "support": 6,
-    "lift": 969.714,
-    "jaccard": 0.857,
-    "weighted_score": 7.5,
-    "archetypes": [
-      "Bellibolt Kilowattrel"
-    ]
-  },
-  {
-    "card_a": "Iono's Kilowattrel",
-    "card_b": "Iono's Tadbulb",
-    "support": 6,
-    "lift": 969.714,
-    "jaccard": 0.857,
-    "weighted_score": 7.5,
-    "archetypes": [
-      "Bellibolt Kilowattrel"
-    ]
-  },
-  {
-    "card_a": "Iono's Kilowattrel",
-    "card_b": "Iono's Voltorb",
-    "support": 6,
-    "lift": 969.714,
-    "jaccard": 0.857,
-    "weighted_score": 7.5,
-    "archetypes": [
-      "Bellibolt Kilowattrel"
-    ]
-  },
-  {
-    "card_a": "Iono's Kilowattrel",
-    "card_b": "Iono's Wattrel",
-    "support": 7,
-    "lift": 969.714,
-    "jaccard": 1.0,
-    "weighted_score": 8.7,
-    "archetypes": [
-      "Bellibolt Kilowattrel",
-      "Mega Eelektross Mega Manectric"
-    ]
-  },
-  {
-    "card_a": "Iono's Tadbulb",
-    "card_b": "Iono's Wattrel",
-    "support": 6,
-    "lift": 969.714,
-    "jaccard": 0.857,
-    "weighted_score": 7.5,
-    "archetypes": [
-      "Bellibolt Kilowattrel"
-    ]
-  },
-  {
-    "card_a": "Iono's Tadbulb",
-    "card_b": "Levincia",
-    "support": 6,
-    "lift": 969.714,
-    "jaccard": 0.857,
-    "weighted_score": 7.5,
-    "archetypes": [
-      "Bellibolt Kilowattrel"
-    ]
-  },
-  {
-    "card_a": "Iono's Voltorb",
-    "card_b": "Iono's Wattrel",
-    "support": 6,
-    "lift": 969.714,
-    "jaccard": 0.857,
-    "weighted_score": 7.5,
-    "archetypes": [
-      "Bellibolt Kilowattrel"
-    ]
-  },
-  {
-    "card_a": "Iono's Voltorb",
-    "card_b": "Levincia",
-    "support": 6,
-    "lift": 969.714,
-    "jaccard": 0.857,
-    "weighted_score": 7.5,
-    "archetypes": [
-      "Bellibolt Kilowattrel"
-    ]
-  },
-  {
-    "card_a": "Scatterbug",
-    "card_b": "Spewpa",
-    "support": 5,
-    "lift": 969.714,
-    "jaccard": 0.714,
-    "weighted_score": 6.8,
-    "archetypes": [
-      "Decidueye Vivillon",
-      "Mega Venusaur"
+      "Mega Sharpedo Toxtricity"
     ]
   },
   {
     "card_a": "Farigiraf ex",
     "card_b": "Girafarig",
-    "support": 8,
-    "lift": 848.5,
+    "support": 5,
+    "lift": 236.8,
     "jaccard": 1.0,
-    "weighted_score": 10.5,
+    "weighted_score": 6.6,
     "archetypes": [
       "Blaziken Dragapult",
       "Clefairy Ogerpon",
       "Dragapult Jellicent",
       "Mega Froslass Bronzong",
-      "Mega Kangaskhan Dragapult",
       "Mega Kangaskhan Latias"
     ]
   },
   {
-    "card_a": "Iono's Kilowattrel",
-    "card_b": "Levincia",
+    "card_a": "Hop's Bag",
+    "card_b": "Hop's Choice Band",
     "support": 6,
-    "lift": 831.184,
-    "jaccard": 0.75,
-    "weighted_score": 7.5,
-    "archetypes": [
-      "Bellibolt Kilowattrel"
-    ]
-  },
-  {
-    "card_a": "Iono's Wattrel",
-    "card_b": "Levincia",
-    "support": 6,
-    "lift": 831.184,
-    "jaccard": 0.75,
-    "weighted_score": 7.5,
-    "archetypes": [
-      "Bellibolt Kilowattrel"
-    ]
-  },
-  {
-    "card_a": "Canari",
-    "card_b": "Iono's Kilowattrel",
-    "support": 5,
-    "lift": 808.095,
-    "jaccard": 0.625,
-    "weighted_score": 6.0,
-    "archetypes": [
-      "Bellibolt Kilowattrel",
-      "Mega Eelektross Mega Manectric"
-    ]
-  },
-  {
-    "card_a": "Canari",
-    "card_b": "Iono's Wattrel",
-    "support": 5,
-    "lift": 808.095,
-    "jaccard": 0.625,
-    "weighted_score": 6.0,
-    "archetypes": [
-      "Bellibolt Kilowattrel",
-      "Mega Eelektross Mega Manectric"
-    ]
-  },
-  {
-    "card_a": "Charmeleon",
-    "card_b": "Mega Charizard Y ex",
-    "support": 5,
-    "lift": 754.222,
-    "jaccard": 0.556,
-    "weighted_score": 6.3,
-    "archetypes": [
-      "Mega Charizard Mega Charizard X Y"
-    ]
-  },
-  {
-    "card_a": "Firebreather",
-    "card_b": "Mega Charizard Y ex",
-    "support": 5,
-    "lift": 754.222,
-    "jaccard": 0.556,
-    "weighted_score": 6.3,
-    "archetypes": [
-      "Mega Charizard Mega Charizard X Y"
-    ]
-  },
-  {
-    "card_a": "Mega Charizard Y ex",
-    "card_b": "Oricorio ex",
-    "support": 5,
-    "lift": 754.222,
-    "jaccard": 0.556,
-    "weighted_score": 6.3,
-    "archetypes": [
-      "Mega Charizard Mega Charizard X Y"
-    ]
-  },
-  {
-    "card_a": "Charmeleon",
-    "card_b": "Oricorio ex",
-    "support": 8,
-    "lift": 670.42,
-    "jaccard": 0.8,
-    "weighted_score": 9.9,
-    "archetypes": [
-      "Mega Charizard Mega Charizard X Y",
-      "Mega Charizard X Dudunsparce",
-      "Mega Charizard X Oricorio",
-      "Mega Charizard X Zoroark"
-    ]
-  },
-  {
-    "card_a": "Charmander",
-    "card_b": "Charmeleon",
-    "support": 9,
-    "lift": 617.091,
-    "jaccard": 0.818,
-    "weighted_score": 11.1,
-    "archetypes": [
-      "Flareon Noctowl",
-      "Mega Charizard Mega Charizard X Y",
-      "Mega Charizard X Dudunsparce",
-      "Mega Charizard X Oricorio",
-      "Mega Charizard X Zoroark"
-    ]
-  },
-  {
-    "card_a": "Charmander",
-    "card_b": "Mega Charizard X ex",
-    "support": 11,
-    "lift": 617.091,
+    "lift": 197.333,
     "jaccard": 1.0,
-    "weighted_score": 14.3,
+    "weighted_score": 13.2,
     "archetypes": [
-      "Blaziken Dragapult",
-      "Flareon Noctowl",
-      "Mega Charizard Mega Charizard X Y",
-      "Mega Charizard X Dudunsparce",
-      "Mega Charizard X Oricorio",
-      "Mega Charizard X Typhlosion",
-      "Mega Charizard X Zoroark"
-    ]
-  },
-  {
-    "card_a": "Charmander",
-    "card_b": "Mega Charizard Y ex",
-    "support": 5,
-    "lift": 617.091,
-    "jaccard": 0.455,
-    "weighted_score": 6.3,
-    "archetypes": [
-      "Mega Charizard Mega Charizard X Y"
-    ]
-  },
-  {
-    "card_a": "Charmander",
-    "card_b": "Oricorio ex",
-    "support": 9,
-    "lift": 617.091,
-    "jaccard": 0.818,
-    "weighted_score": 11.1,
-    "archetypes": [
-      "Mega Charizard Mega Charizard X Y",
-      "Mega Charizard X Dudunsparce",
-      "Mega Charizard X Oricorio",
-      "Mega Charizard X Typhlosion",
-      "Mega Charizard X Zoroark"
-    ]
-  },
-  {
-    "card_a": "Charmeleon",
-    "card_b": "Mega Charizard X ex",
-    "support": 9,
-    "lift": 617.091,
-    "jaccard": 0.818,
-    "weighted_score": 11.1,
-    "archetypes": [
-      "Flareon Noctowl",
-      "Mega Charizard Mega Charizard X Y",
-      "Mega Charizard X Dudunsparce",
-      "Mega Charizard X Oricorio",
-      "Mega Charizard X Zoroark"
-    ]
-  },
-  {
-    "card_a": "Hop's Dubwool",
-    "card_b": "Hop's Wooloo",
-    "support": 11,
-    "lift": 617.091,
-    "jaccard": 1.0,
-    "weighted_score": 18.4,
-    "archetypes": [
-      "Archaludon ex",
       "Dubwool Trevenant",
-      "Mega Froslass Mega Starmie",
-      "Mega Starmie Dusknoir",
-      "Trevenant"
-    ]
-  },
-  {
-    "card_a": "Mega Charizard X ex",
-    "card_b": "Mega Charizard Y ex",
-    "support": 5,
-    "lift": 617.091,
-    "jaccard": 0.455,
-    "weighted_score": 6.3,
-    "archetypes": [
-      "Mega Charizard Mega Charizard X Y"
-    ]
-  },
-  {
-    "card_a": "Mega Charizard X ex",
-    "card_b": "Oricorio ex",
-    "support": 9,
-    "lift": 617.091,
-    "jaccard": 0.818,
-    "weighted_score": 11.1,
-    "archetypes": [
-      "Mega Charizard Mega Charizard X Y",
-      "Mega Charizard X Dudunsparce",
-      "Mega Charizard X Oricorio",
-      "Mega Charizard X Typhlosion",
-      "Mega Charizard X Zoroark"
-    ]
-  },
-  {
-    "card_a": "Deino",
-    "card_b": "Hydreigon ex",
-    "support": 12,
-    "lift": 565.667,
-    "jaccard": 1.0,
-    "weighted_score": 15.9,
-    "archetypes": [
-      "Blaziken Hydreigon",
-      "Dragapult Hydreigon",
-      "Flareon Hydreigon",
-      "Flareon Noctowl",
-      "Hydreigon Noctowl",
-      "Hydreigon Toxtricity",
-      "Hydreigon Zoroark",
-      "Mega Gengar Hydreigon"
-    ]
-  },
-  {
-    "card_a": "Deino",
-    "card_b": "Zweilous",
-    "support": 11,
-    "lift": 565.667,
-    "jaccard": 0.917,
-    "weighted_score": 14.7,
-    "archetypes": [
-      "Blaziken Hydreigon",
-      "Dragapult Hydreigon",
-      "Flareon Hydreigon",
-      "Hydreigon Noctowl",
-      "Hydreigon Toxtricity",
-      "Hydreigon Zoroark",
-      "Mega Gengar Hydreigon"
-    ]
-  },
-  {
-    "card_a": "Hydreigon ex",
-    "card_b": "Zweilous",
-    "support": 11,
-    "lift": 565.667,
-    "jaccard": 0.917,
-    "weighted_score": 14.7,
-    "archetypes": [
-      "Blaziken Hydreigon",
-      "Dragapult Hydreigon",
-      "Flareon Hydreigon",
-      "Hydreigon Noctowl",
-      "Hydreigon Toxtricity",
-      "Hydreigon Zoroark",
-      "Mega Gengar Hydreigon"
-    ]
-  },
-  {
-    "card_a": "Charmeleon",
-    "card_b": "Firebreather",
-    "support": 6,
-    "lift": 502.815,
-    "jaccard": 0.5,
-    "weighted_score": 7.5,
-    "archetypes": [
-      "Mega Charizard Mega Charizard X Y",
-      "Mega Charizard X Oricorio"
-    ]
-  },
-  {
-    "card_a": "Firebreather",
-    "card_b": "Oricorio ex",
-    "support": 6,
-    "lift": 502.815,
-    "jaccard": 0.5,
-    "weighted_score": 7.5,
-    "archetypes": [
-      "Mega Charizard Mega Charizard X Y",
-      "Mega Charizard X Oricorio"
-    ]
-  },
-  {
-    "card_a": "Galvantula",
-    "card_b": "Joltik",
-    "support": 6,
-    "lift": 452.533,
-    "jaccard": 0.4,
-    "weighted_score": 8.3,
-    "archetypes": [
-      "Latias Pikachu",
-      "Raging Bolt ex"
-    ]
-  },
-  {
-    "card_a": "Ethan's Cyndaquil",
-    "card_b": "Ethan's Quilava",
-    "support": 16,
-    "lift": 424.25,
-    "jaccard": 1.0,
-    "weighted_score": 21.7,
-    "archetypes": [
-      "Dragapult Typhlosion",
-      "Drakloak Typhlosion",
-      "Dudunsparce Typhlosion",
-      "Ho Oh Magcargo",
-      "Latias Typhlosion",
-      "Mega Charizard X Typhlosion",
-      "Typhlosion",
-      "Typhlosion Victini"
-    ]
-  },
-  {
-    "card_a": "Ethan's Cyndaquil",
-    "card_b": "Ethan's Typhlosion",
-    "support": 16,
-    "lift": 424.25,
-    "jaccard": 1.0,
-    "weighted_score": 21.7,
-    "archetypes": [
-      "Dragapult Typhlosion",
-      "Drakloak Typhlosion",
-      "Dudunsparce Typhlosion",
-      "Ho Oh Magcargo",
-      "Latias Typhlosion",
-      "Mega Charizard X Typhlosion",
-      "Typhlosion",
-      "Typhlosion Victini"
-    ]
-  },
-  {
-    "card_a": "Ethan's Cyndaquil",
-    "card_b": "Victini",
-    "support": 10,
-    "lift": 424.25,
-    "jaccard": 0.625,
-    "weighted_score": 14.2,
-    "archetypes": [
-      "Dragapult Typhlosion",
-      "Drakloak Typhlosion",
-      "Dudunsparce Typhlosion",
-      "Typhlosion",
-      "Typhlosion Victini"
-    ]
-  },
-  {
-    "card_a": "Ethan's Quilava",
-    "card_b": "Ethan's Typhlosion",
-    "support": 16,
-    "lift": 424.25,
-    "jaccard": 1.0,
-    "weighted_score": 21.7,
-    "archetypes": [
-      "Dragapult Typhlosion",
-      "Drakloak Typhlosion",
-      "Dudunsparce Typhlosion",
-      "Ho Oh Magcargo",
-      "Latias Typhlosion",
-      "Mega Charizard X Typhlosion",
-      "Typhlosion",
-      "Typhlosion Victini"
-    ]
-  },
-  {
-    "card_a": "Ethan's Quilava",
-    "card_b": "Victini",
-    "support": 10,
-    "lift": 424.25,
-    "jaccard": 0.625,
-    "weighted_score": 14.2,
-    "archetypes": [
-      "Dragapult Typhlosion",
-      "Drakloak Typhlosion",
-      "Dudunsparce Typhlosion",
-      "Typhlosion",
-      "Typhlosion Victini"
-    ]
-  },
-  {
-    "card_a": "Ethan's Typhlosion",
-    "card_b": "Victini",
-    "support": 10,
-    "lift": 424.25,
-    "jaccard": 0.625,
-    "weighted_score": 14.2,
-    "archetypes": [
-      "Dragapult Typhlosion",
-      "Drakloak Typhlosion",
-      "Dudunsparce Typhlosion",
-      "Typhlosion",
-      "Typhlosion Victini"
-    ]
-  },
-  {
-    "card_a": "Lilligant",
-    "card_b": "Petilil",
-    "support": 16,
-    "lift": 424.25,
-    "jaccard": 1.0,
-    "weighted_score": 23.2,
-    "archetypes": [
-      "Dipplin Rillaboom",
-      "Dipplin Thwackey",
-      "Hydrapple Meganium"
-    ]
-  },
-  {
-    "card_a": "Rabsca",
-    "card_b": "Rellor",
-    "support": 16,
-    "lift": 424.25,
-    "jaccard": 1.0,
-    "weighted_score": 24.7,
-    "archetypes": [
-      "Decidueye Vivillon",
-      "Dipplin Rillaboom",
-      "Dipplin Thwackey",
-      "Hydrapple Ogerpon"
-    ]
-  },
-  {
-    "card_a": "Charmander",
-    "card_b": "Firebreather",
-    "support": 6,
-    "lift": 411.394,
-    "jaccard": 0.429,
-    "weighted_score": 7.5,
-    "archetypes": [
-      "Mega Charizard Mega Charizard X Y",
-      "Mega Charizard X Oricorio"
-    ]
-  },
-  {
-    "card_a": "Firebreather",
-    "card_b": "Mega Charizard X ex",
-    "support": 6,
-    "lift": 411.394,
-    "jaccard": 0.429,
-    "weighted_score": 7.5,
-    "archetypes": [
-      "Mega Charizard Mega Charizard X Y",
-      "Mega Charizard X Oricorio"
-    ]
-  },
-  {
-    "card_a": "Ethan's Adventure",
-    "card_b": "Ethan's Cyndaquil",
-    "support": 16,
-    "lift": 399.294,
-    "jaccard": 0.941,
-    "weighted_score": 21.7,
-    "archetypes": [
-      "Dragapult Typhlosion",
-      "Drakloak Typhlosion",
-      "Dudunsparce Typhlosion",
-      "Ho Oh Magcargo",
-      "Latias Typhlosion",
-      "Mega Charizard X Typhlosion",
-      "Typhlosion",
-      "Typhlosion Victini"
-    ]
-  },
-  {
-    "card_a": "Ethan's Adventure",
-    "card_b": "Ethan's Quilava",
-    "support": 16,
-    "lift": 399.294,
-    "jaccard": 0.941,
-    "weighted_score": 21.7,
-    "archetypes": [
-      "Dragapult Typhlosion",
-      "Drakloak Typhlosion",
-      "Dudunsparce Typhlosion",
-      "Ho Oh Magcargo",
-      "Latias Typhlosion",
-      "Mega Charizard X Typhlosion",
-      "Typhlosion",
-      "Typhlosion Victini"
-    ]
-  },
-  {
-    "card_a": "Ethan's Adventure",
-    "card_b": "Ethan's Typhlosion",
-    "support": 16,
-    "lift": 399.294,
-    "jaccard": 0.941,
-    "weighted_score": 21.7,
-    "archetypes": [
-      "Dragapult Typhlosion",
-      "Drakloak Typhlosion",
-      "Dudunsparce Typhlosion",
-      "Ho Oh Magcargo",
-      "Latias Typhlosion",
-      "Mega Charizard X Typhlosion",
-      "Typhlosion",
-      "Typhlosion Victini"
-    ]
-  },
-  {
-    "card_a": "Ethan's Adventure",
-    "card_b": "Victini",
-    "support": 10,
-    "lift": 399.294,
-    "jaccard": 0.588,
-    "weighted_score": 14.2,
-    "archetypes": [
-      "Dragapult Typhlosion",
-      "Drakloak Typhlosion",
-      "Dudunsparce Typhlosion",
-      "Typhlosion",
-      "Typhlosion Victini"
-    ]
-  },
-  {
-    "card_a": "Bouffalant",
-    "card_b": "Lugia ex",
-    "support": 8,
-    "lift": 377.111,
-    "jaccard": 0.444,
-    "weighted_score": 12.0,
-    "archetypes": [
-      "Mega Kangaskhan Clefairy",
-      "Mega Kangaskhan Latias"
-    ]
-  },
-  {
-    "card_a": "Redeemable Ticket",
-    "card_b": "Victini",
-    "support": 10,
-    "lift": 377.111,
-    "jaccard": 0.556,
-    "weighted_score": 14.2,
-    "archetypes": [
-      "Dragapult Typhlosion",
-      "Drakloak Typhlosion",
-      "Dudunsparce Typhlosion",
-      "Typhlosion",
-      "Typhlosion Victini"
-    ]
-  },
-  {
-    "card_a": "Yanma",
-    "card_b": "Yanmega ex",
-    "support": 18,
-    "lift": 377.111,
-    "jaccard": 1.0,
-    "weighted_score": 28.3,
-    "archetypes": [
-      "Dragapult Yanmega",
-      "Dudunsparce Yanmega",
-      "Dusknoir Yanmega",
-      "Hydrapple Ogerpon",
-      "Mega Meganium Yanmega",
-      "Noctowl Ogerpon",
-      "Ogerpon Yanmega",
-      "Raging Bolt Yanmega",
-      "Vileplume Yanmega"
-    ]
-  },
-  {
-    "card_a": "Boomerang Energy",
-    "card_b": "Spectrier",
-    "support": 7,
-    "lift": 332.28,
-    "jaccard": 0.412,
-    "weighted_score": 12.1,
-    "archetypes": [
-      "Latias Slowking",
-      "Slowking"
-    ]
-  },
-  {
-    "card_a": "Bronzong",
-    "card_b": "Bronzor",
-    "support": 24,
-    "lift": 282.833,
-    "jaccard": 1.0,
-    "weighted_score": 36.9,
-    "archetypes": [
-      "Bronzong Clefairy",
-      "Bronzong Dragapult",
-      "Clefairy Ogerpon",
-      "Dragapult Dusknoir",
-      "Mega Diancie Clefairy",
-      "Mega Froslass Bronzong",
-      "Mega Froslass Mega Starmie",
-      "Mega Froslass Munkidori"
-    ]
-  },
-  {
-    "card_a": "Joltik",
-    "card_b": "Light Ball",
-    "support": 6,
-    "lift": 271.52,
-    "jaccard": 0.316,
-    "weighted_score": 7.2,
-    "archetypes": [
-      "Blissey Pikachu",
-      "Latias Pikachu",
-      "Tera Box"
-    ]
-  },
-  {
-    "card_a": "Ethan's Cyndaquil",
-    "card_b": "Redeemable Ticket",
-    "support": 11,
-    "lift": 259.264,
-    "jaccard": 0.478,
-    "weighted_score": 15.4,
-    "archetypes": [
-      "Dragapult Typhlosion",
-      "Drakloak Typhlosion",
-      "Dudunsparce Typhlosion",
-      "Typhlosion",
-      "Typhlosion Victini"
-    ]
-  },
-  {
-    "card_a": "Ethan's Quilava",
-    "card_b": "Redeemable Ticket",
-    "support": 11,
-    "lift": 259.264,
-    "jaccard": 0.478,
-    "weighted_score": 15.4,
-    "archetypes": [
-      "Dragapult Typhlosion",
-      "Drakloak Typhlosion",
-      "Dudunsparce Typhlosion",
-      "Typhlosion",
-      "Typhlosion Victini"
-    ]
-  },
-  {
-    "card_a": "Ethan's Typhlosion",
-    "card_b": "Redeemable Ticket",
-    "support": 11,
-    "lift": 259.264,
-    "jaccard": 0.478,
-    "weighted_score": 15.4,
-    "archetypes": [
-      "Dragapult Typhlosion",
-      "Drakloak Typhlosion",
-      "Dudunsparce Typhlosion",
-      "Typhlosion",
-      "Typhlosion Victini"
-    ]
-  },
-  {
-    "card_a": "Ethan's Adventure",
-    "card_b": "Redeemable Ticket",
-    "support": 11,
-    "lift": 244.013,
-    "jaccard": 0.458,
-    "weighted_score": 15.4,
-    "archetypes": [
-      "Dragapult Typhlosion",
-      "Drakloak Typhlosion",
-      "Dudunsparce Typhlosion",
-      "Typhlosion",
-      "Typhlosion Victini"
-    ]
-  },
-  {
-    "card_a": "Hop's Phantump",
-    "card_b": "Hop's Trevenant",
-    "support": 31,
-    "lift": 218.968,
-    "jaccard": 1.0,
-    "weighted_score": 52.8,
-    "archetypes": [
-      "Clefairy Trevenant",
-      "Dubwool Trevenant",
-      "Latias Trevenant",
-      "Munkidori Zacian Crowned",
       "Trevenant",
       "Trevenant Zacian Crowned"
-    ]
-  },
-  {
-    "card_a": "Conkeldurr",
-    "card_b": "Mega Slowbro ex",
-    "support": 6,
-    "lift": 212.125,
-    "jaccard": 0.231,
-    "weighted_score": 7.8,
-    "archetypes": [
-      "Mega Slowbro Slowking",
-      "Slowking Zoroark"
-    ]
-  },
-  {
-    "card_a": "Light Ball",
-    "card_b": "Pikachu ex",
-    "support": 10,
-    "lift": 205.697,
-    "jaccard": 0.303,
-    "weighted_score": 12.3,
-    "archetypes": [
-      "Blaziken Noctowl",
-      "Blissey Pikachu",
-      "Flareon Noctowl",
-      "Latias Pikachu",
-      "Noctowl Ogerpon",
-      "Tera Box"
-    ]
-  },
-  {
-    "card_a": "Team Rocket's Crobat ex",
-    "card_b": "Team Rocket's Golbat",
-    "support": 34,
-    "lift": 199.647,
-    "jaccard": 1.0,
-    "weighted_score": 57.3,
-    "archetypes": [
-      "Crobat Dragapult",
-      "Crobat Spidops",
-      "Mega Starmie Crobat"
-    ]
-  },
-  {
-    "card_a": "Team Rocket's Crobat ex",
-    "card_b": "Team Rocket's Zubat",
-    "support": 34,
-    "lift": 199.647,
-    "jaccard": 1.0,
-    "weighted_score": 57.3,
-    "archetypes": [
-      "Crobat Dragapult",
-      "Crobat Spidops",
-      "Mega Starmie Crobat"
-    ]
-  },
-  {
-    "card_a": "Team Rocket's Golbat",
-    "card_b": "Team Rocket's Zubat",
-    "support": 34,
-    "lift": 199.647,
-    "jaccard": 1.0,
-    "weighted_score": 57.3,
-    "archetypes": [
-      "Crobat Dragapult",
-      "Crobat Spidops",
-      "Mega Starmie Crobat"
-    ]
-  },
-  {
-    "card_a": "Conkeldurr",
-    "card_b": "Spectrier",
-    "support": 9,
-    "lift": 195.808,
-    "jaccard": 0.321,
-    "weighted_score": 14.0,
-    "archetypes": [
-      "Alakazam Slowking",
-      "Mega Kangaskhan Slowking",
-      "Mega Slowbro Slowking",
-      "Slowking"
     ]
   },
   {
     "card_a": "Hop's Bag",
     "card_b": "Hop's Phantump",
-    "support": 31,
-    "lift": 193.943,
-    "jaccard": 0.886,
-    "weighted_score": 52.8,
+    "support": 6,
+    "lift": 197.333,
+    "jaccard": 1.0,
+    "weighted_score": 13.2,
     "archetypes": [
-      "Clefairy Trevenant",
       "Dubwool Trevenant",
-      "Latias Trevenant",
-      "Munkidori Zacian Crowned",
       "Trevenant",
       "Trevenant Zacian Crowned"
     ]
@@ -1051,15 +54,12 @@
   {
     "card_a": "Hop's Bag",
     "card_b": "Hop's Trevenant",
-    "support": 31,
-    "lift": 193.943,
-    "jaccard": 0.886,
-    "weighted_score": 52.8,
+    "support": 6,
+    "lift": 197.333,
+    "jaccard": 1.0,
+    "weighted_score": 13.2,
     "archetypes": [
-      "Clefairy Trevenant",
       "Dubwool Trevenant",
-      "Latias Trevenant",
-      "Munkidori Zacian Crowned",
       "Trevenant",
       "Trevenant Zacian Crowned"
     ]
@@ -1067,18 +67,12 @@
   {
     "card_a": "Hop's Bag",
     "card_b": "Hop's Zacian ex",
-    "support": 29,
-    "lift": 193.943,
-    "jaccard": 0.829,
-    "weighted_score": 49.3,
+    "support": 6,
+    "lift": 197.333,
+    "jaccard": 1.0,
+    "weighted_score": 13.2,
     "archetypes": [
-      "Archaludon Zacian Crowned",
-      "Clefairy Trevenant",
       "Dubwool Trevenant",
-      "Latias Trevenant",
-      "Latias Typhlosion",
-      "Latias Zacian Crowned",
-      "Munkidori Zacian Crowned",
       "Trevenant",
       "Trevenant Zacian Crowned"
     ]
@@ -1086,18 +80,90 @@
   {
     "card_a": "Hop's Bag",
     "card_b": "Postwick",
-    "support": 35,
-    "lift": 193.943,
+    "support": 6,
+    "lift": 197.333,
     "jaccard": 1.0,
-    "weighted_score": 59.7,
+    "weighted_score": 13.2,
     "archetypes": [
-      "Archaludon Zacian Crowned",
-      "Clefairy Trevenant",
       "Dubwool Trevenant",
-      "Latias Trevenant",
-      "Latias Typhlosion",
-      "Latias Zacian Crowned",
-      "Munkidori Zacian Crowned",
+      "Trevenant",
+      "Trevenant Zacian Crowned"
+    ]
+  },
+  {
+    "card_a": "Hop's Choice Band",
+    "card_b": "Hop's Phantump",
+    "support": 6,
+    "lift": 197.333,
+    "jaccard": 1.0,
+    "weighted_score": 13.2,
+    "archetypes": [
+      "Dubwool Trevenant",
+      "Trevenant",
+      "Trevenant Zacian Crowned"
+    ]
+  },
+  {
+    "card_a": "Hop's Choice Band",
+    "card_b": "Hop's Trevenant",
+    "support": 6,
+    "lift": 197.333,
+    "jaccard": 1.0,
+    "weighted_score": 13.2,
+    "archetypes": [
+      "Dubwool Trevenant",
+      "Trevenant",
+      "Trevenant Zacian Crowned"
+    ]
+  },
+  {
+    "card_a": "Hop's Choice Band",
+    "card_b": "Hop's Zacian ex",
+    "support": 6,
+    "lift": 197.333,
+    "jaccard": 1.0,
+    "weighted_score": 13.2,
+    "archetypes": [
+      "Dubwool Trevenant",
+      "Trevenant",
+      "Trevenant Zacian Crowned"
+    ]
+  },
+  {
+    "card_a": "Hop's Choice Band",
+    "card_b": "Postwick",
+    "support": 6,
+    "lift": 197.333,
+    "jaccard": 1.0,
+    "weighted_score": 13.2,
+    "archetypes": [
+      "Dubwool Trevenant",
+      "Trevenant",
+      "Trevenant Zacian Crowned"
+    ]
+  },
+  {
+    "card_a": "Hop's Phantump",
+    "card_b": "Hop's Trevenant",
+    "support": 6,
+    "lift": 197.333,
+    "jaccard": 1.0,
+    "weighted_score": 13.2,
+    "archetypes": [
+      "Dubwool Trevenant",
+      "Trevenant",
+      "Trevenant Zacian Crowned"
+    ]
+  },
+  {
+    "card_a": "Hop's Phantump",
+    "card_b": "Hop's Zacian ex",
+    "support": 6,
+    "lift": 197.333,
+    "jaccard": 1.0,
+    "weighted_score": 13.2,
+    "archetypes": [
+      "Dubwool Trevenant",
       "Trevenant",
       "Trevenant Zacian Crowned"
     ]
@@ -1105,15 +171,25 @@
   {
     "card_a": "Hop's Phantump",
     "card_b": "Postwick",
-    "support": 31,
-    "lift": 193.943,
-    "jaccard": 0.886,
-    "weighted_score": 52.8,
+    "support": 6,
+    "lift": 197.333,
+    "jaccard": 1.0,
+    "weighted_score": 13.2,
     "archetypes": [
-      "Clefairy Trevenant",
       "Dubwool Trevenant",
-      "Latias Trevenant",
-      "Munkidori Zacian Crowned",
+      "Trevenant",
+      "Trevenant Zacian Crowned"
+    ]
+  },
+  {
+    "card_a": "Hop's Trevenant",
+    "card_b": "Hop's Zacian ex",
+    "support": 6,
+    "lift": 197.333,
+    "jaccard": 1.0,
+    "weighted_score": 13.2,
+    "archetypes": [
+      "Dubwool Trevenant",
       "Trevenant",
       "Trevenant Zacian Crowned"
     ]
@@ -1121,15 +197,12 @@
   {
     "card_a": "Hop's Trevenant",
     "card_b": "Postwick",
-    "support": 31,
-    "lift": 193.943,
-    "jaccard": 0.886,
-    "weighted_score": 52.8,
+    "support": 6,
+    "lift": 197.333,
+    "jaccard": 1.0,
+    "weighted_score": 13.2,
     "archetypes": [
-      "Clefairy Trevenant",
       "Dubwool Trevenant",
-      "Latias Trevenant",
-      "Munkidori Zacian Crowned",
       "Trevenant",
       "Trevenant Zacian Crowned"
     ]
@@ -1137,394 +210,115 @@
   {
     "card_a": "Hop's Zacian ex",
     "card_b": "Postwick",
-    "support": 29,
-    "lift": 193.943,
-    "jaccard": 0.829,
-    "weighted_score": 49.3,
-    "archetypes": [
-      "Archaludon Zacian Crowned",
-      "Clefairy Trevenant",
-      "Dubwool Trevenant",
-      "Latias Trevenant",
-      "Latias Typhlosion",
-      "Latias Zacian Crowned",
-      "Munkidori Zacian Crowned",
-      "Trevenant",
-      "Trevenant Zacian Crowned"
-    ]
-  },
-  {
-    "card_a": "Hop's Phantump",
-    "card_b": "Hop's Zacian ex",
-    "support": 25,
-    "lift": 188.765,
-    "jaccard": 0.714,
-    "weighted_score": 42.4,
-    "archetypes": [
-      "Clefairy Trevenant",
-      "Dubwool Trevenant",
-      "Latias Trevenant",
-      "Munkidori Zacian Crowned",
-      "Trevenant",
-      "Trevenant Zacian Crowned"
-    ]
-  },
-  {
-    "card_a": "Hop's Trevenant",
-    "card_b": "Hop's Zacian ex",
-    "support": 25,
-    "lift": 188.765,
-    "jaccard": 0.714,
-    "weighted_score": 42.4,
-    "archetypes": [
-      "Clefairy Trevenant",
-      "Dubwool Trevenant",
-      "Latias Trevenant",
-      "Munkidori Zacian Crowned",
-      "Trevenant",
-      "Trevenant Zacian Crowned"
-    ]
-  },
-  {
-    "card_a": "Hop's Bag",
-    "card_b": "Hop's Snorlax",
-    "support": 35,
-    "lift": 188.556,
-    "jaccard": 0.972,
-    "weighted_score": 59.7,
-    "archetypes": [
-      "Archaludon Zacian Crowned",
-      "Clefairy Trevenant",
-      "Dubwool Trevenant",
-      "Latias Trevenant",
-      "Latias Typhlosion",
-      "Latias Zacian Crowned",
-      "Munkidori Zacian Crowned",
-      "Trevenant",
-      "Trevenant Zacian Crowned"
-    ]
-  },
-  {
-    "card_a": "Hop's Phantump",
-    "card_b": "Hop's Snorlax",
-    "support": 31,
-    "lift": 188.556,
-    "jaccard": 0.861,
-    "weighted_score": 52.8,
-    "archetypes": [
-      "Clefairy Trevenant",
-      "Dubwool Trevenant",
-      "Latias Trevenant",
-      "Munkidori Zacian Crowned",
-      "Trevenant",
-      "Trevenant Zacian Crowned"
-    ]
-  },
-  {
-    "card_a": "Hop's Snorlax",
-    "card_b": "Hop's Trevenant",
-    "support": 31,
-    "lift": 188.556,
-    "jaccard": 0.861,
-    "weighted_score": 52.8,
-    "archetypes": [
-      "Clefairy Trevenant",
-      "Dubwool Trevenant",
-      "Latias Trevenant",
-      "Munkidori Zacian Crowned",
-      "Trevenant",
-      "Trevenant Zacian Crowned"
-    ]
-  },
-  {
-    "card_a": "Hop's Snorlax",
-    "card_b": "Hop's Zacian ex",
-    "support": 29,
-    "lift": 188.556,
-    "jaccard": 0.806,
-    "weighted_score": 49.3,
-    "archetypes": [
-      "Archaludon Zacian Crowned",
-      "Clefairy Trevenant",
-      "Dubwool Trevenant",
-      "Latias Trevenant",
-      "Latias Typhlosion",
-      "Latias Zacian Crowned",
-      "Munkidori Zacian Crowned",
-      "Trevenant",
-      "Trevenant Zacian Crowned"
-    ]
-  },
-  {
-    "card_a": "Hop's Snorlax",
-    "card_b": "Postwick",
-    "support": 35,
-    "lift": 188.556,
-    "jaccard": 0.972,
-    "weighted_score": 59.7,
-    "archetypes": [
-      "Archaludon Zacian Crowned",
-      "Clefairy Trevenant",
-      "Dubwool Trevenant",
-      "Latias Trevenant",
-      "Latias Typhlosion",
-      "Latias Zacian Crowned",
-      "Munkidori Zacian Crowned",
-      "Trevenant",
-      "Trevenant Zacian Crowned"
-    ]
-  },
-  {
-    "card_a": "Buneary",
-    "card_b": "Mega Lopunny ex",
-    "support": 37,
-    "lift": 183.459,
+    "support": 6,
+    "lift": 197.333,
     "jaccard": 1.0,
-    "weighted_score": 66.8,
+    "weighted_score": 13.2,
+    "archetypes": [
+      "Dubwool Trevenant",
+      "Trevenant",
+      "Trevenant Zacian Crowned"
+    ]
+  },
+  {
+    "card_a": "Togekiss",
+    "card_b": "Togepi",
+    "support": 6,
+    "lift": 197.333,
+    "jaccard": 1.0,
+    "weighted_score": 7.8,
     "archetypes": [
       "Alakazam Dudunsparce",
-      "Clefairy Noctowl",
-      "Clefairy Ogerpon",
-      "Dipplin Thwackey",
-      "Flareon Noctowl",
-      "Latias Pikachu",
-      "Mega Lopunny Dragapult",
-      "Mega Lopunny Mega Starmie",
-      "Mega Lopunny Zoroark",
-      "Mega Sharpedo Toxtricity",
-      "Mega Starmie Dusknoir"
+      "Mega Diancie Dusknoir"
     ]
   },
   {
     "card_a": "Hop's Bag",
-    "card_b": "Hop's Choice Band",
-    "support": 35,
-    "lift": 183.459,
-    "jaccard": 0.946,
-    "weighted_score": 59.7,
+    "card_b": "Hop's Snorlax",
+    "support": 6,
+    "lift": 169.143,
+    "jaccard": 0.857,
+    "weighted_score": 13.2,
     "archetypes": [
-      "Archaludon Zacian Crowned",
-      "Clefairy Trevenant",
       "Dubwool Trevenant",
-      "Latias Trevenant",
-      "Latias Typhlosion",
-      "Latias Zacian Crowned",
-      "Munkidori Zacian Crowned",
       "Trevenant",
       "Trevenant Zacian Crowned"
-    ]
-  },
-  {
-    "card_a": "Hop's Choice Band",
-    "card_b": "Hop's Phantump",
-    "support": 31,
-    "lift": 183.459,
-    "jaccard": 0.838,
-    "weighted_score": 52.8,
-    "archetypes": [
-      "Clefairy Trevenant",
-      "Dubwool Trevenant",
-      "Latias Trevenant",
-      "Munkidori Zacian Crowned",
-      "Trevenant",
-      "Trevenant Zacian Crowned"
-    ]
-  },
-  {
-    "card_a": "Hop's Choice Band",
-    "card_b": "Hop's Trevenant",
-    "support": 31,
-    "lift": 183.459,
-    "jaccard": 0.838,
-    "weighted_score": 52.8,
-    "archetypes": [
-      "Clefairy Trevenant",
-      "Dubwool Trevenant",
-      "Latias Trevenant",
-      "Munkidori Zacian Crowned",
-      "Trevenant",
-      "Trevenant Zacian Crowned"
-    ]
-  },
-  {
-    "card_a": "Hop's Choice Band",
-    "card_b": "Hop's Zacian ex",
-    "support": 29,
-    "lift": 183.459,
-    "jaccard": 0.784,
-    "weighted_score": 49.3,
-    "archetypes": [
-      "Archaludon Zacian Crowned",
-      "Clefairy Trevenant",
-      "Dubwool Trevenant",
-      "Latias Trevenant",
-      "Latias Typhlosion",
-      "Latias Zacian Crowned",
-      "Munkidori Zacian Crowned",
-      "Trevenant",
-      "Trevenant Zacian Crowned"
-    ]
-  },
-  {
-    "card_a": "Hop's Choice Band",
-    "card_b": "Postwick",
-    "support": 35,
-    "lift": 183.459,
-    "jaccard": 0.946,
-    "weighted_score": 59.7,
-    "archetypes": [
-      "Archaludon Zacian Crowned",
-      "Clefairy Trevenant",
-      "Dubwool Trevenant",
-      "Latias Trevenant",
-      "Latias Typhlosion",
-      "Latias Zacian Crowned",
-      "Munkidori Zacian Crowned",
-      "Trevenant",
-      "Trevenant Zacian Crowned"
-    ]
-  },
-  {
-    "card_a": "Boomerang Energy",
-    "card_b": "Conkeldurr",
-    "support": 7,
-    "lift": 179.985,
-    "jaccard": 0.25,
-    "weighted_score": 9.3,
-    "archetypes": [
-      "Latias Slowking",
-      "Slowking",
-      "Slowking Zoroark"
     ]
   },
   {
     "card_a": "Hop's Choice Band",
     "card_b": "Hop's Snorlax",
-    "support": 35,
-    "lift": 178.363,
-    "jaccard": 0.921,
-    "weighted_score": 59.7,
+    "support": 6,
+    "lift": 169.143,
+    "jaccard": 0.857,
+    "weighted_score": 13.2,
     "archetypes": [
-      "Archaludon Zacian Crowned",
-      "Clefairy Trevenant",
       "Dubwool Trevenant",
-      "Latias Trevenant",
-      "Latias Typhlosion",
-      "Latias Zacian Crowned",
-      "Munkidori Zacian Crowned",
       "Trevenant",
       "Trevenant Zacian Crowned"
     ]
   },
   {
-    "card_a": "Annihilape",
-    "card_b": "Boomerang Energy",
-    "support": 11,
-    "lift": 169.7,
-    "jaccard": 0.275,
-    "weighted_score": 17.5,
+    "card_a": "Hop's Phantump",
+    "card_b": "Hop's Snorlax",
+    "support": 6,
+    "lift": 169.143,
+    "jaccard": 0.857,
+    "weighted_score": 13.2,
     "archetypes": [
-      "Latias Slowking",
-      "Slowking",
-      "Slowking Zoroark"
+      "Dubwool Trevenant",
+      "Trevenant",
+      "Trevenant Zacian Crowned"
     ]
   },
   {
-    "card_a": "Annihilape",
-    "card_b": "Conkeldurr",
-    "support": 24,
-    "lift": 169.7,
-    "jaccard": 0.6,
-    "weighted_score": 35.9,
+    "card_a": "Hop's Snorlax",
+    "card_b": "Hop's Trevenant",
+    "support": 6,
+    "lift": 169.143,
+    "jaccard": 0.857,
+    "weighted_score": 13.2,
     "archetypes": [
-      "Alakazam Slowking",
-      "Dudunsparce Slowking",
-      "Gumshoos Slowking",
-      "Latias Slowking",
-      "Mega Kangaskhan Slowking",
-      "Mega Slowbro Slowking",
-      "Slowking",
-      "Slowking Zoroark"
+      "Dubwool Trevenant",
+      "Trevenant",
+      "Trevenant Zacian Crowned"
     ]
   },
   {
-    "card_a": "Carvanha",
-    "card_b": "Mega Sharpedo ex",
-    "support": 40,
-    "lift": 169.7,
-    "jaccard": 1.0,
-    "weighted_score": 60.9,
+    "card_a": "Hop's Snorlax",
+    "card_b": "Hop's Zacian ex",
+    "support": 6,
+    "lift": 169.143,
+    "jaccard": 0.857,
+    "weighted_score": 13.2,
     "archetypes": [
-      "Blaziken Dragapult",
-      "Mega Kangaskhan Mega Sharpedo",
-      "Mega Sharpedo Pecharunt",
-      "Mega Sharpedo Toxtricity"
+      "Dubwool Trevenant",
+      "Trevenant",
+      "Trevenant Zacian Crowned"
+    ]
+  },
+  {
+    "card_a": "Hop's Snorlax",
+    "card_b": "Postwick",
+    "support": 6,
+    "lift": 169.143,
+    "jaccard": 0.857,
+    "weighted_score": 13.2,
+    "archetypes": [
+      "Dubwool Trevenant",
+      "Trevenant",
+      "Trevenant Zacian Crowned"
     ]
   },
   {
     "card_a": "Academy at Night",
     "card_b": "Annihilape",
-    "support": 40,
-    "lift": 161.619,
-    "jaccard": 0.952,
-    "weighted_score": 62.2,
-    "archetypes": [
-      "Alakazam Slowking",
-      "Dudunsparce Slowking",
-      "Dusknoir Slowking",
-      "Gumshoos Slowking",
-      "Latias Slowking",
-      "Mega Diancie Slowking",
-      "Mega Kangaskhan Slowking",
-      "Mega Slowbro Slowking",
-      "Meowth Slowking",
-      "Metagross Slowking",
-      "Slowking",
-      "Slowking Zoroark"
-    ]
-  },
-  {
-    "card_a": "Academy at Night",
-    "card_b": "Boomerang Energy",
-    "support": 11,
-    "lift": 161.619,
-    "jaccard": 0.262,
-    "weighted_score": 17.5,
+    "support": 7,
+    "lift": 148.0,
+    "jaccard": 0.875,
+    "weighted_score": 12.6,
     "archetypes": [
       "Latias Slowking",
-      "Slowking",
-      "Slowking Zoroark"
-    ]
-  },
-  {
-    "card_a": "Academy at Night",
-    "card_b": "Conkeldurr",
-    "support": 24,
-    "lift": 161.619,
-    "jaccard": 0.571,
-    "weighted_score": 35.9,
-    "archetypes": [
-      "Alakazam Slowking",
-      "Dudunsparce Slowking",
-      "Gumshoos Slowking",
-      "Latias Slowking",
-      "Mega Kangaskhan Slowking",
-      "Mega Slowbro Slowking",
-      "Slowking",
-      "Slowking Zoroark"
-    ]
-  },
-  {
-    "card_a": "Academy at Night",
-    "card_b": "Haxorus",
-    "support": 14,
-    "lift": 161.619,
-    "jaccard": 0.333,
-    "weighted_score": 24.2,
-    "archetypes": [
-      "Gumshoos Slowking",
-      "Latias Slowking",
-      "Mega Diancie Slowking",
       "Mega Kangaskhan Slowking",
       "Mega Slowbro Slowking",
       "Slowking"
@@ -1532,1416 +326,2212 @@
   },
   {
     "card_a": "Academy at Night",
-    "card_b": "N's Vanilluxe",
-    "support": 5,
-    "lift": 161.619,
-    "jaccard": 0.119,
-    "weighted_score": 6.8,
+    "card_b": "Haxorus",
+    "support": 6,
+    "lift": 148.0,
+    "jaccard": 0.75,
+    "weighted_score": 10.6,
     "archetypes": [
-      "Gumshoos Slowking",
-      "Mega Diancie Slowking",
+      "Latias Slowking",
+      "Mega Kangaskhan Slowking",
+      "Mega Slowbro Slowking",
+      "Slowking"
+    ]
+  },
+  {
+    "card_a": "Academy at Night",
+    "card_b": "Kyurem",
+    "support": 8,
+    "lift": 148.0,
+    "jaccard": 1.0,
+    "weighted_score": 14.1,
+    "archetypes": [
+      "Latias Slowking",
+      "Mega Kangaskhan Slowking",
+      "Mega Slowbro Slowking",
       "Slowking"
     ]
   },
   {
     "card_a": "Academy at Night",
     "card_b": "Slowking",
-    "support": 42,
-    "lift": 161.619,
+    "support": 8,
+    "lift": 148.0,
     "jaccard": 1.0,
-    "weighted_score": 65.7,
+    "weighted_score": 14.1,
     "archetypes": [
-      "Alakazam Slowking",
-      "Dudunsparce Slowking",
-      "Dusknoir Slowking",
-      "Gumshoos Slowking",
       "Latias Slowking",
-      "Mega Diancie Slowking",
       "Mega Kangaskhan Slowking",
       "Mega Slowbro Slowking",
-      "Meowth Slowking",
-      "Metagross Slowking",
-      "Slowking",
-      "Slowking Zoroark"
+      "Slowking"
     ]
   },
   {
     "card_a": "Academy at Night",
-    "card_b": "Zoroark",
+    "card_b": "Slowpoke",
     "support": 8,
-    "lift": 161.619,
-    "jaccard": 0.19,
-    "weighted_score": 10.5,
+    "lift": 148.0,
+    "jaccard": 1.0,
+    "weighted_score": 14.1,
     "archetypes": [
-      "Dusknoir Slowking",
       "Latias Slowking",
       "Mega Kangaskhan Slowking",
       "Mega Slowbro Slowking",
-      "Meowth Slowking",
+      "Slowking"
+    ]
+  },
+  {
+    "card_a": "Annihilape",
+    "card_b": "Kyurem",
+    "support": 7,
+    "lift": 148.0,
+    "jaccard": 0.875,
+    "weighted_score": 12.6,
+    "archetypes": [
+      "Latias Slowking",
+      "Mega Kangaskhan Slowking",
+      "Mega Slowbro Slowking",
       "Slowking"
     ]
   },
   {
     "card_a": "Annihilape",
     "card_b": "Slowking",
-    "support": 40,
-    "lift": 161.619,
-    "jaccard": 0.952,
-    "weighted_score": 62.2,
+    "support": 7,
+    "lift": 148.0,
+    "jaccard": 0.875,
+    "weighted_score": 12.6,
     "archetypes": [
-      "Alakazam Slowking",
-      "Dudunsparce Slowking",
-      "Dusknoir Slowking",
-      "Gumshoos Slowking",
-      "Latias Slowking",
-      "Mega Diancie Slowking",
-      "Mega Kangaskhan Slowking",
-      "Mega Slowbro Slowking",
-      "Meowth Slowking",
-      "Metagross Slowking",
-      "Slowking",
-      "Slowking Zoroark"
-    ]
-  },
-  {
-    "card_a": "Boomerang Energy",
-    "card_b": "Slowking",
-    "support": 11,
-    "lift": 161.619,
-    "jaccard": 0.262,
-    "weighted_score": 17.5,
-    "archetypes": [
-      "Latias Slowking",
-      "Slowking",
-      "Slowking Zoroark"
-    ]
-  },
-  {
-    "card_a": "Conkeldurr",
-    "card_b": "Slowking",
-    "support": 24,
-    "lift": 161.619,
-    "jaccard": 0.571,
-    "weighted_score": 35.9,
-    "archetypes": [
-      "Alakazam Slowking",
-      "Dudunsparce Slowking",
-      "Gumshoos Slowking",
       "Latias Slowking",
       "Mega Kangaskhan Slowking",
       "Mega Slowbro Slowking",
-      "Slowking",
-      "Slowking Zoroark"
+      "Slowking"
+    ]
+  },
+  {
+    "card_a": "Annihilape",
+    "card_b": "Slowpoke",
+    "support": 7,
+    "lift": 148.0,
+    "jaccard": 0.875,
+    "weighted_score": 12.6,
+    "archetypes": [
+      "Latias Slowking",
+      "Mega Kangaskhan Slowking",
+      "Mega Slowbro Slowking",
+      "Slowking"
+    ]
+  },
+  {
+    "card_a": "Bronzong",
+    "card_b": "Bronzor",
+    "support": 8,
+    "lift": 148.0,
+    "jaccard": 1.0,
+    "weighted_score": 12.0,
+    "archetypes": [
+      "Bronzong Clefairy",
+      "Bronzong Dragapult",
+      "Clefairy Ogerpon",
+      "Mega Diancie Clefairy",
+      "Mega Froslass Bronzong",
+      "Mega Froslass Mega Starmie"
+    ]
+  },
+  {
+    "card_a": "Haxorus",
+    "card_b": "Kyurem",
+    "support": 6,
+    "lift": 148.0,
+    "jaccard": 0.75,
+    "weighted_score": 10.6,
+    "archetypes": [
+      "Latias Slowking",
+      "Mega Kangaskhan Slowking",
+      "Mega Slowbro Slowking",
+      "Slowking"
     ]
   },
   {
     "card_a": "Haxorus",
     "card_b": "Slowking",
-    "support": 14,
-    "lift": 161.619,
-    "jaccard": 0.333,
-    "weighted_score": 24.2,
+    "support": 6,
+    "lift": 148.0,
+    "jaccard": 0.75,
+    "weighted_score": 10.6,
     "archetypes": [
-      "Gumshoos Slowking",
       "Latias Slowking",
-      "Mega Diancie Slowking",
       "Mega Kangaskhan Slowking",
       "Mega Slowbro Slowking",
       "Slowking"
     ]
   },
   {
-    "card_a": "N's Vanilluxe",
-    "card_b": "Slowking",
-    "support": 5,
-    "lift": 161.619,
-    "jaccard": 0.119,
-    "weighted_score": 6.8,
+    "card_a": "Haxorus",
+    "card_b": "Slowpoke",
+    "support": 6,
+    "lift": 148.0,
+    "jaccard": 0.75,
+    "weighted_score": 10.6,
     "archetypes": [
-      "Gumshoos Slowking",
-      "Mega Diancie Slowking",
+      "Latias Slowking",
+      "Mega Kangaskhan Slowking",
+      "Mega Slowbro Slowking",
+      "Slowking"
+    ]
+  },
+  {
+    "card_a": "Kyurem",
+    "card_b": "Slowking",
+    "support": 8,
+    "lift": 148.0,
+    "jaccard": 1.0,
+    "weighted_score": 14.1,
+    "archetypes": [
+      "Latias Slowking",
+      "Mega Kangaskhan Slowking",
+      "Mega Slowbro Slowking",
+      "Slowking"
+    ]
+  },
+  {
+    "card_a": "Kyurem",
+    "card_b": "Slowpoke",
+    "support": 8,
+    "lift": 148.0,
+    "jaccard": 1.0,
+    "weighted_score": 14.1,
+    "archetypes": [
+      "Latias Slowking",
+      "Mega Kangaskhan Slowking",
+      "Mega Slowbro Slowking",
       "Slowking"
     ]
   },
   {
     "card_a": "Slowking",
-    "card_b": "Zoroark",
+    "card_b": "Slowpoke",
     "support": 8,
-    "lift": 161.619,
-    "jaccard": 0.19,
-    "weighted_score": 10.5,
+    "lift": 148.0,
+    "jaccard": 1.0,
+    "weighted_score": 14.1,
     "archetypes": [
-      "Dusknoir Slowking",
       "Latias Slowking",
       "Mega Kangaskhan Slowking",
       "Mega Slowbro Slowking",
-      "Meowth Slowking",
       "Slowking"
     ]
   },
   {
-    "card_a": "Hop's Dubwool",
-    "card_b": "Hop's Phantump",
-    "support": 8,
-    "lift": 159.249,
-    "jaccard": 0.235,
-    "weighted_score": 14.0,
+    "card_a": "Annihilape",
+    "card_b": "Haxorus",
+    "support": 5,
+    "lift": 140.952,
+    "jaccard": 0.625,
+    "weighted_score": 9.1,
     "archetypes": [
-      "Dubwool Trevenant",
-      "Trevenant"
+      "Latias Slowking",
+      "Mega Slowbro Slowking",
+      "Slowking"
     ]
   },
   {
-    "card_a": "Hop's Dubwool",
-    "card_b": "Hop's Trevenant",
-    "support": 8,
-    "lift": 159.249,
-    "jaccard": 0.235,
-    "weighted_score": 14.0,
+    "card_a": "Archaludon ex",
+    "card_b": "Duraludon",
+    "support": 9,
+    "lift": 131.556,
+    "jaccard": 1.0,
+    "weighted_score": 13.8,
     "archetypes": [
-      "Dubwool Trevenant",
-      "Trevenant"
+      "Archaludon Meowth",
+      "Archaludon ex"
     ]
   },
   {
-    "card_a": "Hop's Phantump",
-    "card_b": "Hop's Wooloo",
-    "support": 8,
-    "lift": 159.249,
-    "jaccard": 0.235,
-    "weighted_score": 14.0,
+    "card_a": "Carvanha",
+    "card_b": "Toxel",
+    "support": 5,
+    "lift": 131.556,
+    "jaccard": 0.556,
+    "weighted_score": 9.4,
     "archetypes": [
-      "Dubwool Trevenant",
-      "Trevenant"
+      "Mega Sharpedo Toxtricity"
     ]
   },
   {
-    "card_a": "Hop's Trevenant",
-    "card_b": "Hop's Wooloo",
-    "support": 8,
-    "lift": 159.249,
-    "jaccard": 0.235,
-    "weighted_score": 14.0,
+    "card_a": "Carvanha",
+    "card_b": "Toxtricity",
+    "support": 5,
+    "lift": 131.556,
+    "jaccard": 0.556,
+    "weighted_score": 9.4,
     "archetypes": [
-      "Dubwool Trevenant",
-      "Trevenant"
+      "Mega Sharpedo Toxtricity"
+    ]
+  },
+  {
+    "card_a": "Mega Sharpedo ex",
+    "card_b": "Toxel",
+    "support": 5,
+    "lift": 131.556,
+    "jaccard": 0.556,
+    "weighted_score": 9.4,
+    "archetypes": [
+      "Mega Sharpedo Toxtricity"
+    ]
+  },
+  {
+    "card_a": "Mega Sharpedo ex",
+    "card_b": "Toxtricity",
+    "support": 5,
+    "lift": 131.556,
+    "jaccard": 0.556,
+    "weighted_score": 9.4,
+    "archetypes": [
+      "Mega Sharpedo Toxtricity"
+    ]
+  },
+  {
+    "card_a": "Toxel",
+    "card_b": "Toxtricity",
+    "support": 9,
+    "lift": 131.556,
+    "jaccard": 1.0,
+    "weighted_score": 16.0,
+    "archetypes": [
+      "Arbok Toxtricity",
+      "Mega Absol Toxtricity",
+      "Mega Sharpedo Toxtricity",
+      "Munkidori Toxtricity"
+    ]
+  },
+  {
+    "card_a": "Brilliant Blender",
+    "card_b": "Ceruledge ex",
+    "support": 6,
+    "lift": 118.4,
+    "jaccard": 0.6,
+    "weighted_score": 9.1,
+    "archetypes": [
+      "Ceruledge Lunatone",
+      "Ceruledge Solrock",
+      "Ceruledge ex"
+    ]
+  },
+  {
+    "card_a": "Brilliant Blender",
+    "card_b": "Charcadet",
+    "support": 6,
+    "lift": 118.4,
+    "jaccard": 0.6,
+    "weighted_score": 9.1,
+    "archetypes": [
+      "Ceruledge Lunatone",
+      "Ceruledge Solrock",
+      "Ceruledge ex"
     ]
   },
   {
     "card_a": "Ceruledge ex",
     "card_b": "Charcadet",
-    "support": 43,
-    "lift": 157.86,
+    "support": 10,
+    "lift": 118.4,
     "jaccard": 1.0,
-    "weighted_score": 61.5,
+    "weighted_score": 14.5,
     "archetypes": [
-      "Azumarill Ceruledge",
       "Ceruledge Lunatone",
-      "Ceruledge Meowth",
       "Ceruledge Solrock",
       "Ceruledge Zoroark",
       "Ceruledge ex"
     ]
   },
   {
-    "card_a": "Annihilape",
-    "card_b": "Spectrier",
-    "support": 12,
-    "lift": 156.646,
-    "jaccard": 0.293,
-    "weighted_score": 21.0,
-    "archetypes": [
-      "Alakazam Slowking",
-      "Latias Slowking",
-      "Mega Kangaskhan Slowking",
-      "Mega Slowbro Slowking",
-      "Slowking"
-    ]
-  },
-  {
-    "card_a": "Academy at Night",
-    "card_b": "Slowpoke",
-    "support": 42,
-    "lift": 154.273,
-    "jaccard": 0.955,
-    "weighted_score": 65.7,
-    "archetypes": [
-      "Alakazam Slowking",
-      "Dudunsparce Slowking",
-      "Dusknoir Slowking",
-      "Gumshoos Slowking",
-      "Latias Slowking",
-      "Mega Diancie Slowking",
-      "Mega Kangaskhan Slowking",
-      "Mega Slowbro Slowking",
-      "Meowth Slowking",
-      "Metagross Slowking",
-      "Slowking",
-      "Slowking Zoroark"
-    ]
-  },
-  {
-    "card_a": "Annihilape",
-    "card_b": "Slowpoke",
-    "support": 40,
-    "lift": 154.273,
-    "jaccard": 0.909,
-    "weighted_score": 62.2,
-    "archetypes": [
-      "Alakazam Slowking",
-      "Dudunsparce Slowking",
-      "Dusknoir Slowking",
-      "Gumshoos Slowking",
-      "Latias Slowking",
-      "Mega Diancie Slowking",
-      "Mega Kangaskhan Slowking",
-      "Mega Slowbro Slowking",
-      "Meowth Slowking",
-      "Metagross Slowking",
-      "Slowking",
-      "Slowking Zoroark"
-    ]
-  },
-  {
-    "card_a": "Boomerang Energy",
-    "card_b": "Slowpoke",
-    "support": 11,
-    "lift": 154.273,
-    "jaccard": 0.25,
-    "weighted_score": 17.5,
-    "archetypes": [
-      "Latias Slowking",
-      "Slowking",
-      "Slowking Zoroark"
-    ]
-  },
-  {
-    "card_a": "Conkeldurr",
-    "card_b": "Slowpoke",
-    "support": 24,
-    "lift": 154.273,
-    "jaccard": 0.545,
-    "weighted_score": 35.9,
-    "archetypes": [
-      "Alakazam Slowking",
-      "Dudunsparce Slowking",
-      "Gumshoos Slowking",
-      "Latias Slowking",
-      "Mega Kangaskhan Slowking",
-      "Mega Slowbro Slowking",
-      "Slowking",
-      "Slowking Zoroark"
-    ]
-  },
-  {
-    "card_a": "Haxorus",
-    "card_b": "Slowpoke",
-    "support": 14,
-    "lift": 154.273,
-    "jaccard": 0.318,
-    "weighted_score": 24.2,
-    "archetypes": [
-      "Gumshoos Slowking",
-      "Latias Slowking",
-      "Mega Diancie Slowking",
-      "Mega Kangaskhan Slowking",
-      "Mega Slowbro Slowking",
-      "Slowking"
-    ]
-  },
-  {
-    "card_a": "Mega Slowbro ex",
-    "card_b": "Slowpoke",
-    "support": 8,
-    "lift": 154.273,
-    "jaccard": 0.182,
-    "weighted_score": 11.0,
-    "archetypes": [
-      "Mega Diancie Mega Slowbro",
-      "Mega Slowbro Dusknoir",
-      "Mega Slowbro Slowking",
-      "Slowking Zoroark"
-    ]
-  },
-  {
-    "card_a": "N's Vanilluxe",
-    "card_b": "Slowpoke",
-    "support": 5,
-    "lift": 154.273,
-    "jaccard": 0.114,
-    "weighted_score": 6.8,
-    "archetypes": [
-      "Gumshoos Slowking",
-      "Mega Diancie Slowking",
-      "Slowking"
-    ]
-  },
-  {
-    "card_a": "Slowking",
-    "card_b": "Slowpoke",
-    "support": 42,
-    "lift": 154.273,
-    "jaccard": 0.955,
-    "weighted_score": 65.7,
-    "archetypes": [
-      "Alakazam Slowking",
-      "Dudunsparce Slowking",
-      "Dusknoir Slowking",
-      "Gumshoos Slowking",
-      "Latias Slowking",
-      "Mega Diancie Slowking",
-      "Mega Kangaskhan Slowking",
-      "Mega Slowbro Slowking",
-      "Meowth Slowking",
-      "Metagross Slowking",
-      "Slowking",
-      "Slowking Zoroark"
-    ]
-  },
-  {
-    "card_a": "Slowpoke",
-    "card_b": "Zoroark",
-    "support": 8,
-    "lift": 154.273,
-    "jaccard": 0.182,
-    "weighted_score": 10.5,
-    "archetypes": [
-      "Dusknoir Slowking",
-      "Latias Slowking",
-      "Mega Kangaskhan Slowking",
-      "Mega Slowbro Slowking",
-      "Meowth Slowking",
-      "Slowking"
-    ]
-  },
-  {
-    "card_a": "Academy at Night",
-    "card_b": "Kyurem",
-    "support": 42,
-    "lift": 150.844,
-    "jaccard": 0.933,
-    "weighted_score": 65.7,
-    "archetypes": [
-      "Alakazam Slowking",
-      "Dudunsparce Slowking",
-      "Dusknoir Slowking",
-      "Gumshoos Slowking",
-      "Latias Slowking",
-      "Mega Diancie Slowking",
-      "Mega Kangaskhan Slowking",
-      "Mega Slowbro Slowking",
-      "Meowth Slowking",
-      "Metagross Slowking",
-      "Slowking",
-      "Slowking Zoroark"
-    ]
-  },
-  {
-    "card_a": "Annihilape",
-    "card_b": "Kyurem",
-    "support": 40,
-    "lift": 150.844,
-    "jaccard": 0.889,
-    "weighted_score": 62.2,
-    "archetypes": [
-      "Alakazam Slowking",
-      "Dudunsparce Slowking",
-      "Dusknoir Slowking",
-      "Gumshoos Slowking",
-      "Latias Slowking",
-      "Mega Diancie Slowking",
-      "Mega Kangaskhan Slowking",
-      "Mega Slowbro Slowking",
-      "Meowth Slowking",
-      "Metagross Slowking",
-      "Slowking",
-      "Slowking Zoroark"
-    ]
-  },
-  {
-    "card_a": "Boomerang Energy",
-    "card_b": "Kyurem",
-    "support": 11,
-    "lift": 150.844,
-    "jaccard": 0.244,
-    "weighted_score": 17.5,
-    "archetypes": [
-      "Latias Slowking",
-      "Slowking",
-      "Slowking Zoroark"
-    ]
-  },
-  {
-    "card_a": "Conkeldurr",
-    "card_b": "Kyurem",
-    "support": 24,
-    "lift": 150.844,
-    "jaccard": 0.533,
-    "weighted_score": 35.9,
-    "archetypes": [
-      "Alakazam Slowking",
-      "Dudunsparce Slowking",
-      "Gumshoos Slowking",
-      "Latias Slowking",
-      "Mega Kangaskhan Slowking",
-      "Mega Slowbro Slowking",
-      "Slowking",
-      "Slowking Zoroark"
-    ]
-  },
-  {
-    "card_a": "Haxorus",
-    "card_b": "Kyurem",
-    "support": 14,
-    "lift": 150.844,
-    "jaccard": 0.311,
-    "weighted_score": 24.2,
-    "archetypes": [
-      "Gumshoos Slowking",
-      "Latias Slowking",
-      "Mega Diancie Slowking",
-      "Mega Kangaskhan Slowking",
-      "Mega Slowbro Slowking",
-      "Slowking"
-    ]
-  },
-  {
-    "card_a": "Kyurem",
-    "card_b": "N's Vanilluxe",
-    "support": 5,
-    "lift": 150.844,
-    "jaccard": 0.111,
-    "weighted_score": 6.8,
-    "archetypes": [
-      "Gumshoos Slowking",
-      "Mega Diancie Slowking",
-      "Slowking"
-    ]
-  },
-  {
-    "card_a": "Kyurem",
-    "card_b": "Slowking",
-    "support": 42,
-    "lift": 150.844,
-    "jaccard": 0.933,
-    "weighted_score": 65.7,
-    "archetypes": [
-      "Alakazam Slowking",
-      "Dudunsparce Slowking",
-      "Dusknoir Slowking",
-      "Gumshoos Slowking",
-      "Latias Slowking",
-      "Mega Diancie Slowking",
-      "Mega Kangaskhan Slowking",
-      "Mega Slowbro Slowking",
-      "Meowth Slowking",
-      "Metagross Slowking",
-      "Slowking",
-      "Slowking Zoroark"
-    ]
-  },
-  {
-    "card_a": "Kyurem",
-    "card_b": "Zoroark",
-    "support": 8,
-    "lift": 150.844,
-    "jaccard": 0.178,
-    "weighted_score": 10.5,
-    "archetypes": [
-      "Dusknoir Slowking",
-      "Latias Slowking",
-      "Mega Kangaskhan Slowking",
-      "Mega Slowbro Slowking",
-      "Meowth Slowking",
-      "Slowking"
-    ]
-  },
-  {
-    "card_a": "Lugia ex",
-    "card_b": "Smoochum",
-    "support": 8,
-    "lift": 150.844,
-    "jaccard": 0.178,
-    "weighted_score": 12.0,
-    "archetypes": [
-      "Mega Kangaskhan Clefairy",
-      "Mega Kangaskhan Latias"
-    ]
-  },
-  {
-    "card_a": "Mega Slowbro ex",
-    "card_b": "Smoochum",
-    "support": 8,
-    "lift": 150.844,
-    "jaccard": 0.178,
-    "weighted_score": 11.0,
-    "archetypes": [
-      "Mega Diancie Mega Slowbro",
-      "Mega Slowbro Dusknoir",
-      "Mega Slowbro Slowking",
-      "Slowking Zoroark"
-    ]
-  },
-  {
-    "card_a": "Academy at Night",
-    "card_b": "Spectrier",
-    "support": 12,
-    "lift": 149.187,
-    "jaccard": 0.279,
-    "weighted_score": 21.0,
-    "archetypes": [
-      "Alakazam Slowking",
-      "Latias Slowking",
-      "Mega Kangaskhan Slowking",
-      "Mega Slowbro Slowking",
-      "Slowking"
-    ]
-  },
-  {
-    "card_a": "Slowking",
-    "card_b": "Spectrier",
-    "support": 12,
-    "lift": 149.187,
-    "jaccard": 0.279,
-    "weighted_score": 21.0,
-    "archetypes": [
-      "Alakazam Slowking",
-      "Latias Slowking",
-      "Mega Kangaskhan Slowking",
-      "Mega Slowbro Slowking",
-      "Slowking"
-    ]
-  },
-  {
-    "card_a": "Annihilape",
-    "card_b": "Zoroark",
-    "support": 7,
-    "lift": 148.487,
-    "jaccard": 0.171,
-    "weighted_score": 9.0,
-    "archetypes": [
-      "Dusknoir Slowking",
-      "Latias Slowking",
-      "Mega Slowbro Slowking",
-      "Meowth Slowking",
-      "Slowking"
-    ]
-  },
-  {
-    "card_a": "Annihilape",
-    "card_b": "Haxorus",
-    "support": 12,
-    "lift": 145.457,
-    "jaccard": 0.286,
-    "weighted_score": 20.7,
-    "archetypes": [
-      "Latias Slowking",
-      "Mega Diancie Slowking",
-      "Mega Kangaskhan Slowking",
-      "Mega Slowbro Slowking",
-      "Slowking"
-    ]
-  },
-  {
-    "card_a": "Brilliant Blender",
-    "card_b": "Ceruledge ex",
-    "support": 34,
-    "lift": 145.061,
-    "jaccard": 0.739,
-    "weighted_score": 49.2,
-    "archetypes": [
-      "Azumarill Ceruledge",
-      "Ceruledge Lunatone",
-      "Ceruledge Meowth",
-      "Ceruledge Solrock",
-      "Ceruledge ex"
-    ]
-  },
-  {
-    "card_a": "Brilliant Blender",
-    "card_b": "Charcadet",
-    "support": 34,
-    "lift": 145.061,
-    "jaccard": 0.739,
-    "weighted_score": 49.2,
-    "archetypes": [
-      "Azumarill Ceruledge",
-      "Ceruledge Lunatone",
-      "Ceruledge Meowth",
-      "Ceruledge Solrock",
-      "Ceruledge ex"
-    ]
-  },
-  {
-    "card_a": "Kyurem",
-    "card_b": "Slowpoke",
-    "support": 42,
-    "lift": 143.988,
-    "jaccard": 0.894,
-    "weighted_score": 65.7,
-    "archetypes": [
-      "Alakazam Slowking",
-      "Dudunsparce Slowking",
-      "Dusknoir Slowking",
-      "Gumshoos Slowking",
-      "Latias Slowking",
-      "Mega Diancie Slowking",
-      "Mega Kangaskhan Slowking",
-      "Mega Slowbro Slowking",
-      "Meowth Slowking",
-      "Metagross Slowking",
-      "Slowking",
-      "Slowking Zoroark"
-    ]
-  },
-  {
-    "card_a": "Slowpoke",
-    "card_b": "Spectrier",
-    "support": 12,
-    "lift": 142.406,
-    "jaccard": 0.267,
-    "weighted_score": 21.0,
-    "archetypes": [
-      "Alakazam Slowking",
-      "Latias Slowking",
-      "Mega Kangaskhan Slowking",
-      "Mega Slowbro Slowking",
-      "Slowking"
-    ]
-  },
-  {
-    "card_a": "Annihilape",
-    "card_b": "Cofagrigus",
-    "support": 5,
-    "lift": 141.417,
-    "jaccard": 0.122,
-    "weighted_score": 7.4,
-    "archetypes": [
-      "Mega Slowbro Slowking",
-      "Slowking",
-      "Slowking Zoroark"
-    ]
-  },
-  {
-    "card_a": "Brute Bonnet",
-    "card_b": "Yveltal ex",
+    "card_a": "Empoleon ex",
+    "card_b": "Piplup",
     "support": 10,
-    "lift": 141.417,
-    "jaccard": 0.278,
-    "weighted_score": 16.0,
-    "archetypes": [
-      "Mega Absol Toxtricity",
-      "Munkidori Toxtricity",
-      "Pecharunt Toxtricity"
-    ]
-  },
-  {
-    "card_a": "Hop's Bag",
-    "card_b": "Hop's Dubwool",
-    "support": 8,
-    "lift": 141.049,
-    "jaccard": 0.211,
+    "lift": 118.4,
+    "jaccard": 1.0,
     "weighted_score": 14.0,
     "archetypes": [
-      "Dubwool Trevenant",
-      "Trevenant"
+      "Empoleon Metagross",
+      "Genesect Metagross"
     ]
   },
   {
-    "card_a": "Hop's Bag",
-    "card_b": "Hop's Wooloo",
-    "support": 8,
-    "lift": 141.049,
-    "jaccard": 0.211,
-    "weighted_score": 14.0,
+    "card_a": "Frillish",
+    "card_b": "Jellicent ex",
+    "support": 7,
+    "lift": 118.4,
+    "jaccard": 0.7,
+    "weighted_score": 9.8,
     "archetypes": [
-      "Dubwool Trevenant",
-      "Trevenant"
+      "Dragapult Jellicent",
+      "Dusknoir Jellicent",
+      "Empoleon Metagross",
+      "Jellicent"
     ]
   },
   {
-    "card_a": "Hop's Dubwool",
-    "card_b": "Postwick",
-    "support": 8,
-    "lift": 141.049,
-    "jaccard": 0.211,
-    "weighted_score": 14.0,
+    "card_a": "Annihilape",
+    "card_b": "Smoochum",
+    "support": 6,
+    "lift": 112.762,
+    "jaccard": 0.6,
+    "weighted_score": 10.6,
     "archetypes": [
-      "Dubwool Trevenant",
-      "Trevenant"
-    ]
-  },
-  {
-    "card_a": "Hop's Wooloo",
-    "card_b": "Postwick",
-    "support": 8,
-    "lift": 141.049,
-    "jaccard": 0.211,
-    "weighted_score": 14.0,
-    "archetypes": [
-      "Dubwool Trevenant",
-      "Trevenant"
-    ]
-  },
-  {
-    "card_a": "Kyurem",
-    "card_b": "Spectrier",
-    "support": 12,
-    "lift": 139.241,
-    "jaccard": 0.261,
-    "weighted_score": 21.0,
-    "archetypes": [
-      "Alakazam Slowking",
       "Latias Slowking",
-      "Mega Kangaskhan Slowking",
       "Mega Slowbro Slowking",
       "Slowking"
     ]
   },
   {
-    "card_a": "Lively Stadium",
-    "card_b": "Lugia ex",
-    "support": 8,
-    "lift": 138.531,
-    "jaccard": 0.163,
-    "weighted_score": 12.0,
+    "card_a": "Archaludon ex",
+    "card_b": "Relicanth",
+    "support": 5,
+    "lift": 109.63,
+    "jaccard": 0.5,
+    "weighted_score": 8.4,
     "archetypes": [
-      "Mega Kangaskhan Clefairy",
-      "Mega Kangaskhan Latias"
+      "Archaludon ex"
     ]
   },
   {
-    "card_a": "Hop's Dubwool",
-    "card_b": "Hop's Snorlax",
-    "support": 8,
-    "lift": 137.131,
-    "jaccard": 0.205,
-    "weighted_score": 14.0,
+    "card_a": "Duraludon",
+    "card_b": "Relicanth",
+    "support": 5,
+    "lift": 109.63,
+    "jaccard": 0.5,
+    "weighted_score": 8.4,
     "archetypes": [
-      "Dubwool Trevenant",
-      "Trevenant"
+      "Archaludon ex"
     ]
   },
   {
-    "card_a": "Hop's Snorlax",
-    "card_b": "Hop's Wooloo",
-    "support": 8,
-    "lift": 137.131,
-    "jaccard": 0.205,
+    "card_a": "Haxorus",
+    "card_b": "Smoochum",
+    "support": 5,
+    "lift": 109.63,
+    "jaccard": 0.5,
+    "weighted_score": 9.1,
+    "archetypes": [
+      "Latias Slowking",
+      "Mega Slowbro Slowking",
+      "Slowking"
+    ]
+  },
+  {
+    "card_a": "Carvanha",
+    "card_b": "Mega Signal",
+    "support": 5,
+    "lift": 107.636,
+    "jaccard": 0.455,
+    "weighted_score": 9.4,
+    "archetypes": [
+      "Mega Sharpedo Toxtricity"
+    ]
+  },
+  {
+    "card_a": "Empoleon ex",
+    "card_b": "Genesect ex",
+    "support": 10,
+    "lift": 107.636,
+    "jaccard": 0.909,
     "weighted_score": 14.0,
     "archetypes": [
-      "Dubwool Trevenant",
-      "Trevenant"
+      "Empoleon Metagross",
+      "Genesect Metagross"
+    ]
+  },
+  {
+    "card_a": "Empoleon ex",
+    "card_b": "Steven's Beldum",
+    "support": 10,
+    "lift": 107.636,
+    "jaccard": 0.909,
+    "weighted_score": 14.0,
+    "archetypes": [
+      "Empoleon Metagross",
+      "Genesect Metagross"
+    ]
+  },
+  {
+    "card_a": "Empoleon ex",
+    "card_b": "Steven's Metagross ex",
+    "support": 10,
+    "lift": 107.636,
+    "jaccard": 0.909,
+    "weighted_score": 14.0,
+    "archetypes": [
+      "Empoleon Metagross",
+      "Genesect Metagross"
+    ]
+  },
+  {
+    "card_a": "Empoleon ex",
+    "card_b": "Steven's Metang",
+    "support": 10,
+    "lift": 107.636,
+    "jaccard": 0.909,
+    "weighted_score": 14.0,
+    "archetypes": [
+      "Empoleon Metagross",
+      "Genesect Metagross"
+    ]
+  },
+  {
+    "card_a": "Genesect ex",
+    "card_b": "Piplup",
+    "support": 10,
+    "lift": 107.636,
+    "jaccard": 0.909,
+    "weighted_score": 14.0,
+    "archetypes": [
+      "Empoleon Metagross",
+      "Genesect Metagross"
+    ]
+  },
+  {
+    "card_a": "Genesect ex",
+    "card_b": "Steven's Beldum",
+    "support": 11,
+    "lift": 107.636,
+    "jaccard": 1.0,
+    "weighted_score": 15.2,
+    "archetypes": [
+      "Empoleon Metagross",
+      "Genesect Metagross"
+    ]
+  },
+  {
+    "card_a": "Genesect ex",
+    "card_b": "Steven's Metagross ex",
+    "support": 11,
+    "lift": 107.636,
+    "jaccard": 1.0,
+    "weighted_score": 15.2,
+    "archetypes": [
+      "Empoleon Metagross",
+      "Genesect Metagross"
+    ]
+  },
+  {
+    "card_a": "Genesect ex",
+    "card_b": "Steven's Metang",
+    "support": 11,
+    "lift": 107.636,
+    "jaccard": 1.0,
+    "weighted_score": 15.2,
+    "archetypes": [
+      "Empoleon Metagross",
+      "Genesect Metagross"
+    ]
+  },
+  {
+    "card_a": "Leafeon ex",
+    "card_b": "Sylveon ex",
+    "support": 5,
+    "lift": 107.636,
+    "jaccard": 0.455,
+    "weighted_score": 6.6,
+    "archetypes": [
+      "Flareon Leafeon",
+      "Flareon Noctowl"
+    ]
+  },
+  {
+    "card_a": "Mega Sharpedo ex",
+    "card_b": "Mega Signal",
+    "support": 5,
+    "lift": 107.636,
+    "jaccard": 0.455,
+    "weighted_score": 9.4,
+    "archetypes": [
+      "Mega Sharpedo Toxtricity"
+    ]
+  },
+  {
+    "card_a": "Piplup",
+    "card_b": "Steven's Beldum",
+    "support": 10,
+    "lift": 107.636,
+    "jaccard": 0.909,
+    "weighted_score": 14.0,
+    "archetypes": [
+      "Empoleon Metagross",
+      "Genesect Metagross"
+    ]
+  },
+  {
+    "card_a": "Piplup",
+    "card_b": "Steven's Metagross ex",
+    "support": 10,
+    "lift": 107.636,
+    "jaccard": 0.909,
+    "weighted_score": 14.0,
+    "archetypes": [
+      "Empoleon Metagross",
+      "Genesect Metagross"
+    ]
+  },
+  {
+    "card_a": "Piplup",
+    "card_b": "Steven's Metang",
+    "support": 10,
+    "lift": 107.636,
+    "jaccard": 0.909,
+    "weighted_score": 14.0,
+    "archetypes": [
+      "Empoleon Metagross",
+      "Genesect Metagross"
+    ]
+  },
+  {
+    "card_a": "Steven's Beldum",
+    "card_b": "Steven's Metagross ex",
+    "support": 11,
+    "lift": 107.636,
+    "jaccard": 1.0,
+    "weighted_score": 15.2,
+    "archetypes": [
+      "Empoleon Metagross",
+      "Genesect Metagross"
+    ]
+  },
+  {
+    "card_a": "Steven's Beldum",
+    "card_b": "Steven's Metang",
+    "support": 11,
+    "lift": 107.636,
+    "jaccard": 1.0,
+    "weighted_score": 15.2,
+    "archetypes": [
+      "Empoleon Metagross",
+      "Genesect Metagross"
+    ]
+  },
+  {
+    "card_a": "Steven's Metagross ex",
+    "card_b": "Steven's Metang",
+    "support": 11,
+    "lift": 107.636,
+    "jaccard": 1.0,
+    "weighted_score": 15.2,
+    "archetypes": [
+      "Empoleon Metagross",
+      "Genesect Metagross"
+    ]
+  },
+  {
+    "card_a": "Archaludon ex",
+    "card_b": "Full Metal Lab",
+    "support": 8,
+    "lift": 105.244,
+    "jaccard": 0.727,
+    "weighted_score": 12.6,
+    "archetypes": [
+      "Archaludon Meowth",
+      "Archaludon ex"
+    ]
+  },
+  {
+    "card_a": "Duraludon",
+    "card_b": "Full Metal Lab",
+    "support": 8,
+    "lift": 105.244,
+    "jaccard": 0.727,
+    "weighted_score": 12.6,
+    "archetypes": [
+      "Archaludon Meowth",
+      "Archaludon ex"
     ]
   },
   {
     "card_a": "Ceruledge ex",
     "card_b": "Drilbur",
-    "support": 30,
-    "lift": 135.309,
-    "jaccard": 0.625,
-    "weighted_score": 41.6,
+    "support": 6,
+    "lift": 101.486,
+    "jaccard": 0.545,
+    "weighted_score": 9.4,
     "archetypes": [
       "Ceruledge Lunatone",
-      "Ceruledge Meowth",
-      "Ceruledge Solrock",
       "Ceruledge ex"
     ]
   },
   {
     "card_a": "Charcadet",
     "card_b": "Drilbur",
-    "support": 30,
-    "lift": 135.309,
-    "jaccard": 0.625,
-    "weighted_score": 41.6,
+    "support": 6,
+    "lift": 101.486,
+    "jaccard": 0.545,
+    "weighted_score": 9.4,
     "archetypes": [
       "Ceruledge Lunatone",
-      "Ceruledge Meowth",
-      "Ceruledge Solrock",
       "Ceruledge ex"
     ]
   },
   {
     "card_a": "Academy at Night",
-    "card_b": "Cofagrigus",
-    "support": 5,
-    "lift": 134.683,
-    "jaccard": 0.116,
-    "weighted_score": 7.4,
-    "archetypes": [
-      "Mega Slowbro Slowking",
-      "Slowking",
-      "Slowking Zoroark"
-    ]
-  },
-  {
-    "card_a": "Cofagrigus",
-    "card_b": "Slowking",
-    "support": 5,
-    "lift": 134.683,
-    "jaccard": 0.116,
-    "weighted_score": 7.4,
-    "archetypes": [
-      "Mega Slowbro Slowking",
-      "Slowking",
-      "Slowking Zoroark"
-    ]
-  },
-  {
-    "card_a": "Hop's Choice Band",
-    "card_b": "Hop's Dubwool",
-    "support": 8,
-    "lift": 133.425,
-    "jaccard": 0.2,
-    "weighted_score": 14.0,
-    "archetypes": [
-      "Dubwool Trevenant",
-      "Trevenant"
-    ]
-  },
-  {
-    "card_a": "Hop's Choice Band",
-    "card_b": "Hop's Wooloo",
-    "support": 8,
-    "lift": 133.425,
-    "jaccard": 0.2,
-    "weighted_score": 14.0,
-    "archetypes": [
-      "Dubwool Trevenant",
-      "Trevenant"
-    ]
-  },
-  {
-    "card_a": "Cofagrigus",
-    "card_b": "Slowpoke",
-    "support": 5,
-    "lift": 128.561,
-    "jaccard": 0.111,
-    "weighted_score": 7.4,
-    "archetypes": [
-      "Mega Slowbro Slowking",
-      "Slowking",
-      "Slowking Zoroark"
-    ]
-  },
-  {
-    "card_a": "Annihilape",
-    "card_b": "Mega Slowbro ex",
-    "support": 6,
-    "lift": 127.275,
-    "jaccard": 0.143,
-    "weighted_score": 7.8,
-    "archetypes": [
-      "Mega Slowbro Slowking",
-      "Slowking Zoroark"
-    ]
-  },
-  {
-    "card_a": "Cofagrigus",
-    "card_b": "Kyurem",
-    "support": 5,
-    "lift": 125.704,
-    "jaccard": 0.109,
-    "weighted_score": 7.4,
-    "archetypes": [
-      "Mega Slowbro Slowking",
-      "Slowking",
-      "Slowking Zoroark"
-    ]
-  },
-  {
-    "card_a": "Cofagrigus",
     "card_b": "Smoochum",
-    "support": 5,
-    "lift": 125.704,
-    "jaccard": 0.109,
-    "weighted_score": 7.4,
-    "archetypes": [
-      "Mega Slowbro Slowking",
-      "Slowking",
-      "Slowking Zoroark"
-    ]
-  },
-  {
-    "card_a": "Boomerang Energy",
-    "card_b": "Smoochum",
-    "support": 9,
-    "lift": 123.418,
-    "jaccard": 0.191,
-    "weighted_score": 14.0,
-    "archetypes": [
-      "Latias Slowking",
-      "Slowking",
-      "Slowking Zoroark"
-    ]
-  },
-  {
-    "card_a": "Academy at Night",
-    "card_b": "Mega Slowbro ex",
     "support": 6,
-    "lift": 121.214,
-    "jaccard": 0.136,
-    "weighted_score": 7.8,
+    "lift": 98.667,
+    "jaccard": 0.545,
+    "weighted_score": 10.6,
     "archetypes": [
-      "Mega Slowbro Slowking",
-      "Slowking Zoroark"
-    ]
-  },
-  {
-    "card_a": "Mega Slowbro ex",
-    "card_b": "Slowking",
-    "support": 6,
-    "lift": 121.214,
-    "jaccard": 0.136,
-    "weighted_score": 7.8,
-    "archetypes": [
-      "Mega Slowbro Slowking",
-      "Slowking Zoroark"
-    ]
-  },
-  {
-    "card_a": "Brilliant Blender",
-    "card_b": "Drilbur",
-    "support": 23,
-    "lift": 120.559,
-    "jaccard": 0.469,
-    "weighted_score": 32.0,
-    "archetypes": [
-      "Ceruledge Lunatone",
-      "Ceruledge Meowth",
-      "Ceruledge Solrock",
-      "Ceruledge ex"
-    ]
-  },
-  {
-    "card_a": "Brute Bonnet",
-    "card_b": "Pecharunt",
-    "support": 14,
-    "lift": 117.323,
-    "jaccard": 0.326,
-    "weighted_score": 20.8,
-    "archetypes": [
-      "Fezandipiti Toxtricity",
-      "Mega Absol Toxtricity",
-      "Munkidori Toxtricity",
-      "Pecharunt Toxtricity"
-    ]
-  },
-  {
-    "card_a": "Smoochum",
-    "card_b": "Spectrier",
-    "support": 10,
-    "lift": 116.034,
-    "jaccard": 0.208,
-    "weighted_score": 17.0,
-    "archetypes": [
-      "Alakazam Slowking",
       "Latias Slowking",
       "Mega Slowbro Slowking",
       "Slowking"
     ]
   },
   {
-    "card_a": "Conkeldurr",
-    "card_b": "Smoochum",
-    "support": 18,
-    "lift": 113.133,
-    "jaccard": 0.353,
-    "weighted_score": 26.0,
+    "card_a": "Eevee ex",
+    "card_b": "Leafeon ex",
+    "support": 11,
+    "lift": 98.667,
+    "jaccard": 0.917,
+    "weighted_score": 14.9,
     "archetypes": [
-      "Alakazam Slowking",
-      "Latias Slowking",
-      "Mega Slowbro Slowking",
-      "Slowking",
-      "Slowking Zoroark"
+      "Flareon Leafeon",
+      "Flareon Noctowl"
+    ]
+  },
+  {
+    "card_a": "Eevee ex",
+    "card_b": "Sylveon ex",
+    "support": 5,
+    "lift": 98.667,
+    "jaccard": 0.417,
+    "weighted_score": 6.6,
+    "archetypes": [
+      "Flareon Leafeon",
+      "Flareon Noctowl"
     ]
   },
   {
     "card_a": "Kyurem",
-    "card_b": "Mega Slowbro ex",
-    "support": 6,
-    "lift": 113.133,
-    "jaccard": 0.128,
-    "weighted_score": 7.8,
-    "archetypes": [
-      "Mega Slowbro Slowking",
-      "Slowking Zoroark"
-    ]
-  },
-  {
-    "card_a": "Haxorus",
     "card_b": "Smoochum",
-    "support": 10,
-    "lift": 107.746,
-    "jaccard": 0.204,
-    "weighted_score": 18.0,
-    "archetypes": [
-      "Gumshoos Slowking",
-      "Latias Slowking",
-      "Mega Slowbro Slowking",
-      "Slowking"
-    ]
-  },
-  {
-    "card_a": "Hop's Dubwool",
-    "card_b": "Hop's Zacian ex",
-    "support": 5,
-    "lift": 106.395,
-    "jaccard": 0.143,
-    "weighted_score": 9.1,
-    "archetypes": [
-      "Dubwool Trevenant",
-      "Trevenant"
-    ]
-  },
-  {
-    "card_a": "Hop's Wooloo",
-    "card_b": "Hop's Zacian ex",
-    "support": 5,
-    "lift": 106.395,
-    "jaccard": 0.143,
-    "weighted_score": 9.1,
-    "archetypes": [
-      "Dubwool Trevenant",
-      "Trevenant"
-    ]
-  },
-  {
-    "card_a": "Academy at Night",
-    "card_b": "Zeraora",
-    "support": 5,
-    "lift": 101.012,
-    "jaccard": 0.111,
-    "weighted_score": 9.2,
+    "support": 6,
+    "lift": 98.667,
+    "jaccard": 0.545,
+    "weighted_score": 10.6,
     "archetypes": [
       "Latias Slowking",
-      "Mega Kangaskhan Slowking",
-      "Slowking"
-    ]
-  },
-  {
-    "card_a": "Conkeldurr",
-    "card_b": "Haxorus",
-    "support": 5,
-    "lift": 101.012,
-    "jaccard": 0.152,
-    "weighted_score": 8.4,
-    "archetypes": [
       "Mega Slowbro Slowking",
       "Slowking"
     ]
   },
   {
     "card_a": "Slowking",
-    "card_b": "Zeraora",
-    "support": 5,
-    "lift": 101.012,
-    "jaccard": 0.111,
-    "weighted_score": 9.2,
+    "card_b": "Smoochum",
+    "support": 6,
+    "lift": 98.667,
+    "jaccard": 0.545,
+    "weighted_score": 10.6,
     "archetypes": [
       "Latias Slowking",
-      "Mega Kangaskhan Slowking",
+      "Mega Slowbro Slowking",
       "Slowking"
     ]
   },
   {
-    "card_a": "Bouffalant",
+    "card_a": "Slowpoke",
     "card_b": "Smoochum",
-    "support": 12,
-    "lift": 100.563,
-    "jaccard": 0.235,
-    "weighted_score": 17.1,
+    "support": 6,
+    "lift": 98.667,
+    "jaccard": 0.545,
+    "weighted_score": 10.6,
     "archetypes": [
+      "Latias Slowking",
+      "Mega Slowbro Slowking",
+      "Slowking"
+    ]
+  },
+  {
+    "card_a": "Eevee ex",
+    "card_b": "Flareon ex",
+    "support": 12,
+    "lift": 91.077,
+    "jaccard": 0.923,
+    "weighted_score": 16.4,
+    "archetypes": [
+      "Flareon Hydreigon",
+      "Flareon Leafeon",
+      "Flareon Noctowl"
+    ]
+  },
+  {
+    "card_a": "Flareon ex",
+    "card_b": "Leafeon ex",
+    "support": 11,
+    "lift": 91.077,
+    "jaccard": 0.846,
+    "weighted_score": 14.9,
+    "archetypes": [
+      "Flareon Leafeon",
+      "Flareon Noctowl"
+    ]
+  },
+  {
+    "card_a": "Flareon ex",
+    "card_b": "Sylveon ex",
+    "support": 5,
+    "lift": 91.077,
+    "jaccard": 0.385,
+    "weighted_score": 6.6,
+    "archetypes": [
+      "Flareon Leafeon",
+      "Flareon Noctowl"
+    ]
+  },
+  {
+    "card_a": "Eevee",
+    "card_b": "Eevee ex",
+    "support": 12,
+    "lift": 84.571,
+    "jaccard": 0.857,
+    "weighted_score": 16.4,
+    "archetypes": [
+      "Flareon Hydreigon",
+      "Flareon Leafeon",
+      "Flareon Noctowl"
+    ]
+  },
+  {
+    "card_a": "Eevee",
+    "card_b": "Flareon ex",
+    "support": 13,
+    "lift": 84.571,
+    "jaccard": 0.929,
+    "weighted_score": 17.6,
+    "archetypes": [
+      "Flareon Hydreigon",
+      "Flareon Leafeon",
+      "Flareon Noctowl"
+    ]
+  },
+  {
+    "card_a": "Eevee",
+    "card_b": "Leafeon ex",
+    "support": 11,
+    "lift": 84.571,
+    "jaccard": 0.786,
+    "weighted_score": 14.9,
+    "archetypes": [
+      "Flareon Leafeon",
+      "Flareon Noctowl"
+    ]
+  },
+  {
+    "card_a": "Eevee",
+    "card_b": "Sylveon ex",
+    "support": 5,
+    "lift": 84.571,
+    "jaccard": 0.357,
+    "weighted_score": 6.6,
+    "archetypes": [
+      "Flareon Leafeon",
+      "Flareon Noctowl"
+    ]
+  },
+  {
+    "card_a": "Froakie",
+    "card_b": "Frogadier",
+    "support": 14,
+    "lift": 84.571,
+    "jaccard": 1.0,
+    "weighted_score": 20.4,
+    "archetypes": [
+      "Blaziken Greninja",
+      "Dudunsparce Greninja",
+      "Dusknoir Greninja",
+      "Mega Froslass Greninja",
+      "Mega Starmie Greninja"
+    ]
+  },
+  {
+    "card_a": "Froakie",
+    "card_b": "Grand Tree",
+    "support": 13,
+    "lift": 84.571,
+    "jaccard": 0.929,
+    "weighted_score": 18.9,
+    "archetypes": [
+      "Dudunsparce Greninja",
+      "Dusknoir Greninja",
+      "Mega Froslass Greninja",
+      "Mega Starmie Greninja"
+    ]
+  },
+  {
+    "card_a": "Froakie",
+    "card_b": "Greninja ex",
+    "support": 14,
+    "lift": 84.571,
+    "jaccard": 1.0,
+    "weighted_score": 20.4,
+    "archetypes": [
+      "Blaziken Greninja",
+      "Dudunsparce Greninja",
+      "Dusknoir Greninja",
+      "Mega Froslass Greninja",
+      "Mega Starmie Greninja"
+    ]
+  },
+  {
+    "card_a": "Frogadier",
+    "card_b": "Grand Tree",
+    "support": 13,
+    "lift": 84.571,
+    "jaccard": 0.929,
+    "weighted_score": 18.9,
+    "archetypes": [
+      "Dudunsparce Greninja",
+      "Dusknoir Greninja",
+      "Mega Froslass Greninja",
+      "Mega Starmie Greninja"
+    ]
+  },
+  {
+    "card_a": "Frogadier",
+    "card_b": "Greninja ex",
+    "support": 14,
+    "lift": 84.571,
+    "jaccard": 1.0,
+    "weighted_score": 20.4,
+    "archetypes": [
+      "Blaziken Greninja",
+      "Dudunsparce Greninja",
+      "Dusknoir Greninja",
+      "Mega Froslass Greninja",
+      "Mega Starmie Greninja"
+    ]
+  },
+  {
+    "card_a": "Grand Tree",
+    "card_b": "Greninja ex",
+    "support": 13,
+    "lift": 84.571,
+    "jaccard": 0.929,
+    "weighted_score": 18.9,
+    "archetypes": [
+      "Dudunsparce Greninja",
+      "Dusknoir Greninja",
+      "Mega Froslass Greninja",
+      "Mega Starmie Greninja"
+    ]
+  },
+  {
+    "card_a": "Mega Diancie ex",
+    "card_b": "Mystery Garden",
+    "support": 10,
+    "lift": 82.797,
+    "jaccard": 0.714,
+    "weighted_score": 13.4,
+    "archetypes": [
+      "Dusknoir Jellicent",
+      "Mega Diancie Clefairy",
+      "Mega Diancie Dusknoir",
+      "Mega Diancie Mega Kangaskhan"
+    ]
+  },
+  {
+    "card_a": "Mega Diancie ex",
+    "card_b": "Powerglass",
+    "support": 9,
+    "lift": 80.727,
+    "jaccard": 0.643,
+    "weighted_score": 12.2,
+    "archetypes": [
+      "Dusknoir Jellicent",
+      "Mega Diancie Clefairy",
+      "Mega Diancie Dusknoir",
+      "Mega Diancie Mega Kangaskhan"
+    ]
+  },
+  {
+    "card_a": "Mystery Garden",
+    "card_b": "Powerglass",
+    "support": 9,
+    "lift": 68.308,
+    "jaccard": 0.562,
+    "weighted_score": 12.2,
+    "archetypes": [
+      "Dusknoir Jellicent",
+      "Mega Diancie Clefairy",
+      "Mega Diancie Dusknoir",
+      "Mega Diancie Mega Kangaskhan"
+    ]
+  },
+  {
+    "card_a": "Full Metal Lab",
+    "card_b": "Mega Mawile ex",
+    "support": 9,
+    "lift": 62.682,
+    "jaccard": 0.5,
+    "weighted_score": 14.1,
+    "archetypes": [
+      "Archaludon Meowth",
+      "Archaludon ex",
+      "Empoleon Metagross"
+    ]
+  },
+  {
+    "card_a": "Buneary",
+    "card_b": "Mega Lopunny ex",
+    "support": 19,
+    "lift": 62.316,
+    "jaccard": 1.0,
+    "weighted_score": 35.6,
+    "archetypes": [
+      "Alakazam Dudunsparce",
+      "Clefairy Ogerpon",
+      "Mega Lopunny Dragapult",
+      "Mega Lopunny Zoroark",
+      "Mega Sharpedo Toxtricity"
+    ]
+  },
+  {
+    "card_a": "Goldeen",
+    "card_b": "Seaking",
+    "support": 16,
+    "lift": 62.316,
+    "jaccard": 0.842,
+    "weighted_score": 26.0,
+    "archetypes": [
+      "Dipplin Rillaboom",
+      "Dipplin Thwackey"
+    ]
+  },
+  {
+    "card_a": "Archaludon ex",
+    "card_b": "Mega Mawile ex",
+    "support": 8,
+    "lift": 61.908,
+    "jaccard": 0.444,
+    "weighted_score": 12.6,
+    "archetypes": [
+      "Archaludon Meowth",
+      "Archaludon ex"
+    ]
+  },
+  {
+    "card_a": "Duraludon",
+    "card_b": "Mega Mawile ex",
+    "support": 8,
+    "lift": 61.908,
+    "jaccard": 0.444,
+    "weighted_score": 12.6,
+    "archetypes": [
+      "Archaludon Meowth",
+      "Archaludon ex"
+    ]
+  },
+  {
+    "card_a": "Mega Signal",
+    "card_b": "Toxel",
+    "support": 5,
+    "lift": 59.798,
+    "jaccard": 0.333,
+    "weighted_score": 9.4,
+    "archetypes": [
+      "Mega Sharpedo Toxtricity"
+    ]
+  },
+  {
+    "card_a": "Mega Signal",
+    "card_b": "Toxtricity",
+    "support": 5,
+    "lift": 59.798,
+    "jaccard": 0.333,
+    "weighted_score": 9.4,
+    "archetypes": [
+      "Mega Sharpedo Toxtricity"
+    ]
+  },
+  {
+    "card_a": "Festival Grounds",
+    "card_b": "Rillaboom",
+    "support": 9,
+    "lift": 59.2,
+    "jaccard": 0.45,
+    "weighted_score": 16.3,
+    "archetypes": [
+      "Dipplin Rillaboom"
+    ]
+  },
+  {
+    "card_a": "Festival Grounds",
+    "card_b": "Seaking",
+    "support": 16,
+    "lift": 59.2,
+    "jaccard": 0.8,
+    "weighted_score": 26.0,
+    "archetypes": [
+      "Dipplin Rillaboom",
+      "Dipplin Thwackey"
+    ]
+  },
+  {
+    "card_a": "Goldeen",
+    "card_b": "Grookey",
+    "support": 19,
+    "lift": 59.2,
+    "jaccard": 0.95,
+    "weighted_score": 30.2,
+    "archetypes": [
+      "Dipplin Rillaboom",
+      "Dipplin Thwackey",
+      "Palafin Thwackey"
+    ]
+  },
+  {
+    "card_a": "Goldeen",
+    "card_b": "Thwackey",
+    "support": 19,
+    "lift": 59.2,
+    "jaccard": 0.95,
+    "weighted_score": 30.2,
+    "archetypes": [
+      "Dipplin Rillaboom",
+      "Dipplin Thwackey",
+      "Palafin Thwackey"
+    ]
+  },
+  {
+    "card_a": "Grookey",
+    "card_b": "Rillaboom",
+    "support": 9,
+    "lift": 59.2,
+    "jaccard": 0.45,
+    "weighted_score": 16.3,
+    "archetypes": [
+      "Dipplin Rillaboom"
+    ]
+  },
+  {
+    "card_a": "Grookey",
+    "card_b": "Seaking",
+    "support": 16,
+    "lift": 59.2,
+    "jaccard": 0.8,
+    "weighted_score": 26.0,
+    "archetypes": [
+      "Dipplin Rillaboom",
+      "Dipplin Thwackey"
+    ]
+  },
+  {
+    "card_a": "Grookey",
+    "card_b": "Thwackey",
+    "support": 20,
+    "lift": 59.2,
+    "jaccard": 1.0,
+    "weighted_score": 31.4,
+    "archetypes": [
+      "Dipplin Rillaboom",
+      "Dipplin Thwackey",
+      "Palafin Thwackey"
+    ]
+  },
+  {
+    "card_a": "Rillaboom",
+    "card_b": "Thwackey",
+    "support": 9,
+    "lift": 59.2,
+    "jaccard": 0.45,
+    "weighted_score": 16.3,
+    "archetypes": [
+      "Dipplin Rillaboom"
+    ]
+  },
+  {
+    "card_a": "Seaking",
+    "card_b": "Thwackey",
+    "support": 16,
+    "lift": 59.2,
+    "jaccard": 0.8,
+    "weighted_score": 26.0,
+    "archetypes": [
+      "Dipplin Rillaboom",
+      "Dipplin Thwackey"
+    ]
+  },
+  {
+    "card_a": "Genesect ex",
+    "card_b": "Mega Mawile ex",
+    "support": 9,
+    "lift": 56.984,
+    "jaccard": 0.474,
+    "weighted_score": 12.5,
+    "archetypes": [
+      "Empoleon Metagross",
+      "Genesect Metagross"
+    ]
+  },
+  {
+    "card_a": "Mega Mawile ex",
+    "card_b": "Steven's Beldum",
+    "support": 9,
+    "lift": 56.984,
+    "jaccard": 0.474,
+    "weighted_score": 12.5,
+    "archetypes": [
+      "Empoleon Metagross",
+      "Genesect Metagross"
+    ]
+  },
+  {
+    "card_a": "Mega Mawile ex",
+    "card_b": "Steven's Metagross ex",
+    "support": 9,
+    "lift": 56.984,
+    "jaccard": 0.474,
+    "weighted_score": 12.5,
+    "archetypes": [
+      "Empoleon Metagross",
+      "Genesect Metagross"
+    ]
+  },
+  {
+    "card_a": "Mega Mawile ex",
+    "card_b": "Steven's Metang",
+    "support": 9,
+    "lift": 56.984,
+    "jaccard": 0.474,
+    "weighted_score": 12.5,
+    "archetypes": [
+      "Empoleon Metagross",
+      "Genesect Metagross"
+    ]
+  },
+  {
+    "card_a": "Applin",
+    "card_b": "Dipplin",
+    "support": 21,
+    "lift": 56.381,
+    "jaccard": 1.0,
+    "weighted_score": 32.6,
+    "archetypes": [
+      "Dipplin Rillaboom",
+      "Dipplin Thwackey",
+      "Hydrapple Ogerpon"
+    ]
+  },
+  {
+    "card_a": "Applin",
+    "card_b": "Festival Grounds",
+    "support": 20,
+    "lift": 56.381,
+    "jaccard": 0.952,
+    "weighted_score": 31.4,
+    "archetypes": [
+      "Dipplin Rillaboom",
+      "Dipplin Thwackey",
+      "Hydrapple Ogerpon"
+    ]
+  },
+  {
+    "card_a": "Applin",
+    "card_b": "Rillaboom",
+    "support": 9,
+    "lift": 56.381,
+    "jaccard": 0.429,
+    "weighted_score": 16.3,
+    "archetypes": [
+      "Dipplin Rillaboom"
+    ]
+  },
+  {
+    "card_a": "Applin",
+    "card_b": "Seaking",
+    "support": 16,
+    "lift": 56.381,
+    "jaccard": 0.762,
+    "weighted_score": 26.0,
+    "archetypes": [
+      "Dipplin Rillaboom",
+      "Dipplin Thwackey"
+    ]
+  },
+  {
+    "card_a": "Dipplin",
+    "card_b": "Festival Grounds",
+    "support": 20,
+    "lift": 56.381,
+    "jaccard": 0.952,
+    "weighted_score": 31.4,
+    "archetypes": [
+      "Dipplin Rillaboom",
+      "Dipplin Thwackey",
+      "Hydrapple Ogerpon"
+    ]
+  },
+  {
+    "card_a": "Dipplin",
+    "card_b": "Rillaboom",
+    "support": 9,
+    "lift": 56.381,
+    "jaccard": 0.429,
+    "weighted_score": 16.3,
+    "archetypes": [
+      "Dipplin Rillaboom"
+    ]
+  },
+  {
+    "card_a": "Dipplin",
+    "card_b": "Seaking",
+    "support": 16,
+    "lift": 56.381,
+    "jaccard": 0.762,
+    "weighted_score": 26.0,
+    "archetypes": [
+      "Dipplin Rillaboom",
+      "Dipplin Thwackey"
+    ]
+  },
+  {
+    "card_a": "Festival Grounds",
+    "card_b": "Grookey",
+    "support": 19,
+    "lift": 56.24,
+    "jaccard": 0.905,
+    "weighted_score": 29.9,
+    "archetypes": [
+      "Dipplin Rillaboom",
+      "Dipplin Thwackey"
+    ]
+  },
+  {
+    "card_a": "Festival Grounds",
+    "card_b": "Thwackey",
+    "support": 19,
+    "lift": 56.24,
+    "jaccard": 0.905,
+    "weighted_score": 29.9,
+    "archetypes": [
+      "Dipplin Rillaboom",
+      "Dipplin Thwackey"
+    ]
+  },
+  {
+    "card_a": "Festival Grounds",
+    "card_b": "Goldeen",
+    "support": 18,
+    "lift": 56.084,
+    "jaccard": 0.857,
+    "weighted_score": 28.7,
+    "archetypes": [
+      "Dipplin Rillaboom",
+      "Dipplin Thwackey"
+    ]
+  },
+  {
+    "card_a": "Empoleon ex",
+    "card_b": "Mega Mawile ex",
+    "support": 8,
+    "lift": 55.718,
+    "jaccard": 0.421,
+    "weighted_score": 11.3,
+    "archetypes": [
+      "Empoleon Metagross"
+    ]
+  },
+  {
+    "card_a": "Mega Mawile ex",
+    "card_b": "Piplup",
+    "support": 8,
+    "lift": 55.718,
+    "jaccard": 0.421,
+    "weighted_score": 11.3,
+    "archetypes": [
+      "Empoleon Metagross"
+    ]
+  },
+  {
+    "card_a": "Goldeen",
+    "card_b": "Rillaboom",
+    "support": 8,
+    "lift": 55.392,
+    "jaccard": 0.4,
+    "weighted_score": 15.1,
+    "archetypes": [
+      "Dipplin Rillaboom"
+    ]
+  },
+  {
+    "card_a": "Frillish",
+    "card_b": "Mystery Garden",
+    "support": 6,
+    "lift": 54.646,
+    "jaccard": 0.353,
+    "weighted_score": 8.3,
+    "archetypes": [
+      "Bronzong Clefairy",
+      "Dusknoir Jellicent",
+      "Mega Diancie Clefairy",
+      "Mega Diancie Dusknoir"
+    ]
+  },
+  {
+    "card_a": "Frillish",
+    "card_b": "Mega Diancie ex",
+    "support": 5,
+    "lift": 53.818,
+    "jaccard": 0.312,
+    "weighted_score": 7.1,
+    "archetypes": [
+      "Dusknoir Jellicent",
+      "Mega Diancie Clefairy",
+      "Mega Diancie Dusknoir"
+    ]
+  },
+  {
+    "card_a": "Applin",
+    "card_b": "Grookey",
+    "support": 19,
+    "lift": 53.562,
+    "jaccard": 0.864,
+    "weighted_score": 29.9,
+    "archetypes": [
+      "Dipplin Rillaboom",
+      "Dipplin Thwackey"
+    ]
+  },
+  {
+    "card_a": "Applin",
+    "card_b": "Thwackey",
+    "support": 19,
+    "lift": 53.562,
+    "jaccard": 0.864,
+    "weighted_score": 29.9,
+    "archetypes": [
+      "Dipplin Rillaboom",
+      "Dipplin Thwackey"
+    ]
+  },
+  {
+    "card_a": "Dipplin",
+    "card_b": "Grookey",
+    "support": 19,
+    "lift": 53.562,
+    "jaccard": 0.864,
+    "weighted_score": 29.9,
+    "archetypes": [
+      "Dipplin Rillaboom",
+      "Dipplin Thwackey"
+    ]
+  },
+  {
+    "card_a": "Dipplin",
+    "card_b": "Thwackey",
+    "support": 19,
+    "lift": 53.562,
+    "jaccard": 0.864,
+    "weighted_score": 29.9,
+    "archetypes": [
+      "Dipplin Rillaboom",
+      "Dipplin Thwackey"
+    ]
+  },
+  {
+    "card_a": "Applin",
+    "card_b": "Goldeen",
+    "support": 18,
+    "lift": 53.414,
+    "jaccard": 0.818,
+    "weighted_score": 28.7,
+    "archetypes": [
+      "Dipplin Rillaboom",
+      "Dipplin Thwackey"
+    ]
+  },
+  {
+    "card_a": "Dipplin",
+    "card_b": "Goldeen",
+    "support": 18,
+    "lift": 53.414,
+    "jaccard": 0.818,
+    "weighted_score": 28.7,
+    "archetypes": [
+      "Dipplin Rillaboom",
+      "Dipplin Thwackey"
+    ]
+  },
+  {
+    "card_a": "Empoleon ex",
+    "card_b": "Energy Recycler",
+    "support": 10,
+    "lift": 49.333,
+    "jaccard": 0.417,
+    "weighted_score": 14.0,
+    "archetypes": [
+      "Empoleon Metagross",
+      "Genesect Metagross"
+    ]
+  },
+  {
+    "card_a": "Energy Recycler",
+    "card_b": "Genesect ex",
+    "support": 11,
+    "lift": 49.333,
+    "jaccard": 0.458,
+    "weighted_score": 15.2,
+    "archetypes": [
+      "Empoleon Metagross",
+      "Genesect Metagross"
+    ]
+  },
+  {
+    "card_a": "Energy Recycler",
+    "card_b": "Piplup",
+    "support": 10,
+    "lift": 49.333,
+    "jaccard": 0.417,
+    "weighted_score": 14.0,
+    "archetypes": [
+      "Empoleon Metagross",
+      "Genesect Metagross"
+    ]
+  },
+  {
+    "card_a": "Energy Recycler",
+    "card_b": "Steven's Beldum",
+    "support": 11,
+    "lift": 49.333,
+    "jaccard": 0.458,
+    "weighted_score": 15.2,
+    "archetypes": [
+      "Empoleon Metagross",
+      "Genesect Metagross"
+    ]
+  },
+  {
+    "card_a": "Energy Recycler",
+    "card_b": "Steven's Metagross ex",
+    "support": 11,
+    "lift": 49.333,
+    "jaccard": 0.458,
+    "weighted_score": 15.2,
+    "archetypes": [
+      "Empoleon Metagross",
+      "Genesect Metagross"
+    ]
+  },
+  {
+    "card_a": "Energy Recycler",
+    "card_b": "Steven's Metang",
+    "support": 11,
+    "lift": 49.333,
+    "jaccard": 0.458,
+    "weighted_score": 15.2,
+    "archetypes": [
+      "Empoleon Metagross",
+      "Genesect Metagross"
+    ]
+  },
+  {
+    "card_a": "Rillaboom",
+    "card_b": "Seaking",
+    "support": 6,
+    "lift": 49.333,
+    "jaccard": 0.316,
+    "weighted_score": 12.4,
+    "archetypes": [
+      "Dipplin Rillaboom"
+    ]
+  },
+  {
+    "card_a": "Sparkling Crystal",
+    "card_b": "Sylveon ex",
+    "support": 5,
+    "lift": 49.333,
+    "jaccard": 0.208,
+    "weighted_score": 6.6,
+    "archetypes": [
+      "Flareon Leafeon",
+      "Flareon Noctowl"
+    ]
+  },
+  {
+    "card_a": "Celebi",
+    "card_b": "Mega Meganium ex",
+    "support": 12,
+    "lift": 46.431,
+    "jaccard": 0.522,
+    "weighted_score": 21.2,
+    "archetypes": [
+      "Mega Meganium",
+      "Mega Meganium Mega Venusaur",
+      "Mega Venusaur"
+    ]
+  },
+  {
+    "card_a": "Genesect ex",
+    "card_b": "Precious Trolley",
+    "support": 6,
+    "lift": 46.13,
+    "jaccard": 0.316,
+    "weighted_score": 7.8,
+    "archetypes": [
+      "Empoleon Metagross",
+      "Genesect Metagross"
+    ]
+  },
+  {
+    "card_a": "Precious Trolley",
+    "card_b": "Steven's Beldum",
+    "support": 6,
+    "lift": 46.13,
+    "jaccard": 0.316,
+    "weighted_score": 7.8,
+    "archetypes": [
+      "Empoleon Metagross",
+      "Genesect Metagross"
+    ]
+  },
+  {
+    "card_a": "Precious Trolley",
+    "card_b": "Steven's Metagross ex",
+    "support": 6,
+    "lift": 46.13,
+    "jaccard": 0.316,
+    "weighted_score": 7.8,
+    "archetypes": [
+      "Empoleon Metagross",
+      "Genesect Metagross"
+    ]
+  },
+  {
+    "card_a": "Precious Trolley",
+    "card_b": "Steven's Metang",
+    "support": 6,
+    "lift": 46.13,
+    "jaccard": 0.316,
+    "weighted_score": 7.8,
+    "archetypes": [
+      "Empoleon Metagross",
+      "Genesect Metagross"
+    ]
+  },
+  {
+    "card_a": "Eevee ex",
+    "card_b": "Sparkling Crystal",
+    "support": 11,
+    "lift": 45.222,
+    "jaccard": 0.44,
+    "weighted_score": 15.2,
+    "archetypes": [
+      "Flareon Hydreigon",
+      "Flareon Leafeon",
+      "Flareon Noctowl"
+    ]
+  },
+  {
+    "card_a": "Leafeon ex",
+    "card_b": "Sparkling Crystal",
+    "support": 10,
+    "lift": 44.848,
+    "jaccard": 0.4,
+    "weighted_score": 13.7,
+    "archetypes": [
+      "Flareon Leafeon",
+      "Flareon Noctowl"
+    ]
+  },
+  {
+    "card_a": "Glalie",
+    "card_b": "Mega Froslass ex",
+    "support": 5,
+    "lift": 43.852,
+    "jaccard": 0.185,
+    "weighted_score": 7.3,
+    "archetypes": [
+      "Dusknoir Greninja",
+      "Mega Froslass Mega Starmie",
+      "Mega Starmie Dudunsparce",
+      "Mega Starmie Glalie"
+    ]
+  },
+  {
+    "card_a": "Empoleon ex",
+    "card_b": "Precious Trolley",
+    "support": 5,
+    "lift": 42.286,
+    "jaccard": 0.263,
+    "weighted_score": 6.6,
+    "archetypes": [
+      "Empoleon Metagross"
+    ]
+  },
+  {
+    "card_a": "Piplup",
+    "card_b": "Precious Trolley",
+    "support": 5,
+    "lift": 42.286,
+    "jaccard": 0.263,
+    "weighted_score": 6.6,
+    "archetypes": [
+      "Empoleon Metagross"
+    ]
+  },
+  {
+    "card_a": "Flareon ex",
+    "card_b": "Sparkling Crystal",
+    "support": 11,
+    "lift": 41.744,
+    "jaccard": 0.423,
+    "weighted_score": 15.2,
+    "archetypes": [
+      "Flareon Hydreigon",
+      "Flareon Leafeon",
+      "Flareon Noctowl"
+    ]
+  },
+  {
+    "card_a": "Max Rod",
+    "card_b": "Regigigas",
+    "support": 8,
+    "lift": 40.479,
+    "jaccard": 0.348,
+    "weighted_score": 12.8,
+    "archetypes": [
+      "Mega Meganium",
+      "Mega Venusaur"
+    ]
+  },
+  {
+    "card_a": "Eevee",
+    "card_b": "Sparkling Crystal",
+    "support": 11,
+    "lift": 38.762,
+    "jaccard": 0.407,
+    "weighted_score": 15.2,
+    "archetypes": [
+      "Flareon Hydreigon",
+      "Flareon Leafeon",
+      "Flareon Noctowl"
+    ]
+  },
+  {
+    "card_a": "Annihilape",
+    "card_b": "Colress's Tenacity",
+    "support": 7,
+    "lift": 38.194,
+    "jaccard": 0.226,
+    "weighted_score": 12.6,
+    "archetypes": [
+      "Latias Slowking",
+      "Mega Kangaskhan Slowking",
+      "Mega Slowbro Slowking",
+      "Slowking"
+    ]
+  },
+  {
+    "card_a": "Colress's Tenacity",
+    "card_b": "Grand Tree",
+    "support": 13,
+    "lift": 38.194,
+    "jaccard": 0.419,
+    "weighted_score": 18.9,
+    "archetypes": [
+      "Dudunsparce Greninja",
+      "Dusknoir Greninja",
+      "Mega Froslass Greninja",
+      "Mega Starmie Greninja"
+    ]
+  },
+  {
+    "card_a": "Bloodmoon Ursaluna",
+    "card_b": "Okidogi",
+    "support": 30,
+    "lift": 37.0,
+    "jaccard": 0.938,
+    "weighted_score": 42.6,
+    "archetypes": [
+      "Barbaracle Okidogi",
+      "Barbaracle Solrock"
+    ]
+  },
+  {
+    "card_a": "Mega Froslass ex",
+    "card_b": "Surfing Beach",
+    "support": 5,
+    "lift": 36.543,
+    "jaccard": 0.179,
+    "weighted_score": 6.3,
+    "archetypes": [
+      "Dusknoir Greninja",
+      "Mega Froslass Mega Starmie",
+      "Mega Starmie Dudunsparce"
+    ]
+  },
+  {
+    "card_a": "Bloodmoon Ursaluna",
+    "card_b": "Tarragon",
+    "support": 29,
+    "lift": 35.767,
+    "jaccard": 0.879,
+    "weighted_score": 40.7,
+    "archetypes": [
+      "Barbaracle Okidogi",
+      "Barbaracle Solrock",
+      "Diggersby Munkidori",
+      "Froslass Solrock"
+    ]
+  },
+  {
+    "card_a": "Okidogi",
+    "card_b": "Tarragon",
+    "support": 27,
+    "lift": 35.52,
+    "jaccard": 0.818,
+    "weighted_score": 37.2,
+    "archetypes": [
+      "Barbaracle Okidogi",
+      "Barbaracle Solrock"
+    ]
+  },
+  {
+    "card_a": "Colress's Tenacity",
+    "card_b": "Froakie",
+    "support": 13,
+    "lift": 35.465,
+    "jaccard": 0.406,
+    "weighted_score": 18.9,
+    "archetypes": [
+      "Dudunsparce Greninja",
+      "Dusknoir Greninja",
+      "Mega Froslass Greninja",
+      "Mega Starmie Greninja"
+    ]
+  },
+  {
+    "card_a": "Colress's Tenacity",
+    "card_b": "Frogadier",
+    "support": 13,
+    "lift": 35.465,
+    "jaccard": 0.406,
+    "weighted_score": 18.9,
+    "archetypes": [
+      "Dudunsparce Greninja",
+      "Dusknoir Greninja",
+      "Mega Froslass Greninja",
+      "Mega Starmie Greninja"
+    ]
+  },
+  {
+    "card_a": "Colress's Tenacity",
+    "card_b": "Greninja ex",
+    "support": 13,
+    "lift": 35.465,
+    "jaccard": 0.406,
+    "weighted_score": 18.9,
+    "archetypes": [
+      "Dudunsparce Greninja",
+      "Dusknoir Greninja",
+      "Mega Froslass Greninja",
+      "Mega Starmie Greninja"
+    ]
+  },
+  {
+    "card_a": "Celebi",
+    "card_b": "Regigigas",
+    "support": 7,
+    "lift": 35.419,
+    "jaccard": 0.292,
+    "weighted_score": 9.8,
+    "archetypes": [
+      "Mega Meganium Mega Venusaur",
+      "Mega Venusaur"
+    ]
+  },
+  {
+    "card_a": "Genesect ex",
+    "card_b": "Jumbo Ice Cream",
+    "support": 6,
+    "lift": 33.99,
+    "jaccard": 0.25,
+    "weighted_score": 7.5,
+    "archetypes": [
+      "Empoleon Metagross",
+      "Genesect Metagross"
+    ]
+  },
+  {
+    "card_a": "Jumbo Ice Cream",
+    "card_b": "Steven's Beldum",
+    "support": 6,
+    "lift": 33.99,
+    "jaccard": 0.25,
+    "weighted_score": 7.5,
+    "archetypes": [
+      "Empoleon Metagross",
+      "Genesect Metagross"
+    ]
+  },
+  {
+    "card_a": "Jumbo Ice Cream",
+    "card_b": "Steven's Metagross ex",
+    "support": 6,
+    "lift": 33.99,
+    "jaccard": 0.25,
+    "weighted_score": 7.5,
+    "archetypes": [
+      "Empoleon Metagross",
+      "Genesect Metagross"
+    ]
+  },
+  {
+    "card_a": "Jumbo Ice Cream",
+    "card_b": "Steven's Metang",
+    "support": 6,
+    "lift": 33.99,
+    "jaccard": 0.25,
+    "weighted_score": 7.5,
+    "archetypes": [
+      "Empoleon Metagross",
+      "Genesect Metagross"
+    ]
+  },
+  {
+    "card_a": "Academy at Night",
+    "card_b": "Colress's Tenacity",
+    "support": 7,
+    "lift": 33.419,
+    "jaccard": 0.219,
+    "weighted_score": 12.6,
+    "archetypes": [
+      "Latias Slowking",
+      "Mega Kangaskhan Slowking",
+      "Mega Slowbro Slowking",
+      "Slowking"
+    ]
+  },
+  {
+    "card_a": "Colress's Tenacity",
+    "card_b": "Kyurem",
+    "support": 7,
+    "lift": 33.419,
+    "jaccard": 0.219,
+    "weighted_score": 12.6,
+    "archetypes": [
+      "Latias Slowking",
+      "Mega Kangaskhan Slowking",
+      "Mega Slowbro Slowking",
+      "Slowking"
+    ]
+  },
+  {
+    "card_a": "Colress's Tenacity",
+    "card_b": "Slowking",
+    "support": 7,
+    "lift": 33.419,
+    "jaccard": 0.219,
+    "weighted_score": 12.6,
+    "archetypes": [
+      "Latias Slowking",
+      "Mega Kangaskhan Slowking",
+      "Mega Slowbro Slowking",
+      "Slowking"
+    ]
+  },
+  {
+    "card_a": "Colress's Tenacity",
+    "card_b": "Slowpoke",
+    "support": 7,
+    "lift": 33.419,
+    "jaccard": 0.219,
+    "weighted_score": 12.6,
+    "archetypes": [
+      "Latias Slowking",
+      "Mega Kangaskhan Slowking",
+      "Mega Slowbro Slowking",
+      "Slowking"
+    ]
+  },
+  {
+    "card_a": "Jumbo Ice Cream",
+    "card_b": "Mega Mawile ex",
+    "support": 9,
+    "lift": 32.991,
+    "jaccard": 0.333,
+    "weighted_score": 11.7,
+    "archetypes": [
+      "Archaludon Meowth",
+      "Archaludon ex",
+      "Empoleon Metagross",
+      "Genesect Metagross"
+    ]
+  },
+  {
+    "card_a": "Bulbasaur",
+    "card_b": "Celebi",
+    "support": 18,
+    "lift": 32.889,
+    "jaccard": 0.5,
+    "weighted_score": 29.5,
+    "archetypes": [
+      "Mega Meganium",
+      "Mega Meganium Mega Venusaur",
+      "Mega Venusaur"
+    ]
+  },
+  {
+    "card_a": "Bulbasaur",
+    "card_b": "Ivysaur",
+    "support": 36,
+    "lift": 32.889,
+    "jaccard": 1.0,
+    "weighted_score": 57.9,
+    "archetypes": [
+      "Mega Meganium",
+      "Mega Meganium Mega Venusaur",
+      "Mega Venusaur"
+    ]
+  },
+  {
+    "card_a": "Bulbasaur",
+    "card_b": "Mega Venusaur ex",
+    "support": 36,
+    "lift": 32.889,
+    "jaccard": 1.0,
+    "weighted_score": 57.9,
+    "archetypes": [
+      "Mega Meganium",
+      "Mega Meganium Mega Venusaur",
+      "Mega Venusaur"
+    ]
+  },
+  {
+    "card_a": "Bulbasaur",
+    "card_b": "Regigigas",
+    "support": 13,
+    "lift": 32.889,
+    "jaccard": 0.361,
+    "weighted_score": 20.2,
+    "archetypes": [
+      "Mega Meganium",
+      "Mega Meganium Mega Venusaur",
+      "Mega Venusaur"
+    ]
+  },
+  {
+    "card_a": "Celebi",
+    "card_b": "Ivysaur",
+    "support": 18,
+    "lift": 32.889,
+    "jaccard": 0.5,
+    "weighted_score": 29.5,
+    "archetypes": [
+      "Mega Meganium",
+      "Mega Meganium Mega Venusaur",
+      "Mega Venusaur"
+    ]
+  },
+  {
+    "card_a": "Celebi",
+    "card_b": "Mega Venusaur ex",
+    "support": 18,
+    "lift": 32.889,
+    "jaccard": 0.5,
+    "weighted_score": 29.5,
+    "archetypes": [
+      "Mega Meganium",
+      "Mega Meganium Mega Venusaur",
+      "Mega Venusaur"
+    ]
+  },
+  {
+    "card_a": "Ivysaur",
+    "card_b": "Mega Venusaur ex",
+    "support": 36,
+    "lift": 32.889,
+    "jaccard": 1.0,
+    "weighted_score": 57.9,
+    "archetypes": [
+      "Mega Meganium",
+      "Mega Meganium Mega Venusaur",
+      "Mega Venusaur"
+    ]
+  },
+  {
+    "card_a": "Ivysaur",
+    "card_b": "Regigigas",
+    "support": 13,
+    "lift": 32.889,
+    "jaccard": 0.361,
+    "weighted_score": 20.2,
+    "archetypes": [
+      "Mega Meganium",
+      "Mega Meganium Mega Venusaur",
+      "Mega Venusaur"
+    ]
+  },
+  {
+    "card_a": "Mega Venusaur ex",
+    "card_b": "Regigigas",
+    "support": 13,
+    "lift": 32.889,
+    "jaccard": 0.361,
+    "weighted_score": 20.2,
+    "archetypes": [
+      "Mega Meganium",
+      "Mega Meganium Mega Venusaur",
+      "Mega Venusaur"
+    ]
+  },
+  {
+    "card_a": "Colress's Tenacity",
+    "card_b": "Haxorus",
+    "support": 5,
+    "lift": 31.828,
+    "jaccard": 0.156,
+    "weighted_score": 9.1,
+    "archetypes": [
+      "Latias Slowking",
+      "Mega Slowbro Slowking",
+      "Slowking"
+    ]
+  },
+  {
+    "card_a": "Empoleon ex",
+    "card_b": "Jumbo Ice Cream",
+    "support": 5,
+    "lift": 31.158,
+    "jaccard": 0.208,
+    "weighted_score": 6.3,
+    "archetypes": [
+      "Empoleon Metagross",
+      "Genesect Metagross"
+    ]
+  },
+  {
+    "card_a": "Full Metal Lab",
+    "card_b": "Jumbo Ice Cream",
+    "support": 5,
+    "lift": 31.158,
+    "jaccard": 0.208,
+    "weighted_score": 6.6,
+    "archetypes": [
+      "Archaludon Meowth",
+      "Archaludon ex",
+      "Empoleon Metagross"
+    ]
+  },
+  {
+    "card_a": "Jumbo Ice Cream",
+    "card_b": "Piplup",
+    "support": 5,
+    "lift": 31.158,
+    "jaccard": 0.208,
+    "weighted_score": 6.3,
+    "archetypes": [
+      "Empoleon Metagross",
+      "Genesect Metagross"
+    ]
+  },
+  {
+    "card_a": "Jumbo Ice Cream",
+    "card_b": "Precious Trolley",
+    "support": 7,
+    "lift": 31.158,
+    "jaccard": 0.269,
+    "weighted_score": 9.0,
+    "archetypes": [
+      "Empoleon Metagross",
+      "Genesect Metagross",
       "Mega Kangaskhan Clefairy",
       "Mega Kangaskhan Latias"
     ]
   },
   {
-    "card_a": "Slowpoke",
-    "card_b": "Smoochum",
-    "support": 29,
-    "lift": 99.42,
-    "jaccard": 0.483,
-    "weighted_score": 46.0,
+    "card_a": "Miracle Headset",
+    "card_b": "Team Rocket's Honchkrow",
+    "support": 38,
+    "lift": 30.359,
+    "jaccard": 0.974,
+    "weighted_score": 60.9,
     "archetypes": [
-      "Alakazam Slowking",
-      "Gumshoos Slowking",
-      "Latias Slowking",
-      "Mega Diancie Mega Slowbro",
-      "Mega Slowbro Dusknoir",
-      "Mega Slowbro Slowking",
-      "Slowking",
-      "Slowking Zoroark"
+      "Articuno Honchkrow",
+      "Honchkrow Porygon-Z",
+      "Honchkrow Porygon2"
     ]
   },
   {
-    "card_a": "Annihilape",
-    "card_b": "Smoochum",
-    "support": 26,
-    "lift": 98.049,
-    "jaccard": 0.441,
-    "weighted_score": 40.8,
+    "card_a": "Miracle Headset",
+    "card_b": "Team Rocket's Porygon",
+    "support": 38,
+    "lift": 30.359,
+    "jaccard": 0.974,
+    "weighted_score": 60.9,
     "archetypes": [
-      "Alakazam Slowking",
-      "Latias Slowking",
-      "Mega Slowbro Slowking",
-      "Slowking",
-      "Slowking Zoroark"
+      "Articuno Honchkrow",
+      "Honchkrow Porygon-Z",
+      "Honchkrow Porygon2"
     ]
   },
   {
-    "card_a": "Academy at Night",
-    "card_b": "Smoochum",
-    "support": 27,
-    "lift": 96.971,
-    "jaccard": 0.45,
-    "weighted_score": 42.8,
+    "card_a": "Miracle Headset",
+    "card_b": "Team Rocket's Porygon2",
+    "support": 38,
+    "lift": 30.359,
+    "jaccard": 0.974,
+    "weighted_score": 60.9,
     "archetypes": [
-      "Alakazam Slowking",
-      "Gumshoos Slowking",
-      "Latias Slowking",
-      "Mega Slowbro Slowking",
-      "Slowking",
-      "Slowking Zoroark"
+      "Articuno Honchkrow",
+      "Honchkrow Porygon-Z",
+      "Honchkrow Porygon2"
     ]
   },
   {
-    "card_a": "Slowking",
-    "card_b": "Smoochum",
-    "support": 27,
-    "lift": 96.971,
-    "jaccard": 0.45,
-    "weighted_score": 42.8,
+    "card_a": "Roto-Stick",
+    "card_b": "Team Rocket's Honchkrow",
+    "support": 34,
+    "lift": 30.359,
+    "jaccard": 0.872,
+    "weighted_score": 54.0,
     "archetypes": [
-      "Alakazam Slowking",
-      "Gumshoos Slowking",
-      "Latias Slowking",
-      "Mega Slowbro Slowking",
-      "Slowking",
-      "Slowking Zoroark"
+      "Articuno Honchkrow",
+      "Honchkrow Porygon-Z",
+      "Honchkrow Porygon2"
     ]
   },
   {
-    "card_a": "Slowpoke",
-    "card_b": "Zeraora",
-    "support": 5,
-    "lift": 96.42,
-    "jaccard": 0.106,
-    "weighted_score": 9.2,
+    "card_a": "Roto-Stick",
+    "card_b": "Team Rocket's Porygon",
+    "support": 34,
+    "lift": 30.359,
+    "jaccard": 0.872,
+    "weighted_score": 54.0,
     "archetypes": [
-      "Latias Slowking",
-      "Mega Kangaskhan Slowking",
-      "Slowking"
+      "Articuno Honchkrow",
+      "Honchkrow Porygon-Z",
+      "Honchkrow Porygon2"
     ]
   },
   {
-    "card_a": "Kyurem",
-    "card_b": "Zeraora",
-    "support": 5,
-    "lift": 94.278,
-    "jaccard": 0.104,
-    "weighted_score": 9.2,
+    "card_a": "Roto-Stick",
+    "card_b": "Team Rocket's Porygon2",
+    "support": 34,
+    "lift": 30.359,
+    "jaccard": 0.872,
+    "weighted_score": 54.0,
     "archetypes": [
-      "Latias Slowking",
-      "Mega Kangaskhan Slowking",
-      "Slowking"
+      "Articuno Honchkrow",
+      "Honchkrow Porygon-Z",
+      "Honchkrow Porygon2"
     ]
   },
   {
-    "card_a": "Pecharunt",
-    "card_b": "Yveltal ex",
-    "support": 6,
-    "lift": 94.278,
-    "jaccard": 0.162,
-    "weighted_score": 10.1,
-    "archetypes": [
-      "Munkidori Toxtricity",
-      "Pecharunt Toxtricity"
-    ]
-  },
-  {
-    "card_a": "Toxel",
-    "card_b": "Toxtricity",
-    "support": 72,
-    "lift": 94.278,
+    "card_a": "Team Rocket's Honchkrow",
+    "card_b": "Team Rocket's Porygon",
+    "support": 39,
+    "lift": 30.359,
     "jaccard": 1.0,
-    "weighted_score": 108.1,
+    "weighted_score": 62.1,
     "archetypes": [
-      "Arbok Toxtricity",
-      "Fezandipiti Toxtricity",
-      "Hydreigon Toxtricity",
-      "Mega Absol Toxtricity",
-      "Mega Kangaskhan Mega Sharpedo",
-      "Mega Sharpedo Pecharunt",
-      "Mega Sharpedo Toxtricity",
-      "Munkidori Toxtricity",
-      "Pecharunt Toxtricity",
-      "Toxtricity",
-      "Toxtricity Yveltal"
-    ]
-  },
-  {
-    "card_a": "Kyurem",
-    "card_b": "Smoochum",
-    "support": 28,
-    "lift": 93.859,
-    "jaccard": 0.452,
-    "weighted_score": 44.0,
-    "archetypes": [
-      "Alakazam Slowking",
-      "Gumshoos Slowking",
-      "Latias Slowking",
-      "Mega Kangaskhan Latias",
-      "Mega Slowbro Slowking",
-      "Slowking",
-      "Slowking Zoroark"
-    ]
-  },
-  {
-    "card_a": "Empoleon ex",
-    "card_b": "Piplup",
-    "support": 73,
-    "lift": 92.986,
-    "jaccard": 1.0,
-    "weighted_score": 106.7,
-    "archetypes": [
-      "Empoleon Metagross",
-      "Empoleon Metang",
-      "Genesect Metagross",
-      "Jellicent Metagross"
-    ]
-  },
-  {
-    "card_a": "Carvanha",
-    "card_b": "Toxel",
-    "support": 39,
-    "lift": 91.921,
-    "jaccard": 0.534,
-    "weighted_score": 59.7,
-    "archetypes": [
-      "Mega Kangaskhan Mega Sharpedo",
-      "Mega Sharpedo Pecharunt",
-      "Mega Sharpedo Toxtricity"
-    ]
-  },
-  {
-    "card_a": "Carvanha",
-    "card_b": "Toxtricity",
-    "support": 39,
-    "lift": 91.921,
-    "jaccard": 0.534,
-    "weighted_score": 59.7,
-    "archetypes": [
-      "Mega Kangaskhan Mega Sharpedo",
-      "Mega Sharpedo Pecharunt",
-      "Mega Sharpedo Toxtricity"
-    ]
-  },
-  {
-    "card_a": "Mega Sharpedo ex",
-    "card_b": "Toxel",
-    "support": 39,
-    "lift": 91.921,
-    "jaccard": 0.534,
-    "weighted_score": 59.7,
-    "archetypes": [
-      "Mega Kangaskhan Mega Sharpedo",
-      "Mega Sharpedo Pecharunt",
-      "Mega Sharpedo Toxtricity"
-    ]
-  },
-  {
-    "card_a": "Mega Sharpedo ex",
-    "card_b": "Toxtricity",
-    "support": 39,
-    "lift": 91.921,
-    "jaccard": 0.534,
-    "weighted_score": 59.7,
-    "archetypes": [
-      "Mega Kangaskhan Mega Sharpedo",
-      "Mega Sharpedo Pecharunt",
-      "Mega Sharpedo Toxtricity"
-    ]
-  },
-  {
-    "card_a": "Toxel",
-    "card_b": "Yveltal ex",
-    "support": 15,
-    "lift": 88.385,
-    "jaccard": 0.205,
-    "weighted_score": 22.8,
-    "archetypes": [
-      "Mega Absol Toxtricity",
-      "Mega Sharpedo Toxtricity",
-      "Munkidori Toxtricity",
-      "Pecharunt Toxtricity",
-      "Toxtricity Yveltal"
-    ]
-  },
-  {
-    "card_a": "Toxtricity",
-    "card_b": "Yveltal ex",
-    "support": 15,
-    "lift": 88.385,
-    "jaccard": 0.205,
-    "weighted_score": 22.8,
-    "archetypes": [
-      "Mega Absol Toxtricity",
-      "Mega Sharpedo Toxtricity",
-      "Munkidori Toxtricity",
-      "Pecharunt Toxtricity",
-      "Toxtricity Yveltal"
-    ]
-  },
-  {
-    "card_a": "Brute Bonnet",
-    "card_b": "Toxel",
-    "support": 28,
-    "lift": 87.993,
-    "jaccard": 0.378,
-    "weighted_score": 42.1,
-    "archetypes": [
-      "Fezandipiti Toxtricity",
-      "Mega Absol Toxtricity",
-      "Mega Sharpedo Toxtricity",
-      "Munkidori Toxtricity",
-      "Pecharunt Toxtricity",
-      "Toxtricity"
-    ]
-  },
-  {
-    "card_a": "Brute Bonnet",
-    "card_b": "Toxtricity",
-    "support": 28,
-    "lift": 87.993,
-    "jaccard": 0.378,
-    "weighted_score": 42.1,
-    "archetypes": [
-      "Fezandipiti Toxtricity",
-      "Mega Absol Toxtricity",
-      "Mega Sharpedo Toxtricity",
-      "Munkidori Toxtricity",
-      "Pecharunt Toxtricity",
-      "Toxtricity"
-    ]
-  },
-  {
-    "card_a": "Hop's Cramorant",
-    "card_b": "Hop's Zacian ex",
-    "support": 21,
-    "lift": 86.236,
-    "jaccard": 0.323,
-    "weighted_score": 34.0,
-    "archetypes": [
-      "Archaludon Zacian Crowned",
-      "Clefairy Trevenant",
-      "Latias Trevenant",
-      "Latias Typhlosion",
-      "Latias Zacian Crowned",
-      "Munkidori Zacian Crowned",
-      "Trevenant",
-      "Trevenant Zacian Crowned"
+      "Articuno Honchkrow",
+      "Honchkrow Porygon-Z",
+      "Honchkrow Porygon2"
     ]
   }
 ]

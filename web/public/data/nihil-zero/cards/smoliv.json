@@ -1,189 +1,147 @@
 {
   "card_name": "Smoliv",
   "card_slug": "smoliv",
-  "card_id": "svp-023",
-  "set_code": "svp",
-  "set_number": "023",
-  "image_url": "https://assets.tcgdex.net/en/sv/svp/023/high.png",
+  "card_id": null,
+  "set_code": null,
+  "set_number": null,
+  "image_url": null,
   "category": "Pokemon",
-  "rarity": "",
-  "total_appearances": 82,
-  "usage_pct": 1.2,
+  "rarity": null,
+  "total_appearances": 47,
+  "usage_pct": 4.0,
   "avg_copies": 2.0,
-  "unique_archetypes": 2,
-  "weighted_score": 150.9,
-  "win_rate_proxy": 1.84,
+  "unique_archetypes": 1,
+  "weighted_score": 89.0,
+  "win_rate_proxy": 1.89,
   "top_archetype": "Arboliva Ogerpon",
   "trend_direction": "stable",
   "copy_distribution": [
     {
       "copies": 2,
-      "count": 82
+      "count": 47
     }
   ],
   "archetypes": [
     {
       "name": "Arboliva Ogerpon",
       "slug": "arboliva-ogerpon",
-      "usage_count": 81,
+      "usage_count": 47,
       "avg_copies": 2.0,
-      "tier": "C"
-    },
-    {
-      "name": "Meganium Ogerpon",
-      "slug": "meganium-ogerpon",
-      "usage_count": 1,
-      "avg_copies": 2.0,
-      "tier": "Rogue"
+      "tier": "B"
     }
   ],
   "weekly_usage": [
     {
-      "week": "2026-01-19",
-      "usage_pct": 0.0,
-      "avg_copies": 0
-    },
-    {
-      "week": "2026-01-26",
-      "usage_pct": 0.2,
-      "avg_copies": 2.0
-    },
-    {
-      "week": "2026-02-02",
-      "usage_pct": 0.1,
-      "avg_copies": 2.0
-    },
-    {
-      "week": "2026-02-09",
-      "usage_pct": 0.2,
-      "avg_copies": 2.0
-    },
-    {
-      "week": "2026-02-16",
-      "usage_pct": 0.0,
-      "avg_copies": 0
-    },
-    {
-      "week": "2026-02-23",
-      "usage_pct": 2.7,
-      "avg_copies": 2.0
-    },
-    {
       "week": "2026-03-02",
       "usage_pct": 4.0,
-      "avg_copies": 2.0
-    },
-    {
-      "week": "2026-03-16",
-      "usage_pct": 3.1,
       "avg_copies": 2.0
     }
   ],
   "synergy_partners": [
     {
       "card_name": "Arboliva ex",
-      "support": 82,
-      "lift": 82.78,
+      "support": 47,
+      "lift": 25.191,
       "jaccard": 1.0,
-      "weighted_score": 150.9
+      "weighted_score": 89.0
     },
     {
       "card_name": "Dolliv",
-      "support": 82,
-      "lift": 82.78,
+      "support": 47,
+      "lift": 25.191,
       "jaccard": 1.0,
-      "weighted_score": 150.9
+      "weighted_score": 89.0
     },
     {
       "card_name": "Bayleef",
-      "support": 82,
-      "lift": 21.897,
-      "jaccard": 0.265,
-      "weighted_score": 150.9
+      "support": 47,
+      "lift": 15.377,
+      "jaccard": 0.61,
+      "weighted_score": 89.0
     },
     {
       "card_name": "Chikorita",
-      "support": 82,
-      "lift": 21.897,
-      "jaccard": 0.265,
-      "weighted_score": 150.9
+      "support": 47,
+      "lift": 15.377,
+      "jaccard": 0.61,
+      "weighted_score": 89.0
     },
     {
       "card_name": "Meganium",
-      "support": 82,
-      "lift": 21.897,
-      "jaccard": 0.265,
-      "weighted_score": 150.9
+      "support": 47,
+      "lift": 15.377,
+      "jaccard": 0.61,
+      "weighted_score": 89.0
     },
     {
       "card_name": "Forest of Vitality",
-      "support": 82,
-      "lift": 14.171,
-      "jaccard": 0.171,
-      "weighted_score": 150.9
-    },
-    {
-      "card_name": "Bug Catching Set",
-      "support": 82,
-      "lift": 9.075,
-      "jaccard": 0.11,
-      "weighted_score": 150.9
+      "support": 47,
+      "lift": 12.596,
+      "jaccard": 0.5,
+      "weighted_score": 89.0
     },
     {
       "card_name": "Lana's Aid",
-      "support": 68,
-      "lift": 8.206,
-      "jaccard": 0.097,
-      "weighted_score": 125.4
+      "support": 41,
+      "lift": 6.84,
+      "jaccard": 0.261,
+      "weighted_score": 80.4
     },
     {
-      "card_name": "Teal Mask Ogerpon ex",
-      "support": 82,
-      "lift": 7.601,
-      "jaccard": 0.092,
-      "weighted_score": 150.9
+      "card_name": "Bug Catching Set",
+      "support": 47,
+      "lift": 6.689,
+      "jaccard": 0.266,
+      "weighted_score": 89.0
     },
     {
       "card_name": "Dawn",
-      "support": 82,
-      "lift": 4.211,
-      "jaccard": 0.051,
-      "weighted_score": 150.9
+      "support": 47,
+      "lift": 4.643,
+      "jaccard": 0.184,
+      "weighted_score": 89.0
     },
     {
-      "card_name": "Briar",
-      "support": 22,
-      "lift": 2.9,
-      "jaccard": 0.032,
-      "weighted_score": 42.7
+      "card_name": "Teal Mask Ogerpon ex",
+      "support": 47,
+      "lift": 4.536,
+      "jaccard": 0.18,
+      "weighted_score": 89.0
     },
     {
       "card_name": "Meowth ex",
-      "support": 82,
-      "lift": 2.828,
-      "jaccard": 0.034,
-      "weighted_score": 150.9
+      "support": 47,
+      "lift": 2.493,
+      "jaccard": 0.099,
+      "weighted_score": 89.0
     },
     {
-      "card_name": "Unfair Stamp",
-      "support": 80,
-      "lift": 2.45,
-      "jaccard": 0.03,
-      "weighted_score": 147.9
+      "card_name": "Judge",
+      "support": 34,
+      "lift": 2.454,
+      "jaccard": 0.094,
+      "weighted_score": 68.1
     },
     {
       "card_name": "Budew",
-      "support": 81,
-      "lift": 2.415,
-      "jaccard": 0.029,
-      "weighted_score": 147.9
+      "support": 46,
+      "lift": 2.224,
+      "jaccard": 0.088,
+      "weighted_score": 86.0
     },
     {
-      "card_name": "Ciphermaniac's Codebreaking",
-      "support": 14,
-      "lift": 2.299,
-      "jaccard": 0.024,
-      "weighted_score": 25.7
+      "card_name": "Air Balloon",
+      "support": 21,
+      "lift": 2.066,
+      "jaccard": 0.074,
+      "weighted_score": 43.8
+    },
+    {
+      "card_name": "Unfair Stamp",
+      "support": 46,
+      "lift": 1.663,
+      "jaccard": 0.066,
+      "weighted_score": 87.5
     }
   ]
 }

@@ -2,1625 +2,411 @@
   "archetype": "Dragapult Jellicent",
   "slug": "dragapult-jellicent",
   "tier": "Rogue",
-  "meta_share": 0.2,
-  "weighted_share": 0.2,
-  "deck_count": 14,
-  "best_placement": 1,
+  "meta_share": 0.1,
+  "weighted_share": 0.1,
+  "deck_count": 1,
+  "best_placement": 9,
   "sprite_filenames": [
     "dragapult.png",
     "jellicent.png"
   ],
   "core_cards": [
     {
-      "card_name": "Ultra Ball",
-      "inclusion_pct": 100.0,
-      "avg_copies": 3.7,
-      "decks_with": 14,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Psychic Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 4.1,
-      "decks_with": 14,
-      "category": "Energy"
-    },
-    {
-      "card_name": "Poké Pad",
-      "inclusion_pct": 100.0,
-      "avg_copies": 3.9,
-      "decks_with": 14,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Night Stretcher",
-      "inclusion_pct": 100.0,
-      "avg_copies": 1.9,
-      "decks_with": 14,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Munkidori",
-      "inclusion_pct": 100.0,
-      "avg_copies": 1.6,
-      "decks_with": 14,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Lillie's Determination",
-      "inclusion_pct": 100.0,
-      "avg_copies": 4.0,
-      "decks_with": 14,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Lillie's Clefairy ex",
-      "inclusion_pct": 100.0,
-      "avg_copies": 1.0,
-      "decks_with": 14,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Latias ex",
-      "inclusion_pct": 100.0,
-      "avg_copies": 1.0,
-      "decks_with": 14,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Jellicent ex",
-      "inclusion_pct": 100.0,
-      "avg_copies": 1.0,
-      "decks_with": 14,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Frillish",
-      "inclusion_pct": 100.0,
-      "avg_copies": 1.4,
-      "decks_with": 14,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Fire Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 3.1,
-      "decks_with": 14,
-      "category": "Energy"
-    },
-    {
-      "card_name": "Dreepy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 4.0,
-      "decks_with": 14,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Drakloak",
-      "inclusion_pct": 100.0,
-      "avg_copies": 4.0,
-      "decks_with": 14,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Dragapult ex",
-      "inclusion_pct": 100.0,
-      "avg_copies": 2.9,
-      "decks_with": 14,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Darkness Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 1.6,
-      "decks_with": 14,
-      "category": "Energy"
-    },
-    {
-      "card_name": "Crispin",
-      "inclusion_pct": 100.0,
-      "avg_copies": 2.8,
-      "decks_with": 14,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Buddy-Buddy Poffin",
-      "inclusion_pct": 100.0,
-      "avg_copies": 3.9,
-      "decks_with": 14,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Boss's Orders",
-      "inclusion_pct": 100.0,
-      "avg_copies": 3.1,
-      "decks_with": 14,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Fezandipiti ex",
-      "inclusion_pct": 92.9,
-      "avg_copies": 1.0,
-      "decks_with": 13,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Budew",
-      "inclusion_pct": 92.9,
-      "avg_copies": 1.2,
-      "decks_with": 13,
-      "category": "Pokemon"
-    }
-  ],
-  "all_cards": [
-    {
-      "card_name": "Ultra Ball",
-      "inclusion_pct": 100.0,
-      "avg_copies": 3.7,
-      "decks_with": 14,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Psychic Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 4.1,
-      "decks_with": 14,
-      "category": "Energy"
-    },
-    {
-      "card_name": "Poké Pad",
-      "inclusion_pct": 100.0,
-      "avg_copies": 3.9,
-      "decks_with": 14,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Night Stretcher",
-      "inclusion_pct": 100.0,
-      "avg_copies": 1.9,
-      "decks_with": 14,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Munkidori",
-      "inclusion_pct": 100.0,
-      "avg_copies": 1.6,
-      "decks_with": 14,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Lillie's Determination",
-      "inclusion_pct": 100.0,
-      "avg_copies": 4.0,
-      "decks_with": 14,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Lillie's Clefairy ex",
-      "inclusion_pct": 100.0,
-      "avg_copies": 1.0,
-      "decks_with": 14,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Latias ex",
-      "inclusion_pct": 100.0,
-      "avg_copies": 1.0,
-      "decks_with": 14,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Jellicent ex",
-      "inclusion_pct": 100.0,
-      "avg_copies": 1.0,
-      "decks_with": 14,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Frillish",
-      "inclusion_pct": 100.0,
-      "avg_copies": 1.4,
-      "decks_with": 14,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Fire Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 3.1,
-      "decks_with": 14,
-      "category": "Energy"
-    },
-    {
-      "card_name": "Dreepy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 4.0,
-      "decks_with": 14,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Drakloak",
-      "inclusion_pct": 100.0,
-      "avg_copies": 4.0,
-      "decks_with": 14,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Dragapult ex",
-      "inclusion_pct": 100.0,
-      "avg_copies": 2.9,
-      "decks_with": 14,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Darkness Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 1.6,
-      "decks_with": 14,
-      "category": "Energy"
-    },
-    {
-      "card_name": "Crispin",
-      "inclusion_pct": 100.0,
-      "avg_copies": 2.8,
-      "decks_with": 14,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Buddy-Buddy Poffin",
-      "inclusion_pct": 100.0,
-      "avg_copies": 3.9,
-      "decks_with": 14,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Boss's Orders",
-      "inclusion_pct": 100.0,
-      "avg_copies": 3.1,
-      "decks_with": 14,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Fezandipiti ex",
-      "inclusion_pct": 92.9,
-      "avg_copies": 1.0,
-      "decks_with": 13,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Budew",
-      "inclusion_pct": 92.9,
-      "avg_copies": 1.2,
-      "decks_with": 13,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Jamming Tower",
-      "inclusion_pct": 78.6,
-      "avg_copies": 1.5,
-      "decks_with": 11,
-      "category": "Trainer"
-    },
-    {
       "card_name": "Unfair Stamp",
-      "inclusion_pct": 71.4,
+      "inclusion_pct": 100.0,
       "avg_copies": 1.0,
-      "decks_with": 10,
+      "decks_with": 1,
       "category": "Trainer"
     },
     {
-      "card_name": "Hilda",
-      "inclusion_pct": 71.4,
-      "avg_copies": 1.4,
-      "decks_with": 10,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Meowth ex",
-      "inclusion_pct": 64.3,
-      "avg_copies": 1.0,
-      "decks_with": 9,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Brock's Scouting",
-      "inclusion_pct": 57.1,
-      "avg_copies": 1.6,
-      "decks_with": 8,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Shaymin",
-      "inclusion_pct": 42.9,
-      "avg_copies": 1.0,
-      "decks_with": 6,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Team Rocket's Watchtower",
-      "inclusion_pct": 35.7,
-      "avg_copies": 1.4,
-      "decks_with": 5,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Switch",
-      "inclusion_pct": 35.7,
-      "avg_copies": 1.0,
-      "decks_with": 5,
-      "category": "Trainer"
-    },
-    {
-      "card_name": "Psyduck",
-      "inclusion_pct": 35.7,
-      "avg_copies": 1.0,
-      "decks_with": 5,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Rare Candy",
-      "inclusion_pct": 28.6,
-      "avg_copies": 1.8,
-      "decks_with": 4,
+      "card_name": "Ultra Ball",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.0,
+      "decks_with": 1,
       "category": "Trainer"
     },
     {
       "card_name": "Telepath Psychic Energy",
-      "inclusion_pct": 21.4,
-      "avg_copies": 1.3,
-      "decks_with": 3,
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
       "category": "Energy"
     },
     {
-      "card_name": "Rosa's Encouragement",
-      "inclusion_pct": 14.3,
-      "avg_copies": 1.0,
-      "decks_with": 2,
+      "card_name": "Team Rocket's Watchtower",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
       "category": "Trainer"
     },
     {
-      "card_name": "Neo Upper Energy",
-      "inclusion_pct": 14.3,
+      "card_name": "Switch",
+      "inclusion_pct": 100.0,
       "avg_copies": 1.0,
-      "decks_with": 2,
-      "category": "Energy"
-    },
-    {
-      "card_name": "Legacy Energy",
-      "inclusion_pct": 14.3,
-      "avg_copies": 1.0,
-      "decks_with": 2,
-      "category": "Energy"
-    },
-    {
-      "card_name": "Judge",
-      "inclusion_pct": 14.3,
-      "avg_copies": 1.5,
-      "decks_with": 2,
+      "decks_with": 1,
       "category": "Trainer"
     },
     {
-      "card_name": "Bloodmoon Ursaluna ex",
-      "inclusion_pct": 14.3,
-      "avg_copies": 1.0,
-      "decks_with": 2,
+      "card_name": "Psychic Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Energy"
+    },
+    {
+      "card_name": "Poké Pad",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Night Stretcher",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Munkidori",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
       "category": "Pokemon"
     },
     {
-      "card_name": "Wondrous Patch",
-      "inclusion_pct": 7.1,
+      "card_name": "Lillie's Determination",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Lillie's Clefairy ex",
+      "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
       "category": "Trainer"
     },
     {
-      "card_name": "Team Rocket's Venture Bomb",
-      "inclusion_pct": 7.1,
+      "card_name": "Latias ex",
+      "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Trainer"
+      "category": "Pokemon"
     },
     {
-      "card_name": "Team Rocket's Petrel",
-      "inclusion_pct": 7.1,
+      "card_name": "Jellicent ex",
+      "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Trainer"
+      "category": "Pokemon"
     },
     {
-      "card_name": "Harlequin",
-      "inclusion_pct": 7.1,
+      "card_name": "Hilda",
+      "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
       "category": "Trainer"
     },
     {
       "card_name": "Girafarig",
-      "inclusion_pct": 7.1,
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Frillish",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Fire Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Energy"
+    },
+    {
+      "card_name": "Fezandipiti ex",
+      "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
       "category": "Pokemon"
     },
     {
       "card_name": "Farigiraf ex",
-      "inclusion_pct": 7.1,
+      "inclusion_pct": 100.0,
       "avg_copies": 1.0,
       "decks_with": 1,
       "category": "Pokemon"
     },
     {
-      "card_name": "Duskull",
-      "inclusion_pct": 7.1,
-      "avg_copies": 1.0,
+      "card_name": "Dreepy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.0,
       "decks_with": 1,
       "category": "Pokemon"
     },
     {
-      "card_name": "Dusknoir",
-      "inclusion_pct": 7.1,
-      "avg_copies": 1.0,
+      "card_name": "Drakloak",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.0,
       "decks_with": 1,
       "category": "Pokemon"
     },
     {
-      "card_name": "Dusclops",
-      "inclusion_pct": 7.1,
-      "avg_copies": 1.0,
-      "decks_with": 1,
-      "category": "Pokemon"
-    },
-    {
-      "card_name": "Dawn",
-      "inclusion_pct": 7.1,
+      "card_name": "Dragapult ex",
+      "inclusion_pct": 100.0,
       "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Darkness Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Energy"
+    },
+    {
+      "card_name": "Crispin",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Budew",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Buddy-Buddy Poffin",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.0,
       "decks_with": 1,
       "category": "Trainer"
     },
     {
       "card_name": "Briar",
-      "inclusion_pct": 7.1,
+      "inclusion_pct": 100.0,
       "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Boss's Orders",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    }
+  ],
+  "all_cards": [
+    {
+      "card_name": "Unfair Stamp",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Ultra Ball",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Telepath Psychic Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Energy"
+    },
+    {
+      "card_name": "Team Rocket's Watchtower",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Switch",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Psychic Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Energy"
+    },
+    {
+      "card_name": "Poké Pad",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Night Stretcher",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Munkidori",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Lillie's Determination",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Lillie's Clefairy ex",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Latias ex",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Jellicent ex",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Hilda",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Girafarig",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Frillish",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Fire Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Energy"
+    },
+    {
+      "card_name": "Fezandipiti ex",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Farigiraf ex",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Dreepy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Drakloak",
+      "inclusion_pct": 100.0,
+      "avg_copies": 4.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Dragapult ex",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Darkness Energy",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
+      "decks_with": 1,
+      "category": "Energy"
+    },
+    {
+      "card_name": "Crispin",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Budew",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Pokemon"
+    },
+    {
+      "card_name": "Buddy-Buddy Poffin",
+      "inclusion_pct": 100.0,
+      "avg_copies": 3.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Briar",
+      "inclusion_pct": 100.0,
+      "avg_copies": 1.0,
+      "decks_with": 1,
+      "category": "Trainer"
+    },
+    {
+      "card_name": "Boss's Orders",
+      "inclusion_pct": 100.0,
+      "avg_copies": 2.0,
       "decks_with": 1,
       "category": "Trainer"
     }
   ],
   "results": [
-    {
-      "tournament_name": "City League Kanagawa",
-      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3849",
-      "date": "2026-01-24",
-      "standing": 1,
-      "player_name": "のえる",
-      "decklist": [
-        {
-          "card_name": "Dreepy",
-          "count": 4,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Drakloak",
-          "count": 4,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Dragapult ex",
-          "count": 3,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Lillie's Clefairy ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Budew",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Fezandipiti ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Latias ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Bloodmoon Ursaluna ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Munkidori",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Frillish",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Jellicent ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Meowth ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Poké Pad",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Boss's Orders",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Lillie's Determination",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Ultra Ball",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Buddy-Buddy Poffin",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Crispin",
-          "count": 3,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Brock's Scouting",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Night Stretcher",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Switch",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Jamming Tower",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Unfair Stamp",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Hilda",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Psychic Energy",
-          "count": 5,
-          "category": "Energy"
-        },
-        {
-          "card_name": "Fire Energy",
-          "count": 3,
-          "category": "Energy"
-        },
-        {
-          "card_name": "Darkness Energy",
-          "count": 1,
-          "category": "Energy"
-        }
-      ]
-    },
-    {
-      "tournament_name": "City League Chiba",
-      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3974",
-      "date": "2026-02-07",
-      "standing": 2,
-      "player_name": "ショコレート",
-      "decklist": [
-        {
-          "card_name": "Dreepy",
-          "count": 4,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Drakloak",
-          "count": 4,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Dragapult ex",
-          "count": 3,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Munkidori",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Frillish",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Fezandipiti ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Budew",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Psyduck",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Lillie's Clefairy ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Latias ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Jellicent ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Poké Pad",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Lillie's Determination",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Ultra Ball",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Boss's Orders",
-          "count": 3,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Crispin",
-          "count": 3,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Buddy-Buddy Poffin",
-          "count": 3,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Night Stretcher",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Hilda",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Judge",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Team Rocket's Watchtower",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Jamming Tower",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Fire Energy",
-          "count": 3,
-          "category": "Energy"
-        },
-        {
-          "card_name": "Psychic Energy",
-          "count": 3,
-          "category": "Energy"
-        },
-        {
-          "card_name": "Darkness Energy",
-          "count": 2,
-          "category": "Energy"
-        },
-        {
-          "card_name": "Neo Upper Energy",
-          "count": 1,
-          "category": "Energy"
-        },
-        {
-          "card_name": "Telepath Psychic Energy",
-          "count": 1,
-          "category": "Energy"
-        }
-      ]
-    },
-    {
-      "tournament_name": "City League Ibaraki",
-      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3976",
-      "date": "2026-02-07",
-      "standing": 3,
-      "player_name": "じぇのば",
-      "decklist": [
-        {
-          "card_name": "Dreepy",
-          "count": 4,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Drakloak",
-          "count": 4,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Dragapult ex",
-          "count": 3,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Munkidori",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Frillish",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Fezandipiti ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Budew",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Psyduck",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Lillie's Clefairy ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Latias ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Jellicent ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Poké Pad",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Lillie's Determination",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Ultra Ball",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Buddy-Buddy Poffin",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Boss's Orders",
-          "count": 3,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Crispin",
-          "count": 3,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Night Stretcher",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Team Rocket's Watchtower",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Hilda",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Unfair Stamp",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Fire Energy",
-          "count": 3,
-          "category": "Energy"
-        },
-        {
-          "card_name": "Psychic Energy",
-          "count": 3,
-          "category": "Energy"
-        },
-        {
-          "card_name": "Darkness Energy",
-          "count": 2,
-          "category": "Energy"
-        },
-        {
-          "card_name": "Telepath Psychic Energy",
-          "count": 1,
-          "category": "Energy"
-        }
-      ]
-    },
-    {
-      "tournament_name": "City League Ibaraki",
-      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3932",
-      "date": "2026-02-01",
-      "standing": 4,
-      "player_name": "ふくさん",
-      "decklist": [
-        {
-          "card_name": "Dreepy",
-          "count": 4,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Drakloak",
-          "count": 4,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Dragapult ex",
-          "count": 3,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Fezandipiti ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Budew",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Shaymin",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Lillie's Clefairy ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Duskull",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Dusclops",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Dusknoir",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Latias ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Munkidori",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Frillish",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Jellicent ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Meowth ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Poké Pad",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Lillie's Determination",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Buddy-Buddy Poffin",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Boss's Orders",
-          "count": 3,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Ultra Ball",
-          "count": 3,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Night Stretcher",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Rare Candy",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Crispin",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Hilda",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Switch",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Jamming Tower",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Psychic Energy",
-          "count": 4,
-          "category": "Energy"
-        },
-        {
-          "card_name": "Fire Energy",
-          "count": 3,
-          "category": "Energy"
-        },
-        {
-          "card_name": "Darkness Energy",
-          "count": 1,
-          "category": "Energy"
-        },
-        {
-          "card_name": "Neo Upper Energy",
-          "count": 1,
-          "category": "Energy"
-        }
-      ]
-    },
-    {
-      "tournament_name": "City League Tōkyō",
-      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3901",
-      "date": "2026-01-31",
-      "standing": 4,
-      "player_name": "かに",
-      "decklist": [
-        {
-          "card_name": "Dreepy",
-          "count": 4,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Drakloak",
-          "count": 4,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Dragapult ex",
-          "count": 3,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Fezandipiti ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Budew",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Lillie's Clefairy ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Latias ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Munkidori",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Frillish",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Jellicent ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Meowth ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Poké Pad",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Boss's Orders",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Lillie's Determination",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Ultra Ball",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Buddy-Buddy Poffin",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Crispin",
-          "count": 3,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Night Stretcher",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Rare Candy",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Brock's Scouting",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Jamming Tower",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Unfair Stamp",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Hilda",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Psychic Energy",
-          "count": 5,
-          "category": "Energy"
-        },
-        {
-          "card_name": "Fire Energy",
-          "count": 4,
-          "category": "Energy"
-        },
-        {
-          "card_name": "Darkness Energy",
-          "count": 1,
-          "category": "Energy"
-        }
-      ]
-    },
-    {
-      "tournament_name": "City League Kyōto",
-      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3892",
-      "date": "2026-01-28",
-      "standing": 6,
-      "player_name": "てらだ",
-      "decklist": [
-        {
-          "card_name": "Dreepy",
-          "count": 4,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Drakloak",
-          "count": 4,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Dragapult ex",
-          "count": 3,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Munkidori",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Frillish",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Shaymin",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Lillie's Clefairy ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Latias ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Jellicent ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Meowth ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Poké Pad",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Boss's Orders",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Lillie's Determination",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Ultra Ball",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Buddy-Buddy Poffin",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Crispin",
-          "count": 3,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Brock's Scouting",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Night Stretcher",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Jamming Tower",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Unfair Stamp",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Hilda",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Psychic Energy",
-          "count": 5,
-          "category": "Energy"
-        },
-        {
-          "card_name": "Fire Energy",
-          "count": 3,
-          "category": "Energy"
-        },
-        {
-          "card_name": "Darkness Energy",
-          "count": 2,
-          "category": "Energy"
-        }
-      ]
-    },
-    {
-      "tournament_name": "City League Shiga",
-      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4027",
-      "date": "2026-02-09",
-      "standing": 8,
-      "player_name": "秤",
-      "decklist": [
-        {
-          "card_name": "Dreepy",
-          "count": 4,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Drakloak",
-          "count": 4,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Dragapult ex",
-          "count": 3,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Budew",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Fezandipiti ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Psyduck",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Lillie's Clefairy ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Latias ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Munkidori",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Frillish",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Jellicent ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Meowth ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Poké Pad",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Lillie's Determination",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Buddy-Buddy Poffin",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Boss's Orders",
-          "count": 3,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Ultra Ball",
-          "count": 3,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Crispin",
-          "count": 3,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Night Stretcher",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Judge",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Brock's Scouting",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Jamming Tower",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Wondrous Patch",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Psychic Energy",
-          "count": 4,
-          "category": "Energy"
-        },
-        {
-          "card_name": "Fire Energy",
-          "count": 3,
-          "category": "Energy"
-        },
-        {
-          "card_name": "Darkness Energy",
-          "count": 1,
-          "category": "Energy"
-        },
-        {
-          "card_name": "Legacy Energy",
-          "count": 1,
-          "category": "Energy"
-        }
-      ]
-    },
-    {
-      "tournament_name": "City League Okinawa",
-      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3944",
-      "date": "2026-02-01",
-      "standing": 8,
-      "player_name": "エンダーベア",
-      "decklist": [
-        {
-          "card_name": "Dreepy",
-          "count": 4,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Drakloak",
-          "count": 4,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Dragapult ex",
-          "count": 3,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Fezandipiti ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Budew",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Lillie's Clefairy ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Latias ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Bloodmoon Ursaluna ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Munkidori",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Frillish",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Jellicent ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Meowth ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Poké Pad",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Lillie's Determination",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Ultra Ball",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Buddy-Buddy Poffin",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Boss's Orders",
-          "count": 3,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Crispin",
-          "count": 3,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Night Stretcher",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Brock's Scouting",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Jamming Tower",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Switch",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Unfair Stamp",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Hilda",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Psychic Energy",
-          "count": 5,
-          "category": "Energy"
-        },
-        {
-          "card_name": "Fire Energy",
-          "count": 3,
-          "category": "Energy"
-        },
-        {
-          "card_name": "Darkness Energy",
-          "count": 1,
-          "category": "Energy"
-        }
-      ]
-    },
     {
       "tournament_name": "City League Fukuoka",
       "tournament_url": "https://limitlesstcg.com/tournaments/jp/4233",
@@ -1660,11 +446,6 @@
         },
         {
           "card_name": "Budew",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Lillie's Clefairy ex",
           "count": 1,
           "category": "Pokemon"
         },
@@ -1729,6 +510,11 @@
           "category": "Trainer"
         },
         {
+          "card_name": "Lillie's Clefairy ex",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
           "card_name": "Switch",
           "count": 1,
           "category": "Trainer"
@@ -1769,1343 +555,26 @@
           "category": "Energy"
         }
       ]
-    },
-    {
-      "tournament_name": "City League Aichi",
-      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4024",
-      "date": "2026-02-08",
-      "standing": 9,
-      "player_name": "yoshi",
-      "decklist": [
-        {
-          "card_name": "Dreepy",
-          "count": 4,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Drakloak",
-          "count": 4,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Dragapult ex",
-          "count": 3,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Budew",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Munkidori",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Fezandipiti ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Lillie's Clefairy ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Latias ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Frillish",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Jellicent ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Lillie's Determination",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Buddy-Buddy Poffin",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Poké Pad",
-          "count": 3,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Boss's Orders",
-          "count": 3,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Ultra Ball",
-          "count": 3,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Night Stretcher",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Dawn",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Crispin",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Jamming Tower",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Hilda",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Switch",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Unfair Stamp",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Rosa's Encouragement",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Psychic Energy",
-          "count": 4,
-          "category": "Energy"
-        },
-        {
-          "card_name": "Fire Energy",
-          "count": 3,
-          "category": "Energy"
-        },
-        {
-          "card_name": "Darkness Energy",
-          "count": 2,
-          "category": "Energy"
-        }
-      ]
-    },
-    {
-      "tournament_name": "City League Miyazaki",
-      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3945",
-      "date": "2026-02-01",
-      "standing": 9,
-      "player_name": "たかーどん",
-      "decklist": [
-        {
-          "card_name": "Dreepy",
-          "count": 4,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Drakloak",
-          "count": 4,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Dragapult ex",
-          "count": 3,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Munkidori",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Fezandipiti ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Budew",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Shaymin",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Lillie's Clefairy ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Latias ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Frillish",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Jellicent ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Poké Pad",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Lillie's Determination",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Ultra Ball",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Buddy-Buddy Poffin",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Crispin",
-          "count": 3,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Boss's Orders",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Rare Candy",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Jamming Tower",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Night Stretcher",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Team Rocket's Petrel",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Unfair Stamp",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Hilda",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Rosa's Encouragement",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Psychic Energy",
-          "count": 4,
-          "category": "Energy"
-        },
-        {
-          "card_name": "Fire Energy",
-          "count": 3,
-          "category": "Energy"
-        },
-        {
-          "card_name": "Darkness Energy",
-          "count": 2,
-          "category": "Energy"
-        }
-      ]
-    },
-    {
-      "tournament_name": "City League Kyōto",
-      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4061",
-      "date": "2026-02-11",
-      "standing": 10,
-      "player_name": "ベア",
-      "decklist": [
-        {
-          "card_name": "Dreepy",
-          "count": 4,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Drakloak",
-          "count": 4,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Dragapult ex",
-          "count": 3,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Budew",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Munkidori",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Fezandipiti ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Psyduck",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Shaymin",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Lillie's Clefairy ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Latias ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Frillish",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Jellicent ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Meowth ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Poké Pad",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Lillie's Determination",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Buddy-Buddy Poffin",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Boss's Orders",
-          "count": 3,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Ultra Ball",
-          "count": 3,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Night Stretcher",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Crispin",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Team Rocket's Venture Bomb",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Team Rocket's Watchtower",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Brock's Scouting",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Rare Candy",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Jamming Tower",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Harlequin",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Psychic Energy",
-          "count": 4,
-          "category": "Energy"
-        },
-        {
-          "card_name": "Fire Energy",
-          "count": 3,
-          "category": "Energy"
-        },
-        {
-          "card_name": "Darkness Energy",
-          "count": 1,
-          "category": "Energy"
-        },
-        {
-          "card_name": "Legacy Energy",
-          "count": 1,
-          "category": "Energy"
-        }
-      ]
-    },
-    {
-      "tournament_name": "City League Ibaraki",
-      "tournament_url": "https://limitlesstcg.com/tournaments/jp/4042",
-      "date": "2026-02-11",
-      "standing": 11,
-      "player_name": "ぽんぽん",
-      "decklist": [
-        {
-          "card_name": "Dreepy",
-          "count": 4,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Drakloak",
-          "count": 4,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Dragapult ex",
-          "count": 3,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Munkidori",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Fezandipiti ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Budew",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Psyduck",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Shaymin",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Lillie's Clefairy ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Latias ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Frillish",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Jellicent ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Meowth ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Poké Pad",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Boss's Orders",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Lillie's Determination",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Ultra Ball",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Buddy-Buddy Poffin",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Crispin",
-          "count": 3,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Night Stretcher",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Brock's Scouting",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Team Rocket's Watchtower",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Unfair Stamp",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Psychic Energy",
-          "count": 4,
-          "category": "Energy"
-        },
-        {
-          "card_name": "Fire Energy",
-          "count": 3,
-          "category": "Energy"
-        },
-        {
-          "card_name": "Darkness Energy",
-          "count": 2,
-          "category": "Energy"
-        }
-      ]
-    },
-    {
-      "tournament_name": "City League Hokkaido",
-      "tournament_url": "https://limitlesstcg.com/tournaments/jp/3903",
-      "date": "2026-01-31",
-      "standing": 13,
-      "player_name": "リン",
-      "decklist": [
-        {
-          "card_name": "Dreepy",
-          "count": 4,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Drakloak",
-          "count": 4,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Dragapult ex",
-          "count": 3,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Munkidori",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Frillish",
-          "count": 2,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Fezandipiti ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Budew",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Shaymin",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Lillie's Clefairy ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Latias ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Jellicent ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Meowth ex",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Poké Pad",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Lillie's Determination",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Ultra Ball",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Buddy-Buddy Poffin",
-          "count": 4,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Boss's Orders",
-          "count": 3,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Crispin",
-          "count": 3,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Night Stretcher",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Jamming Tower",
-          "count": 2,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Brock's Scouting",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Unfair Stamp",
-          "count": 1,
-          "category": "Trainer"
-        },
-        {
-          "card_name": "Psychic Energy",
-          "count": 5,
-          "category": "Energy"
-        },
-        {
-          "card_name": "Fire Energy",
-          "count": 3,
-          "category": "Energy"
-        },
-        {
-          "card_name": "Darkness Energy",
-          "count": 2,
-          "category": "Energy"
-        }
-      ]
     }
   ],
   "radar": {
-    "meta_share": 1.0,
-    "weighted_share": 1.1,
-    "consistency": 70.4,
-    "ceiling": 100,
-    "popularity": 2.3,
-    "core_density": 42.6
+    "meta_share": 0.4,
+    "weighted_share": 0.3,
+    "consistency": 60.0,
+    "ceiling": 25,
+    "popularity": 0.8,
+    "core_density": 100.0
   },
-  "evolution": [
-    {
-      "week": "2026-01-26",
-      "adopted": [
-        {
-          "card": "Shaymin",
-          "from_pct": 0.0,
-          "to_pct": 66.7
-        },
-        {
-          "card": "Rare Candy",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        }
-      ],
-      "dropped": [
-        {
-          "card": "Bloodmoon Ursaluna ex",
-          "from_pct": 100.0,
-          "to_pct": 16.7
-        }
-      ]
-    },
-    {
-      "week": "2026-02-02",
-      "adopted": [
-        {
-          "card": "Team Rocket's Watchtower",
-          "from_pct": 0.0,
-          "to_pct": 66.7
-        },
-        {
-          "card": "Telepath Psychic Energy",
-          "from_pct": 0.0,
-          "to_pct": 66.7
-        },
-        {
-          "card": "Psyduck",
-          "from_pct": 0.0,
-          "to_pct": 66.7
-        }
-      ],
-      "dropped": [
-        {
-          "card": "Meowth ex",
-          "from_pct": 83.3,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Shaymin",
-          "from_pct": 66.7,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Brock's Scouting",
-          "from_pct": 66.7,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Rare Candy",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        }
-      ]
-    },
-    {
-      "week": "2026-02-09",
-      "adopted": [
-        {
-          "card": "Meowth ex",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Brock's Scouting",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Legacy Energy",
-          "from_pct": 0.0,
-          "to_pct": 66.7
-        },
-        {
-          "card": "Shaymin",
-          "from_pct": 0.0,
-          "to_pct": 66.7
-        }
-      ],
-      "dropped": [
-        {
-          "card": "Hilda",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Telepath Psychic Energy",
-          "from_pct": 66.7,
-          "to_pct": 0.0
-        }
-      ]
-    },
-    {
-      "week": "2026-03-02",
-      "adopted": [
-        {
-          "card": "Switch",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Girafarig",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Telepath Psychic Energy",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Hilda",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Farigiraf ex",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Briar",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Unfair Stamp",
-          "from_pct": 33.3,
-          "to_pct": 100.0
-        }
-      ],
-      "dropped": [
-        {
-          "card": "Meowth ex",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Psyduck",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Brock's Scouting",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Jamming Tower",
-          "from_pct": 66.7,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Legacy Energy",
-          "from_pct": 66.7,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Shaymin",
-          "from_pct": 66.7,
-          "to_pct": 0.0
-        }
-      ]
-    }
-  ],
-  "variants": [
-    {
-      "name": "with Meowth ex",
-      "deck_count": 9,
-      "pct": 64.3
-    },
-    {
-      "name": "Standard",
-      "deck_count": 2,
-      "pct": 14.3
-    },
-    {
-      "name": "with Psyduck",
-      "deck_count": 2,
-      "pct": 14.3
-    }
-  ],
+  "evolution": [],
+  "variants": [],
   "weekly_shares": [
     {
-      "week": "2026-01-19",
-      "meta_share": 0.1,
-      "deck_count": 1
-    },
-    {
-      "week": "2026-01-26",
-      "meta_share": 0.6,
-      "deck_count": 6
-    },
-    {
-      "week": "2026-02-02",
-      "meta_share": 0.3,
-      "deck_count": 3
-    },
-    {
-      "week": "2026-02-09",
-      "meta_share": 0.2,
-      "deck_count": 3
-    },
-    {
-      "week": "2026-02-16",
-      "meta_share": 0.0,
-      "deck_count": 0
-    },
-    {
-      "week": "2026-02-23",
-      "meta_share": 0.0,
-      "deck_count": 0
-    },
-    {
       "week": "2026-03-02",
       "meta_share": 0.1,
       "deck_count": 1
-    },
-    {
-      "week": "2026-03-16",
-      "meta_share": 0.0,
-      "deck_count": 0
     }
   ],
-  "top4_card_stats": [
-    {
-      "card_name": "Ultra Ball",
-      "inclusion_pct": 100.0,
-      "avg_copies": 3.8,
-      "decks_with": 5,
-      "category": "Trainer",
-      "delta_vs_field": 0.0
-    },
-    {
-      "card_name": "Psychic Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 4.0,
-      "decks_with": 5,
-      "category": "Energy",
-      "delta_vs_field": 0.0
-    },
-    {
-      "card_name": "Poké Pad",
-      "inclusion_pct": 100.0,
-      "avg_copies": 4.0,
-      "decks_with": 5,
-      "category": "Trainer",
-      "delta_vs_field": 0.0
-    },
-    {
-      "card_name": "Night Stretcher",
-      "inclusion_pct": 100.0,
-      "avg_copies": 2.0,
-      "decks_with": 5,
-      "category": "Trainer",
-      "delta_vs_field": 0.0
-    },
-    {
-      "card_name": "Munkidori",
-      "inclusion_pct": 100.0,
-      "avg_copies": 1.4,
-      "decks_with": 5,
-      "category": "Pokemon",
-      "delta_vs_field": 0.0
-    },
-    {
-      "card_name": "Lillie's Determination",
-      "inclusion_pct": 100.0,
-      "avg_copies": 4.0,
-      "decks_with": 5,
-      "category": "Trainer",
-      "delta_vs_field": 0.0
-    },
-    {
-      "card_name": "Lillie's Clefairy ex",
-      "inclusion_pct": 100.0,
-      "avg_copies": 1.0,
-      "decks_with": 5,
-      "category": "Pokemon",
-      "delta_vs_field": 0.0
-    },
-    {
-      "card_name": "Latias ex",
-      "inclusion_pct": 100.0,
-      "avg_copies": 1.0,
-      "decks_with": 5,
-      "category": "Pokemon",
-      "delta_vs_field": 0.0
-    },
-    {
-      "card_name": "Jellicent ex",
-      "inclusion_pct": 100.0,
-      "avg_copies": 1.0,
-      "decks_with": 5,
-      "category": "Pokemon",
-      "delta_vs_field": 0.0
-    },
-    {
-      "card_name": "Hilda",
-      "inclusion_pct": 100.0,
-      "avg_copies": 1.6,
-      "decks_with": 5,
-      "category": "Trainer",
-      "delta_vs_field": 28.6
-    },
-    {
-      "card_name": "Frillish",
-      "inclusion_pct": 100.0,
-      "avg_copies": 1.4,
-      "decks_with": 5,
-      "category": "Pokemon",
-      "delta_vs_field": 0.0
-    },
-    {
-      "card_name": "Fire Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 3.2,
-      "decks_with": 5,
-      "category": "Energy",
-      "delta_vs_field": 0.0
-    },
-    {
-      "card_name": "Fezandipiti ex",
-      "inclusion_pct": 100.0,
-      "avg_copies": 1.0,
-      "decks_with": 5,
-      "category": "Pokemon",
-      "delta_vs_field": 7.1
-    },
-    {
-      "card_name": "Dreepy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 4.0,
-      "decks_with": 5,
-      "category": "Pokemon",
-      "delta_vs_field": 0.0
-    },
-    {
-      "card_name": "Drakloak",
-      "inclusion_pct": 100.0,
-      "avg_copies": 4.0,
-      "decks_with": 5,
-      "category": "Pokemon",
-      "delta_vs_field": 0.0
-    },
-    {
-      "card_name": "Dragapult ex",
-      "inclusion_pct": 100.0,
-      "avg_copies": 3.0,
-      "decks_with": 5,
-      "category": "Pokemon",
-      "delta_vs_field": 0.0
-    },
-    {
-      "card_name": "Darkness Energy",
-      "inclusion_pct": 100.0,
-      "avg_copies": 1.4,
-      "decks_with": 5,
-      "category": "Energy",
-      "delta_vs_field": 0.0
-    },
-    {
-      "card_name": "Crispin",
-      "inclusion_pct": 100.0,
-      "avg_copies": 2.8,
-      "decks_with": 5,
-      "category": "Trainer",
-      "delta_vs_field": 0.0
-    },
-    {
-      "card_name": "Budew",
-      "inclusion_pct": 100.0,
-      "avg_copies": 1.0,
-      "decks_with": 5,
-      "category": "Pokemon",
-      "delta_vs_field": 7.1
-    },
-    {
-      "card_name": "Buddy-Buddy Poffin",
-      "inclusion_pct": 100.0,
-      "avg_copies": 3.8,
-      "decks_with": 5,
-      "category": "Trainer",
-      "delta_vs_field": 0.0
-    },
-    {
-      "card_name": "Boss's Orders",
-      "inclusion_pct": 100.0,
-      "avg_copies": 3.4,
-      "decks_with": 5,
-      "category": "Trainer",
-      "delta_vs_field": 0.0
-    },
-    {
-      "card_name": "Jamming Tower",
-      "inclusion_pct": 80.0,
-      "avg_copies": 1.0,
-      "decks_with": 4,
-      "category": "Trainer",
-      "delta_vs_field": 1.4
-    },
-    {
-      "card_name": "Unfair Stamp",
-      "inclusion_pct": 60.0,
-      "avg_copies": 1.0,
-      "decks_with": 3,
-      "category": "Trainer",
-      "delta_vs_field": -11.4
-    },
-    {
-      "card_name": "Meowth ex",
-      "inclusion_pct": 60.0,
-      "avg_copies": 1.0,
-      "decks_with": 3,
-      "category": "Pokemon",
-      "delta_vs_field": -4.3
-    },
-    {
-      "card_name": "Telepath Psychic Energy",
-      "inclusion_pct": 40.0,
-      "avg_copies": 1.0,
-      "decks_with": 2,
-      "category": "Energy",
-      "delta_vs_field": 18.6
-    },
-    {
-      "card_name": "Team Rocket's Watchtower",
-      "inclusion_pct": 40.0,
-      "avg_copies": 1.5,
-      "decks_with": 2,
-      "category": "Trainer",
-      "delta_vs_field": 4.3
-    },
-    {
-      "card_name": "Switch",
-      "inclusion_pct": 40.0,
-      "avg_copies": 1.0,
-      "decks_with": 2,
-      "category": "Trainer",
-      "delta_vs_field": 4.3
-    },
-    {
-      "card_name": "Rare Candy",
-      "inclusion_pct": 40.0,
-      "avg_copies": 2.0,
-      "decks_with": 2,
-      "category": "Trainer",
-      "delta_vs_field": 11.4
-    },
-    {
-      "card_name": "Psyduck",
-      "inclusion_pct": 40.0,
-      "avg_copies": 1.0,
-      "decks_with": 2,
-      "category": "Pokemon",
-      "delta_vs_field": 4.3
-    },
-    {
-      "card_name": "Neo Upper Energy",
-      "inclusion_pct": 40.0,
-      "avg_copies": 1.0,
-      "decks_with": 2,
-      "category": "Energy",
-      "delta_vs_field": 25.7
-    },
-    {
-      "card_name": "Brock's Scouting",
-      "inclusion_pct": 40.0,
-      "avg_copies": 1.5,
-      "decks_with": 2,
-      "category": "Trainer",
-      "delta_vs_field": -17.1
-    },
-    {
-      "card_name": "Shaymin",
-      "inclusion_pct": 20.0,
-      "avg_copies": 1.0,
-      "decks_with": 1,
-      "category": "Pokemon",
-      "delta_vs_field": -22.9
-    },
-    {
-      "card_name": "Judge",
-      "inclusion_pct": 20.0,
-      "avg_copies": 1.0,
-      "decks_with": 1,
-      "category": "Trainer",
-      "delta_vs_field": 5.7
-    },
-    {
-      "card_name": "Duskull",
-      "inclusion_pct": 20.0,
-      "avg_copies": 1.0,
-      "decks_with": 1,
-      "category": "Pokemon",
-      "delta_vs_field": 12.9
-    },
-    {
-      "card_name": "Dusknoir",
-      "inclusion_pct": 20.0,
-      "avg_copies": 1.0,
-      "decks_with": 1,
-      "category": "Pokemon",
-      "delta_vs_field": 12.9
-    },
-    {
-      "card_name": "Dusclops",
-      "inclusion_pct": 20.0,
-      "avg_copies": 1.0,
-      "decks_with": 1,
-      "category": "Pokemon",
-      "delta_vs_field": 12.9
-    },
-    {
-      "card_name": "Bloodmoon Ursaluna ex",
-      "inclusion_pct": 20.0,
-      "avg_copies": 1.0,
-      "decks_with": 1,
-      "category": "Pokemon",
-      "delta_vs_field": 5.7
-    },
-    {
-      "card_name": "Rosa's Encouragement",
-      "inclusion_pct": 0,
-      "avg_copies": 0,
-      "decks_with": 0,
-      "category": "Trainer",
-      "delta_vs_field": -14.3
-    },
-    {
-      "card_name": "Legacy Energy",
-      "inclusion_pct": 0,
-      "avg_copies": 0,
-      "decks_with": 0,
-      "category": "Energy",
-      "delta_vs_field": -14.3
-    },
-    {
-      "card_name": "Wondrous Patch",
-      "inclusion_pct": 0,
-      "avg_copies": 0,
-      "decks_with": 0,
-      "category": "Trainer",
-      "delta_vs_field": -7.1
-    },
-    {
-      "card_name": "Team Rocket's Venture Bomb",
-      "inclusion_pct": 0,
-      "avg_copies": 0,
-      "decks_with": 0,
-      "category": "Trainer",
-      "delta_vs_field": -7.1
-    },
-    {
-      "card_name": "Team Rocket's Petrel",
-      "inclusion_pct": 0,
-      "avg_copies": 0,
-      "decks_with": 0,
-      "category": "Trainer",
-      "delta_vs_field": -7.1
-    },
-    {
-      "card_name": "Harlequin",
-      "inclusion_pct": 0,
-      "avg_copies": 0,
-      "decks_with": 0,
-      "category": "Trainer",
-      "delta_vs_field": -7.1
-    },
-    {
-      "card_name": "Girafarig",
-      "inclusion_pct": 0,
-      "avg_copies": 0,
-      "decks_with": 0,
-      "category": "Pokemon",
-      "delta_vs_field": -7.1
-    },
-    {
-      "card_name": "Farigiraf ex",
-      "inclusion_pct": 0,
-      "avg_copies": 0,
-      "decks_with": 0,
-      "category": "Pokemon",
-      "delta_vs_field": -7.1
-    },
-    {
-      "card_name": "Dawn",
-      "inclusion_pct": 0,
-      "avg_copies": 0,
-      "decks_with": 0,
-      "category": "Trainer",
-      "delta_vs_field": -7.1
-    },
-    {
-      "card_name": "Briar",
-      "inclusion_pct": 0,
-      "avg_copies": 0,
-      "decks_with": 0,
-      "category": "Trainer",
-      "delta_vs_field": -7.1
-    }
-  ],
-  "top4_sample_size": 5,
+  "top4_card_stats": [],
+  "top4_sample_size": 0,
   "top4_low_sample": true
 }

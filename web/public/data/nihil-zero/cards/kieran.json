@@ -7,203 +7,77 @@
   "image_url": null,
   "category": "Trainer",
   "rarity": null,
-  "total_appearances": 545,
-  "usage_pct": 8.0,
-  "avg_copies": 1.2,
-  "unique_archetypes": 57,
-  "weighted_score": 840.3,
-  "win_rate_proxy": 1.54,
+  "total_appearances": 49,
+  "usage_pct": 4.1,
+  "avg_copies": 1.1,
+  "unique_archetypes": 20,
+  "weighted_score": 76.2,
+  "win_rate_proxy": 1.56,
   "top_archetype": "Dipplin Thwackey",
-  "trend_direction": "declining",
+  "trend_direction": "stable",
   "copy_distribution": [
     {
       "copies": 1,
-      "count": 458
+      "count": 45
     },
     {
       "copies": 2,
-      "count": 85
+      "count": 3
     },
     {
       "copies": 3,
-      "count": 2
+      "count": 1
     }
   ],
   "archetypes": [
     {
       "name": "Dipplin Thwackey",
       "slug": "dipplin-thwackey",
-      "usage_count": 105,
-      "avg_copies": 1.4,
+      "usage_count": 9,
+      "avg_copies": 1.3,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Dipplin Rillaboom",
+      "slug": "dipplin-rillaboom",
+      "usage_count": 8,
+      "avg_copies": 1.3,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Mega Lucario Solrock",
+      "slug": "mega-lucario-solrock",
+      "usage_count": 4,
+      "avg_copies": 1.0,
       "tier": "C"
     },
     {
       "name": "Mega Lucario",
       "slug": "mega-lucario",
-      "usage_count": 76,
-      "avg_copies": 1.0,
-      "tier": "A"
-    },
-    {
-      "name": "Dipplin Rillaboom",
-      "slug": "dipplin-rillaboom",
-      "usage_count": 63,
-      "avg_copies": 1.4,
-      "tier": "Rogue"
-    },
-    {
-      "name": "Dragapult Dusknoir",
-      "slug": "dragapult-dusknoir",
-      "usage_count": 54,
-      "avg_copies": 1.0,
-      "tier": "A"
-    },
-    {
-      "name": "Mega Lucario Solrock",
-      "slug": "mega-lucario-solrock",
-      "usage_count": 53,
-      "avg_copies": 1.3,
-      "tier": "C"
-    },
-    {
-      "name": "Flareon Noctowl",
-      "slug": "flareon-noctowl",
-      "usage_count": 39,
-      "avg_copies": 1.0,
-      "tier": "C"
-    },
-    {
-      "name": "Garchomp Roserade",
-      "slug": "garchomp-roserade",
-      "usage_count": 29,
-      "avg_copies": 1.0,
-      "tier": "B"
-    },
-    {
-      "name": "Archaludon ex",
-      "slug": "archaludon-ex",
-      "usage_count": 27,
-      "avg_copies": 1.0,
-      "tier": "C"
-    },
-    {
-      "name": "Dragapult ex",
-      "slug": "dragapult-ex",
-      "usage_count": 8,
-      "avg_copies": 1.0,
-      "tier": "B"
-    },
-    {
-      "name": "Clefairy Ogerpon",
-      "slug": "clefairy-ogerpon",
-      "usage_count": 7,
-      "avg_copies": 1.0,
-      "tier": "Rogue"
-    },
-    {
-      "name": "Flareon Leafeon",
-      "slug": "flareon-leafeon",
-      "usage_count": 5,
-      "avg_copies": 1.0,
-      "tier": "Rogue"
-    },
-    {
-      "name": "Mega Venusaur",
-      "slug": "mega-venusaur",
       "usage_count": 4,
       "avg_copies": 1.0,
       "tier": "B"
-    },
-    {
-      "name": "Jellicent Metagross",
-      "slug": "jellicent-metagross",
-      "usage_count": 4,
-      "avg_copies": 1.0,
-      "tier": "Rogue"
-    },
-    {
-      "name": "Empoleon Metagross",
-      "slug": "empoleon-metagross",
-      "usage_count": 4,
-      "avg_copies": 1.0,
-      "tier": "Rogue"
-    },
-    {
-      "name": "Dusknoir Grimmsnarl",
-      "slug": "dusknoir-grimmsnarl",
-      "usage_count": 4,
-      "avg_copies": 1.0,
-      "tier": "Rogue"
-    },
-    {
-      "name": "Dusknoir Greninja",
-      "slug": "dusknoir-greninja",
-      "usage_count": 4,
-      "avg_copies": 1.0,
-      "tier": "Rogue"
-    },
-    {
-      "name": "Archaludon Zoroark",
-      "slug": "archaludon-zoroark",
-      "usage_count": 4,
-      "avg_copies": 1.3,
-      "tier": "Rogue"
     },
     {
       "name": "Mega Kangaskhan Ogerpon",
       "slug": "mega-kangaskhan-ogerpon",
       "usage_count": 3,
       "avg_copies": 1.0,
-      "tier": "Rogue"
+      "tier": "C"
     },
     {
-      "name": "Dragapult Meowth",
-      "slug": "dragapult-meowth",
+      "name": "Garchomp Roserade",
+      "slug": "garchomp-roserade",
       "usage_count": 3,
       "avg_copies": 1.0,
       "tier": "B"
     },
     {
-      "name": "Palafin Thwackey",
-      "slug": "palafin-thwackey",
-      "usage_count": 2,
+      "name": "Flareon Noctowl",
+      "slug": "flareon-noctowl",
+      "usage_count": 3,
       "avg_copies": 1.0,
       "tier": "Rogue"
-    },
-    {
-      "name": "Mega Starmie Greninja",
-      "slug": "mega-starmie-greninja",
-      "usage_count": 2,
-      "avg_copies": 1.0,
-      "tier": "Rogue"
-    },
-    {
-      "name": "Mega Sharpedo Toxtricity",
-      "slug": "mega-sharpedo-toxtricity",
-      "usage_count": 2,
-      "avg_copies": 1.0,
-      "tier": "Rogue"
-    },
-    {
-      "name": "Mega Lucario Meowth",
-      "slug": "mega-lucario-meowth",
-      "usage_count": 2,
-      "avg_copies": 1.5,
-      "tier": "Rogue"
-    },
-    {
-      "name": "Mega Froslass Mega Starmie",
-      "slug": "mega-froslass-mega-starmie",
-      "usage_count": 2,
-      "avg_copies": 1.0,
-      "tier": "B"
-    },
-    {
-      "name": "Mega Diancie Dusknoir",
-      "slug": "mega-diancie-dusknoir",
-      "usage_count": 2,
-      "avg_copies": 1.0,
-      "tier": "C"
     },
     {
       "name": "Mega Clefable Aromatisse",
@@ -213,46 +87,11 @@
       "tier": "Rogue"
     },
     {
-      "name": "Dubwool Trevenant",
-      "slug": "dubwool-trevenant",
-      "usage_count": 2,
-      "avg_copies": 1.0,
-      "tier": "Rogue"
-    },
-    {
-      "name": "Dragapult Latias",
-      "slug": "dragapult-latias",
-      "usage_count": 2,
-      "avg_copies": 1.0,
-      "tier": "Rogue"
-    },
-    {
-      "name": "Crobat Dragapult",
-      "slug": "crobat-dragapult",
-      "usage_count": 2,
-      "avg_copies": 1.0,
-      "tier": "Rogue"
-    },
-    {
-      "name": "Barbaracle Okidogi",
-      "slug": "barbaracle-okidogi",
+      "name": "Clefairy Ogerpon",
+      "slug": "clefairy-ogerpon",
       "usage_count": 2,
       "avg_copies": 1.0,
       "tier": "C"
-    },
-    {
-      "name": "Typhlosion Victini",
-      "slug": "typhlosion-victini",
-      "usage_count": 1,
-      "avg_copies": 1.0,
-      "tier": "Rogue"
-    },
-    {
-      "name": "Typhlosion",
-      "slug": "typhlosion",
-      "usage_count": 1,
-      "avg_copies": 1.0,
-      "tier": "Rogue"
     },
     {
       "name": "Pecharunt Zoroark",
@@ -262,99 +101,15 @@
       "tier": "Rogue"
     },
     {
-      "name": "Mega Starmie Dusknoir",
-      "slug": "mega-starmie-dusknoir",
+      "name": "Palafin Thwackey",
+      "slug": "palafin-thwackey",
       "usage_count": 1,
       "avg_copies": 1.0,
       "tier": "Rogue"
     },
     {
-      "name": "Mega Meganium Mega Venusaur",
-      "slug": "mega-meganium-mega-venusaur",
-      "usage_count": 1,
-      "avg_copies": 1.0,
-      "tier": "Rogue"
-    },
-    {
-      "name": "Mega Lucario ex",
-      "slug": "mega-lucario-ex",
-      "usage_count": 1,
-      "avg_copies": 1.0,
-      "tier": "Rogue"
-    },
-    {
-      "name": "Mega Lucario Lunatone",
-      "slug": "mega-lucario-lunatone",
-      "usage_count": 1,
-      "avg_copies": 1.0,
-      "tier": "Rogue"
-    },
-    {
-      "name": "Mega Lucario Dusknoir",
-      "slug": "mega-lucario-dusknoir",
-      "usage_count": 1,
-      "avg_copies": 1.0,
-      "tier": "Rogue"
-    },
-    {
-      "name": "Mega Lopunny Dragapult",
-      "slug": "mega-lopunny-dragapult",
-      "usage_count": 1,
-      "avg_copies": 1.0,
-      "tier": "Rogue"
-    },
-    {
-      "name": "Mega Froslass Munkidori",
-      "slug": "mega-froslass-munkidori",
-      "usage_count": 1,
-      "avg_copies": 1.0,
-      "tier": "Rogue"
-    },
-    {
-      "name": "Mega Froslass Grimmsnarl",
-      "slug": "mega-froslass-grimmsnarl",
-      "usage_count": 1,
-      "avg_copies": 2.0,
-      "tier": "Rogue"
-    },
-    {
-      "name": "Mega Diancie Alakazam",
-      "slug": "mega-diancie-alakazam",
-      "usage_count": 1,
-      "avg_copies": 1.0,
-      "tier": "Rogue"
-    },
-    {
-      "name": "Latias Zacian Crowned",
-      "slug": "latias-zacian-crowned",
-      "usage_count": 1,
-      "avg_copies": 1.0,
-      "tier": "Rogue"
-    },
-    {
-      "name": "Latias Pikachu",
-      "slug": "latias-pikachu",
-      "usage_count": 1,
-      "avg_copies": 1.0,
-      "tier": "Rogue"
-    },
-    {
-      "name": "Hydrapple Ogerpon",
-      "slug": "hydrapple-ogerpon",
-      "usage_count": 1,
-      "avg_copies": 1.0,
-      "tier": "Rogue"
-    },
-    {
-      "name": "Genesect Metagross",
-      "slug": "genesect-metagross",
-      "usage_count": 1,
-      "avg_copies": 1.0,
-      "tier": "Rogue"
-    },
-    {
-      "name": "Garchomp Solrock",
-      "slug": "garchomp-solrock",
+      "name": "Flareon Leafeon",
+      "slug": "flareon-leafeon",
       "usage_count": 1,
       "avg_copies": 1.0,
       "tier": "Rogue"
@@ -367,15 +122,8 @@
       "tier": "Rogue"
     },
     {
-      "name": "Dudunsparce Yanmega",
-      "slug": "dudunsparce-yanmega",
-      "usage_count": 1,
-      "avg_copies": 1.0,
-      "tier": "Rogue"
-    },
-    {
-      "name": "Dudunsparce Typhlosion",
-      "slug": "dudunsparce-typhlosion",
+      "name": "Dusknoir Greninja",
+      "slug": "dusknoir-greninja",
       "usage_count": 1,
       "avg_copies": 1.0,
       "tier": "Rogue"
@@ -388,15 +136,15 @@
       "tier": "Rogue"
     },
     {
-      "name": "Dragapult Noctowl",
-      "slug": "dragapult-noctowl",
+      "name": "Dragapult Meowth",
+      "slug": "dragapult-meowth",
       "usage_count": 1,
       "avg_copies": 1.0,
-      "tier": "C"
+      "tier": "A"
     },
     {
-      "name": "Darmanitan Zoroark",
-      "slug": "darmanitan-zoroark",
+      "name": "Dragapult Dusknoir",
+      "slug": "dragapult-dusknoir",
       "usage_count": 1,
       "avg_copies": 1.0,
       "tier": "B"
@@ -416,167 +164,125 @@
       "tier": "B"
     },
     {
-      "name": "Barbaracle Solrock",
-      "slug": "barbaracle-solrock",
+      "name": "Barbaracle Okidogi",
+      "slug": "barbaracle-okidogi",
       "usage_count": 1,
       "avg_copies": 1.0,
-      "tier": "Rogue"
-    },
-    {
-      "name": "Archaludon Zacian Crowned",
-      "slug": "archaludon-zacian-crowned",
-      "usage_count": 1,
-      "avg_copies": 1.0,
-      "tier": "Rogue"
+      "tier": "C"
     }
   ],
   "weekly_usage": [
     {
-      "week": "2026-01-19",
-      "usage_pct": 13.8,
-      "avg_copies": 1.3
-    },
-    {
-      "week": "2026-01-26",
-      "usage_pct": 13.6,
-      "avg_copies": 1.2
-    },
-    {
-      "week": "2026-02-02",
-      "usage_pct": 9.4,
-      "avg_copies": 1.1
-    },
-    {
-      "week": "2026-02-09",
-      "usage_pct": 6.7,
-      "avg_copies": 1.2
-    },
-    {
-      "week": "2026-02-16",
-      "usage_pct": 7.8,
-      "avg_copies": 1.1
-    },
-    {
-      "week": "2026-02-23",
-      "usage_pct": 3.6,
-      "avg_copies": 1.1
-    },
-    {
       "week": "2026-03-02",
       "usage_pct": 4.1,
       "avg_copies": 1.1
-    },
-    {
-      "week": "2026-03-16",
-      "usage_pct": 0.0,
-      "avg_copies": 0
     }
   ],
   "synergy_partners": [
     {
-      "card_name": "Rillaboom",
-      "support": 63,
-      "lift": 12.072,
-      "jaccard": 0.115,
-      "weighted_score": 108.1
-    },
-    {
       "card_name": "Seaking",
-      "support": 134,
-      "lift": 12.007,
-      "jaccard": 0.244,
-      "weighted_score": 217.1
-    },
-    {
-      "card_name": "Goldeen",
-      "support": 145,
-      "lift": 11.96,
-      "jaccard": 0.263,
-      "weighted_score": 236.5
+      "support": 15,
+      "lift": 22.653,
+      "jaccard": 0.3,
+      "weighted_score": 24.8
     },
     {
       "card_name": "Grookey",
-      "support": 170,
-      "lift": 11.829,
-      "jaccard": 0.307,
-      "weighted_score": 272.2
+      "support": 18,
+      "lift": 21.747,
+      "jaccard": 0.353,
+      "weighted_score": 29.0
     },
     {
       "card_name": "Thwackey",
-      "support": 170,
-      "lift": 11.829,
-      "jaccard": 0.307,
-      "weighted_score": 272.2
+      "support": 18,
+      "lift": 21.747,
+      "jaccard": 0.353,
+      "weighted_score": 29.0
     },
     {
-      "card_name": "Lilligant",
-      "support": 15,
-      "lift": 11.677,
-      "jaccard": 0.027,
-      "weighted_score": 22.0
+      "card_name": "Goldeen",
+      "support": 17,
+      "lift": 21.62,
+      "jaccard": 0.333,
+      "weighted_score": 27.8
     },
     {
-      "card_name": "Petilil",
-      "support": 15,
-      "lift": 11.677,
-      "jaccard": 0.027,
-      "weighted_score": 22.0
+      "card_name": "Rillaboom",
+      "support": 8,
+      "lift": 21.478,
+      "jaccard": 0.16,
+      "weighted_score": 15.1
     },
     {
       "card_name": "Festival Grounds",
-      "support": 169,
-      "lift": 11.502,
-      "jaccard": 0.302,
-      "weighted_score": 270.7
-    },
-    {
-      "card_name": "Rabsca",
-      "support": 14,
-      "lift": 10.898,
-      "jaccard": 0.026,
-      "weighted_score": 22.0
-    },
-    {
-      "card_name": "Rellor",
-      "support": 14,
-      "lift": 10.898,
-      "jaccard": 0.026,
-      "weighted_score": 22.0
+      "support": 17,
+      "lift": 20.539,
+      "jaccard": 0.327,
+      "weighted_score": 27.5
     },
     {
       "card_name": "Applin",
-      "support": 169,
-      "lift": 10.685,
-      "jaccard": 0.295,
-      "weighted_score": 270.7
+      "support": 17,
+      "lift": 19.561,
+      "jaccard": 0.321,
+      "weighted_score": 27.5
     },
     {
       "card_name": "Dipplin",
-      "support": 169,
-      "lift": 10.685,
-      "jaccard": 0.295,
-      "weighted_score": 270.7
+      "support": 17,
+      "lift": 19.561,
+      "jaccard": 0.321,
+      "weighted_score": 27.5
     },
     {
-      "card_name": "Growth Grass Energy",
-      "support": 34,
-      "lift": 6.942,
-      "jaccard": 0.059,
-      "weighted_score": 53.1
+      "card_name": "Eevee ex",
+      "support": 5,
+      "lift": 10.068,
+      "jaccard": 0.089,
+      "weighted_score": 6.6
     },
     {
-      "card_name": "Sylveon ex",
-      "support": 27,
-      "lift": 6.726,
-      "jaccard": 0.048,
-      "weighted_score": 40.8
+      "card_name": "Flareon ex",
+      "support": 5,
+      "lift": 9.294,
+      "jaccard": 0.088,
+      "weighted_score": 6.6
     },
     {
-      "card_name": "Jolteon ex",
-      "support": 14,
-      "lift": 6.013,
-      "jaccard": 0.025,
-      "weighted_score": 22.1
+      "card_name": "Eevee",
+      "support": 5,
+      "lift": 8.63,
+      "jaccard": 0.086,
+      "weighted_score": 6.6
+    },
+    {
+      "card_name": "Brave Bangle",
+      "support": 18,
+      "lift": 7.015,
+      "jaccard": 0.194,
+      "weighted_score": 29.5
+    },
+    {
+      "card_name": "Sparkling Crystal",
+      "support": 5,
+      "lift": 5.034,
+      "jaccard": 0.074,
+      "weighted_score": 6.6
+    },
+    {
+      "card_name": "Black Belt's Training",
+      "support": 17,
+      "lift": 3.734,
+      "jaccard": 0.12,
+      "weighted_score": 27.8
+    },
+    {
+      "card_name": "Gravity Mountain",
+      "support": 11,
+      "lift": 3.641,
+      "jaccard": 0.099,
+      "weighted_score": 16.8
     }
   ]
 }

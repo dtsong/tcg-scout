@@ -745,19 +745,14 @@
       "week": "2026-02-09",
       "adopted": [
         {
-          "card": "Fezandipiti ex",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
           "card": "Poké Pad",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Legacy Energy",
+          "card": "Fezandipiti ex",
           "from_pct": 0.0,
-          "to_pct": 50.0
+          "to_pct": 100.0
         },
         {
           "card": "Blowtorch",
@@ -765,7 +760,7 @@
           "to_pct": 50.0
         },
         {
-          "card": "Psyduck",
+          "card": "Legacy Energy",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -775,12 +770,17 @@
           "to_pct": 50.0
         },
         {
-          "card": "Battle Cage",
+          "card": "Psyduck",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
         {
           "card": "Lillie's Determination",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Battle Cage",
           "from_pct": 0.0,
           "to_pct": 50.0
         }
@@ -818,22 +818,22 @@
           "to_pct": 0.0
         },
         {
-          "card": "Psyduck",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Xerosic's Machinations",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
-          "card": "Battle Cage",
+          "card": "Psyduck",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
           "card": "Lillie's Determination",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Battle Cage",
           "from_pct": 50.0,
           "to_pct": 0.0
         }
@@ -885,11 +885,6 @@
     },
     {
       "week": "2026-03-02",
-      "meta_share": 0.0,
-      "deck_count": 0
-    },
-    {
-      "week": "2026-03-16",
       "meta_share": 0.0,
       "deck_count": 0
     }

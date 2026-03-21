@@ -8,6 +8,7 @@ import asyncio
 import logging
 import os
 import sqlite3
+from collections.abc import Callable
 from dataclasses import dataclass, field
 
 from kernel import Kernel
@@ -76,13 +77,232 @@ class JPEventResult:
 
 
 class PokemonJPClient:
-    """Scraper for players.pokemon-card.com using kernel.sh cloud browsers."""
+    """Scraper for players.pokemon-card.com using kernel.sh cloud browsers.
 
-    def __init__(self, api_key: str | None = None):
+    Supports pooled browser reuse for concurrent decklist fetching:
+        client = PokemonJPClient(pool_size=5)
+        async with client.browser_pool():
+            results = await client.fetch_decklists_batch(entries)
+    """
+
+    def __init__(self, api_key: str | None = None, pool_size: int = 5):
         self._api_key = api_key or os.environ.get("KERNEL_API_KEY", "")
         if not self._api_key:
             raise ValueError("KERNEL_API_KEY not set")
         self._kernel = Kernel(api_key=self._api_key)
+        self._pool_size = pool_size
+        self._pw = None
+        self._pool: list[tuple[str, object, Page]] = []
+        self._pool_queue: asyncio.Queue | None = None
+
+    class _BrowserPool:
+        """Context manager for the browser pool lifecycle."""
+
+        def __init__(self, client: "PokemonJPClient"):
+            self._client = client
+
+        async def __aenter__(self):
+            await self._client._start_pool()
+            return self._client
+
+        async def __aexit__(self, *exc):
+            await self._client._stop_pool()
+
+    def browser_pool(self) -> _BrowserPool:
+        """Return a context manager that starts/stops the browser pool."""
+        return self._BrowserPool(self)
+
+    async def _start_pool(self) -> None:
+        self._pw = await async_playwright().start()
+        self._pool_queue = asyncio.Queue()
+        for _ in range(self._pool_size):
+            kb = self._kernel.browsers.create()
+            browser = await self._pw.chromium.connect_over_cdp(kb.cdp_ws_url)
+            page = browser.contexts[0].pages[0]
+            entry = (kb.session_id, browser, page)
+            self._pool.append(entry)
+            await self._pool_queue.put(entry)
+        logger.info("Started browser pool with %d instances", self._pool_size)
+
+    async def _stop_pool(self) -> None:
+        for session_id, browser, _ in self._pool:
+            try:
+                await browser.close()
+            except Exception:
+                pass
+            try:
+                self._kernel.browsers.delete_by_id(session_id)
+            except Exception:
+                pass
+        self._pool.clear()
+        if self._pw:
+            await self._pw.stop()
+            self._pw = None
+        self._pool_queue = None
+        logger.info("Browser pool stopped")
+
+    async def _extract_decklist_from_page(self, page: Page, deck_url: str) -> list["JPDeckCard"]:
+        """Navigate to a deck URL and extract card data using an existing page."""
+        await page.goto(deck_url, wait_until="networkidle", timeout=30000)
+        await asyncio.sleep(1.5)
+
+        list_btn = await page.query_selector("text=リスト表示")
+        if list_btn:
+            await list_btn.click()
+            await asyncio.sleep(1)
+
+        img_cards = await page.evaluate("""() => {
+            const cards = [];
+            const imgs = document.querySelectorAll('.thumbsImageArea img');
+            imgs.forEach(img => {
+                const alt = img.alt || '';
+                if (!alt) return;
+                const src = img.src || '';
+                const setMatch = src.match(/card_images\\/large\\/([A-Za-z0-9]+)\\//);
+                cards.push({
+                    name: alt,
+                    setCode: setMatch ? setMatch[1] : '',
+                });
+            });
+            return cards;
+        }""")
+
+        text_data = await page.evaluate("""() => {
+            const body = document.body.innerText;
+            const lines = body.split('\\n').map(l => l.trim()).filter(l => l);
+            const cards = [];
+            let category = '';
+
+            for (let i = 0; i < lines.length; i++) {
+                const line = lines[i];
+
+                if (/^ポケモン\\s*\\(/.test(line)) { category = 'Pokemon'; continue; }
+                if (/^グッズ\\s*\\(/.test(line)) { category = 'Trainer'; continue; }
+                if (/^ポケモンのどうぐ\\s*\\(/.test(line)) { category = 'Trainer'; continue; }
+                if (/^サポート\\s*\\(/.test(line)) { category = 'Trainer'; continue; }
+                if (/^スタジアム\\s*\\(/.test(line)) { category = 'Trainer'; continue; }
+                if (/^エネルギー\\s*\\(/.test(line)) { category = 'Energy'; continue; }
+
+                const countMatch = line.match(/(\\d+)枚$/);
+                if (countMatch && category) {
+                    const count = parseInt(countMatch[1]);
+                    let cardName = line.replace(/\\t?\\d+枚$/, '').trim();
+
+                    let setCode = '';
+                    let cardNumber = '';
+
+                    if (i >= 2) {
+                        const maybeName = lines[i-2];
+                        const maybeSet = lines[i-1];
+                        const maybeNum = cardName;
+
+                        if (/^[A-Za-z0-9]{2,}$/.test(maybeSet)) {
+                            setCode = maybeSet;
+                            const numMatch = maybeNum.match(/^(\\d+)\\/\\d+/);
+                            if (numMatch) {
+                                cardNumber = numMatch[1];
+                                cardName = maybeName;
+                            }
+                        }
+                    }
+
+                    cards.push({ name: cardName, setCode, cardNumber, count, category });
+                }
+            }
+            return cards;
+        }""")
+
+        return self._merge_card_data(img_cards, text_data, deck_url)
+
+    @staticmethod
+    def _merge_card_data(
+        img_cards: list[dict], text_data: list[dict], deck_url: str
+    ) -> list["JPDeckCard"]:
+        result: list[JPDeckCard] = []
+
+        if text_data and img_cards and len(text_data) == len(img_cards):
+            for i, td in enumerate(text_data):
+                ic = img_cards[i]
+                result.append(
+                    JPDeckCard(
+                        name_jp=ic["name"],
+                        set_code=ic.get("setCode", td.get("setCode", "")),
+                        card_number=td.get("cardNumber", ""),
+                        count=td["count"],
+                        category=td["category"],
+                    )
+                )
+        elif text_data:
+            for i, td in enumerate(text_data):
+                name = td["name"]
+                set_code = td.get("setCode", "")
+                if i < len(img_cards):
+                    name = img_cards[i]["name"] or name
+                    set_code = img_cards[i].get("setCode", "") or set_code
+                result.append(
+                    JPDeckCard(
+                        name_jp=name,
+                        set_code=set_code,
+                        card_number=td.get("cardNumber", ""),
+                        count=td["count"],
+                        category=td["category"],
+                    )
+                )
+        elif img_cards:
+            for ic in img_cards:
+                result.append(
+                    JPDeckCard(
+                        name_jp=ic["name"],
+                        set_code=ic.get("setCode", ""),
+                        count=1,
+                    )
+                )
+
+        logger.info("Parsed %d cards from deck %s", len(result), deck_url)
+        return result
+
+    async def fetch_decklist_pooled(self, deck_url: str) -> list["JPDeckCard"]:
+        """Fetch a single decklist using a browser from the pool."""
+        if not self._pool_queue:
+            raise RuntimeError("Browser pool not started. Use browser_pool() context manager.")
+
+        session_id, browser, page = await self._pool_queue.get()
+        try:
+            return await self._extract_decklist_from_page(page, deck_url)
+        finally:
+            await self._pool_queue.put((session_id, browser, page))
+
+    async def fetch_decklists_batch(
+        self,
+        deck_entries: list[tuple[str, str]],
+        on_complete: "Callable[[str, int], None] | None" = None,
+    ) -> dict[str, list["JPDeckCard"]]:
+        """Fetch multiple decklists concurrently using the browser pool.
+
+        Args:
+            deck_entries: list of (deck_code, deck_url) tuples
+            on_complete: optional callback(deck_code, card_count) for progress
+                         card_count is -1 on error
+
+        Returns:
+            dict mapping deck_code to list of JPDeckCard
+        """
+        results: dict[str, list[JPDeckCard]] = {}
+
+        async def fetch_one(deck_code: str, deck_url: str) -> None:
+            try:
+                cards = await self.fetch_decklist_pooled(deck_url)
+                if cards:
+                    results[deck_code] = cards
+                if on_complete:
+                    on_complete(deck_code, len(cards) if cards else 0)
+            except Exception as e:
+                logger.error("Failed to fetch deck %s: %s", deck_code, e)
+                if on_complete:
+                    on_complete(deck_code, -1)
+
+        await asyncio.gather(*[fetch_one(code, url) for code, url in deck_entries])
+        return results
 
     async def fetch_event_results(self, event_id: int) -> JPEventResult:
         """Fetch placements and deck URLs from an event results page."""

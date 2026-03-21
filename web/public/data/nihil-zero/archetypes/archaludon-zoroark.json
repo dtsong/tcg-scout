@@ -916,17 +916,12 @@
           "to_pct": 100.0
         },
         {
+          "card": "Air Balloon",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
           "card": "Tool Scrapper",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Meowth ex",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Switch",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -936,12 +931,12 @@
           "to_pct": 50.0
         },
         {
-          "card": "Air Balloon",
+          "card": "Full Metal Lab",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
         {
-          "card": "Psyduck",
+          "card": "Switch",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -951,7 +946,12 @@
           "to_pct": 50.0
         },
         {
-          "card": "Full Metal Lab",
+          "card": "Psyduck",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Meowth ex",
           "from_pct": 0.0,
           "to_pct": 50.0
         }
@@ -968,17 +968,17 @@
       "week": "2026-02-09",
       "adopted": [
         {
-          "card": "Hero's Cape",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
           "card": "Carmine",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
           "card": "Explorer's Guidance",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Hero's Cape",
           "from_pct": 0.0,
           "to_pct": 100.0
         }
@@ -990,22 +990,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "N's Castle",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Tool Scrapper",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Meowth ex",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Switch",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -1015,12 +1000,27 @@
           "to_pct": 0.0
         },
         {
+          "card": "Switch",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
           "card": "Pokégear 3.0",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
+          "card": "N's Castle",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
           "card": "Cyrano",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Meowth ex",
           "from_pct": 50.0,
           "to_pct": 0.0
         }
@@ -1093,11 +1093,6 @@
     },
     {
       "week": "2026-03-02",
-      "meta_share": 0.0,
-      "deck_count": 0
-    },
-    {
-      "week": "2026-03-16",
       "meta_share": 0.0,
       "deck_count": 0
     }

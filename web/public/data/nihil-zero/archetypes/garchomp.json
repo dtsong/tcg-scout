@@ -304,14 +304,14 @@
       "inclusion_pct": 33.3,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Cynthia's Roselia",
       "inclusion_pct": 33.3,
       "avg_copies": 1.0,
       "decks_with": 1,
-      "category": "Pokemon"
+      "category": "Trainer"
     },
     {
       "card_name": "Crispin",
@@ -499,16 +499,6 @@
           "category": "Pokemon"
         },
         {
-          "card_name": "Cynthia's Roselia",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
-          "card_name": "Cynthia's Roserade",
-          "count": 1,
-          "category": "Pokemon"
-        },
-        {
           "card_name": "Poké Pad",
           "count": 4,
           "category": "Trainer"
@@ -561,6 +551,16 @@
         {
           "card_name": "Night Stretcher",
           "count": 2,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Cynthia's Roselia",
+          "count": 1,
+          "category": "Trainer"
+        },
+        {
+          "card_name": "Cynthia's Roserade",
+          "count": 1,
           "category": "Trainer"
         },
         {
@@ -733,11 +733,6 @@
       "week": "2026-02-09",
       "adopted": [
         {
-          "card": "Bloodmoon Ursaluna",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
           "card": "Air Balloon",
           "from_pct": 0.0,
           "to_pct": 100.0
@@ -749,6 +744,11 @@
         },
         {
           "card": "Battle Cage",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Bloodmoon Ursaluna",
           "from_pct": 0.0,
           "to_pct": 100.0
         }
@@ -765,7 +765,12 @@
           "to_pct": 0.0
         },
         {
-          "card": "Team Rocket's Watchtower",
+          "card": "Crispin",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Budew",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -775,17 +780,12 @@
           "to_pct": 0.0
         },
         {
-          "card": "Cynthia's Roserade",
+          "card": "Hilda",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
-          "card": "Munkidori",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Switch",
+          "card": "Team Rocket's Watchtower",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -795,27 +795,12 @@
           "to_pct": 0.0
         },
         {
-          "card": "Crispin",
+          "card": "Munkidori",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
-          "card": "Handheld Fan",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Hilda",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Cynthia's Roselia",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Psyduck",
+          "card": "Cynthia's Roserade",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -825,7 +810,22 @@
           "to_pct": 0.0
         },
         {
-          "card": "Budew",
+          "card": "Cynthia's Roselia",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Switch",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Psyduck",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Handheld Fan",
           "from_pct": 50.0,
           "to_pct": 0.0
         }
@@ -866,11 +866,6 @@
     },
     {
       "week": "2026-03-02",
-      "meta_share": 0.0,
-      "deck_count": 0
-    },
-    {
-      "week": "2026-03-16",
       "meta_share": 0.0,
       "deck_count": 0
     }

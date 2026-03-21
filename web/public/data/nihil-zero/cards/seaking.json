@@ -7,198 +7,152 @@
   "image_url": null,
   "category": "Pokemon",
   "rarity": null,
-  "total_appearances": 139,
-  "usage_pct": 2.0,
+  "total_appearances": 16,
+  "usage_pct": 1.4,
   "avg_copies": 1.2,
-  "unique_archetypes": 3,
-  "weighted_score": 223.1,
-  "win_rate_proxy": 1.61,
+  "unique_archetypes": 2,
+  "weighted_score": 26.0,
+  "win_rate_proxy": 1.62,
   "top_archetype": "Dipplin Thwackey",
   "trend_direction": "stable",
   "copy_distribution": [
     {
       "copies": 1,
-      "count": 116
+      "count": 13
     },
     {
       "copies": 2,
-      "count": 22
-    },
-    {
-      "copies": 3,
-      "count": 1
+      "count": 3
     }
   ],
   "archetypes": [
     {
       "name": "Dipplin Thwackey",
       "slug": "dipplin-thwackey",
-      "usage_count": 84,
+      "usage_count": 10,
       "avg_copies": 1.2,
-      "tier": "C"
+      "tier": "Rogue"
     },
     {
       "name": "Dipplin Rillaboom",
       "slug": "dipplin-rillaboom",
-      "usage_count": 54,
-      "avg_copies": 1.1,
-      "tier": "Rogue"
-    },
-    {
-      "name": "Palafin Thwackey",
-      "slug": "palafin-thwackey",
-      "usage_count": 1,
-      "avg_copies": 1.0,
+      "usage_count": 6,
+      "avg_copies": 1.2,
       "tier": "Rogue"
     }
   ],
   "weekly_usage": [
     {
-      "week": "2026-01-19",
-      "usage_pct": 5.2,
-      "avg_copies": 1.1
-    },
-    {
-      "week": "2026-01-26",
-      "usage_pct": 3.0,
-      "avg_copies": 1.2
-    },
-    {
-      "week": "2026-02-02",
-      "usage_pct": 1.7,
-      "avg_copies": 1.3
-    },
-    {
-      "week": "2026-02-09",
-      "usage_pct": 1.7,
-      "avg_copies": 1.2
-    },
-    {
-      "week": "2026-02-16",
-      "usage_pct": 0.8,
-      "avg_copies": 1.0
-    },
-    {
-      "week": "2026-02-23",
-      "usage_pct": 0.8,
-      "avg_copies": 1.0
-    },
-    {
       "week": "2026-03-02",
-      "usage_pct": 1.3,
+      "usage_pct": 1.4,
       "avg_copies": 1.2
-    },
-    {
-      "week": "2026-03-16",
-      "usage_pct": 0.0,
-      "avg_copies": 0
     }
   ],
   "synergy_partners": [
     {
       "card_name": "Goldeen",
-      "support": 139,
-      "lift": 44.954,
-      "jaccard": 0.921,
-      "weighted_score": 223.1
-    },
-    {
-      "card_name": "Rillaboom",
-      "support": 54,
-      "lift": 40.57,
-      "jaccard": 0.36,
-      "weighted_score": 92.3
-    },
-    {
-      "card_name": "Grookey",
-      "support": 139,
-      "lift": 37.922,
-      "jaccard": 0.777,
-      "weighted_score": 223.1
-    },
-    {
-      "card_name": "Thwackey",
-      "support": 139,
-      "lift": 37.922,
-      "jaccard": 0.777,
-      "weighted_score": 223.1
+      "support": 16,
+      "lift": 62.316,
+      "jaccard": 0.842,
+      "weighted_score": 26.0
     },
     {
       "card_name": "Festival Grounds",
-      "support": 138,
-      "lift": 36.826,
-      "jaccard": 0.75,
-      "weighted_score": 221.9
+      "support": 16,
+      "lift": 59.2,
+      "jaccard": 0.8,
+      "weighted_score": 26.0
+    },
+    {
+      "card_name": "Grookey",
+      "support": 16,
+      "lift": 59.2,
+      "jaccard": 0.8,
+      "weighted_score": 26.0
+    },
+    {
+      "card_name": "Thwackey",
+      "support": 16,
+      "lift": 59.2,
+      "jaccard": 0.8,
+      "weighted_score": 26.0
     },
     {
       "card_name": "Applin",
-      "support": 138,
-      "lift": 34.209,
-      "jaccard": 0.697,
-      "weighted_score": 221.9
+      "support": 16,
+      "lift": 56.381,
+      "jaccard": 0.762,
+      "weighted_score": 26.0
     },
     {
       "card_name": "Dipplin",
-      "support": 138,
-      "lift": 34.209,
-      "jaccard": 0.697,
-      "weighted_score": 221.9
+      "support": 16,
+      "lift": 56.381,
+      "jaccard": 0.762,
+      "weighted_score": 26.0
     },
     {
-      "card_name": "Rabsca",
-      "support": 8,
-      "lift": 24.417,
-      "jaccard": 0.054,
-      "weighted_score": 13.4
-    },
-    {
-      "card_name": "Rellor",
-      "support": 8,
-      "lift": 24.417,
-      "jaccard": 0.054,
-      "weighted_score": 13.4
-    },
-    {
-      "card_name": "Growth Grass Energy",
-      "support": 28,
-      "lift": 22.416,
-      "jaccard": 0.163,
-      "weighted_score": 43.4
-    },
-    {
-      "card_name": "Brave Bangle",
-      "support": 138,
-      "lift": 17.414,
-      "jaccard": 0.356,
-      "weighted_score": 221.9
-    },
-    {
-      "card_name": "Lilligant",
-      "support": 5,
-      "lift": 15.261,
-      "jaccard": 0.033,
-      "weighted_score": 7.8
-    },
-    {
-      "card_name": "Petilil",
-      "support": 5,
-      "lift": 15.261,
-      "jaccard": 0.033,
-      "weighted_score": 7.8
-    },
-    {
-      "card_name": "Fennel",
-      "support": 5,
-      "lift": 12.209,
-      "jaccard": 0.032,
-      "weighted_score": 7.6
+      "card_name": "Rillaboom",
+      "support": 6,
+      "lift": 49.333,
+      "jaccard": 0.316,
+      "weighted_score": 12.4
     },
     {
       "card_name": "Kieran",
-      "support": 134,
-      "lift": 12.007,
-      "jaccard": 0.244,
-      "weighted_score": 217.1
+      "support": 15,
+      "lift": 22.653,
+      "jaccard": 0.3,
+      "weighted_score": 24.8
+    },
+    {
+      "card_name": "Brave Bangle",
+      "support": 16,
+      "lift": 19.097,
+      "jaccard": 0.258,
+      "weighted_score": 26.0
+    },
+    {
+      "card_name": "Black Belt's Training",
+      "support": 14,
+      "lift": 9.418,
+      "jaccard": 0.125,
+      "weighted_score": 23.6
+    },
+    {
+      "card_name": "Sacred Ash",
+      "support": 8,
+      "lift": 9.397,
+      "jaccard": 0.113,
+      "weighted_score": 14.3
+    },
+    {
+      "card_name": "Tool Scrapper",
+      "support": 5,
+      "lift": 8.043,
+      "jaccard": 0.088,
+      "weighted_score": 7.6
+    },
+    {
+      "card_name": "Lana's Aid",
+      "support": 15,
+      "lift": 7.351,
+      "jaccard": 0.099,
+      "weighted_score": 24.8
+    },
+    {
+      "card_name": "Bug Catching Set",
+      "support": 15,
+      "lift": 6.271,
+      "jaccard": 0.084,
+      "weighted_score": 24.8
+    },
+    {
+      "card_name": "Shaymin",
+      "support": 16,
+      "lift": 5.861,
+      "jaccard": 0.079,
+      "weighted_score": 26.0
     }
   ]
 }
