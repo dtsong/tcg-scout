@@ -235,84 +235,114 @@
         {
           "card_name": "Lillie's Clefairy ex",
           "count": 4,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "JTG",
+          "set_number": "56"
         },
         {
           "card_name": "Latias ex",
           "count": 4,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "SSP",
+          "set_number": "76"
         },
         {
           "card_name": "Teal Mask Ogerpon ex",
           "count": 4,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "TWM",
+          "set_number": "25"
         },
         {
           "card_name": "Fezandipiti ex",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "ASC",
+          "set_number": "142"
         },
         {
           "card_name": "Mega Kangaskhan ex",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "MEG",
+          "set_number": "104"
         },
         {
           "card_name": "Boss's Orders",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "MEG",
+          "set_number": "114"
         },
         {
           "card_name": "Energy Switch",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "MEG",
+          "set_number": "115"
         },
         {
           "card_name": "Lillie's Determination",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "MEG",
+          "set_number": "119"
         },
         {
           "card_name": "Ultra Ball",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "MEG",
+          "set_number": "131"
         },
         {
           "card_name": "Area Zero Underdepths",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "SCR",
+          "set_number": "131"
         },
         {
           "card_name": "Crispin",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "SCR",
+          "set_number": "133"
         },
         {
           "card_name": "Survival Brace",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "TWM",
+          "set_number": "164"
         },
         {
           "card_name": "Grass Energy",
           "count": 7,
-          "category": "Energy"
+          "category": "Energy",
+          "set_code": "MEE",
+          "set_number": "1"
         },
         {
           "card_name": "Psychic Energy",
           "count": 4,
-          "category": "Energy"
+          "category": "Energy",
+          "set_code": "MEE",
+          "set_number": "5"
         },
         {
           "card_name": "Telepath Psychic Energy",
           "count": 4,
-          "category": "Energy"
+          "category": "Energy",
+          "set_code": "JP",
+          "set_number": "M3"
         }
       ]
     }
   ],
   "radar": {
     "meta_share": 0.1,
-    "weighted_share": 0.1,
+    "weighted_share": 0.0,
     "consistency": 30.0,
     "ceiling": 25,
     "popularity": 0.2,
@@ -353,11 +383,6 @@
     },
     {
       "week": "2026-03-02",
-      "meta_share": 0.0,
-      "deck_count": 0
-    },
-    {
-      "week": "2026-03-16",
       "meta_share": 0.0,
       "deck_count": 0
     }

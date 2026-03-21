@@ -7,11 +7,11 @@
   "image_url": null,
   "category": "Trainer",
   "rarity": null,
-  "total_appearances": 484,
-  "usage_pct": 7.1,
+  "total_appearances": 483,
+  "usage_pct": 7.2,
   "avg_copies": 1.9,
-  "unique_archetypes": 69,
-  "weighted_score": 774.4,
+  "unique_archetypes": 68,
+  "weighted_score": 772.9,
   "win_rate_proxy": 1.6,
   "top_archetype": "Froslass Grimmsnarl",
   "trend_direction": "declining",
@@ -22,7 +22,7 @@
     },
     {
       "copies": 2,
-      "count": 243
+      "count": 242
     },
     {
       "copies": 3,
@@ -448,13 +448,6 @@
       "tier": "Rogue"
     },
     {
-      "name": "Crustle ex",
-      "slug": "crustle-ex",
-      "usage_count": 1,
-      "avg_copies": 2.0,
-      "tier": "Rogue"
-    },
-    {
       "name": "Crustle Ogerpon Cornerstone",
       "slug": "crustle-ogerpon-cornerstone",
       "usage_count": 1,
@@ -521,12 +514,12 @@
   "weekly_usage": [
     {
       "week": "2026-01-19",
-      "usage_pct": 8.7,
+      "usage_pct": 8.8,
       "avg_copies": 1.9
     },
     {
       "week": "2026-01-26",
-      "usage_pct": 9.6,
+      "usage_pct": 9.7,
       "avg_copies": 2.1
     },
     {
@@ -553,118 +546,113 @@
       "week": "2026-03-02",
       "usage_pct": 5.6,
       "avg_copies": 1.9
-    },
-    {
-      "week": "2026-03-16",
-      "usage_pct": 3.1,
-      "avg_copies": 2.0
     }
   ],
   "synergy_partners": [
     {
       "card_name": "Fezandipiti",
-      "support": 46,
-      "lift": 13.166,
-      "jaccard": 0.094,
-      "weighted_score": 74.5
+      "support": 45,
+      "lift": 13.113,
+      "jaccard": 0.093,
+      "weighted_score": 73.0
     },
     {
       "card_name": "Crustle",
-      "support": 52,
-      "lift": 7.518,
-      "jaccard": 0.098,
-      "weighted_score": 83.6
+      "support": 51,
+      "lift": 7.431,
+      "jaccard": 0.097,
+      "weighted_score": 82.1
     },
     {
       "card_name": "Dwebble",
-      "support": 52,
-      "lift": 7.518,
-      "jaccard": 0.098,
-      "weighted_score": 83.6
+      "support": 51,
+      "lift": 7.431,
+      "jaccard": 0.097,
+      "weighted_score": 82.1
     },
     {
       "card_name": "Prism Energy",
-      "support": 99,
-      "lift": 6.311,
-      "jaccard": 0.164,
-      "weighted_score": 162.7
+      "support": 98,
+      "lift": 6.259,
+      "jaccard": 0.162,
+      "weighted_score": 161.2
     },
     {
       "card_name": "Okidogi",
       "support": 57,
-      "lift": 5.835,
+      "lift": 5.82,
       "jaccard": 0.101,
       "weighted_score": 93.5
     },
     {
       "card_name": "Bloodmoon Ursaluna",
       "support": 57,
-      "lift": 5.793,
+      "lift": 5.777,
       "jaccard": 0.101,
       "weighted_score": 94.3
     },
     {
       "card_name": "Tarragon",
       "support": 49,
-      "lift": 5.206,
-      "jaccard": 0.086,
+      "lift": 5.192,
+      "jaccard": 0.087,
       "weighted_score": 82.3
     },
     {
       "card_name": "Hassel",
       "support": 29,
-      "lift": 5.148,
+      "lift": 5.135,
       "jaccard": 0.054,
       "weighted_score": 41.7
     },
     {
       "card_name": "Cornerstone Mask Ogerpon ex",
-      "support": 87,
-      "lift": 4.251,
-      "jaccard": 0.127,
-      "weighted_score": 137.4
+      "support": 86,
+      "lift": 4.221,
+      "jaccard": 0.126,
+      "weighted_score": 135.9
     },
     {
       "card_name": "Marnie's Grimmsnarl ex",
       "support": 131,
-      "lift": 4.138,
-      "jaccard": 0.164,
+      "lift": 4.136,
+      "jaccard": 0.165,
       "weighted_score": 227.0
     },
     {
       "card_name": "Marnie's Impidimp",
       "support": 131,
-      "lift": 4.138,
-      "jaccard": 0.164,
+      "lift": 4.136,
+      "jaccard": 0.165,
       "weighted_score": 227.0
     },
     {
       "card_name": "Marnie's Morgrem",
       "support": 131,
-      "lift": 4.138,
-      "jaccard": 0.164,
+      "lift": 4.136,
+      "jaccard": 0.165,
       "weighted_score": 227.0
     },
     {
       "card_name": "Spikemuth Gym",
       "support": 131,
-      "lift": 4.138,
-      "jaccard": 0.164,
+      "lift": 4.136,
+      "jaccard": 0.165,
       "weighted_score": 227.0
     },
     {
       "card_name": "Hydrapple ex",
       "support": 6,
-      "lift": 4.007,
+      "lift": 3.996,
       "jaccard": 0.012,
       "weighted_score": 7.5
     },
     {
-      "card_name": "Xerosic's Machinations",
-      "support": 56,
-      "lift": 3.245,
-      "jaccard": 0.084,
-      "weighted_score": 94.8
+      "card_name": "Growth Grass Energy",
+      "support": 14,
+      "lift": 3.21,
+      "jaccard": 0.026,
+      "weighted_score": 20.9
     }
   ]
 }

@@ -6,6 +6,7 @@ import { SpriteRow } from "@/app/components/sprite-row";
 import { TierBadge } from "@/app/components/tier-badge";
 import { StatCard } from "@/app/components/stat-card";
 import { cn, formatPct } from "@/app/lib/utils";
+import { CopyDecklistButton } from "@/app/components/copy-decklist-button";
 import type {
   Optimal60Index,
   Optimal60IndexEntry,
@@ -576,6 +577,9 @@ export function Optimal60Client({
                 cards={detail.cards.filter((c) => c.category === "Energy")}
                 count={detail.total_energy}
               />
+            </div>
+            <div className="mt-4">
+              <CopyDecklistButton cards={detail.cards} />
             </div>
           </section>
 

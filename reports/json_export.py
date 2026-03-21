@@ -43,6 +43,7 @@ from config import (
     TIER_THRESHOLDS,
     get_format_config,
 )
+from scraper.card_mappings import tcgdex_to_limitless
 
 # Time windows for pre-computed date-filtered exports
 TIME_WINDOWS = {"7d": 7, "30d": 30}
@@ -65,6 +66,40 @@ def _basic_energy_exclusion_sql() -> str:
 def _basic_energy_params() -> list[str]:
     """Return params list for basic energy exclusion."""
     return sorted(BASIC_ENERGY_NAMES)
+
+
+def build_card_set_lookup(conn: sqlite3.Connection) -> dict[str, tuple[str, str]]:
+    """Build a card_name -> (limitless_set_code, set_number) mapping.
+
+    For each card_name, picks the most frequently used card_id from decklist_cards,
+    parses its TCGdex set code, and maps to the Limitless equivalent.
+    """
+    rows = conn.execute(
+        """
+        SELECT dc.card_name, dc.card_id, COUNT(*) AS freq
+        FROM decklist_cards dc
+        WHERE dc.card_id IS NOT NULL AND dc.card_id != ''
+        GROUP BY dc.card_name, dc.card_id
+        ORDER BY dc.card_name, freq DESC
+        """
+    ).fetchall()
+
+    lookup: dict[str, tuple[str, str]] = {}
+    for row in rows:
+        card_name = row["card_name"]
+        if card_name in lookup:
+            continue  # already have the most frequent card_id for this name
+        card_id = row["card_id"]
+        # card_id format: "SET-NUMBER" (e.g., "sv08-028", "me01-114")
+        parts = card_id.rsplit("-", 1)
+        if len(parts) != 2:
+            continue
+        tcgdex_set, number = parts
+        limitless_set = tcgdex_to_limitless(tcgdex_set)
+        # Strip leading zeros from number for display (028 -> 28)
+        display_number = number.lstrip("0") or "0"
+        lookup[card_name] = (limitless_set, display_number)
+    return lookup
 
 
 # Known ACE SPEC card names
@@ -1564,6 +1599,7 @@ def export_archetypes(conn: sqlite3.Connection, output_dir: Path) -> None:
 
     weighted_shares = _compute_weighted_shares(conn, snapshot)
     category_lookup = build_category_lookup(conn)
+    card_set_lookup = build_card_set_lookup(conn)
     all_placements = _bulk_fetch_archetype_placements(conn)
 
     arch_dir = output_dir / "archetypes"
@@ -1662,14 +1698,19 @@ def export_archetypes(conn: sqlite3.Connection, output_dir: Path) -> None:
                 (r["placement_id"],),
             ).fetchall()
             if dl_rows:
-                decklist = [
-                    {
-                        "card_name": dl["card_name"],
-                        "count": dl["count"],
-                        "category": classify_card(dl["card_name"], category_lookup),
-                    }
-                    for dl in dl_rows
-                ]
+                decklist = []
+                for dl in dl_rows:
+                    card_name = dl["card_name"]
+                    set_info = card_set_lookup.get(card_name)
+                    decklist.append(
+                        {
+                            "card_name": card_name,
+                            "count": dl["count"],
+                            "category": classify_card(card_name, category_lookup),
+                            "set_code": set_info[0] if set_info else None,
+                            "set_number": set_info[1] if set_info else None,
+                        }
+                    )
                 decklist.sort(key=lambda c: (_category_order.get(c["category"], 99), -c["count"]))
                 entry["decklist"] = decklist
             results.append(entry)
@@ -2437,6 +2478,7 @@ def export_deep_dive(conn: sqlite3.Connection, output_dir: Path, *, format_slug:
         return
 
     category_lookup = build_category_lookup(conn)
+    card_set_lookup = build_card_set_lookup(conn)
     weighted_shares = _compute_weighted_shares(conn, snapshot)
     all_placements = _bulk_fetch_archetype_placements(conn)
     report_dir = output_dir / "archetype-reports"
@@ -2470,7 +2512,9 @@ def export_deep_dive(conn: sqlite3.Connection, output_dir: Path, *, format_slug:
             continue
 
         # Compute analyses
-        consensus = compute_weighted_consensus_60(conn, archetype_name, category_lookup)
+        consensus = compute_weighted_consensus_60(
+            conn, archetype_name, category_lookup, card_set_lookup=card_set_lookup
+        )
         timeline = compute_weekly_card_timeline(conn, archetype_name)
         notable_techs = compute_notable_techs(timeline)
         placement_dist = compute_placement_distribution(
@@ -2532,6 +2576,7 @@ def export_optimal_60(conn: sqlite3.Connection, output_dir: Path, *, format_slug
         return
 
     category_lookup = build_category_lookup(conn)
+    card_set_lookup = build_card_set_lookup(conn)
     weighted_shares = _compute_weighted_shares(conn, snapshot)
     optimal_dir = output_dir / "optimal-60"
     # Clean stale files from previous exports
@@ -2571,7 +2616,9 @@ def export_optimal_60(conn: sqlite3.Connection, output_dir: Path, *, format_slug
         archetype_name = arch["archetype"]
         slug = _slugify(archetype_name)
 
-        result = compute_optimal_60(conn, archetype_name, category_lookup)
+        result = compute_optimal_60(
+            conn, archetype_name, category_lookup, card_set_lookup=card_set_lookup
+        )
         if result is None:
             continue
 

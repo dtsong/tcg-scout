@@ -347,124 +347,170 @@
         {
           "card_name": "Cynthia's Gible",
           "count": 4,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "DRI",
+          "set_number": "102"
         },
         {
           "card_name": "Cynthia's Gabite",
           "count": 4,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "DRI",
+          "set_number": "103"
         },
         {
           "card_name": "Cynthia's Garchomp ex",
           "count": 3,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "DRI",
+          "set_number": "104"
         },
         {
           "card_name": "Solrock",
           "count": 3,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "MEG",
+          "set_number": "75"
         },
         {
           "card_name": "Lunatone",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "MEG",
+          "set_number": "74"
         },
         {
           "card_name": "Budew",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "ASC",
+          "set_number": "16"
         },
         {
           "card_name": "Cynthia's Spiritomb",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "DRI",
+          "set_number": "129"
         },
         {
           "card_name": "Poké Pad",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "ASC",
+          "set_number": "198"
         },
         {
           "card_name": "Fighting Gong",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "MEG",
+          "set_number": "116"
         },
         {
           "card_name": "Lillie's Determination",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "MEG",
+          "set_number": "119"
         },
         {
           "card_name": "Cynthia's Power Weight",
           "count": 3,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "DRI",
+          "set_number": "162"
         },
         {
           "card_name": "Boss's Orders",
           "count": 3,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "MEG",
+          "set_number": "114"
         },
         {
           "card_name": "Premium Power Pro",
           "count": 3,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "MEG",
+          "set_number": "124"
         },
         {
           "card_name": "Drayton",
           "count": 3,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "SSP",
+          "set_number": "174"
         },
         {
           "card_name": "Battle Cage",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "PFL",
+          "set_number": "85"
         },
         {
           "card_name": "Buddy-Buddy Poffin",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "TEF",
+          "set_number": "144"
         },
         {
           "card_name": "Air Balloon",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "ASC",
+          "set_number": "181"
         },
         {
           "card_name": "Tool Scrapper",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "ASC",
+          "set_number": "212"
         },
         {
           "card_name": "Rare Candy",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "MEG",
+          "set_number": "125"
         },
         {
           "card_name": "Kieran",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "TWM",
+          "set_number": "154"
         },
         {
           "card_name": "Lana's Aid",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "TWM",
+          "set_number": "155"
         },
         {
           "card_name": "Unfair Stamp",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "TWM",
+          "set_number": "165"
         },
         {
           "card_name": "Fighting Energy",
           "count": 8,
-          "category": "Energy"
+          "category": "Energy",
+          "set_code": "MEE",
+          "set_number": "6"
         }
       ]
     }
   ],
   "radar": {
     "meta_share": 0.1,
-    "weighted_share": 0.1,
+    "weighted_share": 0.0,
     "consistency": 40.0,
     "ceiling": 25,
     "popularity": 0.2,
@@ -505,11 +551,6 @@
     },
     {
       "week": "2026-03-02",
-      "meta_share": 0.0,
-      "deck_count": 0
-    },
-    {
-      "week": "2026-03-16",
       "meta_share": 0.0,
       "deck_count": 0
     }

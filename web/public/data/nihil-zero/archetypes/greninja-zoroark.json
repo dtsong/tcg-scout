@@ -417,149 +417,205 @@
         {
           "card_name": "N's Zorua",
           "count": 4,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "JTG",
+          "set_number": "97"
         },
         {
           "card_name": "N's Zoroark ex",
           "count": 4,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "JTG",
+          "set_number": "98"
         },
         {
           "card_name": "Greninja ex",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "TWM",
+          "set_number": "106"
         },
         {
           "card_name": "Froakie",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "TWM",
+          "set_number": "56"
         },
         {
           "card_name": "Fezandipiti ex",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "ASC",
+          "set_number": "142"
         },
         {
           "card_name": "Pecharunt",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "SVP",
+          "set_number": "149"
         },
         {
           "card_name": "N's Zekrom",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "ASC",
+          "set_number": "155"
         },
         {
           "card_name": "N's Reshiram",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "JTG",
+          "set_number": "116"
         },
         {
           "card_name": "Yveltal",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "MEG",
+          "set_number": "88"
         },
         {
           "card_name": "Pecharunt ex",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "SFA",
+          "set_number": "39"
         },
         {
           "card_name": "Munkidori",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "TWM",
+          "set_number": "95"
         },
         {
           "card_name": "Poké Pad",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "ASC",
+          "set_number": "198"
         },
         {
           "card_name": "Lillie's Determination",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "MEG",
+          "set_number": "119"
         },
         {
           "card_name": "Buddy-Buddy Poffin",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "TEF",
+          "set_number": "144"
         },
         {
           "card_name": "Boss's Orders",
           "count": 3,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "MEG",
+          "set_number": "114"
         },
         {
           "card_name": "Cyrano",
           "count": 3,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "SSP",
+          "set_number": "170"
         },
         {
           "card_name": "Night Stretcher",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "ASC",
+          "set_number": "196"
         },
         {
           "card_name": "Team Rocket's Watchtower",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "DRI",
+          "set_number": "180"
         },
         {
           "card_name": "N's PP Up",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "JTG",
+          "set_number": "153"
         },
         {
           "card_name": "Rare Candy",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "MEG",
+          "set_number": "125"
         },
         {
           "card_name": "Ultra Ball",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "MEG",
+          "set_number": "131"
         },
         {
           "card_name": "Judge",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "DRI",
+          "set_number": "167"
         },
         {
           "card_name": "Black Belt's Training",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "JTG",
+          "set_number": "143"
         },
         {
           "card_name": "Energy Switch",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "MEG",
+          "set_number": "115"
         },
         {
           "card_name": "Hero's Cape",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "TEF",
+          "set_number": "152"
         },
         {
           "card_name": "Rosa's Encouragement",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "JP",
+          "set_number": "M3"
         },
         {
           "card_name": "Darkness Energy",
           "count": 6,
-          "category": "Energy"
+          "category": "Energy",
+          "set_code": "MEE",
+          "set_number": "7"
         },
         {
           "card_name": "Water Energy",
           "count": 2,
-          "category": "Energy"
+          "category": "Energy",
+          "set_code": "MEE",
+          "set_number": "3"
         }
       ]
     }
   ],
   "radar": {
     "meta_share": 0.1,
-    "weighted_share": 0.1,
+    "weighted_share": 0.0,
     "consistency": 70.0,
     "ceiling": 50,
     "popularity": 0.2,
@@ -600,11 +656,6 @@
     },
     {
       "week": "2026-03-02",
-      "meta_share": 0.0,
-      "deck_count": 0
-    },
-    {
-      "week": "2026-03-16",
       "meta_share": 0.0,
       "deck_count": 0
     }

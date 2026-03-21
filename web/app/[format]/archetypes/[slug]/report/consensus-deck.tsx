@@ -1,4 +1,5 @@
 import type { ConsensusCard } from "@/app/lib/types";
+import { CopyDecklistButton } from "@/app/components/copy-decklist-button";
 
 function ConsensusCardRow({ card }: { card: ConsensusCard }) {
   const isCore = card.consensus === "core";
@@ -114,6 +115,9 @@ export function ConsensusDeck({
         <CategoryColumn title="Pokemon" cards={pokemon} count={totalPokemon} />
         <CategoryColumn title="Trainer" cards={trainer} count={totalTrainer} />
         <CategoryColumn title="Energy" cards={energy} count={totalEnergy} />
+      </div>
+      <div className="mt-4">
+        <CopyDecklistButton cards={cards} />
       </div>
     </div>
   );

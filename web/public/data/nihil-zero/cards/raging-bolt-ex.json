@@ -7,11 +7,11 @@
   "image_url": "https://assets.tcgdex.net/en/sv/svp/145/high.png",
   "category": "Pokemon",
   "rarity": "",
-  "total_appearances": 240,
+  "total_appearances": 235,
   "usage_pct": 3.5,
   "avg_copies": 2.7,
   "unique_archetypes": 13,
-  "weighted_score": 376.1,
+  "weighted_score": 369.9,
   "win_rate_proxy": 1.57,
   "top_archetype": "Raging Bolt ex",
   "trend_direction": "surging",
@@ -22,22 +22,22 @@
     },
     {
       "copies": 2,
-      "count": 91
+      "count": 90
     },
     {
       "copies": 3,
-      "count": 117
+      "count": 114
     },
     {
       "copies": 4,
-      "count": 26
+      "count": 25
     }
   ],
   "archetypes": [
     {
       "name": "Raging Bolt ex",
       "slug": "raging-bolt-ex",
-      "usage_count": 114,
+      "usage_count": 109,
       "avg_copies": 3.1,
       "tier": "C"
     },
@@ -161,118 +161,113 @@
       "week": "2026-03-02",
       "usage_pct": 6.2,
       "avg_copies": 2.6
-    },
-    {
-      "week": "2026-03-16",
-      "usage_pct": 15.6,
-      "avg_copies": 3.0
     }
   ],
   "synergy_partners": [
     {
       "card_name": "Koraidon",
       "support": 9,
-      "lift": 28.283,
-      "jaccard": 0.037,
+      "lift": 28.749,
+      "jaccard": 0.038,
       "weighted_score": 12.0
     },
     {
       "card_name": "Raging Bolt",
-      "support": 103,
-      "lift": 28.283,
-      "jaccard": 0.429,
-      "weighted_score": 158.9
+      "support": 100,
+      "lift": 28.749,
+      "jaccard": 0.426,
+      "weighted_score": 154.9
     },
     {
       "card_name": "Community Center",
-      "support": 20,
-      "lift": 24.594,
-      "jaccard": 0.082,
-      "weighted_score": 30.5
+      "support": 19,
+      "lift": 24.829,
+      "jaccard": 0.08,
+      "weighted_score": 29.5
     },
     {
       "card_name": "Dusk Ball",
-      "support": 43,
-      "lift": 23.847,
+      "support": 42,
+      "lift": 24.149,
       "jaccard": 0.173,
-      "weighted_score": 64.9
+      "weighted_score": 63.9
     },
     {
       "card_name": "Galvantula",
       "support": 5,
-      "lift": 23.569,
+      "lift": 23.957,
       "jaccard": 0.021,
       "weighted_score": 7.1
     },
     {
       "card_name": "Glass Trumpet",
-      "support": 214,
-      "lift": 19.976,
-      "jaccard": 0.65,
-      "weighted_score": 333.0
+      "support": 209,
+      "lift": 20.163,
+      "jaccard": 0.645,
+      "weighted_score": 326.8
     },
     {
       "card_name": "Iron Leaves ex",
-      "support": 167,
-      "lift": 19.046,
-      "jaccard": 0.52,
-      "weighted_score": 259.2
+      "support": 164,
+      "lift": 19.323,
+      "jaccard": 0.521,
+      "weighted_score": 255.0
     },
     {
       "card_name": "Energy Retrieval",
-      "support": 207,
-      "lift": 17.634,
-      "jaccard": 0.567,
-      "weighted_score": 322.1
+      "support": 202,
+      "lift": 17.759,
+      "jaccard": 0.561,
+      "weighted_score": 315.9
     },
     {
       "card_name": "Terapagos ex",
-      "support": 64,
-      "lift": 16.019,
-      "jaccard": 0.221,
-      "weighted_score": 98.8
+      "support": 62,
+      "lift": 16.204,
+      "jaccard": 0.219,
+      "weighted_score": 95.6
     },
     {
       "card_name": "Joltik",
-      "support": 8,
-      "lift": 15.084,
-      "jaccard": 0.032,
-      "weighted_score": 10.7
+      "support": 7,
+      "lift": 14.374,
+      "jaccard": 0.029,
+      "weighted_score": 9.5
     },
     {
       "card_name": "Yanma",
       "support": 9,
-      "lift": 14.142,
-      "jaccard": 0.036,
+      "lift": 14.374,
+      "jaccard": 0.037,
       "weighted_score": 16.1
     },
     {
       "card_name": "Yanmega ex",
       "support": 9,
-      "lift": 14.142,
-      "jaccard": 0.036,
+      "lift": 14.374,
+      "jaccard": 0.037,
       "weighted_score": 16.1
     },
     {
       "card_name": "Tera Orb",
-      "support": 153,
-      "lift": 9.053,
+      "support": 151,
+      "lift": 9.158,
       "jaccard": 0.271,
-      "weighted_score": 236.7
+      "weighted_score": 233.7
     },
     {
       "card_name": "Mega Kangaskhan ex",
-      "support": 140,
-      "lift": 8.741,
-      "jaccard": 0.253,
-      "weighted_score": 221.4
+      "support": 138,
+      "lift": 8.895,
+      "jaccard": 0.254,
+      "weighted_score": 219.4
     },
     {
       "card_name": "Area Zero Underdepths",
-      "support": 225,
-      "lift": 7.742,
-      "jaccard": 0.269,
-      "weighted_score": 352.5
+      "support": 220,
+      "lift": 7.808,
+      "jaccard": 0.267,
+      "weighted_score": 346.3
     }
   ]
 }

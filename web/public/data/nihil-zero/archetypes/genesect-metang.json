@@ -333,119 +333,163 @@
         {
           "card_name": "Beldum",
           "count": 4,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "TEF",
+          "set_number": "113"
         },
         {
           "card_name": "Metang",
           "count": 4,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "TEF",
+          "set_number": "114"
         },
         {
           "card_name": "Genesect ex",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "BLK",
+          "set_number": "67"
         },
         {
           "card_name": "Lillie's Clefairy ex",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "JTG",
+          "set_number": "56"
         },
         {
           "card_name": "Mega Mawile ex",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "MEG",
+          "set_number": "94"
         },
         {
           "card_name": "Fezandipiti ex",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "ASC",
+          "set_number": "142"
         },
         {
           "card_name": "Durant ex",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "SSP",
+          "set_number": "4"
         },
         {
           "card_name": "Wellspring Mask Ogerpon ex",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "TWM",
+          "set_number": "64"
         },
         {
           "card_name": "Munkidori",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "TWM",
+          "set_number": "95"
         },
         {
           "card_name": "Lillie's Determination",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "MEG",
+          "set_number": "119"
         },
         {
           "card_name": "Ultra Ball",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "MEG",
+          "set_number": "131"
         },
         {
           "card_name": "Buddy-Buddy Poffin",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "TEF",
+          "set_number": "144"
         },
         {
           "card_name": "Carmine",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "TWM",
+          "set_number": "145"
         },
         {
           "card_name": "Air Balloon",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "ASC",
+          "set_number": "181"
         },
         {
           "card_name": "Energy Recycler",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "DRI",
+          "set_number": "164"
         },
         {
           "card_name": "Night Stretcher",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "ASC",
+          "set_number": "196"
         },
         {
           "card_name": "Hassel",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "TWM",
+          "set_number": "151"
         },
         {
           "card_name": "Lumiose City",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "JP",
+          "set_number": "M3"
         },
         {
           "card_name": "Judge",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "DRI",
+          "set_number": "167"
         },
         {
           "card_name": "Prime Catcher",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "TEF",
+          "set_number": "157"
         },
         {
           "card_name": "Metal Energy",
           "count": 10,
-          "category": "Energy"
+          "category": "Energy",
+          "set_code": "MEE",
+          "set_number": "8"
         },
         {
           "card_name": "Prism Energy",
           "count": 4,
-          "category": "Energy"
+          "category": "Energy",
+          "set_code": "ASC",
+          "set_number": "216"
         }
       ]
     }
   ],
   "radar": {
     "meta_share": 0.1,
-    "weighted_share": 0.1,
+    "weighted_share": 0.0,
     "consistency": 60.0,
     "ceiling": 25,
     "popularity": 0.2,
@@ -486,11 +530,6 @@
     },
     {
       "week": "2026-03-02",
-      "meta_share": 0.0,
-      "deck_count": 0
-    },
-    {
-      "week": "2026-03-16",
       "meta_share": 0.0,
       "deck_count": 0
     }

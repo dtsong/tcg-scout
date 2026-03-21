@@ -389,139 +389,191 @@
         {
           "card_name": "Mega Lucario ex",
           "count": 3,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "MEG",
+          "set_number": "77"
         },
         {
           "card_name": "Riolu",
           "count": 3,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "MEG",
+          "set_number": "76"
         },
         {
           "card_name": "Hoothoot",
           "count": 3,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "SCR",
+          "set_number": "114"
         },
         {
           "card_name": "Noctowl",
           "count": 3,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "SCR",
+          "set_number": "115"
         },
         {
           "card_name": "Fan Rotom",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "SCR",
+          "set_number": "118"
         },
         {
           "card_name": "Cornerstone Mask Ogerpon ex",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "TWM",
+          "set_number": "112"
         },
         {
           "card_name": "Fezandipiti ex",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "ASC",
+          "set_number": "142"
         },
         {
           "card_name": "Psyduck",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "ASC",
+          "set_number": "39"
         },
         {
           "card_name": "Drilbur",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "TEF",
+          "set_number": "85"
         },
         {
           "card_name": "Poké Pad",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "ASC",
+          "set_number": "198"
         },
         {
           "card_name": "Fighting Gong",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "MEG",
+          "set_number": "116"
         },
         {
           "card_name": "Premium Power Pro",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "MEG",
+          "set_number": "124"
         },
         {
           "card_name": "Ultra Ball",
           "count": 3,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "MEG",
+          "set_number": "131"
         },
         {
           "card_name": "Area Zero Underdepths",
           "count": 3,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "SCR",
+          "set_number": "131"
         },
         {
           "card_name": "Buddy-Buddy Poffin",
           "count": 3,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "TEF",
+          "set_number": "144"
         },
         {
           "card_name": "Night Stretcher",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "ASC",
+          "set_number": "196"
         },
         {
           "card_name": "Boss's Orders",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "MEG",
+          "set_number": "114"
         },
         {
           "card_name": "Lillie's Determination",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "MEG",
+          "set_number": "119"
         },
         {
           "card_name": "Air Balloon",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "ASC",
+          "set_number": "181"
         },
         {
           "card_name": "Tool Scrapper",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "ASC",
+          "set_number": "212"
         },
         {
           "card_name": "Switch",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "MEG",
+          "set_number": "130"
         },
         {
           "card_name": "Wally's Compassion",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "MEG",
+          "set_number": "132"
         },
         {
           "card_name": "Hilda",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "WHT",
+          "set_number": "84"
         },
         {
           "card_name": "Fighting Energy",
           "count": 6,
-          "category": "Energy"
+          "category": "Energy",
+          "set_code": "MEE",
+          "set_number": "6"
         },
         {
           "card_name": "Legacy Energy",
           "count": 1,
-          "category": "Energy"
+          "category": "Energy",
+          "set_code": "TWM",
+          "set_number": "167"
         },
         {
           "card_name": "Rock Fighting Energy",
           "count": 1,
-          "category": "Energy"
+          "category": "Energy",
+          "set_code": "JP",
+          "set_number": "M3"
         }
       ]
     }
   ],
   "radar": {
     "meta_share": 0.1,
-    "weighted_share": 0.1,
+    "weighted_share": 0.0,
     "consistency": 95.0,
     "ceiling": 90,
     "popularity": 0.2,
@@ -562,11 +614,6 @@
     },
     {
       "week": "2026-03-02",
-      "meta_share": 0.0,
-      "deck_count": 0
-    },
-    {
-      "week": "2026-03-16",
       "meta_share": 0.0,
       "deck_count": 0
     }

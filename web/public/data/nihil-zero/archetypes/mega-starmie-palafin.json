@@ -333,119 +333,163 @@
         {
           "card_name": "Dunsparce",
           "count": 3,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "JTG",
+          "set_number": "120"
         },
         {
           "card_name": "Finizen",
           "count": 3,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "TWM",
+          "set_number": "59"
         },
         {
           "card_name": "Palafin ex",
           "count": 3,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "TWM",
+          "set_number": "61"
         },
         {
           "card_name": "Dudunsparce",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "TEF",
+          "set_number": "129"
         },
         {
           "card_name": "Palafin",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "TWM",
+          "set_number": "60"
         },
         {
           "card_name": "Munkidori",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "TWM",
+          "set_number": "95"
         },
         {
           "card_name": "Psyduck",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "ASC",
+          "set_number": "39"
         },
         {
           "card_name": "Fan Rotom",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "SCR",
+          "set_number": "118"
         },
         {
           "card_name": "Meowth ex",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "JP",
+          "set_number": "M3"
         },
         {
           "card_name": "Poké Pad",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "ASC",
+          "set_number": "198"
         },
         {
           "card_name": "Lillie's Determination",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "MEG",
+          "set_number": "119"
         },
         {
           "card_name": "Surfing Beach",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "MEG",
+          "set_number": "129"
         },
         {
           "card_name": "Buddy-Buddy Poffin",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "TEF",
+          "set_number": "144"
         },
         {
           "card_name": "Air Balloon",
           "count": 3,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "ASC",
+          "set_number": "181"
         },
         {
           "card_name": "Boss's Orders",
           "count": 3,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "MEG",
+          "set_number": "114"
         },
         {
           "card_name": "Ultra Ball",
           "count": 3,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "MEG",
+          "set_number": "131"
         },
         {
           "card_name": "Hilda",
           "count": 3,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "WHT",
+          "set_number": "84"
         },
         {
           "card_name": "Judge",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "DRI",
+          "set_number": "167"
         },
         {
           "card_name": "Wally's Compassion",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "MEG",
+          "set_number": "132"
         },
         {
           "card_name": "Unfair Stamp",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "TWM",
+          "set_number": "165"
         },
         {
           "card_name": "Water Energy",
           "count": 5,
-          "category": "Energy"
+          "category": "Energy",
+          "set_code": "MEE",
+          "set_number": "3"
         },
         {
           "card_name": "Darkness Energy",
           "count": 2,
-          "category": "Energy"
+          "category": "Energy",
+          "set_code": "MEE",
+          "set_number": "7"
         }
       ]
     }
   ],
   "radar": {
     "meta_share": 0.1,
-    "weighted_share": 0.1,
+    "weighted_share": 0.0,
     "consistency": 30.0,
     "ceiling": 25,
     "popularity": 0.2,
@@ -488,11 +532,6 @@
       "week": "2026-03-02",
       "meta_share": 0.1,
       "deck_count": 1
-    },
-    {
-      "week": "2026-03-16",
-      "meta_share": 0.0,
-      "deck_count": 0
     }
   ],
   "top4_card_stats": [],

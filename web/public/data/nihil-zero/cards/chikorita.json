@@ -7,11 +7,11 @@
   "image_url": "https://assets.tcgdex.net/en/me/me01/008/high.png",
   "category": "Pokemon",
   "rarity": "",
-  "total_appearances": 310,
+  "total_appearances": 309,
   "usage_pct": 4.6,
   "avg_copies": 2.4,
   "unique_archetypes": 12,
-  "weighted_score": 529.4,
+  "weighted_score": 526.9,
   "win_rate_proxy": 1.71,
   "top_archetype": "Mega Venusaur",
   "trend_direction": "stable",
@@ -22,7 +22,7 @@
     },
     {
       "copies": 2,
-      "count": 198
+      "count": 197
     },
     {
       "copies": 3,
@@ -72,8 +72,8 @@
     {
       "name": "Meganium Ogerpon",
       "slug": "meganium-ogerpon",
-      "usage_count": 4,
-      "avg_copies": 2.8,
+      "usage_count": 3,
+      "avg_copies": 3.0,
       "tier": "Rogue"
     },
     {
@@ -127,7 +127,7 @@
     },
     {
       "week": "2026-01-26",
-      "usage_pct": 3.9,
+      "usage_pct": 4.0,
       "avg_copies": 2.4
     },
     {
@@ -154,117 +154,112 @@
       "week": "2026-03-02",
       "usage_pct": 6.8,
       "avg_copies": 2.1
-    },
-    {
-      "week": "2026-03-16",
-      "usage_pct": 3.1,
-      "avg_copies": 2.0
     }
   ],
   "synergy_partners": [
     {
       "card_name": "Arboliva ex",
-      "support": 82,
-      "lift": 21.897,
-      "jaccard": 0.265,
-      "weighted_score": 150.9
+      "support": 81,
+      "lift": 21.864,
+      "jaccard": 0.262,
+      "weighted_score": 148.4
     },
     {
       "card_name": "Bayleef",
-      "support": 310,
-      "lift": 21.897,
+      "support": 309,
+      "lift": 21.864,
       "jaccard": 1.0,
-      "weighted_score": 512.9
+      "weighted_score": 510.4
     },
     {
       "card_name": "Dolliv",
-      "support": 82,
-      "lift": 21.897,
-      "jaccard": 0.265,
-      "weighted_score": 150.9
+      "support": 81,
+      "lift": 21.864,
+      "jaccard": 0.262,
+      "weighted_score": 148.4
     },
     {
       "card_name": "Mega Meganium ex",
       "support": 122,
-      "lift": 21.897,
-      "jaccard": 0.394,
+      "lift": 21.864,
+      "jaccard": 0.395,
       "weighted_score": 194.8
     },
     {
       "card_name": "Meganium",
-      "support": 310,
-      "lift": 21.897,
+      "support": 309,
+      "lift": 21.864,
       "jaccard": 1.0,
-      "weighted_score": 512.9
+      "weighted_score": 510.4
     },
     {
       "card_name": "Smoliv",
-      "support": 82,
-      "lift": 21.897,
-      "jaccard": 0.265,
-      "weighted_score": 150.9
+      "support": 81,
+      "lift": 21.864,
+      "jaccard": 0.262,
+      "weighted_score": 148.4
     },
     {
       "card_name": "Celebi",
       "support": 69,
-      "lift": 20.417,
-      "jaccard": 0.219,
+      "lift": 20.387,
+      "jaccard": 0.22,
       "weighted_score": 111.0
     },
     {
       "card_name": "Max Rod",
       "support": 164,
-      "lift": 19.623,
-      "jaccard": 0.498,
+      "lift": 19.594,
+      "jaccard": 0.5,
       "weighted_score": 257.7
     },
     {
       "card_name": "Regigigas",
       "support": 97,
-      "lift": 18.631,
-      "jaccard": 0.297,
+      "lift": 18.604,
+      "jaccard": 0.298,
       "weighted_score": 154.2
     },
     {
       "card_name": "Shuckle",
       "support": 5,
-      "lift": 18.247,
+      "lift": 18.22,
       "jaccard": 0.016,
       "weighted_score": 6.0
     },
     {
       "card_name": "Hydrapple ex",
       "support": 14,
-      "lift": 14.598,
+      "lift": 14.576,
       "jaccard": 0.044,
       "weighted_score": 20.9
     },
     {
       "card_name": "Forest of Vitality",
-      "support": 310,
-      "lift": 14.171,
-      "jaccard": 0.647,
-      "weighted_score": 512.9
+      "support": 309,
+      "lift": 14.134,
+      "jaccard": 0.646,
+      "weighted_score": 510.4
     },
     {
       "card_name": "Bulbasaur",
       "support": 191,
-      "lift": 13.712,
-      "jaccard": 0.45,
+      "lift": 13.692,
+      "jaccard": 0.452,
       "weighted_score": 304.4
     },
     {
       "card_name": "Ivysaur",
       "support": 191,
-      "lift": 13.712,
-      "jaccard": 0.45,
+      "lift": 13.692,
+      "jaccard": 0.452,
       "weighted_score": 304.4
     },
     {
       "card_name": "Mega Venusaur ex",
       "support": 191,
-      "lift": 13.712,
-      "jaccard": 0.45,
+      "lift": 13.692,
+      "jaccard": 0.452,
       "weighted_score": 304.4
     }
   ]

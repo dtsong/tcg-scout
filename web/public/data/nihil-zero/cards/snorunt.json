@@ -7,11 +7,11 @@
   "image_url": "https://assets.tcgdex.net/en/me/me02.5/046/high.png",
   "category": "Pokemon",
   "rarity": "",
-  "total_appearances": 720,
-  "usage_pct": 10.6,
+  "total_appearances": 719,
+  "usage_pct": 10.7,
   "avg_copies": 2.6,
   "unique_archetypes": 25,
-  "weighted_score": 1172.3,
+  "weighted_score": 1171.3,
   "win_rate_proxy": 1.63,
   "top_archetype": "Grimmsnarl Munkidori",
   "trend_direction": "declining",
@@ -22,7 +22,7 @@
     },
     {
       "copies": 2,
-      "count": 279
+      "count": 278
     },
     {
       "copies": 3,
@@ -51,7 +51,7 @@
     {
       "name": "Froslass Grimmsnarl",
       "slug": "froslass-grimmsnarl",
-      "usage_count": 186,
+      "usage_count": 185,
       "avg_copies": 2.9,
       "tier": "C"
     },
@@ -213,7 +213,7 @@
   "weekly_usage": [
     {
       "week": "2026-01-19",
-      "usage_pct": 17.7,
+      "usage_pct": 17.8,
       "avg_copies": 3.0
     },
     {
@@ -228,7 +228,7 @@
     },
     {
       "week": "2026-02-09",
-      "usage_pct": 10.6,
+      "usage_pct": 10.7,
       "avg_copies": 2.4
     },
     {
@@ -245,117 +245,112 @@
       "week": "2026-03-02",
       "usage_pct": 7.6,
       "avg_copies": 2.2
-    },
-    {
-      "week": "2026-03-16",
-      "usage_pct": 3.1,
-      "avg_copies": 2.0
     }
   ],
   "synergy_partners": [
     {
       "card_name": "Froslass",
-      "support": 665,
-      "lift": 9.428,
+      "support": 664,
+      "lift": 9.396,
       "jaccard": 0.924,
-      "weighted_score": 1080.9
+      "weighted_score": 1079.9
     },
     {
       "card_name": "Glalie",
       "support": 14,
-      "lift": 9.428,
+      "lift": 9.396,
       "jaccard": 0.019,
       "weighted_score": 21.8
     },
     {
       "card_name": "Mega Froslass ex",
       "support": 313,
-      "lift": 9.428,
+      "lift": 9.396,
       "jaccard": 0.435,
       "weighted_score": 494.4
     },
     {
       "card_name": "Marnie's Grimmsnarl ex",
-      "support": 419,
-      "lift": 8.897,
+      "support": 418,
+      "lift": 8.866,
       "jaccard": 0.562,
-      "weighted_score": 691.2
+      "weighted_score": 690.2
     },
     {
       "card_name": "Marnie's Impidimp",
-      "support": 419,
-      "lift": 8.897,
+      "support": 418,
+      "lift": 8.866,
       "jaccard": 0.562,
-      "weighted_score": 691.2
+      "weighted_score": 690.2
     },
     {
       "card_name": "Marnie's Morgrem",
-      "support": 419,
-      "lift": 8.897,
+      "support": 418,
+      "lift": 8.866,
       "jaccard": 0.562,
-      "weighted_score": 691.2
+      "weighted_score": 690.2
     },
     {
       "card_name": "Spikemuth Gym",
-      "support": 419,
-      "lift": 8.897,
+      "support": 418,
+      "lift": 8.866,
       "jaccard": 0.562,
-      "weighted_score": 691.2
+      "weighted_score": 690.2
     },
     {
       "card_name": "Surfing Beach",
       "support": 65,
-      "lift": 8.881,
+      "lift": 8.852,
       "jaccard": 0.09,
       "weighted_score": 102.5
     },
     {
       "card_name": "Mega Starmie ex",
       "support": 65,
-      "lift": 7.757,
+      "lift": 7.731,
       "jaccard": 0.089,
       "weighted_score": 101.2
     },
     {
       "card_name": "Salvatore",
       "support": 72,
-      "lift": 7.145,
+      "lift": 7.121,
       "jaccard": 0.097,
       "weighted_score": 108.2
     },
     {
       "card_name": "Tatsugiri",
-      "support": 373,
-      "lift": 6.963,
-      "jaccard": 0.438,
-      "weighted_score": 611.4
+      "support": 372,
+      "lift": 6.935,
+      "jaccard": 0.437,
+      "weighted_score": 610.4
     },
     {
       "card_name": "Bronzong",
       "support": 17,
-      "lift": 6.678,
+      "lift": 6.656,
       "jaccard": 0.023,
       "weighted_score": 24.8
     },
     {
       "card_name": "Bronzor",
       "support": 17,
-      "lift": 6.678,
+      "lift": 6.656,
       "jaccard": 0.023,
       "weighted_score": 24.8
     },
     {
       "card_name": "Maractus",
       "support": 74,
-      "lift": 5.766,
-      "jaccard": 0.096,
+      "lift": 5.747,
+      "jaccard": 0.097,
       "weighted_score": 121.8
     },
     {
       "card_name": "Iris's Fighting Spirit",
       "support": 75,
-      "lift": 4.746,
-      "jaccard": 0.094,
+      "lift": 4.73,
+      "jaccard": 0.095,
       "weighted_score": 118.4
     }
   ]

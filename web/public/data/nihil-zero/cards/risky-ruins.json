@@ -7,22 +7,22 @@
   "image_url": "https://assets.tcgdex.net/en/me/me01/127/high.png",
   "category": "Trainer",
   "rarity": "",
-  "total_appearances": 628,
-  "usage_pct": 9.3,
+  "total_appearances": 623,
+  "usage_pct": 9.2,
   "avg_copies": 1.8,
   "unique_archetypes": 37,
-  "weighted_score": 1014.2,
-  "win_rate_proxy": 1.61,
+  "weighted_score": 1008.0,
+  "win_rate_proxy": 1.62,
   "top_archetype": "Dragapult Meowth",
   "trend_direction": "surging",
   "copy_distribution": [
     {
       "copies": 1,
-      "count": 250
+      "count": 247
     },
     {
       "copies": 2,
-      "count": 282
+      "count": 280
     },
     {
       "copies": 3,
@@ -44,7 +44,7 @@
     {
       "name": "Dragapult ex",
       "slug": "dragapult-ex",
-      "usage_count": 155,
+      "usage_count": 152,
       "avg_copies": 1.9,
       "tier": "B"
     },
@@ -65,7 +65,7 @@
     {
       "name": "Dragapult Dusknoir",
       "slug": "dragapult-dusknoir",
-      "usage_count": 45,
+      "usage_count": 43,
       "avg_copies": 1.5,
       "tier": "A"
     },
@@ -329,118 +329,113 @@
       "week": "2026-03-02",
       "usage_pct": 17.1,
       "avg_copies": 1.4
-    },
-    {
-      "week": "2026-03-16",
-      "usage_pct": 15.6,
-      "avg_copies": 1.4
     }
   ],
   "synergy_partners": [
     {
       "card_name": "Glalie",
       "support": 10,
-      "lift": 7.721,
+      "lift": 7.746,
       "jaccard": 0.016,
       "weighted_score": 14.1
     },
     {
       "card_name": "Mega Starmie ex",
       "support": 55,
-      "lift": 7.525,
-      "jaccard": 0.084,
+      "lift": 7.55,
+      "jaccard": 0.085,
       "weighted_score": 86.9
     },
     {
       "card_name": "Rosa's Encouragement",
-      "support": 159,
-      "lift": 6.713,
+      "support": 158,
+      "lift": 6.719,
       "jaccard": 0.219,
-      "weighted_score": 253.3
+      "weighted_score": 251.8
     },
     {
       "card_name": "Maractus",
       "support": 56,
-      "lift": 5.002,
+      "lift": 5.019,
       "jaccard": 0.081,
       "weighted_score": 93.6
     },
     {
       "card_name": "Mega Froslass ex",
       "support": 138,
-      "lift": 4.766,
-      "jaccard": 0.172,
+      "lift": 4.781,
+      "jaccard": 0.173,
       "weighted_score": 216.9
     },
     {
       "card_name": "Team Rocket's Venture Bomb",
       "support": 8,
-      "lift": 4.118,
-      "jaccard": 0.012,
+      "lift": 4.131,
+      "jaccard": 0.013,
       "weighted_score": 12.8
     },
     {
       "card_name": "Mega Signal",
       "support": 49,
-      "lift": 3.866,
-      "jaccard": 0.068,
+      "lift": 3.879,
+      "jaccard": 0.069,
       "weighted_score": 78.9
     },
     {
       "card_name": "Moltres",
       "support": 23,
-      "lift": 3.656,
+      "lift": 3.668,
       "jaccard": 0.034,
       "weighted_score": 33.2
     },
     {
       "card_name": "Dragapult ex",
-      "support": 449,
-      "lift": 3.007,
-      "jaccard": 0.25,
-      "weighted_score": 734.9
+      "support": 444,
+      "lift": 3.002,
+      "jaccard": 0.249,
+      "weighted_score": 728.7
     },
     {
       "card_name": "Drakloak",
-      "support": 449,
-      "lift": 3.0,
-      "jaccard": 0.25,
-      "weighted_score": 734.9
+      "support": 444,
+      "lift": 2.994,
+      "jaccard": 0.248,
+      "weighted_score": 728.7
     },
     {
       "card_name": "Dreepy",
-      "support": 449,
-      "lift": 3.0,
-      "jaccard": 0.25,
-      "weighted_score": 734.9
+      "support": 444,
+      "lift": 2.994,
+      "jaccard": 0.248,
+      "weighted_score": 728.7
     },
     {
       "card_name": "Salvatore",
       "support": 25,
-      "lift": 2.844,
+      "lift": 2.854,
       "jaccard": 0.036,
       "weighted_score": 37.5
     },
     {
       "card_name": "Brock's Scouting",
-      "support": 178,
-      "lift": 2.65,
-      "jaccard": 0.151,
-      "weighted_score": 296.0
+      "support": 175,
+      "lift": 2.647,
+      "jaccard": 0.15,
+      "weighted_score": 292.3
     },
     {
       "card_name": "Crispin",
-      "support": 586,
-      "lift": 2.51,
+      "support": 581,
+      "lift": 2.518,
       "jaccard": 0.228,
-      "weighted_score": 950.0
+      "weighted_score": 943.8
     },
     {
       "card_name": "Hoothoot",
-      "support": 126,
-      "lift": 2.458,
+      "support": 125,
+      "lift": 2.469,
       "jaccard": 0.119,
-      "weighted_score": 200.5
+      "weighted_score": 199.0
     }
   ]
 }

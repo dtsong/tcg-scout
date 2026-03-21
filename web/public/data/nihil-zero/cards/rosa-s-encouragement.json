@@ -7,18 +7,18 @@
   "image_url": null,
   "category": "Trainer",
   "rarity": null,
-  "total_appearances": 256,
+  "total_appearances": 255,
   "usage_pct": 3.8,
   "avg_copies": 1.0,
   "unique_archetypes": 22,
-  "weighted_score": 403.1,
+  "weighted_score": 401.6,
   "win_rate_proxy": 1.57,
   "top_archetype": "Dragapult Meowth",
-  "trend_direction": "surging",
+  "trend_direction": "stable",
   "copy_distribution": [
     {
       "copies": 1,
-      "count": 254
+      "count": 253
     },
     {
       "copies": 2,
@@ -36,7 +36,7 @@
     {
       "name": "Dragapult Dusknoir",
       "slug": "dragapult-dusknoir",
-      "usage_count": 57,
+      "usage_count": 56,
       "avg_copies": 1.0,
       "tier": "A"
     },
@@ -216,118 +216,113 @@
       "week": "2026-03-02",
       "usage_pct": 11.5,
       "avg_copies": 1.0
-    },
-    {
-      "week": "2026-03-16",
-      "usage_pct": 3.1,
-      "avg_copies": 1.0
     }
   ],
   "synergy_partners": [
     {
       "card_name": "Zweilous",
       "support": 5,
-      "lift": 12.053,
+      "lift": 12.043,
       "jaccard": 0.019,
       "weighted_score": 6.3
     },
     {
       "card_name": "Deino",
       "support": 5,
-      "lift": 11.048,
+      "lift": 11.039,
       "jaccard": 0.019,
       "weighted_score": 6.3
     },
     {
       "card_name": "Hydreigon ex",
       "support": 5,
-      "lift": 11.048,
+      "lift": 11.039,
       "jaccard": 0.019,
       "weighted_score": 6.3
     },
     {
       "card_name": "Risky Ruins",
-      "support": 159,
-      "lift": 6.713,
+      "support": 158,
+      "lift": 6.719,
       "jaccard": 0.219,
-      "weighted_score": 253.3
+      "weighted_score": 251.8
     },
     {
       "card_name": "Hoothoot",
-      "support": 138,
-      "lift": 6.605,
+      "support": 137,
+      "lift": 6.611,
       "jaccard": 0.205,
-      "weighted_score": 216.2
+      "weighted_score": 214.7
     },
     {
       "card_name": "Noctowl",
-      "support": 138,
-      "lift": 6.605,
+      "support": 137,
+      "lift": 6.611,
       "jaccard": 0.205,
-      "weighted_score": 216.2
+      "weighted_score": 214.7
     },
     {
       "card_name": "Briar",
-      "support": 129,
-      "lift": 5.447,
+      "support": 128,
+      "lift": 5.443,
       "jaccard": 0.171,
-      "weighted_score": 200.7
+      "weighted_score": 199.2
     },
     {
       "card_name": "Dusclops",
-      "support": 194,
-      "lift": 4.465,
+      "support": 193,
+      "lift": 4.454,
       "jaccard": 0.16,
-      "weighted_score": 302.1
+      "weighted_score": 300.6
     },
     {
       "card_name": "Dusknoir",
-      "support": 198,
-      "lift": 4.346,
+      "support": 197,
+      "lift": 4.335,
       "jaccard": 0.156,
-      "weighted_score": 308.8
+      "weighted_score": 307.3
     },
     {
       "card_name": "Duskull",
-      "support": 198,
-      "lift": 4.279,
+      "support": 197,
+      "lift": 4.268,
       "jaccard": 0.154,
-      "weighted_score": 308.8
+      "weighted_score": 307.3
     },
     {
       "card_name": "Team Rocket's Watchtower",
       "support": 156,
-      "lift": 3.997,
-      "jaccard": 0.137,
+      "lift": 4.009,
+      "jaccard": 0.138,
       "weighted_score": 246.1
     },
     {
       "card_name": "Dragapult ex",
-      "support": 239,
-      "lift": 3.926,
+      "support": 238,
+      "lift": 3.931,
       "jaccard": 0.147,
-      "weighted_score": 374.6
+      "weighted_score": 373.1
     },
     {
       "card_name": "Drakloak",
-      "support": 239,
-      "lift": 3.917,
+      "support": 238,
+      "lift": 3.921,
       "jaccard": 0.146,
-      "weighted_score": 374.6
+      "weighted_score": 373.1
     },
     {
       "card_name": "Dreepy",
-      "support": 239,
-      "lift": 3.917,
+      "support": 238,
+      "lift": 3.921,
       "jaccard": 0.146,
-      "weighted_score": 374.6
+      "weighted_score": 373.1
     },
     {
       "card_name": "Crispin",
-      "support": 239,
-      "lift": 2.511,
+      "support": 238,
+      "lift": 2.52,
       "jaccard": 0.094,
-      "weighted_score": 374.9
+      "weighted_score": 373.4
     }
   ]
 }

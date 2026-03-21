@@ -72,6 +72,7 @@ def compute_optimal_60(
     cl_tournament_ids: set[str] | None = None,
     cl_boost: float | None = None,
     min_cl_decks: int = 3,
+    card_set_lookup: dict[str, tuple[str, str]] | None = None,
 ) -> dict | None:
     """Build a CL-boosted weighted consensus 60-card decklist for an archetype.
 
@@ -219,6 +220,7 @@ def compute_optimal_60(
             cd["cl_count"],
         )
 
+        set_info = card_set_lookup.get(card_name) if card_set_lookup else None
         cards.append(
             {
                 "card_name": card_name,
@@ -233,6 +235,8 @@ def compute_optimal_60(
                 "cl_avg_copies": cl_avg,
                 "meta_avg_copies": meta_avg,
                 "insight": insight,
+                "set_code": set_info[0] if set_info else None,
+                "set_number": set_info[1] if set_info else None,
             }
         )
 

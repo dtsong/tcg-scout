@@ -7,14 +7,14 @@
   "image_url": null,
   "category": "Pokemon",
   "rarity": null,
-  "total_appearances": 1227,
-  "usage_pct": 18.1,
+  "total_appearances": 1223,
+  "usage_pct": 18.2,
   "avg_copies": 2.1,
   "unique_archetypes": 50,
-  "weighted_score": 1918.2,
+  "weighted_score": 1913.7,
   "win_rate_proxy": 1.56,
   "top_archetype": "Dragapult Dusknoir",
-  "trend_direction": "declining",
+  "trend_direction": "stable",
   "copy_distribution": [
     {
       "copies": 1,
@@ -22,7 +22,7 @@
     },
     {
       "copies": 2,
-      "count": 957
+      "count": 953
     },
     {
       "copies": 3,
@@ -37,7 +37,7 @@
     {
       "name": "Dragapult Dusknoir",
       "slug": "dragapult-dusknoir",
-      "usage_count": 612,
+      "usage_count": 608,
       "avg_copies": 2.0,
       "tier": "A"
     },
@@ -393,12 +393,12 @@
     },
     {
       "week": "2026-01-26",
-      "usage_pct": 18.2,
+      "usage_pct": 18.3,
       "avg_copies": 2.1
     },
     {
       "week": "2026-02-02",
-      "usage_pct": 25.1,
+      "usage_pct": 25.2,
       "avg_copies": 2.2
     },
     {
@@ -420,118 +420,113 @@
       "week": "2026-03-02",
       "usage_pct": 16.8,
       "avg_copies": 2.0
-    },
-    {
-      "week": "2026-03-16",
-      "usage_pct": 12.5,
-      "avg_copies": 2.0
     }
   ],
   "synergy_partners": [
     {
       "card_name": "Dusclops",
-      "support": 1152,
-      "lift": 5.532,
+      "support": 1148,
+      "lift": 5.524,
       "jaccard": 0.939,
-      "weighted_score": 1799.8
+      "weighted_score": 1795.3
     },
     {
       "card_name": "Dusknoir",
-      "support": 1208,
-      "lift": 5.532,
-      "jaccard": 0.985,
-      "weighted_score": 1886.4
+      "support": 1204,
+      "lift": 5.524,
+      "jaccard": 0.984,
+      "weighted_score": 1881.9
     },
     {
       "card_name": "Grand Tree",
       "support": 85,
-      "lift": 5.111,
+      "lift": 5.104,
       "jaccard": 0.069,
       "weighted_score": 135.0
     },
     {
       "card_name": "Frogadier",
       "support": 84,
-      "lift": 5.107,
+      "lift": 5.099,
       "jaccard": 0.068,
       "weighted_score": 134.1
     },
     {
       "card_name": "Froakie",
       "support": 85,
-      "lift": 5.056,
+      "lift": 5.049,
       "jaccard": 0.069,
       "weighted_score": 135.6
     },
     {
       "card_name": "Greninja ex",
       "support": 85,
-      "lift": 5.056,
+      "lift": 5.049,
       "jaccard": 0.069,
       "weighted_score": 135.6
     },
     {
-      "card_name": "Rosa's Encouragement",
-      "support": 198,
-      "lift": 4.279,
-      "jaccard": 0.154,
-      "weighted_score": 308.8
-    },
-    {
       "card_name": "Mystery Garden",
       "support": 150,
-      "lift": 4.277,
+      "lift": 4.271,
       "jaccard": 0.118,
       "weighted_score": 225.8
     },
     {
+      "card_name": "Rosa's Encouragement",
+      "support": 197,
+      "lift": 4.268,
+      "jaccard": 0.154,
+      "weighted_score": 307.3
+    },
+    {
       "card_name": "Mega Diancie ex",
       "support": 145,
-      "lift": 4.072,
-      "jaccard": 0.113,
+      "lift": 4.066,
+      "jaccard": 0.114,
       "weighted_score": 214.7
     },
     {
       "card_name": "Powerglass",
       "support": 142,
-      "lift": 3.889,
-      "jaccard": 0.11,
+      "lift": 3.883,
+      "jaccard": 0.111,
       "weighted_score": 210.8
     },
     {
       "card_name": "Flutter Mane",
       "support": 92,
-      "lift": 3.798,
-      "jaccard": 0.072,
+      "lift": 3.793,
+      "jaccard": 0.073,
       "weighted_score": 132.9
     },
     {
       "card_name": "Briar",
-      "support": 368,
-      "lift": 3.242,
+      "support": 366,
+      "lift": 3.245,
       "jaccard": 0.247,
-      "weighted_score": 573.7
+      "weighted_score": 571.2
     },
     {
       "card_name": "Jamming Tower",
-      "support": 739,
-      "lift": 3.138,
+      "support": 736,
+      "lift": 3.137,
       "jaccard": 0.413,
-      "weighted_score": 1162.0
+      "weighted_score": 1158.5
     },
     {
       "card_name": "Dragapult ex",
-      "support": 882,
-      "lift": 3.023,
+      "support": 878,
+      "lift": 3.024,
       "jaccard": 0.45,
-      "weighted_score": 1384.4
+      "weighted_score": 1379.9
     },
     {
       "card_name": "Drakloak",
-      "support": 883,
-      "lift": 3.019,
+      "support": 879,
+      "lift": 3.02,
       "jaccard": 0.45,
-      "weighted_score": 1386.4
+      "weighted_score": 1381.9
     }
   ]
 }

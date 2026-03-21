@@ -4,6 +4,7 @@ import { useState } from "react";
 import { ChevronDown, ChevronRight, ChevronUp } from "lucide-react";
 import { formatPlacement } from "@/app/lib/utils";
 import type { ArchetypeResult, DecklistCard } from "@/app/lib/types";
+import { CopyDecklistButton } from "@/app/components/copy-decklist-button";
 
 function DecklistView({ decklist }: { decklist: DecklistCard[] }) {
   const grouped: Record<string, DecklistCard[]> = {};
@@ -17,29 +18,34 @@ function DecklistView({ decklist }: { decklist: DecklistCard[] }) {
   const sortedCategories = categoryOrder.filter((c) => grouped[c]);
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 px-4 py-3">
-      {sortedCategories.map((category) => (
-        <div key={category}>
-          <h4 className="text-xs font-semibold text-surface-400 uppercase tracking-wider mb-2">
-            {category}
-          </h4>
-          <ul className="space-y-0.5">
-            {grouped[category].map((card) => (
-              <li
-                key={card.card_name}
-                className="flex items-baseline justify-between text-sm"
-              >
-                <span className="text-surface-200 truncate mr-2">
-                  {card.card_name}
-                </span>
-                <span className="text-surface-400 font-mono tabular-nums shrink-0">
-                  x{card.count}
-                </span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      ))}
+    <div className="px-4 py-3">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        {sortedCategories.map((category) => (
+          <div key={category}>
+            <h4 className="text-xs font-semibold text-surface-400 uppercase tracking-wider mb-2">
+              {category}
+            </h4>
+            <ul className="space-y-0.5">
+              {grouped[category].map((card) => (
+                <li
+                  key={card.card_name}
+                  className="flex items-baseline justify-between text-sm"
+                >
+                  <span className="text-surface-200 truncate mr-2">
+                    {card.card_name}
+                  </span>
+                  <span className="text-surface-400 font-mono tabular-nums shrink-0">
+                    x{card.count}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+      <div className="mt-3">
+        <CopyDecklistButton cards={decklist} compact />
+      </div>
     </div>
   );
 }

@@ -333,119 +333,163 @@
         {
           "card_name": "Duraludon",
           "count": 4,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "SCR",
+          "set_number": "106"
         },
         {
           "card_name": "Archaludon ex",
           "count": 4,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "SSP",
+          "set_number": "130"
         },
         {
           "card_name": "Dunsparce",
           "count": 3,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "JTG",
+          "set_number": "120"
         },
         {
           "card_name": "Dudunsparce",
           "count": 3,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "TEF",
+          "set_number": "129"
         },
         {
           "card_name": "Fezandipiti ex",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "ASC",
+          "set_number": "142"
         },
         {
           "card_name": "Psyduck",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "ASC",
+          "set_number": "39"
         },
         {
           "card_name": "Mega Mawile ex",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "MEG",
+          "set_number": "94"
         },
         {
           "card_name": "Fan Rotom",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "SCR",
+          "set_number": "118"
         },
         {
           "card_name": "Relicanth",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "TEF",
+          "set_number": "84"
         },
         {
           "card_name": "Night Stretcher",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "ASC",
+          "set_number": "196"
         },
         {
           "card_name": "Poké Pad",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "ASC",
+          "set_number": "198"
         },
         {
           "card_name": "Lillie's Determination",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "MEG",
+          "set_number": "119"
         },
         {
           "card_name": "Ultra Ball",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "MEG",
+          "set_number": "131"
         },
         {
           "card_name": "Boss's Orders",
           "count": 3,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "MEG",
+          "set_number": "114"
         },
         {
           "card_name": "Carmine",
           "count": 3,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "TWM",
+          "set_number": "145"
         },
         {
           "card_name": "Larry's Skill",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "PRE",
+          "set_number": "115"
         },
         {
           "card_name": "Explorer's Guidance",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "TEF",
+          "set_number": "147"
         },
         {
           "card_name": "Full Metal Lab",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "TEF",
+          "set_number": "148"
         },
         {
           "card_name": "Judge",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "DRI",
+          "set_number": "167"
         },
         {
           "card_name": "Xerosic's Machinations",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "SFA",
+          "set_number": "64"
         },
         {
           "card_name": "Metal Energy",
           "count": 10,
-          "category": "Energy"
+          "category": "Energy",
+          "set_code": "MEE",
+          "set_number": "8"
         },
         {
           "card_name": "Legacy Energy",
           "count": 1,
-          "category": "Energy"
+          "category": "Energy",
+          "set_code": "TWM",
+          "set_number": "167"
         }
       ]
     }
   ],
   "radar": {
     "meta_share": 0.1,
-    "weighted_share": 0.1,
+    "weighted_share": 0.0,
     "consistency": 65.0,
     "ceiling": 50,
     "popularity": 0.2,
@@ -486,11 +530,6 @@
     },
     {
       "week": "2026-03-02",
-      "meta_share": 0.0,
-      "deck_count": 0
-    },
-    {
-      "week": "2026-03-16",
       "meta_share": 0.0,
       "deck_count": 0
     }

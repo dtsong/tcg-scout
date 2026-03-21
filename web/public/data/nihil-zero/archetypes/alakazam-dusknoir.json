@@ -333,124 +333,170 @@
         {
           "card_name": "Abra",
           "count": 4,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "MEG",
+          "set_number": "54"
         },
         {
           "card_name": "Duskull",
           "count": 4,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "PRE",
+          "set_number": "35"
         },
         {
           "card_name": "Dudunsparce",
           "count": 4,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "TEF",
+          "set_number": "129"
         },
         {
           "card_name": "Kadabra",
           "count": 3,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "MEG",
+          "set_number": "55"
         },
         {
           "card_name": "Alakazam",
           "count": 3,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "MEG",
+          "set_number": "56"
         },
         {
           "card_name": "Dusclops",
           "count": 3,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "PRE",
+          "set_number": "36"
         },
         {
           "card_name": "Dunsparce",
           "count": 3,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "JTG",
+          "set_number": "120"
         },
         {
           "card_name": "Dusknoir",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "PRE",
+          "set_number": "37"
         },
         {
           "card_name": "Fezandipiti ex",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "ASC",
+          "set_number": "142"
         },
         {
           "card_name": "Shaymin",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "DRI",
+          "set_number": "10"
         },
         {
           "card_name": "Dunsparce",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "JTG",
+          "set_number": "120"
         },
         {
           "card_name": "Fan Rotom",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "SCR",
+          "set_number": "118"
         },
         {
           "card_name": "Poké Pad",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "ASC",
+          "set_number": "198"
         },
         {
           "card_name": "Rare Candy",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "MEG",
+          "set_number": "125"
         },
         {
           "card_name": "Dawn",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "PFL",
+          "set_number": "87"
         },
         {
           "card_name": "Buddy-Buddy Poffin",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "TEF",
+          "set_number": "144"
         },
         {
           "card_name": "Hilda",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "WHT",
+          "set_number": "84"
         },
         {
           "card_name": "Boss's Orders",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "MEG",
+          "set_number": "114"
         },
         {
           "card_name": "Battle Cage",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "PFL",
+          "set_number": "85"
         },
         {
           "card_name": "Lana's Aid",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "TWM",
+          "set_number": "155"
         },
         {
           "card_name": "Telepath Psychic Energy",
           "count": 4,
-          "category": "Energy"
+          "category": "Energy",
+          "set_code": "JP",
+          "set_number": "M3"
         },
         {
           "card_name": "Psychic Energy",
           "count": 1,
-          "category": "Energy"
+          "category": "Energy",
+          "set_code": "MEE",
+          "set_number": "5"
         },
         {
           "card_name": "Enriching Energy",
           "count": 1,
-          "category": "Energy"
+          "category": "Energy",
+          "set_code": "SSP",
+          "set_number": "191"
         }
       ]
     }
   ],
   "radar": {
     "meta_share": 0.1,
-    "weighted_share": 0.1,
+    "weighted_share": 0.0,
     "consistency": 85.0,
     "ceiling": 75,
     "popularity": 0.2,
@@ -491,11 +537,6 @@
     },
     {
       "week": "2026-03-02",
-      "meta_share": 0.0,
-      "deck_count": 0
-    },
-    {
-      "week": "2026-03-16",
       "meta_share": 0.0,
       "deck_count": 0
     }

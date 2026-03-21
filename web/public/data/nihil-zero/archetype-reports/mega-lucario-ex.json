@@ -2,19 +2,19 @@
   "archetype": "Mega Lucario ex",
   "slug": "mega-lucario-ex",
   "format": "nihil-zero",
-  "generated_at": "2026-03-21T07:19:12.414643+00:00",
+  "generated_at": "2026-03-21T22:12:22.534568+00:00",
   "tier": "Rogue",
-  "meta_share": 0.34,
-  "weighted_share": 0.35,
-  "deck_count": 23,
+  "meta_share": 0.31,
+  "weighted_share": 0.0,
+  "deck_count": 21,
   "best_placement": 1,
   "sprite_filenames": [
     "lucario-mega.png"
   ],
   "consensus_60": {
-    "quality_score": 77.4,
-    "total_pokemon": 15,
-    "total_trainer": 43,
+    "quality_score": 77.9,
+    "total_pokemon": 14,
+    "total_trainer": 44,
     "total_energy": 2,
     "cards": [
       {
@@ -24,7 +24,9 @@
         "weighted_inclusion_pct": 100.0,
         "weighted_avg_copies": 4.0,
         "confidence": 1.0,
-        "consensus": "core"
+        "consensus": "core",
+        "set_code": "MEG",
+        "set_number": "116"
       },
       {
         "card_name": "Premium Power Pro",
@@ -33,7 +35,9 @@
         "weighted_inclusion_pct": 100.0,
         "weighted_avg_copies": 4.0,
         "confidence": 1.0,
-        "consensus": "core"
+        "consensus": "core",
+        "set_code": "MEG",
+        "set_number": "124"
       },
       {
         "card_name": "Riolu",
@@ -42,7 +46,9 @@
         "weighted_inclusion_pct": 100.0,
         "weighted_avg_copies": 3.6,
         "confidence": 1.0,
-        "consensus": "core"
+        "consensus": "core",
+        "set_code": "MEG",
+        "set_number": "76"
       },
       {
         "card_name": "Poké Pad",
@@ -51,7 +57,9 @@
         "weighted_inclusion_pct": 100.0,
         "weighted_avg_copies": 3.3,
         "confidence": 1.0,
-        "consensus": "core"
+        "consensus": "core",
+        "set_code": "ASC",
+        "set_number": "198"
       },
       {
         "card_name": "Mega Lucario ex",
@@ -60,7 +68,9 @@
         "weighted_inclusion_pct": 100.0,
         "weighted_avg_copies": 3.1,
         "confidence": 1.0,
-        "consensus": "core"
+        "consensus": "core",
+        "set_code": "MEG",
+        "set_number": "77"
       },
       {
         "card_name": "Boss's Orders",
@@ -69,16 +79,20 @@
         "weighted_inclusion_pct": 100.0,
         "weighted_avg_copies": 2.9,
         "confidence": 1.0,
-        "consensus": "core"
+        "consensus": "core",
+        "set_code": "MEG",
+        "set_number": "114"
       },
       {
-        "card_name": "Solrock",
+        "card_name": "Night Stretcher",
         "count": 2,
-        "category": "Pokemon",
+        "category": "Trainer",
         "weighted_inclusion_pct": 100.0,
         "weighted_avg_copies": 2.1,
         "confidence": 1.0,
-        "consensus": "core"
+        "consensus": "core",
+        "set_code": "ASC",
+        "set_number": "196"
       },
       {
         "card_name": "Lunatone",
@@ -87,187 +101,229 @@
         "weighted_inclusion_pct": 100.0,
         "weighted_avg_copies": 2.0,
         "confidence": 1.0,
-        "consensus": "core"
+        "consensus": "core",
+        "set_code": "MEG",
+        "set_number": "74"
+      },
+      {
+        "card_name": "Solrock",
+        "count": 2,
+        "category": "Pokemon",
+        "weighted_inclusion_pct": 100.0,
+        "weighted_avg_copies": 2.0,
+        "confidence": 1.0,
+        "consensus": "core",
+        "set_code": "MEG",
+        "set_number": "75"
       },
       {
         "card_name": "Ultra Ball",
         "count": 3,
         "category": "Trainer",
-        "weighted_inclusion_pct": 96.8,
+        "weighted_inclusion_pct": 96.6,
         "weighted_avg_copies": 3.4,
-        "confidence": 0.96,
-        "consensus": "core"
-      },
-      {
-        "card_name": "Night Stretcher",
-        "count": 2,
-        "category": "Trainer",
-        "weighted_inclusion_pct": 96.8,
-        "weighted_avg_copies": 2.1,
-        "confidence": 0.96,
-        "consensus": "core"
+        "confidence": 0.95,
+        "consensus": "core",
+        "set_code": "MEG",
+        "set_number": "131"
       },
       {
         "card_name": "Judge",
         "count": 2,
         "category": "Trainer",
-        "weighted_inclusion_pct": 93.6,
+        "weighted_inclusion_pct": 93.2,
         "weighted_avg_copies": 2.0,
-        "confidence": 0.91,
-        "consensus": "core"
+        "confidence": 0.9,
+        "consensus": "core",
+        "set_code": "DRI",
+        "set_number": "167"
       },
       {
         "card_name": "Lillie's Determination",
         "count": 4,
         "category": "Trainer",
-        "weighted_inclusion_pct": 93.3,
+        "weighted_inclusion_pct": 92.9,
         "weighted_avg_copies": 4.0,
-        "confidence": 0.96,
-        "consensus": "core"
+        "confidence": 0.95,
+        "consensus": "core",
+        "set_code": "MEG",
+        "set_number": "119"
       },
       {
         "card_name": "Gravity Mountain",
         "count": 1,
         "category": "Trainer",
-        "weighted_inclusion_pct": 87.2,
-        "weighted_avg_copies": 1.2,
-        "confidence": 0.83,
-        "consensus": "core"
+        "weighted_inclusion_pct": 86.4,
+        "weighted_avg_copies": 1.3,
+        "confidence": 0.81,
+        "consensus": "core",
+        "set_code": "SSP",
+        "set_number": "177"
       },
       {
         "card_name": "Air Balloon",
         "count": 2,
         "category": "Trainer",
-        "weighted_inclusion_pct": 82.1,
+        "weighted_inclusion_pct": 83.9,
         "weighted_avg_copies": 1.9,
-        "confidence": 0.83,
-        "consensus": "core"
+        "confidence": 0.86,
+        "consensus": "core",
+        "set_code": "ASC",
+        "set_number": "181"
       },
       {
         "card_name": "Wally's Compassion",
         "count": 2,
         "category": "Trainer",
-        "weighted_inclusion_pct": 81.1,
+        "weighted_inclusion_pct": 82.7,
         "weighted_avg_copies": 1.7,
-        "confidence": 0.78,
-        "consensus": "core"
+        "confidence": 0.81,
+        "consensus": "core",
+        "set_code": "MEG",
+        "set_number": "132"
       },
       {
         "card_name": "Switch",
         "count": 1,
         "category": "Trainer",
-        "weighted_inclusion_pct": 78.9,
-        "weighted_avg_copies": 1.3,
-        "confidence": 0.83,
-        "consensus": "core"
+        "weighted_inclusion_pct": 77.6,
+        "weighted_avg_copies": 1.2,
+        "confidence": 0.81,
+        "consensus": "core",
+        "set_code": "MEG",
+        "set_number": "130"
       },
       {
         "card_name": "Rock Fighting Energy",
         "count": 2,
         "category": "Energy",
-        "weighted_inclusion_pct": 55.5,
+        "weighted_inclusion_pct": 58.9,
         "weighted_avg_copies": 1.9,
-        "confidence": 0.57,
-        "consensus": "common"
-      },
-      {
-        "card_name": "Carmine",
-        "count": 3,
-        "category": "Trainer",
-        "weighted_inclusion_pct": 51.7,
-        "weighted_avg_copies": 2.6,
-        "confidence": 0.48,
-        "consensus": "common"
+        "confidence": 0.62,
+        "consensus": "common",
+        "set_code": "JP",
+        "set_number": "M3"
       },
       {
         "card_name": "Maximum Belt",
         "count": 1,
         "category": "Trainer",
-        "weighted_inclusion_pct": 51.5,
+        "weighted_inclusion_pct": 54.7,
         "weighted_avg_copies": 1.0,
-        "confidence": 0.52,
-        "consensus": "common"
+        "confidence": 0.57,
+        "consensus": "common",
+        "set_code": "TEF",
+        "set_number": "154"
       },
       {
         "card_name": "Makuhita",
         "count": 1,
         "category": "Pokemon",
-        "weighted_inclusion_pct": 49.9,
+        "weighted_inclusion_pct": 53.0,
         "weighted_avg_copies": 1.0,
-        "confidence": 0.43,
-        "consensus": "tech"
+        "confidence": 0.48,
+        "consensus": "common",
+        "set_code": "MEG",
+        "set_number": "72"
       },
       {
         "card_name": "Hariyama",
         "count": 1,
         "category": "Pokemon",
-        "weighted_inclusion_pct": 49.9,
+        "weighted_inclusion_pct": 53.0,
         "weighted_avg_copies": 1.0,
-        "confidence": 0.43,
-        "consensus": "tech"
+        "confidence": 0.48,
+        "consensus": "common",
+        "set_code": "MEG",
+        "set_number": "73"
+      },
+      {
+        "card_name": "Carmine",
+        "count": 3,
+        "category": "Trainer",
+        "weighted_inclusion_pct": 51.6,
+        "weighted_avg_copies": 2.7,
+        "confidence": 0.48,
+        "consensus": "common",
+        "set_code": "TWM",
+        "set_number": "145"
       },
       {
         "card_name": "Tool Scrapper",
         "count": 1,
         "category": "Trainer",
-        "weighted_inclusion_pct": 24.0,
+        "weighted_inclusion_pct": 25.5,
         "weighted_avg_copies": 1.0,
-        "confidence": 0.26,
-        "consensus": "tech"
+        "confidence": 0.29,
+        "consensus": "tech",
+        "set_code": "ASC",
+        "set_number": "212"
       },
       {
         "card_name": "Team Rocket's Watchtower",
         "count": 1,
         "category": "Trainer",
-        "weighted_inclusion_pct": 23.7,
-        "weighted_avg_copies": 1.1,
-        "confidence": 0.22,
-        "consensus": "tech"
+        "weighted_inclusion_pct": 22.4,
+        "weighted_avg_copies": 1.2,
+        "confidence": 0.19,
+        "consensus": "tech",
+        "set_code": "DRI",
+        "set_number": "180"
       },
       {
         "card_name": "Genesect",
         "count": 1,
         "category": "Pokemon",
-        "weighted_inclusion_pct": 19.7,
+        "weighted_inclusion_pct": 21.0,
         "weighted_avg_copies": 1.0,
-        "confidence": 0.17,
-        "consensus": "tech"
+        "confidence": 0.19,
+        "consensus": "tech",
+        "set_code": "SFA",
+        "set_number": "40"
       },
       {
         "card_name": "Hilda",
         "count": 2,
         "category": "Trainer",
-        "weighted_inclusion_pct": 18.4,
+        "weighted_inclusion_pct": 19.5,
         "weighted_avg_copies": 1.7,
-        "confidence": 0.17,
-        "consensus": "tech"
+        "confidence": 0.19,
+        "consensus": "tech",
+        "set_code": "WHT",
+        "set_number": "84"
       },
       {
         "card_name": "Battle Cage",
         "count": 1,
         "category": "Trainer",
-        "weighted_inclusion_pct": 17.6,
+        "weighted_inclusion_pct": 18.7,
         "weighted_avg_copies": 1.0,
-        "confidence": 0.17,
-        "consensus": "tech"
+        "confidence": 0.19,
+        "consensus": "tech",
+        "set_code": "PFL",
+        "set_number": "85"
       },
       {
         "card_name": "Pokégear 3.0",
         "count": 3,
         "category": "Trainer",
-        "weighted_inclusion_pct": 16.3,
+        "weighted_inclusion_pct": 17.3,
         "weighted_avg_copies": 2.8,
-        "confidence": 0.17,
-        "consensus": "tech"
+        "confidence": 0.19,
+        "consensus": "tech",
+        "set_code": "SVI",
+        "set_number": "186"
       },
       {
-        "card_name": "Meowth ex",
+        "card_name": "Team Rocket's Petrel",
         "count": 1,
-        "category": "Pokemon",
-        "weighted_inclusion_pct": 16.3,
-        "weighted_avg_copies": 1.0,
-        "confidence": 0.17,
-        "consensus": "tech"
+        "category": "Trainer",
+        "weighted_inclusion_pct": 17.0,
+        "weighted_avg_copies": 2.0,
+        "confidence": 0.24,
+        "consensus": "tech",
+        "set_code": "DRI",
+        "set_number": "176"
       }
     ]
   },
@@ -278,82 +334,9 @@
       "2026-02-02",
       "2026-02-09",
       "2026-02-23",
-      "2026-03-02",
-      "2026-03-16"
+      "2026-03-02"
     ],
     "cards": [
-      {
-        "card_name": "Crispin",
-        "category": "Trainer",
-        "timeline": [
-          33.3,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          100.0
-        ],
-        "copies_timeline": [
-          2.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          1.5
-        ],
-        "trend": "shifted",
-        "total_delta": 66.7
-      },
-      {
-        "card_name": "Gravity Mountain",
-        "category": "Trainer",
-        "timeline": [
-          33.3,
-          50.0,
-          100.0,
-          100.0,
-          100.0,
-          75.0,
-          100.0
-        ],
-        "copies_timeline": [
-          1.0,
-          1.0,
-          1.0,
-          1.0,
-          1.4,
-          1.7,
-          1.0
-        ],
-        "trend": "shifted",
-        "total_delta": 66.7
-      },
-      {
-        "card_name": "Munkidori",
-        "category": "Pokemon",
-        "timeline": [
-          33.3,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          100.0
-        ],
-        "copies_timeline": [
-          2.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          2.0
-        ],
-        "trend": "shifted",
-        "total_delta": 66.7
-      },
       {
         "card_name": "Carmine",
         "category": "Trainer",
@@ -363,8 +346,7 @@
           66.7,
           50.0,
           57.1,
-          75.0,
-          50.0
+          75.0
         ],
         "copies_timeline": [
           0.0,
@@ -372,7 +354,50 @@
           3.0,
           4.0,
           2.2,
-          2.0,
+          2.0
+        ],
+        "trend": "adopted",
+        "total_delta": 75.0
+      },
+      {
+        "card_name": "Genesect",
+        "category": "Pokemon",
+        "timeline": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          28.6,
+          50.0
+        ],
+        "copies_timeline": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0
+        ],
+        "trend": "adopted",
+        "total_delta": 50.0
+      },
+      {
+        "card_name": "Hero's Cape",
+        "category": "Trainer",
+        "timeline": [
+          0.0,
+          0.0,
+          33.3,
+          0.0,
+          0.0,
+          50.0
+        ],
+        "copies_timeline": [
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
           1.0
         ],
         "trend": "adopted",
@@ -387,7 +412,6 @@
           0.0,
           0.0,
           0.0,
-          50.0,
           50.0
         ],
         "copies_timeline": [
@@ -396,83 +420,54 @@
           0.0,
           0.0,
           0.0,
-          1.0,
           1.0
         ],
         "trend": "adopted",
         "total_delta": 50.0
       },
       {
-        "card_name": "Night Stretcher",
+        "card_name": "Gravity Mountain",
         "category": "Trainer",
         "timeline": [
+          33.3,
+          50.0,
           100.0,
           100.0,
           100.0,
-          100.0,
-          100.0,
-          100.0,
-          50.0
+          75.0
         ],
         "copies_timeline": [
-          2.0,
-          2.0,
-          2.7,
-          2.0,
-          2.1,
-          2.0,
-          2.0
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.4,
+          1.7
         ],
         "trend": "shifted",
-        "total_delta": -50.0
+        "total_delta": 41.7
       },
       {
-        "card_name": "Scoop Up Cyclone",
+        "card_name": "Air Balloon",
         "category": "Trainer",
         "timeline": [
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          14.3,
-          0.0,
-          50.0
+          66.7,
+          100.0,
+          100.0,
+          100.0,
+          71.4,
+          100.0
         ],
         "copies_timeline": [
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          1.0,
-          0.0,
-          1.0
+          1.5,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          1.5
         ],
-        "trend": "adopted",
-        "total_delta": 50.0
-      },
-      {
-        "card_name": "Unfair Stamp",
-        "category": "Trainer",
-        "timeline": [
-          0.0,
-          0.0,
-          33.3,
-          0.0,
-          0.0,
-          0.0,
-          50.0
-        ],
-        "copies_timeline": [
-          0.0,
-          0.0,
-          1.0,
-          0.0,
-          0.0,
-          0.0,
-          1.0
-        ],
-        "trend": "adopted",
-        "total_delta": 50.0
+        "trend": "shifted",
+        "total_delta": 33.3
       },
       {
         "card_name": "Core Memory",
@@ -483,12 +478,10 @@
           0.0,
           0.0,
           0.0,
-          0.0,
           0.0
         ],
         "copies_timeline": [
           1.0,
-          0.0,
           0.0,
           0.0,
           0.0,
@@ -499,24 +492,22 @@
         "total_delta": -33.3
       },
       {
-        "card_name": "Drilbur",
-        "category": "Pokemon",
+        "card_name": "Crispin",
+        "category": "Trainer",
         "timeline": [
           33.3,
-          50.0,
           0.0,
           0.0,
           0.0,
-          25.0,
+          0.0,
           0.0
         ],
         "copies_timeline": [
           2.0,
-          1.0,
           0.0,
           0.0,
           0.0,
-          1.0,
+          0.0,
           0.0
         ],
         "trend": "dropped",
@@ -531,12 +522,10 @@
           0.0,
           0.0,
           0.0,
-          0.0,
           0.0
         ],
         "copies_timeline": [
           1.0,
-          0.0,
           0.0,
           0.0,
           0.0,
@@ -555,7 +544,6 @@
           0.0,
           0.0,
           14.3,
-          0.0,
           0.0
         ],
         "copies_timeline": [
@@ -563,31 +551,6 @@
           0.0,
           0.0,
           0.0,
-          1.0,
-          0.0,
-          0.0
-        ],
-        "trend": "dropped",
-        "total_delta": -33.3
-      },
-      {
-        "card_name": "Hariyama",
-        "category": "Pokemon",
-        "timeline": [
-          33.3,
-          50.0,
-          33.3,
-          50.0,
-          57.1,
-          50.0,
-          0.0
-        ],
-        "copies_timeline": [
-          1.0,
-          1.0,
-          1.0,
-          1.0,
-          1.0,
           1.0,
           0.0
         ],
@@ -603,7 +566,6 @@
           0.0,
           0.0,
           42.9,
-          0.0,
           0.0
         ],
         "copies_timeline": [
@@ -612,7 +574,6 @@
           0.0,
           0.0,
           1.7,
-          0.0,
           0.0
         ],
         "trend": "dropped",
@@ -627,12 +588,10 @@
           0.0,
           0.0,
           0.0,
-          0.0,
           0.0
         ],
         "copies_timeline": [
           2.0,
-          0.0,
           0.0,
           0.0,
           0.0,
@@ -651,7 +610,6 @@
           0.0,
           0.0,
           28.6,
-          0.0,
           0.0
         ],
         "copies_timeline": [
@@ -660,55 +618,28 @@
           0.0,
           0.0,
           1.0,
-          0.0,
           0.0
         ],
         "trend": "dropped",
         "total_delta": -33.3
       },
       {
-        "card_name": "Makuhita",
+        "card_name": "Munkidori",
         "category": "Pokemon",
         "timeline": [
           33.3,
-          50.0,
-          33.3,
-          50.0,
-          57.1,
-          50.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
           0.0
         ],
         "copies_timeline": [
-          1.0,
-          1.0,
-          1.0,
-          1.0,
-          1.0,
-          1.0,
-          0.0
-        ],
-        "trend": "dropped",
-        "total_delta": -33.3
-      },
-      {
-        "card_name": "Maximum Belt",
-        "category": "Trainer",
-        "timeline": [
-          33.3,
-          100.0,
-          33.3,
-          100.0,
-          57.1,
-          50.0,
-          0.0
-        ],
-        "copies_timeline": [
-          1.0,
-          1.0,
-          1.0,
-          1.0,
-          1.0,
-          1.0,
+          2.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
           0.0
         ],
         "trend": "dropped",
@@ -723,7 +654,6 @@
           33.3,
           50.0,
           14.3,
-          0.0,
           0.0
         ],
         "copies_timeline": [
@@ -732,7 +662,6 @@
           2.0,
           4.0,
           3.0,
-          0.0,
           0.0
         ],
         "trend": "dropped",
@@ -747,12 +676,10 @@
           0.0,
           0.0,
           0.0,
-          0.0,
           0.0
         ],
         "copies_timeline": [
           1.0,
-          0.0,
           0.0,
           0.0,
           0.0,
@@ -771,7 +698,6 @@
           0.0,
           0.0,
           14.3,
-          0.0,
           0.0
         ],
         "copies_timeline": [
@@ -779,79 +705,6 @@
           0.0,
           0.0,
           0.0,
-          1.0,
-          0.0,
-          0.0
-        ],
-        "trend": "dropped",
-        "total_delta": -33.3
-      },
-      {
-        "card_name": "Rock Fighting Energy",
-        "category": "Energy",
-        "timeline": [
-          33.3,
-          50.0,
-          33.3,
-          50.0,
-          100.0,
-          50.0,
-          0.0
-        ],
-        "copies_timeline": [
-          2.0,
-          1.0,
-          3.0,
-          2.0,
-          1.9,
-          2.0,
-          0.0
-        ],
-        "trend": "dropped",
-        "total_delta": -33.3
-      },
-      {
-        "card_name": "Switch",
-        "category": "Trainer",
-        "timeline": [
-          66.7,
-          100.0,
-          100.0,
-          100.0,
-          71.4,
-          75.0,
-          100.0
-        ],
-        "copies_timeline": [
-          1.5,
-          1.5,
-          1.0,
-          1.0,
-          1.4,
-          1.3,
-          1.5
-        ],
-        "trend": "shifted",
-        "total_delta": 33.3
-      },
-      {
-        "card_name": "Team Rocket's Petrel",
-        "category": "Trainer",
-        "timeline": [
-          33.3,
-          100.0,
-          0.0,
-          0.0,
-          14.3,
-          25.0,
-          0.0
-        ],
-        "copies_timeline": [
-          4.0,
-          2.0,
-          0.0,
-          0.0,
-          1.0,
           1.0,
           0.0
         ],
@@ -867,92 +720,18 @@
           100.0,
           0.0,
           0.0,
-          0.0,
           0.0
         ],
         "copies_timeline": [
           1.0,
           1.0,
           1.0,
-          0.0,
           0.0,
           0.0,
           0.0
         ],
         "trend": "dropped",
         "total_delta": -33.3
-      },
-      {
-        "card_name": "Air Balloon",
-        "category": "Trainer",
-        "timeline": [
-          66.7,
-          100.0,
-          100.0,
-          100.0,
-          71.4,
-          100.0,
-          50.0
-        ],
-        "copies_timeline": [
-          1.5,
-          2.0,
-          2.0,
-          2.0,
-          2.0,
-          1.5,
-          1.0
-        ],
-        "trend": "stable",
-        "total_delta": -16.7
-      },
-      {
-        "card_name": "Team Rocket's Watchtower",
-        "category": "Trainer",
-        "timeline": [
-          33.3,
-          0.0,
-          0.0,
-          50.0,
-          0.0,
-          50.0,
-          50.0
-        ],
-        "copies_timeline": [
-          2.0,
-          0.0,
-          0.0,
-          1.0,
-          0.0,
-          1.0,
-          1.0
-        ],
-        "trend": "stable",
-        "total_delta": 16.7
-      },
-      {
-        "card_name": "Wally's Compassion",
-        "category": "Trainer",
-        "timeline": [
-          66.7,
-          100.0,
-          66.7,
-          100.0,
-          85.7,
-          75.0,
-          50.0
-        ],
-        "copies_timeline": [
-          1.5,
-          1.5,
-          2.5,
-          2.0,
-          1.7,
-          1.3,
-          1.0
-        ],
-        "trend": "stable",
-        "total_delta": -16.7
       },
       {
         "card_name": "Battle Cage",
@@ -963,8 +742,7 @@
           66.7,
           50.0,
           0.0,
-          25.0,
-          0.0
+          25.0
         ],
         "copies_timeline": [
           0.0,
@@ -972,11 +750,362 @@
           1.0,
           1.0,
           0.0,
+          1.0
+        ],
+        "trend": "shifted",
+        "total_delta": 25.0
+      },
+      {
+        "card_name": "Ciphermaniac's Codebreaking",
+        "category": "Trainer",
+        "timeline": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          28.6,
+          25.0
+        ],
+        "copies_timeline": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.5,
+          3.0
+        ],
+        "trend": "shifted",
+        "total_delta": 25.0
+      },
+      {
+        "card_name": "Cornerstone Mask Ogerpon ex",
+        "category": "Pokemon",
+        "timeline": [
+          0.0,
+          0.0,
+          0.0,
+          50.0,
+          0.0,
+          25.0
+        ],
+        "copies_timeline": [
+          0.0,
+          0.0,
+          0.0,
           1.0,
-          0.0
+          0.0,
+          1.0
+        ],
+        "trend": "shifted",
+        "total_delta": 25.0
+      },
+      {
+        "card_name": "Ethan's Sudowoodo",
+        "category": "Pokemon",
+        "timeline": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          25.0
+        ],
+        "copies_timeline": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "trend": "shifted",
+        "total_delta": 25.0
+      },
+      {
+        "card_name": "Larry's Skill",
+        "category": "Trainer",
+        "timeline": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          25.0
+        ],
+        "copies_timeline": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          3.0
+        ],
+        "trend": "shifted",
+        "total_delta": 25.0
+      },
+      {
+        "card_name": "Lillie's Determination",
+        "category": "Trainer",
+        "timeline": [
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          75.0
+        ],
+        "copies_timeline": [
+          4.0,
+          4.0,
+          4.0,
+          4.0,
+          3.9,
+          4.0
+        ],
+        "trend": "shifted",
+        "total_delta": -25.0
+      },
+      {
+        "card_name": "N's Plan",
+        "category": "Trainer",
+        "timeline": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          25.0
+        ],
+        "copies_timeline": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "trend": "shifted",
+        "total_delta": 25.0
+      },
+      {
+        "card_name": "Salvatore",
+        "category": "Trainer",
+        "timeline": [
+          0.0,
+          50.0,
+          0.0,
+          50.0,
+          0.0,
+          25.0
+        ],
+        "copies_timeline": [
+          0.0,
+          3.0,
+          0.0,
+          4.0,
+          0.0,
+          1.0
+        ],
+        "trend": "shifted",
+        "total_delta": 25.0
+      },
+      {
+        "card_name": "Hariyama",
+        "category": "Pokemon",
+        "timeline": [
+          33.3,
+          50.0,
+          33.3,
+          50.0,
+          57.1,
+          50.0
+        ],
+        "copies_timeline": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
         ],
         "trend": "stable",
-        "total_delta": 0.0
+        "total_delta": 16.7
+      },
+      {
+        "card_name": "Makuhita",
+        "category": "Pokemon",
+        "timeline": [
+          33.3,
+          50.0,
+          33.3,
+          50.0,
+          57.1,
+          50.0
+        ],
+        "copies_timeline": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "trend": "stable",
+        "total_delta": 16.7
+      },
+      {
+        "card_name": "Maximum Belt",
+        "category": "Trainer",
+        "timeline": [
+          33.3,
+          100.0,
+          33.3,
+          100.0,
+          57.1,
+          50.0
+        ],
+        "copies_timeline": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "trend": "stable",
+        "total_delta": 16.7
+      },
+      {
+        "card_name": "Rock Fighting Energy",
+        "category": "Energy",
+        "timeline": [
+          33.3,
+          50.0,
+          33.3,
+          50.0,
+          100.0,
+          50.0
+        ],
+        "copies_timeline": [
+          2.0,
+          1.0,
+          3.0,
+          2.0,
+          1.9,
+          2.0
+        ],
+        "trend": "stable",
+        "total_delta": 16.7
+      },
+      {
+        "card_name": "Team Rocket's Watchtower",
+        "category": "Trainer",
+        "timeline": [
+          33.3,
+          0.0,
+          0.0,
+          50.0,
+          0.0,
+          50.0
+        ],
+        "copies_timeline": [
+          2.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0
+        ],
+        "trend": "stable",
+        "total_delta": 16.7
+      },
+      {
+        "card_name": "Drilbur",
+        "category": "Pokemon",
+        "timeline": [
+          33.3,
+          50.0,
+          0.0,
+          0.0,
+          0.0,
+          25.0
+        ],
+        "copies_timeline": [
+          2.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "trend": "stable",
+        "total_delta": -8.3
+      },
+      {
+        "card_name": "Switch",
+        "category": "Trainer",
+        "timeline": [
+          66.7,
+          100.0,
+          100.0,
+          100.0,
+          71.4,
+          75.0
+        ],
+        "copies_timeline": [
+          1.5,
+          1.5,
+          1.0,
+          1.0,
+          1.4,
+          1.3
+        ],
+        "trend": "stable",
+        "total_delta": 8.3
+      },
+      {
+        "card_name": "Team Rocket's Petrel",
+        "category": "Trainer",
+        "timeline": [
+          33.3,
+          100.0,
+          0.0,
+          0.0,
+          14.3,
+          25.0
+        ],
+        "copies_timeline": [
+          4.0,
+          2.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0
+        ],
+        "trend": "stable",
+        "total_delta": -8.3
+      },
+      {
+        "card_name": "Wally's Compassion",
+        "category": "Trainer",
+        "timeline": [
+          66.7,
+          100.0,
+          66.7,
+          100.0,
+          85.7,
+          75.0
+        ],
+        "copies_timeline": [
+          1.5,
+          1.5,
+          2.5,
+          2.0,
+          1.7,
+          1.3
+        ],
+        "trend": "stable",
+        "total_delta": 8.3
       },
       {
         "card_name": "Black Belt's Training",
@@ -987,14 +1116,12 @@
           33.3,
           0.0,
           0.0,
-          0.0,
           0.0
         ],
         "copies_timeline": [
           0.0,
           1.0,
           1.0,
-          0.0,
           0.0,
           0.0,
           0.0
@@ -1011,7 +1138,6 @@
           100.0,
           100.0,
           100.0,
-          100.0,
           100.0
         ],
         "copies_timeline": [
@@ -1020,8 +1146,7 @@
           2.7,
           3.0,
           3.0,
-          2.8,
-          3.5
+          2.8
         ],
         "trend": "stable",
         "total_delta": 0.0
@@ -1035,7 +1160,6 @@
           33.3,
           0.0,
           0.0,
-          0.0,
           0.0
         ],
         "copies_timeline": [
@@ -1044,55 +1168,6 @@
           1.0,
           0.0,
           0.0,
-          0.0,
-          0.0
-        ],
-        "trend": "stable",
-        "total_delta": 0.0
-      },
-      {
-        "card_name": "Ciphermaniac's Codebreaking",
-        "category": "Trainer",
-        "timeline": [
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          28.6,
-          25.0,
-          0.0
-        ],
-        "copies_timeline": [
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          1.5,
-          3.0,
-          0.0
-        ],
-        "trend": "stable",
-        "total_delta": 0.0
-      },
-      {
-        "card_name": "Cornerstone Mask Ogerpon ex",
-        "category": "Pokemon",
-        "timeline": [
-          0.0,
-          0.0,
-          0.0,
-          50.0,
-          0.0,
-          25.0,
-          0.0
-        ],
-        "copies_timeline": [
-          0.0,
-          0.0,
-          0.0,
-          1.0,
-          0.0,
-          1.0,
           0.0
         ],
         "trend": "stable",
@@ -1107,13 +1182,11 @@
           0.0,
           0.0,
           0.0,
-          0.0,
           0.0
         ],
         "copies_timeline": [
           0.0,
           1.0,
-          0.0,
           0.0,
           0.0,
           0.0,
@@ -1131,13 +1204,11 @@
           0.0,
           0.0,
           0.0,
-          0.0,
           0.0
         ],
         "copies_timeline": [
           0.0,
           1.0,
-          0.0,
           0.0,
           0.0,
           0.0,
@@ -1155,7 +1226,6 @@
           33.3,
           0.0,
           0.0,
-          0.0,
           0.0
         ],
         "copies_timeline": [
@@ -1164,31 +1234,6 @@
           1.0,
           0.0,
           0.0,
-          0.0,
-          0.0
-        ],
-        "trend": "stable",
-        "total_delta": 0.0
-      },
-      {
-        "card_name": "Ethan's Sudowoodo",
-        "category": "Pokemon",
-        "timeline": [
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          25.0,
-          0.0
-        ],
-        "copies_timeline": [
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          1.0,
           0.0
         ],
         "trend": "stable",
@@ -1203,7 +1248,6 @@
           100.0,
           100.0,
           100.0,
-          100.0,
           100.0
         ],
         "copies_timeline": [
@@ -1212,56 +1256,7 @@
           4.0,
           4.0,
           4.0,
-          4.0,
           4.0
-        ],
-        "trend": "stable",
-        "total_delta": 0.0
-      },
-      {
-        "card_name": "Genesect",
-        "category": "Pokemon",
-        "timeline": [
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          28.6,
-          50.0,
-          0.0
-        ],
-        "copies_timeline": [
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          1.0,
-          1.0,
-          0.0
-        ],
-        "trend": "stable",
-        "total_delta": 0.0
-      },
-      {
-        "card_name": "Hero's Cape",
-        "category": "Trainer",
-        "timeline": [
-          0.0,
-          0.0,
-          33.3,
-          0.0,
-          0.0,
-          50.0,
-          0.0
-        ],
-        "copies_timeline": [
-          0.0,
-          0.0,
-          1.0,
-          0.0,
-          0.0,
-          1.0,
-          0.0
         ],
         "trend": "stable",
         "total_delta": 0.0
@@ -1275,7 +1270,6 @@
           100.0,
           50.0,
           100.0,
-          100.0,
           100.0
         ],
         "copies_timeline": [
@@ -1284,8 +1278,7 @@
           1.7,
           2.0,
           2.3,
-          2.2,
-          1.5
+          2.2
         ],
         "trend": "stable",
         "total_delta": 0.0
@@ -1299,7 +1292,6 @@
           33.3,
           0.0,
           0.0,
-          0.0,
           0.0
         ],
         "copies_timeline": [
@@ -1308,56 +1300,7 @@
           1.0,
           0.0,
           0.0,
-          0.0,
           0.0
-        ],
-        "trend": "stable",
-        "total_delta": 0.0
-      },
-      {
-        "card_name": "Larry's Skill",
-        "category": "Trainer",
-        "timeline": [
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          25.0,
-          0.0
-        ],
-        "copies_timeline": [
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          3.0,
-          0.0
-        ],
-        "trend": "stable",
-        "total_delta": 0.0
-      },
-      {
-        "card_name": "Lillie's Determination",
-        "category": "Trainer",
-        "timeline": [
-          100.0,
-          100.0,
-          100.0,
-          100.0,
-          100.0,
-          75.0,
-          100.0
-        ],
-        "copies_timeline": [
-          4.0,
-          4.0,
-          4.0,
-          4.0,
-          3.9,
-          4.0,
-          4.0
         ],
         "trend": "stable",
         "total_delta": 0.0
@@ -1371,11 +1314,9 @@
           100.0,
           100.0,
           100.0,
-          100.0,
           100.0
         ],
         "copies_timeline": [
-          2.0,
           2.0,
           2.0,
           2.0,
@@ -1395,7 +1336,6 @@
           100.0,
           100.0,
           100.0,
-          100.0,
           100.0
         ],
         "copies_timeline": [
@@ -1404,7 +1344,6 @@
           3.3,
           3.5,
           3.1,
-          3.0,
           3.0
         ],
         "trend": "stable",
@@ -1419,14 +1358,12 @@
           33.3,
           0.0,
           0.0,
-          0.0,
           0.0
         ],
         "copies_timeline": [
           0.0,
           0.0,
           2.0,
-          0.0,
           0.0,
           0.0,
           0.0
@@ -1443,14 +1380,12 @@
           33.3,
           0.0,
           0.0,
-          0.0,
           0.0
         ],
         "copies_timeline": [
           0.0,
           0.0,
           1.0,
-          0.0,
           0.0,
           0.0,
           0.0
@@ -1459,25 +1394,23 @@
         "total_delta": 0.0
       },
       {
-        "card_name": "N's Plan",
+        "card_name": "Night Stretcher",
         "category": "Trainer",
         "timeline": [
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          25.0,
-          0.0
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0
         ],
         "copies_timeline": [
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          1.0,
-          0.0
+          2.0,
+          2.0,
+          2.7,
+          2.0,
+          2.1,
+          2.0
         ],
         "trend": "stable",
         "total_delta": 0.0
@@ -1491,7 +1424,6 @@
           100.0,
           100.0,
           100.0,
-          100.0,
           100.0
         ],
         "copies_timeline": [
@@ -1500,8 +1432,7 @@
           3.7,
           2.5,
           3.0,
-          3.5,
-          4.0
+          3.5
         ],
         "trend": "stable",
         "total_delta": 0.0
@@ -1515,11 +1446,9 @@
           100.0,
           100.0,
           100.0,
-          100.0,
           100.0
         ],
         "copies_timeline": [
-          4.0,
           4.0,
           4.0,
           4.0,
@@ -1539,7 +1468,6 @@
           100.0,
           100.0,
           100.0,
-          100.0,
           100.0
         ],
         "copies_timeline": [
@@ -1548,32 +1476,7 @@
           3.3,
           3.5,
           4.0,
-          3.5,
-          4.0
-        ],
-        "trend": "stable",
-        "total_delta": 0.0
-      },
-      {
-        "card_name": "Salvatore",
-        "category": "Trainer",
-        "timeline": [
-          0.0,
-          50.0,
-          0.0,
-          50.0,
-          0.0,
-          25.0,
-          0.0
-        ],
-        "copies_timeline": [
-          0.0,
-          3.0,
-          0.0,
-          4.0,
-          0.0,
-          1.0,
-          0.0
+          3.5
         ],
         "trend": "stable",
         "total_delta": 0.0
@@ -1587,7 +1490,6 @@
           100.0,
           100.0,
           100.0,
-          100.0,
           100.0
         ],
         "copies_timeline": [
@@ -1596,8 +1498,7 @@
           2.0,
           2.0,
           2.0,
-          2.0,
-          3.0
+          2.0
         ],
         "trend": "stable",
         "total_delta": 0.0
@@ -1611,7 +1512,6 @@
           100.0,
           50.0,
           100.0,
-          100.0,
           100.0
         ],
         "copies_timeline": [
@@ -1620,8 +1520,29 @@
           2.0,
           4.0,
           3.6,
-          4.0,
-          3.5
+          4.0
+        ],
+        "trend": "stable",
+        "total_delta": 0.0
+      },
+      {
+        "card_name": "Unfair Stamp",
+        "category": "Trainer",
+        "timeline": [
+          0.0,
+          0.0,
+          33.3,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "copies_timeline": [
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
         ],
         "trend": "stable",
         "total_delta": 0.0
@@ -1630,18 +1551,11 @@
   },
   "notable_techs": [
     {
-      "card_name": "Crispin",
-      "event": "appeared",
-      "week": "2026-03-16",
-      "from_pct": 0.0,
-      "to_pct": 100.0
-    },
-    {
-      "card_name": "Munkidori",
-      "event": "appeared",
-      "week": "2026-03-16",
-      "from_pct": 0.0,
-      "to_pct": 100.0
+      "card_name": "Tool Scrapper",
+      "event": "disappeared",
+      "week": "2026-02-09",
+      "from_pct": 100.0,
+      "to_pct": 0.0
     },
     {
       "card_name": "Team Rocket's Petrel",
@@ -1651,14 +1565,14 @@
       "to_pct": 0.0
     },
     {
-      "card_name": "Tool Scrapper",
-      "event": "disappeared",
-      "week": "2026-02-09",
-      "from_pct": 100.0,
-      "to_pct": 0.0
+      "card_name": "Carmine",
+      "event": "appeared",
+      "week": "2026-02-02",
+      "from_pct": 0.0,
+      "to_pct": 66.7
     },
     {
-      "card_name": "Carmine",
+      "card_name": "Battle Cage",
       "event": "appeared",
       "week": "2026-02-02",
       "from_pct": 0.0,
@@ -1672,18 +1586,11 @@
       "to_pct": 100.0
     },
     {
-      "card_name": "Battle Cage",
+      "card_name": "Hero's Cape",
       "event": "appeared",
-      "week": "2026-02-02",
+      "week": "2026-03-02",
       "from_pct": 0.0,
-      "to_pct": 66.7
-    },
-    {
-      "card_name": "Gravity Mountain",
-      "event": "surged",
-      "week": "2026-02-02",
-      "from_pct": 50.0,
-      "to_pct": 100.0
+      "to_pct": 50.0
     },
     {
       "card_name": "Meowth ex",
@@ -1693,23 +1600,37 @@
       "to_pct": 50.0
     },
     {
-      "card_name": "Night Stretcher",
-      "event": "declined",
-      "week": "2026-03-16",
-      "from_pct": 100.0,
-      "to_pct": 50.0
+      "card_name": "Gravity Mountain",
+      "event": "surged",
+      "week": "2026-02-02",
+      "from_pct": 50.0,
+      "to_pct": 100.0
     },
     {
-      "card_name": "Scoop Up Cyclone",
+      "card_name": "Cornerstone Mask Ogerpon ex",
       "event": "appeared",
-      "week": "2026-03-16",
+      "week": "2026-02-09",
       "from_pct": 0.0,
       "to_pct": 50.0
     },
     {
-      "card_name": "Unfair Stamp",
+      "card_name": "Salvatore",
       "event": "appeared",
-      "week": "2026-03-16",
+      "week": "2026-01-26",
+      "from_pct": 0.0,
+      "to_pct": 50.0
+    },
+    {
+      "card_name": "Rock Fighting Energy",
+      "event": "surged",
+      "week": "2026-02-23",
+      "from_pct": 50.0,
+      "to_pct": 100.0
+    },
+    {
+      "card_name": "Team Rocket's Watchtower",
+      "event": "appeared",
+      "week": "2026-02-09",
       "from_pct": 0.0,
       "to_pct": 50.0
     },
@@ -1721,51 +1642,9 @@
       "to_pct": 0.0
     },
     {
-      "card_name": "Hariyama",
-      "event": "disappeared",
-      "week": "2026-03-16",
-      "from_pct": 50.0,
-      "to_pct": 0.0
-    },
-    {
-      "card_name": "Makuhita",
-      "event": "disappeared",
-      "week": "2026-03-16",
-      "from_pct": 50.0,
-      "to_pct": 0.0
-    },
-    {
-      "card_name": "Rock Fighting Energy",
-      "event": "surged",
-      "week": "2026-02-23",
-      "from_pct": 50.0,
-      "to_pct": 100.0
-    },
-    {
-      "card_name": "Air Balloon",
-      "event": "declined",
-      "week": "2026-03-16",
-      "from_pct": 100.0,
-      "to_pct": 50.0
-    },
-    {
-      "card_name": "Team Rocket's Watchtower",
-      "event": "appeared",
-      "week": "2026-02-09",
-      "from_pct": 0.0,
-      "to_pct": 50.0
-    },
-    {
       "card_name": "Black Belt's Training",
       "event": "appeared",
       "week": "2026-01-26",
-      "from_pct": 0.0,
-      "to_pct": 50.0
-    },
-    {
-      "card_name": "Cornerstone Mask Ogerpon ex",
-      "event": "appeared",
-      "week": "2026-02-09",
       "from_pct": 0.0,
       "to_pct": 50.0
     },
@@ -1784,31 +1663,10 @@
       "to_pct": 50.0
     },
     {
-      "card_name": "Genesect",
-      "event": "disappeared",
-      "week": "2026-03-16",
-      "from_pct": 50.0,
-      "to_pct": 0.0
-    },
-    {
-      "card_name": "Hero's Cape",
-      "event": "appeared",
-      "week": "2026-03-02",
-      "from_pct": 0.0,
-      "to_pct": 50.0
-    },
-    {
       "card_name": "Judge",
       "event": "declined",
       "week": "2026-01-26",
       "from_pct": 100.0,
-      "to_pct": 50.0
-    },
-    {
-      "card_name": "Salvatore",
-      "event": "appeared",
-      "week": "2026-01-26",
-      "from_pct": 0.0,
       "to_pct": 50.0
     },
     {
@@ -1833,7 +1691,21 @@
       "to_pct": 14.3
     },
     {
+      "card_name": "Air Balloon",
+      "event": "surged",
+      "week": "2026-01-26",
+      "from_pct": 66.7,
+      "to_pct": 100.0
+    },
+    {
       "card_name": "Core Memory",
+      "event": "disappeared",
+      "week": "2026-01-26",
+      "from_pct": 33.3,
+      "to_pct": 0.0
+    },
+    {
+      "card_name": "Crispin",
       "event": "disappeared",
       "week": "2026-01-26",
       "from_pct": 33.3,
@@ -1862,6 +1734,13 @@
     },
     {
       "card_name": "Legacy Energy",
+      "event": "disappeared",
+      "week": "2026-01-26",
+      "from_pct": 33.3,
+      "to_pct": 0.0
+    },
+    {
+      "card_name": "Munkidori",
       "event": "disappeared",
       "week": "2026-01-26",
       "from_pct": 33.3,
@@ -1931,6 +1810,20 @@
       "to_pct": 33.3
     },
     {
+      "card_name": "Unfair Stamp",
+      "event": "appeared",
+      "week": "2026-02-02",
+      "from_pct": 0.0,
+      "to_pct": 33.3
+    },
+    {
+      "card_name": "Genesect",
+      "event": "appeared",
+      "week": "2026-02-23",
+      "from_pct": 0.0,
+      "to_pct": 28.6
+    },
+    {
       "card_name": "Ciphermaniac's Codebreaking",
       "event": "appeared",
       "week": "2026-02-23",
@@ -1970,29 +1863,24 @@
     {
       "bracket": "1st",
       "count": 3,
-      "pct": 13.0
+      "pct": 14.3
     },
     {
       "bracket": "2nd",
       "count": 3,
-      "pct": 13.0
+      "pct": 14.3
     },
     {
       "bracket": "3rd-4th",
       "count": 1,
-      "pct": 4.3
+      "pct": 4.8
     },
     {
       "bracket": "9th-16th",
-      "count": 15,
-      "pct": 65.2
-    },
-    {
-      "bracket": "17th+",
-      "count": 1,
-      "pct": 4.3
+      "count": 14,
+      "pct": 66.7
     }
   ],
-  "tournament_count": 22,
+  "tournament_count": 21,
   "narrative": {}
 }

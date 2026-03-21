@@ -389,139 +389,191 @@
         {
           "card_name": "Erika's Oddish",
           "count": 4,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "ASC",
+          "set_number": "1"
         },
         {
           "card_name": "Erika's Gloom",
           "count": 3,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "ASC",
+          "set_number": "2"
         },
         {
           "card_name": "Erika's Vileplume ex",
           "count": 3,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "ASC",
+          "set_number": "3"
         },
         {
           "card_name": "Erika's Tangela",
           "count": 3,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "ASC",
+          "set_number": "7"
         },
         {
           "card_name": "Dreepy",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "TWM",
+          "set_number": "128"
         },
         {
           "card_name": "Drakloak",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "TWM",
+          "set_number": "129"
         },
         {
           "card_name": "Psyduck",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "ASC",
+          "set_number": "39"
         },
         {
           "card_name": "Munkidori",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "TWM",
+          "set_number": "95"
         },
         {
           "card_name": "Poké Pad",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "ASC",
+          "set_number": "198"
         },
         {
           "card_name": "Lillie's Determination",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "MEG",
+          "set_number": "119"
         },
         {
           "card_name": "Pokégear 3.0",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "SVI",
+          "set_number": "186"
         },
         {
           "card_name": "Night Stretcher",
           "count": 3,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "ASC",
+          "set_number": "196"
         },
         {
           "card_name": "Boss's Orders",
           "count": 3,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "MEG",
+          "set_number": "114"
         },
         {
           "card_name": "Forest of Vitality",
           "count": 3,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "MEG",
+          "set_number": "117"
         },
         {
           "card_name": "Air Balloon",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "ASC",
+          "set_number": "181"
         },
         {
           "card_name": "Crispin",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "SCR",
+          "set_number": "133"
         },
         {
           "card_name": "Tool Scrapper",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "ASC",
+          "set_number": "212"
         },
         {
           "card_name": "Judge",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "DRI",
+          "set_number": "167"
         },
         {
           "card_name": "Switch",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "MEG",
+          "set_number": "130"
         },
         {
           "card_name": "Jumbo Ice Cream",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "PFL",
+          "set_number": "91"
         },
         {
           "card_name": "Colress's Tenacity",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "SFA",
+          "set_number": "57"
         },
         {
           "card_name": "Morty's Conviction",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "TEF",
+          "set_number": "155"
         },
         {
           "card_name": "Grass Energy",
           "count": 4,
-          "category": "Energy"
+          "category": "Energy",
+          "set_code": "MEE",
+          "set_number": "1"
         },
         {
           "card_name": "Growth Grass Energy",
           "count": 3,
-          "category": "Energy"
+          "category": "Energy",
+          "set_code": "JP",
+          "set_number": "M3"
         },
         {
           "card_name": "Darkness Energy",
           "count": 2,
-          "category": "Energy"
+          "category": "Energy",
+          "set_code": "MEE",
+          "set_number": "7"
         },
         {
           "card_name": "Neo Upper Energy",
           "count": 1,
-          "category": "Energy"
+          "category": "Energy",
+          "set_code": "TEF",
+          "set_number": "162"
         }
       ]
     }
   ],
   "radar": {
     "meta_share": 0.1,
-    "weighted_share": 0.1,
+    "weighted_share": 0.0,
     "consistency": 30.0,
     "ceiling": 25,
     "popularity": 0.2,
@@ -562,11 +614,6 @@
     },
     {
       "week": "2026-03-02",
-      "meta_share": 0.0,
-      "deck_count": 0
-    },
-    {
-      "week": "2026-03-16",
       "meta_share": 0.0,
       "deck_count": 0
     }

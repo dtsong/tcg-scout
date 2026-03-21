@@ -375,134 +375,184 @@
         {
           "card_name": "Kadabra",
           "count": 4,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "MEG",
+          "set_number": "55"
         },
         {
           "card_name": "Abra",
           "count": 4,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "MEG",
+          "set_number": "54"
         },
         {
           "card_name": "Alakazam",
           "count": 3,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "MEG",
+          "set_number": "56"
         },
         {
           "card_name": "Slowpoke",
           "count": 3,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "SCR",
+          "set_number": "57"
         },
         {
           "card_name": "Slowking",
           "count": 3,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "SCR",
+          "set_number": "58"
         },
         {
           "card_name": "Kyurem",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "SFA",
+          "set_number": "47"
         },
         {
           "card_name": "Fezandipiti ex",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "ASC",
+          "set_number": "142"
         },
         {
           "card_name": "Spectrier",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "ASC",
+          "set_number": "98"
         },
         {
           "card_name": "Lillie's Clefairy ex",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "JTG",
+          "set_number": "56"
         },
         {
           "card_name": "Annihilape",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "SSP",
+          "set_number": "100"
         },
         {
           "card_name": "Smoochum",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "SSP",
+          "set_number": "75"
         },
         {
           "card_name": "Conkeldurr",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "TWM",
+          "set_number": "105"
         },
         {
           "card_name": "Poké Pad",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "ASC",
+          "set_number": "198"
         },
         {
           "card_name": "Academy at Night",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "SFA",
+          "set_number": "54"
         },
         {
           "card_name": "Hilda",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "WHT",
+          "set_number": "84"
         },
         {
           "card_name": "Dawn",
           "count": 3,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "PFL",
+          "set_number": "87"
         },
         {
           "card_name": "Wondrous Patch",
           "count": 3,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "PFL",
+          "set_number": "94"
         },
         {
           "card_name": "Night Stretcher",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "ASC",
+          "set_number": "196"
         },
         {
           "card_name": "Ciphermaniac's Codebreaking",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "TEF",
+          "set_number": "145"
         },
         {
           "card_name": "Morty's Conviction",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "TEF",
+          "set_number": "155"
         },
         {
           "card_name": "Sacred Ash",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "DRI",
+          "set_number": "168"
         },
         {
           "card_name": "Boss's Orders",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "MEG",
+          "set_number": "114"
         },
         {
           "card_name": "Prime Catcher",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "TEF",
+          "set_number": "157"
         },
         {
           "card_name": "Psychic Energy",
           "count": 4,
-          "category": "Energy"
+          "category": "Energy",
+          "set_code": "MEE",
+          "set_number": "5"
         },
         {
           "card_name": "Telepath Psychic Energy",
           "count": 4,
-          "category": "Energy"
+          "category": "Energy",
+          "set_code": "JP",
+          "set_number": "M3"
         }
       ]
     }
   ],
   "radar": {
     "meta_share": 0.1,
-    "weighted_share": 0.1,
+    "weighted_share": 0.0,
     "consistency": 50.0,
     "ceiling": 25,
     "popularity": 0.2,
@@ -543,11 +593,6 @@
     },
     {
       "week": "2026-03-02",
-      "meta_share": 0.0,
-      "deck_count": 0
-    },
-    {
-      "week": "2026-03-16",
       "meta_share": 0.0,
       "deck_count": 0
     }

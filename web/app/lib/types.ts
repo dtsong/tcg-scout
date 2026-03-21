@@ -111,6 +111,8 @@ export interface DecklistCard {
   card_name: string;
   count: number;
   category?: "Pokemon" | "Trainer" | "Energy";
+  set_code?: string | null;
+  set_number?: string | null;
 }
 
 export interface ArchetypeResult {
@@ -388,6 +390,8 @@ export interface Optimal60Card {
   cl_avg_copies: number;
   meta_avg_copies: number;
   insight: string | null;
+  set_code?: string | null;
+  set_number?: string | null;
 }
 
 export interface Optimal60Detail {
@@ -447,6 +451,8 @@ export interface ConsensusCard {
   weighted_avg_copies: number;
   confidence: number;
   consensus: "core" | "common" | "tech";
+  set_code?: string | null;
+  set_number?: string | null;
 }
 
 export interface TechEvolutionCard {

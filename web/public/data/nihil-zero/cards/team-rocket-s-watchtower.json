@@ -7,18 +7,18 @@
   "image_url": "https://assets.tcgdex.net/en/me/me02.5/210/high.png",
   "category": "Trainer",
   "rarity": "",
-  "total_appearances": 1035,
-  "usage_pct": 15.2,
+  "total_appearances": 1031,
+  "usage_pct": 15.3,
   "avg_copies": 1.3,
   "unique_archetypes": 83,
-  "weighted_score": 1597.2,
-  "win_rate_proxy": 1.54,
+  "weighted_score": 1593.0,
+  "win_rate_proxy": 1.55,
   "top_archetype": "Mega Lucario",
-  "trend_direction": "stable",
+  "trend_direction": "declining",
   "copy_distribution": [
     {
       "copies": 1,
-      "count": 736
+      "count": 732
     },
     {
       "copies": 2,
@@ -44,7 +44,7 @@
     {
       "name": "Dragapult Dusknoir",
       "slug": "dragapult-dusknoir",
-      "usage_count": 151,
+      "usage_count": 150,
       "avg_copies": 1.2,
       "tier": "A"
     },
@@ -77,18 +77,18 @@
       "tier": "B"
     },
     {
-      "name": "Dragapult ex",
-      "slug": "dragapult-ex",
-      "usage_count": 36,
-      "avg_copies": 1.4,
-      "tier": "B"
-    },
-    {
       "name": "Archaludon ex",
       "slug": "archaludon-ex",
       "usage_count": 35,
       "avg_copies": 1.9,
       "tier": "C"
+    },
+    {
+      "name": "Dragapult ex",
+      "slug": "dragapult-ex",
+      "usage_count": 34,
+      "avg_copies": 1.5,
+      "tier": "B"
     },
     {
       "name": "Zoroark ex",
@@ -168,13 +168,6 @@
       "tier": "Rogue"
     },
     {
-      "name": "Mega Lucario ex",
-      "slug": "mega-lucario-ex",
-      "usage_count": 5,
-      "avg_copies": 1.2,
-      "tier": "Rogue"
-    },
-    {
       "name": "Mega Froslass Munkidori",
       "slug": "mega-froslass-munkidori",
       "usage_count": 5,
@@ -186,6 +179,13 @@
       "slug": "dragapult-jellicent",
       "usage_count": 5,
       "avg_copies": 1.4,
+      "tier": "Rogue"
+    },
+    {
+      "name": "Mega Lucario ex",
+      "slug": "mega-lucario-ex",
+      "usage_count": 4,
+      "avg_copies": 1.3,
       "tier": "Rogue"
     },
     {
@@ -619,12 +619,12 @@
   "weekly_usage": [
     {
       "week": "2026-01-19",
-      "usage_pct": 26.3,
+      "usage_pct": 26.4,
       "avg_copies": 1.7
     },
     {
       "week": "2026-01-26",
-      "usage_pct": 18.3,
+      "usage_pct": 18.4,
       "avg_copies": 1.4
     },
     {
@@ -651,116 +651,111 @@
       "week": "2026-03-02",
       "usage_pct": 21.5,
       "avg_copies": 1.1
-    },
-    {
-      "week": "2026-03-16",
-      "usage_pct": 12.5,
-      "avg_copies": 1.0
     }
   ],
   "synergy_partners": [
     {
       "card_name": "Rosa's Encouragement",
       "support": 156,
-      "lift": 3.997,
-      "jaccard": 0.137,
+      "lift": 4.009,
+      "jaccard": 0.138,
       "weighted_score": 246.1
     },
     {
       "card_name": "Crushing Hammer",
       "support": 8,
-      "lift": 3.748,
+      "lift": 3.744,
       "jaccard": 0.008,
       "weighted_score": 12.0
     },
     {
       "card_name": "Yveltal ex",
       "support": 8,
-      "lift": 3.279,
+      "lift": 3.276,
       "jaccard": 0.008,
       "weighted_score": 11.5
     },
     {
       "card_name": "Brute Bonnet",
       "support": 14,
-      "lift": 3.061,
+      "lift": 3.058,
       "jaccard": 0.013,
       "weighted_score": 22.4
     },
     {
       "card_name": "Toxel",
       "support": 32,
-      "lift": 2.915,
+      "lift": 2.912,
       "jaccard": 0.03,
       "weighted_score": 51.0
     },
     {
       "card_name": "Toxtricity",
       "support": 32,
-      "lift": 2.915,
+      "lift": 2.912,
       "jaccard": 0.03,
       "weighted_score": 51.0
     },
     {
       "card_name": "Blaziken",
       "support": 7,
-      "lift": 2.869,
+      "lift": 2.867,
       "jaccard": 0.007,
       "weighted_score": 10.5
     },
     {
       "card_name": "Combusken",
       "support": 107,
-      "lift": 2.638,
+      "lift": 2.636,
       "jaccard": 0.09,
       "weighted_score": 170.7
     },
     {
       "card_name": "Blaziken ex",
       "support": 110,
-      "lift": 2.633,
+      "lift": 2.631,
       "jaccard": 0.092,
       "weighted_score": 176.1
     },
     {
       "card_name": "Torchic",
       "support": 110,
-      "lift": 2.633,
+      "lift": 2.631,
       "jaccard": 0.092,
       "weighted_score": 176.1
     },
     {
       "card_name": "Carvanha",
       "support": 16,
-      "lift": 2.623,
+      "lift": 2.621,
       "jaccard": 0.015,
       "weighted_score": 25.9
     },
     {
       "card_name": "Mega Sharpedo ex",
       "support": 16,
-      "lift": 2.623,
+      "lift": 2.621,
       "jaccard": 0.015,
       "weighted_score": 25.9
     },
     {
       "card_name": "Cynthia's Spiritomb",
       "support": 113,
-      "lift": 2.61,
+      "lift": 2.607,
       "jaccard": 0.094,
       "weighted_score": 167.4
     },
     {
       "card_name": "Cynthia's Power Weight",
       "support": 113,
-      "lift": 2.504,
+      "lift": 2.502,
       "jaccard": 0.093,
       "weighted_score": 167.4
     },
     {
       "card_name": "Cynthia's Gabite",
       "support": 113,
-      "lift": 2.495,
+      "lift": 2.493,
       "jaccard": 0.093,
       "weighted_score": 167.4
     }

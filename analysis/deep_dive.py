@@ -16,6 +16,7 @@ def compute_weighted_consensus_60(
     conn: sqlite3.Connection,
     archetype: str,
     category_lookup: dict[str, str] | None = None,
+    card_set_lookup: dict[str, tuple[str, str]] | None = None,
 ) -> dict | None:
     """Build a weighted consensus 60-card decklist for an archetype.
 
@@ -104,6 +105,7 @@ def compute_weighted_consensus_60(
             consensus = "tech"
 
         category = classify_card(card_name, category_lookup)
+        set_info = card_set_lookup.get(card_name) if card_set_lookup else None
         cards.append(
             {
                 "card_name": card_name,
@@ -113,6 +115,8 @@ def compute_weighted_consensus_60(
                 "weighted_avg_copies": weighted_avg,
                 "confidence": confidence,
                 "consensus": consensus,
+                "set_code": set_info[0] if set_info else None,
+                "set_number": set_info[1] if set_info else None,
             }
         )
 

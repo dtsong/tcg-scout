@@ -277,99 +277,135 @@
         {
           "card_name": "Charcadet",
           "count": 4,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "SSP",
+          "set_number": "32"
         },
         {
           "card_name": "N's Zorua",
           "count": 3,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "JTG",
+          "set_number": "97"
         },
         {
           "card_name": "N's Zoroark ex",
           "count": 3,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "JTG",
+          "set_number": "98"
         },
         {
           "card_name": "Ceruledge ex",
           "count": 3,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "SSP",
+          "set_number": "36"
         },
         {
           "card_name": "Tatsugiri",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "TWM",
+          "set_number": "131"
         },
         {
           "card_name": "Fezandipiti ex",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "ASC",
+          "set_number": "142"
         },
         {
           "card_name": "Ultra Ball",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "MEG",
+          "set_number": "131"
         },
         {
           "card_name": "Buddy-Buddy Poffin",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "TEF",
+          "set_number": "144"
         },
         {
           "card_name": "Night Stretcher",
           "count": 3,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "ASC",
+          "set_number": "196"
         },
         {
           "card_name": "Firebreather",
           "count": 3,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "PFL",
+          "set_number": "89"
         },
         {
           "card_name": "Naveen",
           "count": 3,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "JP",
+          "set_number": "M3"
         },
         {
           "card_name": "Lillie's Determination",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "MEG",
+          "set_number": "119"
         },
         {
           "card_name": "Hand Trimmer",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "TEF",
+          "set_number": "150"
         },
         {
           "card_name": "Boss's Orders",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "MEG",
+          "set_number": "114"
         },
         {
           "card_name": "Blowtorch",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "PFL",
+          "set_number": "86"
         },
         {
           "card_name": "Hero's Cape",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "TEF",
+          "set_number": "152"
         },
         {
           "card_name": "Kieran",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "TWM",
+          "set_number": "154"
         },
         {
           "card_name": "Fire Energy",
           "count": 19,
-          "category": "Energy"
+          "category": "Energy",
+          "set_code": "MEE",
+          "set_number": "2"
         }
       ]
     }
   ],
   "radar": {
     "meta_share": 0.1,
-    "weighted_share": 0.1,
+    "weighted_share": 0.0,
     "consistency": 30.0,
     "ceiling": 25,
     "popularity": 0.2,
@@ -412,11 +448,6 @@
       "week": "2026-03-02",
       "meta_share": 0.1,
       "deck_count": 1
-    },
-    {
-      "week": "2026-03-16",
-      "meta_share": 0.0,
-      "deck_count": 0
     }
   ],
   "top4_card_stats": [],

@@ -319,114 +319,156 @@
         {
           "card_name": "Duraludon",
           "count": 3,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "SCR",
+          "set_number": "106"
         },
         {
           "card_name": "Beldum",
           "count": 3,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "TEF",
+          "set_number": "113"
         },
         {
           "card_name": "Metang",
           "count": 3,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "TEF",
+          "set_number": "114"
         },
         {
           "card_name": "Fezandipiti ex",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "ASC",
+          "set_number": "142"
         },
         {
           "card_name": "Archaludon ex",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "SSP",
+          "set_number": "130"
         },
         {
           "card_name": "Heatran",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "TWM",
+          "set_number": "123"
         },
         {
           "card_name": "Genesect ex",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "BLK",
+          "set_number": "67"
         },
         {
           "card_name": "Dialga",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "MEG",
+          "set_number": "95"
         },
         {
           "card_name": "Archaludon",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "SCR",
+          "set_number": "107"
         },
         {
           "card_name": "Poké Pad",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "ASC",
+          "set_number": "198"
         },
         {
           "card_name": "Brock's Scouting",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "JTG",
+          "set_number": "146"
         },
         {
           "card_name": "Lillie's Determination",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "MEG",
+          "set_number": "119"
         },
         {
           "card_name": "Ultra Ball",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "MEG",
+          "set_number": "131"
         },
         {
           "card_name": "Pokégear 3.0",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "SVI",
+          "set_number": "186"
         },
         {
           "card_name": "Judge",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "DRI",
+          "set_number": "167"
         },
         {
           "card_name": "Boss's Orders",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "MEG",
+          "set_number": "114"
         },
         {
           "card_name": "Full Metal Lab",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "TEF",
+          "set_number": "148"
         },
         {
           "card_name": "Energy Recycler",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "DRI",
+          "set_number": "164"
         },
         {
           "card_name": "Night Stretcher",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "ASC",
+          "set_number": "196"
         },
         {
           "card_name": "Prime Catcher",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "TEF",
+          "set_number": "157"
         },
         {
           "card_name": "Metal Energy",
           "count": 13,
-          "category": "Energy"
+          "category": "Energy",
+          "set_code": "MEE",
+          "set_number": "8"
         }
       ]
     }
   ],
   "radar": {
     "meta_share": 0.1,
-    "weighted_share": 0.1,
+    "weighted_share": 0.0,
     "consistency": 75.0,
     "ceiling": 50,
     "popularity": 0.2,
@@ -467,11 +509,6 @@
     },
     {
       "week": "2026-03-02",
-      "meta_share": 0.0,
-      "deck_count": 0
-    },
-    {
-      "week": "2026-03-16",
       "meta_share": 0.0,
       "deck_count": 0
     }

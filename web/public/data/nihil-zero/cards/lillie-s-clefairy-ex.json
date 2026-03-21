@@ -7,22 +7,22 @@
   "image_url": "https://assets.tcgdex.net/en/sv/svp/195/high.png",
   "category": "Pokemon",
   "rarity": "",
-  "total_appearances": 1954,
+  "total_appearances": 1941,
   "usage_pct": 28.8,
   "avg_copies": 1.2,
   "unique_archetypes": 128,
-  "weighted_score": 3065.0,
+  "weighted_score": 3047.0,
   "win_rate_proxy": 1.57,
   "top_archetype": "Blaziken Dragapult",
   "trend_direction": "surging",
   "copy_distribution": [
     {
       "copies": 1,
-      "count": 1572
+      "count": 1563
     },
     {
       "copies": 2,
-      "count": 327
+      "count": 324
     },
     {
       "copies": 3,
@@ -30,7 +30,7 @@
     },
     {
       "copies": 4,
-      "count": 37
+      "count": 36
     }
   ],
   "archetypes": [
@@ -42,13 +42,6 @@
       "tier": "B"
     },
     {
-      "name": "Mewtwo Spidops",
-      "slug": "mewtwo-spidops",
-      "usage_count": 190,
-      "avg_copies": 1.0,
-      "tier": "B"
-    },
-    {
       "name": "Dragapult Dusknoir",
       "slug": "dragapult-dusknoir",
       "usage_count": 190,
@@ -56,9 +49,16 @@
       "tier": "A"
     },
     {
+      "name": "Mewtwo Spidops",
+      "slug": "mewtwo-spidops",
+      "usage_count": 187,
+      "avg_copies": 1.0,
+      "tier": "B"
+    },
+    {
       "name": "Dragapult ex",
       "slug": "dragapult-ex",
-      "usage_count": 187,
+      "usage_count": 184,
       "avg_copies": 1.0,
       "tier": "B"
     },
@@ -72,7 +72,7 @@
     {
       "name": "Dragapult Noctowl",
       "slug": "dragapult-noctowl",
-      "usage_count": 93,
+      "usage_count": 92,
       "avg_copies": 1.0,
       "tier": "C"
     },
@@ -93,7 +93,7 @@
     {
       "name": "Clefairy Ogerpon",
       "slug": "clefairy-ogerpon",
-      "usage_count": 67,
+      "usage_count": 66,
       "avg_copies": 3.3,
       "tier": "Rogue"
     },
@@ -128,21 +128,21 @@
     {
       "name": "Raging Bolt ex",
       "slug": "raging-bolt-ex",
-      "usage_count": 34,
+      "usage_count": 32,
       "avg_copies": 1.3,
       "tier": "C"
     },
     {
       "name": "Mega Absol Box",
       "slug": "mega-absol-box",
-      "usage_count": 30,
+      "usage_count": 29,
       "avg_copies": 1.8,
       "tier": "Rogue"
     },
     {
       "name": "Ogerpon Ogerpon Wellspring",
       "slug": "ogerpon-ogerpon-wellspring",
-      "usage_count": 27,
+      "usage_count": 26,
       "avg_copies": 2.0,
       "tier": "Rogue"
     },
@@ -156,7 +156,7 @@
     {
       "name": "Tera Box",
       "slug": "tera-box",
-      "usage_count": 19,
+      "usage_count": 18,
       "avg_copies": 1.6,
       "tier": "Rogue"
     },
@@ -939,17 +939,17 @@
     },
     {
       "week": "2026-01-26",
-      "usage_pct": 18.3,
+      "usage_pct": 18.4,
       "avg_copies": 1.1
     },
     {
       "week": "2026-02-02",
-      "usage_pct": 33.2,
+      "usage_pct": 33.3,
       "avg_copies": 1.2
     },
     {
       "week": "2026-02-09",
-      "usage_pct": 29.2,
+      "usage_pct": 29.3,
       "avg_copies": 1.2
     },
     {
@@ -959,123 +959,118 @@
     },
     {
       "week": "2026-02-23",
-      "usage_pct": 34.2,
+      "usage_pct": 34.3,
       "avg_copies": 1.4
     },
     {
       "week": "2026-03-02",
       "usage_pct": 36.6,
       "avg_copies": 1.4
-    },
-    {
-      "week": "2026-03-16",
-      "usage_pct": 40.6,
-      "avg_copies": 1.5
     }
   ],
   "synergy_partners": [
     {
       "card_name": "Cofagrigus",
       "support": 6,
-      "lift": 3.474,
+      "lift": 3.481,
       "jaccard": 0.003,
       "weighted_score": 8.9
     },
     {
       "card_name": "Espeon ex",
       "support": 25,
-      "lift": 3.474,
+      "lift": 3.481,
       "jaccard": 0.013,
       "weighted_score": 40.6
     },
     {
       "card_name": "Kirlia",
       "support": 5,
-      "lift": 3.474,
+      "lift": 3.481,
       "jaccard": 0.003,
       "weighted_score": 7.9
     },
     {
       "card_name": "Lillie's Pearl",
-      "support": 81,
-      "lift": 3.474,
+      "support": 80,
+      "lift": 3.481,
       "jaccard": 0.041,
-      "weighted_score": 126.0
+      "weighted_score": 125.0
     },
     {
       "card_name": "Lugia ex",
       "support": 8,
-      "lift": 3.474,
+      "lift": 3.481,
       "jaccard": 0.004,
       "weighted_score": 12.0
     },
     {
       "card_name": "Mega Audino ex",
       "support": 5,
-      "lift": 3.474,
+      "lift": 3.481,
       "jaccard": 0.003,
       "weighted_score": 6.6
     },
     {
       "card_name": "Mega Gardevoir ex",
       "support": 5,
-      "lift": 3.474,
+      "lift": 3.481,
       "jaccard": 0.003,
       "weighted_score": 7.9
     },
     {
       "card_name": "Mega Slowbro ex",
       "support": 8,
-      "lift": 3.474,
+      "lift": 3.481,
       "jaccard": 0.004,
       "weighted_score": 11.0
     },
     {
       "card_name": "Reshiram ex",
       "support": 7,
-      "lift": 3.474,
+      "lift": 3.481,
       "jaccard": 0.004,
       "weighted_score": 11.6
     },
     {
       "card_name": "Zoroark",
       "support": 8,
-      "lift": 3.474,
+      "lift": 3.481,
       "jaccard": 0.004,
       "weighted_score": 10.5
     },
     {
       "card_name": "Mega Diancie ex",
       "support": 195,
-      "lift": 3.439,
+      "lift": 3.445,
       "jaccard": 0.1,
       "weighted_score": 288.5
     },
     {
       "card_name": "Empoleon ex",
       "support": 72,
-      "lift": 3.426,
+      "lift": 3.433,
       "jaccard": 0.037,
       "weighted_score": 105.2
     },
     {
       "card_name": "Piplup",
       "support": 72,
-      "lift": 3.426,
+      "lift": 3.433,
       "jaccard": 0.037,
       "weighted_score": 105.2
     },
     {
       "card_name": "Steven's Beldum",
       "support": 101,
-      "lift": 3.406,
+      "lift": 3.413,
       "jaccard": 0.052,
       "weighted_score": 150.1
     },
     {
       "card_name": "Steven's Metagross ex",
       "support": 101,
-      "lift": 3.406,
+      "lift": 3.413,
       "jaccard": 0.052,
       "weighted_score": 150.1
     }

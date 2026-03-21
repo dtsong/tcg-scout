@@ -7,18 +7,18 @@
   "image_url": null,
   "category": "Pokemon",
   "rarity": null,
-  "total_appearances": 287,
+  "total_appearances": 285,
   "usage_pct": 4.2,
   "avg_copies": 1.0,
-  "unique_archetypes": 34,
-  "weighted_score": 436.8,
+  "unique_archetypes": 33,
+  "weighted_score": 432.3,
   "win_rate_proxy": 1.52,
   "top_archetype": "Mega Lucario",
   "trend_direction": "stable",
   "copy_distribution": [
     {
       "copies": 1,
-      "count": 284
+      "count": 282
     },
     {
       "copies": 2,
@@ -64,7 +64,7 @@
     {
       "name": "Mega Absol Box",
       "slug": "mega-absol-box",
-      "usage_count": 10,
+      "usage_count": 9,
       "avg_copies": 1.0,
       "tier": "Rogue"
     },
@@ -230,13 +230,6 @@
       "tier": "C"
     },
     {
-      "name": "Crustle ex",
-      "slug": "crustle-ex",
-      "usage_count": 1,
-      "avg_copies": 1.0,
-      "tier": "Rogue"
-    },
-    {
       "name": "Crustle Ogerpon Cornerstone",
       "slug": "crustle-ogerpon-cornerstone",
       "usage_count": 1,
@@ -268,7 +261,7 @@
   "weekly_usage": [
     {
       "week": "2026-01-19",
-      "usage_pct": 7.1,
+      "usage_pct": 7.2,
       "avg_copies": 1.0
     },
     {
@@ -300,117 +293,112 @@
       "week": "2026-03-02",
       "usage_pct": 5.3,
       "avg_copies": 1.0
-    },
-    {
-      "week": "2026-03-16",
-      "usage_pct": 6.2,
-      "avg_copies": 1.0
     }
   ],
   "synergy_partners": [
     {
       "card_name": "Fezandipiti",
-      "support": 44,
-      "lift": 21.238,
-      "jaccard": 0.151,
-      "weighted_score": 69.5
+      "support": 43,
+      "lift": 21.236,
+      "jaccard": 0.148,
+      "weighted_score": 68.0
     },
     {
       "card_name": "Okidogi",
       "support": 70,
-      "lift": 12.085,
-      "jaccard": 0.198,
+      "lift": 12.112,
+      "jaccard": 0.199,
       "weighted_score": 111.7
-    },
-    {
-      "card_name": "Crustle",
-      "support": 49,
-      "lift": 11.948,
-      "jaccard": 0.146,
-      "weighted_score": 77.4
-    },
-    {
-      "card_name": "Dwebble",
-      "support": 49,
-      "lift": 11.948,
-      "jaccard": 0.146,
-      "weighted_score": 77.4
     },
     {
       "card_name": "Bloodmoon Ursaluna",
       "support": 69,
-      "lift": 11.826,
-      "jaccard": 0.194,
+      "lift": 11.853,
+      "jaccard": 0.195,
       "weighted_score": 110.8
     },
     {
+      "card_name": "Crustle",
+      "support": 48,
+      "lift": 11.853,
+      "jaccard": 0.144,
+      "weighted_score": 75.9
+    },
+    {
+      "card_name": "Dwebble",
+      "support": 48,
+      "lift": 11.853,
+      "jaccard": 0.144,
+      "weighted_score": 75.9
+    },
+    {
       "card_name": "Prism Energy",
-      "support": 110,
-      "lift": 11.826,
-      "jaccard": 0.277,
-      "weighted_score": 174.9
+      "support": 109,
+      "lift": 11.799,
+      "jaccard": 0.276,
+      "weighted_score": 173.4
     },
     {
       "card_name": "Tarragon",
       "support": 61,
-      "lift": 10.93,
-      "jaccard": 0.17,
+      "lift": 10.955,
+      "jaccard": 0.171,
       "weighted_score": 98.6
     },
     {
       "card_name": "Mist Energy",
-      "support": 64,
-      "lift": 5.983,
-      "jaccard": 0.134,
-      "weighted_score": 100.2
+      "support": 62,
+      "lift": 5.903,
+      "jaccard": 0.131,
+      "weighted_score": 95.7
     },
     {
       "card_name": "Hassel",
       "support": 19,
-      "lift": 5.688,
+      "lift": 5.701,
       "jaccard": 0.055,
       "weighted_score": 30.1
     },
     {
       "card_name": "Xerosic's Machinations",
-      "support": 55,
-      "lift": 5.375,
-      "jaccard": 0.116,
-      "weighted_score": 82.3
+      "support": 54,
+      "lift": 5.312,
+      "jaccard": 0.114,
+      "weighted_score": 80.8
     },
     {
       "card_name": "Legacy Energy",
       "support": 71,
-      "lift": 4.273,
+      "lift": 4.283,
       "jaccard": 0.117,
       "weighted_score": 112.0
     },
     {
       "card_name": "Morty's Conviction",
-      "support": 87,
-      "lift": 4.251,
-      "jaccard": 0.127,
-      "weighted_score": 137.4
+      "support": 86,
+      "lift": 4.221,
+      "jaccard": 0.126,
+      "weighted_score": 135.9
     },
     {
       "card_name": "Lunatone",
       "support": 168,
-      "lift": 3.795,
-      "jaccard": 0.144,
+      "lift": 3.815,
+      "jaccard": 0.145,
       "weighted_score": 252.9
     },
     {
       "card_name": "Solrock",
       "support": 168,
-      "lift": 3.795,
-      "jaccard": 0.144,
+      "lift": 3.815,
+      "jaccard": 0.145,
       "weighted_score": 252.9
     },
     {
       "card_name": "Rock Fighting Energy",
       "support": 70,
-      "lift": 3.647,
-      "jaccard": 0.104,
+      "lift": 3.663,
+      "jaccard": 0.105,
       "weighted_score": 98.2
     }
   ]

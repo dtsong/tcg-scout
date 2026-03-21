@@ -305,109 +305,149 @@
         {
           "card_name": "Mega Kangaskhan ex",
           "count": 3,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "MEG",
+          "set_number": "104"
         },
         {
           "card_name": "Lillie's Clefairy ex",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "JTG",
+          "set_number": "56"
         },
         {
           "card_name": "Mega Diancie ex",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "PFL",
+          "set_number": "41"
         },
         {
           "card_name": "Latias ex",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "SSP",
+          "set_number": "76"
         },
         {
           "card_name": "Iron Crown ex",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "TEF",
+          "set_number": "81"
         },
         {
           "card_name": "Iron Boulder",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "SCR",
+          "set_number": "71"
         },
         {
           "card_name": "Ultra Ball",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "MEG",
+          "set_number": "131"
         },
         {
           "card_name": "Wondrous Patch",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "PFL",
+          "set_number": "94"
         },
         {
           "card_name": "Carmine",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "TWM",
+          "set_number": "145"
         },
         {
           "card_name": "Judge",
           "count": 3,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "DRI",
+          "set_number": "167"
         },
         {
           "card_name": "Boss's Orders",
           "count": 3,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "MEG",
+          "set_number": "114"
         },
         {
           "card_name": "Mystery Garden",
           "count": 3,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "MEG",
+          "set_number": "122"
         },
         {
           "card_name": "Powerglass",
           "count": 3,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "SFA",
+          "set_number": "63"
         },
         {
           "card_name": "Accompanying Flute",
           "count": 3,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "TWM",
+          "set_number": "142"
         },
         {
           "card_name": "Mega Signal",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "MEG",
+          "set_number": "121"
         },
         {
           "card_name": "Switch",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "MEG",
+          "set_number": "130"
         },
         {
           "card_name": "Night Stretcher",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "ASC",
+          "set_number": "196"
         },
         {
           "card_name": "Prime Catcher",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "TEF",
+          "set_number": "157"
         },
         {
           "card_name": "Psychic Energy",
           "count": 11,
-          "category": "Energy"
+          "category": "Energy",
+          "set_code": "MEE",
+          "set_number": "5"
         },
         {
           "card_name": "Telepath Psychic Energy",
           "count": 4,
-          "category": "Energy"
+          "category": "Energy",
+          "set_code": "JP",
+          "set_number": "M3"
         }
       ]
     }
   ],
   "radar": {
     "meta_share": 0.1,
-    "weighted_share": 0.1,
+    "weighted_share": 0.0,
     "consistency": 40.0,
     "ceiling": 25,
     "popularity": 0.2,
@@ -450,11 +490,6 @@
       "week": "2026-03-02",
       "meta_share": 0.1,
       "deck_count": 1
-    },
-    {
-      "week": "2026-03-16",
-      "meta_share": 0.0,
-      "deck_count": 0
     }
   ],
   "top4_card_stats": [],

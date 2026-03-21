@@ -263,94 +263,128 @@
         {
           "card_name": "Charcadet",
           "count": 4,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "SSP",
+          "set_number": "32"
         },
         {
           "card_name": "Lunatone",
           "count": 3,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "MEG",
+          "set_number": "74"
         },
         {
           "card_name": "Solrock",
           "count": 3,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "MEG",
+          "set_number": "75"
         },
         {
           "card_name": "Ceruledge ex",
           "count": 3,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "SSP",
+          "set_number": "36"
         },
         {
           "card_name": "Drilbur",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "TEF",
+          "set_number": "85"
         },
         {
           "card_name": "Poké Pad",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "ASC",
+          "set_number": "198"
         },
         {
           "card_name": "Fighting Gong",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "MEG",
+          "set_number": "116"
         },
         {
           "card_name": "Ultra Ball",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "MEG",
+          "set_number": "131"
         },
         {
           "card_name": "Boss's Orders",
           "count": 3,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "MEG",
+          "set_number": "114"
         },
         {
           "card_name": "Lillie's Determination",
           "count": 3,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "MEG",
+          "set_number": "119"
         },
         {
           "card_name": "Explorer's Guidance",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "TEF",
+          "set_number": "147"
         },
         {
           "card_name": "Night Stretcher",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "ASC",
+          "set_number": "196"
         },
         {
           "card_name": "Brilliant Blender",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "SSP",
+          "set_number": "164"
         },
         {
           "card_name": "Jamming Tower",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "TWM",
+          "set_number": "153"
         },
         {
           "card_name": "Fighting Energy",
           "count": 13,
-          "category": "Energy"
+          "category": "Energy",
+          "set_code": "MEE",
+          "set_number": "6"
         },
         {
           "card_name": "Fire Energy",
           "count": 6,
-          "category": "Energy"
+          "category": "Energy",
+          "set_code": "MEE",
+          "set_number": "2"
         },
         {
           "card_name": "Mist Energy",
           "count": 3,
-          "category": "Energy"
+          "category": "Energy",
+          "set_code": "TEF",
+          "set_number": "161"
         }
       ]
     }
   ],
   "radar": {
     "meta_share": 0.1,
-    "weighted_share": 0.1,
+    "weighted_share": 0.0,
     "consistency": 75.0,
     "ceiling": 50,
     "popularity": 0.2,
@@ -393,11 +427,6 @@
       "week": "2026-03-02",
       "meta_share": 0.1,
       "deck_count": 1
-    },
-    {
-      "week": "2026-03-16",
-      "meta_share": 0.0,
-      "deck_count": 0
     }
   ],
   "top4_card_stats": [],

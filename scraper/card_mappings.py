@@ -62,6 +62,15 @@ def map_set_code(limitless_code: str) -> str:
     return LIMITLESS_TO_TCGDEX.get(limitless_code, limitless_code.lower())
 
 
+# Reverse mapping: TCGdex set ID -> Limitless EN set code
+TCGDEX_TO_LIMITLESS = {v: k for k, v in LIMITLESS_TO_TCGDEX.items()}
+
+
+def tcgdex_to_limitless(tcgdex_set: str) -> str:
+    """Convert a TCGdex set ID to a Limitless EN set code."""
+    return TCGDEX_TO_LIMITLESS.get(tcgdex_set, tcgdex_set.upper())
+
+
 # ---------------------------------------------------------------------------
 # HTTP client (mirrors LimitlessClient pattern from limitless.py)
 # ---------------------------------------------------------------------------

@@ -290,104 +290,142 @@
         {
           "card_name": "Snorunt",
           "count": 4,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "ASC",
+          "set_number": "46"
         },
         {
           "card_name": "Mega Froslass ex",
           "count": 4,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "ASC",
+          "set_number": "47"
         },
         {
           "card_name": "Budew",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "ASC",
+          "set_number": "16"
         },
         {
           "card_name": "Boss's Orders",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "MEG",
+          "set_number": "114"
         },
         {
           "card_name": "Ultra Ball",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "MEG",
+          "set_number": "131"
         },
         {
           "card_name": "Pokégear 3.0",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "SVI",
+          "set_number": "186"
         },
         {
           "card_name": "Pokémon Catcher",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "SVI",
+          "set_number": "187"
         },
         {
           "card_name": "Salvatore",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "TEF",
+          "set_number": "160"
         },
         {
           "card_name": "Lucian",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "TWM",
+          "set_number": "157"
         },
         {
           "card_name": "Wally's Compassion",
           "count": 3,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "MEG",
+          "set_number": "132"
         },
         {
           "card_name": "Call Bell",
           "count": 3,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "SSP",
+          "set_number": "165"
         },
         {
           "card_name": "Team Rocket's Venture Bomb",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "DRI",
+          "set_number": "179"
         },
         {
           "card_name": "Acerola's Mischief",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "MEG",
+          "set_number": "113"
         },
         {
           "card_name": "Lacey",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "SCR",
+          "set_number": "139"
         },
         {
           "card_name": "Handheld Fan",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "TWM",
+          "set_number": "150"
         },
         {
           "card_name": "Hilda",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "WHT",
+          "set_number": "84"
         },
         {
           "card_name": "Water Energy",
           "count": 9,
-          "category": "Energy"
+          "category": "Energy",
+          "set_code": "MEE",
+          "set_number": "3"
         },
         {
           "card_name": "Legacy Energy",
           "count": 1,
-          "category": "Energy"
+          "category": "Energy",
+          "set_code": "TWM",
+          "set_number": "167"
         },
         {
           "card_name": "Ignition Energy",
           "count": 1,
-          "category": "Energy"
+          "category": "Energy",
+          "set_code": "WHT",
+          "set_number": "86"
         }
       ]
     }
   ],
   "radar": {
     "meta_share": 0.1,
-    "weighted_share": 0.1,
+    "weighted_share": 0.0,
     "consistency": 40.0,
     "ceiling": 25,
     "popularity": 0.2,
@@ -428,11 +466,6 @@
     },
     {
       "week": "2026-03-02",
-      "meta_share": 0.0,
-      "deck_count": 0
-    },
-    {
-      "week": "2026-03-16",
       "meta_share": 0.0,
       "deck_count": 0
     }

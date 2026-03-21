@@ -3,7 +3,7 @@
   "slug": "ceruledge-meowth",
   "tier": "Rogue",
   "meta_share": 0.1,
-  "weighted_share": 0.1,
+  "weighted_share": 0.0,
   "deck_count": 4,
   "best_placement": 1,
   "sprite_filenames": [
@@ -305,97 +305,135 @@
         {
           "card_name": "Solrock",
           "count": 3,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "MEG",
+          "set_number": "75"
         },
         {
           "card_name": "Charcadet",
           "count": 3,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "SSP",
+          "set_number": "32"
         },
         {
           "card_name": "Ceruledge ex",
           "count": 3,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "SSP",
+          "set_number": "36"
         },
         {
           "card_name": "Lunatone",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "MEG",
+          "set_number": "74"
         },
         {
           "card_name": "Meowth ex",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "JP",
+          "set_number": "M3"
         },
         {
           "card_name": "Fezandipiti ex",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "ASC",
+          "set_number": "142"
         },
         {
           "card_name": "Charcadet",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "SSP",
+          "set_number": "32"
         },
         {
           "card_name": "Fighting Gong",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "MEG",
+          "set_number": "116"
         },
         {
           "card_name": "Ultra Ball",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "MEG",
+          "set_number": "131"
         },
         {
           "card_name": "Carmine",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "TWM",
+          "set_number": "145"
         },
         {
           "card_name": "Night Stretcher",
           "count": 3,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "ASC",
+          "set_number": "196"
         },
         {
           "card_name": "Explorer's Guidance",
           "count": 3,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "TEF",
+          "set_number": "147"
         },
         {
           "card_name": "Boss's Orders",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "MEG",
+          "set_number": "114"
         },
         {
           "card_name": "Poké Pad",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "ASC",
+          "set_number": "198"
         },
         {
           "card_name": "Blowtorch",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "PFL",
+          "set_number": "86"
         },
         {
           "card_name": "Briar",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "SCR",
+          "set_number": "132"
         },
         {
           "card_name": "Brilliant Blender",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "SSP",
+          "set_number": "164"
         },
         {
           "card_name": "Fighting Energy",
           "count": 14,
-          "category": "Energy"
+          "category": "Energy",
+          "set_code": "MEE",
+          "set_number": "6"
         },
         {
           "card_name": "Fire Energy",
           "count": 7,
-          "category": "Energy"
+          "category": "Energy",
+          "set_code": "MEE",
+          "set_number": "2"
         }
       ]
     },
@@ -409,112 +447,156 @@
         {
           "card_name": "Charcadet",
           "count": 4,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "SSP",
+          "set_number": "32"
         },
         {
           "card_name": "Ceruledge ex",
           "count": 3,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "SSP",
+          "set_number": "36"
         },
         {
           "card_name": "Lunatone",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "MEG",
+          "set_number": "74"
         },
         {
           "card_name": "Solrock",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "MEG",
+          "set_number": "75"
         },
         {
           "card_name": "Meowth ex",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "JP",
+          "set_number": "M3"
         },
         {
           "card_name": "Fezandipiti ex",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "ASC",
+          "set_number": "142"
         },
         {
           "card_name": "Psyduck",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "ASC",
+          "set_number": "39"
         },
         {
           "card_name": "Drilbur",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "TEF",
+          "set_number": "85"
         },
         {
           "card_name": "Fighting Gong",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "MEG",
+          "set_number": "116"
         },
         {
           "card_name": "Ultra Ball",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "MEG",
+          "set_number": "131"
         },
         {
           "card_name": "Carmine",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "TWM",
+          "set_number": "145"
         },
         {
           "card_name": "Poké Pad",
           "count": 3,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "ASC",
+          "set_number": "198"
         },
         {
           "card_name": "Night Stretcher",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "ASC",
+          "set_number": "196"
         },
         {
           "card_name": "Boss's Orders",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "MEG",
+          "set_number": "114"
         },
         {
           "card_name": "Battle Cage",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "PFL",
+          "set_number": "85"
         },
         {
           "card_name": "Lillie's Determination",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "MEG",
+          "set_number": "119"
         },
         {
           "card_name": "Briar",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "SCR",
+          "set_number": "132"
         },
         {
           "card_name": "Xerosic's Machinations",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "SFA",
+          "set_number": "64"
         },
         {
           "card_name": "Fighting Energy",
           "count": 10,
-          "category": "Energy"
+          "category": "Energy",
+          "set_code": "MEE",
+          "set_number": "6"
         },
         {
           "card_name": "Fire Energy",
           "count": 5,
-          "category": "Energy"
+          "category": "Energy",
+          "set_code": "MEE",
+          "set_number": "2"
         },
         {
           "card_name": "Mist Energy",
           "count": 4,
-          "category": "Energy"
+          "category": "Energy",
+          "set_code": "TEF",
+          "set_number": "161"
         },
         {
           "card_name": "Legacy Energy",
           "count": 1,
-          "category": "Energy"
+          "category": "Energy",
+          "set_code": "TWM",
+          "set_number": "167"
         }
       ]
     },
@@ -528,102 +610,142 @@
         {
           "card_name": "Charcadet",
           "count": 4,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "SSP",
+          "set_number": "32"
         },
         {
           "card_name": "Ceruledge ex",
           "count": 3,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "SSP",
+          "set_number": "36"
         },
         {
           "card_name": "Lunatone",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "MEG",
+          "set_number": "74"
         },
         {
           "card_name": "Solrock",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "MEG",
+          "set_number": "75"
         },
         {
           "card_name": "Meowth ex",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "JP",
+          "set_number": "M3"
         },
         {
           "card_name": "Drilbur",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "TEF",
+          "set_number": "85"
         },
         {
           "card_name": "Night Stretcher",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "ASC",
+          "set_number": "196"
         },
         {
           "card_name": "Fighting Gong",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "MEG",
+          "set_number": "116"
         },
         {
           "card_name": "Ultra Ball",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "MEG",
+          "set_number": "131"
         },
         {
           "card_name": "Explorer's Guidance",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "TEF",
+          "set_number": "147"
         },
         {
           "card_name": "Boss's Orders",
           "count": 3,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "MEG",
+          "set_number": "114"
         },
         {
           "card_name": "Carmine",
           "count": 3,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "TWM",
+          "set_number": "145"
         },
         {
           "card_name": "Briar",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "SCR",
+          "set_number": "132"
         },
         {
           "card_name": "Brilliant Blender",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "SSP",
+          "set_number": "164"
         },
         {
           "card_name": "Ciphermaniac's Codebreaking",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "TEF",
+          "set_number": "145"
         },
         {
           "card_name": "Hand Trimmer",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "TEF",
+          "set_number": "150"
         },
         {
           "card_name": "Jamming Tower",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "TWM",
+          "set_number": "153"
         },
         {
           "card_name": "Fighting Energy",
           "count": 9,
-          "category": "Energy"
+          "category": "Energy",
+          "set_code": "MEE",
+          "set_number": "6"
         },
         {
           "card_name": "Fire Energy",
           "count": 7,
-          "category": "Energy"
+          "category": "Energy",
+          "set_code": "MEE",
+          "set_number": "2"
         },
         {
           "card_name": "Mist Energy",
           "count": 3,
-          "category": "Energy"
+          "category": "Energy",
+          "set_code": "TEF",
+          "set_number": "161"
         }
       ]
     },
@@ -637,104 +759,142 @@
         {
           "card_name": "Charcadet",
           "count": 4,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "SSP",
+          "set_number": "32"
         },
         {
           "card_name": "Solrock",
           "count": 3,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "MEG",
+          "set_number": "75"
         },
         {
           "card_name": "Ceruledge ex",
           "count": 3,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "SSP",
+          "set_number": "36"
         },
         {
           "card_name": "Lunatone",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "MEG",
+          "set_number": "74"
         },
         {
           "card_name": "Meowth ex",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "JP",
+          "set_number": "M3"
         },
         {
           "card_name": "Fezandipiti ex",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "ASC",
+          "set_number": "142"
         },
         {
           "card_name": "Drilbur",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "TEF",
+          "set_number": "85"
         },
         {
           "card_name": "Fighting Gong",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "MEG",
+          "set_number": "116"
         },
         {
           "card_name": "Ultra Ball",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "MEG",
+          "set_number": "131"
         },
         {
           "card_name": "Carmine",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "TWM",
+          "set_number": "145"
         },
         {
           "card_name": "Night Stretcher",
           "count": 3,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "ASC",
+          "set_number": "196"
         },
         {
           "card_name": "Boss's Orders",
           "count": 3,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "MEG",
+          "set_number": "114"
         },
         {
           "card_name": "Poké Pad",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "ASC",
+          "set_number": "198"
         },
         {
           "card_name": "Explorer's Guidance",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "TEF",
+          "set_number": "147"
         },
         {
           "card_name": "Blowtorch",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "PFL",
+          "set_number": "86"
         },
         {
           "card_name": "Brilliant Blender",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "SSP",
+          "set_number": "164"
         },
         {
           "card_name": "Fighting Energy",
           "count": 12,
-          "category": "Energy"
+          "category": "Energy",
+          "set_code": "MEE",
+          "set_number": "6"
         },
         {
           "card_name": "Fire Energy",
           "count": 6,
-          "category": "Energy"
+          "category": "Energy",
+          "set_code": "MEE",
+          "set_number": "2"
         },
         {
           "card_name": "Mist Energy",
           "count": 2,
-          "category": "Energy"
+          "category": "Energy",
+          "set_code": "TEF",
+          "set_number": "161"
         }
       ]
     }
   ],
   "radar": {
     "meta_share": 0.3,
-    "weighted_share": 0.3,
+    "weighted_share": 0.0,
     "consistency": 62.5,
     "ceiling": 100,
     "popularity": 0.7,
@@ -755,12 +915,17 @@
           "to_pct": 100.0
         },
         {
-          "card": "Xerosic's Machinations",
+          "card": "Legacy Energy",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
         {
-          "card": "Blowtorch",
+          "card": "Psyduck",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Xerosic's Machinations",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -775,17 +940,17 @@
           "to_pct": 50.0
         },
         {
-          "card": "Legacy Energy",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Psyduck",
+          "card": "Blowtorch",
           "from_pct": 0.0,
           "to_pct": 50.0
         }
       ],
       "dropped": [
+        {
+          "card": "Ciphermaniac's Codebreaking",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
         {
           "card": "Hand Trimmer",
           "from_pct": 100.0,
@@ -793,11 +958,6 @@
         },
         {
           "card": "Jamming Tower",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Ciphermaniac's Codebreaking",
           "from_pct": 100.0,
           "to_pct": 0.0
         }
@@ -813,6 +973,16 @@
           "to_pct": 0.0
         },
         {
+          "card": "Legacy Energy",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Psyduck",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
           "card": "Xerosic's Machinations",
           "from_pct": 50.0,
           "to_pct": 0.0
@@ -824,16 +994,6 @@
         },
         {
           "card": "Battle Cage",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Legacy Energy",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Psyduck",
           "from_pct": 50.0,
           "to_pct": 0.0
         }
@@ -885,11 +1045,6 @@
     },
     {
       "week": "2026-03-02",
-      "meta_share": 0.0,
-      "deck_count": 0
-    },
-    {
-      "week": "2026-03-16",
       "meta_share": 0.0,
       "deck_count": 0
     }

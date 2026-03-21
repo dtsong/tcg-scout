@@ -333,119 +333,163 @@
         {
           "card_name": "Mega Kangaskhan ex",
           "count": 3,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "MEG",
+          "set_number": "104"
         },
         {
           "card_name": "Carvanha",
           "count": 3,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "PFL",
+          "set_number": "60"
         },
         {
           "card_name": "Mega Sharpedo ex",
           "count": 3,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "PFL",
+          "set_number": "61"
         },
         {
           "card_name": "Toxel",
           "count": 3,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "PFL",
+          "set_number": "67"
         },
         {
           "card_name": "Munkidori",
           "count": 3,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "TWM",
+          "set_number": "95"
         },
         {
           "card_name": "Toxtricity",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "PFL",
+          "set_number": "68"
         },
         {
           "card_name": "Pecharunt ex",
           "count": 2,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "SFA",
+          "set_number": "39"
         },
         {
           "card_name": "Yveltal",
           "count": 1,
-          "category": "Pokemon"
+          "category": "Pokemon",
+          "set_code": "MEG",
+          "set_number": "88"
         },
         {
           "card_name": "Judge",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "DRI",
+          "set_number": "167"
         },
         {
           "card_name": "Ultra Ball",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "MEG",
+          "set_number": "131"
         },
         {
           "card_name": "Carmine",
           "count": 4,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "TWM",
+          "set_number": "145"
         },
         {
           "card_name": "Boss's Orders",
           "count": 3,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "MEG",
+          "set_number": "114"
         },
         {
           "card_name": "Mega Signal",
           "count": 3,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "MEG",
+          "set_number": "121"
         },
         {
           "card_name": "Night Stretcher",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "ASC",
+          "set_number": "196"
         },
         {
           "card_name": "Binding Mochi",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "PRE",
+          "set_number": "95"
         },
         {
           "card_name": "Gravity Mountain",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "SSP",
+          "set_number": "177"
         },
         {
           "card_name": "Buddy-Buddy Poffin",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "TEF",
+          "set_number": "144"
         },
         {
           "card_name": "Ciphermaniac's Codebreaking",
           "count": 2,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "TEF",
+          "set_number": "145"
         },
         {
           "card_name": "Poké Pad",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "ASC",
+          "set_number": "198"
         },
         {
           "card_name": "Tool Scrapper",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "ASC",
+          "set_number": "212"
         },
         {
           "card_name": "Unfair Stamp",
           "count": 1,
-          "category": "Trainer"
+          "category": "Trainer",
+          "set_code": "TWM",
+          "set_number": "165"
         },
         {
           "card_name": "Darkness Energy",
           "count": 9,
-          "category": "Energy"
+          "category": "Energy",
+          "set_code": "MEE",
+          "set_number": "7"
         }
       ]
     }
   ],
   "radar": {
     "meta_share": 0.1,
-    "weighted_share": 0.1,
+    "weighted_share": 0.0,
     "consistency": 60.0,
     "ceiling": 25,
     "popularity": 0.2,
@@ -486,11 +530,6 @@
     },
     {
       "week": "2026-03-02",
-      "meta_share": 0.0,
-      "deck_count": 0
-    },
-    {
-      "week": "2026-03-16",
       "meta_share": 0.0,
       "deck_count": 0
     }
