@@ -56,29 +56,47 @@ class TestComputeArchetypeEvolution:
 
 
 class TestComputeMetaEvolution:
-    def test_returns_list(self, db):
+    def test_returns_dict_with_highlights_and_movements(self, db):
         result = compute_meta_evolution(db)
-        assert isinstance(result, list)
+        assert isinstance(result, dict)
+        assert "highlights" in result
+        assert "movements" in result
+        assert isinstance(result["highlights"], list)
+        assert isinstance(result["movements"], list)
 
     def test_movement_structure(self, db):
         result = compute_meta_evolution(db)
-        for m in result:
+        for m in result["movements"]:
             assert "card" in m
             assert "archetype" in m
+            assert "archetype_slug" in m
+            # Slug must be lowercase with no spaces
+            assert m["archetype_slug"] == m["archetype_slug"].lower()
+            assert " " not in m["archetype_slug"]
+            assert "deck_count" in m
+            assert isinstance(m["deck_count"], int)
             assert "direction" in m
             assert m["direction"] in ("adopted", "dropped")
             assert "from_pct" in m
             assert "to_pct" in m
+            assert "delta" in m
             assert "week" in m
 
     def test_limited_to_top_n(self, db):
         result = compute_meta_evolution(db, top_n=3)
-        assert len(result) <= 3
+        assert len(result["highlights"]) <= 3
+
+    def test_highlights_subset_of_movements(self, db):
+        result = compute_meta_evolution(db)
+        assert len(result["highlights"]) <= len(result["movements"])
+        for h in result["highlights"]:
+            assert h in result["movements"]
 
     def test_sorted_by_recency(self, db):
         result = compute_meta_evolution(db)
-        for i in range(len(result) - 1):
-            assert result[i]["week"] >= result[i + 1]["week"]
+        movements = result["movements"]
+        for i in range(len(movements) - 1):
+            assert movements[i]["week"] >= movements[i + 1]["week"]
 
 
 class TestDecklistDenominator:

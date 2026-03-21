@@ -267,6 +267,12 @@ export function DashboardClient({
                   <Zap className="w-4 h-4 text-amber-400" />
                   Biggest Copy-Count Shifts
                 </h3>
+                <Link
+                  href={`/${format}/shifts`}
+                  className="text-xs text-amber-400 hover:text-amber-300 flex items-center gap-1"
+                >
+                  View all <ArrowRight className="w-3 h-3" />
+                </Link>
               </div>
               <div className="space-y-3">
                 {metaEvolution.map((m, i) => (

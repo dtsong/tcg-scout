@@ -2446,10 +2446,14 @@ def export_cards(conn: sqlite3.Connection, output_dir: Path) -> None:
 
 
 def export_meta_evolution(conn: sqlite3.Connection, output_dir: Path) -> None:
-    """Export format-wide meta evolution — top card movements across all archetypes."""
-    movements = compute_meta_evolution(conn)
-    _write_json(movements, output_dir / "meta-evolution.json")
-    logger.info("Exported %d meta evolution movements", len(movements))
+    """Export format-wide meta evolution — highlights + all movements."""
+    data = compute_meta_evolution(conn)
+    _write_json(data, output_dir / "meta-evolution.json")
+    logger.info(
+        "Exported meta evolution (%d highlights, %d total movements)",
+        len(data["highlights"]),
+        len(data["movements"]),
+    )
 
 
 def export_matchup_matrix(conn: sqlite3.Connection, output_dir: Path) -> None:
