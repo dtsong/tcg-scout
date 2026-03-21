@@ -114,7 +114,7 @@ class TestFormatIntegration:
         assert "ninja-spinner" in slugs
 
         nz_fmt = next(f for f in formats if f["slug"] == "nihil-zero")
-        assert nz_fmt["status"] == "active"
+        assert nz_fmt["status"] == "frozen"  # dataset_end is in the past
         assert nz_fmt["tournament_count"] == 10
 
         ns_fmt = next(f for f in formats if f["slug"] == "ninja-spinner")

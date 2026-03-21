@@ -9,7 +9,7 @@ export interface FormatInfo {
   description: string;
   dataset_start: string;
   dataset_end: string;
-  status: "active" | "upcoming";
+  status: "active" | "frozen" | "upcoming";
   tournament_count?: number;
   deck_count?: number;
 }

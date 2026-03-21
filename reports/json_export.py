@@ -2739,7 +2739,12 @@ def export_formats(output_dir: Path | None = None) -> None:
     for slug, fmt in FORMATS.items():
         # Check if data exists for this format
         meta_path = base / slug / "meta.json"
-        status = "active" if meta_path.exists() else "upcoming"
+        if not meta_path.exists():
+            status = "upcoming"
+        elif fmt["dataset_end"] < date.today().isoformat():
+            status = "frozen"
+        else:
+            status = "active"
 
         # Read stats from meta.json if it exists
         tournament_count = 0

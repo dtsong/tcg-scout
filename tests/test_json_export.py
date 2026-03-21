@@ -345,7 +345,7 @@ class TestExportFormats:
         # Check status detection
         nz = next(f for f in data if f["slug"] == "nihil-zero")
         ns = next(f for f in data if f["slug"] == "ninja-spinner")
-        assert nz["status"] == "active"
+        assert nz["status"] == "frozen"  # dataset_end is in the past
         assert nz["tournament_count"] == 42
         assert ns["status"] == "upcoming"
 

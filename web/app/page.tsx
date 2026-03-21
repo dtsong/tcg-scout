@@ -79,15 +79,16 @@ export default function FormatSelectorPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             {formats.map((fmt) => {
               const style = FORMAT_STYLES[fmt.slug] || DEFAULT_STYLE;
-              const isActive = fmt.status === "active";
+              const hasData = fmt.status === "active" || fmt.status === "frozen";
+              const isFrozen = fmt.status === "frozen";
 
               return (
                 <Link
                   key={fmt.slug}
-                  href={isActive ? `/${fmt.slug}` : "#"}
-                  aria-disabled={!isActive}
+                  href={hasData ? `/${fmt.slug}` : "#"}
+                  aria-disabled={!hasData}
                   className={`group relative bg-surface-800 border border-surface-600 rounded-xl p-6 transition-all duration-200 ${
-                    isActive
+                    hasData
                       ? `${style.glow} cursor-pointer`
                       : "opacity-60 cursor-default"
                   }`}
@@ -95,11 +96,17 @@ export default function FormatSelectorPage() {
                   {/* Status badge */}
                   <div className="flex items-center justify-between mb-4">
                     <span
-                      className={`text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 rounded-full border ${style.badge}`}
+                      className={`text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 rounded-full border ${
+                        isFrozen
+                          ? "bg-surface-700 text-surface-300 border-surface-500"
+                          : fmt.status === "active"
+                            ? style.badge
+                            : "bg-surface-700 text-surface-300 border-surface-600"
+                      }`}
                     >
-                      {isActive ? "Active" : "Coming Soon"}
+                      {isFrozen ? "Frozen" : fmt.status === "active" ? "Active" : "Coming Soon"}
                     </span>
-                    {isActive && (
+                    {hasData && (
                       <ChevronRight className="w-4 h-4 text-surface-500 group-hover:text-surface-300 transition-colors" />
                     )}
                   </div>
@@ -118,7 +125,7 @@ export default function FormatSelectorPage() {
                   </p>
 
                   {/* Stats */}
-                  {isActive && fmt.tournament_count && fmt.tournament_count > 0 ? (
+                  {hasData && fmt.tournament_count && fmt.tournament_count > 0 ? (
                     <div className="flex gap-6 mt-5 pt-4 border-t border-surface-700">
                       <div>
                         <span className="font-mono text-lg font-medium text-slate-200 tabular-nums">
@@ -137,7 +144,7 @@ export default function FormatSelectorPage() {
                         </p>
                       </div>
                     </div>
-                  ) : !isActive ? (
+                  ) : !hasData ? (
                     <div className="mt-5 pt-4 border-t border-surface-700">
                       <p className="text-xs text-surface-400">
                         First results expected after {fmt.dataset_start}
