@@ -105,10 +105,18 @@ def generate_buylist(conn: sqlite3.Connection, snapshot_id: int) -> list[dict]:
             continue
 
         placement_ids = [p["id"] for p in placements]
-        total_decks = len(placement_ids)
 
         # Step 3: Query decklist_cards for all placements in this archetype
         placeholders = ",".join("?" * len(placement_ids))
+
+        # Only count placements that actually have decklists
+        total_decks = conn.execute(
+            f"SELECT COUNT(DISTINCT placement_id) FROM decklist_cards WHERE placement_id IN ({placeholders})",
+            placement_ids,
+        ).fetchone()[0]
+
+        if total_decks == 0:
+            continue
         energy_placeholders = ",".join("?" * len(BASIC_ENERGY_NAMES))
         decklist_rows = conn.execute(
             f"""

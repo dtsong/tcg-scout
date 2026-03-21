@@ -61,12 +61,17 @@ def compute_archetype_evolution(
 
     for wk in weeks:
         pids = week_placements[wk]
-        total = len(pids)
+        placeholders = ",".join("?" * len(pids))
+
+        # Only count placements that actually have decklists
+        total = conn.execute(
+            f"SELECT COUNT(DISTINCT placement_id) FROM decklist_cards WHERE placement_id IN ({placeholders})",
+            pids,
+        ).fetchone()[0]
+
         if total == 0:
-            week_card_rates[wk] = {}
             continue
 
-        placeholders = ",".join("?" * len(pids))
         card_rows = conn.execute(
             f"""
             SELECT dc.card_name, COUNT(DISTINCT dc.placement_id) AS cnt
@@ -83,11 +88,15 @@ def compute_archetype_evolution(
             rates[cr["card_name"]] = round(cr["cnt"] / total * 100, 1)
         week_card_rates[wk] = rates
 
-    # Detect adoption/drop events between consecutive weeks
+    # Detect adoption/drop events between consecutive weeks with data
+    weeks_with_data = [wk for wk in weeks if wk in week_card_rates]
+    if len(weeks_with_data) < 2:
+        return []
+
     evolution = []
-    for i in range(1, len(weeks)):
-        prev_week = weeks[i - 1]
-        curr_week = weeks[i]
+    for i in range(1, len(weeks_with_data)):
+        prev_week = weeks_with_data[i - 1]
+        curr_week = weeks_with_data[i]
         prev_rates = week_card_rates[prev_week]
         curr_rates = week_card_rates[curr_week]
 
