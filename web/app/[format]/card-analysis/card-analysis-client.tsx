@@ -126,7 +126,7 @@ export function CardAnalysisClient({
           <h1 className="font-display text-2xl font-bold text-slate-100">Format Edge</h1>
           <p className="text-sm text-surface-400 mt-1">
             Cards that show up more in top-4 finishes than in the field. {filtered.length} cards shown.{" "}
-            <Link href="/guide#format-edge" className="text-accent hover:text-accent/80 transition-colors">
+            <Link href={`/${format}/guide#format-edge`} className="text-accent hover:text-accent/80 transition-colors">
               How this works &rarr;
             </Link>
           </p>

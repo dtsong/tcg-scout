@@ -960,22 +960,22 @@
       "week": "2026-02-23",
       "adopted": [
         {
+          "card": "Team Rocket's Watchtower",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
           "card": "Team Rocket's Petrel",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
         {
-          "card": "Shaymin",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Xerosic's Machinations",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
           "card": "Bloodmoon Ursaluna ex",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Shaymin",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -990,7 +990,7 @@
           "to_pct": 50.0
         },
         {
-          "card": "Team Rocket's Watchtower",
+          "card": "Xerosic's Machinations",
           "from_pct": 0.0,
           "to_pct": 50.0
         }
@@ -1002,7 +1002,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "Duskull",
+          "card": "Dusknoir",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -1012,7 +1012,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "Dusknoir",
+          "card": "Duskull",
           "from_pct": 100.0,
           "to_pct": 0.0
         }
@@ -1029,6 +1029,11 @@
       ],
       "dropped": [
         {
+          "card": "Team Rocket's Watchtower",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
           "card": "Team Rocket's Petrel",
           "from_pct": 50.0,
           "to_pct": 0.0
@@ -1039,7 +1044,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "Dawn",
+          "card": "Risky Ruins",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -1049,12 +1054,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "Risky Ruins",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Team Rocket's Watchtower",
+          "card": "Dawn",
           "from_pct": 50.0,
           "to_pct": 0.0
         }

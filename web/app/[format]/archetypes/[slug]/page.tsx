@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getArchetype, getArchetypeReport, getArchetypeSlugs, getFormats, getOptimal60 } from "@/app/lib/data";
+import { getArchetype, getArchetypeReport, getArchetypeSlugs, getFormats, getOptimal60Index } from "@/app/lib/data";
 import { TierBadge } from "@/app/components/tier-badge";
 import { SpriteRow } from "@/app/components/sprite-row";
 import { StatCard } from "@/app/components/stat-card";
@@ -115,7 +115,8 @@ export default async function ArchetypeDetailPage({
   const { format, slug } = await params;
   const arch = getArchetype(format, slug);
   const hasReport = getArchetypeReport(format, slug) !== null;
-  const hasOptimal60 = getOptimal60(format, slug) !== null;
+  const optimal60Index = getOptimal60Index(format);
+  const hasOptimal60 = optimal60Index?.archetypes.some((a) => a.slug === slug) ?? false;
 
   const coreNames = new Set(arch.core_cards.map((c) => c.card_name));
   const { pokemon, trainer, energy } = groupByCategory(arch.all_cards);

@@ -2,7 +2,7 @@ import {
   getArchetypeReport,
   getArchetypeSlugs,
   getFormats,
-  getOptimal60,
+  getOptimal60Index,
 } from "@/app/lib/data";
 import { ReportClient } from "./report-client";
 
@@ -53,6 +53,7 @@ export default async function ArchetypeReportPage({
     );
   }
 
-  const hasOptimal60 = getOptimal60(format, slug) !== null;
+  const optimal60Index = getOptimal60Index(format);
+  const hasOptimal60 = optimal60Index?.archetypes.some((a) => a.slug === slug) ?? false;
   return <ReportClient report={report} format={format} hasOptimal60={hasOptimal60} />;
 }

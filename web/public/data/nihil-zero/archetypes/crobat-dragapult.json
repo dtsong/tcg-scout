@@ -2799,12 +2799,12 @@
           "to_pct": 75.0
         },
         {
-          "card": "Dusclops",
+          "card": "Team Rocket's Watchtower",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
         {
-          "card": "Team Rocket's Watchtower",
+          "card": "Dusclops",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -2814,12 +2814,12 @@
           "to_pct": 50.0
         },
         {
-          "card": "Duskull",
+          "card": "Dusknoir",
           "from_pct": 20.0,
           "to_pct": 50.0
         },
         {
-          "card": "Dusknoir",
+          "card": "Duskull",
           "from_pct": 20.0,
           "to_pct": 50.0
         },
@@ -2858,6 +2858,16 @@
           "to_pct": 16.7
         },
         {
+          "card": "Team Rocket's Watchtower",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Switch",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
           "card": "Shaymin",
           "from_pct": 50.0,
           "to_pct": 0.0
@@ -2868,27 +2878,17 @@
           "to_pct": 0.0
         },
         {
-          "card": "Switch",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Team Rocket's Watchtower",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Dusclops",
           "from_pct": 50.0,
           "to_pct": 16.7
         },
         {
-          "card": "Duskull",
+          "card": "Dusknoir",
           "from_pct": 50.0,
           "to_pct": 16.7
         },
         {
-          "card": "Dusknoir",
+          "card": "Duskull",
           "from_pct": 50.0,
           "to_pct": 16.7
         }
@@ -2908,12 +2908,12 @@
           "to_pct": 100.0
         },
         {
-          "card": "Duskull",
+          "card": "Dusknoir",
           "from_pct": 16.7,
           "to_pct": 100.0
         },
         {
-          "card": "Dusknoir",
+          "card": "Duskull",
           "from_pct": 16.7,
           "to_pct": 100.0
         },
@@ -2945,11 +2945,6 @@
       "week": "2026-03-02",
       "adopted": [
         {
-          "card": "Dawn",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
           "card": "Chien-Pao",
           "from_pct": 0.0,
           "to_pct": 100.0
@@ -2958,9 +2953,19 @@
           "card": "Area Zero Underdepths",
           "from_pct": 0.0,
           "to_pct": 100.0
+        },
+        {
+          "card": "Dawn",
+          "from_pct": 0.0,
+          "to_pct": 100.0
         }
       ],
       "dropped": [
+        {
+          "card": "Jamming Tower",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
         {
           "card": "Team Rocket's Petrel",
           "from_pct": 100.0,
@@ -2972,7 +2977,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "Duskull",
+          "card": "Dusknoir",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -2982,12 +2987,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "Jamming Tower",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Dusknoir",
+          "card": "Duskull",
           "from_pct": 100.0,
           "to_pct": 0.0
         }

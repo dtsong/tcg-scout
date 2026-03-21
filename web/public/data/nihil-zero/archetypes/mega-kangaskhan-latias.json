@@ -2456,7 +2456,22 @@
           "to_pct": 100.0
         },
         {
-          "card": "Nighttime Mine",
+          "card": "Tool Scrapper",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Enhanced Hammer",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Team Rocket's Factory",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Team Rocket's Transceiver",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -2466,12 +2481,12 @@
           "to_pct": 50.0
         },
         {
-          "card": "Tool Scrapper",
+          "card": "Nighttime Mine",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
         {
-          "card": "Team Rocket's Transceiver",
+          "card": "Battle Cage",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -2484,36 +2499,11 @@
           "card": "Joltik",
           "from_pct": 0.0,
           "to_pct": 50.0
-        },
-        {
-          "card": "Battle Cage",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Team Rocket's Factory",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Enhanced Hammer",
-          "from_pct": 0.0,
-          "to_pct": 50.0
         }
       ],
       "dropped": [
         {
-          "card": "Energy Switch",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Mega Audino ex",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Lugia ex",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -2523,12 +2513,22 @@
           "to_pct": 0.0
         },
         {
-          "card": "Lucky Helmet",
+          "card": "Energy Switch",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Lugia ex",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
           "card": "Kyurem",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Lucky Helmet",
           "from_pct": 50.0,
           "to_pct": 0.0
         }
@@ -2543,17 +2543,17 @@
           "to_pct": 100.0
         },
         {
-          "card": "Energy Switch",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
           "card": "Meowth ex",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
         {
           "card": "Mega Signal",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Energy Switch",
           "from_pct": 0.0,
           "to_pct": 50.0
         }
@@ -2565,7 +2565,17 @@
           "to_pct": 0.0
         },
         {
-          "card": "Nighttime Mine",
+          "card": "Enhanced Hammer",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Team Rocket's Factory",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Team Rocket's Transceiver",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -2575,7 +2585,12 @@
           "to_pct": 0.0
         },
         {
-          "card": "Team Rocket's Transceiver",
+          "card": "Nighttime Mine",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Battle Cage",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -2588,21 +2603,6 @@
           "card": "Joltik",
           "from_pct": 50.0,
           "to_pct": 0.0
-        },
-        {
-          "card": "Battle Cage",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Team Rocket's Factory",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Enhanced Hammer",
-          "from_pct": 50.0,
-          "to_pct": 0.0
         }
       ]
     },
@@ -2610,32 +2610,7 @@
       "week": "2026-02-23",
       "adopted": [
         {
-          "card": "Cyrano",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Unfair Stamp",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
           "card": "Cornerstone Mask Ogerpon ex",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Teal Mask Ogerpon ex",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Bloodmoon Ursaluna ex",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Mega Absol ex",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -2650,12 +2625,37 @@
           "to_pct": 50.0
         },
         {
+          "card": "Mega Absol ex",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
           "card": "Lillie's Determination",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
         {
+          "card": "Unfair Stamp",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Bloodmoon Ursaluna ex",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
           "card": "Area Zero Underdepths",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Teal Mask Ogerpon ex",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Cyrano",
           "from_pct": 0.0,
           "to_pct": 50.0
         }

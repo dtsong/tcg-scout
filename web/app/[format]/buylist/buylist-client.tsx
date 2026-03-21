@@ -77,7 +77,7 @@ export function BuylistClient({
           </h1>
           <p className="text-sm text-surface-300 mt-1">
             Prioritized acquisition guide: {buylist.length} cards across S/A/B tier archetypes{" "}
-            <Link href="/guide#buy-list" className="text-accent hover:text-accent/80 transition-colors">
+            <Link href={`/${format}/guide#buy-list`} className="text-accent hover:text-accent/80 transition-colors">
               How this works &rarr;
             </Link>
           </p>

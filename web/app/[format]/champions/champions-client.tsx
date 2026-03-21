@@ -2,6 +2,7 @@
 
 import { Fragment, useState } from "react";
 import Link from "next/link";
+import { useParams } from "next/navigation";
 import { ChevronDown, ChevronRight } from "lucide-react";
 import { cn } from "@/app/lib/utils";
 import { SpriteRow } from "@/app/components/sprite-row";
@@ -159,6 +160,7 @@ export function ChampionsClient({
 }: {
   divisions: Record<DivisionKey, CLDivision>;
 }) {
+  const { format } = useParams<{ format: string }>();
   const [activeDiv, setActiveDiv] = useState<DivisionKey>("masters");
   const division = divisions[activeDiv];
 
@@ -170,7 +172,7 @@ export function ChampionsClient({
         </h1>
         <p className="text-sm text-surface-300 mt-1">
           {division.event_name}, {division.date}{" "}
-          <Link href="/guide#champions-league" className="text-accent hover:text-accent/80 transition-colors">
+          <Link href={`/${format}/guide#champions-league`} className="text-accent hover:text-accent/80 transition-colors">
             How this works &rarr;
           </Link>
         </p>

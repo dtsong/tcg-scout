@@ -2501,6 +2501,10 @@ def export_optimal_60(conn: sqlite3.Connection, output_dir: Path, *, format_slug
     category_lookup = build_category_lookup(conn)
     weighted_shares = _compute_weighted_shares(conn, snapshot)
     optimal_dir = output_dir / "optimal-60"
+    # Clean stale files from previous exports
+    if optimal_dir.exists():
+        for f in optimal_dir.glob("*.json"):
+            f.unlink()
     optimal_dir.mkdir(parents=True, exist_ok=True)
 
     # Get CL event metadata

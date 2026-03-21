@@ -247,6 +247,8 @@ def compute_optimal_60(
     consensus_cards = []
     for card in cards:
         count = card["count"]
+        if count < 1:
+            count = 1  # Every included card gets at least 1 copy
         if total + count > 60:
             count = 60 - total
         if count <= 0:
@@ -255,6 +257,19 @@ def compute_optimal_60(
         total += count
         if total >= 60:
             break
+
+    # Fill remaining slots if rounding left us short of 60
+    # Add extra copies to highest-inclusion cards (up to 4 max per card)
+    if total < 60:
+        for card in consensus_cards:
+            if total >= 60:
+                break
+            max_copies = 4
+            room = max_copies - card["count"]
+            if room > 0:
+                add = min(room, 60 - total)
+                card["count"] += add
+                total += add
 
     # Category totals
     total_pokemon = sum(c["count"] for c in consensus_cards if c["category"] == "Pokemon")

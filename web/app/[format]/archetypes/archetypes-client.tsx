@@ -95,7 +95,7 @@ export function ArchetypesClient({
         </h1>
         <p className="text-sm text-surface-300 mt-1">
           {archetypes.length} archetypes across {archetypes.reduce((sum, a) => sum + a.deck_count, 0).toLocaleString()} decklists{" "}
-          <Link href="/guide#archetypes" className="text-accent hover:text-accent/80 transition-colors">
+          <Link href={`/${format}/guide#archetypes`} className="text-accent hover:text-accent/80 transition-colors">
             How this works &rarr;
           </Link>
         </p>

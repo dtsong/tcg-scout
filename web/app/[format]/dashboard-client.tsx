@@ -113,7 +113,7 @@ export function DashboardClient({
             </div>
           </div>
           <p className="text-xs text-surface-400 mt-2">
-            <Link href="/guide#dashboard" className="text-accent hover:text-accent/80 transition-colors">
+            <Link href={`/${format}/guide#dashboard`} className="text-accent hover:text-accent/80 transition-colors">
               How to read the dashboard &rarr;
             </Link>
           </p>

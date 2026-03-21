@@ -955,11 +955,6 @@
           "to_pct": 100.0
         },
         {
-          "card": "Deluxe Bomb",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
           "card": "Gravity Gemstone",
           "from_pct": 0.0,
           "to_pct": 50.0
@@ -971,6 +966,11 @@
         },
         {
           "card": "Wondrous Patch",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Deluxe Bomb",
           "from_pct": 0.0,
           "to_pct": 50.0
         }
@@ -987,17 +987,17 @@
       "week": "2026-02-09",
       "adopted": [
         {
-          "card": "Nighttime Mine",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
           "card": "Hero's Cape",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
           "card": "Lillie's Clefairy ex",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
+          "card": "Nighttime Mine",
           "from_pct": 0.0,
           "to_pct": 100.0
         }
@@ -1014,17 +1014,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "Deluxe Bomb",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Gravity Gemstone",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Unfair Stamp",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -1034,12 +1024,22 @@
           "to_pct": 0.0
         },
         {
+          "card": "Enhanced Hammer",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Unfair Stamp",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
           "card": "Mist Energy",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
-          "card": "Enhanced Hammer",
+          "card": "Deluxe Bomb",
           "from_pct": 50.0,
           "to_pct": 0.0
         }
@@ -1054,6 +1054,11 @@
           "to_pct": 100.0
         },
         {
+          "card": "Xerosic's Machinations",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
           "card": "Battle Cage",
           "from_pct": 0.0,
           "to_pct": 100.0
@@ -1062,21 +1067,11 @@
           "card": "Unfair Stamp",
           "from_pct": 0.0,
           "to_pct": 100.0
-        },
-        {
-          "card": "Xerosic's Machinations",
-          "from_pct": 0.0,
-          "to_pct": 100.0
         }
       ],
       "dropped": [
         {
-          "card": "Nighttime Mine",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Handheld Fan",
+          "card": "Tool Scrapper",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -1086,12 +1081,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "Poké Pad",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Tool Scrapper",
+          "card": "Ultra Ball",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -1101,7 +1091,17 @@
           "to_pct": 0.0
         },
         {
-          "card": "Ultra Ball",
+          "card": "Nighttime Mine",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Poké Pad",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Handheld Fan",
           "from_pct": 100.0,
           "to_pct": 0.0
         }
