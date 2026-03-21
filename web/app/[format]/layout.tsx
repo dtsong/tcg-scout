@@ -33,6 +33,7 @@ export default async function FormatLayout({
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-4">
           <nav className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-surface-400">
             <Link href={`/${format}`} className="hover:text-slate-200 transition-colors">Dashboard</Link>
+            <Link href={`/${format}/optimal-60`} className="hover:text-slate-200 transition-colors">Optimal 60</Link>
             <Link href={`/${format}/archetypes`} className="hover:text-slate-200 transition-colors">Archetypes</Link>
             <Link href={`/${format}/cards`} className="hover:text-slate-200 transition-colors">Cards</Link>
             <Link href={`/${format}/card-analysis`} className="hover:text-slate-200 transition-colors">Format Edge</Link>

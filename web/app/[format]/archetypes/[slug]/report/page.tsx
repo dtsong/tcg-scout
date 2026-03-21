@@ -2,6 +2,7 @@ import {
   getArchetypeReport,
   getArchetypeSlugs,
   getFormats,
+  getOptimal60,
 } from "@/app/lib/data";
 import { ReportClient } from "./report-client";
 
@@ -52,5 +53,6 @@ export default async function ArchetypeReportPage({
     );
   }
 
-  return <ReportClient report={report} format={format} />;
+  const hasOptimal60 = getOptimal60(format, slug) !== null;
+  return <ReportClient report={report} format={format} hasOptimal60={hasOptimal60} />;
 }

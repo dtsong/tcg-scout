@@ -29,7 +29,8 @@ CREATE TABLE IF NOT EXISTS tournaments (
     date TEXT NOT NULL,
     player_count INTEGER,
     country TEXT DEFAULT 'JP',
-    division TEXT DEFAULT 'open'
+    division TEXT DEFAULT 'open',
+    tournament_type TEXT DEFAULT 'city-league'
 );
 
 CREATE TABLE IF NOT EXISTS placements (
@@ -141,6 +142,11 @@ def init_db(conn: sqlite3.Connection | None = None) -> None:
     cols = {row[1] for row in conn.execute("PRAGMA table_info(tournaments)")}
     if "division" not in cols:
         conn.execute("ALTER TABLE tournaments ADD COLUMN division TEXT DEFAULT 'open'")
+    # Migration: add tournament_type column (city-league, champions-league)
+    if "tournament_type" not in cols:
+        conn.execute(
+            "ALTER TABLE tournaments ADD COLUMN tournament_type TEXT DEFAULT 'city-league'"
+        )
     conn.commit()
     if close:
         conn.close()

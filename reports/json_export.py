@@ -28,6 +28,7 @@ from analysis.deep_dive import (
 from analysis.evolution import compute_archetype_evolution, compute_meta_evolution
 from analysis.matchup import compute_matchup_matrix
 from analysis.meta import get_latest_snapshot
+from analysis.optimal_60 import compute_optimal_60
 from analysis.synergy import compute_archetype_overlap_matrix, compute_synergy_pairs
 from analysis.tech_forecast import compute_tech_forecast
 from config import (
@@ -2480,6 +2481,102 @@ def export_deep_dive(conn: sqlite3.Connection, output_dir: Path, *, format_slug:
         logger.info("Exported %d archetype deep dive reports", count)
 
 
+def export_optimal_60(conn: sqlite3.Connection, output_dir: Path, *, format_slug: str = "") -> None:
+    """Export per-archetype Optimal 60 JSON files with CL-boosted consensus."""
+    from datetime import UTC, datetime
+
+    snapshot = get_latest_snapshot(conn)
+    if not snapshot:
+        logger.warning("Skipping optimal 60 export: no snapshot available")
+        return
+
+    # Check if CL tournament data exists
+    cl_count = conn.execute(
+        "SELECT COUNT(*) FROM tournaments WHERE tournament_type = 'champions-league'"
+    ).fetchone()[0]
+    if cl_count == 0:
+        logger.info("Skipping optimal 60 export: no champions-league tournaments")
+        return
+
+    category_lookup = build_category_lookup(conn)
+    weighted_shares = _compute_weighted_shares(conn, snapshot)
+    optimal_dir = output_dir / "optimal-60"
+    optimal_dir.mkdir(parents=True, exist_ok=True)
+
+    # Get CL event metadata
+    cl_event = conn.execute(
+        "SELECT name, player_count FROM tournaments WHERE tournament_type = 'champions-league' LIMIT 1"
+    ).fetchone()
+    cl_event_name = cl_event["name"] if cl_event else "Champions League"
+    cl_player_count = cl_event["player_count"] if cl_event else 0
+
+    index_entries = []
+    count = 0
+
+    for arch in snapshot["archetypes"]:
+        archetype_name = arch["archetype"]
+        slug = _slugify(archetype_name)
+
+        result = compute_optimal_60(conn, archetype_name, category_lookup)
+        if result is None:
+            continue
+
+        sprite_filenames = _get_sprite_filenames(archetype_name)
+
+        detail = {
+            "archetype": archetype_name,
+            "slug": slug,
+            "format": format_slug or "",
+            "generated_at": datetime.now(UTC).isoformat(),
+            "tier": arch["tier"],
+            "meta_share": arch["meta_share"],
+            "weighted_share": weighted_shares.get(archetype_name, arch["meta_share"]),
+            "sprite_filenames": sprite_filenames,
+            "quality_score": result["quality_score"],
+            "cl_deck_count": result["cl_deck_count"],
+            "city_league_deck_count": result["city_league_deck_count"],
+            "has_cl_data": result["has_cl_data"],
+            "total_pokemon": result["total_pokemon"],
+            "total_trainer": result["total_trainer"],
+            "total_energy": result["total_energy"],
+            "core_lock_rate": result["core_lock_rate"],
+            "innovation_index": result["innovation_index"],
+            "cards": result["cards"],
+            "narrative": {},
+        }
+
+        _write_json(detail, optimal_dir / f"{slug}.json")
+        count += 1
+
+        index_entries.append(
+            {
+                "archetype": archetype_name,
+                "slug": slug,
+                "tier": arch["tier"],
+                "meta_share": arch["meta_share"],
+                "sprite_filenames": sprite_filenames,
+                "quality_score": result["quality_score"],
+                "cl_deck_count": result["cl_deck_count"],
+                "city_league_deck_count": result["city_league_deck_count"],
+                "has_cl_data": result["has_cl_data"],
+                "innovation_index": result["innovation_index"],
+                "core_lock_rate": result["core_lock_rate"],
+            }
+        )
+
+    # Write hub index
+    index = {
+        "format": format_slug or "",
+        "generated_at": datetime.now(UTC).isoformat(),
+        "cl_event": cl_event_name,
+        "cl_player_count": cl_player_count,
+        "format_note": "All data sources are Japanese BO1 events. See narrative for BO3 context.",
+        "archetypes": index_entries,
+    }
+    _write_json(index, optimal_dir / "index.json")
+    logger.info("Exported %d optimal 60 reports", count)
+
+
 def export_all(
     conn: sqlite3.Connection, output_dir: Path | None = None, format_slug: str | None = None
 ) -> Path:
@@ -2520,6 +2617,10 @@ def export_all(
     except sqlite3.OperationalError as exc:
         logger.warning("Skipping deep dive reports export (table missing): %s", exc)
     export_windowed(conn, out, format_slug=slug)
+    try:
+        export_optimal_60(conn, out, format_slug=slug)
+    except sqlite3.OperationalError as exc:
+        logger.warning("Skipping optimal 60 export: %s", exc)
 
     logger.info("Export complete")
     return out

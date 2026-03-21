@@ -21,6 +21,8 @@ import type {
   CardAnalysisData,
   TechForecast,
   MetaReport,
+  Optimal60Index,
+  Optimal60Detail,
 } from "./types";
 
 const DATA_DIR = path.join(process.cwd(), "public", "data");
@@ -198,6 +200,34 @@ export function getMetaReport(format: string): MetaReport | null {
     console.error(`Failed to load meta report for ${format}:`, err);
     return null;
   }
+}
+
+export function getOptimal60Index(format: string): Optimal60Index | null {
+  try {
+    return readJson(`${format}/optimal-60/index.json`);
+  } catch (err) {
+    if (isFileNotFound(err)) return null;
+    console.error(`Failed to load optimal 60 index for ${format}:`, err);
+    return null;
+  }
+}
+
+export function getOptimal60(format: string, slug: string): Optimal60Detail | null {
+  try {
+    return readJson(`${format}/optimal-60/${slug}.json`);
+  } catch (err) {
+    if (isFileNotFound(err)) return null;
+    console.error(`Failed to load optimal 60 for ${format}/${slug}:`, err);
+    return null;
+  }
+}
+
+export function getOptimal60Slugs(format: string): string[] {
+  const dir = path.join(DATA_DIR, format, "optimal-60");
+  if (!fs.existsSync(dir)) return [];
+  return fs.readdirSync(dir)
+    .filter((f) => f.endsWith(".json") && f !== "index.json")
+    .map((f) => f.replace(".json", ""));
 }
 
 export function getArchetypeReport(

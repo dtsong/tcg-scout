@@ -160,6 +160,14 @@ CL_WEIGHT_MULTIPLIER = {
     "juniors": 2.0,
 }
 
+# Limitless tournament URLs for Champions League events
+CL_TOURNAMENT_IDS = {
+    "https://limitlesstcg.com/tournaments/547",  # Fukuoka CL 2026
+}
+
+# CL boost factor for Optimal 60 computation
+CL_BOOST_FACTOR = CL_WEIGHT_MULTIPLIER["masters"]  # 5.0
+
 # Core card thresholds
 CORE_INCLUSION_RATE = 0.75
 CORE_AVG_COPIES_POKEMON = 3

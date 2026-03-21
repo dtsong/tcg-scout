@@ -36,6 +36,7 @@ export function Nav({ format, formats }: { format: string; formats: FormatInfo[]
 
   const links = [
     { href: `/${format}`, label: "Dashboard" },
+    { href: `/${format}/optimal-60`, label: "Optimal 60" },
     { href: `/${format}/archetypes`, label: "Archetypes" },
     { href: `/${format}/cards`, label: "Cards" },
     { href: `/${format}/card-analysis`, label: "Format Edge" },
