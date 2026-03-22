@@ -530,7 +530,7 @@ def reclassify(ctx: click.Context, dry_run: bool) -> None:
                         )
                 else:
                     still_unknown += 1
-            except (sqlite3.OperationalError, KeyError, ValueError) as exc:
+            except (sqlite3.OperationalError, KeyError, ValueError, TypeError) as exc:
                 logger.error(
                     "Failed to reclassify placement %s: %s", placement["id"], exc, exc_info=True
                 )
@@ -1121,12 +1121,14 @@ def validate(ctx: click.Context, strict: bool) -> None:
     total_errors = len(export_result.errors) + len(db_result.errors)
     total_warnings = len(export_result.warnings) + len(db_result.warnings)
 
-    if strict and total_warnings > 0:
-        total_errors += total_warnings
-        total_warnings = 0
-
     console.print()
-    if total_errors > 0:
+    if strict and total_warnings > 0:
+        console.print(
+            f"[red bold]FAILED[/red bold]: {total_errors} error(s), "
+            f"{total_warnings} warning(s) promoted to errors under --strict"
+        )
+        raise SystemExit(1)
+    elif total_errors > 0:
         console.print(
             f"[red bold]FAILED[/red bold]: {total_errors} error(s), {total_warnings} warning(s)"
         )

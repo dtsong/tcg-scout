@@ -3146,14 +3146,17 @@ def export_all(
     export_ace_specs(conn, out)
     export_archetypes(conn, out)
     export_card_analysis(conn, out)
+    skipped: list[str] = []
     try:
         export_card_decklists(conn, out)
     except (sqlite3.OperationalError, ValueError) as exc:
+        if strict:
+            raise
         logger.warning("Skipping card decklists export (data unavailable): %s", exc)
+        skipped.append("card decklists")
     export_champions_league(conn, out)
     export_images(conn, out)
     export_timeline(conn, out)
-    skipped: list[str] = []
     for export_fn, name in [
         (export_cards, "cards"),
         (export_archetype_overlap, "archetype overlap"),
@@ -3198,15 +3201,28 @@ def export_all(
 def _translate_all_json(directory: Path, lookup: dict[str, str]) -> None:
     """Walk all JSON files in directory and translate JP card names."""
     translated_files = 0
+    failed_files = 0
     for json_path in directory.rglob("*.json"):
-        raw = json_path.read_text(encoding="utf-8")
-        if not _JP_RE.search(raw):
-            continue
-        data = json.loads(raw)
-        translated = _translate_card_names(data, lookup)
-        json_path.write_text(json.dumps(translated, ensure_ascii=False, indent=2), encoding="utf-8")
-        translated_files += 1
+        try:
+            raw = json_path.read_text(encoding="utf-8")
+            if not _JP_RE.search(raw):
+                continue
+            data = json.loads(raw)
+            translated = _translate_card_names(data, lookup)
+            json_path.write_text(
+                json.dumps(translated, ensure_ascii=False, indent=2), encoding="utf-8"
+            )
+            translated_files += 1
+        except (OSError, json.JSONDecodeError, UnicodeDecodeError) as exc:
+            logger.error(
+                "Failed to translate JP card names in %s: %s",
+                json_path.relative_to(directory),
+                exc,
+            )
+            failed_files += 1
     logger.info("Translated JP card names in %d JSON files", translated_files)
+    if failed_files:
+        logger.warning("JP translation incomplete: %d file(s) could not be processed", failed_files)
 
 
 def export_narrative(format_slug: str, output_dir: Path | None = None) -> Path | None:

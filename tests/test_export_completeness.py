@@ -27,11 +27,13 @@ class TestExportCompleteness:
 
         # Run export with log capture
         with caplog.at_level(logging.WARNING, logger="reports.json_export"):
-            export_all(db, output_dir=tmp_path, format_slug="nihil-zero")
+            _out, skipped = export_all(db, output_dir=tmp_path, format_slug="nihil-zero")
 
-        # Check no "Skipping" warnings were emitted
+        assert skipped == [], f"Exports were silently skipped: {skipped}"
+
+        # Belt-and-suspenders: also check no "Skipping" warnings were emitted
         skip_messages = [r.message for r in caplog.records if "Skipping" in r.message]
-        assert skip_messages == [], f"Exports were silently skipped: {skip_messages}"
+        assert skip_messages == [], f"Unexpected skip warnings in logs: {skip_messages}"
 
     def test_export_strict_propagates_errors(self, db, tmp_path):
         """strict=True should raise instead of swallowing errors."""
