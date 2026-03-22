@@ -100,7 +100,7 @@ steps:
         git remote set-url origin "https://x-access-token:$$GITHUB_TOKEN@github.com/dtsong/tcg-scout.git"
         git add web/data-manifest.json
         git diff --cached --quiet && { echo "No manifest changes"; exit 0; }
-        git commit -m "data: daily scrape $$(date -u +%Y-%m-%d)"
+        git commit -m "data: scrape $$(date -u +%Y-%m-%dT%H:%MZ)"
         git push origin HEAD:main
     waitFor: ["upload-data"]
 
