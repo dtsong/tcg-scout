@@ -148,13 +148,14 @@ def scrape(
             # Store placements and decklists
             for placement in placements:
                 cursor = conn.execute(
-                    "INSERT INTO placements (tournament_id, standing, player_name, archetype) "
-                    "VALUES (?, ?, ?, ?)",
+                    "INSERT INTO placements (tournament_id, standing, player_name, archetype, decklist_url) "
+                    "VALUES (?, ?, ?, ?, ?)",
                     (
                         tournament.source_url,
                         placement.placement,
                         placement.player_name,
                         placement.archetype,
+                        placement.decklist_url,
                     ),
                 )
                 placement_id = cursor.lastrowid
@@ -914,9 +915,15 @@ def scrape_tournament(
             )
 
             cursor = conn.execute(
-                "INSERT INTO placements (tournament_id, standing, player_name, archetype) "
-                "VALUES (?, ?, ?, ?)",
-                (tournament_url, placement.placement, placement.player_name, placement.archetype),
+                "INSERT INTO placements (tournament_id, standing, player_name, archetype, decklist_url) "
+                "VALUES (?, ?, ?, ?, ?)",
+                (
+                    tournament_url,
+                    placement.placement,
+                    placement.player_name,
+                    placement.archetype,
+                    placement.decklist_url,
+                ),
             )
             placement_id = cursor.lastrowid
 
@@ -1040,21 +1047,13 @@ def backfill_archetypes(
     help="Also generate LLM narrative report (requires ANTHROPIC_API_KEY)",
 )
 @click.option(
-    "--upload",
-    is_flag=True,
-    help="Upload to Vercel Blob Store after export",
-)
-@click.option(
     "--strict",
     is_flag=True,
     help="Fail on any export error instead of skipping (use in CI)",
 )
 @click.pass_context
-def export_web(ctx: click.Context, narrative: bool, upload: bool, strict: bool) -> None:
+def export_web(ctx: click.Context, narrative: bool, strict: bool) -> None:
     """Export JSON data for the Scout Web dashboard."""
-    import os
-    import subprocess
-
     from reports.json_export import export_all, export_formats, export_narrative
 
     fmt = ctx.obj["format"]
@@ -1076,25 +1075,6 @@ def export_web(ctx: click.Context, narrative: bool, upload: bool, strict: bool) 
                 console.print("[yellow]Narrative report generation skipped.[/yellow]")
     finally:
         conn.close()
-
-    if upload:
-        if not os.environ.get("BLOB_READ_WRITE_TOKEN"):
-            console.print("[red]BLOB_READ_WRITE_TOKEN not set; skipping upload[/red]")
-            return
-        console.print("[blue]Uploading to Vercel Blob Store...[/blue]")
-        result = subprocess.run(
-            ["node", "scripts/blob-upload.mjs"],
-            cwd="web",
-        )
-        if result.returncode == 0:
-            console.print("[green]Blob store updated[/green]")
-        else:
-            console.print(f"[red]Blob upload failed (exit code {result.returncode})[/red]")
-    else:
-        console.print(
-            "[yellow]Reminder: run 'cd web && npm run blob:upload' "
-            "to update the deployed site[/yellow]"
-        )
 
 
 @cli.command()

@@ -696,13 +696,14 @@ def store_cl_city_league_results(
             archetype = classify_jp_decklist(conn, deck_cards)
 
         cursor = conn.execute(
-            "INSERT INTO placements (tournament_id, standing, player_name, archetype) "
-            "VALUES (?, ?, ?, ?)",
+            "INSERT INTO placements (tournament_id, standing, player_name, archetype, decklist_url) "
+            "VALUES (?, ?, ?, ?, ?)",
             (
                 tournament_id,
                 placement.standing,
                 placement.player_name,
                 archetype,
+                placement.deck_url,
             ),
         )
         placement_id = cursor.lastrowid

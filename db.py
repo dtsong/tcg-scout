@@ -41,7 +41,8 @@ CREATE TABLE IF NOT EXISTS placements (
     tournament_id TEXT NOT NULL REFERENCES tournaments(id),
     standing INTEGER NOT NULL,
     player_name TEXT,
-    archetype TEXT NOT NULL
+    archetype TEXT NOT NULL,
+    decklist_url TEXT
 );
 
 CREATE TABLE IF NOT EXISTS decklist_cards (
@@ -151,6 +152,11 @@ def init_db(conn: sqlite3.Connection | None = None) -> None:
         conn.execute(
             "ALTER TABLE tournaments ADD COLUMN tournament_type TEXT DEFAULT 'city-league'"
         )
+    # Migration: add decklist_url column to placements
+    p_cols = {row[1] for row in conn.execute("PRAGMA table_info(placements)")}
+    if "decklist_url" not in p_cols:
+        conn.execute("ALTER TABLE placements ADD COLUMN decklist_url TEXT")
+        logger.info("Migration: added decklist_url column to placements")
     # Migration: ensure weighted_share column exists on archetype_stats
     as_cols = {row[1] for row in conn.execute("PRAGMA table_info(archetype_stats)")}
     if "weighted_share" not in as_cols:
