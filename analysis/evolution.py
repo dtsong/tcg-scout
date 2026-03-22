@@ -177,7 +177,10 @@ def compute_meta_evolution(conn: sqlite3.Connection, top_n: int | None = None) -
     if not arch_rows:
         return {"highlights": [], "movements": []}
 
-    jp_en_lookup = build_jp_en_lookup(conn)
+    # Lazy import to avoid circular dependency (json_export imports from this module)
+    from reports.json_export import JP_CARD_NAMES
+
+    jp_en_lookup = build_jp_en_lookup(conn, fallback=JP_CARD_NAMES)
 
     all_movements = []
     for ar in arch_rows:
