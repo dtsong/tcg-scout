@@ -43,25 +43,70 @@ steps:
       - gsutil -m cp data/*.db "gs://${_CACHE_BUCKET}/scout-dbs/"
     waitFor: ["validate"]
 
-  # Commit and push updated data to GitHub
-  - id: push-to-github
+  # Tar and upload exported JSON data to GCS
+  - id: upload-data
+    name: gcr.io/google.com/cloudsdktool/google-cloud-cli:slim
+    entrypoint: bash
+    args:
+      - -c
+      - |
+        TIMESTAMP=$$(date -u +%Y%m%dT%H%M%SZ)
+        TAR_FILE="data-$${TIMESTAMP}.tar.gz"
+        GCS_PATH="gs://${_DATA_BUCKET}/$${TAR_FILE}"
+        CB_SA="$$(gcloud config get-value account 2>/dev/null)"
+
+        echo "Creating data archive..."
+        tar -czf "/tmp/$${TAR_FILE}" -C /workspace/web/public/data .
+
+        echo "Uploading to $${GCS_PATH}..."
+        gsutil cp "/tmp/$${TAR_FILE}" "$${GCS_PATH}"
+        gsutil cp "$${GCS_PATH}" "gs://${_DATA_BUCKET}/data-latest.tar.gz"
+
+        echo "Generating signed URL (valid 24h)..."
+        SIGNED_URL=$$(gcloud storage sign-url "$${GCS_PATH}" \
+          --impersonate-service-account="$${CB_SA}" \
+          --duration=24h --quiet 2>/dev/null \
+          | grep 'https://' | awk '{print $$NF}')
+
+        SHA256=$$(sha256sum "/tmp/$${TAR_FILE}" | cut -d' ' -f1)
+
+        echo "Writing manifest..."
+        cat > /workspace/web/data-manifest.json <<MANIFEST_EOF
+        {
+          "version": 1,
+          "archives": [
+            {
+              "url": "$${SIGNED_URL}",
+              "sha256": "$${SHA256}",
+              "created_at": "$${TIMESTAMP}"
+            }
+          ]
+        }
+        MANIFEST_EOF
+
+        echo "Manifest written. SHA-256: $${SHA256}"
+    waitFor: ["save-db-cache"]
+
+  # Commit manifest and push (lightweight, no JSON data)
+  - id: push-manifest
     name: gcr.io/cloud-builders/git
     entrypoint: bash
     secretEnv: ["GITHUB_TOKEN"]
     args:
       - -c
       - |
-        git diff --quiet web/public/data/ && { echo "No changes to commit"; exit 0; }
         git config user.name "cloud-build[bot]"
         git config user.email "cloud-build[bot]@scout.trainerlab.io"
         git remote set-url origin "https://x-access-token:$$GITHUB_TOKEN@github.com/dtsong/tcg-scout.git"
-        git add web/public/data/
+        git add web/data-manifest.json
+        git diff --cached --quiet && { echo "No manifest changes"; exit 0; }
         git commit -m "data: daily scrape $$(date -u +%Y-%m-%d)"
         git push origin HEAD:main
-    waitFor: ["save-db-cache"]
+    waitFor: ["upload-data"]
 
 substitutions:
   _CACHE_BUCKET: tcg-scout-cache
+  _DATA_BUCKET: tcg-scout-data
 
 timeout: 2700s
 options:

@@ -21,6 +21,9 @@ data/*.db-shm
 data/*.sqlite
 *.db
 
+# Exported JSON data (fetched from GCS at build time)
+web/public/data/
+
 # Reports output
 reports/output/
 

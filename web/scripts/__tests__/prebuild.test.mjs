@@ -10,7 +10,6 @@ describe("prebuild", () => {
   beforeEach(() => {
     tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), "prebuild-test-"));
     fs.mkdirSync(path.join(tmpDir, "public", "data"), { recursive: true });
-    // Copy the prebuild script to the tmp dir so import.meta.dirname resolves to tmpDir/scripts
     const scriptsDir = path.join(tmpDir, "scripts");
     fs.mkdirSync(scriptsDir, { recursive: true });
     fs.copyFileSync(
@@ -23,7 +22,7 @@ describe("prebuild", () => {
     fs.rmSync(tmpDir, { recursive: true, force: true });
   });
 
-  it("exits 0 when formats.json exists", () => {
+  it("exits 0 when formats.json exists with valid data", () => {
     fs.writeFileSync(path.join(tmpDir, "public", "data", "formats.json"), "[]");
     const result = execSync(`node ${path.join(tmpDir, "scripts", "prebuild.mjs")}`, {
       encoding: "utf-8",
@@ -31,7 +30,9 @@ describe("prebuild", () => {
     expect(result).toContain("format(s) validated");
   });
 
-  it("exits 1 when formats.json is missing", () => {
+  it("exits 1 when formats.json is missing and no manifest", () => {
+    fs.rmSync(path.join(tmpDir, "public", "data"), { recursive: true, force: true });
+    fs.mkdirSync(path.join(tmpDir, "public", "data"), { recursive: true });
     let exitCode;
     let stderr;
     try {
@@ -46,5 +47,20 @@ describe("prebuild", () => {
     }
     expect(exitCode).toBe(1);
     expect(stderr).toContain("FATAL");
+  });
+
+  it("skips download when data already exists on disk", () => {
+    fs.writeFileSync(path.join(tmpDir, "public", "data", "formats.json"), "[]");
+    fs.writeFileSync(
+      path.join(tmpDir, "data-manifest.json"),
+      JSON.stringify({
+        version: 1,
+        archives: [{ url: "https://example.com/data.tar.gz", sha256: "", created_at: "" }],
+      }),
+    );
+    const result = execSync(`node ${path.join(tmpDir, "scripts", "prebuild.mjs")}`, {
+      encoding: "utf-8",
+    });
+    expect(result).toContain("format(s) validated");
   });
 });
