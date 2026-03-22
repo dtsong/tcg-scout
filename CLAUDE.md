@@ -52,10 +52,14 @@ source ~/.nvm/nvm.sh && nvm use default --silent && <command>
 ### Data Flow
 
 ```
-Scrapers -> SQLite -> compute_meta_snapshot -> json_export -> web/public/data/ -> Next.js SSG
+Scrapers -> SQLite -> compute_meta_snapshot -> json_export -> GCS tarball -> Vercel prebuild -> Next.js SSG
 ```
 
+Cloud Build uploads exported JSON as a tarball to `gs://tcg-scout-data/`.
+Vercel prebuild downloads via signed URL in `web/data-manifest.json`.
 All frontend data is static JSON read at build time via `fs.readFileSync`. No runtime API calls.
+
+For local development, run `python cli.py --format <format> export-web` to generate data on disk.
 
 ### Archetype Detection
 
