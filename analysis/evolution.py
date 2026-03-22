@@ -6,6 +6,22 @@ from datetime import date, timedelta
 
 from analysis.card_stats import BASIC_ENERGY_NAMES, _slugify, build_jp_en_lookup
 
+# Minimum decks with decklists required per week to compute shifts.
+# Prevents small-sample noise (e.g., 4 decks in week 1 → 100% rates).
+MIN_DECKS_PER_WEEK = 15
+
+
+def _week_start(d: date, epoch: date | None = None) -> date:
+    """Return the start of the week containing date d.
+
+    If epoch is provided, weeks are aligned to that date (7-day intervals).
+    Otherwise, uses ISO Monday-based weeks.
+    """
+    if epoch is not None:
+        days_since = (d - epoch).days
+        return epoch + timedelta(days=(days_since // 7) * 7)
+    return d - timedelta(days=d.weekday())
+
 
 def compute_archetype_evolution(
     conn: sqlite3.Connection,
@@ -13,10 +29,15 @@ def compute_archetype_evolution(
     adoption_threshold_low: float = 20.0,
     adoption_threshold_high: float = 50.0,
     jp_en_lookup: dict[str, str] | None = None,
+    format_start: str | None = None,
 ) -> list[dict]:
     """Compute weekly card inclusion rate changes for an archetype.
 
     Tracks card adoption/drop events: cards moving across thresholds.
+
+    Args:
+        format_start: If provided (YYYY-MM-DD), align week boundaries to this
+            date instead of ISO Monday. Prevents partial first weeks.
 
     Returns a list of weekly evolution events:
     [
@@ -30,6 +51,7 @@ def compute_archetype_evolution(
     """
     energy_names = sorted(BASIC_ENERGY_NAMES)
     energy_placeholders = ",".join("?" * len(energy_names))
+    epoch = date.fromisoformat(format_start) if format_start else None
 
     # Get all placements for this archetype with tournament dates
     rows = conn.execute(
@@ -46,12 +68,12 @@ def compute_archetype_evolution(
     if not rows:
         return []
 
-    # Group placements by ISO week
+    # Group placements by week (aligned to format start if provided)
     week_placements: dict[str, list[int]] = defaultdict(list)
     for r in rows:
         d = date.fromisoformat(r["date"])
-        monday = d - timedelta(days=d.weekday())
-        week_placements[monday.isoformat()].append(r["placement_id"])
+        wk = _week_start(d, epoch)
+        week_placements[wk.isoformat()].append(r["placement_id"])
 
     weeks = sorted(week_placements.keys())
     if len(weeks) < 2:
@@ -70,7 +92,7 @@ def compute_archetype_evolution(
             pids,
         ).fetchone()[0]
 
-        if total == 0:
+        if total < MIN_DECKS_PER_WEEK:
             continue
 
         card_rows = conn.execute(
@@ -152,7 +174,9 @@ def compute_archetype_evolution(
     return evolution
 
 
-def compute_meta_evolution(conn: sqlite3.Connection, top_n: int | None = None) -> dict:
+def compute_meta_evolution(
+    conn: sqlite3.Connection, top_n: int | None = None, format_start: str | None = None
+) -> dict:
     """Compute format-wide "what changed this week" — card movements across all archetypes.
 
     Returns a dict with highlights (top 5) and all movements:
@@ -184,7 +208,9 @@ def compute_meta_evolution(conn: sqlite3.Connection, top_n: int | None = None) -
 
     all_movements = []
     for ar in arch_rows:
-        evolution = compute_archetype_evolution(conn, ar["archetype"], jp_en_lookup=jp_en_lookup)
+        evolution = compute_archetype_evolution(
+            conn, ar["archetype"], jp_en_lookup=jp_en_lookup, format_start=format_start
+        )
         for event in evolution:
             base = {
                 "archetype": ar["archetype"],

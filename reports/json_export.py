@@ -1914,8 +1914,17 @@ def _compute_card_stats_for_ids(
     return cards
 
 
-def export_archetypes(conn: sqlite3.Connection, output_dir: Path) -> None:
+def export_archetypes(
+    conn: sqlite3.Connection, output_dir: Path, format_slug: str | None = None
+) -> None:
     """Export per-archetype detail JSON files with core cards and tournament results."""
+    format_start = None
+    if format_slug:
+        from config import FORMATS
+
+        fmt_cfg = FORMATS.get(format_slug, {})
+        format_start = fmt_cfg.get("dataset_start")
+
     snapshot = get_latest_snapshot(conn)
     if not snapshot:
         return
@@ -2084,7 +2093,9 @@ def export_archetypes(conn: sqlite3.Connection, output_dir: Path) -> None:
         }
 
         # Evolution events
-        evolution = compute_archetype_evolution(conn, archetype_name, jp_en_lookup=jp_en_lookup)
+        evolution = compute_archetype_evolution(
+            conn, archetype_name, jp_en_lookup=jp_en_lookup, format_start=format_start
+        )
 
         # Variant detection: group decklists by distinguishing Pokemon
         variants = _detect_variants(conn, archetype_name, placement_ids, all_cards)
@@ -2833,9 +2844,17 @@ def export_cards(conn: sqlite3.Connection, output_dir: Path) -> None:
     )
 
 
-def export_meta_evolution(conn: sqlite3.Connection, output_dir: Path) -> None:
+def export_meta_evolution(
+    conn: sqlite3.Connection, output_dir: Path, format_slug: str | None = None
+) -> None:
     """Export format-wide meta evolution — highlights + all movements."""
-    data = compute_meta_evolution(conn)
+    format_start = None
+    if format_slug:
+        from config import FORMATS
+
+        fmt_cfg = FORMATS.get(format_slug, {})
+        format_start = fmt_cfg.get("dataset_start")
+    data = compute_meta_evolution(conn, format_start=format_start)
     _write_json(data, output_dir / "meta-evolution.json")
     logger.info(
         "Exported meta evolution (%d highlights, %d total movements)",
@@ -3118,7 +3137,7 @@ def export_all(
     export_trends(conn, out, format_slug=slug)
     export_winning_edge(conn, out)
     export_ace_specs(conn, out)
-    export_archetypes(conn, out)
+    export_archetypes(conn, out, format_slug=slug)
     export_card_analysis(conn, out)
     skipped: list[str] = []
     try:
@@ -3135,7 +3154,6 @@ def export_all(
         (export_cards, "cards"),
         (export_archetype_overlap, "archetype overlap"),
         (export_matchup_matrix, "matchup matrix"),
-        (export_meta_evolution, "meta evolution"),
         (export_tech_forecast, "tech forecast"),
     ]:
         try:
@@ -3145,6 +3163,13 @@ def export_all(
                 raise
             logger.warning("Skipping %s export (data unavailable): %s", name, exc)
             skipped.append(name)
+    try:
+        export_meta_evolution(conn, out, format_slug=slug)
+    except (sqlite3.OperationalError, ValueError) as exc:
+        if strict:
+            raise
+        logger.warning("Skipping meta evolution export (data unavailable): %s", exc)
+        skipped.append("meta evolution")
     try:
         export_deep_dive(conn, out, format_slug=slug)
     except sqlite3.OperationalError as exc:

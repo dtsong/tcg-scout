@@ -292,21 +292,21 @@ class TestJpEnCardNameMerging:
             ],
         )
 
+        # Need 10+ placements per week to meet MIN_DECKS_PER_WEEK threshold
+        placements = [(i, "t1", i, f"P{i}", "Test Deck") for i in range(1, 20)]
+        placements += [(i + 19, "t2", i, f"Q{i}", "Test Deck") for i in range(1, 20)]
         conn.executemany(
             "INSERT INTO placements (id, tournament_id, standing, player_name, archetype) "
             "VALUES (?, ?, ?, ?, ?)",
-            [
-                (1, "t1", 1, "A", "Test Deck"),
-                (2, "t2", 1, "B", "Test Deck"),
-            ],
+            placements,
         )
 
+        # Week 1: all decks have JP name; Week 2: all decks have EN name
+        decklist_rows = [(i, "c-ns", "夜のタンカ", 2) for i in range(1, 20)]
+        decklist_rows += [(i + 19, "c-ns", "Night Stretcher", 2) for i in range(1, 20)]
         conn.executemany(
             "INSERT INTO decklist_cards (placement_id, card_id, card_name, count) VALUES (?, ?, ?, ?)",
-            [
-                (1, "c-ns", "夜のタンカ", 2),
-                (2, "c-ns", "Night Stretcher", 2),
-            ],
+            decklist_rows,
         )
         conn.commit()
 
