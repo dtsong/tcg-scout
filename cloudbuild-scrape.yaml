@@ -53,7 +53,6 @@ steps:
         TIMESTAMP=$$(date -u +%Y%m%dT%H%M%SZ)
         TAR_FILE="data-$${TIMESTAMP}.tar.gz"
         GCS_PATH="gs://${_DATA_BUCKET}/$${TAR_FILE}"
-        CB_SA="$$(gcloud config get-value account 2>/dev/null)"
 
         echo "Creating data archive..."
         tar -czf "/tmp/$${TAR_FILE}" -C /workspace/web/public/data .
@@ -64,7 +63,8 @@ steps:
 
         echo "Generating signed URL (valid 24h)..."
         SIGNED_URL=$$(gcloud storage sign-url "$${GCS_PATH}" \
-          --impersonate-service-account="$${CB_SA}" \
+          --impersonate-service-account="${_SIGNER_SA}" \
+          --region=us-central1 \
           --duration=24h --quiet 2>/dev/null \
           | grep 'https://' | awk '{print $$NF}')
 
@@ -107,6 +107,7 @@ steps:
 substitutions:
   _CACHE_BUCKET: tcg-scout-cache
   _DATA_BUCKET: tcg-scout-data
+  _SIGNER_SA: scout-data-signer@trainerlab-prod.iam.gserviceaccount.com
 
 timeout: 2700s
 options:
