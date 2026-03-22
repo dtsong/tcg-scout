@@ -69,21 +69,32 @@ async function upload() {
 
   let uploaded = 0;
   let failed = 0;
-  const batchSize = 20;
+  const batchSize = 5;
+  const maxRetries = 3;
+
+  async function uploadFile(f, attempt = 1) {
+    try {
+      const content = fs.readFileSync(f.localPath);
+      const blob = await put(f.blobPath, content, {
+        access: "public",
+        addRandomSuffix: false,
+        allowOverwrite: true,
+        contentType: "application/json",
+      });
+      return { path: f.blobPath, url: blob.url };
+    } catch (err) {
+      if (attempt < maxRetries && /too many requests/i.test(err.message)) {
+        const delay = attempt * 2000;
+        await new Promise((r) => setTimeout(r, delay));
+        return uploadFile(f, attempt + 1);
+      }
+      throw err;
+    }
+  }
 
   for (let i = 0; i < files.length; i += batchSize) {
     const batch = files.slice(i, i + batchSize);
-    const results = await Promise.allSettled(
-      batch.map(async (f) => {
-        const content = fs.readFileSync(f.localPath);
-        const blob = await put(f.blobPath, content, {
-          access: "public",
-          addRandomSuffix: false,
-          contentType: "application/json",
-        });
-        return { path: f.blobPath, url: blob.url };
-      }),
-    );
+    const results = await Promise.allSettled(batch.map((f) => uploadFile(f)));
 
     for (const result of results) {
       if (result.status === "fulfilled") {
