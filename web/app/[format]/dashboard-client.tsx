@@ -15,6 +15,7 @@ import type { MetaData, TrendsData, WinningEdgeCard, AceSpec, TimelineData, Time
 
 interface DashboardClientProps {
   format: string;
+  formatStatus?: "active" | "frozen" | "upcoming";
   meta: MetaData;
   trends: TrendsData;
   winningEdge: WinningEdgeCard[];
@@ -25,6 +26,7 @@ interface DashboardClientProps {
 
 export function DashboardClient({
   format,
+  formatStatus,
   meta: initialMeta,
   trends: initialTrends,
   winningEdge: initialWinningEdge,
@@ -98,19 +100,25 @@ export function DashboardClient({
         <div className="relative">
           <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
             <p className="text-sm text-surface-300 max-w-xl">
-              <span className="text-slate-200 font-medium">{formatName}</span>{" "}is Japan&apos;s post-rotation format. {rotationDays > 0
-                ? `These results preview the Standard meta. Set legal internationally on ${meta.rotation_date}.`
-                : "This set is now legal internationally."}
+              <span className="text-slate-200 font-medium">{formatName}</span>{" "}
+              {formatStatus === "frozen"
+                ? "is a completed format. This is the final competitive record from Japan's City Leagues."
+                : <>is Japan&apos;s post-rotation format. {rotationDays > 0
+                    ? `These results preview the Standard meta. Set legal internationally on ${meta.rotation_date}.`
+                    : "This set is now legal internationally."}</>
+              }
             </p>
-            <div className="flex items-center gap-1 shrink-0">
-              <span className="text-xs text-surface-300 flex items-center gap-1 mr-1">
-                <Calendar className="w-3.5 h-3.5" />
-                Set Legal for International TCG Events
-              </span>
-              <span className="font-mono text-xl font-medium text-accent tabular-nums">
-                {rotationDays > 0 ? `${rotationDays}d` : "Live"}
-              </span>
-            </div>
+            {formatStatus !== "frozen" && (
+              <div className="flex items-center gap-1 shrink-0">
+                <span className="text-xs text-surface-300 flex items-center gap-1 mr-1">
+                  <Calendar className="w-3.5 h-3.5" />
+                  Set Legal for International TCG Events
+                </span>
+                <span className="font-mono text-xl font-medium text-accent tabular-nums">
+                  {rotationDays > 0 ? `${rotationDays}d` : "Live"}
+                </span>
+              </div>
+            )}
           </div>
           <p className="text-xs text-surface-400 mt-2">
             <Link href={`/${format}/guide#dashboard`} className="text-accent hover:text-accent/80 transition-colors">

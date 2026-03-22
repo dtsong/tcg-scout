@@ -25,6 +25,9 @@ REQUIRED_FILES = [
 # Required directories
 REQUIRED_DIRS = ["archetypes"]
 
+# Optional directories -- warn if missing (catch accidental deletions)
+OPTIONAL_DIRS = ["optimal-60", "card-decklists"]
+
 # Max file size (1MB safety valve)
 MAX_FILE_SIZE = 1_048_576
 
@@ -66,6 +69,14 @@ def validate_export(export_dir: Path) -> ValidationResult:
             result.errors.append(f"Missing required directory: {dirname}")
         elif not any(dirpath.iterdir()):
             result.errors.append(f"Required directory is empty: {dirname}")
+
+    # Check optional directories (warn, don't error)
+    for dirname in OPTIONAL_DIRS:
+        dirpath = export_dir / dirname
+        if not dirpath.is_dir():
+            result.warnings.append(f"Optional directory missing: {dirname}")
+        elif not any(dirpath.iterdir()):
+            result.warnings.append(f"Optional directory is empty: {dirname}")
 
     # Validate all JSON files parse correctly and check sizes
     json_files = list(export_dir.rglob("*.json"))

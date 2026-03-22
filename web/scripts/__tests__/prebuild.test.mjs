@@ -28,7 +28,7 @@ describe("prebuild", () => {
     const result = execSync(`node ${path.join(tmpDir, "scripts", "prebuild.mjs")}`, {
       encoding: "utf-8",
     });
-    expect(result).toContain("Data found");
+    expect(result).toContain("format(s) validated");
   });
 
   it("exits 1 when formats.json is missing", () => {

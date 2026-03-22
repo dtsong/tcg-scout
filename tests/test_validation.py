@@ -130,6 +130,14 @@ class TestValidateExport:
         assert result.ok  # Warning, not error
         assert any("Unknown" in w for w in result.warnings)
 
+    def test_warns_on_missing_optional_dirs(self, export_dir):
+        """validate_export should warn when expected optional dirs are missing."""
+        result = validate_export(export_dir)
+        optional_warnings = [
+            w for w in result.warnings if "optimal-60" in w or "card-decklists" in w
+        ]
+        assert len(optional_warnings) > 0, "Should warn about missing optional directories"
+
 
 class TestValidateDatabase:
     @pytest.fixture()

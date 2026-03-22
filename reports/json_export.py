@@ -3273,11 +3273,13 @@ def export_formats(output_dir: Path | None = None) -> None:
         # Read stats from meta.json if it exists
         tournament_count = 0
         deck_count = 0
+        generated_at = ""
         if meta_path.exists():
             try:
                 meta = json.loads(meta_path.read_text(encoding="utf-8"))
                 tournament_count = meta.get("tournament_count", 0)
                 deck_count = meta.get("deck_count", 0)
+                generated_at = meta.get("generated_at", "")
             except (json.JSONDecodeError, OSError) as exc:
                 logger.warning("Failed to read meta.json for %s: %s", slug, exc)
 
@@ -3292,6 +3294,7 @@ def export_formats(output_dir: Path | None = None) -> None:
                 "status": status,
                 "tournament_count": tournament_count,
                 "deck_count": deck_count,
+                "generated_at": generated_at,
             }
         )
 

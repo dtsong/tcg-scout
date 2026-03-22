@@ -279,6 +279,19 @@ class TestFormatsContract:
                 f"Invalid status: {fmt['status']}"
             )
 
+    def test_formats_json_includes_generated_at(self, export_dir):
+        """formats.json entries should include generated_at from meta.json."""
+        from reports.json_export import export_formats
+
+        export_formats(output_dir=export_dir.parent)
+
+        formats_path = export_dir.parent / "formats.json"
+        formats = json.loads(formats_path.read_text())
+        for fmt in formats:
+            if fmt["status"] in ("active", "frozen"):
+                assert "generated_at" in fmt, f"{fmt['slug']} missing generated_at"
+                assert fmt["generated_at"], f"{fmt['slug']} has empty generated_at"
+
 
 @pytest.mark.integration
 class TestExportCompleteness:

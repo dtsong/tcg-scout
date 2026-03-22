@@ -2,6 +2,16 @@ import Link from "next/link";
 import { Crosshair, ChevronRight, Github } from "lucide-react";
 import { getFormats } from "@/app/lib/data";
 
+function formatFreshness(generatedAt?: string): string | null {
+  if (!generatedAt) return null;
+  const ms = Date.now() - new Date(generatedAt).getTime();
+  const hours = Math.floor(ms / 3_600_000);
+  if (hours < 1) return "Updated just now";
+  if (hours < 24) return `Updated ${hours}h ago`;
+  const days = Math.floor(hours / 24);
+  return `Updated ${days}d ago`;
+}
+
 const FORMAT_STYLES: Record<string, { accent: string; glow: string; badge: string }> = {
   "nihil-zero": {
     accent: "text-amber-400",
@@ -104,7 +114,7 @@ export default function FormatSelectorPage() {
                             : "bg-surface-700 text-surface-300 border-surface-600"
                       }`}
                     >
-                      {isFrozen ? "Frozen" : fmt.status === "active" ? "Active" : "Coming Soon"}
+                      {isFrozen ? "Complete" : fmt.status === "active" ? "Active" : "Coming Soon"}
                     </span>
                     {hasData && (
                       <ChevronRight className="w-4 h-4 text-surface-500 group-hover:text-surface-300 transition-colors" />
@@ -126,23 +136,34 @@ export default function FormatSelectorPage() {
 
                   {/* Stats */}
                   {hasData && fmt.tournament_count && fmt.tournament_count > 0 ? (
-                    <div className="flex gap-6 mt-5 pt-4 border-t border-surface-700">
-                      <div>
-                        <span className="font-mono text-lg font-medium text-slate-200 tabular-nums">
-                          {fmt.tournament_count?.toLocaleString()}
-                        </span>
-                        <p className="text-[10px] text-surface-400 uppercase tracking-wider mt-0.5">
-                          Tournaments
-                        </p>
+                    <div className="mt-5 pt-4 border-t border-surface-700">
+                      <div className="flex gap-6">
+                        <div>
+                          <span className="font-mono text-lg font-medium text-slate-200 tabular-nums">
+                            {fmt.tournament_count?.toLocaleString()}
+                          </span>
+                          <p className="text-[10px] text-surface-400 uppercase tracking-wider mt-0.5">
+                            Tournaments
+                          </p>
+                        </div>
+                        <div>
+                          <span className="font-mono text-lg font-medium text-slate-200 tabular-nums">
+                            {fmt.deck_count?.toLocaleString()}
+                          </span>
+                          <p className="text-[10px] text-surface-400 uppercase tracking-wider mt-0.5">
+                            Decks
+                          </p>
+                        </div>
                       </div>
-                      <div>
-                        <span className="font-mono text-lg font-medium text-slate-200 tabular-nums">
-                          {fmt.deck_count?.toLocaleString()}
-                        </span>
-                        <p className="text-[10px] text-surface-400 uppercase tracking-wider mt-0.5">
-                          Decks
+                      {isFrozen ? (
+                        <p className="text-[10px] text-surface-400 mt-2">
+                          Complete competitive record. Format has concluded.
                         </p>
-                      </div>
+                      ) : fmt.generated_at ? (
+                        <p className="text-[10px] text-surface-400 mt-2">
+                          {formatFreshness(fmt.generated_at)}
+                        </p>
+                      ) : null}
                     </div>
                   ) : !hasData ? (
                     <div className="mt-5 pt-4 border-t border-surface-700">
@@ -163,7 +184,7 @@ export default function FormatSelectorPage() {
                 About the Data
               </h3>
               <p className="text-sm text-surface-300 leading-relaxed">
-                Scout aggregates results from Japan&apos;s City League tournaments (64-player events held daily across the country) to provide an early look at each format&apos;s competitive meta before sets release internationally. Data is refreshed daily.
+                Scout aggregates results from Japan&apos;s City League tournaments (64-player events held daily across the country) to provide an early look at each format&apos;s competitive meta before sets release internationally. Active formats are refreshed daily.
               </p>
             </div>
 

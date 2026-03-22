@@ -201,6 +201,11 @@ export function Nav({ format, formats }: { format: string; formats: FormatInfo[]
                             Soon
                           </span>
                         )}
+                        {f.status === "frozen" && (
+                          <span className="text-[10px] px-1.5 py-0.5 rounded bg-surface-600 text-surface-400">
+                            Complete
+                          </span>
+                        )}
                       </div>
                       {f.tournament_count != null && f.tournament_count > 0 && (
                         <div className="text-[11px] text-surface-400 font-mono mt-0.5">

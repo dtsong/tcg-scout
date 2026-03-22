@@ -12,6 +12,7 @@ export interface FormatInfo {
   status: "active" | "frozen" | "upcoming";
   tournament_count?: number;
   deck_count?: number;
+  generated_at?: string;
 }
 
 export interface ArchetypeSummary {
