@@ -2,7 +2,7 @@
   "archetype": "Flareon Noctowl",
   "slug": "flareon-noctowl",
   "format": "ninja-spinner",
-  "generated_at": "2026-03-21T22:11:16.274093+00:00",
+  "generated_at": "2026-03-22T06:53:26.826344+00:00",
   "tier": "Rogue",
   "meta_share": 0.66,
   "weighted_share": 0.9,
@@ -305,7 +305,8 @@
         "set_number": "143"
       },
       {
-        "card_name": "ハイパーボール",
+        "card_name": "Ultra Ball",
+        "card_name_jp": "ハイパーボール",
         "count": 4,
         "category": "Trainer",
         "weighted_inclusion_pct": 34.3,
@@ -316,7 +317,8 @@
         "set_number": null
       },
       {
-        "card_name": "ポケパッド",
+        "card_name": "Poke Pad",
+        "card_name_jp": "ポケパッド",
         "count": 4,
         "category": "Trainer",
         "weighted_inclusion_pct": 34.3,
@@ -327,7 +329,8 @@
         "set_number": null
       },
       {
-        "card_name": "なかよしポフィン",
+        "card_name": "Buddy-Buddy Poffin",
+        "card_name_jp": "なかよしポフィン",
         "count": 3,
         "category": "Trainer",
         "weighted_inclusion_pct": 34.3,
@@ -338,7 +341,8 @@
         "set_number": null
       },
       {
-        "card_name": "ボスの指令",
+        "card_name": "Boss's Orders",
+        "card_name_jp": "ボスの指令",
         "count": 1,
         "category": "Trainer",
         "weighted_inclusion_pct": 34.3,
@@ -651,7 +655,8 @@
         "total_delta": -36.4
       },
       {
-        "card_name": "なかよしポフィン",
+        "card_name": "Buddy-Buddy Poffin",
+        "card_name_jp": "なかよしポフィン",
         "category": "Trainer",
         "timeline": [
           0.0,
@@ -665,7 +670,8 @@
         "total_delta": 36.4
       },
       {
-        "card_name": "ハイパーボール",
+        "card_name": "Ultra Ball",
+        "card_name_jp": "ハイパーボール",
         "category": "Trainer",
         "timeline": [
           0.0,
@@ -679,7 +685,8 @@
         "total_delta": 36.4
       },
       {
-        "card_name": "ボスの指令",
+        "card_name": "Boss's Orders",
+        "card_name_jp": "ボスの指令",
         "category": "Trainer",
         "timeline": [
           0.0,
@@ -693,7 +700,8 @@
         "total_delta": 36.4
       },
       {
-        "card_name": "ポケパッド",
+        "card_name": "Poke Pad",
+        "card_name_jp": "ポケパッド",
         "category": "Trainer",
         "timeline": [
           0.0,
@@ -707,7 +715,8 @@
         "total_delta": 36.4
       },
       {
-        "card_name": "リーリエの決心",
+        "card_name": "Lillie's Resolve",
+        "card_name_jp": "リーリエの決心",
         "category": "Trainer",
         "timeline": [
           0.0,
@@ -721,7 +730,8 @@
         "total_delta": 36.4
       },
       {
-        "card_name": "夜のタンカ",
+        "card_name": "Night Stretcher",
+        "card_name_jp": "夜のタンカ",
         "category": "Trainer",
         "timeline": [
           0.0,
@@ -805,7 +815,8 @@
         "total_delta": 27.3
       },
       {
-        "card_name": "からておうの稽古",
+        "card_name": "Karate Chop Training",
+        "card_name_jp": "からておうの稽古",
         "category": "Trainer",
         "timeline": [
           0.0,
@@ -819,7 +830,8 @@
         "total_delta": 27.3
       },
       {
-        "card_name": "アカマツ",
+        "card_name": "Akamatsu",
+        "card_name_jp": "アカマツ",
         "category": "Trainer",
         "timeline": [
           0.0,
@@ -833,7 +845,8 @@
         "total_delta": 27.3
       },
       {
-        "card_name": "キチキギスex",
+        "card_name": "Fezandipiti ex",
+        "card_name_jp": "キチキギスex",
         "category": "Trainer",
         "timeline": [
           0.0,
@@ -847,7 +860,8 @@
         "total_delta": 27.3
       },
       {
-        "card_name": "グラビティーマウンテン",
+        "card_name": "Gravity Mountain",
+        "card_name_jp": "グラビティーマウンテン",
         "category": "Trainer",
         "timeline": [
           0.0,
@@ -861,7 +875,8 @@
         "total_delta": 27.3
       },
       {
-        "card_name": "シアノ",
+        "card_name": "Ciano",
+        "card_name_jp": "シアノ",
         "category": "Trainer",
         "timeline": [
           0.0,
@@ -875,7 +890,8 @@
         "total_delta": 27.3
       },
       {
-        "card_name": "基本炎エネルギー",
+        "card_name": "Basic Fire Energy",
+        "card_name_jp": "基本炎エネルギー",
         "category": "Trainer",
         "timeline": [
           0.0,
@@ -889,7 +905,8 @@
         "total_delta": 27.3
       },
       {
-        "card_name": "基本超エネルギー",
+        "card_name": "Basic Psychic Energy",
+        "card_name_jp": "基本超エネルギー",
         "category": "Trainer",
         "timeline": [
           0.0,
@@ -1347,42 +1364,48 @@
       "to_pct": 63.6
     },
     {
-      "card_name": "なかよしポフィン",
+      "card_name": "Buddy-Buddy Poffin",
+      "card_name_jp": "なかよしポフィン",
       "event": "appeared",
       "week": "2026-03-16",
       "from_pct": 0.0,
       "to_pct": 36.4
     },
     {
-      "card_name": "ハイパーボール",
+      "card_name": "Ultra Ball",
+      "card_name_jp": "ハイパーボール",
       "event": "appeared",
       "week": "2026-03-16",
       "from_pct": 0.0,
       "to_pct": 36.4
     },
     {
-      "card_name": "ボスの指令",
+      "card_name": "Boss's Orders",
+      "card_name_jp": "ボスの指令",
       "event": "appeared",
       "week": "2026-03-16",
       "from_pct": 0.0,
       "to_pct": 36.4
     },
     {
-      "card_name": "ポケパッド",
+      "card_name": "Poke Pad",
+      "card_name_jp": "ポケパッド",
       "event": "appeared",
       "week": "2026-03-16",
       "from_pct": 0.0,
       "to_pct": 36.4
     },
     {
-      "card_name": "リーリエの決心",
+      "card_name": "Lillie's Resolve",
+      "card_name_jp": "リーリエの決心",
       "event": "appeared",
       "week": "2026-03-16",
       "from_pct": 0.0,
       "to_pct": 36.4
     },
     {
-      "card_name": "夜のタンカ",
+      "card_name": "Night Stretcher",
+      "card_name_jp": "夜のタンカ",
       "event": "appeared",
       "week": "2026-03-16",
       "from_pct": 0.0,
@@ -1424,49 +1447,56 @@
       "to_pct": 27.3
     },
     {
-      "card_name": "からておうの稽古",
+      "card_name": "Karate Chop Training",
+      "card_name_jp": "からておうの稽古",
       "event": "appeared",
       "week": "2026-03-16",
       "from_pct": 0.0,
       "to_pct": 27.3
     },
     {
-      "card_name": "アカマツ",
+      "card_name": "Akamatsu",
+      "card_name_jp": "アカマツ",
       "event": "appeared",
       "week": "2026-03-16",
       "from_pct": 0.0,
       "to_pct": 27.3
     },
     {
-      "card_name": "キチキギスex",
+      "card_name": "Fezandipiti ex",
+      "card_name_jp": "キチキギスex",
       "event": "appeared",
       "week": "2026-03-16",
       "from_pct": 0.0,
       "to_pct": 27.3
     },
     {
-      "card_name": "グラビティーマウンテン",
+      "card_name": "Gravity Mountain",
+      "card_name_jp": "グラビティーマウンテン",
       "event": "appeared",
       "week": "2026-03-16",
       "from_pct": 0.0,
       "to_pct": 27.3
     },
     {
-      "card_name": "シアノ",
+      "card_name": "Ciano",
+      "card_name_jp": "シアノ",
       "event": "appeared",
       "week": "2026-03-16",
       "from_pct": 0.0,
       "to_pct": 27.3
     },
     {
-      "card_name": "基本炎エネルギー",
+      "card_name": "Basic Fire Energy",
+      "card_name_jp": "基本炎エネルギー",
       "event": "appeared",
       "week": "2026-03-16",
       "from_pct": 0.0,
       "to_pct": 27.3
     },
     {
-      "card_name": "基本超エネルギー",
+      "card_name": "Basic Psychic Energy",
+      "card_name_jp": "基本超エネルギー",
       "event": "appeared",
       "week": "2026-03-16",
       "from_pct": 0.0,

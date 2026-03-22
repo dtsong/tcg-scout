@@ -1038,7 +1038,17 @@
       "week": "2026-02-02",
       "adopted": [
         {
+          "card": "Lana's Aid",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
           "card": "Team Rocket's Transceiver",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Hassel",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -1048,17 +1058,7 @@
           "to_pct": 50.0
         },
         {
-          "card": "Lana's Aid",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
           "card": "Team Rocket's Watchtower",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Hassel",
           "from_pct": 0.0,
           "to_pct": 50.0
         }
@@ -1076,18 +1076,13 @@
       ],
       "dropped": [
         {
-          "card": "Switch",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "Pokégear 3.0",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
-          "card": "Diggersby",
-          "from_pct": 50.0,
+          "card": "Switch",
+          "from_pct": 100.0,
           "to_pct": 0.0
         },
         {
@@ -1096,12 +1091,17 @@
           "to_pct": 0.0
         },
         {
-          "card": "Team Rocket's Watchtower",
+          "card": "Hassel",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
         {
-          "card": "Hassel",
+          "card": "Diggersby",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Team Rocket's Watchtower",
           "from_pct": 50.0,
           "to_pct": 0.0
         }

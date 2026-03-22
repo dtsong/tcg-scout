@@ -3118,9 +3118,17 @@ def export_optimal_60(conn: sqlite3.Connection, output_dir: Path, *, format_slug
 
 
 def export_all(
-    conn: sqlite3.Connection, output_dir: Path | None = None, format_slug: str | None = None
-) -> Path:
-    """Run all exports. Returns the output directory."""
+    conn: sqlite3.Connection,
+    output_dir: Path | None = None,
+    format_slug: str | None = None,
+    strict: bool = False,
+) -> tuple[Path, list[str]]:
+    """Run all exports. Returns (output_directory, skipped_export_names).
+
+    Core exports always propagate errors. When strict=True, optional exports
+    (cards, overlap, matchup, evolution, tech forecast, deep dive, optimal 60)
+    also propagate instead of being caught and logged.
+    """
     base = output_dir or DEFAULT_OUTPUT_DIR
     # Write to format subdirectory
     slug = format_slug or DEFAULT_FORMAT
@@ -3138,10 +3146,14 @@ def export_all(
     export_ace_specs(conn, out)
     export_archetypes(conn, out)
     export_card_analysis(conn, out)
+    skipped: list[str] = []
     try:
         export_card_decklists(conn, out)
     except (sqlite3.OperationalError, ValueError) as exc:
+        if strict:
+            raise
         logger.warning("Skipping card decklists export (data unavailable): %s", exc)
+        skipped.append("card decklists")
     export_champions_league(conn, out)
     export_images(conn, out)
     export_timeline(conn, out)
@@ -3155,37 +3167,62 @@ def export_all(
         try:
             export_fn(conn, out)
         except (sqlite3.OperationalError, ValueError) as exc:
+            if strict:
+                raise
             logger.warning("Skipping %s export (data unavailable): %s", name, exc)
+            skipped.append(name)
     try:
         export_deep_dive(conn, out, format_slug=slug)
     except sqlite3.OperationalError as exc:
+        if strict:
+            raise
         logger.warning("Skipping deep dive reports export (table missing): %s", exc)
+        skipped.append("deep dive")
     export_windowed(conn, out, format_slug=slug)
     try:
         export_optimal_60(conn, out, format_slug=slug)
     except sqlite3.OperationalError as exc:
+        if strict:
+            raise
         logger.warning("Skipping optimal 60 export: %s", exc)
+        skipped.append("optimal 60")
+
+    if skipped:
+        logger.info("Skipped %d optional exports: %s", len(skipped), ", ".join(skipped))
 
     # Post-process: translate JP card names in all exported JSON files
     jp_en = _build_jp_en_lookup(conn)
     _translate_all_json(out, jp_en)
 
     logger.info("Export complete")
-    return out
+    return out, skipped
 
 
 def _translate_all_json(directory: Path, lookup: dict[str, str]) -> None:
     """Walk all JSON files in directory and translate JP card names."""
     translated_files = 0
+    failed_files = 0
     for json_path in directory.rglob("*.json"):
-        raw = json_path.read_text(encoding="utf-8")
-        if not _JP_RE.search(raw):
-            continue
-        data = json.loads(raw)
-        translated = _translate_card_names(data, lookup)
-        json_path.write_text(json.dumps(translated, ensure_ascii=False, indent=2), encoding="utf-8")
-        translated_files += 1
+        try:
+            raw = json_path.read_text(encoding="utf-8")
+            if not _JP_RE.search(raw):
+                continue
+            data = json.loads(raw)
+            translated = _translate_card_names(data, lookup)
+            json_path.write_text(
+                json.dumps(translated, ensure_ascii=False, indent=2), encoding="utf-8"
+            )
+            translated_files += 1
+        except (OSError, json.JSONDecodeError, UnicodeDecodeError) as exc:
+            logger.error(
+                "Failed to translate JP card names in %s: %s",
+                json_path.relative_to(directory),
+                exc,
+            )
+            failed_files += 1
     logger.info("Translated JP card names in %d JSON files", translated_files)
+    if failed_files:
+        logger.warning("JP translation incomplete: %d file(s) could not be processed", failed_files)
 
 
 def export_narrative(format_slug: str, output_dir: Path | None = None) -> Path | None:

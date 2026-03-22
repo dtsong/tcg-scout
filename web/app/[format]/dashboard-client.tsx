@@ -304,7 +304,7 @@ export function DashboardClient({
         )}
 
         {/* Tier List Preview */}
-        <section className="mt-6">
+        <section className="mt-6" data-testid="tier-section">
           <div className="flex items-center justify-between mb-3">
             <h2 className="font-display text-lg font-semibold text-slate-100">
               Meta Tier List
@@ -340,11 +340,12 @@ export function DashboardClient({
                       <Link
                         href={`/${format}/archetypes/${arch.slug}`}
                         className="text-slate-200 hover:text-accent transition-colors"
+                        data-testid="archetype-link"
                       >
                         {arch.archetype}
                       </Link>
                     </td>
-                    <td className="px-3 py-2 text-right font-mono tabular-nums">
+                    <td className="px-3 py-2 text-right font-mono tabular-nums" data-testid="meta-share">
                       {formatPct(arch.meta_share)}
                     </td>
                     <td className="px-3 py-2 text-right font-mono tabular-nums text-surface-300 hidden sm:table-cell">

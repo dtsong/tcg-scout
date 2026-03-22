@@ -6,7 +6,7 @@ steps:
     args:
       - -c
       - |
-        gsutil -m cp "gs://${_CACHE_BUCKET}/scout-dbs/*.db" data/ 2>/dev/null || echo "No cached databases found, starting fresh"
+        gsutil -m cp "gs://${_CACHE_BUCKET}/scout-dbs/*.db" data/ || echo "WARNING: DB cache restore failed (exit $?), starting fresh"
 
   # Single Python step -- pip installs don't persist across containers
   - id: scrape
@@ -20,8 +20,19 @@ steps:
         python cli.py --format ninja-spinner scrape-jp &&
         python cli.py --format ninja-spinner backfill-archetypes &&
         python cli.py --format ninja-spinner meta &&
-        python cli.py --format ninja-spinner export-web
+        python cli.py --format ninja-spinner export-web --strict
     waitFor: ["restore-db-cache"]
+
+  # Validate exported data and database integrity before saving
+  - id: validate
+    name: python:3.12-slim
+    entrypoint: bash
+    args:
+      - -c
+      - |
+        pip install -r requirements.txt &&
+        python cli.py --format ninja-spinner validate
+    waitFor: ["scrape"]
 
   # Save SQLite databases to GCS for next run
   - id: save-db-cache
@@ -30,7 +41,7 @@ steps:
     args:
       - -c
       - gsutil -m cp data/*.db "gs://${_CACHE_BUCKET}/scout-dbs/"
-    waitFor: ["scrape"]
+    waitFor: ["validate"]
 
   # Commit and push updated data to GitHub
   - id: push-to-github
@@ -45,7 +56,7 @@ steps:
         git config user.email "cloud-build[bot]@scout.trainerlab.io"
         git remote set-url origin "https://x-access-token:$$GITHUB_TOKEN@github.com/dtsong/tcg-scout.git"
         git add web/public/data/
-        git commit -m "data: daily scrape $$(date -u +%Y-%m-%d) [skip ci]"
+        git commit -m "data: daily scrape $$(date -u +%Y-%m-%d)"
         git push origin HEAD:main
     waitFor: ["save-db-cache"]
 

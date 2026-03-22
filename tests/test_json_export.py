@@ -314,7 +314,7 @@ class TestExportMetaWithFormat:
 
 class TestExportAll:
     def test_writes_to_format_subdirectory(self, db, tmp_path):
-        out = export_all(db, output_dir=tmp_path, format_slug="nihil-zero")
+        out, _skipped = export_all(db, output_dir=tmp_path, format_slug="nihil-zero")
         assert out == tmp_path / "nihil-zero"
         assert (tmp_path / "nihil-zero" / "meta.json").exists()
 
