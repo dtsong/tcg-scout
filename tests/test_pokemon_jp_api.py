@@ -207,7 +207,7 @@ class TestClassifyJPDecklist:
                 name_jp="基本炎エネルギー", set_code="", card_number="", count=10, category="Energy"
             ),
         ]
-        result = classify_jp_decklist(db, cards)
+        result = classify_jp_decklist(cards)
         assert result == "Charizard ex"
 
     def test_unknown_when_no_mappings(self, db):
@@ -221,7 +221,7 @@ class TestClassifyJPDecklist:
                 category="Pokemon",
             ),
         ]
-        result = classify_jp_decklist(db, cards)
+        result = classify_jp_decklist(cards)
         assert result == "Unknown"
 
     def test_energy_translated_via_jp_energy_map(self, db):
@@ -230,7 +230,7 @@ class TestClassifyJPDecklist:
             JPDeckCard(name_jp="基本炎エネルギー", count=10, category="Energy"),
             JPDeckCard(name_jp="基本水エネルギー", count=6, category="Energy"),
         ]
-        result = classify_jp_decklist(db, cards)
+        result = classify_jp_decklist(cards)
         # No Pokemon cards, so should be Unknown, but energies should translate
         assert result == "Unknown"
 
@@ -242,7 +242,7 @@ class TestClassifyJPDecklist:
             JPDeckCard(name_jp="ヨノワール", count=2, category="Pokemon"),
             JPDeckCard(name_jp="基本水エネルギー", count=6, category="Energy"),
         ]
-        result = classify_jp_decklist(db, cards)
+        result = classify_jp_decklist(cards)
         assert result == "Mega Starmie Greninja"
 
     def test_dragapult_dusknoir(self, db):
@@ -252,7 +252,7 @@ class TestClassifyJPDecklist:
             JPDeckCard(name_jp="ヨノワール", count=2, category="Pokemon"),
             JPDeckCard(name_jp="基本超エネルギー", count=8, category="Energy"),
         ]
-        result = classify_jp_decklist(db, cards)
+        result = classify_jp_decklist(cards)
         assert result == "Dragapult Dusknoir"
 
     def test_mega_kangaskhan(self, db):
@@ -261,7 +261,7 @@ class TestClassifyJPDecklist:
             JPDeckCard(name_jp="メガガルーラex", count=2, category="Pokemon"),
             JPDeckCard(name_jp="基本無色エネルギー", count=4, category="Energy"),
         ]
-        result = classify_jp_decklist(db, cards)
+        result = classify_jp_decklist(cards)
         assert result == "Mega Kangaskhan ex"
 
     def test_mega_lucario_with_hariyama(self, db):
@@ -271,7 +271,7 @@ class TestClassifyJPDecklist:
             JPDeckCard(name_jp="ハリテヤマ", count=2, category="Pokemon"),
             JPDeckCard(name_jp="基本闘エネルギー", count=6, category="Energy"),
         ]
-        result = classify_jp_decklist(db, cards)
+        result = classify_jp_decklist(cards)
         assert result == "Mega Lucario"
 
 

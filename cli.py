@@ -454,6 +454,12 @@ def reclassify(ctx: click.Context, dry_run: bool) -> None:
     jp_to_en: dict[str, str] = dict(JP_CARD_NAME_MAP)
     jp_to_en.update(JP_ENERGY_MAP)
 
+    if not JP_CARD_NAME_MAP:
+        console.print(
+            "[red]JP_CARD_NAME_MAP is empty. Check config.py for missing card mappings.[/red]"
+        )
+        raise SystemExit(1)
+
     conn = get_format_connection(ctx.obj["format"])
     init_db(conn)
 
