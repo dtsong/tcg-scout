@@ -2202,6 +2202,98 @@ def export_card_analysis(conn: sqlite3.Connection, output_dir: Path) -> None:
     )
 
 
+def export_card_decklists(conn: sqlite3.Connection, output_dir: Path) -> None:
+    """Export per-card JSON files with top-4 placement details for drill-down.
+
+    Creates card-decklists/{slug}.json for each card that appears in top-4
+    placements, containing the tournament results where the card was used.
+    """
+    snapshot = get_latest_snapshot(conn)
+    if not snapshot:
+        logger.warning("Skipping card decklists export: no meta snapshot found")
+        return
+
+    archetype_slugs: dict[str, str] = {}
+    for arch in snapshot["archetypes"]:
+        archetype_slugs[arch["archetype"]] = _slugify(arch["archetype"])
+
+    # Query all top-4 placements with their card data
+    rows = conn.execute(
+        """
+        SELECT p.id AS placement_id, p.standing, p.archetype,
+               p.decklist_url, t.name AS tournament_name, t.date
+        FROM open_placements p
+        JOIN tournaments t ON t.id = p.tournament_id
+        WHERE p.standing <= 4
+        ORDER BY t.date DESC, p.standing ASC
+        """
+    ).fetchall()
+
+    if not rows:
+        logger.warning("Skipping card decklists export: no top-4 placements found")
+        return
+
+    # Build placement_id -> placement info lookup
+    placement_info: dict[int, dict] = {}
+    placement_ids: list[int] = []
+    for r in rows:
+        pid = r["placement_id"]
+        placement_ids.append(pid)
+        placement_info[pid] = {
+            "archetype": r["archetype"],
+            "archetype_slug": archetype_slugs.get(r["archetype"], _slugify(r["archetype"])),
+            "tournament_name": r["tournament_name"],
+            "date": r["date"],
+            "standing": r["standing"],
+            "decklist_url": r["decklist_url"],
+        }
+
+    # SQLite has a variable limit; batch if needed
+    card_placements: dict[str, list[dict]] = defaultdict(list)
+    batch_size = 500
+    for i in range(0, len(placement_ids), batch_size):
+        batch = placement_ids[i : i + batch_size]
+        placeholders = ",".join("?" * len(batch))
+        card_rows = conn.execute(
+            f"SELECT placement_id, card_name, count FROM decklist_cards "
+            f"WHERE placement_id IN ({placeholders})",
+            batch,
+        ).fetchall()
+        for cr in card_rows:
+            info = placement_info[cr["placement_id"]]
+            card_placements[cr["card_name"]].append(
+                {
+                    "archetype": info["archetype"],
+                    "archetype_slug": info["archetype_slug"],
+                    "tournament_name": info["tournament_name"],
+                    "date": info["date"],
+                    "standing": info["standing"],
+                    "copies": cr["count"],
+                    "decklist_url": info["decklist_url"],
+                }
+            )
+
+    # Write per-card JSON files
+    out_dir = output_dir / "card-decklists"
+    out_dir.mkdir(parents=True, exist_ok=True)
+
+    for card_name, results in card_placements.items():
+        slug = _slugify(card_name)
+        if not slug:
+            # Skip cards with non-ASCII-only names (e.g. JP card names)
+            # that produce empty slugs -- they can't be fetched by the frontend
+            continue
+        _write_json(
+            {
+                "card_name": card_name,
+                "top4_results": results,
+            },
+            out_dir / f"{slug}.json",
+        )
+
+    logger.info("Exported %d card decklist files to %s", len(card_placements), out_dir)
+
+
 def _detect_variants(
     conn: sqlite3.Connection,
     archetype_name: str,
@@ -3046,6 +3138,10 @@ def export_all(
     export_ace_specs(conn, out)
     export_archetypes(conn, out)
     export_card_analysis(conn, out)
+    try:
+        export_card_decklists(conn, out)
+    except (sqlite3.OperationalError, ValueError) as exc:
+        logger.warning("Skipping card decklists export (data unavailable): %s", exc)
     export_champions_league(conn, out)
     export_images(conn, out)
     export_timeline(conn, out)

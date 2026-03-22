@@ -147,13 +147,14 @@ def scrape(
             # Store placements and decklists
             for placement in placements:
                 cursor = conn.execute(
-                    "INSERT INTO placements (tournament_id, standing, player_name, archetype) "
-                    "VALUES (?, ?, ?, ?)",
+                    "INSERT INTO placements (tournament_id, standing, player_name, archetype, decklist_url) "
+                    "VALUES (?, ?, ?, ?, ?)",
                     (
                         tournament.source_url,
                         placement.placement,
                         placement.player_name,
                         placement.archetype,
+                        placement.decklist_url,
                     ),
                 )
                 placement_id = cursor.lastrowid
@@ -779,9 +780,15 @@ def scrape_tournament(
             )
 
             cursor = conn.execute(
-                "INSERT INTO placements (tournament_id, standing, player_name, archetype) "
-                "VALUES (?, ?, ?, ?)",
-                (tournament_url, placement.placement, placement.player_name, placement.archetype),
+                "INSERT INTO placements (tournament_id, standing, player_name, archetype, decklist_url) "
+                "VALUES (?, ?, ?, ?, ?)",
+                (
+                    tournament_url,
+                    placement.placement,
+                    placement.player_name,
+                    placement.archetype,
+                    placement.decklist_url,
+                ),
             )
             placement_id = cursor.lastrowid
 

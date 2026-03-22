@@ -27,7 +27,7 @@ class TestOpenPlacementsView:
         open_row = db.execute("SELECT * FROM open_placements LIMIT 1").fetchone()
         assert open_row is not None
         for col in placement_cols:
-            assert open_row[col] is not None or col == "player_name"  # Allow nulls in player_name
+            assert open_row[col] is not None or col in ("player_name", "decklist_url")
 
 
 class TestMetaSnapshotDivisionFilter:

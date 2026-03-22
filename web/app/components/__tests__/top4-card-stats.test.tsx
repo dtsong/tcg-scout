@@ -1,8 +1,8 @@
-import { describe, it, expect, afterEach } from "vitest";
-import { render, screen, cleanup } from "@testing-library/react";
+import { describe, it, expect, afterEach, vi, beforeEach } from "vitest";
+import { render, screen, cleanup, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Top4CardStats } from "../top4-card-stats";
-import type { TopPerformerCard } from "@/app/lib/types";
+import type { TopPerformerCard, CardDecklistData } from "@/app/lib/types";
 
 function makeCard(overrides: Partial<TopPerformerCard> & { card_name: string }): TopPerformerCard {
   return {
@@ -31,8 +31,36 @@ const defaultProps = {
   format: "nihil-zero",
 };
 
+const mockDecklistData: CardDecklistData = {
+  card_name: "Charizard ex",
+  top4_results: [
+    {
+      archetype: "Charizard Pidgeot",
+      archetype_slug: "charizard-pidgeot",
+      tournament_name: "Osaka CL",
+      date: "2026-03-01",
+      standing: 1,
+      copies: 2,
+      decklist_url: "https://limitlesstcg.com/decks/list/1",
+    },
+    {
+      archetype: "Charizard Pidgeot",
+      archetype_slug: "charizard-pidgeot",
+      tournament_name: "Tokyo CL",
+      date: "2026-03-08",
+      standing: 3,
+      copies: 2,
+      decklist_url: null,
+    },
+  ],
+};
+
 describe("Top4CardStats", () => {
   afterEach(cleanup);
+
+  beforeEach(() => {
+    vi.restoreAllMocks();
+  });
 
   it("renders overperformers and underperformers in correct sections", () => {
     render(<Top4CardStats {...defaultProps} />);
@@ -138,5 +166,159 @@ describe("Top4CardStats", () => {
     const fracCard = [makeCard({ card_name: "Test Card", avg_copies: 3.5, delta_vs_field: 5 })];
     render(<Top4CardStats {...defaultProps} cards={fracCard} />);
     expect(screen.getByText("3.5")).toBeInTheDocument();
+  });
+
+  it("has aria-expanded on card rows", () => {
+    render(<Top4CardStats {...defaultProps} />);
+    const buttons = screen.getAllByRole("button", { expanded: false });
+    // At least the card row buttons should have aria-expanded
+    expect(buttons.length).toBeGreaterThan(0);
+  });
+
+  it("expands card row on click and fetches decklist data", async () => {
+    const user = userEvent.setup();
+    vi.spyOn(globalThis, "fetch").mockResolvedValueOnce({
+      ok: true,
+      json: async () => mockDecklistData,
+    } as Response);
+
+    render(<Top4CardStats {...defaultProps} />);
+
+    // Find the Charizard ex row button (it's a button with aria-expanded)
+    const charizardButton = screen.getByRole("button", { name: /Charizard ex/i });
+    await user.click(charizardButton);
+
+    // Should show loading then data
+    await waitFor(() => {
+      expect(screen.getByText("Charizard Pidgeot")).toBeInTheDocument();
+    });
+
+    expect(screen.getByText("Osaka CL")).toBeInTheDocument();
+    expect(globalThis.fetch).toHaveBeenCalledWith(
+      "/data/nihil-zero/card-decklists/charizard-ex.json"
+    );
+  });
+
+  it("collapses expanded card on second click", async () => {
+    const user = userEvent.setup();
+    vi.spyOn(globalThis, "fetch").mockResolvedValueOnce({
+      ok: true,
+      json: async () => mockDecklistData,
+    } as Response);
+
+    render(<Top4CardStats {...defaultProps} />);
+
+    const charizardButton = screen.getByRole("button", { name: /Charizard ex/i });
+    await user.click(charizardButton);
+
+    await waitFor(() => {
+      expect(screen.getByText("Charizard Pidgeot")).toBeInTheDocument();
+    });
+
+    // Click again to collapse
+    await user.click(charizardButton);
+    expect(screen.queryByText("Charizard Pidgeot")).not.toBeInTheDocument();
+  });
+
+  it("shows empty message when no decklist data available", async () => {
+    const user = userEvent.setup();
+    vi.spyOn(globalThis, "fetch").mockResolvedValueOnce({
+      ok: false,
+      status: 404,
+    } as Response);
+
+    render(<Top4CardStats {...defaultProps} />);
+
+    const charizardButton = screen.getByRole("button", { name: /Charizard ex/i });
+    await user.click(charizardButton);
+
+    await waitFor(() => {
+      expect(screen.getByText(/No decklist data available/)).toBeInTheDocument();
+    });
+  });
+
+  it("does not cache on server error, allows retry", async () => {
+    const user = userEvent.setup();
+    const fetchSpy = vi.spyOn(globalThis, "fetch")
+      .mockResolvedValueOnce({ ok: false, status: 500 } as Response)
+      .mockResolvedValueOnce({
+        ok: true,
+        json: async () => mockDecklistData,
+      } as Response);
+
+    render(<Top4CardStats {...defaultProps} />);
+
+    const charizardButton = screen.getByRole("button", { name: /Charizard ex/i });
+    await user.click(charizardButton);
+
+    // First click -- 500 error, should not show "No decklist data"
+    await waitFor(() => {
+      expect(fetchSpy).toHaveBeenCalledTimes(1);
+    });
+
+    // Collapse and re-expand to retry
+    await user.click(charizardButton);
+    await user.click(charizardButton);
+
+    // Should fetch again (not cached)
+    await waitFor(() => {
+      expect(fetchSpy).toHaveBeenCalledTimes(2);
+    });
+  });
+
+  it("does not cache on network error, allows retry", async () => {
+    const consoleSpy = vi.spyOn(console, "error").mockImplementation(() => {});
+    const user = userEvent.setup();
+    const fetchSpy = vi.spyOn(globalThis, "fetch")
+      .mockRejectedValueOnce(new TypeError("Failed to fetch"))
+      .mockResolvedValueOnce({
+        ok: true,
+        json: async () => mockDecklistData,
+      } as Response);
+
+    render(<Top4CardStats {...defaultProps} />);
+
+    const charizardButton = screen.getByRole("button", { name: /Charizard ex/i });
+    await user.click(charizardButton);
+
+    await waitFor(() => {
+      expect(fetchSpy).toHaveBeenCalledTimes(1);
+    });
+
+    // Should log the error
+    expect(consoleSpy).toHaveBeenCalledWith(
+      expect.stringContaining("Failed to fetch decklist data"),
+      expect.any(TypeError)
+    );
+
+    // Collapse and re-expand to retry
+    await user.click(charizardButton);
+    await user.click(charizardButton);
+
+    // Should fetch again (not cached from error)
+    await waitFor(() => {
+      expect(fetchSpy).toHaveBeenCalledTimes(2);
+    });
+
+    consoleSpy.mockRestore();
+  });
+
+  it("renders external link icon for decklist URLs", async () => {
+    const user = userEvent.setup();
+    vi.spyOn(globalThis, "fetch").mockResolvedValueOnce({
+      ok: true,
+      json: async () => mockDecklistData,
+    } as Response);
+
+    render(<Top4CardStats {...defaultProps} />);
+
+    const charizardButton = screen.getByRole("button", { name: /Charizard ex/i });
+    await user.click(charizardButton);
+
+    await waitFor(() => {
+      const externalLinks = screen.getAllByTitle("View decklist on Limitless");
+      expect(externalLinks.length).toBeGreaterThan(0);
+      expect(externalLinks[0].closest("a")).toHaveAttribute("target", "_blank");
+    });
   });
 });
