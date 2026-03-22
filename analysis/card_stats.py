@@ -51,6 +51,38 @@ BASIC_ENERGY_NAMES = {
 }
 
 
+def build_jp_en_lookup(
+    conn: sqlite3.Connection,
+    fallback: dict[str, str] | None = None,
+) -> dict[str, str]:
+    """Build JP->EN card name lookup from DB tables and optional hardcoded fallbacks.
+
+    Sources (in priority order, later overrides earlier):
+    1. fallback dict (e.g. JP_CARD_NAMES from json_export)
+    2. cards table (name_jp -> name_en)
+    3. card_mappings table (card_name_jp -> card_name_en)
+    """
+    lookup: dict[str, str] = dict(fallback) if fallback else {}
+
+    rows = conn.execute(
+        "SELECT name_jp, name_en FROM cards WHERE name_jp IS NOT NULL AND name_jp != ''"
+    ).fetchall()
+    for row in rows:
+        lookup[row["name_jp"]] = row["name_en"]
+
+    try:
+        for row in conn.execute(
+            "SELECT card_name_jp, card_name_en FROM card_mappings "
+            "WHERE card_name_jp IS NOT NULL AND card_name_en IS NOT NULL"
+        ):
+            lookup[row["card_name_jp"]] = row["card_name_en"]
+    except sqlite3.OperationalError as exc:
+        if "no such table" not in str(exc):
+            raise
+
+    return lookup
+
+
 def _slugify(name: str) -> str:
     """Convert name to URL slug."""
     slug = name.lower()

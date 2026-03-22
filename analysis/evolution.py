@@ -4,7 +4,7 @@ import sqlite3
 from collections import defaultdict
 from datetime import date, timedelta
 
-from analysis.card_stats import BASIC_ENERGY_NAMES, _slugify
+from analysis.card_stats import BASIC_ENERGY_NAMES, _slugify, build_jp_en_lookup
 
 
 def compute_archetype_evolution(
@@ -12,6 +12,7 @@ def compute_archetype_evolution(
     archetype: str,
     adoption_threshold_low: float = 20.0,
     adoption_threshold_high: float = 50.0,
+    jp_en_lookup: dict[str, str] | None = None,
 ) -> list[dict]:
     """Compute weekly card inclusion rate changes for an archetype.
 
@@ -83,9 +84,15 @@ def compute_archetype_evolution(
             (*pids, *energy_names),
         ).fetchall()
 
-        rates = {}
+        rates: dict[str, float] = {}
         for cr in card_rows:
-            rates[cr["card_name"]] = round(cr["cnt"] / total * 100, 1)
+            name = cr["card_name"]
+            if jp_en_lookup:
+                name = jp_en_lookup.get(name, name)
+            if name in BASIC_ENERGY_NAMES:
+                continue
+            pct = round(cr["cnt"] / total * 100, 1)
+            rates[name] = min(round(rates.get(name, 0) + pct, 1), 100.0)
         week_card_rates[wk] = rates
 
     # Detect adoption/drop events between consecutive weeks with data
@@ -170,9 +177,11 @@ def compute_meta_evolution(conn: sqlite3.Connection, top_n: int | None = None) -
     if not arch_rows:
         return {"highlights": [], "movements": []}
 
+    jp_en_lookup = build_jp_en_lookup(conn)
+
     all_movements = []
     for ar in arch_rows:
-        evolution = compute_archetype_evolution(conn, ar["archetype"])
+        evolution = compute_archetype_evolution(conn, ar["archetype"], jp_en_lookup=jp_en_lookup)
         for event in evolution:
             base = {
                 "archetype": ar["archetype"],
