@@ -55,7 +55,7 @@ steps:
         GCS_PATH="gs://${_DATA_BUCKET}/$${TAR_FILE}"
 
         echo "Creating data archive..."
-        tar -czf "/tmp/$${TAR_FILE}" -C /workspace/web/public/data .
+        tar -czf "/tmp/$${TAR_FILE}" --exclude='._*' -C /workspace/web/public/data .
 
         echo "Uploading to $${GCS_PATH}..."
         gsutil cp "/tmp/$${TAR_FILE}" "$${GCS_PATH}"
