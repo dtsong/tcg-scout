@@ -47,11 +47,14 @@ async function downloadAndExtract() {
   const tarPath = path.join(ROOT, ".data-download.tar.gz");
 
   try {
-    // Download using curl (available on all Vercel build images)
-    execSync(`curl -fsSL -o "${tarPath}" "${url}"`, { stdio: "inherit" });
-  } catch {
+    const res = await fetch(url);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const buf = Buffer.from(await res.arrayBuffer());
+    fs.writeFileSync(tarPath, buf);
+  } catch (err) {
     console.error(
       "prebuild: FATAL - Failed to download data archive.\n" +
+        `  ${err.message}\n` +
         "  The signed URL may have expired. Trigger a new Cloud Build run.",
     );
     process.exit(1);
