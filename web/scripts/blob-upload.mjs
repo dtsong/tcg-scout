@@ -69,6 +69,7 @@ async function upload() {
 
   let uploaded = 0;
   let failed = 0;
+  let suspended = false;
   const batchSize = 5;
   const maxRetries = 3;
 
@@ -93,6 +94,7 @@ async function upload() {
   }
 
   for (let i = 0; i < files.length; i += batchSize) {
+    if (suspended) break;
     const batch = files.slice(i, i + batchSize);
     const results = await Promise.allSettled(batch.map((f) => uploadFile(f)));
 
@@ -101,6 +103,9 @@ async function upload() {
         uploaded++;
       } else {
         failed++;
+        if (/suspended/i.test(result.reason.message)) {
+          suspended = true;
+        }
         console.error(`  Failed: ${result.reason.message}`);
       }
     }
@@ -109,6 +114,10 @@ async function upload() {
     process.stdout.write(`\r  Uploaded ${uploaded}/${files.length} (${pct}%)`);
   }
 
+  if (suspended) {
+    console.error(`\nError: Blob store is suspended. Check Vercel dashboard → Storage → Blob to unsuspend.`);
+    process.exit(1);
+  }
   console.log(`\nDone: ${uploaded} uploaded, ${failed} failed`);
   if (failed > 0) process.exit(1);
 }
