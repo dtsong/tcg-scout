@@ -142,5 +142,5 @@ def get_latest_snapshot(conn: sqlite3.Connection) -> dict | None:
         "generated_at": snapshot["generated_at"],
         "tournament_count": snapshot["tournament_count"],
         "deck_count": snapshot["deck_count"],
-        "archetypes": [dict(row) for row in stats],
+        "archetypes": [dict(row) for row in stats if row["archetype"] != "Unknown"],
     }
