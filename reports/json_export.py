@@ -15,6 +15,7 @@ from analysis.buylist import generate_buylist
 from analysis.card_stats import (
     BASIC_ENERGY_NAMES,
     build_category_lookup,
+    build_jp_en_lookup,
     classify_card,
     compute_card_detail,
     compute_card_stats,
@@ -1927,6 +1928,9 @@ def export_archetypes(conn: sqlite3.Connection, output_dir: Path) -> None:
     arch_dir = output_dir / "archetypes"
     arch_dir.mkdir(parents=True, exist_ok=True)
 
+    # Build JP->EN lookup once for evolution tracking across all archetypes
+    jp_en_lookup = _build_jp_en_lookup(conn)
+
     # Compute max_deck_count across all archetypes for popularity normalization
     max_deck_count = max((a["deck_count"] for a in snapshot["archetypes"]), default=1)
 
@@ -2080,7 +2084,7 @@ def export_archetypes(conn: sqlite3.Connection, output_dir: Path) -> None:
         }
 
         # Evolution events
-        evolution = compute_archetype_evolution(conn, archetype_name)
+        evolution = compute_archetype_evolution(conn, archetype_name, jp_en_lookup=jp_en_lookup)
 
         # Variant detection: group decklists by distinguishing Pokemon
         variants = _detect_variants(conn, archetype_name, placement_ids, all_cards)
@@ -2403,38 +2407,8 @@ def _compute_archetype_weekly_shares(conn: sqlite3.Connection, archetype_name: s
 
 
 def _build_jp_en_lookup(conn: sqlite3.Connection) -> dict[str, str]:
-    """Build JP→EN card name lookup from hardcoded fallbacks, the cards table, and the card_mappings table."""
-    lookup = dict(JP_CARD_NAMES)  # Start with hardcoded fallbacks
-    rows = conn.execute(
-        "SELECT name_jp, name_en FROM cards WHERE name_jp IS NOT NULL AND name_jp != ''"
-    ).fetchall()
-    if not rows:
-        logger.warning("cards table returned 0 JP->EN mappings; translations will be degraded")
-    for row in rows:
-        lookup[row["name_jp"]] = row["name_en"]
-
-    # From card_mappings table (scraped from Limitless)
-    mapping_count = 0
-    try:
-        for row in conn.execute(
-            "SELECT card_name_jp, card_name_en FROM card_mappings "
-            "WHERE card_name_jp IS NOT NULL AND card_name_en IS NOT NULL"
-        ):
-            lookup[row["card_name_jp"]] = row["card_name_en"]
-            mapping_count += 1
-    except sqlite3.OperationalError as exc:
-        if "no such table" in str(exc):
-            logger.info("card_mappings table not found, skipping")
-        else:
-            raise
-
-    logger.info(
-        "JP→EN lookup: %d entries (%d from cards table, %d from card_mappings)",
-        len(lookup),
-        len(rows),
-        mapping_count,
-    )
-    return lookup
+    """Build JP->EN card name lookup, delegating to shared builder with hardcoded fallbacks."""
+    return build_jp_en_lookup(conn, fallback=JP_CARD_NAMES)
 
 
 def export_champions_league(conn: sqlite3.Connection, output_dir: Path) -> None:
