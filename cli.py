@@ -909,8 +909,13 @@ def backfill_archetypes(
     is_flag=True,
     help="Upload to Vercel Blob Store after export",
 )
+@click.option(
+    "--strict",
+    is_flag=True,
+    help="Fail on any export error instead of skipping (use in CI)",
+)
 @click.pass_context
-def export_web(ctx: click.Context, narrative: bool, upload: bool) -> None:
+def export_web(ctx: click.Context, narrative: bool, upload: bool, strict: bool) -> None:
     """Export JSON data for the Scout Web dashboard."""
     import os
     import subprocess
@@ -920,7 +925,7 @@ def export_web(ctx: click.Context, narrative: bool, upload: bool) -> None:
     fmt = ctx.obj["format"]
     conn = get_format_connection(fmt)
     try:
-        out = export_all(conn, format_slug=fmt)
+        out = export_all(conn, format_slug=fmt, strict=strict)
         console.print(f"[green]Web data exported to {out}[/green]")
         export_formats()
         console.print("[green]formats.json updated[/green]")
@@ -951,6 +956,63 @@ def export_web(ctx: click.Context, narrative: bool, upload: bool) -> None:
             "[yellow]Reminder: run 'cd web && npm run blob:upload' "
             "to update the deployed site[/yellow]"
         )
+
+
+@cli.command()
+@click.option("--strict", is_flag=True, help="Treat warnings as errors")
+@click.pass_context
+def validate(ctx: click.Context, strict: bool) -> None:
+    """Validate exported data and database integrity."""
+    from pathlib import Path
+
+    from validation import validate_database, validate_export
+
+    fmt = ctx.obj["format"]
+    export_dir = Path("web/public/data") / fmt
+
+    console.print(f"[cyan]Validating format: {fmt}[/cyan]\n")
+
+    # Tier 1: Export validation
+    console.print("[bold]Export validation[/bold]")
+    export_result = validate_export(export_dir)
+
+    for err in export_result.errors:
+        console.print(f"  [red]X[/red] {err}")
+    for warn in export_result.warnings:
+        console.print(f"  [yellow]![/yellow] {warn}")
+    if export_result.ok and not export_result.warnings:
+        console.print("  [green]OK[/green] All export checks passed")
+
+    # Tier 2: Database validation
+    console.print("\n[bold]Database validation[/bold]")
+    conn = get_format_connection(fmt)
+    try:
+        db_result = validate_database(conn)
+    finally:
+        conn.close()
+
+    for err in db_result.errors:
+        console.print(f"  [red]X[/red] {err}")
+    for warn in db_result.warnings:
+        console.print(f"  [yellow]![/yellow] {warn}")
+    if db_result.ok and not db_result.warnings:
+        console.print("  [green]OK[/green] All database checks passed")
+
+    # Summary
+    total_errors = len(export_result.errors) + len(db_result.errors)
+    total_warnings = len(export_result.warnings) + len(db_result.warnings)
+
+    if strict:
+        total_errors += total_warnings
+
+    console.print()
+    if total_errors > 0:
+        console.print(
+            f"[red bold]FAILED[/red bold]: {total_errors} error(s), {total_warnings} warning(s)"
+        )
+        raise SystemExit(1)
+    else:
+        console.print(f"[green bold]PASSED[/green bold]: 0 errors, {total_warnings} warning(s)")
 
 
 if __name__ == "__main__":

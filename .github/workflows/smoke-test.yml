@@ -1,0 +1,50 @@
+name: Post-Deploy Smoke Test
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "web/public/data/**"
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Wait for Vercel deploy
+        run: sleep 90
+
+      - name: Smoke test live site
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        run: |
+          FAILED=0
+          SITE="https://scout.trainerlab.io"
+
+          check_url() {
+            local url="$1"
+            local label="$2"
+            local status
+            status=$(curl -s -o /dev/null -w "%{http_code}" --max-time 15 "$url")
+            if [ "$status" = "200" ]; then
+              echo "OK: $label ($url)"
+            else
+              echo "FAIL: $label — HTTP $status ($url)"
+              FAILED=1
+            fi
+          }
+
+          check_url "$SITE" "Homepage"
+          check_url "$SITE/ninja-spinner/dashboard" "Dashboard"
+          check_url "$SITE/ninja-spinner/archetypes/dragapult-ex" "Archetype detail"
+
+          if [ "$FAILED" = "1" ]; then
+            echo "Smoke test failed — sending alert"
+            if [ -n "$DISCORD_WEBHOOK_URL" ]; then
+              curl -s -H "Content-Type: application/json" \
+                -d '{"content":"**Scout Smoke Test Failed**\nOne or more pages returned non-200 status after deploy.\nCheck: '"$SITE"'"}' \
+                "$DISCORD_WEBHOOK_URL"
+            fi
+            exit 1
+          fi
+
+          echo "All smoke tests passed"

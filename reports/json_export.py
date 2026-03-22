@@ -3026,9 +3026,16 @@ def export_optimal_60(conn: sqlite3.Connection, output_dir: Path, *, format_slug
 
 
 def export_all(
-    conn: sqlite3.Connection, output_dir: Path | None = None, format_slug: str | None = None
+    conn: sqlite3.Connection,
+    output_dir: Path | None = None,
+    format_slug: str | None = None,
+    strict: bool = False,
 ) -> Path:
-    """Run all exports. Returns the output directory."""
+    """Run all exports. Returns the output directory.
+
+    When strict=True, all export errors propagate instead of being caught.
+    Use strict=True in CI/Cloud Build to catch silent failures.
+    """
     base = output_dir or DEFAULT_OUTPUT_DIR
     # Write to format subdirectory
     slug = format_slug or DEFAULT_FORMAT
@@ -3049,6 +3056,7 @@ def export_all(
     export_champions_league(conn, out)
     export_images(conn, out)
     export_timeline(conn, out)
+    skipped: list[str] = []
     for export_fn, name in [
         (export_cards, "cards"),
         (export_archetype_overlap, "archetype overlap"),
@@ -3059,16 +3067,28 @@ def export_all(
         try:
             export_fn(conn, out)
         except (sqlite3.OperationalError, ValueError) as exc:
+            if strict:
+                raise
             logger.warning("Skipping %s export (data unavailable): %s", name, exc)
+            skipped.append(name)
     try:
         export_deep_dive(conn, out, format_slug=slug)
     except sqlite3.OperationalError as exc:
+        if strict:
+            raise
         logger.warning("Skipping deep dive reports export (table missing): %s", exc)
+        skipped.append("deep dive")
     export_windowed(conn, out, format_slug=slug)
     try:
         export_optimal_60(conn, out, format_slug=slug)
     except sqlite3.OperationalError as exc:
+        if strict:
+            raise
         logger.warning("Skipping optimal 60 export: %s", exc)
+        skipped.append("optimal 60")
+
+    if skipped:
+        logger.info("Skipped %d optional exports: %s", len(skipped), ", ".join(skipped))
 
     # Post-process: translate JP card names in all exported JSON files
     jp_en = _build_jp_en_lookup(conn)

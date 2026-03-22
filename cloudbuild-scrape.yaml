@@ -23,6 +23,17 @@ steps:
         python cli.py --format ninja-spinner export-web
     waitFor: ["restore-db-cache"]
 
+  # Validate exported data before saving
+  - id: validate
+    name: python:3.12-slim
+    entrypoint: bash
+    args:
+      - -c
+      - |
+        pip install -r requirements.txt &&
+        python cli.py --format ninja-spinner validate
+    waitFor: ["scrape"]
+
   # Save SQLite databases to GCS for next run
   - id: save-db-cache
     name: gcr.io/cloud-builders/gsutil
@@ -30,7 +41,7 @@ steps:
     args:
       - -c
       - gsutil -m cp data/*.db "gs://${_CACHE_BUCKET}/scout-dbs/"
-    waitFor: ["scrape"]
+    waitFor: ["validate"]
 
   # Commit and push updated data to GitHub
   - id: push-to-github
