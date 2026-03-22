@@ -34,7 +34,7 @@ jobs:
           }
 
           check_url "$SITE" "Homepage"
-          check_url "$SITE/ninja-spinner/dashboard" "Dashboard"
+          check_url "$SITE/ninja-spinner" "Dashboard"
           check_url "$SITE/ninja-spinner/archetypes/dragapult-ex" "Archetype detail"
 
           if [ "$FAILED" = "1" ]; then
