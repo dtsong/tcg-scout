@@ -294,16 +294,31 @@ class TestBuylistChain:
         compute_meta_snapshot(db_integration)
         snapshot = get_latest_snapshot(db_integration)
 
-        # Verify we have varied tiers
-        tiers = {a["tier"] for a in snapshot["archetypes"]}
-        assert len(tiers) > 1, f"Expected varied tiers, got {tiers}"
+        # Manually downgrade Gardevoir ex to Rogue in the snapshot to test filtering
+        db_integration.execute(
+            "UPDATE archetype_stats SET tier = 'Rogue' WHERE archetype = 'Gardevoir ex'"
+        )
+        db_integration.commit()
+
+        # Verify we now have S/A and Rogue tiers
+        rows = db_integration.execute(
+            "SELECT DISTINCT tier FROM archetype_stats WHERE snapshot_id = ?",
+            (snapshot["id"],),
+        ).fetchall()
+        tiers = {r["tier"] for r in rows}
+        assert "Rogue" in tiers, f"Expected Rogue tier in fixture, got {tiers}"
+        assert tiers & {"S", "A", "B"}, f"Expected at least one S/A/B tier, got {tiers}"
 
         buylist = generate_buylist(db_integration, snapshot["id"])
-        if buylist:
-            # All cards in buylist should come from S/A/B archetypes only
-            for card in buylist:
-                card_archetypes = card.get("archetypes", [])
-                assert len(card_archetypes) > 0, f"Card {card['card_name']} has no archetypes"
+        assert len(buylist) > 0, "Buylist should not be empty with S/A/B archetypes"
+
+        for card in buylist:
+            card_archetypes = set(card.get("archetypes", []))
+            assert len(card_archetypes) > 0, f"Card {card['card_name']} has no archetypes"
+            # No card should reference the Rogue-tier archetype
+            assert "Gardevoir ex" not in card_archetypes, (
+                f"Card {card['card_name']} includes Rogue archetype 'Gardevoir ex'"
+            )
 
 
 @pytest.mark.integration

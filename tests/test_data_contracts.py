@@ -119,17 +119,34 @@ class TestBuylistContract:
 
         _assert_type(buylist, list, "buylist.json root")
         if len(buylist) > 0:
-            item = buylist[0]
-            _assert_keys(
-                item,
-                ["card_name", "priority_score", "urgency"],
-                "buylist item",
-            )
-            _assert_type(item["priority_score"], (int, float), "priority_score")
-            _assert_type(item["card_name"], str, "card_name")
-            assert item["urgency"] in {"URGENT", "HIGH", "MODERATE"}, (
-                f"Invalid urgency: {item['urgency']}"
-            )
+            for item in buylist:
+                _assert_keys(
+                    item,
+                    [
+                        "card_name",
+                        "card_id",
+                        "set_code",
+                        "set_number",
+                        "priority_score",
+                        "urgency",
+                        "core_flex",
+                        "archetypes",
+                        "avg_copies",
+                        "inclusion_rate",
+                    ],
+                    f"buylist item={item.get('card_name')}",
+                )
+                _assert_type(item["priority_score"], (int, float), "priority_score")
+                _assert_type(item["card_name"], str, "card_name")
+                _assert_type(item["archetypes"], list, "archetypes")
+                _assert_type(item["avg_copies"], (int, float), "avg_copies")
+                _assert_type(item["inclusion_rate"], (int, float), "inclusion_rate")
+                assert item["urgency"] in {"URGENT", "HIGH", "MODERATE"}, (
+                    f"Invalid urgency: {item['urgency']}"
+                )
+                assert item["core_flex"] in {"core", "flex"}, (
+                    f"Invalid core_flex: {item['core_flex']}"
+                )
 
 
 @pytest.mark.integration
@@ -195,26 +212,49 @@ class TestArchetypesContract:
             _assert_type(data["results"], list, "results")
             _assert_type(data["radar"], dict, "radar")
 
-            # Radar shape
+            # Radar shape — matches ArchetypeRadar in types.ts
             _assert_keys(
                 data["radar"],
-                ["meta_share", "weighted_share", "consistency", "ceiling"],
+                [
+                    "meta_share",
+                    "weighted_share",
+                    "consistency",
+                    "ceiling",
+                    "popularity",
+                    "core_density",
+                ],
                 f"archetypes/{arch_file.name} radar",
             )
 
     def test_archetype_card_shape(self, export_dir):
-        """Validate card items within archetype detail files."""
+        """Validate ArchetypeCard items in all_cards — matches types.ts:102-108."""
         arch_dir = export_dir / "archetypes"
         for arch_file in arch_dir.glob("*.json"):
             data = json.loads(arch_file.read_text())
             for card in data["all_cards"]:
                 _assert_keys(
                     card,
-                    ["card_name", "inclusion_pct", "avg_copies"],
-                    f"{arch_file.name} all_cards item",
+                    ["card_name", "inclusion_pct", "avg_copies", "decks_with"],
+                    f"{arch_file.name} all_cards item={card.get('card_name')}",
                 )
                 _assert_type(card["inclusion_pct"], (int, float), "inclusion_pct")
                 _assert_type(card["avg_copies"], (int, float), "avg_copies")
+                _assert_type(card["decks_with"], int, "decks_with")
+
+    def test_archetype_result_shape(self, export_dir):
+        """Validate ArchetypeResult items — matches types.ts:118-125."""
+        arch_dir = export_dir / "archetypes"
+        for arch_file in arch_dir.glob("*.json"):
+            data = json.loads(arch_file.read_text())
+            for result in data["results"]:
+                _assert_keys(
+                    result,
+                    ["tournament_name", "date", "standing", "player_name"],
+                    f"{arch_file.name} result",
+                )
+                _assert_type(result["standing"], int, "standing")
+                _assert_type(result["date"], str, "date")
+                _assert_type(result["player_name"], str, "player_name")
 
 
 @pytest.mark.integration
