@@ -65,8 +65,8 @@ steps:
         SIGNED_URL=$$(gcloud storage sign-url "$${GCS_PATH}" \
           --impersonate-service-account="${_SIGNER_SA}" \
           --region=us-central1 \
-          --duration=24h --quiet 2>/dev/null \
-          | grep 'https://' | awk '{print $$NF}')
+          --duration=12h --quiet 2>/dev/null \
+          | grep 'signed_url:' | sed 's/signed_url: //')
 
         SHA256=$$(sha256sum "/tmp/$${TAR_FILE}" | cut -d' ' -f1)
 
