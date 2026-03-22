@@ -24,11 +24,11 @@ jobs:
             local url="$1"
             local label="$2"
             local status
-            status=$(curl -s -o /dev/null -w "%{http_code}" --max-time 15 "$url")
+            status=$(curl -s -o /dev/null -w "%{http_code}" --max-time 15 "$url") || status="CURL_FAILED"
             if [ "$status" = "200" ]; then
               echo "OK: $label ($url)"
             else
-              echo "FAIL: $label — HTTP $status ($url)"
+              echo "FAIL: $label - HTTP $status ($url)"
               FAILED=1
             fi
           }
@@ -38,11 +38,13 @@ jobs:
           check_url "$SITE/ninja-spinner/archetypes/dragapult-ex" "Archetype detail"
 
           if [ "$FAILED" = "1" ]; then
-            echo "Smoke test failed — sending alert"
+            echo "Smoke test failed - sending alert"
             if [ -n "$DISCORD_WEBHOOK_URL" ]; then
-              curl -s -H "Content-Type: application/json" \
+              if ! curl -sf -H "Content-Type: application/json" \
                 -d '{"content":"**Scout Smoke Test Failed**\nOne or more pages returned non-200 status after deploy.\nCheck: '"$SITE"'"}' \
-                "$DISCORD_WEBHOOK_URL"
+                "$DISCORD_WEBHOOK_URL"; then
+                echo "WARNING: Failed to send Discord alert"
+              fi
             fi
             exit 1
           fi

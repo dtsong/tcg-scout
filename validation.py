@@ -79,14 +79,14 @@ def validate_export(export_dir: Path) -> ValidationResult:
         # File size check
         size = json_path.stat().st_size
         if size > MAX_FILE_SIZE:
-            result.warnings.append(f"{rel}: file size {size / 1024:.0f}KB exceeds 1MB limit")
+            result.warnings.append(f"{rel}: file size {size / 1024:.0f}KB exceeds 1MB threshold")
 
         # JSON parse check
         try:
             raw = json_path.read_text(encoding="utf-8")
             json.loads(raw)
         except (json.JSONDecodeError, OSError) as exc:
-            result.errors.append(f"{rel}: could not parse — {exc}")
+            result.errors.append(f"{rel}: could not parse - {exc}")
             continue
 
     # meta.json content validation
@@ -108,6 +108,7 @@ def _validate_meta_consistency(export_dir: Path, meta_path: Path) -> ValidationR
         meta = json.loads(meta_path.read_text(encoding="utf-8"))
     except (json.JSONDecodeError, OSError) as exc:
         logger.warning("Skipped meta consistency check: could not read %s: %s", meta_path, exc)
+        result.warnings.append(f"Could not perform meta consistency check: {exc}")
         return result
 
     # meta.json uses a flat "archetypes" list (each entry has a "tier" field)
@@ -139,6 +140,7 @@ def _check_unknown_archetype(meta_path: Path) -> ValidationResult:
         meta = json.loads(meta_path.read_text(encoding="utf-8"))
     except (json.JSONDecodeError, OSError) as exc:
         logger.warning("Skipped Unknown archetype check: could not read %s: %s", meta_path, exc)
+        result.warnings.append(f"Could not perform Unknown archetype check: {exc}")
         return result
 
     for arch in meta.get("archetypes", []):
@@ -148,7 +150,7 @@ def _check_unknown_archetype(meta_path: Path) -> ValidationResult:
             if share > 5:
                 result.errors.append(
                     f"'Unknown' archetype has {share:.1f}% meta share ({decks} decks) "
-                    f"— card_mappings likely needs populating. "
+                    f"- card_mappings likely needs populating. "
                     f"Run 'scout mappings' then 'scout reclassify'."
                 )
             elif share > 0:
@@ -171,10 +173,10 @@ def _check_jp_leaks(export_dir: Path) -> ValidationResult:
         try:
             raw = json_path.read_text(encoding="utf-8")
         except OSError as exc:
-            result.warnings.append(f"{rel}: could not read for JP leak check — {exc}")
+            result.warnings.append(f"{rel}: could not read for JP leak check - {exc}")
             continue
 
-        # Check string values in JSON for JP characters
+        # Check raw JSON text for JP characters (keys and values)
         if _JP_RE.search(raw):
             jp_leak_count += 1
             if jp_leak_count <= max_reports:
@@ -206,7 +208,7 @@ def validate_database(conn: sqlite3.Connection) -> ValidationResult:
             "SELECT COUNT(*) as cnt FROM open_placements WHERE archetype = 'Unknown'"
         ).fetchone()
     except sqlite3.OperationalError as exc:
-        result.warnings.append(f"Could not query open_placements view: {exc}")
+        result.errors.append(f"Could not query open_placements view (schema issue): {exc}")
         total = unknown = None
 
     total_count = total["cnt"] if total else 0
@@ -217,13 +219,13 @@ def validate_database(conn: sqlite3.Connection) -> ValidationResult:
         if unknown_rate > 5:
             result.errors.append(
                 f"Unknown archetype rate is {unknown_rate:.1f}% "
-                f"({unknown_count}/{total_count} placements) — exceeds 5% threshold. "
+                f"({unknown_count}/{total_count} placements) - exceeds 5% threshold. "
                 f"Run 'scout reclassify' after populating card_mappings."
             )
         elif unknown_rate > 2:
             result.warnings.append(
                 f"Unknown archetype rate is {unknown_rate:.1f}% "
-                f"({unknown_count}/{total_count} placements) — consider running 'scout reclassify'"
+                f"({unknown_count}/{total_count} placements) - consider running 'scout reclassify'"
             )
 
     # Duplicate tournaments (same name and date)

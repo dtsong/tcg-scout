@@ -3030,11 +3030,12 @@ def export_all(
     output_dir: Path | None = None,
     format_slug: str | None = None,
     strict: bool = False,
-) -> Path:
-    """Run all exports. Returns the output directory.
+) -> tuple[Path, list[str]]:
+    """Run all exports. Returns (output_directory, skipped_export_names).
 
-    When strict=True, all export errors propagate instead of being caught.
-    Use strict=True in CI/Cloud Build to catch silent failures.
+    Core exports always propagate errors. When strict=True, optional exports
+    (cards, overlap, matchup, evolution, tech forecast, deep dive, optimal 60)
+    also propagate instead of being caught and logged.
     """
     base = output_dir or DEFAULT_OUTPUT_DIR
     # Write to format subdirectory
@@ -3095,7 +3096,7 @@ def export_all(
     _translate_all_json(out, jp_en)
 
     logger.info("Export complete")
-    return out
+    return out, skipped
 
 
 def _translate_all_json(directory: Path, lookup: dict[str, str]) -> None:

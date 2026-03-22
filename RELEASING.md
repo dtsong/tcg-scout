@@ -12,10 +12,10 @@ Semantic versioning: `MAJOR.MINOR.PATCH`
 
 ```
 python -m pytest tests/ -v
-cd web && npm test
+cd web && npm test && cd ..
 python cli.py --format <active-format> export-web --strict
 python cli.py --format <active-format> validate
-cd web && npx next build
+cd web && npx next build && cd ..
 ```
 
 Spot-check in browser:
@@ -43,4 +43,4 @@ Card search returns results
 Mobile: nav works, tables scroll horizontally
 ```
 
-The smoke-test GitHub Action also runs automatically on data pushes.
+The smoke-test GitHub Action runs automatically when data changes are pushed to main. A separate freshness-check workflow runs every 12 hours to detect stale data.

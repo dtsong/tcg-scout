@@ -24,7 +24,8 @@ def _export_once(db_integration, tmp_path):
     db_integration.commit()
 
     compute_meta_snapshot(db_integration)
-    return export_all(db_integration, output_dir=tmp_path, format_slug="nihil-zero")
+    out, _skipped = export_all(db_integration, output_dir=tmp_path, format_slug="nihil-zero")
+    return out
 
 
 @pytest.fixture()

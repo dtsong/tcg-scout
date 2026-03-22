@@ -6,7 +6,7 @@ steps:
     args:
       - -c
       - |
-        gsutil -m cp "gs://${_CACHE_BUCKET}/scout-dbs/*.db" data/ 2>/dev/null || echo "No cached databases found, starting fresh"
+        gsutil -m cp "gs://${_CACHE_BUCKET}/scout-dbs/*.db" data/ || echo "WARNING: DB cache restore failed (exit $?), starting fresh"
 
   # Single Python step -- pip installs don't persist across containers
   - id: scrape
@@ -23,7 +23,7 @@ steps:
         python cli.py --format ninja-spinner export-web --strict
     waitFor: ["restore-db-cache"]
 
-  # Validate exported data before saving
+  # Validate exported data and database integrity before saving
   - id: validate
     name: python:3.12-slim
     entrypoint: bash

@@ -27,7 +27,7 @@ class TestFullPipeline:
         assert snapshot_id is not None
 
         # Step 2: Export all to tmp dir
-        out = export_all(db, output_dir=tmp_path, format_slug="nihil-zero")
+        out, _skipped = export_all(db, output_dir=tmp_path, format_slug="nihil-zero")
 
         # Step 3: Verify all expected JSON files exist
         assert (out / "meta.json").exists()
@@ -227,7 +227,7 @@ class TestTierPropagation:
         db_integration.commit()
 
         compute_meta_snapshot(db_integration)
-        out = export_all(db_integration, output_dir=tmp_path, format_slug="nihil-zero")
+        out, _skipped = export_all(db_integration, output_dir=tmp_path, format_slug="nihil-zero")
 
         meta = json.loads((out / "meta.json").read_text())
         meta_tiers = {a["slug"]: a["tier"] for a in meta["archetypes"]}
@@ -269,7 +269,7 @@ class TestDivisionIsolation:
         db_integration.commit()
 
         compute_meta_snapshot(db_integration)
-        out = export_all(db_integration, output_dir=tmp_path, format_slug="nihil-zero")
+        out, _skipped = export_all(db_integration, output_dir=tmp_path, format_slug="nihil-zero")
 
         # Check Charizard detail — should have 4 open results, not 5
         charizard = json.loads((out / "archetypes" / "charizard-ex.json").read_text())

@@ -1,6 +1,7 @@
 """CLI entry point for Rotation Scout."""
 
 import logging
+import sqlite3
 
 import click
 from rich.console import Console
@@ -205,7 +206,7 @@ def meta(ctx: click.Context) -> None:
             return
 
         console.print(
-            f"\n[green]Meta snapshot #{snapshot_id} created[/green] — "
+            f"\n[green]Meta snapshot #{snapshot_id} created[/green] - "
             f"{snapshot['tournament_count']} tournaments, "
             f"{snapshot['deck_count']} decks"
         )
@@ -354,7 +355,7 @@ def champions(
             # Fetch event results
             event = asyncio.run(client.fetch_event_results(event_id))
             console.print(
-                f"  [bold]{event.event_name}[/bold] ({event.division}) — "
+                f"  [bold]{event.event_name}[/bold] ({event.division}) - "
                 f"{len(event.placements)} placements"
             )
 
@@ -374,7 +375,13 @@ def champions(
                         if cards and placement.deck_code:
                             decklists[placement.deck_code] = cards
                             console.print(f"      {len(cards)} cards")
-                    except Exception as e:
+                    except (OSError, ValueError, RuntimeError) as e:
+                        logger.error(
+                            "Failed to fetch decklist for %s: %s",
+                            placement.player_name,
+                            e,
+                            exc_info=True,
+                        )
                         console.print(f"      [red]Error: {e}[/red]")
 
             # Store in database
@@ -496,7 +503,7 @@ def reclassify(ctx: click.Context, dry_run: bool) -> None:
                             if jp_name and name and jp_name in name:
                                 en_name = en
                                 break
-                    # Infer category: Energy > known anchor Pokemon > Trainer
+                    # Infer category: Energy > known anchor Pokemon > 'ex' Pokemon > Trainer
                     card_label = en_name or name
                     if name in JP_ENERGY_MAP or (en_name and "Energy" in en_name):
                         category = "Energy"
@@ -522,19 +529,29 @@ def reclassify(ctx: click.Context, dry_run: bool) -> None:
                         )
                 else:
                     still_unknown += 1
-            except Exception as exc:
-                logger.error("Failed to reclassify placement %s: %s", placement["id"], exc)
+            except (sqlite3.OperationalError, KeyError, ValueError) as exc:
+                logger.error(
+                    "Failed to reclassify placement %s: %s", placement["id"], exc, exc_info=True
+                )
                 failed += 1
 
         if not dry_run:
             conn.commit()
+
+        # Fail fast if most placements failed (likely a systematic bug)
+        if failed > 0 and len(unknowns) > 0 and failed / len(unknowns) > 0.5:
+            console.print(
+                f"\n[red bold]ERROR: {failed}/{len(unknowns)} placements failed to reclassify. "
+                f"This indicates a systematic issue.[/red bold]"
+            )
+            raise SystemExit(1)
 
         prefix = "[bold yellow]DRY RUN:[/bold yellow] " if dry_run else ""
         console.print(f"\n{prefix}[green]Reclassified {reclassified} placements[/green]")
         if still_unknown:
             console.print(f"  Still Unknown: {still_unknown}")
         if failed:
-            console.print(f"  [red]{failed} placements failed to reclassify — see logs[/red]")
+            console.print(f"  [red]{failed} placements failed to reclassify - see logs[/red]")
         for arch, count in sorted(changes.items(), key=lambda x: -x[1]):
             console.print(f"  {arch}: {count}")
     finally:
@@ -569,7 +586,7 @@ def import_cl(ctx: click.Context, data_dir: str) -> None:
             decklists_file = data_path / f"{division}-decklists.csv"
 
             if not meta_file.exists():
-                console.print(f"[yellow]Skipping {division} — no meta file[/yellow]")
+                console.print(f"[yellow]Skipping {division} - no meta file[/yellow]")
                 continue
 
             with open(meta_file) as f:
@@ -893,7 +910,7 @@ def scrape_tournament(
         for i, placement in enumerate(placements, 1):
             console.print(
                 f"  [{i}/{len(placements)}] #{placement.placement} "
-                f"{placement.player_name or 'Unknown'} — {placement.archetype}"
+                f"{placement.player_name or 'Unknown'} - {placement.archetype}"
             )
 
             cursor = conn.execute(
@@ -1043,8 +1060,12 @@ def export_web(ctx: click.Context, narrative: bool, upload: bool, strict: bool) 
     fmt = ctx.obj["format"]
     conn = get_format_connection(fmt)
     try:
-        out = export_all(conn, format_slug=fmt, strict=strict)
+        out, skipped = export_all(conn, format_slug=fmt, strict=strict)
         console.print(f"[green]Web data exported to {out}[/green]")
+        if skipped:
+            console.print(
+                f"[yellow]Skipped {len(skipped)} optional export(s): {', '.join(skipped)}[/yellow]"
+            )
         export_formats()
         console.print("[green]formats.json updated[/green]")
         if narrative:
@@ -1120,8 +1141,9 @@ def validate(ctx: click.Context, strict: bool) -> None:
     total_errors = len(export_result.errors) + len(db_result.errors)
     total_warnings = len(export_result.warnings) + len(db_result.warnings)
 
-    if strict:
+    if strict and total_warnings > 0:
         total_errors += total_warnings
+        total_warnings = 0
 
     console.print()
     if total_errors > 0:

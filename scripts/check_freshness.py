@@ -20,7 +20,7 @@ DATA_DIR = Path(__file__).parent.parent / "web" / "public" / "data"
 
 
 def get_latest_snapshot_date(format_slug: str) -> datetime | None:
-    """Read the latest snapshot date from meta.json."""
+    """Read the latest snapshot date from meta.json's generated_at field, falling back to file mtime."""
     meta_path = DATA_DIR / format_slug / "meta.json"
     if not meta_path.exists():
         return None
@@ -30,12 +30,18 @@ def get_latest_snapshot_date(format_slug: str) -> datetime | None:
         generated_at = meta.get("generated_at")
         if generated_at:
             return datetime.fromisoformat(generated_at.replace("Z", "+00:00"))
-    except (json.JSONDecodeError, OSError, ValueError):
-        pass
+    except (json.JSONDecodeError, OSError, ValueError) as exc:
+        print(
+            f"WARNING: Could not parse generated_at from meta.json: {exc}, falling back to file mtime"
+        )
 
     # Fallback: use file modification time
-    mtime = meta_path.stat().st_mtime
-    return datetime.fromtimestamp(mtime, tz=UTC)
+    try:
+        mtime = meta_path.stat().st_mtime
+        return datetime.fromtimestamp(mtime, tz=UTC)
+    except OSError as exc:
+        print(f"WARNING: Could not stat meta.json: {exc}")
+        return None
 
 
 def send_discord_alert(message: str) -> None:
@@ -53,7 +59,11 @@ def send_discord_alert(message: str) -> None:
         headers={"Content-Type": "application/json"},
         method="POST",
     )
-    urllib.request.urlopen(req)
+    try:
+        urllib.request.urlopen(req)
+    except Exception as exc:
+        print(f"WARNING: Failed to send Discord alert: {exc}")
+        print(f"Alert message was: {message}")
 
 
 def main() -> int:

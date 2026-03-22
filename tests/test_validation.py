@@ -163,6 +163,26 @@ class TestValidateDatabase:
         result = validate_database(conn)
         assert any("Unknown archetype rate" in e for e in result.errors)
 
+    def test_moderate_unknown_rate_warns(self, conn):
+        # Pad with non-Unknown placements to dilute the ratio, then add a few Unknowns
+        for i in range(100, 200):
+            conn.execute(
+                "INSERT INTO placements (id, tournament_id, standing, player_name, archetype) "
+                "VALUES (?, 't1', ?, 'Player', 'Charizard ex')",
+                (i, i),
+            )
+        # Add 3 Unknowns: 3/(100+existing) ~ 2-5% range
+        for i in range(200, 203):
+            conn.execute(
+                "INSERT INTO placements (id, tournament_id, standing, player_name, archetype) "
+                "VALUES (?, 't1', ?, 'Unknown Player', 'Unknown')",
+                (i, i),
+            )
+        conn.commit()
+        result = validate_database(conn)
+        assert result.ok  # Warning, not error
+        assert any("Unknown archetype rate" in w for w in result.warnings)
+
     def test_duplicate_tournaments_warns(self, conn):
         conn.execute(
             "INSERT INTO tournaments (id, name, date, player_count, division) "

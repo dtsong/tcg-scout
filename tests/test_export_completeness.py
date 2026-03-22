@@ -3,6 +3,7 @@
 import json
 import logging
 import re
+import sqlite3
 import sys
 from pathlib import Path
 
@@ -43,11 +44,11 @@ class TestExportCompleteness:
         db.commit()
         compute_meta_snapshot(db)
 
-        # Drop a table that optional exports depend on to force an error
+        # Drop a view that optional exports depend on to force an error
         db.execute("DROP VIEW IF EXISTS open_placements")
         db.commit()
 
-        with pytest.raises(Exception):
+        with pytest.raises((sqlite3.OperationalError, ValueError)):
             export_all(db, output_dir=tmp_path, format_slug="nihil-zero", strict=True)
 
     def test_validation_passes_on_exported_data(self, db, tmp_path):
@@ -62,7 +63,7 @@ class TestExportCompleteness:
         db.commit()
         compute_meta_snapshot(db)
 
-        out = export_all(db, output_dir=tmp_path, format_slug="nihil-zero")
+        out, _skipped = export_all(db, output_dir=tmp_path, format_slug="nihil-zero")
         result = validate_export(out)
 
         assert result.ok, f"Validation errors: {result.errors}"
@@ -77,7 +78,8 @@ def _export_fresh(conn, tmp_path, format_slug="nihil-zero"):
     conn.execute("DELETE FROM meta_snapshots")
     conn.commit()
     compute_meta_snapshot(conn)
-    return export_all(conn, output_dir=tmp_path, format_slug=format_slug)
+    out, _skipped = export_all(conn, output_dir=tmp_path, format_slug=format_slug)
+    return out
 
 
 @pytest.mark.integration
