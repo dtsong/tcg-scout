@@ -415,6 +415,11 @@ def sync_card_mappings(
                         progress.advance(cards_task)
                         continue
 
+                    if not info["en_card_id"]:
+                        logger.debug("No EN equivalent for %s, skipping", jp_card_id)
+                        progress.advance(cards_task)
+                        continue
+
                     conn.execute(
                         """INSERT OR REPLACE INTO card_mappings
                            (jp_card_id, en_card_id, card_name_jp, card_name_en,
