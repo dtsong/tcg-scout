@@ -343,14 +343,14 @@ JP_CARD_NAME_MAP: dict[str, str] = {
     "ロケット団のミュウツーex": "Team Rocket's Mewtwo ex",
     "ダイゴのメタグロスex": "Steven's Metagross ex",
     "ロケット団のドンカラス": "Team Rocket's Honchkrow",
-    # N's Zoroark maps to "Zoroark" anchor
-    "Nのゾロアークex": "Zoroark ex",
+    # N's Zoroark maps to "Zoroark" anchor (non-ex form matches the anchor key)
+    "Nのゾロアークex": "Zoroark",
     # --- Secondary cards (non-ex, used in composite detection) ---
     "ヨノワール": "Dusknoir",
     "ヨルノズク": "Noctowl",
     "ピジョットex": "Pidgeot ex",
     "ノココッチ": "Dudunsparce",
-    "キチキギス": "Munkidori",
+    "マシマシラ": "Munkidori",
     "ソルロック": "Solrock",
     "ハリテヤマ": "Hariyama",
     "ゲッコウガex": "Greninja ex",
