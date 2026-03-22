@@ -2,11 +2,20 @@
 
 import { useState, useMemo } from "react";
 import Link from "next/link";
-import { ArrowLeft, TrendingUp, TrendingDown, Zap } from "lucide-react";
+import { ArrowLeft, TrendingUp, TrendingDown, Zap, ChevronDown, ChevronRight } from "lucide-react";
 import type { MetaEvolutionMovement } from "@/app/lib/types";
 
 type DirectionFilter = "all" | "adopted" | "dropped";
-type SortMode = "magnitude" | "recency";
+
+interface ArchetypeGroup {
+  archetype: string;
+  archetype_slug?: string;
+  deck_count?: number;
+  adopted: MetaEvolutionMovement[];
+  dropped: MetaEvolutionMovement[];
+  maxDelta: number;
+  week: string;
+}
 
 interface ShiftsClientProps {
   format: string;
@@ -15,42 +24,70 @@ interface ShiftsClientProps {
 
 export function ShiftsClient({ format, movements }: ShiftsClientProps) {
   const [directionFilter, setDirectionFilter] = useState<DirectionFilter>("all");
-  const [archetypeFilter, setArchetypeFilter] = useState<string>("all");
-  const [sortMode, setSortMode] = useState<SortMode>("magnitude");
-
-  const archetypes = useMemo(() => {
-    const unique = [...new Set(movements.map((m) => m.archetype))];
-    return unique.sort();
-  }, [movements]);
-
-  const maxDelta = useMemo(
-    () => Math.max(...movements.map((m) => m.delta), 1),
-    [movements]
-  );
+  const [expandedArchetypes, setExpandedArchetypes] = useState<Set<string>>(new Set());
 
   const latestWeek = useMemo(() => {
     if (movements.length === 0) return null;
-    return movements[0].week;
+    return movements.reduce((latest, m) => (m.week > latest ? m.week : latest), movements[0].week);
   }, [movements]);
 
-  const filtered = useMemo(() => {
-    let result = movements;
-
-    if (directionFilter !== "all") {
-      result = result.filter((m) => m.direction === directionFilter);
+  const groups = useMemo(() => {
+    const byArchetype = new Map<string, MetaEvolutionMovement[]>();
+    for (const m of movements) {
+      const list = byArchetype.get(m.archetype) || [];
+      list.push(m);
+      byArchetype.set(m.archetype, list);
     }
 
-    if (archetypeFilter !== "all") {
-      result = result.filter((m) => m.archetype === archetypeFilter);
+    const result: ArchetypeGroup[] = [];
+    for (const [archetype, items] of byArchetype) {
+      const adopted = items
+        .filter((m) => m.direction === "adopted")
+        .sort((a, b) => b.delta - a.delta);
+      const dropped = items
+        .filter((m) => m.direction === "dropped")
+        .sort((a, b) => b.delta - a.delta);
+
+      if (
+        (directionFilter === "adopted" && adopted.length === 0) ||
+        (directionFilter === "dropped" && dropped.length === 0)
+      ) {
+        continue;
+      }
+
+      result.push({
+        archetype,
+        archetype_slug: items[0].archetype_slug,
+        deck_count: items[0].deck_count,
+        adopted,
+        dropped,
+        maxDelta: Math.max(...items.map((m) => m.delta), 1),
+        week: items.reduce((latest, m) => (m.week > latest ? m.week : latest), items[0].week),
+      });
     }
 
-    if (sortMode === "magnitude") {
-      result = [...result].sort((a, b) => b.delta - a.delta);
-    }
-    // recency is the default sort from backend (week DESC, delta DESC)
+    return result.sort((a, b) => b.maxDelta - a.maxDelta);
+  }, [movements, directionFilter]);
 
-    return result;
-  }, [movements, directionFilter, archetypeFilter, sortMode]);
+  const totalShifts = useMemo(() => {
+    return groups.reduce((sum, g) => {
+      if (directionFilter === "adopted") return sum + g.adopted.length;
+      if (directionFilter === "dropped") return sum + g.dropped.length;
+      return sum + g.adopted.length + g.dropped.length;
+    }, 0);
+  }, [groups, directionFilter]);
+
+  const toggleArchetype = (archetype: string) => {
+    setExpandedArchetypes((prev) => {
+      const next = new Set(prev);
+      if (next.has(archetype)) next.delete(archetype);
+      else next.add(archetype);
+      return next;
+    });
+  };
+
+  const expandAll = () => setExpandedArchetypes(new Set(groups.map((g) => g.archetype)));
+  const collapseAll = () => setExpandedArchetypes(new Set());
 
   const formatWeek = (iso: string) => {
     const d = new Date(iso + "T00:00:00");
@@ -98,7 +135,6 @@ export function ShiftsClient({ format, movements }: ShiftsClientProps) {
 
       {/* Filters */}
       <div className="flex flex-wrap items-center gap-3">
-        {/* Direction filter */}
         <div className="inline-flex rounded-lg border border-surface-600 overflow-hidden">
           {(["all", "adopted", "dropped"] as DirectionFilter[]).map((dir) => (
             <button
@@ -115,144 +151,157 @@ export function ShiftsClient({ format, movements }: ShiftsClientProps) {
           ))}
         </div>
 
-        {/* Archetype filter */}
-        <select
-          value={archetypeFilter}
-          onChange={(e) => setArchetypeFilter(e.target.value)}
-          className="bg-surface-800 border border-surface-600 text-sm text-slate-300 rounded-lg px-3 py-1.5 focus:outline-none focus:border-surface-400"
-        >
-          <option value="all">All archetypes</option>
-          {archetypes.map((a) => (
-            <option key={a} value={a}>{a}</option>
-          ))}
-        </select>
-
-        {/* Sort toggle */}
-        <div className="inline-flex rounded-lg border border-surface-600 overflow-hidden">
-          {(["magnitude", "recency"] as SortMode[]).map((mode) => (
-            <button
-              key={mode}
-              onClick={() => setSortMode(mode)}
-              className={`px-3 py-1.5 text-xs font-medium transition-colors ${
-                sortMode === mode
-                  ? "bg-surface-600 text-slate-100"
-                  : "bg-surface-800 text-surface-300 hover:text-slate-200 hover:bg-surface-700"
-              }`}
-            >
-              {mode === "magnitude" ? "By magnitude" : "By recency"}
-            </button>
-          ))}
+        <div className="flex gap-2 text-[11px]">
+          <button onClick={expandAll} className="text-surface-400 hover:text-slate-200">
+            Expand all
+          </button>
+          <span className="text-surface-600">|</span>
+          <button onClick={collapseAll} className="text-surface-400 hover:text-slate-200">
+            Collapse all
+          </button>
         </div>
 
         <span className="text-xs text-surface-400 ml-auto">
-          {filtered.length} shift{filtered.length !== 1 ? "s" : ""}
+          {totalShifts} shift{totalShifts !== 1 ? "s" : ""} across {groups.length} archetype{groups.length !== 1 ? "s" : ""}
         </span>
       </div>
 
-      {/* Results */}
-      <div className="space-y-2">
-        {filtered.map((m, i) => {
-          const barWidth = (m.delta / maxDelta) * 100;
-          const isHigh = m.delta >= 30;
-          const isMedium = m.delta >= 10 && m.delta < 30;
+      {/* Grouped results */}
+      <div className="space-y-3">
+        {groups.map((group) => {
+          const isExpanded = expandedArchetypes.has(group.archetype);
+          const adopted = directionFilter === "dropped" ? [] : group.adopted;
+          const dropped = directionFilter === "adopted" ? [] : group.dropped;
+          const shiftCount = adopted.length + dropped.length;
 
           return (
             <div
-              key={`${m.card}-${m.archetype}-${m.week}-${i}`}
-              className="relative bg-surface-800 border border-surface-600 rounded-lg p-4 overflow-hidden"
+              key={group.archetype}
+              className="bg-surface-800 border border-surface-600 rounded-lg overflow-hidden"
             >
-              {/* Magnitude bar background */}
-              <div
-                className={`absolute inset-y-0 left-0 ${
-                  m.direction === "adopted" ? "bg-emerald-500/8" : "bg-red-500/8"
-                }`}
-                style={{ width: `${barWidth}%` }}
-              />
-
-              <div className="relative flex items-center justify-between gap-4">
-                {/* Left side: icon + card info */}
+              {/* Archetype header */}
+              <button
+                onClick={() => toggleArchetype(group.archetype)}
+                className="w-full flex items-center justify-between gap-3 px-4 py-3 hover:bg-surface-700/50 transition-colors"
+              >
                 <div className="flex items-center gap-3 min-w-0">
-                  {m.direction === "adopted" ? (
-                    <TrendingUp
-                      className={`w-4 h-4 shrink-0 ${
-                        isHigh ? "text-emerald-400" : isMedium ? "text-emerald-400/70" : "text-surface-400"
-                      }`}
-                    />
+                  {isExpanded ? (
+                    <ChevronDown className="w-4 h-4 text-surface-400 shrink-0" />
                   ) : (
-                    <TrendingDown
-                      className={`w-4 h-4 shrink-0 ${
-                        isHigh ? "text-red-400" : isMedium ? "text-red-400/70" : "text-surface-400"
-                      }`}
-                    />
+                    <ChevronRight className="w-4 h-4 text-surface-400 shrink-0" />
                   )}
-                  <div className="min-w-0">
-                    <span
-                      className={`text-sm truncate block ${
-                        isHigh ? "font-semibold text-slate-100" : isMedium ? "text-slate-200" : "text-surface-300"
-                      }`}
-                    >
-                      {m.card}
-                    </span>
-                    <span className="text-[11px] text-surface-400 flex items-center gap-1.5">
-                      in{" "}
-                      {m.archetype_slug ? (
-                        <Link
-                          href={`/${format}/archetypes/${m.archetype_slug}`}
-                          className="text-surface-300 hover:text-slate-200 underline decoration-surface-600 underline-offset-2"
-                        >
-                          {m.archetype}
-                        </Link>
-                      ) : (
-                        m.archetype
-                      )}
-                      {m.deck_count != null && (
-                        <span className="text-surface-400">({m.deck_count} decks)</span>
-                      )}
-                    </span>
-                  </div>
-                </div>
-
-                {/* Right side: percentages */}
-                <div className="flex items-center gap-3 shrink-0">
-                  <span
-                    className={`font-mono text-xs whitespace-nowrap ${
-                      isHigh ? "text-slate-200" : "text-surface-300"
-                    }`}
-                  >
-                    {m.from_pct.toFixed(0)}% &rarr; {m.to_pct.toFixed(0)}%
+                  <span className="text-sm font-medium text-slate-100 truncate">
+                    {group.archetype}
                   </span>
-                  <span
-                    className={`font-mono text-xs font-medium px-1.5 py-0.5 rounded ${
-                      m.direction === "adopted"
-                        ? isHigh
-                          ? "text-emerald-400 bg-emerald-500/15"
-                          : "text-emerald-400/70 bg-emerald-500/8"
-                        : isHigh
-                          ? "text-red-400 bg-red-500/15"
-                          : "text-red-400/70 bg-red-500/8"
-                    }`}
-                  >
-                    {m.direction === "adopted" ? "+" : "-"}{m.delta.toFixed(0)}%
+                  {group.deck_count != null && (
+                    <span className="text-[11px] text-surface-400">
+                      {group.deck_count} decks
+                    </span>
+                  )}
+                </div>
+                <div className="flex items-center gap-2 shrink-0">
+                  {adopted.length > 0 && (
+                    <span className="flex items-center gap-1 text-[11px] text-emerald-400/70">
+                      <TrendingUp className="w-3 h-3" />
+                      {adopted.length}
+                    </span>
+                  )}
+                  {dropped.length > 0 && (
+                    <span className="flex items-center gap-1 text-[11px] text-red-400/70">
+                      <TrendingDown className="w-3 h-3" />
+                      {dropped.length}
+                    </span>
+                  )}
+                  <span className="text-[11px] text-surface-400">
+                    {shiftCount} shift{shiftCount !== 1 ? "s" : ""}
                   </span>
                 </div>
-              </div>
+              </button>
 
-              {/* Week label for non-latest weeks */}
-              {m.week !== latestWeek && (
-                <span className="absolute top-1.5 right-2 text-[10px] text-surface-400">
-                  {formatWeek(m.week)}
-                </span>
+              {/* Expanded card list */}
+              {isExpanded && (
+                <div className="border-t border-surface-700 divide-y divide-surface-700/50">
+                  {adopted.map((m, i) => (
+                    <ShiftRow key={`a-${i}`} m={m} maxDelta={group.maxDelta} />
+                  ))}
+                  {dropped.map((m, i) => (
+                    <ShiftRow key={`d-${i}`} m={m} maxDelta={group.maxDelta} />
+                  ))}
+                </div>
               )}
             </div>
           );
         })}
       </div>
 
-      {filtered.length === 0 && (
+      {groups.length === 0 && (
         <div className="text-center py-12">
           <p className="text-surface-300 text-sm">No shifts match the current filters.</p>
         </div>
       )}
+    </div>
+  );
+}
+
+function ShiftRow({ m, maxDelta }: { m: MetaEvolutionMovement; maxDelta: number }) {
+  const barWidth = (m.delta / maxDelta) * 100;
+  const isHigh = m.delta >= 30;
+  const isMedium = m.delta >= 10 && m.delta < 30;
+
+  return (
+    <div className="relative px-4 py-2.5 overflow-hidden">
+      <div
+        className={`absolute inset-y-0 left-0 ${
+          m.direction === "adopted" ? "bg-emerald-500/8" : "bg-red-500/8"
+        }`}
+        style={{ width: `${barWidth}%` }}
+      />
+      <div className="relative flex items-center justify-between gap-4">
+        <div className="flex items-center gap-3 min-w-0">
+          {m.direction === "adopted" ? (
+            <TrendingUp
+              className={`w-3.5 h-3.5 shrink-0 ${
+                isHigh ? "text-emerald-400" : isMedium ? "text-emerald-400/70" : "text-surface-400"
+              }`}
+            />
+          ) : (
+            <TrendingDown
+              className={`w-3.5 h-3.5 shrink-0 ${
+                isHigh ? "text-red-400" : isMedium ? "text-red-400/70" : "text-surface-400"
+              }`}
+            />
+          )}
+          <span
+            className={`text-sm truncate ${
+              isHigh ? "font-medium text-slate-100" : isMedium ? "text-slate-200" : "text-surface-300"
+            }`}
+          >
+            {m.card}
+          </span>
+        </div>
+        <div className="flex items-center gap-3 shrink-0">
+          <span
+            className={`font-mono text-xs whitespace-nowrap ${
+              isHigh ? "text-slate-200" : "text-surface-300"
+            }`}
+          >
+            {m.from_pct.toFixed(0)}% &rarr; {m.to_pct.toFixed(0)}%
+          </span>
+          <span
+            className={`font-mono text-xs font-medium px-1.5 py-0.5 rounded ${
+              m.direction === "adopted"
+                ? isHigh
+                  ? "text-emerald-400 bg-emerald-500/15"
+                  : "text-emerald-400/70 bg-emerald-500/8"
+                : isHigh
+                  ? "text-red-400 bg-red-500/15"
+                  : "text-red-400/70 bg-red-500/8"
+            }`}
+          >
+            {m.direction === "adopted" ? "+" : "-"}{m.delta.toFixed(0)}%
+          </span>
+        </div>
+      </div>
     </div>
   );
 }

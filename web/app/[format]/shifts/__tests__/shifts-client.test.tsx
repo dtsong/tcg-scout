@@ -43,11 +43,11 @@ const mockMovements: MetaEvolutionMovement[] = [
 describe("ShiftsClient", () => {
   afterEach(cleanup);
 
-  it("renders all movements", () => {
+  it("renders archetype group headers", () => {
     render(<ShiftsClient format="ninja-spinner" movements={mockMovements} />);
-    expect(screen.getByText("Night Stretcher")).toBeInTheDocument();
-    expect(screen.getByText("Briar")).toBeInTheDocument();
-    expect(screen.getByText("Meowth ex")).toBeInTheDocument();
+    expect(screen.getByText("Mega Lucario")).toBeInTheDocument();
+    expect(screen.getByText("Dragapult Dusknoir")).toBeInTheDocument();
+    expect(screen.getByText("Dragapult Meowth")).toBeInTheDocument();
   });
 
   it("renders page title", () => {
@@ -55,34 +55,47 @@ describe("ShiftsClient", () => {
     expect(screen.getByText("Copy-Count Shifts")).toBeInTheDocument();
   });
 
-  it("shows correct count", () => {
+  it("shows correct total count across archetypes", () => {
     render(<ShiftsClient format="ninja-spinner" movements={mockMovements} />);
-    expect(screen.getByText("3 shifts")).toBeInTheDocument();
+    expect(screen.getByText(/3 shifts across 3 archetypes/)).toBeInTheDocument();
   });
 
-  it("filters by direction - Drops only", async () => {
+  it("shows card names when archetype is expanded", async () => {
+    const user = userEvent.setup();
+    render(<ShiftsClient format="ninja-spinner" movements={mockMovements} />);
+    // Cards should not be visible before expanding
+    expect(screen.queryByText("Night Stretcher")).not.toBeInTheDocument();
+    // Click to expand Mega Lucario
+    await user.click(screen.getByText("Mega Lucario"));
+    expect(screen.getByText("Night Stretcher")).toBeInTheDocument();
+  });
+
+  it("filters by direction - Drops only hides rise-only archetypes", async () => {
     const user = userEvent.setup();
     render(<ShiftsClient format="ninja-spinner" movements={mockMovements} />);
     await user.click(screen.getByRole("button", { name: "Drops" }));
-    expect(screen.getByText("Night Stretcher")).toBeInTheDocument();
-    expect(screen.getByText("Meowth ex")).toBeInTheDocument();
-    expect(screen.queryByText("Briar")).not.toBeInTheDocument();
-    expect(screen.getByText("2 shifts")).toBeInTheDocument();
+    // Dragapult Dusknoir only has an adopted movement, should be hidden
+    expect(screen.queryByText("Dragapult Dusknoir")).not.toBeInTheDocument();
+    expect(screen.getByText("Mega Lucario")).toBeInTheDocument();
+    expect(screen.getByText(/2 shifts across 2 archetypes/)).toBeInTheDocument();
   });
 
   it("filters by direction - Rises only", async () => {
     const user = userEvent.setup();
     render(<ShiftsClient format="ninja-spinner" movements={mockMovements} />);
     await user.click(screen.getByRole("button", { name: "Rises" }));
-    expect(screen.getByText("Briar")).toBeInTheDocument();
-    expect(screen.queryByText("Night Stretcher")).not.toBeInTheDocument();
-    expect(screen.getByText("1 shift")).toBeInTheDocument();
+    expect(screen.getByText("Dragapult Dusknoir")).toBeInTheDocument();
+    expect(screen.queryByText("Mega Lucario")).not.toBeInTheDocument();
+    expect(screen.getByText(/1 shift across 1 archetype/)).toBeInTheDocument();
   });
 
-  it("renders archetype links", () => {
+  it("expand all shows all card names", async () => {
+    const user = userEvent.setup();
     render(<ShiftsClient format="ninja-spinner" movements={mockMovements} />);
-    const link = screen.getByRole("link", { name: "Mega Lucario" });
-    expect(link).toHaveAttribute("href", "/ninja-spinner/archetypes/mega-lucario");
+    await user.click(screen.getByText("Expand all"));
+    expect(screen.getByText("Night Stretcher")).toBeInTheDocument();
+    expect(screen.getByText("Briar")).toBeInTheDocument();
+    expect(screen.getByText("Meowth ex")).toBeInTheDocument();
   });
 
   it("renders empty state when no movements", () => {
@@ -90,8 +103,19 @@ describe("ShiftsClient", () => {
     expect(screen.getByText("No significant copy-count shifts detected yet.")).toBeInTheDocument();
   });
 
-  it("renders deck count for movements with data", () => {
+  it("renders deck count in archetype header", () => {
     render(<ShiftsClient format="ninja-spinner" movements={mockMovements} />);
-    expect(screen.getByText("(42 decks)")).toBeInTheDocument();
+    expect(screen.getByText("42 decks")).toBeInTheDocument();
+  });
+
+  it("groups are sorted by max delta magnitude", () => {
+    render(<ShiftsClient format="ninja-spinner" movements={mockMovements} />);
+    const body = document.body.textContent || "";
+    const megaIdx = body.indexOf("Mega Lucario");
+    const dragIdx = body.indexOf("Dragapult Meowth");
+    // Mega Lucario (delta 96) should come before Dragapult Meowth (delta 32)
+    expect(megaIdx).toBeGreaterThan(-1);
+    expect(dragIdx).toBeGreaterThan(-1);
+    expect(megaIdx).toBeLessThan(dragIdx);
   });
 });
