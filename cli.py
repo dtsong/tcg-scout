@@ -132,9 +132,13 @@ def scrape(
                 continue
 
             # Store tournament (Limitless only tracks open division)
+            # Parse prefecture from tournament name (e.g. "City League Osaka" -> "Osaka")
+            prefecture = None
+            if "City League " in tournament.name:
+                prefecture = tournament.name.split("City League ", 1)[1].strip() or None
             conn.execute(
-                "INSERT OR REPLACE INTO tournaments (id, name, date, player_count, country, division) "
-                "VALUES (?, ?, ?, ?, ?, ?)",
+                "INSERT OR REPLACE INTO tournaments (id, name, date, player_count, country, division, prefecture) "
+                "VALUES (?, ?, ?, ?, ?, ?, ?)",
                 (
                     tournament.source_url,
                     tournament.name,
@@ -142,6 +146,7 @@ def scrape(
                     tournament.player_count,
                     "JP",
                     "open",
+                    prefecture,
                 ),
             )
 
@@ -817,6 +822,9 @@ def scrape_jp(
                 division=event.division,
                 date=event.date,
                 placements=placements,
+                prefecture=event.prefecture,
+                store_name=event.store_name,
+                capacity=event.capacity,
             )
             events_data.append(jp_event)
 

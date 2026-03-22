@@ -542,3 +542,61 @@ export interface CardDecklistData {
   card_name: string;
   top4_results: CardDecklistResult[];
 }
+
+// --- City League Tournament Index ---
+
+export interface TournamentFinisher {
+  standing: number;
+  player_name: string;
+  archetype: string;
+  slug: string;
+  sprite_filenames?: string[];
+  tier?: Tier;
+}
+
+export interface ArchetypeDistEntry {
+  archetype: string;
+  slug: string;
+  count: number;
+  share: number;
+  sprite_filenames?: string[];
+}
+
+export interface CityLeagueTournament {
+  id: string;
+  name: string;
+  date: string;
+  prefecture?: string | null;
+  player_count?: number | null;
+  source_url?: string | null;
+  top_finishers: TournamentFinisher[];
+  archetype_distribution: ArchetypeDistEntry[];
+}
+
+export interface RisingArchetype {
+  archetype: string;
+  slug: string;
+  trend: string;
+  trend_delta: number;
+  sprite_filenames?: string[];
+  tier?: Tier;
+}
+
+export interface RecentWinner {
+  archetype: string;
+  slug: string;
+  sprite_filenames?: string[];
+  date: string;
+  tournament_name: string;
+  player_name?: string;
+}
+
+export interface CityLeagueIndex {
+  generated_at: string;
+  tournament_count: number;
+  deck_count: number;
+  date_range: { start: string; end: string };
+  rising_archetypes: RisingArchetype[];
+  recent_winners: RecentWinner[];
+  tournaments: CityLeagueTournament[];
+}

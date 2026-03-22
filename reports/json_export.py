@@ -1508,6 +1508,10 @@ def export_windowed(
         flex = _filter_by_usage(card_usage, 20, 40)
         _write_json(flex, output_dir / f"flex-{suffix}.json")
 
+        # City League Index
+        cl_index = _compute_city_league_index(conn, date_from, date_to)
+        _write_json(cl_index, output_dir / f"city-league-index-{suffix}.json")
+
 
 def export_meta(
     conn: sqlite3.Connection, output_dir: Path, format_slug: str | None = None
@@ -3201,6 +3205,203 @@ def export_optimal_60(conn: sqlite3.Connection, output_dir: Path, *, format_slug
     logger.info("Exported %d optimal 60 reports", count)
 
 
+def _build_tier_lookup(conn: sqlite3.Connection) -> dict[str, str]:
+    """Build archetype -> tier mapping from the latest meta snapshot."""
+    rows = conn.execute(
+        "SELECT archetype, tier FROM archetype_stats "
+        "WHERE snapshot_id = (SELECT MAX(id) FROM meta_snapshots)"
+    ).fetchall()
+    return {row["archetype"]: row["tier"] for row in rows}
+
+
+def _compute_city_league_index(
+    conn: sqlite3.Connection,
+    date_from: str | None = None,
+    date_to: str | None = None,
+) -> dict:
+    """Compute city league tournament index data.
+
+    If date_from/date_to are provided, filters tournaments to that window.
+    """
+    tier_lookup = _build_tier_lookup(conn)
+
+    # Fetch open-division tournaments
+    date_filter = ""
+    params: list[str] = []
+    if date_from and date_to:
+        date_filter = "AND t.date >= ? AND t.date <= ?"
+        params = [date_from, date_to]
+
+    tournaments = conn.execute(
+        f"""
+        SELECT t.id, t.name, t.date, t.prefecture, t.player_count,
+               COUNT(p.id) as deck_count
+        FROM tournaments t
+        LEFT JOIN placements p ON p.tournament_id = t.id
+        WHERE t.division = 'open' {date_filter}
+        GROUP BY t.id
+        ORDER BY t.date DESC
+        """,
+        params,
+    ).fetchall()
+
+    if not tournaments:
+        return {
+            "generated_at": date.today().isoformat() + "T00:00:00Z",
+            "tournament_count": 0,
+            "deck_count": 0,
+            "date_range": {"start": "", "end": ""},
+            "rising_archetypes": [],
+            "recent_winners": [],
+            "tournaments": [],
+        }
+
+    t_ids = [t["id"] for t in tournaments]
+    total_decks = sum(t["deck_count"] for t in tournaments)
+    date_range = {
+        "start": min(t["date"] for t in tournaments),
+        "end": max(t["date"] for t in tournaments),
+    }
+
+    # Batch fetch top 4 finishers for all tournaments
+    placeholders = ",".join("?" * len(t_ids))
+    top_finishers_rows = conn.execute(
+        f"""
+        SELECT p.tournament_id, p.standing, p.player_name, p.archetype
+        FROM placements p
+        WHERE p.tournament_id IN ({placeholders}) AND p.standing <= 4
+        ORDER BY p.tournament_id, p.standing
+        """,
+        t_ids,
+    ).fetchall()
+
+    finishers_by_tid: dict[str, list[dict]] = defaultdict(list)
+    for row in top_finishers_rows:
+        archetype = row["archetype"] or "Unknown"
+        finishers_by_tid[row["tournament_id"]].append(
+            {
+                "standing": row["standing"],
+                "player_name": row["player_name"] or "",
+                "archetype": archetype,
+                "slug": _slugify(archetype),
+                "sprite_filenames": _get_sprite_filenames(archetype),
+                "tier": tier_lookup.get(archetype),
+            }
+        )
+
+    # Batch fetch archetype distribution
+    dist_rows = conn.execute(
+        f"""
+        SELECT p.tournament_id, p.archetype, COUNT(*) as count
+        FROM placements p
+        WHERE p.tournament_id IN ({placeholders})
+        GROUP BY p.tournament_id, p.archetype
+        ORDER BY p.tournament_id, count DESC
+        """,
+        t_ids,
+    ).fetchall()
+
+    dist_by_tid: dict[str, list[dict]] = defaultdict(list)
+    tid_totals: dict[str, int] = defaultdict(int)
+    for row in dist_rows:
+        tid_totals[row["tournament_id"]] += row["count"]
+
+    for row in dist_rows:
+        archetype = row["archetype"] or "Unknown"
+        total = tid_totals[row["tournament_id"]] or 1
+        dist_by_tid[row["tournament_id"]].append(
+            {
+                "archetype": archetype,
+                "slug": _slugify(archetype),
+                "count": row["count"],
+                "share": round(row["count"] / total, 4),
+                "sprite_filenames": _get_sprite_filenames(archetype),
+            }
+        )
+
+    # Build tournament list
+    tournament_list = []
+    for t in tournaments:
+        tournament_list.append(
+            {
+                "id": t["id"],
+                "name": t["name"],
+                "date": t["date"],
+                "prefecture": t["prefecture"],
+                "player_count": t["player_count"] or t["deck_count"],
+                "source_url": t["id"] if t["id"].startswith("http") else None,
+                "top_finishers": finishers_by_tid.get(t["id"], []),
+                "archetype_distribution": dist_by_tid.get(t["id"], []),
+            }
+        )
+
+    # Rising archetypes from trend computation
+    trends = _compute_archetype_trends(conn)
+    rising = []
+    for arch, info in sorted(
+        trends.items(), key=lambda x: x[1].get("trend_delta", 0), reverse=True
+    ):
+        if info.get("trend") in ("up", "new"):
+            rising.append(
+                {
+                    "archetype": arch,
+                    "slug": _slugify(arch),
+                    "trend": info["trend"],
+                    "trend_delta": info.get("trend_delta", 0),
+                    "sprite_filenames": _get_sprite_filenames(arch),
+                    "tier": tier_lookup.get(arch),
+                }
+            )
+        if len(rising) >= 5:
+            break
+
+    # Recent winners (5 most recent 1st-place finishers)
+    recent_winners_rows = conn.execute(
+        """
+        SELECT t.name, t.date, p.archetype, p.player_name
+        FROM placements p
+        JOIN tournaments t ON t.id = p.tournament_id
+        WHERE t.division = 'open' AND p.standing = 1
+        ORDER BY t.date DESC
+        LIMIT 5
+        """
+    ).fetchall()
+    recent_winners = []
+    for row in recent_winners_rows:
+        archetype = row["archetype"] or "Unknown"
+        recent_winners.append(
+            {
+                "archetype": archetype,
+                "slug": _slugify(archetype),
+                "sprite_filenames": _get_sprite_filenames(archetype),
+                "date": row["date"],
+                "tournament_name": row["name"],
+                "player_name": row["player_name"] or "",
+            }
+        )
+
+    return {
+        "generated_at": date.today().isoformat() + "T00:00:00Z",
+        "tournament_count": len(tournaments),
+        "deck_count": total_decks,
+        "date_range": date_range,
+        "rising_archetypes": rising,
+        "recent_winners": recent_winners,
+        "tournaments": tournament_list,
+    }
+
+
+def export_city_league_index(conn: sqlite3.Connection, output_dir: Path) -> None:
+    """Export city-league-index.json with tournament listing and meta metrics."""
+    data = _compute_city_league_index(conn)
+    _write_json(data, output_dir / "city-league-index.json")
+    logger.info(
+        "Exported city league index: %d tournaments, %d decks",
+        data["tournament_count"],
+        data["deck_count"],
+    )
+
+
 def export_all(
     conn: sqlite3.Connection,
     output_dir: Path | None = None,
@@ -3241,6 +3442,13 @@ def export_all(
     export_champions_league(conn, out)
     export_images(conn, out)
     export_timeline(conn, out)
+    try:
+        export_city_league_index(conn, out)
+    except (sqlite3.OperationalError, ValueError) as exc:
+        if strict:
+            raise
+        logger.warning("Skipping city league index export: %s", exc)
+        skipped.append("city league index")
     for export_fn, name in [
         (export_cards, "cards"),
         (export_archetype_overlap, "archetype overlap"),
