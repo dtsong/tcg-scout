@@ -524,3 +524,20 @@ export interface ArchetypeReport {
     tech_evolution_analysis?: string;
   };
 }
+
+// --- Card Decklist Drill-down types ---
+
+export interface CardDecklistResult {
+  archetype: string;
+  archetype_slug: string;
+  tournament_name: string;
+  date: string;
+  standing: number;
+  copies: number;
+  decklist_url: string | null;
+}
+
+export interface CardDecklistData {
+  card_name: string;
+  top4_results: CardDecklistResult[];
+}
