@@ -1928,6 +1928,9 @@ def export_archetypes(conn: sqlite3.Connection, output_dir: Path) -> None:
     arch_dir = output_dir / "archetypes"
     arch_dir.mkdir(parents=True, exist_ok=True)
 
+    # Build JP->EN lookup once for evolution tracking across all archetypes
+    jp_en_lookup = _build_jp_en_lookup(conn)
+
     # Compute max_deck_count across all archetypes for popularity normalization
     max_deck_count = max((a["deck_count"] for a in snapshot["archetypes"]), default=1)
 
@@ -2081,7 +2084,7 @@ def export_archetypes(conn: sqlite3.Connection, output_dir: Path) -> None:
         }
 
         # Evolution events
-        evolution = compute_archetype_evolution(conn, archetype_name)
+        evolution = compute_archetype_evolution(conn, archetype_name, jp_en_lookup=jp_en_lookup)
 
         # Variant detection: group decklists by distinguishing Pokemon
         variants = _detect_variants(conn, archetype_name, placement_ids, all_cards)
