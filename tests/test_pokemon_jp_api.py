@@ -147,17 +147,6 @@ class TestStoreCLResults:
 
     def test_classifies_archetype_from_decklist(self, db):
         """store_cl_city_league_results classifies archetype when decklist has known cards."""
-        # Seed card_mappings for JP->EN translation
-        db.executemany(
-            "INSERT INTO card_mappings (jp_card_id, en_card_id, card_name_jp, card_name_en, jp_set_id, en_set_id) "
-            "VALUES (?, ?, ?, ?, ?, ?)",
-            [
-                ("SV5-001", "sv5-001", "リザードンex", "Charizard ex", "SV5", "sv5"),
-                ("SV5-010", "sv5-010", "ヒトカゲ", "Charmander", "SV5", "sv5"),
-            ],
-        )
-        db.commit()
-
         event = JPEventResult(
             event_id=77777,
             event_name="City League Test",
@@ -205,16 +194,7 @@ class TestStoreCLResults:
 @pytest.mark.skipif(not _POKEMON_JP_AVAILABLE, reason="scraper.pokemon_jp requires 'kernel' module")
 class TestClassifyJPDecklist:
     def test_translates_and_classifies(self, db):
-        """classify_jp_decklist translates JP names and returns archetype."""
-        db.executemany(
-            "INSERT INTO card_mappings (jp_card_id, en_card_id, card_name_jp, card_name_en, jp_set_id, en_set_id) "
-            "VALUES (?, ?, ?, ?, ?, ?)",
-            [
-                ("SV5-001", "sv5-001", "リザードンex", "Charizard ex", "SV5", "sv5"),
-            ],
-        )
-        db.commit()
-
+        """classify_jp_decklist translates JP names via JP_CARD_NAME_MAP and returns archetype."""
         cards = [
             JPDeckCard(
                 name_jp="リザードンex",
@@ -253,6 +233,46 @@ class TestClassifyJPDecklist:
         result = classify_jp_decklist(db, cards)
         # No Pokemon cards, so should be Unknown, but energies should translate
         assert result == "Unknown"
+
+    def test_mega_starmie_greninja(self, db):
+        """Deck with Mega Starmie ex + Greninja ex classifies as Mega Starmie Greninja."""
+        cards = [
+            JPDeckCard(name_jp="メガスターミーex", count=1, category="Pokemon"),
+            JPDeckCard(name_jp="ゲッコウガex", count=3, category="Pokemon"),
+            JPDeckCard(name_jp="ヨノワール", count=2, category="Pokemon"),
+            JPDeckCard(name_jp="基本水エネルギー", count=6, category="Energy"),
+        ]
+        result = classify_jp_decklist(db, cards)
+        assert result == "Mega Starmie Greninja"
+
+    def test_dragapult_dusknoir(self, db):
+        """Deck with Dragapult ex + Dusknoir classifies as Dragapult Dusknoir."""
+        cards = [
+            JPDeckCard(name_jp="ドラパルトex", count=3, category="Pokemon"),
+            JPDeckCard(name_jp="ヨノワール", count=2, category="Pokemon"),
+            JPDeckCard(name_jp="基本超エネルギー", count=8, category="Energy"),
+        ]
+        result = classify_jp_decklist(db, cards)
+        assert result == "Dragapult Dusknoir"
+
+    def test_mega_kangaskhan(self, db):
+        """Deck with Mega Kangaskhan ex classifies correctly."""
+        cards = [
+            JPDeckCard(name_jp="メガガルーラex", count=2, category="Pokemon"),
+            JPDeckCard(name_jp="基本無色エネルギー", count=4, category="Energy"),
+        ]
+        result = classify_jp_decklist(db, cards)
+        assert result == "Mega Kangaskhan ex"
+
+    def test_mega_lucario_with_hariyama(self, db):
+        """Deck with Mega Lucario ex + Hariyama classifies as Mega Lucario."""
+        cards = [
+            JPDeckCard(name_jp="メガルカリオex", count=2, category="Pokemon"),
+            JPDeckCard(name_jp="ハリテヤマ", count=2, category="Pokemon"),
+            JPDeckCard(name_jp="基本闘エネルギー", count=6, category="Energy"),
+        ]
+        result = classify_jp_decklist(db, cards)
+        assert result == "Mega Lucario"
 
 
 class TestEventTypeConfig:

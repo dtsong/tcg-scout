@@ -435,39 +435,29 @@ def translate(ctx: click.Context) -> None:
 @click.option("--dry-run", is_flag=True, help="Show what would change without updating")
 @click.pass_context
 def reclassify(ctx: click.Context, dry_run: bool) -> None:
-    """Re-classify Unknown archetypes using card_mappings + anchor cards.
+    """Re-classify Unknown archetypes using JP_CARD_NAME_MAP + anchor cards.
 
     Finds placements with archetype='Unknown' that have decklist cards,
-    translates JP card names via card_mappings, and runs the anchor-card
+    translates JP card names via JP_CARD_NAME_MAP, and runs the anchor-card
     classifier to assign proper archetypes.
     """
     from analysis.archetype_classifier import classify_decklist
-    from config import ARCHETYPE_ANCHOR_CARDS
+    from config import ARCHETYPE_ANCHOR_CARDS, JP_CARD_NAME_MAP
+    from scraper.pokemon_jp import JP_ENERGY_MAP
 
     anchor_names: set[str] = set()
     for key, val in ARCHETYPE_ANCHOR_CARDS.items():
         anchor_names.add(key)
         if isinstance(val, dict):
             anchor_names.update(k for k in val if k != "_default")
-    from scraper.pokemon_jp import JP_ENERGY_MAP
+
+    jp_to_en: dict[str, str] = dict(JP_CARD_NAME_MAP)
+    jp_to_en.update(JP_ENERGY_MAP)
 
     conn = get_format_connection(ctx.obj["format"])
     init_db(conn)
 
     try:
-        # Build JP->EN lookup
-        rows = conn.execute(
-            "SELECT card_name_jp, card_name_en FROM card_mappings WHERE card_name_en IS NOT NULL"
-        ).fetchall()
-        jp_to_en: dict[str, str] = {
-            r["card_name_jp"]: r["card_name_en"] for r in rows if r["card_name_jp"]
-        }
-        jp_to_en.update(JP_ENERGY_MAP)
-
-        if not jp_to_en:
-            console.print("[red]card_mappings table is empty. Run 'scout mappings' first.[/red]")
-            raise SystemExit(1)
-
         console.print(f"Loaded {len(jp_to_en)} JP-to-EN mappings")
 
         # Find Unknown placements with decklists
@@ -499,11 +489,6 @@ def reclassify(ctx: click.Context, dry_run: bool) -> None:
                 for card in cards:
                     name = card["card_name"]
                     en_name = jp_to_en.get(name)
-                    if not en_name:
-                        for jp_name, en in jp_to_en.items():
-                            if jp_name and name and jp_name in name:
-                                en_name = en
-                                break
                     # Infer category: Energy > known anchor Pokemon > 'ex' Pokemon > Trainer
                     card_label = en_name or name
                     if name in JP_ENERGY_MAP or (en_name and "Energy" in en_name):
