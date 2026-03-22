@@ -4,15 +4,18 @@ Fetches Champions League results and decklists from the official JP site,
 which requires JavaScript rendering (Vue.js SPA).
 """
 
+from __future__ import annotations
+
 import asyncio
 import logging
 import os
 import sqlite3
 from collections.abc import Callable
 from dataclasses import dataclass, field
+from typing import TYPE_CHECKING
 
-from kernel import Kernel
-from playwright.async_api import Page, async_playwright
+if TYPE_CHECKING:
+    from playwright.async_api import Page
 
 from analysis.archetype_classifier import classify_decklist
 
@@ -86,6 +89,8 @@ class PokemonJPClient:
     """
 
     def __init__(self, api_key: str | None = None, pool_size: int = 5):
+        from kernel import Kernel
+
         self._api_key = api_key or os.environ.get("KERNEL_API_KEY", "")
         if not self._api_key:
             raise ValueError("KERNEL_API_KEY not set")
@@ -98,7 +103,7 @@ class PokemonJPClient:
     class _BrowserPool:
         """Context manager for the browser pool lifecycle."""
 
-        def __init__(self, client: "PokemonJPClient"):
+        def __init__(self, client: PokemonJPClient):
             self._client = client
 
         async def __aenter__(self):
@@ -113,6 +118,8 @@ class PokemonJPClient:
         return self._BrowserPool(self)
 
     async def _start_pool(self) -> None:
+        from playwright.async_api import async_playwright
+
         self._pw = await async_playwright().start()
         self._pool_queue = asyncio.Queue()
         for _ in range(self._pool_size):
@@ -141,7 +148,7 @@ class PokemonJPClient:
         self._pool_queue = None
         logger.info("Browser pool stopped")
 
-    async def _extract_decklist_from_page(self, page: Page, deck_url: str) -> list["JPDeckCard"]:
+    async def _extract_decklist_from_page(self, page: Page, deck_url: str) -> list[JPDeckCard]:
         """Navigate to a deck URL and extract card data using an existing page."""
         await page.goto(deck_url, wait_until="networkidle", timeout=30000)
         await asyncio.sleep(1.5)
@@ -217,7 +224,7 @@ class PokemonJPClient:
     @staticmethod
     def _merge_card_data(
         img_cards: list[dict], text_data: list[dict], deck_url: str
-    ) -> list["JPDeckCard"]:
+    ) -> list[JPDeckCard]:
         result: list[JPDeckCard] = []
 
         if text_data and img_cards and len(text_data) == len(img_cards):
@@ -261,7 +268,7 @@ class PokemonJPClient:
         logger.info("Parsed %d cards from deck %s", len(result), deck_url)
         return result
 
-    async def fetch_decklist_pooled(self, deck_url: str) -> list["JPDeckCard"]:
+    async def fetch_decklist_pooled(self, deck_url: str) -> list[JPDeckCard]:
         """Fetch a single decklist using a browser from the pool."""
         if not self._pool_queue:
             raise RuntimeError("Browser pool not started. Use browser_pool() context manager.")
@@ -275,8 +282,8 @@ class PokemonJPClient:
     async def fetch_decklists_batch(
         self,
         deck_entries: list[tuple[str, str]],
-        on_complete: "Callable[[str, int], None] | None" = None,
-    ) -> dict[str, list["JPDeckCard"]]:
+        on_complete: Callable[[str, int], None] | None = None,
+    ) -> dict[str, list[JPDeckCard]]:
         """Fetch multiple decklists concurrently using the browser pool.
 
         Args:
@@ -306,6 +313,8 @@ class PokemonJPClient:
 
     async def fetch_event_results(self, event_id: int) -> JPEventResult:
         """Fetch placements and deck URLs from an event results page."""
+        from playwright.async_api import async_playwright
+
         kb = self._kernel.browsers.create()
 
         try:
@@ -432,6 +441,8 @@ class PokemonJPClient:
         set codes, card numbers, and counts. Also extracts JP set codes
         from card image URLs.
         """
+        from playwright.async_api import async_playwright
+
         kb = self._kernel.browsers.create()
 
         try:

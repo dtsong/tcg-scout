@@ -7,39 +7,13 @@ repos:
         args: [--fix]
       - id: ruff-format
 
-  # Python: tests
+  # Frontend: typecheck only (fast, <5s)
+  # Full tests (pytest, vitest, next build) run in CI
   - repo: local
     hooks:
-      - id: pytest
-        name: pytest
-        entry: python3 -m pytest tests/ -x -q
-        language: system
-        pass_filenames: false
-        always_run: true
-        stages: [pre-commit]
-
-  # Frontend: lint + typecheck + tests
-  - repo: local
-    hooks:
-      - id: next-build
-        name: next build
-        entry: bash -c 'cd web && source ~/.nvm/nvm.sh && nvm use default --silent && npx next build'
-        language: system
-        pass_filenames: false
-        files: ^web/
-        stages: [pre-commit]
-
       - id: tsc
         name: typecheck
         entry: bash -c 'cd web && source ~/.nvm/nvm.sh && nvm use default --silent && npx tsc --noEmit'
-        language: system
-        pass_filenames: false
-        files: ^web/
-        stages: [pre-commit]
-
-      - id: vitest
-        name: vitest
-        entry: bash -c 'cd web && source ~/.nvm/nvm.sh && nvm use default --silent && npx vitest run'
         language: system
         pass_filenames: false
         files: ^web/
