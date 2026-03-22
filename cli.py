@@ -1,6 +1,7 @@
 """CLI entry point for Rotation Scout."""
 
 import logging
+import sqlite3
 
 import click
 from rich.console import Console
@@ -206,7 +207,7 @@ def meta(ctx: click.Context) -> None:
             return
 
         console.print(
-            f"\n[green]Meta snapshot #{snapshot_id} created[/green] — "
+            f"\n[green]Meta snapshot #{snapshot_id} created[/green] - "
             f"{snapshot['tournament_count']} tournaments, "
             f"{snapshot['deck_count']} decks"
         )
@@ -355,7 +356,7 @@ def champions(
             # Fetch event results
             event = asyncio.run(client.fetch_event_results(event_id))
             console.print(
-                f"  [bold]{event.event_name}[/bold] ({event.division}) — "
+                f"  [bold]{event.event_name}[/bold] ({event.division}) - "
                 f"{len(event.placements)} placements"
             )
 
@@ -375,7 +376,13 @@ def champions(
                         if cards and placement.deck_code:
                             decklists[placement.deck_code] = cards
                             console.print(f"      {len(cards)} cards")
-                    except Exception as e:
+                    except (OSError, ValueError, RuntimeError) as e:
+                        logger.error(
+                            "Failed to fetch decklist for %s: %s",
+                            placement.player_name,
+                            e,
+                            exc_info=True,
+                        )
                         console.print(f"      [red]Error: {e}[/red]")
 
             # Store in database
@@ -424,6 +431,134 @@ def translate(ctx: click.Context) -> None:
         conn.close()
 
 
+@cli.command()
+@click.option("--dry-run", is_flag=True, help="Show what would change without updating")
+@click.pass_context
+def reclassify(ctx: click.Context, dry_run: bool) -> None:
+    """Re-classify Unknown archetypes using card_mappings + anchor cards.
+
+    Finds placements with archetype='Unknown' that have decklist cards,
+    translates JP card names via card_mappings, and runs the anchor-card
+    classifier to assign proper archetypes.
+    """
+    from analysis.archetype_classifier import classify_decklist
+    from config import ARCHETYPE_ANCHOR_CARDS
+
+    anchor_names: set[str] = set()
+    for key, val in ARCHETYPE_ANCHOR_CARDS.items():
+        anchor_names.add(key)
+        if isinstance(val, dict):
+            anchor_names.update(k for k in val if k != "_default")
+    from scraper.pokemon_jp import JP_ENERGY_MAP
+
+    conn = get_format_connection(ctx.obj["format"])
+    init_db(conn)
+
+    try:
+        # Build JP->EN lookup
+        rows = conn.execute(
+            "SELECT card_name_jp, card_name_en FROM card_mappings WHERE card_name_en IS NOT NULL"
+        ).fetchall()
+        jp_to_en: dict[str, str] = {
+            r["card_name_jp"]: r["card_name_en"] for r in rows if r["card_name_jp"]
+        }
+        jp_to_en.update(JP_ENERGY_MAP)
+
+        if not jp_to_en:
+            console.print("[red]card_mappings table is empty. Run 'scout mappings' first.[/red]")
+            raise SystemExit(1)
+
+        console.print(f"Loaded {len(jp_to_en)} JP-to-EN mappings")
+
+        # Find Unknown placements with decklists
+        unknowns = conn.execute(
+            """
+            SELECT p.id, p.tournament_id, p.player_name
+            FROM placements p
+            WHERE p.archetype = 'Unknown'
+            AND EXISTS (SELECT 1 FROM decklist_cards dc WHERE dc.placement_id = p.id)
+            """
+        ).fetchall()
+
+        console.print(f"Found {len(unknowns)} Unknown placements with decklists")
+
+        reclassified = 0
+        still_unknown = 0
+        failed = 0
+        changes: dict[str, int] = {}
+
+        for placement in unknowns:
+            try:
+                cards = conn.execute(
+                    "SELECT card_name, count FROM decklist_cards WHERE placement_id = ?",
+                    (placement["id"],),
+                ).fetchall()
+
+                # Translate JP -> EN
+                translated: list[dict] = []
+                for card in cards:
+                    name = card["card_name"]
+                    en_name = jp_to_en.get(name)
+                    if not en_name:
+                        for jp_name, en in jp_to_en.items():
+                            if jp_name and name and jp_name in name:
+                                en_name = en
+                                break
+                    # Infer category: Energy > known anchor Pokemon > 'ex' Pokemon > Trainer
+                    card_label = en_name or name
+                    if name in JP_ENERGY_MAP or (en_name and "Energy" in en_name):
+                        category = "Energy"
+                    elif card_label in anchor_names:
+                        category = "Pokemon"
+                    elif en_name and "ex" in en_name:
+                        category = "Pokemon"
+                    else:
+                        category = "Trainer"
+                    translated.append(
+                        {"card_name": en_name or name, "count": card["count"], "category": category}
+                    )
+
+                archetype = classify_decklist(translated)
+
+                if archetype != "Unknown":
+                    reclassified += 1
+                    changes[archetype] = changes.get(archetype, 0) + 1
+                    if not dry_run:
+                        conn.execute(
+                            "UPDATE placements SET archetype = ? WHERE id = ?",
+                            (archetype, placement["id"]),
+                        )
+                else:
+                    still_unknown += 1
+            except (sqlite3.OperationalError, KeyError, ValueError, TypeError) as exc:
+                logger.error(
+                    "Failed to reclassify placement %s: %s", placement["id"], exc, exc_info=True
+                )
+                failed += 1
+
+        if not dry_run:
+            conn.commit()
+
+        # Fail fast if most placements failed (likely a systematic bug)
+        if failed > 0 and len(unknowns) > 0 and failed / len(unknowns) > 0.5:
+            console.print(
+                f"\n[red bold]ERROR: {failed}/{len(unknowns)} placements failed to reclassify. "
+                f"This indicates a systematic issue.[/red bold]"
+            )
+            raise SystemExit(1)
+
+        prefix = "[bold yellow]DRY RUN:[/bold yellow] " if dry_run else ""
+        console.print(f"\n{prefix}[green]Reclassified {reclassified} placements[/green]")
+        if still_unknown:
+            console.print(f"  Still Unknown: {still_unknown}")
+        if failed:
+            console.print(f"  [red]{failed} placements failed to reclassify - see logs[/red]")
+        for arch, count in sorted(changes.items(), key=lambda x: -x[1]):
+            console.print(f"  {arch}: {count}")
+    finally:
+        conn.close()
+
+
 @cli.command("import-cl")
 @click.option("--dir", "data_dir", default="data/fukuoka-cl", help="Directory with CL CSV files")
 @click.pass_context
@@ -452,7 +587,7 @@ def import_cl(ctx: click.Context, data_dir: str) -> None:
             decklists_file = data_path / f"{division}-decklists.csv"
 
             if not meta_file.exists():
-                console.print(f"[yellow]Skipping {division} — no meta file[/yellow]")
+                console.print(f"[yellow]Skipping {division} - no meta file[/yellow]")
                 continue
 
             with open(meta_file) as f:
@@ -776,7 +911,7 @@ def scrape_tournament(
         for i, placement in enumerate(placements, 1):
             console.print(
                 f"  [{i}/{len(placements)}] #{placement.placement} "
-                f"{placement.player_name or 'Unknown'} — {placement.archetype}"
+                f"{placement.player_name or 'Unknown'} - {placement.archetype}"
             )
 
             cursor = conn.execute(
@@ -911,16 +1046,25 @@ def backfill_archetypes(
     is_flag=True,
     help="Also generate LLM narrative report (requires ANTHROPIC_API_KEY)",
 )
+@click.option(
+    "--strict",
+    is_flag=True,
+    help="Fail on any export error instead of skipping (use in CI)",
+)
 @click.pass_context
-def export_web(ctx: click.Context, narrative: bool) -> None:
+def export_web(ctx: click.Context, narrative: bool, strict: bool) -> None:
     """Export JSON data for the Scout Web dashboard."""
     from reports.json_export import export_all, export_formats, export_narrative
 
     fmt = ctx.obj["format"]
     conn = get_format_connection(fmt)
     try:
-        out = export_all(conn, format_slug=fmt)
+        out, skipped = export_all(conn, format_slug=fmt, strict=strict)
         console.print(f"[green]Web data exported to {out}[/green]")
+        if skipped:
+            console.print(
+                f"[yellow]Skipped {len(skipped)} optional export(s): {', '.join(skipped)}[/yellow]"
+            )
         export_formats()
         console.print("[green]formats.json updated[/green]")
         if narrative:
@@ -931,6 +1075,66 @@ def export_web(ctx: click.Context, narrative: bool) -> None:
                 console.print("[yellow]Narrative report generation skipped.[/yellow]")
     finally:
         conn.close()
+
+
+@cli.command()
+@click.option("--strict", is_flag=True, help="Treat warnings as errors")
+@click.pass_context
+def validate(ctx: click.Context, strict: bool) -> None:
+    """Validate exported data and database integrity."""
+
+    from reports.json_export import DEFAULT_OUTPUT_DIR
+    from validation import validate_database, validate_export
+
+    fmt = ctx.obj["format"]
+    export_dir = DEFAULT_OUTPUT_DIR / fmt
+
+    console.print(f"[cyan]Validating format: {fmt}[/cyan]\n")
+
+    # Tier 1: Export validation
+    console.print("[bold]Export validation[/bold]")
+    export_result = validate_export(export_dir)
+
+    for err in export_result.errors:
+        console.print(f"  [red]X[/red] {err}")
+    for warn in export_result.warnings:
+        console.print(f"  [yellow]![/yellow] {warn}")
+    if export_result.ok and not export_result.warnings:
+        console.print("  [green]OK[/green] All export checks passed")
+
+    # Tier 2: Database validation
+    console.print("\n[bold]Database validation[/bold]")
+    conn = get_format_connection(fmt)
+    try:
+        db_result = validate_database(conn)
+    finally:
+        conn.close()
+
+    for err in db_result.errors:
+        console.print(f"  [red]X[/red] {err}")
+    for warn in db_result.warnings:
+        console.print(f"  [yellow]![/yellow] {warn}")
+    if db_result.ok and not db_result.warnings:
+        console.print("  [green]OK[/green] All database checks passed")
+
+    # Summary
+    total_errors = len(export_result.errors) + len(db_result.errors)
+    total_warnings = len(export_result.warnings) + len(db_result.warnings)
+
+    console.print()
+    if strict and total_warnings > 0:
+        console.print(
+            f"[red bold]FAILED[/red bold]: {total_errors} error(s), "
+            f"{total_warnings} warning(s) promoted to errors under --strict"
+        )
+        raise SystemExit(1)
+    elif total_errors > 0:
+        console.print(
+            f"[red bold]FAILED[/red bold]: {total_errors} error(s), {total_warnings} warning(s)"
+        )
+        raise SystemExit(1)
+    else:
+        console.print(f"[green bold]PASSED[/green bold]: 0 errors, {total_warnings} warning(s)")
 
 
 if __name__ == "__main__":
