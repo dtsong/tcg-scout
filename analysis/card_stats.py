@@ -50,6 +50,56 @@ BASIC_ENERGY_NAMES = {
     "Grass Energy",
 }
 
+# EN→EN card name aliases: local-shop fan translations → City League (Limitless) canonical names.
+# Applied after JP→EN translation to normalise variant English names for the same card.
+EN_CARD_ALIASES: dict[str, str] = {
+    # Supporters
+    "Lillie's Resolve": "Lillie's Determination",
+    "Akamatsu": "Crispin",
+    "Ciano": "Cyrano",
+    "Team Rocket's Lambda": "Team Rocket's Petrel",
+    "Cipher Admin's Decryption": "Ciphermaniac's Codebreaking",
+    "May's Encouragement": "Rosa's Encouragement",
+    "Brock's Scout": "Brock's Scouting",
+    "Lana's Care": "Lana's Aid",
+    "Team Rocket's Lance": "Team Rocket's Proton",
+    "Explorer's Guide": "Explorer's Guidance",
+    "Karate Chop Training": "Black Belt's Training",
+    # Items / Tools
+    "Power Protein": "Premium Power Pro",
+    "N's Power Up": "N's PP Up",
+    "Wonder Patch": "Wondrous Patch",
+    "Team Rocket's Receiver": "Team Rocket's Transceiver",
+    "Xerosic's Scheme": "Xerosic's Machinations",
+    "Power Hourglass": "Powerglass",
+    "Precious Carry": "Precious Trolley",
+    "Super Rod MAX": "Max Rod",
+    "Leftovers": "Binding Mochi",
+    "Perfect Mixer": "Hyper Aroma",
+    # Stadiums
+    "Dangerous Ruins": "Risky Ruins",
+    "Battle Colosseum": "Battle Cage",
+    "Great Tree": "Grand Tree",
+    "Night Academy": "Academy at Night",
+    "Vitality Forest": "Forest of Vitality",
+    # Energy
+    "Rich Energy": "Enriching Energy",
+    "Grow Grass Energy": "Growth Grass Energy",
+    "Telepathy Psychic Energy": "Telepath Psychic Energy",
+    "Team Rocket Energy": "Team Rocket's Energy",
+    # Energy shorthand (no "Basic" prefix)
+    "Basic Psychic Energy": "Psychic Energy",
+    "Basic Darkness Energy": "Darkness Energy",
+    "Basic Grass Energy": "Grass Energy",
+    "Basic Fire Energy": "Fire Energy",
+    "Basic Fighting Energy": "Fighting Energy",
+    "Basic Water Energy": "Water Energy",
+    "Basic Lightning Energy": "Lightning Energy",
+    "Basic Metal Energy": "Metal Energy",
+    # Pokemon
+    "Ursaluna ex": "Bloodmoon Ursaluna ex",
+}
+
 
 def build_jp_en_lookup(
     conn: sqlite3.Connection,

@@ -435,12 +435,13 @@ def translate(ctx: click.Context) -> None:
 @click.option("--dry-run", is_flag=True, help="Show what would change without updating")
 @click.pass_context
 def translate_cards(ctx: click.Context, dry_run: bool) -> None:
-    """Translate JP card names to English in decklist_cards table.
+    """Translate JP card names to English and normalise EN variants in decklist_cards.
 
-    Uses JP_CARD_NAMES fallback dict + cards table + card_mappings table.
-    Idempotent -- only updates rows where the card_name has a known JP→EN mapping.
+    Pass 1: JP->EN via JP_CARD_NAMES + cards table + card_mappings table.
+    Pass 2: EN->EN via EN_CARD_ALIASES (fan-translation variants to Limitless canonical).
+    Idempotent -- safe to run multiple times.
     """
-    from analysis.card_stats import build_jp_en_lookup
+    from analysis.card_stats import EN_CARD_ALIASES, build_jp_en_lookup
     from reports.json_export import JP_CARD_NAMES
 
     conn = get_format_connection(ctx.obj["format"])
@@ -450,28 +451,63 @@ def translate_cards(ctx: click.Context, dry_run: bool) -> None:
         lookup = build_jp_en_lookup(conn, fallback=JP_CARD_NAMES)
         rows = conn.execute("SELECT DISTINCT card_name FROM decklist_cards").fetchall()
 
-        updates: list[tuple[str, str]] = []
+        # Pass 1: JP → EN
+        jp_updates: list[tuple[str, str]] = []
         for row in rows:
             name = row["card_name"]
             en_name = lookup.get(name)
             if en_name and en_name != name:
-                updates.append((en_name, name))
+                jp_updates.append((en_name, name))
+
+        # Pass 2: EN → EN (variant aliases)
+        en_updates: list[tuple[str, str]] = []
+        for row in rows:
+            name = row["card_name"]
+            # Also check post-JP-translation name
+            resolved = lookup.get(name, name)
+            canonical = EN_CARD_ALIASES.get(resolved)
+            if canonical and canonical != resolved:
+                en_updates.append((canonical, resolved))
+            elif name not in lookup:
+                canonical = EN_CARD_ALIASES.get(name)
+                if canonical and canonical != name:
+                    en_updates.append((canonical, name))
 
         if dry_run:
-            console.print(f"[cyan]Would translate {len(updates)} card names:[/cyan]")
-            for en, jp in sorted(updates, key=lambda x: x[1]):
-                cnt = conn.execute(
-                    "SELECT COUNT(*) FROM decklist_cards WHERE card_name = ?", (jp,)
-                ).fetchone()[0]
-                console.print(f"  {jp} → {en} ({cnt} rows)")
+            if jp_updates:
+                console.print(f"[cyan]Would translate {len(jp_updates)} JP card names:[/cyan]")
+                for en, jp in sorted(jp_updates, key=lambda x: x[1]):
+                    cnt = conn.execute(
+                        "SELECT COUNT(*) FROM decklist_cards WHERE card_name = ?", (jp,)
+                    ).fetchone()[0]
+                    console.print(f"  {jp} → {en} ({cnt} rows)")
+            if en_updates:
+                console.print(
+                    f"[cyan]Would normalise {len(en_updates)} EN card name variants:[/cyan]"
+                )
+                for canonical, variant in sorted(en_updates, key=lambda x: x[1]):
+                    cnt = conn.execute(
+                        "SELECT COUNT(*) FROM decklist_cards WHERE card_name = ?", (variant,)
+                    ).fetchone()[0]
+                    console.print(f"  {variant} → {canonical} ({cnt} rows)")
+            if not jp_updates and not en_updates:
+                console.print("[green]All card names are already normalised[/green]")
         else:
-            for en, jp in updates:
+            for en, jp in jp_updates:
                 conn.execute(
                     "UPDATE decklist_cards SET card_name = ? WHERE card_name = ?",
                     (en, jp),
                 )
+            for canonical, variant in en_updates:
+                conn.execute(
+                    "UPDATE decklist_cards SET card_name = ? WHERE card_name = ?",
+                    (canonical, variant),
+                )
             conn.commit()
-            console.print(f"[green]Translated {len(updates)} card names in decklist_cards[/green]")
+            console.print(
+                f"[green]Translated {len(jp_updates)} JP names, "
+                f"normalised {len(en_updates)} EN variants in decklist_cards[/green]"
+            )
     finally:
         conn.close()
 

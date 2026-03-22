@@ -657,7 +657,6 @@ JP_CARD_NAMES: dict[str, str] = {
     "Pokémon Catcher": "Pokemon Catcher",
 }
 
-
 _CARD_NAME_KEYS = frozenset({"card_name", "card", "card_a", "card_b"})
 
 _JP_RE = re.compile(r"[\u3000-\u9fff\uff00-\uffef]")

@@ -4,7 +4,7 @@ import sqlite3
 from collections import defaultdict
 from datetime import date, timedelta
 
-from analysis.card_stats import BASIC_ENERGY_NAMES, _slugify, build_jp_en_lookup
+from analysis.card_stats import BASIC_ENERGY_NAMES, EN_CARD_ALIASES, _slugify, build_jp_en_lookup
 
 # Minimum decks with decklists required per week to compute shifts.
 # Prevents small-sample noise (e.g., 4 decks in week 1 → 100% rates).
@@ -111,6 +111,7 @@ def compute_archetype_evolution(
             name = cr["card_name"]
             if jp_en_lookup:
                 name = jp_en_lookup.get(name, name)
+            name = EN_CARD_ALIASES.get(name, name)
             if name in BASIC_ENERGY_NAMES:
                 continue
             pct = round(cr["cnt"] / total * 100, 1)
