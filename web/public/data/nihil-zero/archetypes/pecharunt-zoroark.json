@@ -3450,12 +3450,12 @@
           "to_pct": 66.7
         },
         {
-          "card": "Unfair Stamp",
+          "card": "N's Castle",
           "from_pct": 33.3,
           "to_pct": 66.7
         },
         {
-          "card": "N's Castle",
+          "card": "Unfair Stamp",
           "from_pct": 33.3,
           "to_pct": 66.7
         }
@@ -3472,14 +3472,14 @@
       "week": "2026-02-02",
       "adopted": [
         {
-          "card": "Janine's Secret Art",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
           "card": "Fezandipiti ex",
           "from_pct": 33.3,
           "to_pct": 83.3
+        },
+        {
+          "card": "Janine's Secret Art",
+          "from_pct": 0.0,
+          "to_pct": 50.0
         },
         {
           "card": "Yveltal",
@@ -3508,12 +3508,12 @@
       "week": "2026-02-09",
       "adopted": [
         {
-          "card": "N's Purrloin",
+          "card": "Meddling Memo",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
         {
-          "card": "Meddling Memo",
+          "card": "N's Purrloin",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -3533,12 +3533,12 @@
           "to_pct": 50.0
         },
         {
-          "card": "Gravity Mountain",
+          "card": "Psyduck",
           "from_pct": 33.3,
           "to_pct": 50.0
         },
         {
-          "card": "Psyduck",
+          "card": "Gravity Mountain",
           "from_pct": 33.3,
           "to_pct": 50.0
         }
@@ -3577,7 +3577,17 @@
       ],
       "dropped": [
         {
+          "card": "Psyduck",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
           "card": "Prime Catcher",
+          "from_pct": 50.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Meddling Memo",
           "from_pct": 50.0,
           "to_pct": 0.0
         },
@@ -3587,17 +3597,7 @@
           "to_pct": 0.0
         },
         {
-          "card": "Psyduck",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
           "card": "N's Purrloin",
-          "from_pct": 50.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Meddling Memo",
           "from_pct": 50.0,
           "to_pct": 0.0
         }
@@ -3617,17 +3617,12 @@
           "to_pct": 50.0
         },
         {
+          "card": "Tatsugiri",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
           "card": "Meddling Memo",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Tool Scrapper",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Secret Box",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -3637,8 +3632,18 @@
           "to_pct": 50.0
         },
         {
-          "card": "Tatsugiri",
+          "card": "Secret Box",
           "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Tool Scrapper",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Fezandipiti ex",
+          "from_pct": 33.3,
           "to_pct": 50.0
         },
         {
@@ -3655,14 +3660,14 @@
           "card": "Ciphermaniac's Codebreaking",
           "from_pct": 33.3,
           "to_pct": 50.0
-        },
-        {
-          "card": "Fezandipiti ex",
-          "from_pct": 33.3,
-          "to_pct": 50.0
         }
       ],
       "dropped": [
+        {
+          "card": "Eri",
+          "from_pct": 66.7,
+          "to_pct": 0.0
+        },
         {
           "card": "Budew",
           "from_pct": 66.7,
@@ -3670,11 +3675,6 @@
         },
         {
           "card": "Black Belt's Training",
-          "from_pct": 66.7,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Eri",
           "from_pct": 66.7,
           "to_pct": 0.0
         }

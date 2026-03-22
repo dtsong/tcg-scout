@@ -1054,7 +1054,7 @@
       "week": "2026-02-02",
       "adopted": [
         {
-          "card": "Frillish",
+          "card": "Colress's Tenacity",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
@@ -1064,22 +1064,27 @@
           "to_pct": 100.0
         },
         {
+          "card": "Shaymin",
+          "from_pct": 0.0,
+          "to_pct": 100.0
+        },
+        {
           "card": "Switch",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Colress's Tenacity",
-          "from_pct": 0.0,
-          "to_pct": 100.0
-        },
-        {
-          "card": "Shaymin",
+          "card": "Frillish",
           "from_pct": 0.0,
           "to_pct": 100.0
         }
       ],
       "dropped": [
+        {
+          "card": "Judge",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
         {
           "card": "Jamming Tower",
           "from_pct": 100.0,
@@ -1087,11 +1092,6 @@
         },
         {
           "card": "Hilda",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
-        {
-          "card": "Judge",
           "from_pct": 100.0,
           "to_pct": 0.0
         },
@@ -1111,22 +1111,17 @@
           "to_pct": 100.0
         },
         {
-          "card": "Hilda",
+          "card": "Judge",
           "from_pct": 0.0,
           "to_pct": 100.0
         },
         {
-          "card": "Judge",
+          "card": "Hilda",
           "from_pct": 0.0,
           "to_pct": 100.0
         }
       ],
       "dropped": [
-        {
-          "card": "Switch",
-          "from_pct": 100.0,
-          "to_pct": 0.0
-        },
         {
           "card": "Scoop Up Cyclone",
           "from_pct": 100.0,
@@ -1134,6 +1129,11 @@
         },
         {
           "card": "Shaymin",
+          "from_pct": 100.0,
+          "to_pct": 0.0
+        },
+        {
+          "card": "Switch",
           "from_pct": 100.0,
           "to_pct": 0.0
         }
@@ -1148,17 +1148,7 @@
           "to_pct": 100.0
         },
         {
-          "card": "Mega Signal",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Cofagrigus",
-          "from_pct": 0.0,
-          "to_pct": 50.0
-        },
-        {
-          "card": "Team Rocket's Watchtower",
+          "card": "Scoop Up Cyclone",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -1168,7 +1158,7 @@
           "to_pct": 50.0
         },
         {
-          "card": "Scoop Up Cyclone",
+          "card": "Mega Signal",
           "from_pct": 0.0,
           "to_pct": 50.0
         },
@@ -1178,7 +1168,17 @@
           "to_pct": 50.0
         },
         {
+          "card": "Team Rocket's Watchtower",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
           "card": "Lucian",
+          "from_pct": 0.0,
+          "to_pct": 50.0
+        },
+        {
+          "card": "Cofagrigus",
           "from_pct": 0.0,
           "to_pct": 50.0
         }
