@@ -34,6 +34,7 @@ if [ "$SKIP_SCRAPE" = false ]; then
   echo "--- Step 1: Scraping ---"
   python cli.py --format "$FORMAT" scrape-jp $FETCH_DECKLISTS
   python cli.py --format "$FORMAT" backfill-archetypes
+  python cli.py --format "$FORMAT" translate-cards
 fi
 
 # Step 2: Meta + Export + Validate

@@ -431,6 +431,51 @@ def translate(ctx: click.Context) -> None:
         conn.close()
 
 
+@cli.command("translate-cards")
+@click.option("--dry-run", is_flag=True, help="Show what would change without updating")
+@click.pass_context
+def translate_cards(ctx: click.Context, dry_run: bool) -> None:
+    """Translate JP card names to English in decklist_cards table.
+
+    Uses JP_CARD_NAMES fallback dict + cards table + card_mappings table.
+    Idempotent -- only updates rows where the card_name has a known JP→EN mapping.
+    """
+    from analysis.card_stats import build_jp_en_lookup
+    from reports.json_export import JP_CARD_NAMES
+
+    conn = get_format_connection(ctx.obj["format"])
+    init_db(conn)
+
+    try:
+        lookup = build_jp_en_lookup(conn, fallback=JP_CARD_NAMES)
+        rows = conn.execute("SELECT DISTINCT card_name FROM decklist_cards").fetchall()
+
+        updates: list[tuple[str, str]] = []
+        for row in rows:
+            name = row["card_name"]
+            en_name = lookup.get(name)
+            if en_name and en_name != name:
+                updates.append((en_name, name))
+
+        if dry_run:
+            console.print(f"[cyan]Would translate {len(updates)} card names:[/cyan]")
+            for en, jp in sorted(updates, key=lambda x: x[1]):
+                cnt = conn.execute(
+                    "SELECT COUNT(*) FROM decklist_cards WHERE card_name = ?", (jp,)
+                ).fetchone()[0]
+                console.print(f"  {jp} → {en} ({cnt} rows)")
+        else:
+            for en, jp in updates:
+                conn.execute(
+                    "UPDATE decklist_cards SET card_name = ? WHERE card_name = ?",
+                    (en, jp),
+                )
+            conn.commit()
+            console.print(f"[green]Translated {len(updates)} card names in decklist_cards[/green]")
+    finally:
+        conn.close()
+
+
 @cli.command()
 @click.option("--dry-run", is_flag=True, help="Show what would change without updating")
 @click.pass_context

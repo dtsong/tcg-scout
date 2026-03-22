@@ -19,6 +19,7 @@ steps:
         python cli.py --format ninja-spinner init &&
         python cli.py --format ninja-spinner scrape-jp &&
         python cli.py --format ninja-spinner backfill-archetypes &&
+        python cli.py --format ninja-spinner translate-cards &&
         python cli.py --format ninja-spinner meta &&
         python cli.py --format ninja-spinner export-web --strict
     waitFor: ["restore-db-cache"]

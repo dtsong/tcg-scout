@@ -631,6 +631,30 @@ JP_CARD_NAMES: dict[str, str] = {
     "推理セット": "Detective Set",
     "緊急ボード": "Emergency Board",
     "重力玉": "Gravity Ball",
+    # --- Missing translations (low-frequency) ---
+    "Nのバイバニラ": "N's Vanilluxe",
+    "アバゴーラ": "Carracosta",
+    "イイネイヌex": "Okidogi ex",
+    "ウエートレス": "Waitress",
+    "オーダイル": "Feraligatr",
+    "きずぐすり": "Potion",
+    "ぶあついうろこ": "Thick Scales",
+    "スクランブルスイッチ(ACE SPEC)": "Scramble Switch",
+    "デリバード": "Delibird",
+    "フォッコ": "Fennekin",
+    "プロトーガ": "Tirtouga",
+    "マフォクシー": "Delphox",
+    "マリル": "Marill",
+    "マリルリ": "Azumarill",
+    "メガラティアスex": "Mega Latias ex",
+    "ミライドンex": "Miraidon ex",
+    "モルペコ": "Morpeko",
+    "リグレー": "Elgyem",
+    "古びたふたの化石": "Old Dome Fossil",
+    # --- Accent normalization (Limitless uses accented, we normalize to ASCII) ---
+    "Poké Pad": "Poke Pad",
+    "Pokégear 3.0": "Pokegear 3.0",
+    "Pokémon Catcher": "Pokemon Catcher",
 }
 
 
