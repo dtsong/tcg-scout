@@ -1,33 +1,50 @@
-import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
+import { describe, it, expect, beforeEach, afterEach } from "vitest";
+import { execSync } from "child_process";
 import fs from "fs";
 import path from "path";
 import os from "os";
 
-describe("prebuild logic", () => {
+describe("prebuild", () => {
   let tmpDir;
-  const originalEnv = { ...process.env };
 
   beforeEach(() => {
     tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), "prebuild-test-"));
-    process.env = { ...originalEnv };
+    fs.mkdirSync(path.join(tmpDir, "public", "data"), { recursive: true });
+    // Copy the prebuild script to the tmp dir so import.meta.dirname resolves to tmpDir/scripts
+    const scriptsDir = path.join(tmpDir, "scripts");
+    fs.mkdirSync(scriptsDir, { recursive: true });
+    fs.copyFileSync(
+      path.resolve(import.meta.dirname, "..", "prebuild.mjs"),
+      path.join(scriptsDir, "prebuild.mjs"),
+    );
   });
 
   afterEach(() => {
     fs.rmSync(tmpDir, { recursive: true, force: true });
-    process.env = originalEnv;
   });
 
-  it("detects local data when formats.json exists", () => {
-    fs.writeFileSync(path.join(tmpDir, "formats.json"), "[]");
-    expect(fs.existsSync(path.join(tmpDir, "formats.json"))).toBe(true);
+  it("exits 0 when formats.json exists", () => {
+    fs.writeFileSync(path.join(tmpDir, "public", "data", "formats.json"), "[]");
+    const result = execSync(`node ${path.join(tmpDir, "scripts", "prebuild.mjs")}`, {
+      encoding: "utf-8",
+    });
+    expect(result).toContain("Data found");
   });
 
-  it("detects missing local data when formats.json is absent", () => {
-    expect(fs.existsSync(path.join(tmpDir, "formats.json"))).toBe(false);
-  });
-
-  it("requires BLOB_READ_WRITE_TOKEN for remote download", () => {
-    delete process.env.BLOB_READ_WRITE_TOKEN;
-    expect(process.env.BLOB_READ_WRITE_TOKEN).toBeUndefined();
+  it("exits 1 when formats.json is missing", () => {
+    let exitCode;
+    let stderr;
+    try {
+      execSync(`node ${path.join(tmpDir, "scripts", "prebuild.mjs")}`, {
+        encoding: "utf-8",
+        stdio: ["pipe", "pipe", "pipe"],
+      });
+      exitCode = 0;
+    } catch (err) {
+      exitCode = err.status;
+      stderr = err.stderr;
+    }
+    expect(exitCode).toBe(1);
+    expect(stderr).toContain("FATAL");
   });
 });
