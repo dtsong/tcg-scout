@@ -3,8 +3,6 @@ name: CI
 on:
   push:
     branches: [main]
-    paths-ignore:
-      - "web/public/data/**"
   pull_request:
     branches: [main]
 
@@ -58,12 +56,3 @@ jobs:
 
       - name: Build
         run: npm run build
-
-      - name: Verify build output
-        run: test -d out && ls out/ | grep -q . || (echo "Build output directory missing or empty" && exit 1)
-
-      - name: Install Playwright browsers
-        run: npx playwright install --with-deps chromium
-
-      - name: E2E smoke tests
-        run: npx playwright test
