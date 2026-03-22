@@ -423,6 +423,108 @@ def translate(ctx: click.Context) -> None:
         conn.close()
 
 
+@cli.command()
+@click.option("--dry-run", is_flag=True, help="Show what would change without updating")
+@click.pass_context
+def reclassify(ctx: click.Context, dry_run: bool) -> None:
+    """Re-classify Unknown archetypes using card_mappings + anchor cards.
+
+    Finds placements with archetype='Unknown' that have decklist cards,
+    translates JP card names via card_mappings, and runs the anchor-card
+    classifier to assign proper archetypes.
+    """
+    from analysis.archetype_classifier import classify_decklist
+    from scraper.pokemon_jp import JP_ENERGY_MAP
+
+    conn = get_format_connection(ctx.obj["format"])
+    init_db(conn)
+
+    try:
+        # Build JP->EN lookup
+        rows = conn.execute(
+            "SELECT card_name_jp, card_name_en FROM card_mappings WHERE card_name_en IS NOT NULL"
+        ).fetchall()
+        jp_to_en: dict[str, str] = {
+            r["card_name_jp"]: r["card_name_en"] for r in rows if r["card_name_jp"]
+        }
+        jp_to_en.update(JP_ENERGY_MAP)
+
+        if not jp_to_en:
+            console.print("[red]card_mappings table is empty. Run 'scout mappings' first.[/red]")
+            return
+
+        console.print(f"Loaded {len(jp_to_en)} JP-to-EN mappings")
+
+        # Find Unknown placements with decklists
+        unknowns = conn.execute(
+            """
+            SELECT p.id, p.tournament_id, p.player_name
+            FROM placements p
+            WHERE p.archetype = 'Unknown'
+            AND EXISTS (SELECT 1 FROM decklist_cards dc WHERE dc.placement_id = p.id)
+            """
+        ).fetchall()
+
+        console.print(f"Found {len(unknowns)} Unknown placements with decklists")
+
+        reclassified = 0
+        still_unknown = 0
+        changes: dict[str, int] = {}
+
+        for placement in unknowns:
+            cards = conn.execute(
+                "SELECT card_name, count FROM decklist_cards WHERE placement_id = ?",
+                (placement["id"],),
+            ).fetchall()
+
+            # Translate JP -> EN
+            translated: list[dict] = []
+            for card in cards:
+                name = card["card_name"]
+                en_name = jp_to_en.get(name)
+                if not en_name:
+                    for jp_name, en in jp_to_en.items():
+                        if jp_name and name and jp_name in name:
+                            en_name = en
+                            break
+                # Infer category from energy map
+                category = (
+                    "Energy"
+                    if name in JP_ENERGY_MAP or (en_name and "Energy" in en_name)
+                    else "Pokemon"
+                    if (en_name and "ex" in en_name)
+                    else "Trainer"
+                )
+                translated.append(
+                    {"card_name": en_name or name, "count": card["count"], "category": category}
+                )
+
+            archetype = classify_decklist(translated)
+
+            if archetype != "Unknown":
+                reclassified += 1
+                changes[archetype] = changes.get(archetype, 0) + 1
+                if not dry_run:
+                    conn.execute(
+                        "UPDATE placements SET archetype = ? WHERE id = ?",
+                        (archetype, placement["id"]),
+                    )
+            else:
+                still_unknown += 1
+
+        if not dry_run:
+            conn.commit()
+
+        prefix = "[bold yellow]DRY RUN:[/bold yellow] " if dry_run else ""
+        console.print(f"\n{prefix}[green]Reclassified {reclassified} placements[/green]")
+        if still_unknown:
+            console.print(f"  Still Unknown: {still_unknown}")
+        for arch, count in sorted(changes.items(), key=lambda x: -x[1]):
+            console.print(f"  {arch}: {count}")
+    finally:
+        conn.close()
+
+
 @cli.command("import-cl")
 @click.option("--dir", "data_dir", default="data/fukuoka-cl", help="Directory with CL CSV files")
 @click.pass_context

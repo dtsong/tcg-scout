@@ -99,6 +99,37 @@ class TestValidateExport:
         assert result.ok  # Warning, not error
         assert any("exceeds" in w for w in result.warnings)
 
+    def test_unknown_archetype_high_share_errors(self, export_dir):
+        meta = json.loads((export_dir / "meta.json").read_text())
+        meta["archetypes"].append(
+            {
+                "archetype": "Unknown",
+                "slug": "unknown",
+                "meta_share": 10.0,
+                "deck_count": 100,
+                "tier": "A",
+            }
+        )
+        (export_dir / "meta.json").write_text(json.dumps(meta))
+        result = validate_export(export_dir)
+        assert any("Unknown" in e and "card_mappings" in e for e in result.errors)
+
+    def test_unknown_archetype_low_share_warns(self, export_dir):
+        meta = json.loads((export_dir / "meta.json").read_text())
+        meta["archetypes"].append(
+            {
+                "archetype": "Unknown",
+                "slug": "unknown",
+                "meta_share": 1.5,
+                "deck_count": 5,
+                "tier": "Rogue",
+            }
+        )
+        (export_dir / "meta.json").write_text(json.dumps(meta))
+        result = validate_export(export_dir)
+        assert result.ok  # Warning, not error
+        assert any("Unknown" in w for w in result.warnings)
+
 
 class TestValidateDatabase:
     @pytest.fixture()
@@ -120,8 +151,8 @@ class TestValidateDatabase:
         assert result.ok  # Warning, not error
         assert any("No tournaments" in w for w in result.warnings)
 
-    def test_high_unknown_rate_warns(self, conn):
-        # Add many Unknown placements
+    def test_high_unknown_rate_errors(self, conn):
+        # Add many Unknown placements (>5% triggers error)
         for i in range(100, 120):
             conn.execute(
                 "INSERT INTO placements (id, tournament_id, standing, player_name, archetype) "
@@ -130,7 +161,7 @@ class TestValidateDatabase:
             )
         conn.commit()
         result = validate_database(conn)
-        assert any("Unknown archetype rate" in w for w in result.warnings)
+        assert any("Unknown archetype rate" in e for e in result.errors)
 
     def test_duplicate_tournaments_warns(self, conn):
         conn.execute(

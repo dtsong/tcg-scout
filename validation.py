@@ -93,6 +93,7 @@ def validate_export(export_dir: Path) -> ValidationResult:
     meta_path = export_dir / "meta.json"
     if meta_path.exists():
         result.merge(_validate_meta_consistency(export_dir, meta_path))
+        result.merge(_check_unknown_archetype(meta_path))
 
     # JP character leak detection
     result.merge(_check_jp_leaks(export_dir))
@@ -126,6 +127,33 @@ def _validate_meta_consistency(export_dir: Path, meta_path: Path) -> ValidationR
                         f"meta.json references archetype '{slug}' but "
                         f"archetypes/{slug}.json is missing"
                     )
+
+    return result
+
+
+def _check_unknown_archetype(meta_path: Path) -> ValidationResult:
+    """Flag the 'Unknown' archetype if it appears with significant meta share."""
+    result = ValidationResult()
+    try:
+        meta = json.loads(meta_path.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError):
+        return result
+
+    for arch in meta.get("archetypes", []):
+        if arch.get("archetype") == "Unknown":
+            share = arch.get("meta_share", 0)
+            decks = arch.get("deck_count", 0)
+            if share > 5:
+                result.errors.append(
+                    f"'Unknown' archetype has {share:.1f}% meta share ({decks} decks) "
+                    f"— card_mappings likely needs populating. "
+                    f"Run 'scout mappings' then 'scout reclassify'."
+                )
+            elif share > 0:
+                result.warnings.append(
+                    f"'Unknown' archetype has {share:.1f}% meta share ({decks} decks)"
+                )
+            break
 
     return result
 
@@ -179,10 +207,16 @@ def validate_database(conn: sqlite3.Connection) -> ValidationResult:
 
     if total_count > 0:
         unknown_rate = unknown_count / total_count * 100
-        if unknown_rate > 15:
+        if unknown_rate > 5:
+            result.errors.append(
+                f"Unknown archetype rate is {unknown_rate:.1f}% "
+                f"({unknown_count}/{total_count} placements) — exceeds 5% threshold. "
+                f"Run 'scout reclassify' after populating card_mappings."
+            )
+        elif unknown_rate > 2:
             result.warnings.append(
                 f"Unknown archetype rate is {unknown_rate:.1f}% "
-                f"({unknown_count}/{total_count} placements) — exceeds 15% threshold"
+                f"({unknown_count}/{total_count} placements) — consider running 'scout reclassify'"
             )
 
     # Duplicate tournaments (same name and date)

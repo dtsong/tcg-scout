@@ -356,3 +356,50 @@ def db_integration() -> sqlite3.Connection:
     conn.commit()
     yield conn
     conn.close()
+
+
+@pytest.fixture()
+def db_empty() -> sqlite3.Connection:
+    """Empty in-memory SQLite database with schema only. No seed data."""
+    conn = sqlite3.connect(":memory:")
+    conn.row_factory = sqlite3.Row
+    conn.execute("PRAGMA foreign_keys=ON")
+    conn.executescript(SCHEMA)
+    conn.commit()
+    yield conn
+    conn.close()
+
+
+@pytest.fixture()
+def db_single_tournament() -> sqlite3.Connection:
+    """Single tournament with 2 placements -- minimum viable export data."""
+    conn = sqlite3.connect(":memory:")
+    conn.row_factory = sqlite3.Row
+    conn.execute("PRAGMA foreign_keys=ON")
+    conn.executescript(SCHEMA)
+
+    conn.execute(
+        "INSERT INTO tournaments (id, name, date, player_count, division) VALUES (?, ?, ?, ?, ?)",
+        ("t1", "Solo Tournament", "2026-03-01", 32, "open"),
+    )
+    conn.executemany(
+        "INSERT INTO placements (id, tournament_id, standing, player_name, archetype) "
+        "VALUES (?, ?, ?, ?, ?)",
+        [
+            (1, "t1", 1, "Alice", "Charizard ex"),
+            (2, "t1", 2, "Bob", "Dragapult ex"),
+        ],
+    )
+    conn.executemany(
+        "INSERT INTO decklist_cards (placement_id, card_id, card_name, count) VALUES (?, ?, ?, ?)",
+        [
+            (1, "card-nest", "Nest Ball", 4),
+            (1, "card-ultra", "Ultra Ball", 4),
+            (2, "card-nest", "Nest Ball", 4),
+            (2, "card-ultra", "Ultra Ball", 4),
+        ],
+    )
+
+    conn.commit()
+    yield conn
+    conn.close()

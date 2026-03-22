@@ -149,7 +149,7 @@ export function Nav({ format, formats }: { format: string; formats: FormatInfo[]
   const dashboardActive = pathname === `/${format}`;
 
   return (
-    <nav className="border-b border-surface-600 bg-surface-800/80 backdrop-blur-sm sticky top-0 z-50">
+    <nav className="border-b border-surface-600 bg-surface-800/80 backdrop-blur-sm sticky top-0 z-50" data-testid="main-nav">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-14">
           <div className="flex items-center gap-3">

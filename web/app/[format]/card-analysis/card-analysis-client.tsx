@@ -37,7 +37,7 @@ function CardRow({
   onToggle: () => void;
 }) {
   return (
-    <div className="border-b border-surface-700 last:border-0">
+    <div className="border-b border-surface-700 last:border-0" data-testid="card-row">
       <button
         onClick={onToggle}
         className="w-full px-4 py-3 flex items-center justify-between gap-4 hover:bg-surface-700/40 transition-colors text-left"
@@ -65,7 +65,7 @@ function CardRow({
         </div>
       </button>
       {expanded && (
-        <div className="px-4 pb-3 space-y-1">
+        <div className="px-4 pb-3 space-y-1" data-testid="archetype-breakdown">
           {card.archetypes.map((a) => (
             <div key={a.slug} className="flex items-center justify-between gap-2 py-1.5 px-3 rounded bg-surface-800">
               <Link
