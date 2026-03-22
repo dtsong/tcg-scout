@@ -232,7 +232,7 @@ export function ShiftsClient({ format, movements }: ShiftsClientProps) {
                           : "text-red-400/70 bg-red-500/8"
                     }`}
                   >
-                    {m.direction === "adopted" ? "+" : "-"}{m.delta.toFixed(0)}pp
+                    {m.direction === "adopted" ? "+" : "-"}{m.delta.toFixed(0)}%
                   </span>
                 </div>
               </div>

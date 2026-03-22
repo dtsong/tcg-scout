@@ -1888,18 +1888,17 @@ def export_card_decklists(conn: sqlite3.Connection, output_dir: Path) -> None:
     """
     snapshot = get_latest_snapshot(conn)
     if not snapshot:
+        logger.warning("Skipping card decklists export: no meta snapshot found")
         return
 
-    archetype_tiers: dict[str, str] = {}
     archetype_slugs: dict[str, str] = {}
     for arch in snapshot["archetypes"]:
-        archetype_tiers[arch["archetype"]] = arch["tier"]
         archetype_slugs[arch["archetype"]] = _slugify(arch["archetype"])
 
     # Query all top-4 placements with their card data
     rows = conn.execute(
         """
-        SELECT p.id AS placement_id, p.standing, p.player_name, p.archetype,
+        SELECT p.id AS placement_id, p.standing, p.archetype,
                p.decklist_url, t.name AS tournament_name, t.date
         FROM open_placements p
         JOIN tournaments t ON t.id = p.tournament_id
@@ -1909,6 +1908,7 @@ def export_card_decklists(conn: sqlite3.Connection, output_dir: Path) -> None:
     ).fetchall()
 
     if not rows:
+        logger.warning("Skipping card decklists export: no top-4 placements found")
         return
 
     # Build placement_id -> placement info lookup
@@ -1923,13 +1923,8 @@ def export_card_decklists(conn: sqlite3.Connection, output_dir: Path) -> None:
             "tournament_name": r["tournament_name"],
             "date": r["date"],
             "standing": r["standing"],
-            "player_name": r["player_name"],
             "decklist_url": r["decklist_url"],
         }
-
-    # Fetch all cards for these placements in bulk
-    if not placement_ids:
-        return
 
     # SQLite has a variable limit; batch if needed
     card_placements: dict[str, list[dict]] = defaultdict(list)
@@ -1962,6 +1957,10 @@ def export_card_decklists(conn: sqlite3.Connection, output_dir: Path) -> None:
 
     for card_name, results in card_placements.items():
         slug = _slugify(card_name)
+        if not slug:
+            # Skip cards with non-ASCII-only names (e.g. JP card names)
+            # that produce empty slugs -- they can't be fetched by the frontend
+            continue
         _write_json(
             {
                 "card_name": card_name,
@@ -2817,7 +2816,10 @@ def export_all(
     export_ace_specs(conn, out)
     export_archetypes(conn, out)
     export_card_analysis(conn, out)
-    export_card_decklists(conn, out)
+    try:
+        export_card_decklists(conn, out)
+    except (sqlite3.OperationalError, ValueError) as exc:
+        logger.warning("Skipping card decklists export (data unavailable): %s", exc)
     export_champions_league(conn, out)
     export_images(conn, out)
     export_timeline(conn, out)

@@ -308,18 +308,17 @@ export function Top4CardStats({
           if (res.ok) {
             const data: CardDecklistData = await res.json();
             setDecklistCache((prev) => ({ ...prev, [cardName]: data }));
-          } else {
-            // No data available - cache empty result
+          } else if (res.status === 404) {
+            // No data file for this card -- cache empty result
             setDecklistCache((prev) => ({
               ...prev,
               [cardName]: { card_name: cardName, top4_results: [] },
             }));
           }
-        } catch {
-          setDecklistCache((prev) => ({
-            ...prev,
-            [cardName]: { card_name: cardName, top4_results: [] },
-          }));
+          // Other HTTP errors (500, etc.) -- don't cache, allow retry
+        } catch (err) {
+          console.error(`Failed to fetch decklist data for "${cardName}":`, err);
+          // Don't cache on network errors -- allow retry on next click
         } finally {
           setLoadingCard(null);
         }

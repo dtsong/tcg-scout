@@ -237,6 +237,72 @@ describe("Top4CardStats", () => {
     });
   });
 
+  it("does not cache on server error, allows retry", async () => {
+    const user = userEvent.setup();
+    const fetchSpy = vi.spyOn(globalThis, "fetch")
+      .mockResolvedValueOnce({ ok: false, status: 500 } as Response)
+      .mockResolvedValueOnce({
+        ok: true,
+        json: async () => mockDecklistData,
+      } as Response);
+
+    render(<Top4CardStats {...defaultProps} />);
+
+    const charizardButton = screen.getByRole("button", { name: /Charizard ex/i });
+    await user.click(charizardButton);
+
+    // First click -- 500 error, should not show "No decklist data"
+    await waitFor(() => {
+      expect(fetchSpy).toHaveBeenCalledTimes(1);
+    });
+
+    // Collapse and re-expand to retry
+    await user.click(charizardButton);
+    await user.click(charizardButton);
+
+    // Should fetch again (not cached)
+    await waitFor(() => {
+      expect(fetchSpy).toHaveBeenCalledTimes(2);
+    });
+  });
+
+  it("does not cache on network error, allows retry", async () => {
+    const consoleSpy = vi.spyOn(console, "error").mockImplementation(() => {});
+    const user = userEvent.setup();
+    const fetchSpy = vi.spyOn(globalThis, "fetch")
+      .mockRejectedValueOnce(new TypeError("Failed to fetch"))
+      .mockResolvedValueOnce({
+        ok: true,
+        json: async () => mockDecklistData,
+      } as Response);
+
+    render(<Top4CardStats {...defaultProps} />);
+
+    const charizardButton = screen.getByRole("button", { name: /Charizard ex/i });
+    await user.click(charizardButton);
+
+    await waitFor(() => {
+      expect(fetchSpy).toHaveBeenCalledTimes(1);
+    });
+
+    // Should log the error
+    expect(consoleSpy).toHaveBeenCalledWith(
+      expect.stringContaining("Failed to fetch decklist data"),
+      expect.any(TypeError)
+    );
+
+    // Collapse and re-expand to retry
+    await user.click(charizardButton);
+    await user.click(charizardButton);
+
+    // Should fetch again (not cached from error)
+    await waitFor(() => {
+      expect(fetchSpy).toHaveBeenCalledTimes(2);
+    });
+
+    consoleSpy.mockRestore();
+  });
+
   it("renders external link icon for decklist URLs", async () => {
     const user = userEvent.setup();
     vi.spyOn(globalThis, "fetch").mockResolvedValueOnce({
