@@ -434,6 +434,13 @@ def reclassify(ctx: click.Context, dry_run: bool) -> None:
     classifier to assign proper archetypes.
     """
     from analysis.archetype_classifier import classify_decklist
+    from config import ARCHETYPE_ANCHOR_CARDS
+
+    anchor_names: set[str] = set()
+    for key, val in ARCHETYPE_ANCHOR_CARDS.items():
+        anchor_names.add(key)
+        if isinstance(val, dict):
+            anchor_names.update(k for k in val if k != "_default")
     from scraper.pokemon_jp import JP_ENERGY_MAP
 
     conn = get_format_connection(ctx.obj["format"])
@@ -451,7 +458,7 @@ def reclassify(ctx: click.Context, dry_run: bool) -> None:
 
         if not jp_to_en:
             console.print("[red]card_mappings table is empty. Run 'scout mappings' first.[/red]")
-            return
+            raise SystemExit(1)
 
         console.print(f"Loaded {len(jp_to_en)} JP-to-EN mappings")
 
@@ -469,48 +476,55 @@ def reclassify(ctx: click.Context, dry_run: bool) -> None:
 
         reclassified = 0
         still_unknown = 0
+        failed = 0
         changes: dict[str, int] = {}
 
         for placement in unknowns:
-            cards = conn.execute(
-                "SELECT card_name, count FROM decklist_cards WHERE placement_id = ?",
-                (placement["id"],),
-            ).fetchall()
+            try:
+                cards = conn.execute(
+                    "SELECT card_name, count FROM decklist_cards WHERE placement_id = ?",
+                    (placement["id"],),
+                ).fetchall()
 
-            # Translate JP -> EN
-            translated: list[dict] = []
-            for card in cards:
-                name = card["card_name"]
-                en_name = jp_to_en.get(name)
-                if not en_name:
-                    for jp_name, en in jp_to_en.items():
-                        if jp_name and name and jp_name in name:
-                            en_name = en
-                            break
-                # Infer category from energy map
-                category = (
-                    "Energy"
-                    if name in JP_ENERGY_MAP or (en_name and "Energy" in en_name)
-                    else "Pokemon"
-                    if (en_name and "ex" in en_name)
-                    else "Trainer"
-                )
-                translated.append(
-                    {"card_name": en_name or name, "count": card["count"], "category": category}
-                )
-
-            archetype = classify_decklist(translated)
-
-            if archetype != "Unknown":
-                reclassified += 1
-                changes[archetype] = changes.get(archetype, 0) + 1
-                if not dry_run:
-                    conn.execute(
-                        "UPDATE placements SET archetype = ? WHERE id = ?",
-                        (archetype, placement["id"]),
+                # Translate JP -> EN
+                translated: list[dict] = []
+                for card in cards:
+                    name = card["card_name"]
+                    en_name = jp_to_en.get(name)
+                    if not en_name:
+                        for jp_name, en in jp_to_en.items():
+                            if jp_name and name and jp_name in name:
+                                en_name = en
+                                break
+                    # Infer category: Energy > known anchor Pokemon > Trainer
+                    card_label = en_name or name
+                    if name in JP_ENERGY_MAP or (en_name and "Energy" in en_name):
+                        category = "Energy"
+                    elif card_label in anchor_names:
+                        category = "Pokemon"
+                    elif en_name and "ex" in en_name:
+                        category = "Pokemon"
+                    else:
+                        category = "Trainer"
+                    translated.append(
+                        {"card_name": en_name or name, "count": card["count"], "category": category}
                     )
-            else:
-                still_unknown += 1
+
+                archetype = classify_decklist(translated)
+
+                if archetype != "Unknown":
+                    reclassified += 1
+                    changes[archetype] = changes.get(archetype, 0) + 1
+                    if not dry_run:
+                        conn.execute(
+                            "UPDATE placements SET archetype = ? WHERE id = ?",
+                            (archetype, placement["id"]),
+                        )
+                else:
+                    still_unknown += 1
+            except Exception as exc:
+                logger.error("Failed to reclassify placement %s: %s", placement["id"], exc)
+                failed += 1
 
         if not dry_run:
             conn.commit()
@@ -519,6 +533,8 @@ def reclassify(ctx: click.Context, dry_run: bool) -> None:
         console.print(f"\n{prefix}[green]Reclassified {reclassified} placements[/green]")
         if still_unknown:
             console.print(f"  Still Unknown: {still_unknown}")
+        if failed:
+            console.print(f"  [red]{failed} placements failed to reclassify — see logs[/red]")
         for arch, count in sorted(changes.items(), key=lambda x: -x[1]):
             console.print(f"  {arch}: {count}")
     finally:
@@ -1065,12 +1081,12 @@ def export_web(ctx: click.Context, narrative: bool, upload: bool, strict: bool) 
 @click.pass_context
 def validate(ctx: click.Context, strict: bool) -> None:
     """Validate exported data and database integrity."""
-    from pathlib import Path
 
+    from reports.json_export import DEFAULT_OUTPUT_DIR
     from validation import validate_database, validate_export
 
     fmt = ctx.obj["format"]
-    export_dir = Path("web/public/data") / fmt
+    export_dir = DEFAULT_OUTPUT_DIR / fmt
 
     console.print(f"[cyan]Validating format: {fmt}[/cyan]\n")
 

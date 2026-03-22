@@ -66,7 +66,7 @@ class TestValidateExport:
         (export_dir / "buylist.json").write_text("{invalid json")
         result = validate_export(export_dir)
         assert not result.ok
-        assert any("invalid JSON" in e for e in result.errors)
+        assert any("could not parse" in e for e in result.errors)
 
     def test_empty_archetypes_is_error(self, export_dir):
         meta = {"archetypes": []}

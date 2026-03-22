@@ -390,7 +390,7 @@ def sync_card_mappings(
 
                 try:
                     card_ids = client.fetch_set_cards(set_code)
-                except httpx.HTTPStatusError as exc:
+                except httpx.HTTPError as exc:
                     logger.warning("Skipping set %s: %s", set_code, exc)
                     progress.advance(sets_task)
                     continue
@@ -410,7 +410,7 @@ def sync_card_mappings(
 
                     try:
                         info = client.fetch_card_equivalent(jp_card_id, set_code)
-                    except httpx.HTTPStatusError as exc:
+                    except httpx.HTTPError as exc:
                         logger.warning("Failed to fetch equivalent for %s: %s", jp_card_id, exc)
                         progress.advance(cards_task)
                         continue

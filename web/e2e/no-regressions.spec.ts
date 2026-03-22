@@ -32,8 +32,7 @@ test.describe("No Regressions", () => {
     await page.goto("/ninja-spinner");
     await page.waitForLoadState("domcontentloaded");
 
-    // Wait a moment for images to load
-    await page.waitForTimeout(2000);
+    await page.waitForLoadState("networkidle");
 
     const brokenImages = await page.evaluate(() => {
       const imgs = Array.from(document.querySelectorAll("img"));

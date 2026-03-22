@@ -85,8 +85,8 @@ def validate_export(export_dir: Path) -> ValidationResult:
         try:
             raw = json_path.read_text(encoding="utf-8")
             json.loads(raw)
-        except json.JSONDecodeError as exc:
-            result.errors.append(f"{rel}: invalid JSON — {exc}")
+        except (json.JSONDecodeError, OSError) as exc:
+            result.errors.append(f"{rel}: could not parse — {exc}")
             continue
 
     # meta.json content validation
@@ -106,8 +106,9 @@ def _validate_meta_consistency(export_dir: Path, meta_path: Path) -> ValidationR
     result = ValidationResult()
     try:
         meta = json.loads(meta_path.read_text(encoding="utf-8"))
-    except (json.JSONDecodeError, OSError):
-        return result  # Already caught in main validation
+    except (json.JSONDecodeError, OSError) as exc:
+        logger.warning("Skipped meta consistency check: could not read %s: %s", meta_path, exc)
+        return result
 
     # meta.json uses a flat "archetypes" list (each entry has a "tier" field)
     archetypes = meta.get("archetypes")
@@ -136,7 +137,8 @@ def _check_unknown_archetype(meta_path: Path) -> ValidationResult:
     result = ValidationResult()
     try:
         meta = json.loads(meta_path.read_text(encoding="utf-8"))
-    except (json.JSONDecodeError, OSError):
+    except (json.JSONDecodeError, OSError) as exc:
+        logger.warning("Skipped Unknown archetype check: could not read %s: %s", meta_path, exc)
         return result
 
     for arch in meta.get("archetypes", []):
@@ -168,7 +170,8 @@ def _check_jp_leaks(export_dir: Path) -> ValidationResult:
         rel = json_path.relative_to(export_dir)
         try:
             raw = json_path.read_text(encoding="utf-8")
-        except OSError:
+        except OSError as exc:
+            result.warnings.append(f"{rel}: could not read for JP leak check — {exc}")
             continue
 
         # Check string values in JSON for JP characters
@@ -197,10 +200,14 @@ def validate_database(conn: sqlite3.Connection) -> ValidationResult:
         return result
 
     # Unknown archetype rate
-    total = conn.execute("SELECT COUNT(*) as cnt FROM open_placements").fetchone()
-    unknown = conn.execute(
-        "SELECT COUNT(*) as cnt FROM open_placements WHERE archetype = 'Unknown'"
-    ).fetchone()
+    try:
+        total = conn.execute("SELECT COUNT(*) as cnt FROM open_placements").fetchone()
+        unknown = conn.execute(
+            "SELECT COUNT(*) as cnt FROM open_placements WHERE archetype = 'Unknown'"
+        ).fetchone()
+    except sqlite3.OperationalError as exc:
+        result.warnings.append(f"Could not query open_placements view: {exc}")
+        total = unknown = None
 
     total_count = total["cnt"] if total else 0
     unknown_count = unknown["cnt"] if unknown else 0
