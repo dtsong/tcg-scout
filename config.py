@@ -276,6 +276,10 @@ ARCHETYPE_ANCHOR_CARDS: dict[str, dict[str, str] | str] = {
     "Team Rocket's Honchkrow": {
         "_default": "Honchkrow Porygon-Z",
     },
+    "N's Zoroark ex": {
+        "_default": "Darmanitan Zoroark",
+        "N's Darmanitan": "Darmanitan Zoroark",
+    },
     # --- Non-ex variants (CL decklists may use non-ex forms) ---
     "Flareon ex": {
         "_default": "Flareon ex",
@@ -304,6 +308,71 @@ ARCHETYPE_ANCHOR_CARDS: dict[str, dict[str, str] | str] = {
     },
     "Crustle": "Crustle",
     "Dwebble": "Crustle",
+}
+
+# JP card name -> EN card name mapping for classifying JP City League decklists.
+# Only includes names that appear in ARCHETYPE_ANCHOR_CARDS (primary + secondary).
+JP_CARD_NAME_MAP: dict[str, str] = {
+    # --- Primary anchor cards (ex Pokemon) ---
+    "リザードンex": "Charizard ex",
+    "ドラパルトex": "Dragapult ex",
+    "タケルライコex": "Raging Bolt ex",
+    "テラパゴスex": "Terapagos ex",
+    "ブリジュラスex": "Archaludon ex",
+    "ミライドンex": "Miraidon ex",
+    "サーナイトex": "Gardevoir ex",
+    "サーフゴーex": "Gholdengo ex",
+    "ブースターex": "Flareon ex",
+    "ソウブレイズex": "Ceruledge ex",
+    "エンペルトex": "Empoleon ex",
+    "オリーヴァex": "Arboliva ex",
+    "バシャーモex": "Blaziken ex",
+    # Mega anchors
+    "メガユキメノコex": "Mega Froslass ex",
+    "メガアブソルex": "Mega Absol ex",
+    "メガガルーラex": "Mega Kangaskhan ex",
+    "メガルカリオex": "Mega Lucario ex",
+    "メガスターミーex": "Mega Starmie ex",
+    "メガフシギバナex": "Mega Venusaur ex",
+    "メガヤドランex": "Mega Slowbro ex",
+    "メガエアームドex": "Mega Skarmory ex",
+    "メガミミロップex": "Mega Lopunny ex",
+    "メガサーナイトex": "Mega Gardevoir ex",
+    "メガサメハダーex": "Mega Sharpedo ex",
+    "メガディアンシーex": "Mega Diancie ex",
+    "メガメガニウムex": "Mega Meganium ex",
+    # Trainer-owned anchors
+    "マリィのオーロンゲex": "Marnie's Grimmsnarl ex",
+    "シロナのガブリアスex": "Cynthia's Garchomp ex",
+    "ロケット団のミュウツーex": "Team Rocket's Mewtwo ex",
+    "ダイゴのメタグロスex": "Steven's Metagross ex",
+    "ロケット団のドンカラス": "Team Rocket's Honchkrow",
+    "Nのゾロアークex": "N's Zoroark ex",
+    "Nのヒヒダルマ": "N's Darmanitan",
+    # --- Secondary cards (non-ex, used in composite detection) ---
+    "ヨノワール": "Dusknoir",
+    "ヨルノズク": "Noctowl",
+    "ピジョットex": "Pidgeot ex",
+    "ノココッチ": "Dudunsparce",
+    "マシマシラ": "Munkidori",
+    "ソルロック": "Solrock",
+    "ハリテヤマ": "Hariyama",
+    "ゲッコウガex": "Greninja ex",
+    "オーガポン みどりのめんex": "Ogerpon ex",
+    "シロナのロズレイド": "Cynthia's Roserade",
+    "ロケット団のワナイダー": "Team Rocket's Spidops",
+    "ロケット団のポリゴンZ": "Porygon-Z",
+    "メガニウム": "Meganium",
+    # Non-ex anchor variants
+    "ユキメノコ": "Froslass",
+    "ユキメノコex": "Froslass ex",
+    "オーロンゲ": "Grimmsnarl",
+    "オーロンゲex": "Grimmsnarl ex",
+    "ゾロアーク": "Zoroark",
+    "フーディン": "Alakazam",
+    "フーディンex": "Alakazam ex",
+    "イワパレス": "Crustle",
+    "イシズマイ": "Dwebble",
 }
 
 # LLM configuration for auto-generated reports

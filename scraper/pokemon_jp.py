@@ -581,34 +581,22 @@ class PokemonJPClient:
         return result
 
 
-def classify_jp_decklist(conn: sqlite3.Connection, cards: list[JPDeckCard]) -> str:
+def classify_jp_decklist(cards: list[JPDeckCard]) -> str:
     """Translate JP card names to EN and classify the archetype.
 
-    Uses card_mappings table + JP_ENERGY_MAP for translation,
+    Uses JP_CARD_NAME_MAP for anchor card translation,
     then runs classify_decklist() on the translated cards.
     """
-    # Build JP→EN lookup from card_mappings
-    rows = conn.execute(
-        "SELECT card_name_jp, card_name_en FROM card_mappings WHERE card_name_en IS NOT NULL"
-    ).fetchall()
-    jp_to_en: dict[str, str] = {
-        r["card_name_jp"]: r["card_name_en"] for r in rows if r["card_name_jp"]
-    }
-    jp_to_en.update(JP_ENERGY_MAP)
+    from config import JP_CARD_NAME_MAP
 
-    # Translate and build classify_decklist input format
     translated_cards: list[dict] = []
     for card in cards:
-        en_name = jp_to_en.get(card.name_jp)
-        if not en_name:
-            # Try substring match for names with suffixes like "ex"
-            for jp_name, en in jp_to_en.items():
-                if jp_name and card.name_jp and jp_name in card.name_jp:
-                    en_name = en
-                    break
+        en_name = JP_CARD_NAME_MAP.get(card.name_jp, card.name_jp)
+        if en_name == card.name_jp and card.category == "Pokemon":
+            logger.debug("No JP->EN mapping for Pokemon card: %s", card.name_jp)
         translated_cards.append(
             {
-                "card_name": en_name or card.name_jp,
+                "card_name": en_name,
                 "count": card.count,
                 "category": card.category,
             }
@@ -693,7 +681,7 @@ def store_cl_city_league_results(
         deck_cards = None
         if placement.deck_code and placement.deck_code in decklists:
             deck_cards = decklists[placement.deck_code]
-            archetype = classify_jp_decklist(conn, deck_cards)
+            archetype = classify_jp_decklist(deck_cards)
 
         cursor = conn.execute(
             "INSERT INTO placements (tournament_id, standing, player_name, archetype, decklist_url) "
