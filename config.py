@@ -276,6 +276,10 @@ ARCHETYPE_ANCHOR_CARDS: dict[str, dict[str, str] | str] = {
     "Team Rocket's Honchkrow": {
         "_default": "Honchkrow Porygon-Z",
     },
+    "N's Zoroark ex": {
+        "_default": "Darmanitan Zoroark",
+        "N's Darmanitan": "Darmanitan Zoroark",
+    },
     # --- Non-ex variants (CL decklists may use non-ex forms) ---
     "Flareon ex": {
         "_default": "Flareon ex",
@@ -343,8 +347,8 @@ JP_CARD_NAME_MAP: dict[str, str] = {
     "ロケット団のミュウツーex": "Team Rocket's Mewtwo ex",
     "ダイゴのメタグロスex": "Steven's Metagross ex",
     "ロケット団のドンカラス": "Team Rocket's Honchkrow",
-    # N's Zoroark maps to "Zoroark" anchor (non-ex form matches the anchor key)
-    "Nのゾロアークex": "Zoroark",
+    "Nのゾロアークex": "N's Zoroark ex",
+    "Nのヒヒダルマ": "N's Darmanitan",
     # --- Secondary cards (non-ex, used in composite detection) ---
     "ヨノワール": "Dusknoir",
     "ヨルノズク": "Noctowl",
