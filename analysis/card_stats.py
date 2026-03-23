@@ -98,6 +98,13 @@ EN_CARD_ALIASES: dict[str, str] = {
     "Basic Metal Energy": "Metal Energy",
     # Pokemon
     "Ursaluna ex": "Bloodmoon Ursaluna ex",
+    # Additional fan-translation variants
+    "Ange Floette": "Anzu Floette",
+    "Canari": "Canary",
+    "Nighttime Mine": "Night Mine",
+    "Ogre's Mask": "Ogre Mask",
+    "Lisia's Appeal": "Lucia's Appeal",
+    "Team Rocket's Venture Bomb": "Team Rocket's Surprise Bomb",
 }
 
 

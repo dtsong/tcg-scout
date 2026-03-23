@@ -14,6 +14,7 @@ from analysis.archetype_classifier import classify_decklist
 from analysis.buylist import generate_buylist
 from analysis.card_stats import (
     BASIC_ENERGY_NAMES,
+    EN_CARD_ALIASES,
     build_category_lookup,
     build_jp_en_lookup,
     classify_card,
@@ -67,6 +68,33 @@ def _basic_energy_exclusion_sql() -> str:
 def _basic_energy_params() -> list[str]:
     """Return params list for basic energy exclusion."""
     return sorted(BASIC_ENERGY_NAMES)
+
+
+def _normalize_card_name(name: str) -> str:
+    """Normalize a card name via EN_CARD_ALIASES."""
+    return EN_CARD_ALIASES.get(name, name)
+
+
+def _merge_aliased_card_rows(
+    rows: list[dict],
+    name_key: str = "card_name",
+    sum_keys: tuple[str, ...] = ("early_count", "late_count"),
+) -> list[dict]:
+    """Merge rows that map to the same canonical card name via EN_CARD_ALIASES.
+
+    Sums numeric fields in sum_keys; keeps the first row's other values.
+    """
+    merged: dict[str, dict] = {}
+    for row in rows:
+        canonical = _normalize_card_name(row[name_key])
+        if canonical in merged:
+            for k in sum_keys:
+                if k in merged[canonical] and k in row:
+                    merged[canonical][k] += row[k]
+        else:
+            merged[canonical] = dict(row)
+            merged[canonical][name_key] = canonical
+    return list(merged.values())
 
 
 def build_card_set_lookup(conn: sqlite3.Connection) -> dict[str, tuple[str, str]]:
@@ -1074,8 +1102,19 @@ def _compute_windowed_trends(
         (midpoint, midpoint, date_from, date_to, *_basic_energy_params()),
     ).fetchall()
 
+    # Merge aliased card names before computing percentages
+    raw_rows = [
+        {
+            "card_name": row["card_name"],
+            "early_count": row["early_count"],
+            "late_count": row["late_count"],
+        }
+        for row in rows
+    ]
+    merged_rows = _merge_aliased_card_rows(raw_rows, sum_keys=("early_count", "late_count"))
+
     cards = []
-    for row in rows:
+    for row in merged_rows:
         early_pct = round(row["early_count"] * 100.0 / early_total, 1)
         late_pct = round(row["late_count"] * 100.0 / late_total, 1)
         delta = round(late_pct - early_pct, 1)
@@ -1157,7 +1196,11 @@ def _compute_windowed_winning_edge(
         (*sa_archetypes, date_from, date_to, *_basic_energy_params()),
     ).fetchall()
 
-    field_usage = {row["card_name"]: row["field_decks"] for row in field_rows}
+    # Merge aliased card names in field usage
+    field_usage: dict[str, int] = {}
+    for row in field_rows:
+        canonical = _normalize_card_name(row["card_name"])
+        field_usage[canonical] = field_usage.get(canonical, 0) + row["field_decks"]
 
     winner_rows = conn.execute(
         f"""
@@ -1174,13 +1217,18 @@ def _compute_windowed_winning_edge(
         (*sa_archetypes, date_from, date_to, *_basic_energy_params()),
     ).fetchall()
 
-    cards = []
+    # Merge aliased winner card names
+    winner_usage: dict[str, int] = {}
     for row in winner_rows:
-        name = row["card_name"]
+        canonical = _normalize_card_name(row["card_name"])
+        winner_usage[canonical] = winner_usage.get(canonical, 0) + row["winner_decks"]
+
+    cards = []
+    for name, winner_decks in winner_usage.items():
         if name not in field_usage:
             continue
         field_pct = round(field_usage[name] * 100.0 / total_field, 1)
-        win_pct = round(row["winner_decks"] * 100.0 / total_winners, 1)
+        win_pct = round(winner_decks * 100.0 / total_winners, 1)
         edge = round(win_pct - field_pct, 1)
         cards.append(
             {
@@ -1188,7 +1236,7 @@ def _compute_windowed_winning_edge(
                 "field_pct": field_pct,
                 "win_pct": win_pct,
                 "edge": edge,
-                "winner_decks": row["winner_decks"],
+                "winner_decks": winner_decks,
                 "field_decks": field_usage[name],
             }
         )
@@ -1732,8 +1780,19 @@ def export_trends(
         (midpoint, midpoint, *_basic_energy_params(), min_count, min_count),
     ).fetchall()
 
+    # Merge aliased card names before computing percentages
+    raw_rows = [
+        {
+            "card_name": row["card_name"],
+            "early_count": row["early_count"],
+            "late_count": row["late_count"],
+        }
+        for row in rows
+    ]
+    merged_rows = _merge_aliased_card_rows(raw_rows, sum_keys=("early_count", "late_count"))
+
     cards = []
-    for row in rows:
+    for row in merged_rows:
         early_pct = round(row["early_count"] * 100.0 / early_total, 1)
         late_pct = round(row["late_count"] * 100.0 / late_total, 1)
         delta = round(late_pct - early_pct, 1)
@@ -1819,7 +1878,11 @@ def export_winning_edge(conn: sqlite3.Connection, output_dir: Path) -> None:
         (*sa_archetypes, *_basic_energy_params()),
     ).fetchall()
 
-    field_usage = {row["card_name"]: row["field_decks"] for row in field_rows}
+    # Merge aliased card names in field usage
+    field_usage: dict[str, int] = {}
+    for row in field_rows:
+        canonical = _normalize_card_name(row["card_name"])
+        field_usage[canonical] = field_usage.get(canonical, 0) + row["field_decks"]
 
     winner_rows = conn.execute(
         f"""
@@ -1833,13 +1896,18 @@ def export_winning_edge(conn: sqlite3.Connection, output_dir: Path) -> None:
         (*sa_archetypes, *_basic_energy_params()),
     ).fetchall()
 
-    cards = []
+    # Merge aliased winner card names
+    winner_usage: dict[str, int] = {}
     for row in winner_rows:
-        name = row["card_name"]
+        canonical = _normalize_card_name(row["card_name"])
+        winner_usage[canonical] = winner_usage.get(canonical, 0) + row["winner_decks"]
+
+    cards = []
+    for name, winner_decks in winner_usage.items():
         if name not in field_usage:
             continue
         field_pct = round(field_usage[name] * 100.0 / total_field, 1)
-        win_pct = round(row["winner_decks"] * 100.0 / total_winners, 1)
+        win_pct = round(winner_decks * 100.0 / total_winners, 1)
         edge = round(win_pct - field_pct, 1)
         cards.append(
             {
@@ -1847,7 +1915,7 @@ def export_winning_edge(conn: sqlite3.Connection, output_dir: Path) -> None:
                 "field_pct": field_pct,
                 "win_pct": win_pct,
                 "edge": edge,
-                "winner_decks": row["winner_decks"],
+                "winner_decks": winner_decks,
                 "field_decks": field_usage[name],
             }
         )

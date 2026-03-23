@@ -666,6 +666,10 @@ def store_cl_city_league_results(
     decklists: dict[str, list[JPDeckCard]],
 ) -> None:
     """Store City League event results and decklists in the standard tournaments/placements tables."""
+    from analysis.card_stats import EN_CARD_ALIASES, build_jp_en_lookup
+    from reports.json_export import JP_CARD_NAMES
+
+    jp_en_lookup = build_jp_en_lookup(conn, fallback=JP_CARD_NAMES)
     tournament_id = f"jp-{event.event_id}"
 
     # Store tournament
@@ -696,18 +700,20 @@ def store_cl_city_league_results(
         )
         placement_id = cursor.lastrowid
 
-        # Store decklist cards if available
+        # Store decklist cards if available (translate JP→EN at ingestion time)
         if deck_cards is not None:
             for card in deck_cards:
                 if card.set_code and card.card_number:
                     card_id = f"{card.set_code}-{card.card_number}"
                 else:
                     card_id = card.name_jp
+                card_name = jp_en_lookup.get(card.name_jp, card.name_jp)
+                card_name = EN_CARD_ALIASES.get(card_name, card_name)
                 conn.execute(
                     "INSERT OR REPLACE INTO decklist_cards "
                     "(placement_id, card_id, card_name, count) "
                     "VALUES (?, ?, ?, ?)",
-                    (placement_id, card_id, card.name_jp, card.count),
+                    (placement_id, card_id, card_name, card.count),
                 )
 
     conn.commit()
