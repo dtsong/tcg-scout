@@ -25,16 +25,27 @@ const REQUIRED_FILES = [
 
 // --- Download logic ---
 
-function shouldDownload() {
-  // If data already exists on disk (local dev or prior download), skip
-  const formatsPath = path.join(DATA_DIR, "formats.json");
-  if (fs.existsSync(formatsPath)) return false;
+const HASH_FILE = path.join(DATA_DIR, ".manifest-sha256");
 
+function shouldDownload() {
   // Check manifest for a download URL
   if (!fs.existsSync(MANIFEST_PATH)) return false;
   const manifest = JSON.parse(fs.readFileSync(MANIFEST_PATH, "utf-8"));
   const archive = manifest.archives?.[0];
-  return archive?.url?.length > 0;
+  if (!archive?.url?.length) return false;
+
+  // In local dev, data already on disk from export-web — skip unless hash changed
+  const formatsPath = path.join(DATA_DIR, "formats.json");
+  if (!fs.existsSync(formatsPath)) return true;
+
+  // Re-download if manifest SHA changed (new data available)
+  if (archive.sha256 && fs.existsSync(HASH_FILE)) {
+    const cached = fs.readFileSync(HASH_FILE, "utf-8").trim();
+    if (cached === archive.sha256) return false;
+  }
+
+  // In CI (Vercel), always download if we can't verify the hash matches
+  return !!process.env.VERCEL;
 }
 
 async function downloadAndExtract() {
@@ -76,10 +87,24 @@ async function downloadAndExtract() {
     console.log("prebuild: SHA-256 verified");
   }
 
+  // Wipe stale data before extracting fresh archive
+  if (fs.existsSync(DATA_DIR)) {
+    fs.rmSync(DATA_DIR, { recursive: true });
+  }
+
   // Extract
   fs.mkdirSync(DATA_DIR, { recursive: true });
   execSync(`tar -xzf "${tarPath}" -C "${DATA_DIR}"`, { stdio: "inherit" });
   fs.unlinkSync(tarPath);
+
+  // Clean macOS resource fork files that break Next.js SSG
+  execSync(`find "${DATA_DIR}" -name '._*' -delete 2>/dev/null || true`);
+
+  // Record extracted archive hash for cache invalidation
+  if (expectedHash) {
+    fs.writeFileSync(path.join(DATA_DIR, ".manifest-sha256"), expectedHash);
+  }
+
   console.log("prebuild: Data extracted");
 }
 
