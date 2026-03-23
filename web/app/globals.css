@@ -9,14 +9,14 @@
 }
 
 @theme {
-  /* Base palette */
-  --color-surface-900: #0a0c10;
-  --color-surface-800: #0f1218;
-  --color-surface-700: #151921;
-  --color-surface-600: #1c2130;
-  --color-surface-500: #2a3040;
-  --color-surface-400: #3d4556;
-  --color-surface-300: #6b7280;
+  /* Base palette — Neon */
+  --color-surface-900: #09090B;
+  --color-surface-800: #0D1018;
+  --color-surface-700: #131620;
+  --color-surface-600: #1A1E2E;
+  --color-surface-500: #252A3A;
+  --color-surface-400: #384050;
+  --color-surface-300: #6B7280;
 
   /* Tier colors */
   --color-tier-s: #f59e0b;
@@ -39,15 +39,15 @@
   --color-accent: #f59e0b;
   --color-accent-dim: #92640a;
 
-  /* Typography */
-  --font-display: "Instrument Sans", sans-serif;
-  --font-body: "IBM Plex Sans", sans-serif;
-  --font-mono: "IBM Plex Mono", monospace;
+  /* Typography — Neon */
+  --font-display: "Roboto", sans-serif;
+  --font-body: "Roboto", sans-serif;
+  --font-mono: "Source Code Pro", monospace;
 }
 
 body {
   background-color: var(--color-surface-900);
-  color: #e2e8f0;
+  color: #F0F2F5;
   font-family: var(--font-body);
 }
 
