@@ -6,7 +6,7 @@ steps:
     args:
       - -c
       - |
-        pip install -r requirements.txt ruff pytest &&
+        pip install -r requirements.txt -r functions/poll_tournaments/requirements.txt ruff pytest &&
         ruff check . &&
         ruff format --check . &&
         pytest tests/ -v
