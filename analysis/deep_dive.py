@@ -206,6 +206,7 @@ def compute_weekly_card_timeline(
         ).fetchone()[0]
 
         if total == 0:
+            week_card_data[wk] = {}
             continue
 
         card_rows = conn.execute(
