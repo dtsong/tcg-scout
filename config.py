@@ -199,6 +199,17 @@ TCGDEX_API_URL = "https://api.tcgdex.net/v2/en"
 # Primary anchor -> secondary anchor -> archetype name.
 # If primary matches but no secondary does, uses "_default".
 ARCHETYPE_ANCHOR_CARDS: dict[str, dict[str, str] | str] = {
+    # --- Mega Greninja (must precede Dragapult ex — Greninja line is primary attacker) ---
+    "Mega Greninja ex": {
+        "_default": "Mega Greninja ex",
+        "Dragapult ex": "Mega Greninja Dragapult",
+        "Dudunsparce": "Mega Greninja Dudunsparce",
+        "Dusknoir": "Mega Greninja Dusknoir",
+        "Mega Starmie ex": "Mega Greninja Mega Starmie",
+        "Noctowl": "Mega Greninja Noctowl",
+        "Mega Kangaskhan ex": "Mega Greninja Mega Kangaskhan",
+        "Munkidori": "Mega Greninja Munkidori",
+    },
     # --- Standard archetypes ---
     "Charizard ex": {
         "_default": "Charizard ex",
@@ -332,6 +343,7 @@ JP_CARD_NAME_MAP: dict[str, str] = {
     "メガアブソルex": "Mega Absol ex",
     "メガガルーラex": "Mega Kangaskhan ex",
     "メガルカリオex": "Mega Lucario ex",
+    "メガゲッコウガex": "Mega Greninja ex",
     "メガスターミーex": "Mega Starmie ex",
     "メガフシギバナex": "Mega Venusaur ex",
     "メガヤドランex": "Mega Slowbro ex",
