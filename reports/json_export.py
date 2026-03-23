@@ -3105,8 +3105,8 @@ def export_optimal_60(conn: sqlite3.Connection, output_dir: Path, *, format_slug
     index_entries = []
     count = 0
 
-    # S/A/B/C tiers + any archetype with CL representation
-    eligible_tiers = {"S", "A", "B", "C"}
+    # All tiers + any archetype with CL representation
+    eligible_tiers = {"S", "A", "B", "C", "Rogue"}
     cl_archetypes = {
         row[0]
         for row in conn.execute(
