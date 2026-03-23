@@ -93,6 +93,21 @@ class TestComputeCityLeagueIndex:
         tournament_ids = [t["id"] for t in data["tournaments"]]
         assert "t4" not in tournament_ids
 
+    def test_excludes_champions_league(self, db_cl: sqlite3.Connection) -> None:
+        # Add a champions league tournament (open division)
+        db_cl.execute(
+            "INSERT INTO tournaments (id, name, date, player_count, division, tournament_type) "
+            "VALUES ('t5', 'Champions League 2026', '2026-03-19', 256, 'open', 'champions-league')"
+        )
+        db_cl.execute(
+            "INSERT INTO placements (tournament_id, standing, player_name, archetype) "
+            "VALUES ('t5', 1, 'Champ', 'Charizard ex')"
+        )
+        db_cl.commit()
+        data = _compute_city_league_index(db_cl)
+        tournament_ids = [t["id"] for t in data["tournaments"]]
+        assert "t5" not in tournament_ids
+
     def test_top_finishers_capped_at_4(self, db_cl: sqlite3.Connection) -> None:
         data = _compute_city_league_index(db_cl)
         for t in data["tournaments"]:
@@ -134,6 +149,15 @@ class TestComputeCityLeagueIndex:
         assert data["tournament_count"] == 2
         dates = [t["date"] for t in data["tournaments"]]
         assert all(d >= "2026-03-01" for d in dates)
+
+    def test_recent_winners_respect_date_window(self, db_cl: sqlite3.Connection) -> None:
+        data = _compute_city_league_index(db_cl, date_from="2026-03-01", date_to="2026-03-31")
+        # Kate won t3 on 2026-02-10 -- should be excluded from March window
+        winner_names = [w["player_name"] for w in data["recent_winners"]]
+        assert "Kate" not in winner_names
+        # Alice (t1, 2026-03-20) and Grace (t2, 2026-03-15) should be present
+        assert "Alice" in winner_names
+        assert "Grace" in winner_names
 
     def test_prefecture_included(self, db_cl: sqlite3.Connection) -> None:
         data = _compute_city_league_index(db_cl)

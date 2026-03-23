@@ -3211,7 +3211,10 @@ def _build_tier_lookup(conn: sqlite3.Connection) -> dict[str, str]:
         "SELECT archetype, tier FROM archetype_stats "
         "WHERE snapshot_id = (SELECT MAX(id) FROM meta_snapshots)"
     ).fetchall()
-    return {row["archetype"]: row["tier"] for row in rows}
+    lookup = {row["archetype"]: row["tier"] for row in rows}
+    if not lookup:
+        logger.warning("No meta snapshot found; tier lookup will be empty")
+    return lookup
 
 
 def _compute_city_league_index(
@@ -3238,7 +3241,7 @@ def _compute_city_league_index(
                COUNT(p.id) as deck_count
         FROM tournaments t
         LEFT JOIN placements p ON p.tournament_id = t.id
-        WHERE t.division = 'open' {date_filter}
+        WHERE t.division = 'open' AND t.tournament_type = 'city-league' {date_filter}
         GROUP BY t.id
         ORDER BY t.date DESC
         """,
@@ -3335,7 +3338,8 @@ def _compute_city_league_index(
             }
         )
 
-    # Rising archetypes from trend computation
+    # Rising archetypes from global trend computation (intentionally not windowed --
+    # trend direction is a format-wide signal, not specific to the date filter)
     trends = _compute_archetype_trends(conn)
     rising = []
     for arch, info in sorted(
@@ -3355,16 +3359,18 @@ def _compute_city_league_index(
         if len(rising) >= 5:
             break
 
-    # Recent winners (5 most recent 1st-place finishers)
+    # Recent winners (5 most recent 1st-place finishers, respecting date window)
     recent_winners_rows = conn.execute(
-        """
+        f"""
         SELECT t.name, t.date, p.archetype, p.player_name
         FROM placements p
         JOIN tournaments t ON t.id = p.tournament_id
-        WHERE t.division = 'open' AND p.standing = 1
+        WHERE t.division = 'open' AND t.tournament_type = 'city-league'
+          AND p.standing = 1 {date_filter}
         ORDER BY t.date DESC
         LIMIT 5
-        """
+        """,
+        params,
     ).fetchall()
     recent_winners = []
     for row in recent_winners_rows:

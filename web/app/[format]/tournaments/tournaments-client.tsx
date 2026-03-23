@@ -27,6 +27,11 @@ const tierColors: Record<string, string> = {
   Rogue: "#a855f7",
 };
 
+const distributionPalette = [
+  "#f59e0b", "#14b8a6", "#3b82f6", "#a855f7", "#ef4444",
+  "#22c55e", "#ec4899", "#f97316",
+];
+
 function daysSince(dateStr: string): number {
   const d = new Date(dateStr);
   const now = new Date();
@@ -81,7 +86,7 @@ function DistributionBar({
   return (
     <div className="flex h-5 w-full rounded overflow-hidden">
       {distribution.slice(0, 8).map((entry, i) => {
-        const color = tierColors[entry.slug ? "Rogue" : "C"];
+        const color = distributionPalette[i % distributionPalette.length];
         return (
           <div
             key={i}
@@ -282,21 +287,40 @@ export function TournamentsClient({
 
   const fetchWindowData = useCallback(
     async (window: TimeWindow) => {
-      if (window === "all" || window === "custom") {
+      if (window === "all") {
+        setIndex(initialIndex);
+        return;
+      }
+      if (window === "custom" && customRange) {
+        const filtered = initialIndex.tournaments.filter(
+          (t) => t.date >= customRange.start && t.date <= customRange.end,
+        );
+        setIndex({
+          ...initialIndex,
+          tournaments: filtered,
+          tournament_count: filtered.length,
+          deck_count: filtered.reduce((sum, t) => sum + (t.player_count || 0), 0),
+        });
+        return;
+      }
+      if (window === "custom") {
         setIndex(initialIndex);
         return;
       }
       setLoading(true);
-      const suffix = window === "7d" ? "-7d" : "-30d";
-      const newIndex = await fetchWindowedData<CityLeagueIndex>(
-        format,
-        "city-league-index.json",
-        suffix,
-      );
-      if (newIndex) setIndex(newIndex);
-      setLoading(false);
+      try {
+        const suffix = window === "7d" ? "-7d" : "-30d";
+        const newIndex = await fetchWindowedData<CityLeagueIndex>(
+          format,
+          "city-league-index.json",
+          suffix,
+        );
+        if (newIndex) setIndex(newIndex);
+      } finally {
+        setLoading(false);
+      }
     },
-    [format, initialIndex],
+    [format, initialIndex, customRange],
   );
 
   useEffect(() => {
