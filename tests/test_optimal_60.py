@@ -295,6 +295,80 @@ class TestInsightGeneration:
         assert insight is None
 
 
+class TestCardNameNormalization:
+    """Verify that EN_CARD_ALIASES variants are merged before aggregation."""
+
+    def test_alias_variants_merged_into_canonical(self):
+        """Cards with aliased names should be merged with their canonical name."""
+        import sqlite3
+
+        from analysis.optimal_60 import compute_optimal_60
+        from db import SCHEMA
+
+        conn = sqlite3.connect(":memory:")
+        conn.row_factory = sqlite3.Row
+        conn.execute("PRAGMA foreign_keys=ON")
+        conn.executescript(SCHEMA)
+
+        conn.execute(
+            "INSERT INTO tournaments (id, name, date, player_count, division) "
+            "VALUES ('t1', 'Test CL', '2026-03-01', 64, 'open')"
+        )
+
+        # 4 placements, all same archetype
+        for pid in range(1, 5):
+            conn.execute(
+                "INSERT INTO placements (id, tournament_id, standing, player_name, archetype) "
+                "VALUES (?, 't1', ?, 'Player', 'Test Deck')",
+                (pid, pid),
+            )
+
+        # Placements 1-2 use canonical name "Lillie's Determination"
+        # Placements 3-4 use alias "Lillie's Resolve"
+        # These should merge into a single card entry
+        for pid in [1, 2]:
+            conn.execute(
+                "INSERT INTO decklist_cards (placement_id, card_id, card_name, count) "
+                "VALUES (?, 'card-lillie', 'Lillie''s Determination', 4)",
+                (pid,),
+            )
+        for pid in [3, 4]:
+            conn.execute(
+                "INSERT INTO decklist_cards (placement_id, card_id, card_name, count) "
+                "VALUES (?, 'card-lillie-alias', 'Lillie''s Resolve', 4)",
+                (pid,),
+            )
+
+        # Add a universal card so we have enough data
+        for pid in range(1, 5):
+            conn.execute(
+                "INSERT INTO decklist_cards (placement_id, card_id, card_name, count) "
+                "VALUES (?, 'card-nest', 'Nest Ball', 4)",
+                (pid,),
+            )
+
+        conn.commit()
+
+        result = compute_optimal_60(conn, "Test Deck")
+        assert result is not None
+
+        cards_by_name = {c["card_name"]: c for c in result["cards"]}
+
+        # Should have ONE entry under canonical name, not two separate entries
+        assert "Lillie's Determination" in cards_by_name, (
+            "Canonical name 'Lillie's Determination' should appear in results"
+        )
+        assert "Lillie's Resolve" not in cards_by_name, (
+            "Alias 'Lillie's Resolve' should be merged into canonical name"
+        )
+
+        # The merged card should reflect all 4 decklists
+        lillie = cards_by_name["Lillie's Determination"]
+        assert lillie["blended_inclusion_pct"] == 100.0
+
+        conn.close()
+
+
 class TestExportOptimal60:
     def test_export_creates_files(self, db_with_cl, tmp_path):
         """Verify export_optimal_60 produces index and per-archetype JSONs."""

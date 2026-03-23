@@ -4,7 +4,7 @@ import sqlite3
 from collections import defaultdict
 from statistics import variance
 
-from analysis.card_stats import classify_card
+from analysis.card_stats import EN_CARD_ALIASES, classify_card
 from config import (
     CL_BOOST_FACTOR,
     CL_TOURNAMENT_IDS,
@@ -159,7 +159,8 @@ def compute_optimal_60(
     for cr in card_rows:
         pid = cr["placement_id"]
         w = weight_by_pid[pid]
-        cd = card_data[cr["card_name"]]
+        card_name = EN_CARD_ALIASES.get(cr["card_name"], cr["card_name"])
+        cd = card_data[card_name]
         cd["weighted_sum"] += w
         cd["weighted_copies"] += cr["count"] * w
         cd["raw_count"] += 1

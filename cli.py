@@ -521,92 +521,96 @@ def translate_cards(ctx: click.Context, dry_run: bool) -> None:
 @click.option("--dry-run", is_flag=True, help="Show what would change without updating")
 @click.pass_context
 def reclassify(ctx: click.Context, dry_run: bool) -> None:
-    """Re-classify Unknown archetypes using JP_CARD_NAME_MAP + anchor cards.
+    """Re-classify archetypes using decklist-based classification.
 
-    Finds placements with archetype='Unknown' that have decklist cards,
-    translates JP card names via JP_CARD_NAME_MAP, and runs the anchor-card
-    classifier to assign proper archetypes.
+    By default, targets placements with archetype='Unknown'. Use --all to
+    reclassify every JP placement that has a decklist (fixes misclassified
+    decks from backfill-archetypes).
     """
+    _run_reclassify(ctx, dry_run=dry_run, target_all=False)
+
+
+@cli.command("reclassify-all")
+@click.option("--dry-run", is_flag=True, help="Show what would change without modifying the DB")
+@click.pass_context
+def reclassify_all(ctx: click.Context, dry_run: bool) -> None:
+    """Re-classify ALL JP placements with decklists, not just Unknown.
+
+    Useful for fixing misclassified decks (e.g., from backfill-archetypes
+    assigning wrong archetypes to standing=9 non-top-cut placements).
+    """
+    _run_reclassify(ctx, dry_run=dry_run, target_all=True)
+
+
+def _run_reclassify(ctx: click.Context, *, dry_run: bool, target_all: bool) -> None:
     from analysis.archetype_classifier import classify_decklist
-    from config import ARCHETYPE_ANCHOR_CARDS, JP_CARD_NAME_MAP
-    from scraper.pokemon_jp import JP_ENERGY_MAP
-
-    anchor_names: set[str] = set()
-    for key, val in ARCHETYPE_ANCHOR_CARDS.items():
-        anchor_names.add(key)
-        if isinstance(val, dict):
-            anchor_names.update(k for k in val if k != "_default")
-
-    jp_to_en: dict[str, str] = dict(JP_CARD_NAME_MAP)
-    jp_to_en.update(JP_ENERGY_MAP)
-
-    if not JP_CARD_NAME_MAP:
-        console.print(
-            "[red]JP_CARD_NAME_MAP is empty. Check config.py for missing card mappings.[/red]"
-        )
-        raise SystemExit(1)
+    from analysis.card_stats import classify_card
 
     conn = get_format_connection(ctx.obj["format"])
     init_db(conn)
 
     try:
-        console.print(f"Loaded {len(jp_to_en)} JP-to-EN mappings")
-
-        # Find Unknown placements with decklists
-        unknowns = conn.execute(
-            """
-            SELECT p.id, p.tournament_id, p.player_name
-            FROM placements p
-            WHERE p.archetype = 'Unknown'
-            AND EXISTS (SELECT 1 FROM decklist_cards dc WHERE dc.placement_id = p.id)
-            """
-        ).fetchall()
-
-        console.print(f"Found {len(unknowns)} Unknown placements with decklists")
+        if target_all:
+            # Reclassify all JP placements with decklists
+            targets = conn.execute(
+                """
+                SELECT p.id, p.tournament_id, p.player_name, p.archetype
+                FROM placements p
+                WHERE p.tournament_id LIKE 'jp-%'
+                AND EXISTS (SELECT 1 FROM decklist_cards dc WHERE dc.placement_id = p.id)
+                """
+            ).fetchall()
+            console.print(f"Found {len(targets)} JP placements with decklists")
+        else:
+            targets = conn.execute(
+                """
+                SELECT p.id, p.tournament_id, p.player_name, p.archetype
+                FROM placements p
+                WHERE p.archetype = 'Unknown'
+                AND EXISTS (SELECT 1 FROM decklist_cards dc WHERE dc.placement_id = p.id)
+                """
+            ).fetchall()
+            console.print(f"Found {len(targets)} Unknown placements with decklists")
 
         reclassified = 0
         still_unknown = 0
+        unchanged = 0
         failed = 0
         changes: dict[str, int] = {}
 
-        for placement in unknowns:
+        for placement in targets:
             try:
                 cards = conn.execute(
                     "SELECT card_name, count FROM decklist_cards WHERE placement_id = ?",
                     (placement["id"],),
                 ).fetchall()
 
-                # Translate JP -> EN
+                # Card names in decklist_cards are already translated to EN.
+                # Classify using the EN card names directly.
                 translated: list[dict] = []
                 for card in cards:
                     name = card["card_name"]
-                    en_name = jp_to_en.get(name)
-                    # Infer category: Energy > known anchor Pokemon > 'ex' Pokemon > Trainer
-                    card_label = en_name or name
-                    if name in JP_ENERGY_MAP or (en_name and "Energy" in en_name):
-                        category = "Energy"
-                    elif card_label in anchor_names:
-                        category = "Pokemon"
-                    elif en_name and "ex" in en_name:
-                        category = "Pokemon"
-                    else:
-                        category = "Trainer"
+                    category = classify_card(name)
                     translated.append(
-                        {"card_name": en_name or name, "count": card["count"], "category": category}
+                        {"card_name": name, "count": card["count"], "category": category}
                     )
 
                 archetype = classify_decklist(translated)
+                old_archetype = placement["archetype"]
 
-                if archetype != "Unknown":
+                if archetype == "Unknown":
+                    still_unknown += 1
+                elif archetype == old_archetype:
+                    unchanged += 1
+                else:
                     reclassified += 1
-                    changes[archetype] = changes.get(archetype, 0) + 1
+                    label = f"{old_archetype} -> {archetype}" if target_all else archetype
+                    changes[label] = changes.get(label, 0) + 1
                     if not dry_run:
                         conn.execute(
                             "UPDATE placements SET archetype = ? WHERE id = ?",
                             (archetype, placement["id"]),
                         )
-                else:
-                    still_unknown += 1
             except (sqlite3.OperationalError, KeyError, ValueError, TypeError) as exc:
                 logger.error(
                     "Failed to reclassify placement %s: %s", placement["id"], exc, exc_info=True
@@ -616,16 +620,17 @@ def reclassify(ctx: click.Context, dry_run: bool) -> None:
         if not dry_run:
             conn.commit()
 
-        # Fail fast if most placements failed (likely a systematic bug)
-        if failed > 0 and len(unknowns) > 0 and failed / len(unknowns) > 0.5:
+        if failed > 0 and len(targets) > 0 and failed / len(targets) > 0.5:
             console.print(
-                f"\n[red bold]ERROR: {failed}/{len(unknowns)} placements failed to reclassify. "
+                f"\n[red bold]ERROR: {failed}/{len(targets)} placements failed to reclassify. "
                 f"This indicates a systematic issue.[/red bold]"
             )
             raise SystemExit(1)
 
         prefix = "[bold yellow]DRY RUN:[/bold yellow] " if dry_run else ""
         console.print(f"\n{prefix}[green]Reclassified {reclassified} placements[/green]")
+        if unchanged:
+            console.print(f"  Unchanged: {unchanged}")
         if still_unknown:
             console.print(f"  Still Unknown: {still_unknown}")
         if failed:
@@ -1086,7 +1091,9 @@ def backfill_archetypes(
             return
 
         # Build lookup: (date_str, standing) -> archetype
+        # Mark keys that appear more than once as ambiguous (non-unique standing)
         archetype_lookup: dict[tuple[str, int], str] = {}
+        ambiguous_keys: set[tuple[str, int]] = set()
 
         for i, tournament in enumerate(tournaments, 1):
             console.print(
@@ -1098,9 +1105,20 @@ def backfill_archetypes(
             date_str = tournament.tournament_date.isoformat()
             for p in placements:
                 key = (date_str, p.placement)
+                if key in archetype_lookup:
+                    ambiguous_keys.add(key)
                 archetype_lookup[key] = p.archetype
 
-        console.print(f"Built lookup with [bold]{len(archetype_lookup)}[/bold] entries")
+        # Remove ambiguous keys to avoid assigning one tournament's archetype
+        # to a different tournament's placements at the same standing
+        for key in ambiguous_keys:
+            del archetype_lookup[key]
+
+        if ambiguous_keys:
+            console.print(
+                f"[yellow]Skipped {len(ambiguous_keys)} ambiguous (date, standing) keys[/yellow]"
+            )
+        console.print(f"Built lookup with [bold]{len(archetype_lookup)}[/bold] unique entries")
 
         # Update placements in DB
         updated = 0
