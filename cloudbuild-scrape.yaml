@@ -8,6 +8,18 @@ steps:
       - |
         gsutil -m cp "gs://${_CACHE_BUCKET}/scout-dbs/*.db" data/ || echo "WARNING: DB cache restore failed (exit $?), starting fresh"
 
+  # Restore frozen format data (nihil-zero) so formats.json includes it
+  - id: restore-frozen
+    name: gcr.io/cloud-builders/gsutil
+    entrypoint: bash
+    args:
+      - -c
+      - |
+        mkdir -p /workspace/web/public/data/nihil-zero
+        gsutil cp "gs://${_CACHE_BUCKET}/frozen/nihil-zero-data.tar.gz" /tmp/nihil-zero.tar.gz
+        tar -xzf /tmp/nihil-zero.tar.gz -C /workspace/web/public/data/nihil-zero
+        echo "Restored frozen nihil-zero data"
+
   # Single Python step -- pip installs don't persist across containers
   - id: scrape
     name: python:3.12-slim
@@ -22,7 +34,7 @@ steps:
         python cli.py --format ninja-spinner translate-cards &&
         python cli.py --format ninja-spinner meta &&
         python cli.py --format ninja-spinner export-web --strict
-    waitFor: ["restore-db-cache"]
+    waitFor: ["restore-db-cache", "restore-frozen"]
 
   # Validate exported data and database integrity before saving
   - id: validate
