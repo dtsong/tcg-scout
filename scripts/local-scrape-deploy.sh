@@ -79,19 +79,17 @@ cat > web/data-manifest.json <<EOF
 }
 EOF
 
-# Step 6: Commit manifest (no push — avoid creating duplicate Vercel projects)
+# Step 6: Commit and push (triggers Vercel deploy on existing 'web' project)
 echo ""
-echo "--- Step 5: Commit manifest & redeploy ---"
+echo "--- Step 5: Push to main ---"
 git add web/data-manifest.json
 if git diff --cached --quiet; then
-  echo "No manifest changes"
+  echo "No manifest changes, skipping push"
 else
   git commit -m "data: scrape $(date -u +%Y-%m-%dT%H:%MZ)"
+  git push origin main
+  echo "Pushed! Vercel will auto-deploy."
 fi
-
-# Trigger production redeploy on the existing Vercel 'web' project
-npx vercel deploy --prod --yes 2>&1 | tail -5
-echo "Vercel production deploy triggered."
 
 # Cleanup
 rm -f "/tmp/${TAR_FILE}"
