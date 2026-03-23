@@ -77,6 +77,9 @@ class JPEventResult:
     division: str  # juniors, seniors, masters
     date: str
     placements: list[JPPlacement] = field(default_factory=list)
+    prefecture: str | None = None
+    store_name: str | None = None
+    capacity: int | None = None
 
 
 class PokemonJPClient:
@@ -675,8 +678,19 @@ def store_cl_city_league_results(
     # Store tournament
     tournament_division = _TOURNAMENT_DIVISION.get(event.division, event.division)
     conn.execute(
-        "INSERT OR REPLACE INTO tournaments (id, name, date, country, division) VALUES (?, ?, ?, ?, ?)",
-        (tournament_id, event.event_name, event.date, "JP", tournament_division),
+        "INSERT OR REPLACE INTO tournaments "
+        "(id, name, date, country, division, prefecture, store_name, capacity) "
+        "VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+        (
+            tournament_id,
+            event.event_name,
+            event.date,
+            "JP",
+            tournament_division,
+            event.prefecture,
+            event.store_name,
+            event.capacity,
+        ),
     )
 
     for placement in event.placements:

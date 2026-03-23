@@ -10,6 +10,7 @@ import type {
   ArchetypeDetail,
   ArchetypeReport,
   CLDivision,
+  CityLeagueIndex,
   FormatInfo,
   TimelineData,
   CardSummary,
@@ -247,6 +248,15 @@ export function getArchetypeReport(
 ): ArchetypeReport | null {
   try {
     return readJson(`${format}/archetype-reports/${slug}.json`);
+  } catch (err) {
+    if (isFileNotFound(err)) return null;
+    throw err;
+  }
+}
+
+export function getCityLeagueIndex(format: string): CityLeagueIndex | null {
+  try {
+    return readJson(`${format}/city-league-index.json`);
   } catch (err) {
     if (isFileNotFound(err)) return null;
     throw err;

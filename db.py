@@ -33,7 +33,10 @@ CREATE TABLE IF NOT EXISTS tournaments (
     player_count INTEGER,
     country TEXT DEFAULT 'JP',
     division TEXT DEFAULT 'open',
-    tournament_type TEXT DEFAULT 'city-league'
+    tournament_type TEXT DEFAULT 'city-league',
+    prefecture TEXT,
+    store_name TEXT,
+    capacity INTEGER
 );
 
 CREATE TABLE IF NOT EXISTS placements (
@@ -136,6 +139,28 @@ def get_connection() -> sqlite3.Connection:
     return get_format_connection(DEFAULT_FORMAT)
 
 
+def _backfill_prefecture(conn: sqlite3.Connection) -> None:
+    """Best-effort backfill of prefecture from tournament name where NULL."""
+    rows = conn.execute("SELECT id, name FROM tournaments WHERE prefecture IS NULL").fetchall()
+    if not rows:
+        return
+    updated = 0
+    for row in rows:
+        tid, name = row["id"], row["name"]
+        prefecture = None
+        if "City League " in name:
+            # Limitless format: "City League Osaka" -> "Osaka"
+            prefecture = name.split("City League ", 1)[1].strip() or None
+        if prefecture:
+            conn.execute(
+                "UPDATE tournaments SET prefecture = ? WHERE id = ?",
+                (prefecture, tid),
+            )
+            updated += 1
+    if updated:
+        logger.info("Backfill: set prefecture on %d tournaments", updated)
+
+
 def init_db(conn: sqlite3.Connection | None = None) -> None:
     """Create all tables if they don't exist."""
     close = False
@@ -152,6 +177,18 @@ def init_db(conn: sqlite3.Connection | None = None) -> None:
         conn.execute(
             "ALTER TABLE tournaments ADD COLUMN tournament_type TEXT DEFAULT 'city-league'"
         )
+    # Migration: add city-league metadata columns
+    if "prefecture" not in cols:
+        conn.execute("ALTER TABLE tournaments ADD COLUMN prefecture TEXT")
+        logger.info("Migration: added prefecture column to tournaments")
+    if "store_name" not in cols:
+        conn.execute("ALTER TABLE tournaments ADD COLUMN store_name TEXT")
+        logger.info("Migration: added store_name column to tournaments")
+    if "capacity" not in cols:
+        conn.execute("ALTER TABLE tournaments ADD COLUMN capacity INTEGER")
+        logger.info("Migration: added capacity column to tournaments")
+    # Backfill prefecture from tournament name where missing
+    _backfill_prefecture(conn)
     # Migration: add decklist_url column to placements
     p_cols = {row[1] for row in conn.execute("PRAGMA table_info(placements)")}
     if "decklist_url" not in p_cols:
