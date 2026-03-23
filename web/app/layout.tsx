@@ -1,23 +1,23 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import { Instrument_Sans, IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
+import { Oswald, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-const instrumentSans = Instrument_Sans({
+const oswald = Oswald({
   subsets: ["latin"],
-  weight: ["600", "700"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-display",
   display: "swap",
 });
 
-const ibmPlexSans = IBM_Plex_Sans({
+const oswaldBody = Oswald({
   subsets: ["latin"],
   weight: ["400", "500"],
   variable: "--font-body",
   display: "swap",
 });
 
-const ibmPlexMono = IBM_Plex_Mono({
+const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
   weight: ["400"],
   variable: "--font-mono",
@@ -44,7 +44,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${instrumentSans.variable} ${ibmPlexSans.variable} ${ibmPlexMono.variable} ${pokemonClassic.variable}`}
+      className={`${oswald.variable} ${oswaldBody.variable} ${jetbrainsMono.variable} ${pokemonClassic.variable}`}
     >
       <body className="min-h-screen antialiased">
         {children}
