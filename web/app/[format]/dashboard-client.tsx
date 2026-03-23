@@ -373,7 +373,7 @@ export function DashboardClient({
           { href: `/${format}/archetypes`, title: "Archetypes", desc: `${meta.archetypes.length} decks tracked` },
           { href: `/${format}/buylist`, title: "Buy List", desc: "Priority acquisition guide" },
           { href: `/${format}/trends`, title: "Trends", desc: "Usage shifts & winning edge" },
-          { href: `/${format}/champions`, title: "Champions League", desc: "CL decklists" },
+          { href: `/${format}/champions`, title: "Champions League", desc: "Top cut decklists" },
         ].map(({ href, title, desc }) => (
           <Link
             key={href}

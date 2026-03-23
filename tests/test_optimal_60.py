@@ -151,7 +151,7 @@ class TestComputeOptimal60:
         assert switch["meta_inclusion_pct"] == 0.0
         assert switch["inclusion_delta"] == 100.0
         assert switch["insight"] is not None
-        assert "CL breakout" in switch["insight"]
+        assert "Champions League breakout" in switch["insight"]
 
     def test_copy_divergence_detected(self, db_with_cl):
         from analysis.optimal_60 import compute_optimal_60
@@ -229,7 +229,7 @@ class TestInsightGeneration:
             5,
         )
         assert insight is not None
-        assert "CL breakout" in insight
+        assert "Champions League breakout" in insight
 
     def test_cl_cut_insight(self):
         from analysis.optimal_60 import _generate_insight
@@ -245,7 +245,7 @@ class TestInsightGeneration:
             5,
         )
         assert insight is not None
-        assert "CL cut" in insight
+        assert "Champions League cut" in insight
 
     def test_meta_staple_insight(self):
         from analysis.optimal_60 import _generate_insight

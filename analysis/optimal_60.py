@@ -40,24 +40,25 @@ def _generate_insight(
 
     if delta > 15:
         return (
-            f"CL breakout: {cl_inclusion:.0f}% in CL top cut "
+            f"Champions League breakout: {cl_inclusion:.0f}% in top cut "
             f"vs {meta_inclusion:.0f}% in City Leagues"
         )
 
     if delta < -15:
-        return (
-            f"CL cut: dropped by CL players ({cl_inclusion:.0f}% CL vs {meta_inclusion:.0f}% meta)"
-        )
+        return f"Champions League cut: {cl_inclusion:.0f}% vs {meta_inclusion:.0f}% in City Leagues"
 
     if abs(cl_avg - meta_avg) >= 1.0 and blended_inclusion >= 50:
-        return f"Copy divergence: {cl_avg:.1f} copies in CL vs {meta_avg:.1f} in City Leagues"
+        return (
+            f"Copy divergence: {cl_avg:.1f} copies in Champions League "
+            f"vs {meta_avg:.1f} in City Leagues"
+        )
 
     if blended_inclusion >= 90:
         return f"Meta staple: {blended_inclusion:.0f}% inclusion across all events"
 
     if consensus == "cl-signal":
         return (
-            f"CL signal: {cl_inclusion:.0f}% inclusion in CL despite "
+            f"Champions League signal: {cl_inclusion:.0f}% inclusion despite "
             f"only {meta_inclusion:.0f}% in broader meta"
         )
 

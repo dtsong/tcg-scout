@@ -123,7 +123,7 @@ const TOOL_SECTIONS: {
     bullets: [
       "Results are organized by division (Masters, Seniors, Juniors)",
       "Browse complete decklists with card-by-card translations",
-      "These results are not included in archetype scoring since CL placements lack archetype classification",
+      "These results are not included in archetype scoring since Champions League placements lack archetype classification",
     ],
   },
 ];

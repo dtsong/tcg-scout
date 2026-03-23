@@ -336,10 +336,10 @@ function DivergencePanel({ cards }: { cards: Optimal60Card[] }) {
   return (
     <section>
       <h2 className="font-display text-lg font-semibold text-slate-100 mb-1">
-        CL vs Meta Divergences
+        Champions League vs Meta Divergences
       </h2>
       <p className="text-xs text-surface-400 mb-3">
-        Cards where CL results diverge most from City League consensus.
+        Cards where Champions League results diverge most from City League consensus.
       </p>
       <div className="bg-surface-800 border border-surface-600 rounded-lg overflow-hidden">
         <div className="grid grid-cols-[1fr_60px_60px_50px] gap-2 px-4 py-2 border-b border-surface-600 text-[10px] text-surface-400 uppercase tracking-wider font-semibold">
@@ -411,9 +411,9 @@ export function Optimal60Client({
 
   const selected = index.archetypes.find((a) => a.slug === selectedSlug);
 
-  // Derive short CL label from event name (e.g., "Fukuoka CL 2026" -> "Fukuoka CL")
+  // Derive CL label from event name (e.g., "Fukuoka CL 2026" -> "Fukuoka Champions League")
   const clLabel = index.cl_event
-    ? index.cl_event.replace(/\s*\d{4}$/, "") + (index.cl_event.includes("CL") ? "" : " CL")
+    ? index.cl_event.replace(/\s*\d{4}$/, "").replace(/\bCL\b/, "Champions League")
     : "Champions League";
 
   return (
@@ -476,7 +476,7 @@ export function Optimal60Client({
               <StatCard
                 label={clLabel}
                 value={formatOrdinal(selected.cl_best_finish)}
-                tooltip={`Best CL finish. All CL placements: ${selected.cl_placements.map(formatOrdinal).join(", ")}`}
+                tooltip={`Best Champions League finish. All placements: ${selected.cl_placements.map(formatOrdinal).join(", ")}`}
               />
             ) : (
               <StatCard
@@ -525,7 +525,7 @@ export function Optimal60Client({
           <div className="flex items-center gap-4 text-[10px] text-surface-400">
             <span className="flex items-center gap-1.5">
               <span className="w-8 h-0.5 bg-teal-400/40 rounded" />
-              CL inclusion
+              Champions League inclusion
             </span>
             <span className="flex items-center gap-1.5">
               <span className="w-8 h-3 bg-amber-500/10 rounded" />
@@ -533,7 +533,7 @@ export function Optimal60Client({
             </span>
             <span className="flex items-center gap-1.5">
               <span className="px-1 py-0.5 rounded bg-teal-500/15 text-teal-400">+25</span>
-              CL favored
+              Champions League favored
             </span>
             <span className="flex items-center gap-1.5">
               <span className="px-1 py-0.5 rounded bg-rose-500/15 text-rose-400">-20</span>
@@ -561,7 +561,7 @@ export function Optimal60Client({
                     <span className="font-mono text-slate-300">
                       {detail.innovation_index.toFixed(0)}%
                     </span>{" "}
-                    of cards differ between CL and meta
+                    of cards differ between Champions League and meta
                   </span>
                 </>
               )}
