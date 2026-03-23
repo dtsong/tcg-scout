@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import { Instrument_Sans, IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
+import { Audiowide, IBM_Plex_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-const instrumentSans = Instrument_Sans({
+const audiowide = Audiowide({
   subsets: ["latin"],
-  weight: ["600", "700"],
+  weight: ["400"],
   variable: "--font-display",
   display: "swap",
 });
@@ -17,7 +17,7 @@ const ibmPlexSans = IBM_Plex_Sans({
   display: "swap",
 });
 
-const ibmPlexMono = IBM_Plex_Mono({
+const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
   weight: ["400"],
   variable: "--font-mono",
@@ -44,7 +44,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${instrumentSans.variable} ${ibmPlexSans.variable} ${ibmPlexMono.variable} ${pokemonClassic.variable}`}
+      className={`${audiowide.variable} ${ibmPlexSans.variable} ${jetbrainsMono.variable} ${pokemonClassic.variable}`}
     >
       <body className="min-h-screen antialiased">
         {children}
