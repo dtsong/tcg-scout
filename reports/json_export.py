@@ -2847,6 +2847,13 @@ def export_timeline(conn: sqlite3.Connection, output_dir: Path) -> None:
             }
         )
 
+    # Drop partial trailing week if it has too few decks to be representative
+    # (< 25% of the average full week), to avoid noisy spikes on the chart
+    if len(weeks) >= 2:
+        avg_decks = sum(w["deck_count"] for w in weeks[:-1]) / (len(weeks) - 1)
+        if weeks[-1]["deck_count"] < avg_decks * 0.25:
+            weeks = weeks[:-1]
+
     timeline = {
         "weeks": weeks,
         "archetype_order": top_archetypes,
