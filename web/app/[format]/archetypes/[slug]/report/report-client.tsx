@@ -104,7 +104,7 @@ export function ReportClient({
             Optimal 60 Available
           </span>
           <span className="text-xs text-surface-400">
-            See the CL-validated recommended list incorporating Fukuoka Champions League results
+            See the CL-validated recommended list incorporating Champions League results
           </span>
         </Link>
       )}

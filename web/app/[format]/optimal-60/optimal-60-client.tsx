@@ -339,7 +339,7 @@ function DivergencePanel({ cards }: { cards: Optimal60Card[] }) {
         CL vs Meta Divergences
       </h2>
       <p className="text-xs text-surface-400 mb-3">
-        Cards where Fukuoka CL results diverge most from City League consensus.
+        Cards where CL results diverge most from City League consensus.
       </p>
       <div className="bg-surface-800 border border-surface-600 rounded-lg overflow-hidden">
         <div className="grid grid-cols-[1fr_60px_60px_50px] gap-2 px-4 py-2 border-b border-surface-600 text-[10px] text-surface-400 uppercase tracking-wider font-semibold">
@@ -411,6 +411,11 @@ export function Optimal60Client({
 
   const selected = index.archetypes.find((a) => a.slug === selectedSlug);
 
+  // Derive short CL label from event name (e.g., "Fukuoka CL 2026" -> "Fukuoka CL")
+  const clLabel = index.cl_event
+    ? index.cl_event.replace(/\s*\d{4}$/, "") + (index.cl_event.includes("CL") ? "" : " CL")
+    : "Champions League";
+
   return (
     <div className="space-y-8">
       {/* Hero */}
@@ -465,26 +470,26 @@ export function Optimal60Client({
             <StatCard
               label="Sample Size"
               value={selected.city_league_deck_count + selected.cl_deck_count}
-              tooltip={`Built from ${selected.city_league_deck_count} City League decklists${selected.cl_deck_count > 0 ? ` and ${selected.cl_deck_count} Fukuoka CL decklists (weighted 5x)` : ""}`}
+              tooltip={`Built from ${selected.city_league_deck_count} City League decklists${selected.cl_deck_count > 0 ? ` and ${selected.cl_deck_count} ${clLabel} decklists (weighted 5x)` : ""}`}
             />
             {selected.cl_best_finish != null ? (
               <StatCard
-                label="Fukuoka CL"
+                label={clLabel}
                 value={formatOrdinal(selected.cl_best_finish)}
                 tooltip={`Best CL finish. All CL placements: ${selected.cl_placements.map(formatOrdinal).join(", ")}`}
               />
             ) : (
               <StatCard
-                label="Fukuoka CL"
+                label={clLabel}
                 value="--"
-                tooltip="No top-32 finishes at Fukuoka Champions League"
+                tooltip={`No top-32 finishes at ${index.cl_event ?? "Champions League"}`}
               />
             )}
           </div>
           {/* CL placements detail */}
           {selected.cl_placements.length > 0 && (
             <div className="flex items-center gap-2 text-xs">
-              <span className="text-surface-400">Fukuoka CL finishes:</span>
+              <span className="text-surface-400">{clLabel} finishes:</span>
               <div className="flex gap-1">
                 {selected.cl_placements.map((p, i) => (
                   <span

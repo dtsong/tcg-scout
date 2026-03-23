@@ -40,14 +40,13 @@ def _generate_insight(
 
     if delta > 15:
         return (
-            f"CL breakout: {cl_inclusion:.0f}% in Fukuoka top cut "
+            f"CL breakout: {cl_inclusion:.0f}% in CL top cut "
             f"vs {meta_inclusion:.0f}% in City Leagues"
         )
 
     if delta < -15:
         return (
-            f"CL cut: dropped by Fukuoka players "
-            f"({cl_inclusion:.0f}% CL vs {meta_inclusion:.0f}% meta)"
+            f"CL cut: dropped by CL players ({cl_inclusion:.0f}% CL vs {meta_inclusion:.0f}% meta)"
         )
 
     if abs(cl_avg - meta_avg) >= 1.0 and blended_inclusion >= 50:
@@ -58,7 +57,7 @@ def _generate_insight(
 
     if consensus == "cl-signal":
         return (
-            f"CL signal: {cl_inclusion:.0f}% inclusion in Fukuoka despite "
+            f"CL signal: {cl_inclusion:.0f}% inclusion in CL despite "
             f"only {meta_inclusion:.0f}% in broader meta"
         )
 
