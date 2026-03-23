@@ -1461,8 +1461,12 @@ def export_windowed(
 
     d_latest = date.fromisoformat(latest_date)
 
+    # Clamp window start to actual data range so we don't produce empty early periods
+    earliest_date = conn.execute("SELECT MIN(t.date) FROM tournaments t").fetchone()[0]
+    d_earliest = date.fromisoformat(earliest_date) if earliest_date else d_latest
+
     for suffix, days in TIME_WINDOWS.items():
-        d_from = d_latest - timedelta(days=days)
+        d_from = max(d_latest - timedelta(days=days), d_earliest)
         date_from = d_from.isoformat()
         date_to = latest_date
 

@@ -32,17 +32,17 @@ echo "=== Local Scrape & Deploy (${FORMAT}) ==="
 if [ "$SKIP_SCRAPE" = false ]; then
   echo ""
   echo "--- Step 1: Scraping ---"
-  python cli.py --format "$FORMAT" scrape-jp $FETCH_DECKLISTS
-  python cli.py --format "$FORMAT" backfill-archetypes
-  python cli.py --format "$FORMAT" translate-cards
+  python3 cli.py --format "$FORMAT" scrape-jp $FETCH_DECKLISTS
+  python3 cli.py --format "$FORMAT" backfill-archetypes
+  python3 cli.py --format "$FORMAT" translate-cards
 fi
 
 # Step 2: Meta + Export + Validate
 echo ""
 echo "--- Step 2: Meta + Export ---"
-python cli.py --format "$FORMAT" meta
-python cli.py --format "$FORMAT" export-web
-python cli.py --format "$FORMAT" validate
+python3 cli.py --format "$FORMAT" meta
+python3 cli.py --format "$FORMAT" export-web
+python3 cli.py --format "$FORMAT" validate
 
 # Step 3: Create tarball (COPYFILE_DISABLE prevents macOS xattr pollution)
 echo ""
@@ -79,17 +79,19 @@ cat > web/data-manifest.json <<EOF
 }
 EOF
 
-# Step 6: Commit and push
+# Step 6: Commit manifest (no push — avoid creating duplicate Vercel projects)
 echo ""
-echo "--- Step 5: Push to main ---"
+echo "--- Step 5: Commit manifest & redeploy ---"
 git add web/data-manifest.json
 if git diff --cached --quiet; then
-  echo "No manifest changes, skipping push"
+  echo "No manifest changes"
 else
   git commit -m "data: scrape $(date -u +%Y-%m-%dT%H:%MZ)"
-  git push origin main
-  echo "Pushed! Vercel will auto-deploy."
 fi
+
+# Trigger production redeploy on the existing Vercel 'web' project
+npx vercel deploy --prod --yes 2>&1 | tail -5
+echo "Vercel production deploy triggered."
 
 # Cleanup
 rm -f "/tmp/${TAR_FILE}"
