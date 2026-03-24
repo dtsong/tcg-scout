@@ -23,13 +23,28 @@ const sortOptions: { label: string; value: SortField }[] = [
   { label: "# Archetypes", value: "archetype_count" },
 ];
 
-function ConfidenceDot({ confidence, level = "archetype" }: { confidence: number; level?: "card" | "archetype" }) {
-  const labels = level === "card"
-    ? { high: "High confidence (all archetypes have 10+ top-4 decks)", medium: "Medium confidence (some archetypes have limited samples)", low: "Limited data (at least one archetype has fewer than 5 top-4 decks)" }
-    : { high: "High confidence (10+ top-4 decks)", medium: "Medium confidence (5-9 top-4 decks)", low: "Limited data (fewer than 5 top-4 decks)" };
+const CONFIDENCE_LABELS = {
+  card: {
+    high: "High confidence (all archetypes have 10+ top-4 decks)",
+    medium: "Medium confidence (smallest archetype sample: 5-9 top-4 decks)",
+    low: "Limited data (at least one archetype has fewer than 5 top-4 decks)",
+  },
+  archetype: {
+    high: "High confidence (10+ top-4 decks)",
+    medium: "Medium confidence (5-9 top-4 decks)",
+    low: "Limited data (fewer than 5 top-4 decks)",
+  },
+} as const;
 
-  const color = confidence >= 1.0 ? "bg-emerald-400" : confidence >= 0.5 ? "bg-amber-400/70" : "bg-surface-500";
-  const label = confidence >= 1.0 ? labels.high : confidence >= 0.5 ? labels.medium : labels.low;
+function getConfidenceLevel(confidence: number): { color: string; tier: "high" | "medium" | "low" } {
+  if (confidence >= 1.0) return { color: "bg-emerald-400", tier: "high" };
+  if (confidence >= 0.5) return { color: "bg-amber-400/70", tier: "medium" };
+  return { color: "bg-surface-500", tier: "low" };
+}
+
+function ConfidenceDot({ confidence, level = "archetype" }: { confidence: number; level?: "card" | "archetype" }) {
+  const { color, tier } = getConfidenceLevel(confidence);
+  const label = CONFIDENCE_LABELS[level][tier];
   return <span className={`inline-block w-2 h-2 rounded-full ${color}`} title={label} />;
 }
 
@@ -62,7 +77,7 @@ function FeaturedCard({ card, format }: { card: CardAnalysisEntry; format: strin
       <div className="flex items-center justify-between mt-2">
         <DeltaValue delta={effectiveImpact(card)} size="lg" />
         <div className="flex items-center gap-1.5">
-          <ConfidenceDot confidence={card.confidence ?? 0} level="card" />
+          <ConfidenceDot confidence={card.confidence ?? 1} level="card" />
           <span className="text-[10px] text-surface-400 font-mono">{card.archetype_count} arch</span>
         </div>
       </div>
@@ -105,7 +120,7 @@ function CardRow({
             <DeltaValue delta={card.max_delta} />
           </div>
           <div className="flex items-center gap-1.5">
-            <ConfidenceDot confidence={card.confidence ?? 0} level="card" />
+            <ConfidenceDot confidence={card.confidence ?? 1} level="card" />
             <span className="text-xs text-surface-400 font-mono w-6 text-right">
               {card.archetype_count}
             </span>
@@ -117,7 +132,7 @@ function CardRow({
           {card.archetypes.map((a) => (
             <div key={a.slug} className="flex items-center justify-between gap-2 py-1.5 px-3 rounded bg-surface-800">
               <div className="flex items-center gap-2 min-w-0">
-                <ConfidenceDot confidence={a.confidence ?? 0} />
+                <ConfidenceDot confidence={a.confidence ?? 1} />
                 <Link
                   href={`/${format}/archetypes/${a.slug}`}
                   className="text-xs text-slate-400 hover:text-accent truncate"
@@ -151,7 +166,7 @@ export function CardAnalysisClient({
 
   const featuredCards = useMemo(() => {
     return data.cards
-      .filter((c) => effectiveImpact(c) > 0 && (c.confidence ?? 0) >= 0.5)
+      .filter((c) => effectiveImpact(c) > 0 && (c.confidence ?? 1) >= 0.5)
       .sort((a, b) => effectiveImpact(b) - effectiveImpact(a))
       .slice(0, 8);
   }, [data.cards]);

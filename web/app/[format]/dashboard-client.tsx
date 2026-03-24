@@ -277,7 +277,7 @@ export function DashboardClient({
                 <h3 className="font-display text-sm font-semibold text-slate-200 flex items-center gap-2">
                   <Layers className="w-4 h-4 text-tier-a" />
                   Cross-Meta Staples
-                  <InfoIcon tooltip="Cards that overperform in top-4 finishes across 3 or more S/A/B-tier archetypes. These are format-defining cards that give an edge regardless of which competitive deck you play." />
+                  <InfoIcon tooltip="Cards with a positive edge in top-4 finishes across 3 or more S/A/B-tier archetypes. These are format-defining cards that give an edge regardless of which competitive deck you play." />
                 </h3>
                 <Link href={`/${format}/card-analysis`} className="text-xs text-accent hover:text-accent/80">
                   Format Edge
