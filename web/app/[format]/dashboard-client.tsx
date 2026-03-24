@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { ArrowRight, TrendingUp, TrendingDown, Trophy, ShoppingCart, Calendar, Zap, Layers } from "lucide-react";
+import { DeltaValue } from "@/app/components/delta-value";
 import { TierBadge } from "@/app/components/tier-badge";
 import { StatCard } from "@/app/components/stat-card";
 import { DateFilter } from "@/app/components/date-filter";
@@ -290,9 +291,7 @@ export function DashboardClient({
                       <span className="font-mono text-xs text-surface-400 whitespace-nowrap">
                         {card.tiered_archetype_count} archetypes
                       </span>
-                      <span className={`font-mono text-xs whitespace-nowrap ${card.weighted_impact >= 0 ? "text-emerald-400" : "text-red-400"}`}>
-                        {card.weighted_impact >= 0 ? "+" : ""}{card.weighted_impact.toFixed(1)}
-                      </span>
+                      <DeltaValue delta={card.weighted_impact ?? 0} />
                     </div>
                   </div>
                 ))}

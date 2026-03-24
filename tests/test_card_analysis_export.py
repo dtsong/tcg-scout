@@ -189,3 +189,5 @@ def test_export_card_analysis_includes_confidence(tmp_path):
         assert 0 <= arch["confidence"] <= 1.0
     # top4_sample_size=2 for both archetypes -> confidence = min(1.0, 2/10) = 0.2
     assert boss["archetypes"][0]["confidence"] == 0.2
+    # Card-level confidence = min across archetypes (conservative)
+    assert boss["confidence"] == 0.2

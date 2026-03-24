@@ -34,7 +34,7 @@ export function computeCrossMetaStaples(cards: CardAnalysisEntry[], limit = 5): 
       const tieredArchetypes = card.archetypes.filter(
         (a) => ["S", "A", "B"].includes(a.tier) && a.delta_vs_field > 0
       );
-      return { card_name: card.card_name, weighted_impact: card.weighted_impact, tiered_archetype_count: tieredArchetypes.length };
+      return { card_name: card.card_name, weighted_impact: card.weighted_impact ?? card.avg_delta, tiered_archetype_count: tieredArchetypes.length };
     })
     .filter((c) => c.tiered_archetype_count >= 3)
     .sort((a, b) => b.tiered_archetype_count - a.tiered_archetype_count || b.weighted_impact - a.weighted_impact)
