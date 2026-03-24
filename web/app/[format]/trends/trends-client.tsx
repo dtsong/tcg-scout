@@ -40,14 +40,28 @@ export function TrendsClient({
         return;
       }
       setLoading(true);
-      const suffix = window === "7d" ? "-7d" : "-30d";
-      const [newTrends, newEdge] = await Promise.all([
-        fetchWindowedData<TrendsData>(format, "trends.json", suffix),
-        fetchWindowedData<WinningEdgeCard[]>(format, "winning-edge.json", suffix),
-      ]);
-      if (newTrends) setTrends(newTrends);
-      if (newEdge) setWinningEdge(newEdge);
-      setLoading(false);
+      try {
+        const suffix = window === "7d" ? "-7d" : "-30d";
+        const [newTrends, newEdge] = await Promise.all([
+          fetchWindowedData<TrendsData>(format, "trends.json", suffix),
+          fetchWindowedData<WinningEdgeCard[]>(format, "winning-edge.json", suffix),
+        ]);
+        if (!newTrends && !newEdge) {
+          setTrends(initialTrends);
+          setWinningEdge(initialWinningEdge);
+          setWindow("all");
+          return;
+        }
+        if (newTrends) setTrends(newTrends);
+        if (newEdge) setWinningEdge(newEdge);
+      } catch (err) {
+        console.error("[trends] Failed to load windowed data:", err);
+        setTrends(initialTrends);
+        setWinningEdge(initialWinningEdge);
+        setWindow("all");
+      } finally {
+        setLoading(false);
+      }
     },
     [format, initialTrends, initialWinningEdge],
   );

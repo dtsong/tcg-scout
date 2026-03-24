@@ -315,7 +315,16 @@ export function TournamentsClient({
           "city-league-index.json",
           suffix,
         );
-        if (newIndex) setIndex(newIndex);
+        if (newIndex) {
+          setIndex(newIndex);
+        } else {
+          setIndex(initialIndex);
+          setWindow("all");
+        }
+      } catch (err) {
+        console.error("[tournaments] Failed to load windowed data:", err);
+        setIndex(initialIndex);
+        setWindow("all");
       } finally {
         setLoading(false);
       }

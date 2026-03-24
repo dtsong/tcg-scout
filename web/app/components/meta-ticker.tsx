@@ -68,7 +68,7 @@ export function MetaTicker({
             className="inline-block w-1.5 h-1.5 rounded-full bg-terminal animate-pulse-dot"
             aria-hidden="true"
           />
-          <span>Updated {timeAgo}</span>
+          {timeAgo && <span>Updated {timeAgo}</span>}
         </span>
 
         {rotationDays != null && (
