@@ -237,7 +237,7 @@ export function GuideContent({ format }: { format: string }) {
           {SCENARIOS.map((scenario) => (
             <div
               key={scenario.title}
-              className="bg-surface-800 border border-surface-600 rounded-lg p-4 hover:border-surface-500 transition-colors"
+              className="bg-surface-800 border border-surface-600 rounded-lg p-4 hover:border-surface-500 transition-colors flex flex-col"
             >
               <h3 className="text-sm font-display font-semibold text-slate-200 mb-2">
                 {scenario.title}

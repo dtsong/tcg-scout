@@ -83,10 +83,8 @@ describe("GuideContent", () => {
       screen.queryByText(/overrepresented in top-4 finishing decks/)
     ).not.toBeInTheDocument();
     // Click to expand - target the button specifically
-    const formatEdgeButton = screen
-      .getAllByText("Format Edge")
-      .find((el) => el.tagName === "SPAN");
-    await user.click(formatEdgeButton!);
+    const formatEdgeButton = screen.getByRole("button", { name: /Format Edge/ });
+    await user.click(formatEdgeButton);
     expect(
       screen.getByText(/overrepresented in top-4 finishing decks/)
     ).toBeInTheDocument();
