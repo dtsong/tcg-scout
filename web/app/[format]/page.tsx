@@ -6,7 +6,7 @@ import { DashboardClient } from "./dashboard-client";
 export function generateMetadata({ params }: { params: Promise<{ format: string }> }) {
   return formatPageMetadata(params, (formatName) => ({
     title: `Meta Dashboard -- ${formatName} | Scout`,
-    description: `Live meta tier list for ${formatName} Pokemon TCG. Archetype rankings, trending cards, and tournament results from Japan's City Leagues.`,
+    description: `Latest meta tier list for ${formatName} Pokemon TCG. Archetype rankings, trending cards, and tournament results from Japan's City Leagues.`,
   }));
 }
 

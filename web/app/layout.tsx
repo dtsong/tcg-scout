@@ -38,7 +38,6 @@ export const metadata: Metadata = {
   openGraph: {
     siteName: "Scout",
     type: "website",
-    url: "https://scout.trainerlab.io",
   },
   twitter: {
     card: "summary",

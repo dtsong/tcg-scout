@@ -26,10 +26,14 @@ export async function generateMetadata({
     console.warn(`[metadata] archetype name is empty for ${format}/${slug}`);
   }
   const share = safePercent(arch.meta_share);
+  const tier = arch.tier || "Unknown";
+  if (!arch.tier) {
+    console.warn(`[metadata] tier is missing for ${format}/${slug}`);
+  }
   const formatName = getFormatName(format);
   return {
-    title: `${name} -- ${share}% Meta Share, Tier ${arch.tier} | Scout`,
-    description: `${name} in ${formatName}: ${share}% meta share, Tier ${arch.tier}, ${safeInt(arch.deck_count)} decks. Core cards, results, and performance analysis.`,
+    title: `${name} -- ${share}% Meta Share, Tier ${tier} | Scout`,
+    description: `${name} in ${formatName}: ${share}% meta share, Tier ${tier}, ${safeInt(arch.deck_count)} decks. Core cards, results, and performance analysis.`,
   };
 }
 

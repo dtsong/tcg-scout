@@ -21,7 +21,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { format, slug } = await params;
   const report = getArchetypeReport(format, slug);
-  const name = report?.archetype ?? slug;
+  const name = report?.archetype || slug;
   if (!report?.archetype) {
     console.warn(`[metadata] archetype report missing or has no name for ${format}/${slug}, falling back to slug`);
   }

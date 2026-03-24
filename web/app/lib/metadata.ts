@@ -27,7 +27,7 @@ export function safePercent(value: number): string {
 }
 
 /**
- * Safely coerce an integer value, returning 0 for NaN/Infinity.
+ * Safely return a numeric value, returning 0 for NaN/Infinity.
  */
 export function safeInt(value: number): number {
   if (!Number.isFinite(value)) {
