@@ -143,7 +143,7 @@ describe("formatPageMetadata", () => {
         Promise.resolve({ format: "unknown-format" }),
         (formatName) => ({ title: formatName, description: "" }),
       ),
-    ).rejects.toThrow("Unknown format slug: unknown-format");
+    ).rejects.toThrow('format "unknown-format" not found');
   });
 });
 

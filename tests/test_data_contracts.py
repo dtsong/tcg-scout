@@ -170,6 +170,128 @@ class TestTrendsContract:
 
 
 @pytest.mark.integration
+class TestTimelineContract:
+    def test_timeline_json_shape(self, export_dir):
+        timeline = json.loads((export_dir / "timeline.json").read_text())
+
+        _assert_type(timeline, dict, "timeline.json root")
+        _assert_keys(timeline, ["weeks", "archetype_order"], "timeline.json")
+        _assert_type(timeline["weeks"], list, "weeks")
+        _assert_type(timeline["archetype_order"], list, "archetype_order")
+        assert len(timeline["weeks"]) > 0, "weeks should not be empty with test fixture data"
+
+    def test_timeline_week_entry_shape(self, export_dir):
+        timeline = json.loads((export_dir / "timeline.json").read_text())
+
+        for week in timeline["weeks"]:
+            _assert_keys(
+                week,
+                ["week", "tournament_count", "deck_count", "archetypes"],
+                f"timeline week={week.get('week')}",
+            )
+            _assert_type(week["week"], str, "week")
+            _assert_type(week["tournament_count"], int, "tournament_count")
+            _assert_type(week["deck_count"], int, "deck_count")
+            _assert_type(week["archetypes"], dict, "archetypes")
+
+
+@pytest.mark.integration
+class TestCardAnalysisContract:
+    def test_card_analysis_json_shape(self, export_dir):
+        path = export_dir / "card-analysis.json"
+        if not path.exists():
+            pytest.skip("card-analysis.json not exported (insufficient data)")
+
+        data = json.loads(path.read_text())
+        _assert_type(data, dict, "card-analysis.json root")
+        _assert_keys(data, ["cards", "generated_at"], "card-analysis.json")
+        _assert_type(data["cards"], list, "cards")
+
+    def test_card_analysis_item_shape(self, export_dir):
+        path = export_dir / "card-analysis.json"
+        if not path.exists():
+            pytest.skip("card-analysis.json not exported (insufficient data)")
+
+        data = json.loads(path.read_text())
+        for card in data["cards"]:
+            _assert_keys(
+                card,
+                [
+                    "card_name",
+                    "max_delta",
+                    "category",
+                    "archetypes",
+                    "avg_delta",
+                    "archetype_count",
+                ],
+                f"card-analysis item={card.get('card_name')}",
+            )
+            _assert_type(card["card_name"], str, "card_name")
+            _assert_type(card["max_delta"], (int, float), "max_delta")
+            _assert_type(card["archetypes"], list, "archetypes")
+            _assert_type(card["archetype_count"], int, "archetype_count")
+
+
+@pytest.mark.integration
+class TestWinningEdgeContract:
+    def test_winning_edge_json_shape(self, export_dir):
+        data = json.loads((export_dir / "winning-edge.json").read_text())
+
+        _assert_type(data, list, "winning-edge.json root")
+
+    def test_winning_edge_item_shape(self, export_dir):
+        data = json.loads((export_dir / "winning-edge.json").read_text())
+
+        for item in data:
+            _assert_keys(
+                item,
+                ["card_name", "win_pct", "field_pct", "edge"],
+                f"winning-edge item={item.get('card_name')}",
+            )
+            _assert_type(item["card_name"], str, "card_name")
+            _assert_type(item["win_pct"], (int, float), "win_pct")
+            _assert_type(item["field_pct"], (int, float), "field_pct")
+            _assert_type(item["edge"], (int, float), "edge")
+
+
+@pytest.mark.integration
+class TestChampionsLeagueContract:
+    def test_champions_league_dir_exists(self, export_dir):
+        cl_dir = export_dir / "champions-league"
+        assert cl_dir.is_dir(), "champions-league/ directory should exist"
+
+    def test_champions_league_file_shape(self, export_dir):
+        cl_dir = export_dir / "champions-league"
+        cl_files = list(cl_dir.glob("*.json"))
+        assert len(cl_files) > 0, "Expected at least one CL division file"
+
+        for cl_file in cl_files:
+            data = json.loads(cl_file.read_text())
+            _assert_keys(
+                data,
+                ["event_id", "event_name", "division", "date", "archetype_summary", "placements"],
+                f"champions-league/{cl_file.name}",
+            )
+            _assert_type(data["placements"], list, "placements")
+            _assert_type(data["archetype_summary"], list, "archetype_summary")
+            _assert_type(data["division"], str, "division")
+
+    def test_champions_league_placement_shape(self, export_dir):
+        cl_dir = export_dir / "champions-league"
+        for cl_file in cl_dir.glob("*.json"):
+            data = json.loads(cl_file.read_text())
+            for p in data["placements"]:
+                _assert_keys(
+                    p,
+                    ["standing", "player_name", "region", "decklist"],
+                    f"champions-league/{cl_file.name} placement",
+                )
+                _assert_type(p["standing"], int, "standing")
+                _assert_type(p["player_name"], str, "player_name")
+                _assert_type(p["decklist"], list, "decklist")
+
+
+@pytest.mark.integration
 class TestArchetypesContract:
     def test_archetype_detail_files_exist(self, export_dir):
         arch_dir = export_dir / "archetypes"
@@ -300,10 +422,12 @@ class TestExportCompleteness:
         "winning-edge.json",
         "ace-specs.json",
         "timeline.json",
+        "card-analysis.json",
     ]
 
     EXPECTED_DIRS = [
         "archetypes",
+        "champions-league",
     ]
 
     def test_all_expected_files_exist(self, export_dir):

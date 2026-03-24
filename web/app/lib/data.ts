@@ -49,8 +49,16 @@ export function getFormats(): FormatInfo[] {
 export function getFormatName(format: string): string {
   const formats = getFormats();
   const found = formats.find((f) => f.slug === format);
-  if (!found) throw new Error(`Unknown format slug: ${format}`);
-  return found.name_en || format;
+  if (!found) {
+    throw new Error(
+      `getFormatName: format "${format}" not found in formats.json. Available: [${formats.map((f) => f.slug).join(", ")}]`,
+    );
+  }
+  if (!found.name_en) {
+    console.warn(`[data] getFormatName: name_en is empty for format "${format}", falling back to humanized slug`);
+    return format.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
+  }
+  return found.name_en;
 }
 
 export function getMeta(format: string): MetaData {

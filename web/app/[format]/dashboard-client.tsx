@@ -76,8 +76,9 @@ export function DashboardClient({
           fetchWindowedData<AceSpec[]>(format, "ace-specs.json", suffix),
         ]);
 
-        if (!newMeta && !newTrends && !newEdge && !newSpecs) {
-          // All fetches failed -- reset to initial data so user doesn't see stale mixed state
+        if (!newMeta || !newTrends || !newEdge || !newSpecs) {
+          // Any fetch returned null -- reset all to avoid mixed-window data
+          console.warn("[dashboard] Partial windowed data failure, resetting to initial");
           setMeta(initialMeta);
           setTrends(initialTrends);
           setWinningEdge(initialWinningEdge);
@@ -86,10 +87,10 @@ export function DashboardClient({
           return;
         }
 
-        if (newMeta) setMeta(newMeta);
-        if (newTrends) setTrends(newTrends);
-        if (newEdge) setWinningEdge(newEdge);
-        if (newSpecs) setAceSpecs(newSpecs);
+        setMeta(newMeta);
+        setTrends(newTrends);
+        setWinningEdge(newEdge);
+        setAceSpecs(newSpecs);
       } catch (err) {
         console.error("[dashboard] Failed to load windowed data:", err);
         setMeta(initialMeta);

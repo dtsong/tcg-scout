@@ -22,12 +22,12 @@ afterEach(() => {
 });
 
 describe("useCountUp", () => {
-  it("returns 0 initially", () => {
+  it("returns target initially (avoids hydration mismatch)", () => {
     const { result } = renderHook(() => useCountUp(100));
-    expect(result.current).toBe(0);
+    expect(result.current).toBe(100);
   });
 
-  it("returns target value after animation completes", () => {
+  it("animates from 0 to target when target changes", () => {
     let rafId = 0;
     const callbacks: Array<{ id: number; cb: FrameRequestCallback }> = [];
 
@@ -38,7 +38,19 @@ describe("useCountUp", () => {
     });
     vi.stubGlobal("cancelAnimationFrame", vi.fn());
 
-    const { result } = renderHook(() => useCountUp(200));
+    const { result, rerender } = renderHook(
+      ({ target }) => useCountUp(target),
+      { initialProps: { target: 100 } },
+    );
+
+    // First render returns target (no animation)
+    expect(result.current).toBe(100);
+
+    // Change target to trigger animation
+    rerender({ target: 200 });
+
+    // Value should start at 0 (reset before animation)
+    expect(result.current).toBe(0);
 
     // Simulate animation frames over 700ms (past the 600ms duration)
     const startTime = performance.now();

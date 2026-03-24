@@ -15,11 +15,18 @@ const DURATION = 600; // ms
  * Use with `font-mono tabular-nums` to prevent digit width shifts.
  */
 export function useCountUp(target: number, decimals = 0): number {
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useState(target);
   const rafRef = useRef<number | null>(null);
   const startRef = useRef<number | null>(null);
+  const isFirstRender = useRef(true);
 
   useEffect(() => {
+    // Skip animation on first render to avoid hydration mismatch
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
+
     const prefersReduced = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
     ).matches;
@@ -29,6 +36,8 @@ export function useCountUp(target: number, decimals = 0): number {
       return;
     }
 
+    // Reset to 0 then animate up
+    setValue(0);
     startRef.current = null;
 
     const animate = (timestamp: number) => {

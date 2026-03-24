@@ -46,14 +46,15 @@ export function TrendsClient({
           fetchWindowedData<TrendsData>(format, "trends.json", suffix),
           fetchWindowedData<WinningEdgeCard[]>(format, "winning-edge.json", suffix),
         ]);
-        if (!newTrends && !newEdge) {
+        if (!newTrends || !newEdge) {
+          console.warn("[trends] Partial windowed data failure, resetting to initial");
           setTrends(initialTrends);
           setWinningEdge(initialWinningEdge);
           setWindow("all");
           return;
         }
-        if (newTrends) setTrends(newTrends);
-        if (newEdge) setWinningEdge(newEdge);
+        setTrends(newTrends);
+        setWinningEdge(newEdge);
       } catch (err) {
         console.error("[trends] Failed to load windowed data:", err);
         setTrends(initialTrends);
