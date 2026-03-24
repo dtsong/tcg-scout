@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { getCardDetail, getCardSlugs, getFormats, getFormatName, getCardAnalysis } from "@/app/lib/data";
-import { safePercent, safeInt } from "@/app/lib/metadata";
+import { safePercent, safeInt, humanizeSlug } from "@/app/lib/metadata";
 import { CardDetailClient } from "./card-detail-client";
 import { notFound } from "next/navigation";
 
@@ -11,7 +11,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { format, slug } = await params;
   const card = getCardDetail(format, slug);
-  const name = card.card_name || slug;
+  const name = card.card_name || humanizeSlug(slug);
   if (!card.card_name) {
     console.warn(`[metadata] card name is empty for ${format}/${slug}`);
   }

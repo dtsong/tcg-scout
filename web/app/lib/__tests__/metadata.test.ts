@@ -13,7 +13,7 @@ vi.mock("fs", () => ({
 
 import fs from "fs";
 import { getArchetype, getCardDetail, getFormatName } from "../data";
-import { formatPageMetadata, safePercent, safeInt } from "../metadata";
+import { formatPageMetadata, safePercent, safeInt, humanizeSlug } from "../metadata";
 
 const MOCK_FORMATS = [
   {
@@ -63,6 +63,14 @@ beforeEach(() => {
   vi.mocked(fs.existsSync).mockReturnValue(true);
 });
 
+describe("humanizeSlug", () => {
+  it("capitalizes words and replaces hyphens with spaces", () => {
+    expect(humanizeSlug("nihil-zero")).toBe("Nihil Zero");
+    expect(humanizeSlug("charizard-ex")).toBe("Charizard Ex");
+    expect(humanizeSlug("single")).toBe("Single");
+  });
+});
+
 describe("safePercent", () => {
   it("formats a finite number to one decimal place", () => {
     expect(safePercent(15.3)).toBe("15.3");
@@ -70,15 +78,15 @@ describe("safePercent", () => {
     expect(safePercent(100)).toBe("100.0");
   });
 
-  it("returns '0.0' for NaN and warns", () => {
-    const spy = vi.spyOn(console, "warn").mockImplementation(() => {});
+  it("returns '0.0' for NaN and logs error", () => {
+    const spy = vi.spyOn(console, "error").mockImplementation(() => {});
     expect(safePercent(NaN)).toBe("0.0");
     expect(spy).toHaveBeenCalledWith(expect.stringContaining("safePercent received non-finite value"));
     spy.mockRestore();
   });
 
-  it("returns '0.0' for Infinity and warns", () => {
-    const spy = vi.spyOn(console, "warn").mockImplementation(() => {});
+  it("returns '0.0' for Infinity and logs error", () => {
+    const spy = vi.spyOn(console, "error").mockImplementation(() => {});
     expect(safePercent(Infinity)).toBe("0.0");
     expect(safePercent(-Infinity)).toBe("0.0");
     expect(spy).toHaveBeenCalledTimes(2);
@@ -98,15 +106,15 @@ describe("safeInt", () => {
     expect(safeInt(0.5)).toBe(1);
   });
 
-  it("returns 0 for NaN and warns", () => {
-    const spy = vi.spyOn(console, "warn").mockImplementation(() => {});
+  it("returns 0 for NaN and logs error", () => {
+    const spy = vi.spyOn(console, "error").mockImplementation(() => {});
     expect(safeInt(NaN)).toBe(0);
     expect(spy).toHaveBeenCalledWith(expect.stringContaining("safeInt received non-finite value"));
     spy.mockRestore();
   });
 
-  it("returns 0 for Infinity and warns", () => {
-    const spy = vi.spyOn(console, "warn").mockImplementation(() => {});
+  it("returns 0 for Infinity and logs error", () => {
+    const spy = vi.spyOn(console, "error").mockImplementation(() => {});
     expect(safeInt(Infinity)).toBe(0);
     expect(safeInt(-Infinity)).toBe(0);
     expect(spy).toHaveBeenCalledTimes(2);
@@ -142,7 +150,7 @@ describe("formatPageMetadata", () => {
 describe("archetype metadata formatting", () => {
   function buildArchetypeMetadata(format: string, slug: string) {
     const arch = getArchetype(format, slug);
-    const name = arch.archetype || slug;
+    const name = arch.archetype || humanizeSlug(slug);
     const share = safePercent(arch.meta_share);
     const formatName = getFormatName(format);
     return {
@@ -168,7 +176,7 @@ describe("archetype metadata formatting", () => {
   });
 
   it("handles NaN meta_share gracefully", () => {
-    const spy = vi.spyOn(console, "warn").mockImplementation(() => {});
+    const spy = vi.spyOn(console, "error").mockImplementation(() => {});
     setupArchMocks({ archetype: "Bad Data", meta_share: NaN, tier: "Rogue" });
 
     const meta = buildArchetypeMetadata("ninja-spinner", "bad-data");
@@ -178,7 +186,7 @@ describe("archetype metadata formatting", () => {
   });
 
   it("handles NaN deck_count gracefully", () => {
-    const spy = vi.spyOn(console, "warn").mockImplementation(() => {});
+    const spy = vi.spyOn(console, "error").mockImplementation(() => {});
     setupArchMocks({ archetype: "Broken Deck", deck_count: NaN, tier: "B" });
 
     const meta = buildArchetypeMetadata("ninja-spinner", "broken-deck");
@@ -187,12 +195,12 @@ describe("archetype metadata formatting", () => {
     spy.mockRestore();
   });
 
-  it("falls back to slug when archetype name is empty", () => {
+  it("falls back to humanized slug when archetype name is empty", () => {
     const spy = vi.spyOn(console, "warn").mockImplementation(() => {});
     setupArchMocks({ archetype: "", slug: "empty-name", tier: "Rogue" });
 
     const meta = buildArchetypeMetadata("ninja-spinner", "empty-name");
-    expect(meta.title).toContain("empty-name -- ");
+    expect(meta.title).toContain("Empty Name -- ");
     expect(meta.title).not.toContain(" -- -- ");
     spy.mockRestore();
   });
@@ -201,7 +209,7 @@ describe("archetype metadata formatting", () => {
 describe("card metadata formatting", () => {
   function buildCardMetadata(format: string, slug: string) {
     const card = getCardDetail(format, slug);
-    const name = card.card_name || slug;
+    const name = card.card_name || humanizeSlug(slug);
     const usage = safePercent(card.usage_pct);
     const formatName = getFormatName(format);
     return {
@@ -227,7 +235,7 @@ describe("card metadata formatting", () => {
   });
 
   it("handles NaN usage_pct gracefully", () => {
-    const spy = vi.spyOn(console, "warn").mockImplementation(() => {});
+    const spy = vi.spyOn(console, "error").mockImplementation(() => {});
     setupCardMocks({ card_name: "Bad Card", usage_pct: NaN });
 
     const meta = buildCardMetadata("ninja-spinner", "bad-card");
@@ -237,7 +245,7 @@ describe("card metadata formatting", () => {
   });
 
   it("handles NaN unique_archetypes gracefully", () => {
-    const spy = vi.spyOn(console, "warn").mockImplementation(() => {});
+    const spy = vi.spyOn(console, "error").mockImplementation(() => {});
     setupCardMocks({ card_name: "Broken Card", unique_archetypes: NaN });
 
     const meta = buildCardMetadata("ninja-spinner", "broken-card");
@@ -246,12 +254,12 @@ describe("card metadata formatting", () => {
     spy.mockRestore();
   });
 
-  it("falls back to slug when card_name is empty", () => {
+  it("falls back to humanized slug when card_name is empty", () => {
     const spy = vi.spyOn(console, "warn").mockImplementation(() => {});
     setupCardMocks({ card_name: "", slug: "empty-card" });
 
     const meta = buildCardMetadata("ninja-spinner", "empty-card");
-    expect(meta.title).toContain("empty-card -- ");
+    expect(meta.title).toContain("Empty Card -- ");
     expect(meta.title).not.toContain(" -- -- ");
     spy.mockRestore();
   });

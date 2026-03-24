@@ -57,6 +57,7 @@ export function getFormatName(format: string): string {
   }
   if (!match.name_en) {
     console.warn(`[data] getFormatName: name_en is empty for format "${format}", falling back to humanized slug`);
+    // Avoid circular: inline the same logic as humanizeSlug
     return format.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
   }
   return match.name_en;

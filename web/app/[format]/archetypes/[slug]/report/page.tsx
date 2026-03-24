@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { getArchetypeReport, getArchetypeSlugs, getFormats, getFormatName, getOptimal60Index } from "@/app/lib/data";
+import { humanizeSlug } from "@/app/lib/metadata";
 import { ReportClient } from "./report-client";
 
 export async function generateStaticParams() {
@@ -22,9 +23,16 @@ export async function generateMetadata({
   const { format, slug } = await params;
   const report = getArchetypeReport(format, slug);
   const formatName = getFormatName(format);
-  if (!report?.archetype) {
-    console.warn(`[metadata] archetype report missing or has no name for ${format}/${slug}, falling back to slug`);
-    const humanized = slug.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
+  if (!report) {
+    const humanized = humanizeSlug(slug);
+    return {
+      title: `${humanized} Report -- ${formatName} | Scout`,
+      description: `Deep dive report for ${humanized} in ${formatName}. Report data may not yet be available.`,
+    };
+  }
+  if (!report.archetype) {
+    console.warn(`[metadata] archetype report has no name for ${format}/${slug}, falling back to slug`);
+    const humanized = humanizeSlug(slug);
     return {
       title: `${humanized} Report -- ${formatName} | Scout`,
       description: `Deep dive report for ${humanized} in ${formatName}. Report data may not yet be available.`,
