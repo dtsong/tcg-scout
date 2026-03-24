@@ -1,6 +1,24 @@
-import { getCityLeagueIndex, getMeta, formatHasData } from "@/app/lib/data";
+import type { Metadata } from "next";
+import { getCityLeagueIndex, getMeta, formatHasData, getFormatName } from "@/app/lib/data";
 import { TournamentsClient } from "./tournaments-client";
 import Link from "next/link";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ format: string }>;
+}): Promise<Metadata> {
+  const { format } = await params;
+  const formatName = getFormatName(format);
+  const title = `City League Results -- ${formatName} | Scout`;
+  const description = `Browse City League tournament results for ${formatName} Pokemon TCG. Top finishers, archetype breakdowns, and rising decks.`;
+  return {
+    title,
+    description,
+    openGraph: { title, description },
+    twitter: { card: "summary", title, description },
+  };
+}
 
 export default async function TournamentsPage({
   params,

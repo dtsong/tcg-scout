@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { getArchetype, getArchetypeReport, getArchetypeSlugs, getFormats, getOptimal60Index } from "@/app/lib/data";
 import { TierBadge } from "@/app/components/tier-badge";
 import { SpriteRow } from "@/app/components/sprite-row";
@@ -11,6 +12,24 @@ import { formatPct, formatPlacement } from "@/app/lib/utils";
 import type { ArchetypeCard } from "@/app/lib/types";
 import { Top4CardStats } from "@/app/components/top4-card-stats";
 import { ResultsTable } from "./results-table";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ format: string; slug: string }>;
+}): Promise<Metadata> {
+  const { format, slug } = await params;
+  const arch = getArchetype(format, slug);
+  const share = (arch.meta_share * 100).toFixed(1);
+  const title = `${arch.archetype} -- ${share}% Meta Share, Tier ${arch.tier} | Scout`;
+  const description = `${arch.archetype} in ${format}: ${share}% meta share, Tier ${arch.tier}, ${arch.deck_count} decks. Core cards, results, and performance analysis.`;
+  return {
+    title,
+    description,
+    openGraph: { title, description },
+    twitter: { card: "summary", title, description },
+  };
+}
 
 export function generateStaticParams() {
   const formats = getFormats();

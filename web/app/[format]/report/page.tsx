@@ -1,4 +1,4 @@
-import { getMetaReport, getFormats } from "@/app/lib/data";
+import { getMetaReport, getFormats, getFormatName } from "@/app/lib/data";
 import { ReportClient } from "./report-client";
 import type { Metadata } from "next";
 
@@ -8,13 +8,14 @@ export async function generateMetadata({
   params: Promise<{ format: string }>;
 }): Promise<Metadata> {
   const { format } = await params;
+  const formatName = getFormatName(format);
+  const title = `Meta Report -- ${formatName} | Scout`;
+  const description = `Auto-generated meta report for the ${formatName} Pokemon TCG format. Tier analysis, top decks, and meta trends.`;
   return {
-    title: `Meta Report - ${format} | Scout`,
-    description: `Auto-generated meta report for the ${format} format.`,
-    openGraph: {
-      title: `Meta Report - ${format} | Scout`,
-      description: `Auto-generated meta report for the ${format} format.`,
-    },
+    title,
+    description,
+    openGraph: { title, description },
+    twitter: { card: "summary", title, description },
   };
 }
 

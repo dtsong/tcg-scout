@@ -1,6 +1,24 @@
-import { getTrends, getWinningEdge, getMeta, formatHasData } from "@/app/lib/data";
+import type { Metadata } from "next";
+import { getTrends, getWinningEdge, getMeta, formatHasData, getFormatName } from "@/app/lib/data";
 import { TrendsClient } from "./trends-client";
 import Link from "next/link";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ format: string }>;
+}): Promise<Metadata> {
+  const { format } = await params;
+  const formatName = getFormatName(format);
+  const title = `Card Trends -- ${formatName} | Scout`;
+  const description = `Surging and declining cards in ${formatName} Pokemon TCG. See which cards are gaining or losing popularity across the meta.`;
+  return {
+    title,
+    description,
+    openGraph: { title, description },
+    twitter: { card: "summary", title, description },
+  };
+}
 
 export default async function TrendsPage({
   params,

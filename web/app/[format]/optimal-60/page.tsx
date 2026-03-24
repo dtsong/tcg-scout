@@ -1,4 +1,4 @@
-import { getFormats, getOptimal60Index } from "@/app/lib/data";
+import { getFormats, getOptimal60Index, getFormatName } from "@/app/lib/data";
 import { Optimal60Client } from "./optimal-60-client";
 
 export function generateStaticParams() {
@@ -11,9 +11,14 @@ export async function generateMetadata({
   params: Promise<{ format: string }>;
 }) {
   const { format } = await params;
+  const formatName = getFormatName(format);
+  const title = `Optimal 60 -- ${formatName} | Scout`;
+  const description = `Data-backed optimal decklists for top ${formatName} archetypes, powered by Champions League results and the broader meta.`;
   return {
-    title: "Optimal 60 | Scout",
-    description: `Data-backed optimal decklists for top ${format} archetypes, powered by Champions League results and the broader meta.`,
+    title,
+    description,
+    openGraph: { title, description },
+    twitter: { card: "summary", title, description },
   };
 }
 

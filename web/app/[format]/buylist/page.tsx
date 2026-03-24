@@ -1,6 +1,24 @@
-import { getBuylist, getStaples, getFlex, getMeta, formatHasData } from "@/app/lib/data";
+import type { Metadata } from "next";
+import { getBuylist, getStaples, getFlex, getMeta, formatHasData, getFormatName } from "@/app/lib/data";
 import { BuylistClient } from "./buylist-client";
 import Link from "next/link";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ format: string }>;
+}): Promise<Metadata> {
+  const { format } = await params;
+  const formatName = getFormatName(format);
+  const title = `Buy List -- ${formatName} | Scout`;
+  const description = `Priority-ranked buy list for competitive ${formatName} Pokemon TCG decks. Staples, flex picks, and where each card fits.`;
+  return {
+    title,
+    description,
+    openGraph: { title, description },
+    twitter: { card: "summary", title, description },
+  };
+}
 
 export default async function BuylistPage({
   params,

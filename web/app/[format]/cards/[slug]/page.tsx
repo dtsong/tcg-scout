@@ -1,6 +1,29 @@
+import type { Metadata } from "next";
 import { getCardDetail, getCardSlugs, getFormats, getCardAnalysis } from "@/app/lib/data";
 import { CardDetailClient } from "./card-detail-client";
 import { notFound } from "next/navigation";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ format: string; slug: string }>;
+}): Promise<Metadata> {
+  const { format, slug } = await params;
+  try {
+    const card = getCardDetail(format, slug);
+    const usage = (card.usage_pct * 100).toFixed(1);
+    const title = `${card.card_name} -- ${usage}% Usage | Scout`;
+    const description = `${card.card_name} appears in ${usage}% of ${format} decks across ${card.unique_archetypes} archetypes. Usage trends, synergy partners, and decklist data.`;
+    return {
+      title,
+      description,
+      openGraph: { title, description },
+      twitter: { card: "summary", title, description },
+    };
+  } catch {
+    return {};
+  }
+}
 
 export const dynamicParams = false;
 

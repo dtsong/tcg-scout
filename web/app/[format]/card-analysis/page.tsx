@@ -1,6 +1,24 @@
-import { getCardAnalysis, formatHasData } from "@/app/lib/data";
+import type { Metadata } from "next";
+import { getCardAnalysis, formatHasData, getFormatName } from "@/app/lib/data";
 import { CardAnalysisClient } from "./card-analysis-client";
 import Link from "next/link";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ format: string }>;
+}): Promise<Metadata> {
+  const { format } = await params;
+  const formatName = getFormatName(format);
+  const title = `Format Edge -- ${formatName} | Scout`;
+  const description = `Cards that outperform in top finishes for ${formatName} Pokemon TCG. Discover tech choices that separate winners from the field.`;
+  return {
+    title,
+    description,
+    openGraph: { title, description },
+    twitter: { card: "summary", title, description },
+  };
+}
 
 export default async function CardAnalysisPage({
   params,

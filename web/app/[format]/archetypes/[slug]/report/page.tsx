@@ -26,9 +26,13 @@ export async function generateMetadata({
   const { format, slug } = await params;
   const report = getArchetypeReport(format, slug);
   const name = report?.archetype ?? slug;
+  const title = `${name} Deep Dive | Scout`;
+  const description = `Weighted consensus decklist, tech evolution, and performance analysis for ${name}.`;
   return {
-    title: `${name} Deep Dive | Scout`,
-    description: `Weighted consensus decklist, tech evolution, and performance analysis for ${name}.`,
+    title,
+    description,
+    openGraph: { title, description },
+    twitter: { card: "summary", title, description },
   };
 }
 

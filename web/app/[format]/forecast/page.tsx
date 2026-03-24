@@ -1,6 +1,24 @@
-import { getTechForecast, formatHasData } from "@/app/lib/data";
+import type { Metadata } from "next";
+import { getTechForecast, formatHasData, getFormatName } from "@/app/lib/data";
 import { ForecastClient } from "./forecast-client";
 import Link from "next/link";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ format: string }>;
+}): Promise<Metadata> {
+  const { format } = await params;
+  const formatName = getFormatName(format);
+  const title = `Tech Forecast -- ${formatName} | Scout`;
+  const description = `Card adoption trends and tech forecasts for ${formatName} Pokemon TCG. Track rising and falling tech choices across the meta.`;
+  return {
+    title,
+    description,
+    openGraph: { title, description },
+    twitter: { card: "summary", title, description },
+  };
+}
 
 export default async function ForecastPage({
   params,

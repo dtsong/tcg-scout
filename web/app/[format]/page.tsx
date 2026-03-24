@@ -1,6 +1,24 @@
 import Link from "next/link";
-import { getMeta, getFormats, getAceSpecs, getTrends, getWinningEdge, getTimeline, getMetaEvolution, formatHasData } from "@/app/lib/data";
+import type { Metadata } from "next";
+import { getMeta, getFormats, getAceSpecs, getTrends, getWinningEdge, getTimeline, getMetaEvolution, formatHasData, getFormatName } from "@/app/lib/data";
 import { DashboardClient } from "./dashboard-client";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ format: string }>;
+}): Promise<Metadata> {
+  const { format } = await params;
+  const formatName = getFormatName(format);
+  const title = `${formatName} Meta Dashboard | Scout`;
+  const description = `Live meta tier list for ${formatName} Pokemon TCG. Archetype rankings, trending cards, and tournament results from Japan's City Leagues.`;
+  return {
+    title,
+    description,
+    openGraph: { title, description },
+    twitter: { card: "summary", title, description },
+  };
+}
 
 export default async function Dashboard({
   params,

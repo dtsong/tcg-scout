@@ -42,6 +42,11 @@ export function getFormats(): FormatInfo[] {
   return readJson("formats.json");
 }
 
+export function getFormatName(format: string): string {
+  const formats = getFormats();
+  return formats.find((f) => f.slug === format)?.name_en ?? format;
+}
+
 export function getMeta(format: string): MetaData {
   return readJson(`${format}/meta.json`);
 }
