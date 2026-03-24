@@ -103,17 +103,14 @@ class LabsLimitlessClient:
 
     def _rate_limit(self) -> None:
         """Block until a request slot is available."""
-        wait = 0.0
         with self._lock:
             now = time.monotonic()
             self._request_timestamps = [ts for ts in self._request_timestamps if now - ts < 60.0]
             if len(self._request_timestamps) >= self._max_rpm:
                 oldest = self._request_timestamps[0]
                 wait = 60.0 - (now - oldest) + 0.1
-        if wait > 0:
-            logger.debug("Rate limit reached, sleeping %.1fs", wait)
-            time.sleep(wait)
-        with self._lock:
+                logger.debug("Rate limit reached, sleeping %.1fs", wait)
+                time.sleep(wait)
             self._request_timestamps.append(time.monotonic())
 
     def _get(self, url: str) -> httpx.Response:
@@ -164,7 +161,11 @@ class LabsLimitlessClient:
                 )
                 time.sleep(delay)
 
-        raise httpx.ConnectError(f"Failed after {self._max_retries} retries: {last_exc}")
+        if last_exc is None:
+            raise httpx.HTTPError(
+                f"Failed after {self._max_retries} retries with retryable status codes"
+            )
+        raise httpx.HTTPError(f"Failed after {self._max_retries} retries: {last_exc}") from last_exc
 
     def _soup(self, url: str) -> BeautifulSoup:
         """Fetch a page and return parsed BeautifulSoup."""
@@ -241,12 +242,12 @@ class LabsLimitlessClient:
                     country = alt.upper()
                     break
 
-        if not name:
-            logger.warning("Could not parse tournament name from %s", url)
-        if not date:
-            logger.warning("Could not parse tournament date from %s", url)
         if not player_count:
             logger.warning("Could not parse player count from %s", url)
+        if not name or not date:
+            raise ValueError(
+                f"Could not parse required metadata (name={name!r}, date={date!r}) from {url}"
+            )
 
         return LabsTournament(
             tournament_id=tournament_id,
@@ -309,101 +310,102 @@ class LabsLimitlessClient:
 
     def _parse_standings_row(self, cells: list[Tag]) -> LabsPlacement | None:
         """Parse a single standings table row."""
+        # Parse rank — this is the only expected ValueError/IndexError
         try:
-            # Column 0: Rank
             rank_text = cells[0].get_text(strip=True)
             standing = int(rank_text.rstrip("."))
+        except (ValueError, IndexError) as exc:
+            logger.warning("Failed to parse rank from standings row: %s", exc)
+            return None
 
-            # Column 1: Player name (with link to player profile)
-            player_link = cells[1].find("a")
-            player_name = cells[1].get_text(strip=True)
-            player_id = ""
-            if player_link:
-                href = player_link.get("href", "")
-                player_name = player_link.get_text(strip=True)
-                # Extract player ID from href like /players/1790
-                id_match = re.search(r"/players?/(\d+)", href)
-                if id_match:
-                    player_id = id_match.group(1)
+        # Column 1: Player name (with link to player profile)
+        player_link = cells[1].find("a")
+        player_name = cells[1].get_text(strip=True)
+        player_id = ""
+        if player_link:
+            href = player_link.get("href", "")
+            player_name = player_link.get_text(strip=True)
+            # Extract player ID from href like /players/1790
+            id_match = re.search(r"/players?/(\d+)", href)
+            if id_match:
+                player_id = id_match.group(1)
 
-            if not player_id:
-                player_id = f"unknown-{player_name}"
+        if not player_id:
+            player_id = f"unknown-{player_name}"
 
-            # Column 2: Country flag
-            country = ""
-            flag_img = cells[2].find("img") if len(cells) > 2 else None
-            if flag_img:
-                country = flag_img.get("alt", "").upper()
+        # Column 2: Country flag
+        country = ""
+        flag_img = cells[2].find("img") if len(cells) > 2 else None
+        if flag_img:
+            country = flag_img.get("alt", "").upper()
 
-            # Find record column (W-L-T format like "15 - 1 - 2")
-            record_w, record_l, record_t = 0, 0, 0
+        # Find record column (W-L-T format like "15 - 1 - 2")
+        record_w, record_l, record_t = 0, 0, 0
+        for cell in cells:
+            text = cell.get_text(strip=True)
+            record_match = re.match(r"^(\d+)\s*-\s*(\d+)\s*-\s*(\d+)$", text)
+            if record_match:
+                record_w = int(record_match.group(1))
+                record_l = int(record_match.group(2))
+                record_t = int(record_match.group(3))
+                break
+
+        # Find deck/archetype cell (contains sprite images)
+        archetype = ""
+        sprite_urls: list[str] = []
+        decklist_url: str | None = None
+
+        for cell in cells:
+            imgs = cell.find_all("img")
+            has_pokemon_sprites = any("pokemon" in (img.get("src", "") or "") for img in imgs)
+            if has_pokemon_sprites:
+                archetype, sprite_urls = self._extract_archetype(cell)
+                # Check for decklist link
+                link = cell.find("a")
+                if link:
+                    href = link.get("href", "")
+                    if "/decks/" in href:
+                        decklist_url = urljoin(self._base_url, href)
+                break
+
+        # Also check for separate decklist column
+        if not decklist_url:
+            for cell in cells:
+                link = cell.find("a")
+                if link:
+                    href = link.get("href", "")
+                    if "/decks/list/" in href:
+                        decklist_url = urljoin(self._base_url, href)
+                        break
+
+        # Fallback archetype from text if no sprites found
+        if not archetype:
             for cell in cells:
                 text = cell.get_text(strip=True)
-                record_match = re.match(r"^(\d+)\s*-\s*(\d+)\s*-\s*(\d+)$", text)
-                if record_match:
-                    record_w = int(record_match.group(1))
-                    record_l = int(record_match.group(2))
-                    record_t = int(record_match.group(3))
-                    break
+                # Skip numeric cells, record cells (W-L-T pattern), country codes
+                if text and not re.match(r"^[\d.\-%]+$", text):
+                    if re.match(r"^\d+\s*-\s*\d+\s*-\s*\d+$", text):
+                        continue
+                    if len(text) > 3 and text != player_name:
+                        archetype = text
+                        break
 
-            # Find deck/archetype cell (contains sprite images)
-            archetype = ""
-            sprite_urls: list[str] = []
-            decklist_url: str | None = None
+        player = LabsPlayer(
+            player_id=player_id,
+            name=player_name,
+            country=country,
+        )
 
-            for cell in cells:
-                imgs = cell.find_all("img")
-                has_pokemon_sprites = any("pokemon" in (img.get("src", "") or "") for img in imgs)
-                if has_pokemon_sprites:
-                    archetype, sprite_urls = self._extract_archetype(cell)
-                    # Check for decklist link
-                    link = cell.find("a")
-                    if link:
-                        href = link.get("href", "")
-                        if "/decks/" in href:
-                            decklist_url = urljoin(self._base_url, href)
-                    break
-
-            # Also check for separate decklist column
-            if not decklist_url:
-                for cell in cells:
-                    link = cell.find("a")
-                    if link:
-                        href = link.get("href", "")
-                        if "/decks/list/" in href:
-                            decklist_url = urljoin(self._base_url, href)
-                            break
-
-            # Fallback archetype from text if no sprites found
-            if not archetype:
-                for cell in cells:
-                    text = cell.get_text(strip=True)
-                    # Skip numeric cells, record cells, country codes
-                    if text and not re.match(r"^[\d.\-%]+$", text) and "-" not in text:
-                        if len(text) > 3 and text != player_name:
-                            archetype = text
-                            break
-
-            player = LabsPlayer(
-                player_id=player_id,
-                name=player_name,
-                country=country,
-            )
-
-            return LabsPlacement(
-                standing=standing,
-                player=player,
-                archetype=archetype or "Unknown",
-                record_w=record_w,
-                record_l=record_l,
-                record_t=record_t,
-                decklist_url=decklist_url,
-                sprite_urls=sprite_urls,
-            )
-
-        except (ValueError, IndexError) as exc:
-            logger.warning("Failed to parse standings row: %s", exc)
-            return None
+        return LabsPlacement(
+            standing=standing,
+            player=player,
+            archetype=archetype or "Unknown",
+            record_w=record_w,
+            record_l=record_l,
+            record_t=record_t,
+            decklist_url=decklist_url,
+            sprite_urls=sprite_urls,
+        )
 
     @staticmethod
     def _extract_archetype(cell: Tag) -> tuple[str, list[str]]:
@@ -452,8 +454,8 @@ class LabsLimitlessClient:
         """
         try:
             soup = self._soup(decklist_url)
-        except httpx.HTTPError:
-            logger.warning("Failed to fetch decklist: %s", decklist_url)
+        except httpx.HTTPError as exc:
+            logger.warning("Failed to fetch decklist %s: %s", decklist_url, exc)
             return None
 
         cards: list[dict[str, Any]] = []
@@ -476,7 +478,11 @@ class LabsLimitlessClient:
                     try:
                         count = int(count_el.get_text(strip=True))
                     except ValueError:
-                        pass
+                        logger.warning(
+                            "Could not parse card count %r in decklist %s, defaulting to 1",
+                            count_el.get_text(strip=True),
+                            decklist_url,
+                        )
 
                 name = name_el.get_text(strip=True) if name_el else link.get_text(strip=True)
                 if not name:
@@ -554,6 +560,11 @@ class LabsLimitlessClient:
         tournament = self.fetch_tournament_metadata(tournament_id)
 
         standings = self.fetch_standings(labs_tournament_id)
+        if not standings:
+            raise ValueError(
+                f"No standings found for Labs tournament {labs_tournament_id}. "
+                "The page structure may have changed."
+            )
         if max_placements:
             standings = standings[:max_placements]
 
@@ -665,6 +676,7 @@ class LabsLimitlessClient:
 
             conn.commit()
         except Exception:
+            logger.error("Failed to ingest tournament %s, rolling back", tournament_id)
             conn.rollback()
             raise
 

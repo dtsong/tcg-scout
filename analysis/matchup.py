@@ -208,6 +208,29 @@ def compute_labs_archetype_winrates(
     }
 
 
+def _top_archetypes(conn: sqlite3.Connection, top_n: int) -> list[sqlite3.Row]:
+    """Get the top archetypes by player count from the placements table."""
+    return conn.execute(
+        """
+        SELECT archetype, COUNT(*) AS cnt
+        FROM placements
+        WHERE archetype IS NOT NULL AND archetype != 'Unknown'
+        GROUP BY archetype
+        ORDER BY cnt DESC
+        LIMIT ?
+        """,
+        (top_n,),
+    ).fetchall()
+
+
+_EMPTY_MATRIX: dict = {
+    "archetypes": [],
+    "matrix": [],
+    "sample_sizes": [],
+    "confidence": [],
+}
+
+
 def compute_labs_matchup_matrix(
     conn: sqlite3.Connection,
     top_n: int = 15,
@@ -255,27 +278,9 @@ def _compute_h2h_from_matches(
     min_matches: int,
 ) -> dict:
     """Compute true H2H win rates from the matches table."""
-    # Get top archetypes
-    arch_rows = conn.execute(
-        """
-        SELECT archetype, COUNT(*) AS cnt
-        FROM placements
-        WHERE archetype IS NOT NULL AND archetype != 'Unknown'
-        GROUP BY archetype
-        ORDER BY cnt DESC
-        LIMIT ?
-        """,
-        (top_n,),
-    ).fetchall()
-
+    arch_rows = _top_archetypes(conn, top_n)
     if not arch_rows:
-        return {
-            "archetypes": [],
-            "matrix": [],
-            "sample_sizes": [],
-            "confidence": [],
-            "source": "labs-h2h",
-        }
+        return {**_EMPTY_MATRIX, "source": "labs-h2h"}
 
     arch_names = [r["archetype"] for r in arch_rows]
     arch_idx = {name: i for i, name in enumerate(arch_names)}
@@ -319,7 +324,7 @@ def _compute_h2h_from_matches(
                 matrix[i][j] = 0.5
                 confidence[i][j] = {"lower": 0.5, "upper": 0.5}
             elif totals[i][j] >= min_matches:
-                wr = wins[i][j] / totals[i][j] if totals[i][j] > 0 else 0.0
+                wr = wins[i][j] / totals[i][j]
                 ci_lo, ci_hi = _wilson_ci(wins[i][j], totals[i][j])
                 matrix[i][j] = round(wr, 4)
                 confidence[i][j] = {"lower": round(ci_lo, 4), "upper": round(ci_hi, 4)}
@@ -343,27 +348,9 @@ def _compute_h2h_from_records(
     When true H2H pairings aren't available, compare archetype
     win rates within the same tournaments as a performance proxy.
     """
-    # Get top archetypes
-    arch_rows = conn.execute(
-        """
-        SELECT archetype, COUNT(*) AS cnt
-        FROM placements
-        WHERE archetype IS NOT NULL AND archetype != 'Unknown'
-        GROUP BY archetype
-        ORDER BY cnt DESC
-        LIMIT ?
-        """,
-        (top_n,),
-    ).fetchall()
-
+    arch_rows = _top_archetypes(conn, top_n)
     if not arch_rows:
-        return {
-            "archetypes": [],
-            "matrix": [],
-            "sample_sizes": [],
-            "confidence": [],
-            "source": "labs-records",
-        }
+        return {**_EMPTY_MATRIX, "source": "labs-records"}
 
     arch_names = [r["archetype"] for r in arch_rows]
     arch_set = set(arch_names)
@@ -418,8 +405,10 @@ def _compute_h2h_from_records(
             elif counts[i][j] >= min_matches:
                 avg_wr = matrix[i][j] / counts[i][j]
                 matrix[i][j] = round(avg_wr, 4)
-                # Approximate CI from sample count
-                ci_lo, ci_hi = _wilson_ci(round(avg_wr * counts[i][j]), counts[i][j])
+                # Approximate CI using standard error of proportion
+                se = math.sqrt(avg_wr * (1 - avg_wr) / counts[i][j]) if 0 < avg_wr < 1 else 0.0
+                ci_lo = max(0.0, avg_wr - LABS_WILSON_Z * se)
+                ci_hi = min(1.0, avg_wr + LABS_WILSON_Z * se)
                 confidence[i][j] = {"lower": round(ci_lo, 4), "upper": round(ci_hi, 4)}
             else:
                 matrix[i][j] = 0.0

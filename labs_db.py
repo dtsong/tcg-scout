@@ -22,6 +22,7 @@ CREATE TABLE IF NOT EXISTS tournaments (
     country TEXT,
     region TEXT,
     format TEXT,
+    division TEXT DEFAULT 'open',
     source TEXT DEFAULT 'limitless-labs'
 );
 
@@ -82,32 +83,28 @@ CREATE TABLE IF NOT EXISTS archetype_mapping (
 def get_labs_connection() -> sqlite3.Connection:
     """Get a SQLite connection for the Labs database."""
     DATA_DIR.mkdir(parents=True, exist_ok=True)
-    conn = sqlite3.connect(str(LABS_DB_PATH))
+    conn = sqlite3.connect(str(LABS_DB_PATH), isolation_level=None)
     conn.row_factory = sqlite3.Row
     conn.execute("PRAGMA journal_mode=WAL")
     conn.execute("PRAGMA foreign_keys=ON")
     return conn
 
 
-def init_labs_db(conn: sqlite3.Connection | None = None) -> None:
+def init_labs_db(conn: sqlite3.Connection) -> None:
     """Create all Labs tables if they don't exist."""
-    close = False
-    if conn is None:
-        conn = get_labs_connection()
-        close = True
     conn.executescript(LABS_SCHEMA)
-    conn.commit()
-    if close:
-        conn.close()
 
 
 def reset_labs_db() -> None:
     """Drop and recreate the Labs database."""
     if LABS_DB_PATH.exists():
+        logger.warning("Deleting Labs database at %s", LABS_DB_PATH)
         LABS_DB_PATH.unlink()
     conn = get_labs_connection()
-    init_labs_db(conn)
-    conn.close()
+    try:
+        init_labs_db(conn)
+    finally:
+        conn.close()
 
 
 def make_match_id(tournament_id: str, round_num: int, p1_id: str, p2_id: str) -> str:

@@ -1195,27 +1195,29 @@ def scrape_labs(
     conn = get_labs_connection()
     init_labs_db(conn)
 
-    client = LabsLimitlessClient()
     try:
-        console.print(
-            f"[cyan]Scraping Labs tournament {tournament_id} (Labs ID: {labs_id})...[/cyan]"
-        )
+        with LabsLimitlessClient() as client:
+            console.print(
+                f"[cyan]Scraping Labs tournament {tournament_id} (Labs ID: {labs_id})...[/cyan]"
+            )
 
-        result = client.ingest_tournament(
-            conn,
-            tournament_id=tournament_id,
-            labs_tournament_id=labs_id,
-            fetch_decklists=fetch_decklists,
-            max_placements=max_placements,
-        )
+            result = client.ingest_tournament(
+                conn,
+                tournament_id=tournament_id,
+                labs_tournament_id=labs_id,
+                fetch_decklists=fetch_decklists,
+                max_placements=max_placements,
+            )
 
-        console.print(
-            f"\n[green]Done! Stored {result['players']} players, "
-            f"{result['placements']} placements, "
-            f"{result['decklists']} decklists.[/green]"
-        )
+            console.print(
+                f"\n[green]Done! Stored {result['players']} players, "
+                f"{result['placements']} placements, "
+                f"{result['decklists']} decklists.[/green]"
+            )
+    except Exception as exc:
+        console.print(f"[red]Error ingesting tournament: {exc}[/red]")
+        raise click.Abort()
     finally:
-        client.close()
         conn.close()
 
 
@@ -1268,6 +1270,11 @@ def labs_matchups(ctx: click.Context, top: int) -> None:
                 f"\n[cyan]Matchup matrix: {len(matrix_data['archetypes'])} archetypes "
                 f"(source: {matrix_data['source']})[/cyan]"
             )
+            if matrix_data["source"] == "labs-records":
+                console.print(
+                    "[yellow]Note: Using approximate record-based comparison. "
+                    "True H2H match data not available.[/yellow]"
+                )
 
     finally:
         conn.close()

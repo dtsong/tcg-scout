@@ -155,15 +155,20 @@ class TestLabsArchetypeWinrates:
         assert result["tournament_count"] == 2
         assert len(result["archetypes"]) > 0
 
-        # Find Dragapult (3 players: p1, p4, p6 + p1 again)
+        # Find Dragapult (4 placements: p1 Houston, p4 Houston, p6 Toronto, p1 Toronto)
         dragapult = next(
             (a for a in result["archetypes"] if a["archetype"] == "Dragapult ex"),
             None,
         )
         assert dragapult is not None
-        assert dragapult["players"] == 4  # p1 Houston, p4 Houston, p6 Toronto, p1 Toronto
-        assert dragapult["total_wins"] > 0
-        assert 0.0 < dragapult["win_rate"] < 1.0
+        assert dragapult["players"] == 4
+        # Total: 14+8+10+7=39 wins, 1+6+3+5=15 losses, 1+2+1+2=6 ties, 60 total
+        assert dragapult["total_wins"] == 39
+        assert dragapult["total_losses"] == 15
+        assert dragapult["total_ties"] == 6
+        assert dragapult["total_matches"] == 60
+        expected_wr = round(39 / 60, 4)
+        assert dragapult["win_rate"] == expected_wr
         assert dragapult["ci_lower"] <= dragapult["win_rate"]
         assert dragapult["ci_upper"] >= dragapult["win_rate"]
 
@@ -202,6 +207,43 @@ class TestLabsMatchupMatrix:
         for i in range(n):
             assert result["matrix"][i][i] == 0.5
 
+    def test_specific_win_rate_values(self, labs_db):
+        """Verify actual win rate computation from seed data matches."""
+        from analysis.matchup import compute_labs_matchup_matrix
+
+        result = compute_labs_matchup_matrix(labs_db, top_n=5, min_matches=1)
+        archetypes = result["archetypes"]
+        matrix = result["matrix"]
+
+        drag_idx = archetypes.index("Dragapult ex")
+        char_idx = archetypes.index("Charizard ex")
+
+        # Matches: Charizard beats Dragapult in 551:r2 and 552:r1 (2 wins)
+        # Dragapult beats Charizard in 551:r3 (1 win), total 3 matches
+        # Dragapult vs Charizard win rate = 1/3
+        assert result["sample_sizes"][drag_idx][char_idx] == 3
+        assert matrix[drag_idx][char_idx] == round(1 / 3, 4)
+        # Charizard vs Dragapult win rate = 2/3
+        assert matrix[char_idx][drag_idx] == round(2 / 3, 4)
+
+    def test_mirror_matches_excluded(self, labs_db):
+        """Mirror matches should not appear in totals."""
+        from analysis.matchup import compute_labs_matchup_matrix
+
+        # Add a Dragapult mirror match
+        labs_db.execute(
+            "INSERT INTO matches (id, tournament_id, round, player1_id, player2_id, "
+            "winner_id, player1_archetype, player2_archetype) "
+            "VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+            ("551:r4:p1:p4", "551", 4, "p1", "p4", "p1", "Dragapult ex", "Dragapult ex"),
+        )
+        labs_db.commit()
+
+        result = compute_labs_matchup_matrix(labs_db, top_n=5, min_matches=1)
+        drag_idx = result["archetypes"].index("Dragapult ex")
+        # Mirror match should not be counted
+        assert result["sample_sizes"][drag_idx][drag_idx] == 0
+
     def test_falls_back_to_records(self, labs_db):
         """When matches table is empty, falls back to record-based analysis."""
         from analysis.matchup import compute_labs_matchup_matrix
@@ -212,6 +254,13 @@ class TestLabsMatchupMatrix:
 
         result = compute_labs_matchup_matrix(labs_db, top_n=5, min_matches=1)
         assert result["source"] == "labs-records"
+        # Verify matrix values are populated (not just structure)
+        if result["archetypes"]:
+            n = len(result["archetypes"])
+            has_nonzero = any(
+                result["matrix"][i][j] != 0.0 for i in range(n) for j in range(n) if i != j
+            )
+            assert has_nonzero, "Records-based matrix should have non-zero entries"
 
     def test_empty_db(self, labs_db_empty):
         from analysis.matchup import compute_labs_matchup_matrix
@@ -403,6 +452,146 @@ class TestExtractArchetype:
         archetype, urls = LabsLimitlessClient._extract_archetype(cell)
         assert archetype == ""
         assert urls == []
+
+
+class TestUnknownArchetypeFiltering:
+    """Verify that Unknown and NULL archetypes are excluded from analysis."""
+
+    def test_unknown_excluded_from_winrates(self, labs_db):
+        from analysis.matchup import compute_labs_archetype_winrates
+
+        # Add placements with Unknown and NULL archetypes
+        labs_db.execute(
+            "INSERT INTO placements (tournament_id, player_id, standing, archetype, "
+            "record_w, record_l, record_t) VALUES (?, ?, ?, ?, ?, ?, ?)",
+            ("551", "p5", 100, "Unknown", 5, 5, 0),
+        )
+        labs_db.execute(
+            "INSERT INTO placements (tournament_id, player_id, standing, archetype, "
+            "record_w, record_l, record_t) VALUES (?, ?, ?, ?, ?, ?, ?)",
+            ("551", "p6", 101, None, 5, 5, 0),
+        )
+        labs_db.commit()
+
+        result = compute_labs_archetype_winrates(labs_db, top_n=20, min_players=1)
+        archetype_names = [a["archetype"] for a in result["archetypes"]]
+        assert "Unknown" not in archetype_names
+        assert None not in archetype_names
+
+
+class TestIngestTournament:
+    """Test the ingest_tournament write path."""
+
+    def test_successful_ingestion(self, labs_db):
+        """Verify ingest stores tournaments, players, placements correctly."""
+        from unittest.mock import patch
+
+        from scraper.labs_limitless import (
+            LabsLimitlessClient,
+            LabsPlacement,
+            LabsPlayer,
+            LabsTournament,
+        )
+
+        client = LabsLimitlessClient()
+
+        mock_tournament = LabsTournament(
+            tournament_id="999",
+            name="Test Regional",
+            date="2026-03-20",
+            player_count=100,
+            country="US",
+        )
+        mock_standings = [
+            LabsPlacement(
+                standing=1,
+                player=LabsPlayer(player_id="test-p1", name="TestPlayer", country="US"),
+                archetype="Charizard ex",
+                record_w=10,
+                record_l=2,
+                record_t=1,
+            ),
+        ]
+
+        with (
+            patch.object(client, "fetch_tournament_metadata", return_value=mock_tournament),
+            patch.object(client, "fetch_standings", return_value=mock_standings),
+        ):
+            result = client.ingest_tournament(
+                labs_db, tournament_id="999", labs_tournament_id="test", fetch_decklists=False
+            )
+
+        assert result["players"] == 1
+        assert result["placements"] == 1
+        assert result["decklists"] == 0
+
+        # Verify data was written
+        t = labs_db.execute("SELECT * FROM tournaments WHERE id='999'").fetchone()
+        assert t["name"] == "Test Regional"
+
+        p = labs_db.execute("SELECT * FROM placements WHERE tournament_id='999'").fetchone()
+        assert p["archetype"] == "Charizard ex"
+        assert p["record_w"] == 10
+
+        client.close()
+
+    def test_rollback_on_failure(self, labs_db):
+        """Verify transaction rollback when ingestion fails mid-write."""
+        from unittest.mock import patch
+
+        from scraper.labs_limitless import (
+            LabsLimitlessClient,
+            LabsPlacement,
+            LabsPlayer,
+            LabsTournament,
+        )
+
+        client = LabsLimitlessClient()
+
+        mock_tournament = LabsTournament(
+            tournament_id="998",
+            name="Fail Regional",
+            date="2026-03-20",
+            player_count=50,
+        )
+        # Use a player_id that violates FK — nonexistent in players table
+        # won't work since we INSERT player first. Instead, make fetch_standings
+        # return data, but patch the client's fetch_decklist to raise mid-transaction.
+        mock_standings = [
+            LabsPlacement(
+                standing=1,
+                player=LabsPlayer(player_id="fail-p1", name="FailPlayer"),
+                archetype="Dragapult ex",
+                record_w=5,
+                record_l=3,
+                record_t=0,
+                decklist_url="http://example.com/decks/list/1",
+            ),
+        ]
+
+        def exploding_fetch_decklist(url):
+            raise RuntimeError("Simulated network failure during decklist fetch")
+
+        with (
+            patch.object(client, "fetch_tournament_metadata", return_value=mock_tournament),
+            patch.object(client, "fetch_standings", return_value=mock_standings),
+            patch.object(client, "fetch_decklist", side_effect=exploding_fetch_decklist),
+        ):
+            # fetch_decklist is called outside the transaction (Phase 1),
+            # so it will raise before we get to Phase 2 writes
+            with pytest.raises(RuntimeError):
+                client.ingest_tournament(
+                    labs_db,
+                    tournament_id="998",
+                    labs_tournament_id="test",
+                    fetch_decklists=True,
+                )
+
+        # Tournament should NOT be in DB since the error happened before commit
+        t = labs_db.execute("SELECT * FROM tournaments WHERE id='998'").fetchone()
+        assert t is None
+
+        client.close()
 
 
 class TestReingestionIdempotency:
