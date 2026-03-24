@@ -267,3 +267,176 @@ class TestCLICommands:
 
         commands = list(cli.commands.keys())
         assert "labs-matchups" in commands
+
+
+# ---------------------------------------------------------------------------
+# Scraper HTML parsing tests
+# ---------------------------------------------------------------------------
+
+
+class TestParseStandingsRow:
+    """Test _parse_standings_row with realistic HTML snippets."""
+
+    @pytest.fixture()
+    def client(self):
+        from scraper.labs_limitless import LabsLimitlessClient
+
+        c = LabsLimitlessClient()
+        yield c
+        c.close()
+
+    @staticmethod
+    def _make_cells(html_cells: list[str]):
+        from bs4 import BeautifulSoup
+
+        html = "<table><tr>" + "".join(f"<td>{c}</td>" for c in html_cells) + "</tr></table>"
+        soup = BeautifulSoup(html, "html.parser")
+        return soup.find("tr").find_all("td")
+
+    def test_basic_row(self, client):
+        cells = self._make_cells(
+            [
+                "1.",
+                '<a href="/players/1790">Alice</a>',
+                '<img src="/flags/us.png" alt="US">',
+                "14 - 1 - 1",
+                '<img src="/pokemon/dragapult.png" alt="Dragapult"> '
+                '<img src="/pokemon/pidgeot.png" alt="Pidgeot">',
+            ]
+        )
+        result = client._parse_standings_row(cells)
+        assert result is not None
+        assert result.standing == 1
+        assert result.player.player_id == "1790"
+        assert result.player.name == "Alice"
+        assert result.player.country == "US"
+        assert result.record_w == 14
+        assert result.record_l == 1
+        assert result.record_t == 1
+        assert "Dragapult" in result.archetype
+        assert len(result.sprite_urls) == 2
+
+    def test_missing_player_link(self, client):
+        cells = self._make_cells(
+            [
+                "5.",
+                "Bob Smith",
+                "",
+                "10 - 3 - 1",
+                '<img src="/pokemon/charizard.png" alt="Charizard">',
+            ]
+        )
+        result = client._parse_standings_row(cells)
+        assert result is not None
+        assert result.player.player_id == "unknown-Bob Smith"
+        assert result.player.name == "Bob Smith"
+
+    def test_missing_sprites_falls_back_to_unknown(self, client):
+        cells = self._make_cells(
+            [
+                "20.",
+                '<a href="/players/99">Charlie</a>',
+                "",
+                "8 - 5 - 1",
+                "",
+            ]
+        )
+        result = client._parse_standings_row(cells)
+        assert result is not None
+        assert result.archetype == "Unknown"
+
+    def test_invalid_rank_returns_none(self, client):
+        cells = self._make_cells(
+            [
+                "abc",
+                '<a href="/players/1">Test</a>',
+                "",
+                "5 - 3 - 0",
+                "",
+            ]
+        )
+        result = client._parse_standings_row(cells)
+        assert result is None
+
+
+class TestExtractArchetype:
+    """Test _extract_archetype with HTML snippets."""
+
+    @staticmethod
+    def _make_cell(html: str):
+        from bs4 import BeautifulSoup
+
+        soup = BeautifulSoup(f"<td>{html}</td>", "html.parser")
+        return soup.find("td")
+
+    def test_sprites_with_alt_text(self):
+        from scraper.labs_limitless import LabsLimitlessClient
+
+        cell = self._make_cell(
+            '<img src="/pokemon/dragapult.png" alt="Dragapult"> '
+            '<img src="/pokemon/pidgeot.png" alt="Pidgeot">'
+        )
+        archetype, urls = LabsLimitlessClient._extract_archetype(cell)
+        assert archetype == "Dragapult Pidgeot"
+        assert len(urls) == 2
+
+    def test_sprites_without_alt_derives_from_filename(self):
+        from scraper.labs_limitless import LabsLimitlessClient
+
+        cell = self._make_cell('<img src="/pokemon/gardevoir_ex.png">')
+        archetype, urls = LabsLimitlessClient._extract_archetype(cell)
+        assert "Gardevoir" in archetype
+        assert len(urls) == 1
+
+    def test_link_text_fallback(self):
+        from scraper.labs_limitless import LabsLimitlessClient
+
+        cell = self._make_cell('<a href="/decks/list/123">Raging Bolt</a>')
+        archetype, urls = LabsLimitlessClient._extract_archetype(cell)
+        assert archetype == "Raging Bolt"
+        assert urls == []
+
+    def test_empty_cell(self):
+        from scraper.labs_limitless import LabsLimitlessClient
+
+        cell = self._make_cell("")
+        archetype, urls = LabsLimitlessClient._extract_archetype(cell)
+        assert archetype == ""
+        assert urls == []
+
+
+class TestReingestionIdempotency:
+    """Verify that re-scraping the same tournament doesn't create duplicates."""
+
+    def test_placement_unique_constraint(self, labs_db):
+        # Re-insert same placement — should replace, not duplicate
+        labs_db.execute(
+            "INSERT OR REPLACE INTO placements "
+            "(tournament_id, player_id, standing, archetype, record_w, record_l, record_t) "
+            "VALUES (?, ?, ?, ?, ?, ?, ?)",
+            ("551", "p1", 1, "Dragapult ex", 14, 1, 1),
+        )
+        labs_db.commit()
+        count = labs_db.execute(
+            "SELECT COUNT(*) FROM placements WHERE tournament_id='551' AND player_id='p1'"
+        ).fetchone()[0]
+        assert count == 1
+
+    def test_decklist_unique_constraint(self, labs_db):
+        # Insert a decklist, then re-insert — should not duplicate
+        labs_db.execute(
+            "INSERT OR REPLACE INTO decklists (placement_id, player_id, tournament_id) "
+            "VALUES (?, ?, ?)",
+            (1, "p1", "551"),
+        )
+        labs_db.commit()
+        labs_db.execute(
+            "INSERT OR REPLACE INTO decklists (placement_id, player_id, tournament_id) "
+            "VALUES (?, ?, ?)",
+            (1, "p1", "551"),
+        )
+        labs_db.commit()
+        count = labs_db.execute(
+            "SELECT COUNT(*) FROM decklists WHERE tournament_id='551' AND player_id='p1'"
+        ).fetchone()[0]
+        assert count == 1

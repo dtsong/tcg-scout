@@ -103,19 +103,17 @@ class LabsLimitlessClient:
 
     def _rate_limit(self) -> None:
         """Block until a request slot is available."""
+        wait = 0.0
         with self._lock:
             now = time.monotonic()
             self._request_timestamps = [ts for ts in self._request_timestamps if now - ts < 60.0]
             if len(self._request_timestamps) >= self._max_rpm:
                 oldest = self._request_timestamps[0]
                 wait = 60.0 - (now - oldest) + 0.1
-                if wait > 0:
-                    logger.debug("Rate limit reached, sleeping %.1fs", wait)
-                    time.sleep(wait)
-                now = time.monotonic()
-                self._request_timestamps = [
-                    ts for ts in self._request_timestamps if now - ts < 60.0
-                ]
+        if wait > 0:
+            logger.debug("Rate limit reached, sleeping %.1fs", wait)
+            time.sleep(wait)
+        with self._lock:
             self._request_timestamps.append(time.monotonic())
 
     def _get(self, url: str) -> httpx.Response:
@@ -243,6 +241,13 @@ class LabsLimitlessClient:
                     country = alt.upper()
                     break
 
+        if not name:
+            logger.warning("Could not parse tournament name from %s", url)
+        if not date:
+            logger.warning("Could not parse tournament date from %s", url)
+        if not player_count:
+            logger.warning("Could not parse player count from %s", url)
+
         return LabsTournament(
             tournament_id=tournament_id,
             name=name,
@@ -289,6 +294,14 @@ class LabsLimitlessClient:
             if placement:
                 placements.append(placement)
 
+        expected = len(rows) - 1  # exclude header
+        if placements and len(placements) < expected:
+            logger.warning(
+                "%d of %d standings rows failed to parse for tournament %s",
+                expected - len(placements),
+                expected,
+                labs_tournament_id,
+            )
         logger.info(
             "Parsed %d standings from Labs tournament %s", len(placements), labs_tournament_id
         )
@@ -389,7 +402,7 @@ class LabsLimitlessClient:
             )
 
         except (ValueError, IndexError) as exc:
-            logger.debug("Failed to parse standings row: %s", exc)
+            logger.warning("Failed to parse standings row: %s", exc)
             return None
 
     @staticmethod
@@ -439,7 +452,7 @@ class LabsLimitlessClient:
         """
         try:
             soup = self._soup(decklist_url)
-        except httpx.HTTPStatusError:
+        except httpx.HTTPError:
             logger.warning("Failed to fetch decklist: %s", decklist_url)
             return None
 
@@ -566,62 +579,66 @@ class LabsLimitlessClient:
         placements_stored = 0
         decklists_stored = 0
 
-        for placement in standings:
-            player = placement.player
+        try:
+            for placement in standings:
+                player = placement.player
 
-            # Store player
-            conn.execute(
-                "INSERT OR REPLACE INTO players (id, name, country) VALUES (?, ?, ?)",
-                (player.player_id, player.name, player.country),
-            )
-            players_stored += 1
+                # Store player
+                conn.execute(
+                    "INSERT OR REPLACE INTO players (id, name, country) VALUES (?, ?, ?)",
+                    (player.player_id, player.name, player.country),
+                )
+                players_stored += 1
 
-            # Store placement
-            cursor = conn.execute(
-                """INSERT OR REPLACE INTO placements
-                (tournament_id, player_id, standing, archetype, record_w, record_l, record_t)
-                VALUES (?, ?, ?, ?, ?, ?, ?)""",
-                (
-                    tournament_id,
-                    player.player_id,
-                    placement.standing,
-                    placement.archetype,
-                    placement.record_w,
-                    placement.record_l,
-                    placement.record_t,
-                ),
-            )
-            placement_id = cursor.lastrowid
-            placements_stored += 1
+                # Store placement
+                cursor = conn.execute(
+                    """INSERT OR REPLACE INTO placements
+                    (tournament_id, player_id, standing, archetype, record_w, record_l, record_t)
+                    VALUES (?, ?, ?, ?, ?, ?, ?)""",
+                    (
+                        tournament_id,
+                        player.player_id,
+                        placement.standing,
+                        placement.archetype,
+                        placement.record_w,
+                        placement.record_l,
+                        placement.record_t,
+                    ),
+                )
+                placement_id = cursor.lastrowid
+                placements_stored += 1
 
-            # Fetch and store decklist
-            if fetch_decklists and placement.decklist_url:
-                decklist = self.fetch_decklist(placement.decklist_url)
-                if decklist and decklist.cards:
-                    decklist_cursor = conn.execute(
-                        """INSERT INTO decklists
-                        (placement_id, player_id, tournament_id)
-                        VALUES (?, ?, ?)""",
-                        (placement_id, player.player_id, tournament_id),
-                    )
-                    decklist_id = decklist_cursor.lastrowid
-
-                    for card in decklist.cards:
-                        conn.execute(
-                            """INSERT OR REPLACE INTO decklist_cards
-                            (decklist_id, card_name, card_id, count, category)
-                            VALUES (?, ?, ?, ?, ?)""",
-                            (
-                                decklist_id,
-                                card.get("name"),
-                                card.get("card_id"),
-                                card.get("count", 1),
-                                None,  # Category populated later
-                            ),
+                # Fetch and store decklist
+                if fetch_decklists and placement.decklist_url:
+                    decklist = self.fetch_decklist(placement.decklist_url)
+                    if decklist and decklist.cards:
+                        decklist_cursor = conn.execute(
+                            """INSERT OR REPLACE INTO decklists
+                            (placement_id, player_id, tournament_id)
+                            VALUES (?, ?, ?)""",
+                            (placement_id, player.player_id, tournament_id),
                         )
-                    decklists_stored += 1
+                        decklist_id = decklist_cursor.lastrowid
 
-        conn.commit()
+                        for card in decklist.cards:
+                            conn.execute(
+                                """INSERT OR REPLACE INTO decklist_cards
+                                (decklist_id, card_name, card_id, count, category)
+                                VALUES (?, ?, ?, ?, ?)""",
+                                (
+                                    decklist_id,
+                                    card.get("name"),
+                                    card.get("card_id"),
+                                    card.get("count", 1),
+                                    None,  # Category populated later
+                                ),
+                            )
+                        decklists_stored += 1
+
+            conn.commit()
+        except Exception:
+            conn.rollback()
+            raise
 
         return {
             "players": players_stored,

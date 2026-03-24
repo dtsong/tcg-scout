@@ -50,14 +50,16 @@ CREATE TABLE IF NOT EXISTS placements (
     archetype TEXT,
     record_w INTEGER DEFAULT 0,
     record_l INTEGER DEFAULT 0,
-    record_t INTEGER DEFAULT 0
+    record_t INTEGER DEFAULT 0,
+    UNIQUE(tournament_id, player_id)
 );
 
 CREATE TABLE IF NOT EXISTS decklists (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     placement_id INTEGER REFERENCES placements(id),
     player_id TEXT NOT NULL REFERENCES players(id),
-    tournament_id TEXT NOT NULL REFERENCES tournaments(id)
+    tournament_id TEXT NOT NULL REFERENCES tournaments(id),
+    UNIQUE(tournament_id, player_id)
 );
 
 CREATE TABLE IF NOT EXISTS decklist_cards (

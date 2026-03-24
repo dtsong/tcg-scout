@@ -1,10 +1,13 @@
 """Matchup analysis — co-occurrence proxy and Labs H2H win rates."""
 
+import logging
 import math
 import sqlite3
 from collections import defaultdict
 
 from config import LABS_MIN_MATCHES_TO_PUBLISH, LABS_WILSON_Z
+
+logger = logging.getLogger(__name__)
 
 
 def compute_matchup_matrix(
@@ -232,15 +235,17 @@ def compute_labs_matchup_matrix(
     """
     # Check if we have match-level data
     has_matches = False
-    try:
+    table_exists = conn.execute(
+        "SELECT name FROM sqlite_master WHERE type='table' AND name='matches'"
+    ).fetchone()
+    if table_exists:
         match_count = conn.execute("SELECT COUNT(*) FROM matches").fetchone()[0]
         has_matches = match_count > 0
-    except sqlite3.OperationalError:
-        pass
 
     if has_matches:
         return _compute_h2h_from_matches(conn, top_n, min_matches)
 
+    logger.info("No match-level H2H data; falling back to record-based comparison")
     return _compute_h2h_from_records(conn, top_n, min_matches)
 
 
