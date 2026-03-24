@@ -87,9 +87,15 @@ describe("safePercent", () => {
 });
 
 describe("safeInt", () => {
-  it("returns the value when finite", () => {
+  it("returns the value when finite integer", () => {
     expect(safeInt(42)).toBe(42);
     expect(safeInt(0)).toBe(0);
+  });
+
+  it("rounds fractional values to nearest integer", () => {
+    expect(safeInt(3.7)).toBe(4);
+    expect(safeInt(3.2)).toBe(3);
+    expect(safeInt(0.5)).toBe(1);
   });
 
   it("returns 0 for NaN and warns", () => {

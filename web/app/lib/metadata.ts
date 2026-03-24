@@ -27,12 +27,12 @@ export function safePercent(value: number): string {
 }
 
 /**
- * Safely return a numeric value, returning 0 for NaN/Infinity.
+ * Safely round to an integer, returning 0 for NaN/Infinity.
  */
 export function safeInt(value: number): number {
   if (!Number.isFinite(value)) {
     console.warn(`[metadata] safeInt received non-finite value: ${value}`);
     return 0;
   }
-  return value;
+  return Math.round(value);
 }

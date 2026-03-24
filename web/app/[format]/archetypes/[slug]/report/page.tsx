@@ -21,11 +21,16 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { format, slug } = await params;
   const report = getArchetypeReport(format, slug);
-  const name = report?.archetype || slug;
+  const formatName = getFormatName(format);
   if (!report?.archetype) {
     console.warn(`[metadata] archetype report missing or has no name for ${format}/${slug}, falling back to slug`);
+    const humanized = slug.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
+    return {
+      title: `${humanized} Report -- ${formatName} | Scout`,
+      description: `Deep dive report for ${humanized} in ${formatName}. Report data may not yet be available.`,
+    };
   }
-  const formatName = getFormatName(format);
+  const name = report.archetype;
   return {
     title: `${name} Deep Dive -- ${formatName} | Scout`,
     description: `Weighted consensus decklist, tech evolution, and performance analysis for ${name} in ${formatName}.`,
