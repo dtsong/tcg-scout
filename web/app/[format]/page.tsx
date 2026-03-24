@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getMeta, getFormats, getAceSpecs, getTrends, getWinningEdge, getTimeline, getMetaEvolution, formatHasData } from "@/app/lib/data";
+import { getMeta, getFormats, getAceSpecs, getTrends, getWinningEdge, getTimeline, getMetaEvolution, getCardAnalysis, formatHasData } from "@/app/lib/data";
 import { DashboardClient } from "./dashboard-client";
 
 export default async function Dashboard({
@@ -33,6 +33,19 @@ export default async function Dashboard({
   const winningEdge = getWinningEdge(format);
   const timeline = getTimeline(format);
   const metaEvolution = getMetaEvolution(format);
+  const cardAnalysis = getCardAnalysis(format);
+
+  // Cross-meta staples: cards with positive impact in 3+ S/A/B-tier archetypes
+  const crossMetaStaples = (cardAnalysis?.cards ?? [])
+    .map((card) => {
+      const tieredArchetypes = card.archetypes.filter(
+        (a) => ["S", "A", "B"].includes(a.tier) && a.delta_vs_field > 0
+      );
+      return { card_name: card.card_name, impact: card.weighted_impact, archetype_count: tieredArchetypes.length };
+    })
+    .filter((c) => c.archetype_count >= 3)
+    .sort((a, b) => b.archetype_count - a.archetype_count || b.impact - a.impact)
+    .slice(0, 5);
 
   return (
     <DashboardClient
@@ -44,6 +57,7 @@ export default async function Dashboard({
       aceSpecs={aceSpecs}
       timeline={timeline}
       metaEvolution={metaEvolution.highlights}
+      crossMetaStaples={crossMetaStaples}
     />
   );
 }

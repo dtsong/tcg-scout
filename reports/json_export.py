@@ -2271,6 +2271,7 @@ def export_card_analysis(conn: sqlite3.Connection, output_dir: Path) -> None:
                     "field_inclusion_pct": field_pct,
                     "avg_copies": card["avg_copies"],
                     "top4_sample_size": len(top4_ids),
+                    "confidence": round(min(1.0, len(top4_ids) / 10), 2),
                 }
             )
 
@@ -2288,27 +2289,44 @@ def export_card_analysis(conn: sqlite3.Connection, output_dir: Path) -> None:
                         "field_inclusion_pct": card["inclusion_pct"],
                         "avg_copies": 0,
                         "top4_sample_size": len(top4_ids),
+                        "confidence": round(min(1.0, len(top4_ids) / 10), 2),
                     }
                 )
+
+    tier_weights = {"S": 5, "A": 3, "B": 2, "C": 1, "Rogue": 0.5}
 
     cards = []
     for card_name, archetypes in card_archetypes.items():
         deltas = [a["delta_vs_field"] for a in archetypes]
         avg_delta = round(sum(deltas) / len(deltas), 1)
         max_entry = max(archetypes, key=lambda a: a["delta_vs_field"])
+
+        # Weighted impact: tier-weighted, confidence-adjusted delta
+        weighted_num = 0.0
+        weighted_den = 0.0
+        for a in archetypes:
+            conf = a["confidence"]
+            tw = tier_weights.get(a["tier"], 0.5)
+            weighted_num += a["delta_vs_field"] * conf * tw
+            weighted_den += conf * tw
+        weighted_impact = round(weighted_num / weighted_den, 1) if weighted_den > 0 else 0.0
+        card_confidence = round(min(a["confidence"] for a in archetypes), 2)
+
         cards.append(
             {
                 "card_name": card_name,
                 "category": classify_card(card_name, category_lookup),
                 "archetypes": sorted(archetypes, key=lambda a: a["delta_vs_field"], reverse=True),
                 "avg_delta": avg_delta,
+                "weighted_impact": weighted_impact,
+                "confidence": card_confidence,
                 "archetype_count": len(archetypes),
                 "max_delta": max_entry["delta_vs_field"],
                 "best_archetype": max_entry["archetype"],
             }
         )
 
-    cards.sort(key=lambda c: c["avg_delta"], reverse=True)
+    cards.sort(key=lambda c: c["weighted_impact"], reverse=True)
 
     _write_json(
         {"cards": cards, "generated_at": snapshot["generated_at"]},

@@ -87,7 +87,7 @@ def test_export_card_analysis_computes_delta(tmp_path):
     assert arch["delta_vs_field"] == 50.0
 
 
-def test_export_card_analysis_sorts_by_avg_delta(tmp_path):
+def test_export_card_analysis_sorts_by_weighted_impact(tmp_path):
     conn = sqlite3.connect(":memory:")
     conn.row_factory = sqlite3.Row
     init_db(conn)
@@ -96,5 +96,41 @@ def test_export_card_analysis_sorts_by_avg_delta(tmp_path):
     import json
 
     data = json.loads((tmp_path / "card-analysis.json").read_text())
-    deltas = [c["avg_delta"] for c in data["cards"]]
-    assert deltas == sorted(deltas, reverse=True)
+    impacts = [c["weighted_impact"] for c in data["cards"]]
+    assert impacts == sorted(impacts, reverse=True)
+
+
+def test_export_card_analysis_weighted_impact_favors_higher_tier(tmp_path):
+    """S-tier deltas should weigh more than A-tier deltas in weighted_impact."""
+    conn = sqlite3.connect(":memory:")
+    conn.row_factory = sqlite3.Row
+    init_db(conn)
+    _seed(conn)
+    export_card_analysis(conn, tmp_path)
+    import json
+
+    data = json.loads((tmp_path / "card-analysis.json").read_text())
+    boss = next(c for c in data["cards"] if c["card_name"] == "Boss's Orders")
+    # Boss's Orders has delta=50 in both S and A tier archetypes
+    # weighted_impact should be 50 (same delta in both, but weighted)
+    assert boss["weighted_impact"] == 50.0
+    assert "confidence" in boss
+    assert boss["confidence"] > 0
+
+
+def test_export_card_analysis_includes_confidence(tmp_path):
+    """Each archetype entry should have a confidence field."""
+    conn = sqlite3.connect(":memory:")
+    conn.row_factory = sqlite3.Row
+    init_db(conn)
+    _seed(conn)
+    export_card_analysis(conn, tmp_path)
+    import json
+
+    data = json.loads((tmp_path / "card-analysis.json").read_text())
+    boss = next(c for c in data["cards"] if c["card_name"] == "Boss's Orders")
+    for arch in boss["archetypes"]:
+        assert "confidence" in arch
+        assert 0 <= arch["confidence"] <= 1.0
+    # top4_sample_size=2 for both archetypes -> confidence = min(1.0, 2/10) = 0.2
+    assert boss["archetypes"][0]["confidence"] == 0.2

@@ -10,10 +10,12 @@ const mockData: CardAnalysisData = {
       card_name: "Boss's Orders",
       category: "Trainer",
       archetypes: [
-        { archetype: "Charizard Pidgeot", slug: "charizard-pidgeot", tier: "S", delta_vs_field: 15.0, top4_inclusion_pct: 100, field_inclusion_pct: 85, avg_copies: 2.8, top4_sample_size: 10 },
-        { archetype: "Lugia Archeops", slug: "lugia-archeops", tier: "A", delta_vs_field: 8.0, top4_inclusion_pct: 90, field_inclusion_pct: 82, avg_copies: 2.5, top4_sample_size: 6 },
+        { archetype: "Charizard Pidgeot", slug: "charizard-pidgeot", tier: "S", delta_vs_field: 15.0, top4_inclusion_pct: 100, field_inclusion_pct: 85, avg_copies: 2.8, top4_sample_size: 10, confidence: 1.0 },
+        { archetype: "Lugia Archeops", slug: "lugia-archeops", tier: "A", delta_vs_field: 8.0, top4_inclusion_pct: 90, field_inclusion_pct: 82, avg_copies: 2.5, top4_sample_size: 6, confidence: 0.6 },
       ],
       avg_delta: 11.5,
+      weighted_impact: 12.8,
+      confidence: 0.6,
       archetype_count: 2,
       max_delta: 15.0,
       best_archetype: "Charizard Pidgeot",
@@ -22,9 +24,11 @@ const mockData: CardAnalysisData = {
       card_name: "Charizard ex",
       category: "Pokemon",
       archetypes: [
-        { archetype: "Charizard Pidgeot", slug: "charizard-pidgeot", tier: "S", delta_vs_field: 20.0, top4_inclusion_pct: 100, field_inclusion_pct: 80, avg_copies: 3, top4_sample_size: 10 },
+        { archetype: "Charizard Pidgeot", slug: "charizard-pidgeot", tier: "S", delta_vs_field: 20.0, top4_inclusion_pct: 100, field_inclusion_pct: 80, avg_copies: 3, top4_sample_size: 10, confidence: 1.0 },
       ],
       avg_delta: 20.0,
+      weighted_impact: 20.0,
+      confidence: 1.0,
       archetype_count: 1,
       max_delta: 20.0,
       best_archetype: "Charizard Pidgeot",
@@ -33,9 +37,11 @@ const mockData: CardAnalysisData = {
       card_name: "Basic Fire Energy",
       category: "Energy",
       archetypes: [
-        { archetype: "Charizard Pidgeot", slug: "charizard-pidgeot", tier: "S", delta_vs_field: 5.0, top4_inclusion_pct: 100, field_inclusion_pct: 95, avg_copies: 8, top4_sample_size: 10 },
+        { archetype: "Charizard Pidgeot", slug: "charizard-pidgeot", tier: "S", delta_vs_field: 5.0, top4_inclusion_pct: 100, field_inclusion_pct: 95, avg_copies: 8, top4_sample_size: 10, confidence: 1.0 },
       ],
       avg_delta: 5.0,
+      weighted_impact: 5.0,
+      confidence: 1.0,
       archetype_count: 1,
       max_delta: 5.0,
       best_archetype: "Charizard Pidgeot",
@@ -49,18 +55,20 @@ describe("CardAnalysisClient", () => {
 
   it("renders all cards", () => {
     render(<CardAnalysisClient data={mockData} format="nihil-zero" />);
-    expect(screen.getByText("Boss's Orders")).toBeInTheDocument();
-    expect(screen.getByText("Charizard ex")).toBeInTheDocument();
-    expect(screen.getByText("Basic Fire Energy")).toBeInTheDocument();
+    expect(screen.getAllByText("Boss's Orders").length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText("Charizard ex").length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText("Basic Fire Energy").length).toBeGreaterThanOrEqual(1);
   });
 
   it("filters by category", async () => {
     const user = userEvent.setup();
     render(<CardAnalysisClient data={mockData} format="nihil-zero" />);
     await user.click(screen.getByRole("button", { name: "Pokemon" }));
-    expect(screen.getByText("Charizard ex")).toBeInTheDocument();
-    expect(screen.queryByText("Boss's Orders")).not.toBeInTheDocument();
-    expect(screen.queryByText("Basic Fire Energy")).not.toBeInTheDocument();
+    // After filtering to Pokemon, table should only show Charizard ex
+    // Featured strip is unfiltered, so Boss's Orders may still appear there
+    const rows = screen.getAllByTestId("card-row");
+    expect(rows.length).toBe(1);
+    expect(rows[0]).toHaveTextContent("Charizard ex");
   });
 
   it("shows card count", () => {
@@ -80,11 +88,26 @@ describe("CardAnalysisClient", () => {
     expect(link).toHaveAttribute("href", "/nihil-zero/cards/charizard-ex");
   });
 
-  it("default sort surfaces highest max_delta first", () => {
+  it("default sort surfaces highest weighted_impact first", () => {
     render(<CardAnalysisClient data={mockData} format="nihil-zero" />);
-    const links = screen.getAllByRole("link").filter((el) =>
-      mockData.cards.some((c) => c.card_name === el.textContent),
-    );
-    expect(links[0]).toHaveTextContent("Charizard ex");
+    const rows = screen.getAllByTestId("card-row");
+    expect(rows[0]).toHaveTextContent("Charizard ex");
+  });
+
+  it("renders featured cards strip for high-impact cards", () => {
+    render(<CardAnalysisClient data={mockData} format="nihil-zero" />);
+    expect(screen.getByText("Top Impact Cards")).toBeInTheDocument();
+  });
+
+  it("renders archetype breakdown with confidence indicators on expand", async () => {
+    const user = userEvent.setup();
+    render(<CardAnalysisClient data={mockData} format="nihil-zero" />);
+    const rows = screen.getAllByTestId("card-row");
+    // Click the button inside the first row to expand
+    const button = rows[0].querySelector("button")!;
+    await user.click(button);
+    const breakdown = screen.getByTestId("archetype-breakdown");
+    expect(breakdown).toBeInTheDocument();
+    expect(screen.getByText("Charizard Pidgeot")).toBeInTheDocument();
   });
 });

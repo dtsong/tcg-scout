@@ -147,6 +147,7 @@ export interface CardAnalysisArchetype {
   field_inclusion_pct: number;
   avg_copies: number;
   top4_sample_size: number;
+  confidence: number;
 }
 
 export interface CardAnalysisEntry {
@@ -154,6 +155,8 @@ export interface CardAnalysisEntry {
   category: "Pokemon" | "Trainer" | "Energy";
   archetypes: CardAnalysisArchetype[];
   avg_delta: number;
+  weighted_impact: number;
+  confidence: number;
   archetype_count: number;
   max_delta: number;
   best_archetype: string;
