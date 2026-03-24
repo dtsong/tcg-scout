@@ -21,3 +21,10 @@ export async function formatPageMetadata(
 export function safePercent(value: number): string {
   return Number.isFinite(value) ? value.toFixed(1) : "0.0";
 }
+
+/**
+ * Safely coerce an integer value, returning 0 for NaN/Infinity.
+ */
+export function safeInt(value: number): number {
+  return Number.isFinite(value) ? value : 0;
+}

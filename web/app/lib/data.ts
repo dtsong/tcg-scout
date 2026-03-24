@@ -45,8 +45,13 @@ export function getFormats(): FormatInfo[] {
 export function getFormatName(format: string): string {
   const formats = getFormats();
   const match = formats.find((f) => f.slug === format);
-  if (!match || !match.name_en) {
-    console.warn(`[data] getFormatName: no name_en found for format "${format}", falling back to raw slug`);
+  if (!match) {
+    throw new Error(
+      `getFormatName: format "${format}" not found in formats.json. Available: [${formats.map((f) => f.slug).join(", ")}]`,
+    );
+  }
+  if (!match.name_en) {
+    console.warn(`[data] getFormatName: name_en is empty for format "${format}", falling back to raw slug`);
     return format;
   }
   return match.name_en;

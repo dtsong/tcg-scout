@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { getArchetype, getArchetypeReport, getArchetypeSlugs, getFormats, getFormatName, getOptimal60Index } from "@/app/lib/data";
-import { safePercent } from "@/app/lib/metadata";
+import { safePercent, safeInt } from "@/app/lib/metadata";
 import { TierBadge } from "@/app/components/tier-badge";
 import { SpriteRow } from "@/app/components/sprite-row";
 import { StatCard } from "@/app/components/stat-card";
@@ -25,7 +25,7 @@ export async function generateMetadata({
   const formatName = getFormatName(format);
   return {
     title: `${arch.archetype} -- ${share}% Meta Share, Tier ${arch.tier ?? "Unranked"} | Scout`,
-    description: `${arch.archetype} in ${formatName}: ${share}% meta share, Tier ${arch.tier ?? "Unranked"}, ${Number.isFinite(arch.deck_count) ? arch.deck_count : 0} decks. Core cards, results, and performance analysis.`,
+    description: `${arch.archetype} in ${formatName}: ${share}% meta share, Tier ${arch.tier ?? "Unranked"}, ${safeInt(arch.deck_count)} decks. Core cards, results, and performance analysis.`,
   };
 }
 

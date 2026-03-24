@@ -13,7 +13,7 @@ vi.mock("fs", () => ({
 
 import fs from "fs";
 import { getArchetype, getCardDetail, getFormatName } from "../data";
-import { safePercent } from "../metadata";
+import { formatPageMetadata, safePercent, safeInt } from "../metadata";
 
 const MOCK_FORMATS = [
   {
@@ -26,6 +26,37 @@ const MOCK_FORMATS = [
     status: "active",
   },
 ];
+
+function mockArch(overrides: Record<string, unknown> = {}) {
+  return {
+    archetype: "Test Archetype",
+    slug: "test-archetype",
+    meta_share: 10.0,
+    weighted_share: 12.0,
+    deck_count: 20,
+    best_placement: 1,
+    tier: "A",
+    core_cards: [],
+    all_cards: [],
+    results: [],
+    sprite_filenames: [],
+    ...overrides,
+  };
+}
+
+function mockCard(overrides: Record<string, unknown> = {}) {
+  return {
+    card_name: "Test Card",
+    slug: "test-card",
+    usage_pct: 50.0,
+    unique_archetypes: 5,
+    avg_copies: 2,
+    category: "Trainer",
+    top_archetypes: [],
+    weekly_usage: [],
+    ...overrides,
+  };
+}
 
 beforeEach(() => {
   vi.clearAllMocks();
@@ -49,6 +80,47 @@ describe("safePercent", () => {
   });
 });
 
+describe("safeInt", () => {
+  it("returns the value when finite", () => {
+    expect(safeInt(42)).toBe(42);
+    expect(safeInt(0)).toBe(0);
+  });
+
+  it("returns 0 for NaN", () => {
+    expect(safeInt(NaN)).toBe(0);
+  });
+
+  it("returns 0 for Infinity", () => {
+    expect(safeInt(Infinity)).toBe(0);
+    expect(safeInt(-Infinity)).toBe(0);
+  });
+});
+
+describe("formatPageMetadata", () => {
+  it("resolves format name and passes it to the builder", async () => {
+    vi.mocked(fs.readFileSync).mockReturnValue(JSON.stringify(MOCK_FORMATS));
+    const result = await formatPageMetadata(
+      Promise.resolve({ format: "ninja-spinner" }),
+      (formatName) => ({
+        title: `Test -- ${formatName} | Scout`,
+        description: `Desc for ${formatName}`,
+      }),
+    );
+    expect(result.title).toBe("Test -- Ninja Spinner | Scout");
+    expect(result.description).toBe("Desc for Ninja Spinner");
+  });
+
+  it("throws when format is unknown", async () => {
+    vi.mocked(fs.readFileSync).mockReturnValue(JSON.stringify(MOCK_FORMATS));
+    await expect(
+      formatPageMetadata(
+        Promise.resolve({ format: "unknown-format" }),
+        (formatName) => ({ title: formatName, description: "" }),
+      ),
+    ).rejects.toThrow('format "unknown-format" not found');
+  });
+});
+
 describe("archetype metadata formatting", () => {
   function buildArchetypeMetadata(format: string, slug: string) {
     const arch = getArchetype(format, slug);
@@ -56,29 +128,18 @@ describe("archetype metadata formatting", () => {
     const formatName = getFormatName(format);
     return {
       title: `${arch.archetype} -- ${share}% Meta Share, Tier ${arch.tier ?? "Unranked"} | Scout`,
-      description: `${arch.archetype} in ${formatName}: ${share}% meta share, Tier ${arch.tier ?? "Unranked"}, ${Number.isFinite(arch.deck_count) ? arch.deck_count : 0} decks. Core cards, results, and performance analysis.`,
+      description: `${arch.archetype} in ${formatName}: ${share}% meta share, Tier ${arch.tier ?? "Unranked"}, ${safeInt(arch.deck_count)} decks. Core cards, results, and performance analysis.`,
     };
   }
 
-  it("formats title and description correctly", () => {
-    const mockArch = {
-      archetype: "Charizard ex",
-      slug: "charizard-ex",
-      meta_share: 15.3,
-      weighted_share: 18.2,
-      deck_count: 42,
-      best_placement: 1,
-      tier: "S",
-      core_cards: [],
-      all_cards: [],
-      results: [],
-      sprite_filenames: [],
-    };
-
-    // First call reads archetype JSON, second reads formats JSON
+  function setupArchMocks(overrides: Record<string, unknown> = {}) {
     vi.mocked(fs.readFileSync)
-      .mockReturnValueOnce(JSON.stringify(mockArch))
+      .mockReturnValueOnce(JSON.stringify(mockArch(overrides)))
       .mockReturnValueOnce(JSON.stringify(MOCK_FORMATS));
+  }
+
+  it("formats title and description correctly", () => {
+    setupArchMocks({ archetype: "Charizard ex", slug: "charizard-ex", meta_share: 15.3, weighted_share: 18.2, deck_count: 42, tier: "S" });
 
     const meta = buildArchetypeMetadata("ninja-spinner", "charizard-ex");
     expect(meta.title).toBe("Charizard ex -- 15.3% Meta Share, Tier S | Scout");
@@ -88,22 +149,7 @@ describe("archetype metadata formatting", () => {
   });
 
   it("handles NaN meta_share gracefully", () => {
-    const mockArch = {
-      archetype: "Bad Data",
-      slug: "bad-data",
-      meta_share: NaN,
-      deck_count: 0,
-      best_placement: 1,
-      tier: "Rogue",
-      core_cards: [],
-      all_cards: [],
-      results: [],
-      sprite_filenames: [],
-    };
-
-    vi.mocked(fs.readFileSync)
-      .mockReturnValueOnce(JSON.stringify(mockArch))
-      .mockReturnValueOnce(JSON.stringify(MOCK_FORMATS));
+    setupArchMocks({ archetype: "Bad Data", meta_share: NaN, tier: "Rogue" });
 
     const meta = buildArchetypeMetadata("ninja-spinner", "bad-data");
     expect(meta.title).toBe("Bad Data -- 0.0% Meta Share, Tier Rogue | Scout");
@@ -111,22 +157,7 @@ describe("archetype metadata formatting", () => {
   });
 
   it("handles NaN deck_count gracefully", () => {
-    const mockArch = {
-      archetype: "Broken Deck",
-      slug: "broken-deck",
-      meta_share: 5.0,
-      deck_count: NaN,
-      best_placement: 1,
-      tier: "B",
-      core_cards: [],
-      all_cards: [],
-      results: [],
-      sprite_filenames: [],
-    };
-
-    vi.mocked(fs.readFileSync)
-      .mockReturnValueOnce(JSON.stringify(mockArch))
-      .mockReturnValueOnce(JSON.stringify(MOCK_FORMATS));
+    setupArchMocks({ archetype: "Broken Deck", deck_count: NaN, tier: "B" });
 
     const meta = buildArchetypeMetadata("ninja-spinner", "broken-deck");
     expect(meta.description).toContain("0 decks");
@@ -134,21 +165,7 @@ describe("archetype metadata formatting", () => {
   });
 
   it("handles missing tier gracefully", () => {
-    const mockArch = {
-      archetype: "No Tier",
-      slug: "no-tier",
-      meta_share: 1.0,
-      deck_count: 3,
-      best_placement: 1,
-      core_cards: [],
-      all_cards: [],
-      results: [],
-      sprite_filenames: [],
-    };
-
-    vi.mocked(fs.readFileSync)
-      .mockReturnValueOnce(JSON.stringify(mockArch))
-      .mockReturnValueOnce(JSON.stringify(MOCK_FORMATS));
+    setupArchMocks({ archetype: "No Tier", tier: undefined });
 
     const meta = buildArchetypeMetadata("ninja-spinner", "no-tier");
     expect(meta.title).toContain("Tier Unranked");
@@ -163,25 +180,18 @@ describe("card metadata formatting", () => {
     const formatName = getFormatName(format);
     return {
       title: `${card.card_name} -- ${usage}% Usage | Scout`,
-      description: `${card.card_name} appears in ${usage}% of ${formatName} decks across ${Number.isFinite(card.unique_archetypes) ? card.unique_archetypes : 0} archetypes. Usage trends, synergy partners, and decklist data.`,
+      description: `${card.card_name} appears in ${usage}% of ${formatName} decks across ${safeInt(card.unique_archetypes)} archetypes. Usage trends, synergy partners, and decklist data.`,
     };
   }
 
-  it("formats title and description correctly", () => {
-    const mockCard = {
-      card_name: "Boss's Orders",
-      slug: "bosss-orders",
-      usage_pct: 62.4,
-      unique_archetypes: 8,
-      avg_copies: 2.1,
-      category: "Trainer",
-      top_archetypes: [],
-      weekly_usage: [],
-    };
-
+  function setupCardMocks(overrides: Record<string, unknown> = {}) {
     vi.mocked(fs.readFileSync)
-      .mockReturnValueOnce(JSON.stringify(mockCard))
+      .mockReturnValueOnce(JSON.stringify(mockCard(overrides)))
       .mockReturnValueOnce(JSON.stringify(MOCK_FORMATS));
+  }
+
+  it("formats title and description correctly", () => {
+    setupCardMocks({ card_name: "Boss's Orders", slug: "bosss-orders", usage_pct: 62.4, unique_archetypes: 8 });
 
     const meta = buildCardMetadata("ninja-spinner", "bosss-orders");
     expect(meta.title).toBe("Boss's Orders -- 62.4% Usage | Scout");
@@ -191,20 +201,7 @@ describe("card metadata formatting", () => {
   });
 
   it("handles NaN usage_pct gracefully", () => {
-    const mockCard = {
-      card_name: "Bad Card",
-      slug: "bad-card",
-      usage_pct: NaN,
-      unique_archetypes: 0,
-      avg_copies: 0,
-      category: "Trainer",
-      top_archetypes: [],
-      weekly_usage: [],
-    };
-
-    vi.mocked(fs.readFileSync)
-      .mockReturnValueOnce(JSON.stringify(mockCard))
-      .mockReturnValueOnce(JSON.stringify(MOCK_FORMATS));
+    setupCardMocks({ card_name: "Bad Card", usage_pct: NaN });
 
     const meta = buildCardMetadata("ninja-spinner", "bad-card");
     expect(meta.title).toBe("Bad Card -- 0.0% Usage | Scout");
@@ -212,20 +209,7 @@ describe("card metadata formatting", () => {
   });
 
   it("handles NaN unique_archetypes gracefully", () => {
-    const mockCard = {
-      card_name: "Broken Card",
-      slug: "broken-card",
-      usage_pct: 10.0,
-      unique_archetypes: NaN,
-      avg_copies: 1,
-      category: "Trainer",
-      top_archetypes: [],
-      weekly_usage: [],
-    };
-
-    vi.mocked(fs.readFileSync)
-      .mockReturnValueOnce(JSON.stringify(mockCard))
-      .mockReturnValueOnce(JSON.stringify(MOCK_FORMATS));
+    setupCardMocks({ card_name: "Broken Card", unique_archetypes: NaN });
 
     const meta = buildCardMetadata("ninja-spinner", "broken-card");
     expect(meta.description).toContain("across 0 archetypes");

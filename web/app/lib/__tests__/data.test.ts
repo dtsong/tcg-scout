@@ -326,9 +326,9 @@ describe("getFormatName", () => {
     expect(getFormatName("ninja-spinner")).toBe("Ninja Spinner");
   });
 
-  it("falls back to raw format slug when no match found", () => {
+  it("throws when format slug is not found", () => {
     vi.mocked(fs.readFileSync).mockReturnValue(JSON.stringify(mockFormats));
-    expect(getFormatName("unknown-format")).toBe("unknown-format");
+    expect(() => getFormatName("unknown-format")).toThrow('format "unknown-format" not found');
   });
 
   it("falls back to raw slug when name_en is empty string", () => {

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { getCardDetail, getCardSlugs, getFormats, getFormatName, getCardAnalysis } from "@/app/lib/data";
-import { safePercent } from "@/app/lib/metadata";
+import { safePercent, safeInt } from "@/app/lib/metadata";
 import { CardDetailClient } from "./card-detail-client";
 import { notFound } from "next/navigation";
 
@@ -15,7 +15,7 @@ export async function generateMetadata({
   const formatName = getFormatName(format);
   return {
     title: `${card.card_name} -- ${usage}% Usage | Scout`,
-    description: `${card.card_name} appears in ${usage}% of ${formatName} decks across ${Number.isFinite(card.unique_archetypes) ? card.unique_archetypes : 0} archetypes. Usage trends, synergy partners, and decklist data.`,
+    description: `${card.card_name} appears in ${usage}% of ${formatName} decks across ${safeInt(card.unique_archetypes)} archetypes. Usage trends, synergy partners, and decklist data.`,
   };
 }
 
