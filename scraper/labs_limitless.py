@@ -241,7 +241,15 @@ class LabsLimitlessClient(RateLimitedHTTPClient):
                 )
                 continue
 
-            placement = self._parse_standings_row(cells)
+            try:
+                placement = self._parse_standings_row(cells)
+            except ValueError as exc:
+                logger.warning(
+                    "Skipping standings row due to validation error in tournament %s: %s",
+                    labs_tournament_id,
+                    exc,
+                )
+                continue
             if placement:
                 placements.append(placement)
 
@@ -656,8 +664,11 @@ class LabsLimitlessClient(RateLimitedHTTPClient):
                     decklists_stored += 1
 
             conn.commit()
+        except sqlite3.Error:
+            logger.exception("Database error ingesting tournament %s, rolling back", tournament_id)
+            conn.rollback()
+            raise
         except Exception:
-            logger.exception("Failed to ingest tournament %s, rolling back", tournament_id)
             conn.rollback()
             raise
 

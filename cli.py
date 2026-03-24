@@ -4,6 +4,7 @@ import logging
 import sqlite3
 
 import click
+import httpx
 from rich.console import Console
 from rich.table import Table
 
@@ -1237,6 +1238,15 @@ def scrape_labs(
     except ValueError as exc:
         console.print(f"[red]Error ingesting tournament: {exc}[/red]")
         raise click.Abort()
+    except httpx.HTTPStatusError as exc:
+        console.print(
+            f"[red]HTTP {exc.response.status_code} from {exc.request.url} — "
+            f"check your internet connection and verify the tournament ID.[/red]"
+        )
+        raise click.Abort()
+    except (httpx.TimeoutException, httpx.ConnectError) as exc:
+        console.print(f"[red]Network error: {exc}. Check your internet connection.[/red]")
+        raise click.Abort()
     except Exception:
         logger.exception("Unexpected error ingesting tournament %s", tournament_id)
         raise
@@ -1250,11 +1260,12 @@ def scrape_labs(
 def labs_matchups(ctx: click.Context, top: int) -> None:
     """Compute H2H matchup data from Labs international tournaments."""
     from analysis.matchup import compute_labs_archetype_winrates, compute_labs_matchup_matrix
-    from labs_db import get_labs_connection
+    from labs_db import get_labs_connection, init_labs_db
 
     conn = None
     try:
         conn = get_labs_connection()
+        init_labs_db(conn)
 
         # Archetype win rates
         winrates = compute_labs_archetype_winrates(conn, top_n=top)

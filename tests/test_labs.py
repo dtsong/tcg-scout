@@ -1516,3 +1516,73 @@ class TestConsecutiveFetchFailureAbort:
         assert mock_fetch.call_count == 6
         assert result["decklists"] == 2
         assert result["decklist_failures"] == 4
+
+    def test_auth_blocked_circuit_breaker(self, client, labs_db):
+        """HTTP 401/403 during decklist fetch should abort immediately."""
+        import httpx
+
+        from scraper.labs_limitless import LabsPlacement, LabsPlayer, LabsTournament
+
+        tournament = LabsTournament(tournament_id="997", name="Auth Block Test", date="2026-03-20")
+        placements = [
+            LabsPlacement(
+                standing=i,
+                player=LabsPlayer(player_id=f"auth-p{i}", name=f"Player {i}"),
+                archetype="Charizard ex",
+                decklist_url=f"https://example.com/decks/{i}",
+            )
+            for i in range(1, 5)
+        ]
+
+        mock_request = MagicMock()
+        mock_response = MagicMock(status_code=403)
+        exc = httpx.HTTPStatusError("Forbidden", request=mock_request, response=mock_response)
+
+        with (
+            patch.object(client, "fetch_tournament_metadata", return_value=tournament),
+            patch.object(client, "fetch_standings", return_value=placements),
+            patch.object(client, "fetch_decklist", side_effect=exc) as mock_fetch,
+        ):
+            result = client.ingest_tournament(labs_db, "997", "0097")
+
+        # Should abort after first 403 — only 1 call
+        assert mock_fetch.call_count == 1
+        # All 4 counted as failures
+        assert result["decklist_failures"] == 4
+        assert result["decklists"] == 0
+
+
+class TestRecordFallbackZeroMatches:
+    """Test record-based fallback with zero-total-match edge case."""
+
+    def test_zero_records_produce_valid_matrix(self):
+        """Archetypes with all-zero W-L-T should be filtered (NULL avg_wr)."""
+        from analysis.matchup import compute_labs_matchup_matrix
+
+        conn = sqlite3.connect(":memory:")
+        conn.row_factory = sqlite3.Row
+        conn.executescript(LABS_SCHEMA)
+
+        conn.execute("INSERT INTO tournaments (id, name, date) VALUES ('t1', 'Test', '2026-01-01')")
+        conn.execute("INSERT INTO players (id, name) VALUES ('p1', 'Player1')")
+        conn.execute("INSERT INTO players (id, name) VALUES ('p2', 'Player2')")
+        # Both have zero records
+        conn.execute(
+            "INSERT INTO placements (tournament_id, player_id, standing, archetype, record_w, record_l, record_t) "
+            "VALUES ('t1', 'p1', 1, 'Charizard ex', 0, 0, 0)"
+        )
+        conn.execute(
+            "INSERT INTO placements (tournament_id, player_id, standing, archetype, record_w, record_l, record_t) "
+            "VALUES ('t1', 'p2', 2, 'Dragapult ex', 0, 0, 0)"
+        )
+        conn.commit()
+
+        result = compute_labs_matchup_matrix(conn, top_n=5)
+        conn.close()
+
+        # With zero records, avg_wr is NULL and filtered out — matrix should have no data
+        # but must not contain NaN or crash
+        for row in result["matrix"]:
+            for val in row:
+                assert val == val  # NaN != NaN, so this catches NaN
+                assert isinstance(val, (int, float))

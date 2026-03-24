@@ -91,16 +91,19 @@ def get_labs_connection() -> sqlite3.Connection:
     """Get a SQLite connection for the Labs database."""
     DATA_DIR.mkdir(parents=True, exist_ok=True)
     conn = sqlite3.connect(str(LABS_DB_PATH))
-    conn.row_factory = sqlite3.Row
-    conn.execute("PRAGMA journal_mode=WAL")
-    conn.execute("PRAGMA foreign_keys=ON")
-    fk_enabled = conn.execute("PRAGMA foreign_keys").fetchone()[0]
-    if not fk_enabled:
+    try:
+        conn.row_factory = sqlite3.Row
+        conn.execute("PRAGMA journal_mode=WAL")
+        conn.execute("PRAGMA foreign_keys=ON")
+        fk_enabled = conn.execute("PRAGMA foreign_keys").fetchone()[0]
+        if not fk_enabled:
+            raise RuntimeError(
+                f"Foreign keys could not be enabled on {LABS_DB_PATH}. "
+                "This SQLite build may not support foreign keys."
+            )
+    except Exception:
         conn.close()
-        raise RuntimeError(
-            f"Foreign keys could not be enabled on {LABS_DB_PATH}. "
-            "This SQLite build may not support foreign keys."
-        )
+        raise
     return conn
 
 

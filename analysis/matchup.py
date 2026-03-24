@@ -242,7 +242,7 @@ def compute_labs_archetype_winrates(
 
 
 def _top_archetypes(conn: sqlite3.Connection, top_n: int) -> list[sqlite3.Row]:
-    """Get the top archetypes by player count from the placements table."""
+    """Get the top archetypes by placement count from the placements table."""
     return conn.execute(
         """
         SELECT archetype, COUNT(*) AS cnt

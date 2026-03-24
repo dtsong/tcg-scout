@@ -86,9 +86,7 @@ def extract_sprites(cell: Tag, join_sep: str = " ") -> tuple[str, list[str]]:
         src = img.get("src", "")
         alt = img.get("alt", "")
 
-        if src and "pokemon" in src:
-            sprite_urls.append(src)
-        elif src:
+        if src:
             sprite_urls.append(src)
 
         if alt and alt.strip():
@@ -147,7 +145,7 @@ class RateLimitedHTTPClient:
                     ts for ts in self._request_timestamps if now - ts < 60.0
                 ]
                 if len(self._request_timestamps) < self._max_rpm:
-                    self._request_timestamps.append(time.monotonic())
+                    self._request_timestamps.append(now)
                     return
                 oldest = self._request_timestamps[0]
                 wait = 60.0 - (now - oldest) + 0.1
@@ -191,7 +189,13 @@ class RateLimitedHTTPClient:
                 response.raise_for_status()
                 return response
 
-            except httpx.HTTPStatusError:
+            except httpx.HTTPStatusError as exc:
+                logger.error(
+                    "HTTP %d for %s (attempt %d, not retrying)",
+                    exc.response.status_code,
+                    url,
+                    attempt + 1,
+                )
                 raise
             except httpx.HTTPError as exc:
                 last_exc = exc
