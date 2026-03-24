@@ -65,7 +65,7 @@ export function DateFilter({
           <span className="hidden sm:inline">Window</span>
         </div>
 
-        <div className="flex items-center bg-surface-700/50 rounded-lg p-0.5 border border-surface-600">
+        <div className="flex items-center bg-surface-700/50 rounded-md p-0.5 border border-surface-600">
           {PRESET_WINDOWS.map(({ key, label }) => (
             <button
               key={key}

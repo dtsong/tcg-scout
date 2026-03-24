@@ -57,7 +57,7 @@ function CustomTooltip({
     .sort((a, b) => b.value - a.value);
 
   return (
-    <div className="bg-surface-800 border border-surface-600 rounded-lg p-3 shadow-lg max-h-64 overflow-y-auto">
+    <div className="bg-surface-800 border border-surface-600 rounded-md p-3 shadow-lg max-h-64 overflow-y-auto">
       <p className="text-xs font-semibold text-slate-200 mb-2">
         {formatWeekLabel(label)}
       </p>
@@ -93,7 +93,7 @@ export function MetaTimeline({ data }: MetaTimelineProps) {
   const archetypes = data.archetype_order;
 
   return (
-    <section className="bg-surface-800 border border-surface-600 rounded-lg p-5">
+    <section className="bg-surface-800 border border-surface-600 rounded-md p-5">
       <h2 className="font-display text-lg font-semibold text-slate-100 mb-3">
         Meta Timeline
       </h2>

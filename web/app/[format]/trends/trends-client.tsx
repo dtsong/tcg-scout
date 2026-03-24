@@ -92,7 +92,7 @@ export function TrendsClient({
 
       <div className={loading ? "opacity-50 pointer-events-none transition-opacity space-y-8" : "transition-opacity space-y-8"}>
       {/* Trend Chart */}
-      <div className="bg-surface-800 border border-surface-600 rounded-lg p-4 sm:p-6">
+      <div className="bg-surface-800 border border-surface-600 rounded-md p-4 sm:p-6">
         <h2 className="font-display text-sm font-semibold text-slate-200 mb-4 flex items-center gap-2">
           <TrendingUp className="w-4 h-4 text-signal-up" />
           Top Surging Cards: Early vs Late Period
@@ -142,7 +142,7 @@ export function TrendsClient({
       </div>
 
       {/* Surging Cards Table */}
-      <div className="bg-surface-800 border border-surface-600 rounded-lg overflow-hidden">
+      <div className="bg-surface-800 border border-surface-600 rounded-md overflow-hidden">
         <div className="px-4 py-3 border-b border-surface-600">
           <h2 className="font-display text-sm font-semibold text-slate-200 flex items-center gap-2">
             <TrendingUp className="w-4 h-4 text-signal-up" />
@@ -201,7 +201,7 @@ export function TrendsClient({
       </div>
 
       {/* Declining Cards Table */}
-      <div className="bg-surface-800 border border-surface-600 rounded-lg overflow-hidden">
+      <div className="bg-surface-800 border border-surface-600 rounded-md overflow-hidden">
         <div className="px-4 py-3 border-b border-surface-600">
           <h2 className="font-display text-sm font-semibold text-slate-200 flex items-center gap-2">
             <TrendingDown className="w-4 h-4 text-signal-down" />
@@ -259,7 +259,7 @@ export function TrendsClient({
       </div>
 
       {/* Winning Edge */}
-      <div className="bg-surface-800 border border-surface-600 rounded-lg overflow-hidden">
+      <div className="bg-surface-800 border border-surface-600 rounded-md overflow-hidden">
         <div className="px-4 py-3 border-b border-surface-600">
           <h2 className="font-display text-sm font-semibold text-slate-200 flex items-center gap-2">
             <Trophy className="w-4 h-4 text-tier-s" />

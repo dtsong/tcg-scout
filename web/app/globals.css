@@ -35,9 +35,24 @@
   --color-urgency-high: #f59e0b;
   --color-urgency-moderate: #14b8a6;
 
+  /* Surface depth (panel nesting) */
+  --color-surface-850: #0D0D0F;
+  --color-surface-750: #1A1A1E;
+
+  /* Terminal chrome */
+  --color-terminal: #00E676;
+  --color-terminal-dim: rgba(0, 230, 118, 0.4);
+
   /* Accent */
   --color-accent: #f59e0b;
   --color-accent-dim: #92640a;
+
+  /* Motion tokens */
+  --duration-fast: 120ms;
+  --duration-normal: 250ms;
+  --duration-slow: 600ms;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --stagger-step: 40ms;
 
   /* Typography — Dramatic */
   --font-display: "Outfit", sans-serif;
@@ -49,6 +64,11 @@ body {
   background-color: var(--color-surface-900);
   color: #FAFAFA;
   font-family: var(--font-body);
+}
+
+/* Ensure all monospace text uses tabular figures for alignment */
+.font-mono {
+  font-variant-numeric: tabular-nums;
 }
 
 /* Scanline texture overlay for hero sections */
@@ -75,6 +95,79 @@ body {
 }
 
 .animate-row-reveal {
-  animation: row-reveal 0.3s ease-out forwards;
+  animation: row-reveal var(--duration-normal) var(--ease-out) forwards;
   opacity: 0;
+}
+
+/* Stagger support: set --index via inline style */
+.animate-stagger {
+  animation: row-reveal var(--duration-normal) var(--ease-out) forwards;
+  animation-delay: calc(var(--index, 0) * var(--stagger-step));
+  opacity: 0;
+}
+
+/* Tier glow reveal on table rows */
+@keyframes tier-glow {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.tier-glow {
+  position: relative;
+}
+
+.tier-glow::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at left center, var(--tier-glow-color, transparent), transparent 70%);
+  animation: tier-glow var(--duration-slow) var(--ease-out) forwards;
+  animation-delay: calc(var(--index, 0) * var(--stagger-step) + var(--duration-normal));
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Pulsing dot for live indicators */
+@keyframes pulse-dot {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(0.85);
+  }
+}
+
+.animate-pulse-dot {
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+/* Reduced motion: disable all custom animations */
+@media (prefers-reduced-motion: reduce) {
+  .animate-row-reveal,
+  .animate-stagger {
+    animation: none;
+    opacity: 1;
+  }
+
+  .tier-glow::after {
+    animation: none;
+    opacity: 0;
+  }
+
+  .animate-pulse-dot {
+    animation: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
 }

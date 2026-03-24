@@ -25,7 +25,7 @@ export function VariantBreakdown({
       </p>
 
       {/* Segmented bar */}
-      <div className="flex rounded-lg overflow-hidden h-6 mb-3">
+      <div className="flex rounded-md overflow-hidden h-6 mb-3">
         {variants.map((v, i) => (
           <div
             key={v.name}

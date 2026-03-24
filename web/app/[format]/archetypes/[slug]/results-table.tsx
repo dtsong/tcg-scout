@@ -86,7 +86,7 @@ export function ResultsTable({ results }: { results: ArchetypeResult[] }) {
       </button>
 
       {expanded && (
-        <div className="bg-surface-800 border border-surface-600 rounded-lg overflow-hidden mt-4">
+        <div className="bg-surface-800 border border-surface-600 rounded-md overflow-hidden mt-4">
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead>

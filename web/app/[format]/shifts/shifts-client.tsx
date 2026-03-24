@@ -135,7 +135,7 @@ export function ShiftsClient({ format, movements }: ShiftsClientProps) {
 
       {/* Filters */}
       <div className="flex flex-wrap items-center gap-3">
-        <div className="inline-flex rounded-lg border border-surface-600 overflow-hidden">
+        <div className="inline-flex rounded-md border border-surface-600 overflow-hidden">
           {(["all", "adopted", "dropped"] as DirectionFilter[]).map((dir) => (
             <button
               key={dir}
@@ -177,7 +177,7 @@ export function ShiftsClient({ format, movements }: ShiftsClientProps) {
           return (
             <div
               key={group.archetype}
-              className="bg-surface-800 border border-surface-600 rounded-lg overflow-hidden"
+              className="bg-surface-800 border border-surface-600 rounded-md overflow-hidden"
             >
               {/* Archetype header */}
               <button

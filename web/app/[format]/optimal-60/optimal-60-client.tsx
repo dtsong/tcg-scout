@@ -121,7 +121,7 @@ function Optimal60CardRow({ card }: { card: Optimal60Card }) {
       </div>
       {/* Insight tooltip on hover */}
       {card.insight && (
-        <div className="hidden group-hover:block absolute bottom-full left-0 right-0 mb-1 z-10 px-3 py-2 bg-surface-700 border border-surface-500 rounded-lg shadow-lg text-xs text-slate-300">
+        <div className="hidden group-hover:block absolute bottom-full left-0 right-0 mb-1 z-10 px-3 py-2 bg-surface-700 border border-surface-500 rounded-md shadow-lg text-xs text-slate-300">
           {card.insight}
         </div>
       )}
@@ -142,7 +142,7 @@ function CategoryColumn({
 }) {
   if (cards.length === 0) return null;
   return (
-    <div className="bg-surface-800 border border-surface-600 rounded-lg overflow-hidden">
+    <div className="bg-surface-800 border border-surface-600 rounded-md overflow-hidden">
       <div className="px-3 py-2 border-b border-surface-600 flex items-center justify-between">
         <h3 className="text-xs font-semibold text-surface-300 uppercase tracking-wider">
           {title}
@@ -218,7 +218,7 @@ function ArchetypeSelector({
       <button
         onClick={() => setOpen(!open)}
         className={cn(
-          "w-full flex items-center justify-between gap-3 px-4 py-3 rounded-lg border transition-all",
+          "w-full flex items-center justify-between gap-3 px-4 py-3 rounded-md border transition-all",
           open
             ? "bg-surface-700 border-surface-400"
             : "bg-surface-800 border-surface-600 hover:border-surface-500",
@@ -253,7 +253,7 @@ function ArchetypeSelector({
 
       {/* Dropdown panel */}
       {open && (
-        <div className="absolute z-30 top-full left-0 right-0 mt-1 bg-surface-800 border border-surface-500 rounded-lg shadow-2xl shadow-black/40 overflow-hidden">
+        <div className="absolute z-30 top-full left-0 right-0 mt-1 bg-surface-800 border border-surface-500 rounded-md shadow-2xl shadow-black/40 overflow-hidden">
           {/* Search */}
           <div className="p-2 border-b border-surface-600">
             <div className="relative">
@@ -341,7 +341,7 @@ function DivergencePanel({ cards }: { cards: Optimal60Card[] }) {
       <p className="text-xs text-surface-400 mb-3">
         Cards where Champions League results diverge most from City League consensus.
       </p>
-      <div className="bg-surface-800 border border-surface-600 rounded-lg overflow-hidden">
+      <div className="bg-surface-800 border border-surface-600 rounded-md overflow-hidden">
         <div className="grid grid-cols-[1fr_60px_60px_50px] gap-2 px-4 py-2 border-b border-surface-600 text-[10px] text-surface-400 uppercase tracking-wider font-semibold">
           <span>Card</span>
           <span className="text-right">CL %</span>

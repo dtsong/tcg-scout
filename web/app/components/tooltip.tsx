@@ -37,7 +37,7 @@ export function Tooltip({ content, children }: TooltipProps) {
         <span
           role="tooltip"
           className={cn(
-            "absolute left-1/2 -translate-x-1/2 z-50 px-3 py-2 text-xs text-surface-200 bg-surface-700 border border-surface-500 rounded-lg shadow-lg max-w-[280px] w-max pointer-events-none",
+            "absolute left-1/2 -translate-x-1/2 z-50 px-3 py-2 text-xs text-surface-200 bg-surface-700 border border-surface-500 rounded-md shadow-lg max-w-[280px] w-max pointer-events-none",
             position === "top" ? "bottom-full mb-2" : "top-full mt-2",
           )}
         >

@@ -76,7 +76,7 @@ function PlacementRow({ placement }: { placement: CLPlacement }) {
                 if (cards.length === 0) return null;
                 const total = cards.reduce((s, c) => s + c.count, 0);
                 return (
-                  <div key={cat} className="bg-surface-800 border border-surface-600 rounded-lg overflow-hidden">
+                  <div key={cat} className="bg-surface-800 border border-surface-600 rounded-md overflow-hidden">
                     <div className="px-3 py-2 border-b border-surface-600 flex items-center justify-between">
                       <h4 className="text-xs font-semibold text-surface-300 uppercase tracking-wider">
                         {cat}
@@ -103,7 +103,7 @@ function PlacementRow({ placement }: { placement: CLPlacement }) {
                                 <img
                                   src={card.image_url}
                                   alt={cardName}
-                                  className="w-[200px] rounded-lg shadow-xl shadow-black/60 border border-surface-500"
+                                  className="w-[200px] rounded-md shadow-xl shadow-black/60 border border-surface-500"
                                   loading="lazy"
                                   decoding="async"
                                   onError={() => setFailedImages((prev) => ({ ...prev, [imageKey]: true }))}
@@ -133,7 +133,7 @@ function ArchetypeSummaryBar({
   if (!summary || summary.length === 0) return null;
 
   return (
-    <div className="bg-surface-800 border border-surface-600 rounded-lg px-4 py-3">
+    <div className="bg-surface-800 border border-surface-600 rounded-md px-4 py-3">
       <h3 className="text-xs text-surface-300 uppercase tracking-wider mb-2">
         Archetype Distribution
       </h3>
@@ -205,7 +205,7 @@ export function ChampionsClient({
       )}
 
       {/* Placements Table */}
-      <div className="bg-surface-800 border border-surface-600 rounded-lg overflow-hidden">
+      <div className="bg-surface-800 border border-surface-600 rounded-md overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full">
             <thead>

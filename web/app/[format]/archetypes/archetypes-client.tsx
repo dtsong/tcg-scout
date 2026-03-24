@@ -112,7 +112,7 @@ export function ArchetypesClient({
 
       <div className={loading ? "opacity-50 pointer-events-none transition-opacity" : "transition-opacity"}>
 
-      <div className="bg-surface-800 border border-surface-600 rounded-lg p-4 sm:p-6">
+      <div className="bg-surface-800 border border-surface-600 rounded-md p-4 sm:p-6">
         <h2 className="font-display text-sm font-semibold text-slate-200 mb-4">
           Top 20 Meta Shares
         </h2>
@@ -163,7 +163,7 @@ export function ArchetypesClient({
 
       {/* Tab content */}
       {activeTab === "table" && (
-        <div className="bg-surface-800 border border-surface-600 rounded-lg overflow-hidden">
+        <div className="bg-surface-800 border border-surface-600 rounded-md overflow-hidden">
           <DataTable
             data={archetypes}
             searchKey={(a) => a.archetype}
@@ -246,7 +246,7 @@ export function ArchetypesClient({
       )}
 
       {activeTab === "matchups" && matchupMatrix && (
-        <div className="bg-surface-800 border border-surface-600 rounded-lg p-4 sm:p-6">
+        <div className="bg-surface-800 border border-surface-600 rounded-md p-4 sm:p-6">
           <h2 className="font-display text-sm font-semibold text-slate-200 mb-1 flex items-center gap-1.5">
             Performance Advantage
             <InfoIcon tooltip="Shows how archetypes perform relative to each other when they appear in the same tournaments. A value of +2.0 means the row archetype finishes 2 standings better (lower place number) on average. Cells are blank when fewer than 10 shared tournaments exist. Green = favorable, red = unfavorable." />
@@ -264,7 +264,7 @@ export function ArchetypesClient({
       )}
 
       {activeTab === "overlap" && overlapMatrix && (
-        <div className="bg-surface-800 border border-surface-600 rounded-lg p-4 sm:p-6">
+        <div className="bg-surface-800 border border-surface-600 rounded-md p-4 sm:p-6">
           <h2 className="font-display text-sm font-semibold text-slate-200 mb-1 flex items-center gap-1.5">
             Card Overlap Matrix
             <InfoIcon tooltip="Shows how similar two archetypes' core card pools are using the Jaccard index. Based on cards appearing in 30%+ of each archetype's decks. Higher values mean more shared staples. Values are percentages (0-100)." />

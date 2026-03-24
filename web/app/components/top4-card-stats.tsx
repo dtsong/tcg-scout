@@ -54,7 +54,7 @@ function DecklistPanel({
   const visible = showAll ? grouped : grouped.slice(0, 3);
 
   return (
-    <div className="mt-1 mb-2 mx-1 p-3 bg-surface-900/60 border border-surface-600/50 rounded-lg space-y-3">
+    <div className="mt-1 mb-2 mx-1 p-3 bg-surface-900/60 border border-surface-600/50 rounded-md space-y-3">
       <p className="text-xs text-surface-400">
         {data.top4_results.length} top-4 placements across {grouped.length} archetypes
       </p>
@@ -231,7 +231,7 @@ function CardGroup({
   if (cards.length === 0) return null;
 
   return (
-    <div className="bg-surface-800 border border-surface-600 rounded-lg overflow-hidden">
+    <div className="bg-surface-800 border border-surface-600 rounded-md overflow-hidden">
       <div className="px-3 py-2 border-b border-surface-600 flex items-center justify-between">
         <h3 className={`text-xs font-semibold ${colorClass} uppercase tracking-wider`}>
           {title}

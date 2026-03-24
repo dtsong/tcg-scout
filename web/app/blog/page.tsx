@@ -145,7 +145,7 @@ export default function BlogPage() {
         </p>
 
         <div className="space-y-4 mb-4">
-          <div className="bg-surface-800 border border-surface-600 rounded-lg p-4">
+          <div className="bg-surface-800 border border-surface-600 rounded-md p-4">
             <h3 className="text-sm font-display font-semibold text-accent mb-2">
               Dragapult Meowth leads at 10.2% meta share
             </h3>
@@ -159,7 +159,7 @@ export default function BlogPage() {
             </p>
           </div>
 
-          <div className="bg-surface-800 border border-surface-600 rounded-lg p-4">
+          <div className="bg-surface-800 border border-surface-600 rounded-md p-4">
             <h3 className="text-sm font-display font-semibold text-accent mb-2">
               Dusknoir Greninja is surging
             </h3>
@@ -170,7 +170,7 @@ export default function BlogPage() {
             </p>
           </div>
 
-          <div className="bg-surface-800 border border-surface-600 rounded-lg p-4">
+          <div className="bg-surface-800 border border-surface-600 rounded-md p-4">
             <h3 className="text-sm font-display font-semibold text-accent mb-2">
               The staple base is being rewritten
             </h3>
@@ -197,7 +197,7 @@ export default function BlogPage() {
       </section>
 
       {/* What's next */}
-      <section className="mb-12 bg-surface-800 border border-surface-600 rounded-lg p-6">
+      <section className="mb-12 bg-surface-800 border border-surface-600 rounded-md p-6">
         <h2 className="text-xl font-display font-semibold text-slate-100 mb-4">
           What is coming next
         </h2>

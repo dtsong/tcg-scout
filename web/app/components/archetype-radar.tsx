@@ -30,7 +30,7 @@ export function ArchetypeRadar({ radar }: ArchetypeRadarProps) {
   }));
 
   return (
-    <section className="bg-surface-800 border border-surface-600 rounded-lg p-5">
+    <section className="bg-surface-800 border border-surface-600 rounded-md p-5">
       <h2 className="font-display text-lg font-semibold text-slate-100 mb-3">
         Performance Profile
       </h2>

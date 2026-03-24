@@ -28,7 +28,7 @@ export function PerformanceTrendline({ data }: { data: WeeklyShare[] }) {
       <p className="text-xs text-surface-400 mb-3">
         Weekly meta share trend (avg: {avg.toFixed(1)}%)
       </p>
-      <div className="bg-surface-800 border border-surface-600 rounded-lg p-4">
+      <div className="bg-surface-800 border border-surface-600 rounded-md p-4">
         <div className="h-48">
           <ResponsiveContainer width="100%" height="100%">
             <AreaChart data={data} margin={{ top: 4, right: 4, bottom: 4, left: 4 }}>

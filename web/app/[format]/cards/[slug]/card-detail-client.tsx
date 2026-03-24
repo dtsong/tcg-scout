@@ -186,7 +186,7 @@ export function CardDetailClient({
             <img
               src={card.image_url}
               alt={card.card_name}
-              className="w-24 h-auto rounded-lg shadow-lg"
+              className="w-24 h-auto rounded-md shadow-lg"
             />
           )}
           <div className="flex-1 min-w-0">
@@ -235,7 +235,7 @@ export function CardDetailClient({
           <p className="text-xs text-surface-400 mb-3">
             How many copies players run across {card.total_appearances} decklists
           </p>
-          <div className="bg-surface-800 border border-surface-600 rounded-lg p-4">
+          <div className="bg-surface-800 border border-surface-600 rounded-md p-4">
             <CopyDistributionChart data={card.copy_distribution} />
           </div>
         </section>
@@ -250,7 +250,7 @@ export function CardDetailClient({
           <p className="text-xs text-surface-400 mb-3">
             Which archetypes run this card, sorted by usage
           </p>
-          <div className="bg-surface-800 border border-surface-600 rounded-lg overflow-hidden">
+          <div className="bg-surface-800 border border-surface-600 rounded-md overflow-hidden">
             <div className="p-1.5 space-y-0.5">
               {card.archetypes.map((arch) => (
                 <ArchetypeRow key={arch.slug} archetype={arch} format={format} delta={deltaBySlug?.get(arch.slug)} />
@@ -269,7 +269,7 @@ export function CardDetailClient({
           <p className="text-xs text-surface-400 mb-3">
             Cards that appear together more often than expected (sorted by lift)
           </p>
-          <div className="bg-surface-800 border border-surface-600 rounded-lg overflow-hidden">
+          <div className="bg-surface-800 border border-surface-600 rounded-md overflow-hidden">
             <div className="p-1.5 space-y-0.5">
               {card.synergy_partners.slice(0, 10).map((partner) => (
                 <div
@@ -303,7 +303,7 @@ export function CardDetailClient({
           <p className="text-xs text-surface-400 mb-3">
             Weekly inclusion rate over time
           </p>
-          <div className="bg-surface-800 border border-surface-600 rounded-lg p-4">
+          <div className="bg-surface-800 border border-surface-600 rounded-md p-4">
             <UsageTrendChart data={card.weekly_usage} />
           </div>
         </section>

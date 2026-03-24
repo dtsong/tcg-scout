@@ -171,7 +171,7 @@ export function CardAnalysisClient({
         </div>
       </div>
 
-      <div className="bg-surface-800 border border-surface-600 rounded-lg overflow-hidden">
+      <div className="bg-surface-800 border border-surface-600 rounded-md overflow-hidden">
         <div className="px-4 py-2 border-b border-surface-600 flex items-center justify-between">
           <span className="text-[10px] text-surface-500 uppercase tracking-wider">Card</span>
           <div className="flex items-center gap-6">

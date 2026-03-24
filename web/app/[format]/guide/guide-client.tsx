@@ -241,7 +241,7 @@ export function GuideClient() {
             <a
               key={scenario.anchor}
               href={scenario.anchor}
-              className="bg-surface-800 border border-surface-600 rounded-lg p-4 hover:border-surface-500 transition-colors block"
+              className="bg-surface-800 border border-surface-600 rounded-md p-4 hover:border-surface-500 transition-colors block"
             >
               <p className="text-xs font-mono text-accent mb-2">
                 {scenario.tools}
@@ -269,7 +269,7 @@ export function GuideClient() {
               <div
                 key={section.id}
                 id={section.id}
-                className="bg-surface-800 border border-surface-600 rounded-lg overflow-hidden"
+                className="bg-surface-800 border border-surface-600 rounded-md overflow-hidden"
               >
                 <button
                   onClick={() => toggleSection(section.id)}
