@@ -385,16 +385,17 @@ def _compute_h2h_from_records(
         for i in range(n):
             if arch_names[i] not in arch_wrs:
                 continue
-            wr_i, _ = arch_wrs[arch_names[i]]
+            wr_i, players_i = arch_wrs[arch_names[i]]
             for j in range(i + 1, n):
                 if arch_names[j] not in arch_wrs:
                     continue
-                wr_j, _ = arch_wrs[arch_names[j]]
-                # Store win rate for i when competing against j in same tournament
-                matrix[i][j] += wr_i
-                matrix[j][i] += wr_j
-                counts[i][j] += 1
-                counts[j][i] += 1
+                wr_j, players_j = arch_wrs[arch_names[j]]
+                # Weight by min player count as proxy for actual matchup encounters
+                weight = min(players_i, players_j)
+                matrix[i][j] += wr_i * weight
+                matrix[j][i] += wr_j * weight
+                counts[i][j] += weight
+                counts[j][i] += weight
 
     # Average and apply minimum threshold
     for i in range(n):
