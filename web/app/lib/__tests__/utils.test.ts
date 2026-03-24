@@ -194,6 +194,18 @@ describe("computeCrossMetaStaples", () => {
     expect(result).toHaveLength(5);
   });
 
+  it("excludes cards with negative weighted_impact", () => {
+    const cards = [
+      makeCard({
+        card_name: "Net Negative Card",
+        weighted_impact: -2,
+        archetypes: [makeArchetype("S", 5), makeArchetype("A", 3), makeArchetype("B", 1)],
+      }),
+    ];
+    const result = computeCrossMetaStaples(cards);
+    expect(result).toHaveLength(0);
+  });
+
   it("returns empty array for empty input", () => {
     expect(computeCrossMetaStaples([])).toEqual([]);
   });

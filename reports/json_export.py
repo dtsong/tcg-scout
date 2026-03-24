@@ -2303,7 +2303,11 @@ def export_card_analysis(conn: sqlite3.Connection, output_dir: Path) -> None:
         avg_delta = round(sum(deltas) / len(deltas), 1)
         max_entry = max(archetypes, key=lambda a: a["delta_vs_field"])
 
-        # Weighted impact: tier-weighted, confidence-adjusted delta
+        # Weighted impact: tier-weighted average delta, discounted by confidence.
+        # Step 1: compute tier-weighted average (confidence weights the average
+        #         so well-sampled archetypes contribute more to the mean).
+        # Step 2: multiply by card_confidence so low-sample cards are penalized
+        #         in the final ranking, not just in the weighting.
         weighted_num = 0.0
         weighted_den = 0.0
         for a in archetypes:
@@ -2311,8 +2315,9 @@ def export_card_analysis(conn: sqlite3.Connection, output_dir: Path) -> None:
             tw = tier_weights.get(a["tier"], 0.5)
             weighted_num += a["delta_vs_field"] * conf * tw
             weighted_den += conf * tw
-        weighted_impact = round(weighted_num / weighted_den, 1) if weighted_den > 0 else 0.0
+        tier_weighted_avg = weighted_num / weighted_den if weighted_den > 0 else 0.0
         card_confidence = round(min(a["confidence"] for a in archetypes), 2)
+        weighted_impact = round(tier_weighted_avg * card_confidence, 1)
 
         cards.append(
             {

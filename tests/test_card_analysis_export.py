@@ -166,11 +166,13 @@ def test_export_card_analysis_weighted_impact_favors_higher_tier(tmp_path):
     tech = next(c for c in data["cards"] if c["card_name"] == "Tech Card")
 
     # avg_delta = (60 + 25) / 2 = 42.5
-    # weighted_impact = (60*0.4*5 + 25*0.2*0.5) / (0.4*5 + 0.2*0.5) = 122.5 / 2.1 = 58.3
+    # tier_weighted_avg = (60*0.4*5 + 25*0.2*0.5) / (0.4*5 + 0.2*0.5) = 122.5 / 2.1 = 58.33
+    # card_confidence = min(0.4, 0.2) = 0.2
+    # weighted_impact = 58.33 * 0.2 = 11.7
     assert tech["avg_delta"] == 42.5
-    assert tech["weighted_impact"] == 58.3
-    # Weighted impact skews toward the S-tier delta (60), away from simple average (42.5)
-    assert tech["weighted_impact"] > tech["avg_delta"]
+    assert tech["weighted_impact"] == 11.7
+    # Confidence discount penalizes low-sample cards
+    assert tech["weighted_impact"] < tech["avg_delta"]
 
 
 def test_export_card_analysis_includes_confidence(tmp_path):
