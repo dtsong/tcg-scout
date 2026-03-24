@@ -10,7 +10,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { format, slug } = await params;
   const card = getCardDetail(format, slug);
-  const usage = (card.usage_pct * 100).toFixed(1);
+  const usage = card.usage_pct.toFixed(1);
   const title = `${card.card_name} -- ${usage}% Usage | Scout`;
   const description = `${card.card_name} appears in ${usage}% of ${format} decks across ${card.unique_archetypes} archetypes. Usage trends, synergy partners, and decklist data.`;
   return {

@@ -20,7 +20,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { format, slug } = await params;
   const arch = getArchetype(format, slug);
-  const share = (arch.meta_share * 100).toFixed(1);
+  const share = arch.meta_share.toFixed(1);
   const title = `${arch.archetype} -- ${share}% Meta Share, Tier ${arch.tier} | Scout`;
   const description = `${arch.archetype} in ${format}: ${share}% meta share, Tier ${arch.tier}, ${arch.deck_count} decks. Core cards, results, and performance analysis.`;
   return {
