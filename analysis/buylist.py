@@ -194,19 +194,6 @@ def generate_buylist(conn: sqlite3.Connection, snapshot_id: int) -> list[dict]:
             set_number = None
 
         core_flex = "core" if entry["core_in_any"] else "flex"
-        archetype_count = len(entry["archetypes"])
-        sa_tiers = {"S", "A"}
-        sa_core_count = sum(1 for t in entry["archetype_tiers"] if t in sa_tiers)
-
-        # Step 8: Urgency labels
-        if core_flex == "core" and sa_core_count >= 2:
-            urgency = "URGENT"
-        elif core_flex == "core" and sa_core_count >= 1:
-            urgency = "HIGH"
-        elif archetype_count >= 3:
-            urgency = "HIGH"
-        else:
-            urgency = "MODERATE"
 
         results.append(
             {
@@ -215,7 +202,6 @@ def generate_buylist(conn: sqlite3.Connection, snapshot_id: int) -> list[dict]:
                 "set_code": set_code,
                 "set_number": set_number,
                 "priority_score": round(entry["priority_score"], 1),
-                "urgency": urgency,
                 "core_flex": core_flex,
                 "archetypes": entry["archetypes"],
                 "avg_copies": round(entry["max_avg_copies"], 1),

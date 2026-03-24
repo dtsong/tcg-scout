@@ -35,11 +35,22 @@ function readJson<T>(filePath: string): T {
     throw new Error(`Path traversal blocked: ${filePath}`);
   }
   const raw = fs.readFileSync(resolved, "utf-8");
-  return JSON.parse(raw);
+  try {
+    return JSON.parse(raw);
+  } catch (err) {
+    throw new Error(`Failed to parse JSON at ${resolved}: ${(err as Error).message}`);
+  }
 }
 
 export function getFormats(): FormatInfo[] {
   return readJson("formats.json");
+}
+
+export function getFormatName(format: string): string {
+  const formats = getFormats();
+  const found = formats.find((f) => f.slug === format);
+  if (!found) throw new Error(`Unknown format slug: ${format}`);
+  return found.name_en || format;
 }
 
 export function getMeta(format: string): MetaData {

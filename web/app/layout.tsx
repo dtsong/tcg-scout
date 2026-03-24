@@ -31,9 +31,17 @@ const pokemonClassic = localFont({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://scout.trainerlab.io"),
   title: "Scout | JP Meta Explorer",
   description:
     "Competitive intelligence for the JP Pokemon TCG rotation format. Meta tier list, buy lists, trends, and Champions League results.",
+  openGraph: {
+    siteName: "Scout",
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+  },
 };
 
 export default function RootLayout({

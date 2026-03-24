@@ -30,11 +30,6 @@
   --color-signal-down: #ef4444;
   --color-signal-neutral: #64748b;
 
-  /* Urgency colors */
-  --color-urgency-urgent: #ef4444;
-  --color-urgency-high: #f59e0b;
-  --color-urgency-moderate: #14b8a6;
-
   /* Surface depth (panel nesting) */
   --color-surface-850: #0D0D0F;
   --color-surface-750: #1A1A1E;
@@ -147,7 +142,7 @@ body {
   animation: pulse-dot 2s ease-in-out infinite;
 }
 
-/* Reduced motion: disable all custom animations */
+/* Reduced motion: disable all animations and transitions */
 @media (prefers-reduced-motion: reduce) {
   .animate-row-reveal,
   .animate-stagger {

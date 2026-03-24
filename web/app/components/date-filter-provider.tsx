@@ -78,7 +78,8 @@ export async function fetchWindowedData<T>(
     const res = await fetch(windowedPath);
     if (!res.ok) return null;
     return await res.json();
-  } catch {
+  } catch (err) {
+    console.error(`[date-filter] Failed to fetch ${windowedPath}:`, err);
     return null;
   }
 }

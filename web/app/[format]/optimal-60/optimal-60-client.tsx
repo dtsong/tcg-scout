@@ -401,12 +401,18 @@ export function Optimal60Client({
     if (!selectedSlug) return;
     setLoading(true);
     fetch(`/data/${format}/optimal-60/${selectedSlug}.json`)
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        return res.json();
+      })
       .then((data: Optimal60Detail) => {
         setDetail(data);
         setLoading(false);
       })
-      .catch(() => setLoading(false));
+      .catch((err) => {
+        console.error(`[optimal-60] Failed to load ${selectedSlug}:`, err);
+        setLoading(false);
+      });
   }, [selectedSlug, format]);
 
   const selected = index.archetypes.find((a) => a.slug === selectedSlug);

@@ -1,6 +1,24 @@
-import { getCardDetail, getCardSlugs, getFormats, getCardAnalysis } from "@/app/lib/data";
+import type { Metadata } from "next";
+import { getCardDetail, getCardSlugs, getFormats, getFormatName, getCardAnalysis } from "@/app/lib/data";
+import { safePercent, safeInt, humanizeSlug } from "@/app/lib/metadata";
 import { CardDetailClient } from "./card-detail-client";
 import { notFound } from "next/navigation";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ format: string; slug: string }>;
+}): Promise<Metadata> {
+  const { format, slug } = await params;
+  const card = getCardDetail(format, slug);
+  const name = card.card_name || humanizeSlug(slug);
+  const usage = safePercent(card.usage_pct);
+  const formatName = getFormatName(format);
+  return {
+    title: `${name} -- ${usage}% Usage | Scout`,
+    description: `${name} appears in ${usage}% of ${formatName} decks across ${safeInt(card.unique_archetypes)} archetypes. Usage trends, synergy partners, and decklist data.`,
+  };
+}
 
 export const dynamicParams = false;
 

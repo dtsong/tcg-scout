@@ -7,13 +7,13 @@ interface MetaTickerProps {
   tournamentCount: number;
   deckCount: number;
   generatedAt: string;
-  rotationDate?: string;
   rotationDays?: number;
 }
 
 function hoursAgo(isoDate: string): string {
-  const diff = Date.now() - new Date(isoDate).getTime();
-  const hours = Math.floor(diff / (1000 * 60 * 60));
+  const ms = Date.now() - new Date(isoDate).getTime();
+  if (Number.isNaN(ms)) return "Unknown";
+  const hours = Math.floor(ms / (1000 * 60 * 60));
   if (hours < 1) return "<1h ago";
   if (hours < 24) return `${hours}h ago`;
   const days = Math.floor(hours / 24);

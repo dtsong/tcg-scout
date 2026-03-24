@@ -4,6 +4,7 @@ import { useState, useMemo } from "react";
 import Link from "next/link";
 import type { CardAnalysisData, CardAnalysisEntry } from "@/app/lib/types";
 import { slugify } from "@/app/lib/utils";
+import { DeltaValue } from "@/app/components/delta-value";
 
 type CategoryFilter = "all" | "Pokemon" | "Trainer" | "Energy";
 type SortField = "avg_delta" | "max_delta" | "archetype_count";
@@ -14,16 +15,6 @@ const categories: { label: string; value: CategoryFilter }[] = [
   { label: "Trainer", value: "Trainer" },
   { label: "Energy", value: "Energy" },
 ];
-
-function DeltaValue({ delta }: { delta: number }) {
-  if (delta === 0) return <span className="text-xs font-mono text-surface-400">0.0</span>;
-  const positive = delta > 0;
-  return (
-    <span className={`text-xs font-mono tabular-nums ${positive ? "text-emerald-400" : "text-red-400"}`}>
-      {positive ? "+" : ""}{delta.toFixed(1)}
-    </span>
-  );
-}
 
 function CardRow({
   card,

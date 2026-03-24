@@ -119,35 +119,29 @@ class TestBuylistContract:
         buylist = json.loads((export_dir / "buylist.json").read_text())
 
         _assert_type(buylist, list, "buylist.json root")
-        if len(buylist) > 0:
-            for item in buylist:
-                _assert_keys(
-                    item,
-                    [
-                        "card_name",
-                        "card_id",
-                        "set_code",
-                        "set_number",
-                        "priority_score",
-                        "urgency",
-                        "core_flex",
-                        "archetypes",
-                        "avg_copies",
-                        "inclusion_rate",
-                    ],
-                    f"buylist item={item.get('card_name')}",
-                )
-                _assert_type(item["priority_score"], (int, float), "priority_score")
-                _assert_type(item["card_name"], str, "card_name")
-                _assert_type(item["archetypes"], list, "archetypes")
-                _assert_type(item["avg_copies"], (int, float), "avg_copies")
-                _assert_type(item["inclusion_rate"], (int, float), "inclusion_rate")
-                assert item["urgency"] in {"URGENT", "HIGH", "MODERATE"}, (
-                    f"Invalid urgency: {item['urgency']}"
-                )
-                assert item["core_flex"] in {"core", "flex"}, (
-                    f"Invalid core_flex: {item['core_flex']}"
-                )
+        assert len(buylist) > 0, "buylist should not be empty when S/A/B archetypes exist"
+        for item in buylist:
+            _assert_keys(
+                item,
+                [
+                    "card_name",
+                    "card_id",
+                    "set_code",
+                    "set_number",
+                    "priority_score",
+                    "core_flex",
+                    "archetypes",
+                    "avg_copies",
+                    "inclusion_rate",
+                ],
+                f"buylist item={item.get('card_name')}",
+            )
+            _assert_type(item["priority_score"], (int, float), "priority_score")
+            _assert_type(item["card_name"], str, "card_name")
+            _assert_type(item["archetypes"], list, "archetypes")
+            _assert_type(item["avg_copies"], (int, float), "avg_copies")
+            _assert_type(item["inclusion_rate"], (int, float), "inclusion_rate")
+            assert item["core_flex"] in {"core", "flex"}, f"Invalid core_flex: {item['core_flex']}"
 
 
 @pytest.mark.integration

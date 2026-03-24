@@ -1,6 +1,14 @@
 import { getMeta, getArchetypeOverlap, getMatchupMatrix, formatHasData } from "@/app/lib/data";
+import { formatPageMetadata } from "@/app/lib/metadata";
 import { ArchetypesClient } from "./archetypes-client";
 import Link from "next/link";
+
+export function generateMetadata({ params }: { params: Promise<{ format: string }> }) {
+  return formatPageMetadata(params, (formatName) => ({
+    title: `Archetypes -- ${formatName} | Scout`,
+    description: `All archetypes in the ${formatName} Pokemon TCG meta. Tier rankings, meta share, overlap matrix, and matchup data.`,
+  }));
+}
 
 export default async function ArchetypesPage({
   params,

@@ -92,6 +92,12 @@ export function DashboardClient({
     S: "var(--color-tier-s)",
     A: "var(--color-tier-a)",
   };
+  const tierBorderColors: Record<string, string> = {
+    s: "border-l-tier-s",
+    a: "border-l-tier-a",
+    b: "border-l-tier-b",
+    rogue: "border-l-tier-rogue",
+  };
   const surgingCards = (trends.surging || []).slice(0, 5);
   const decliningCards = (trends.declining || []).slice(0, 5);
   const topEdge = winningEdge.slice(0, 5);
@@ -346,7 +352,7 @@ export function DashboardClient({
                   return (
                   <tr
                     key={arch.slug}
-                    className={`border-b border-surface-700 hover:bg-surface-700/50 transition-colors border-l-3 border-l-tier-${tierKey} ${i < 20 ? "animate-stagger" : ""} ${glowColor ? "tier-glow" : ""}`}
+                    className={`border-b border-surface-700 hover:bg-surface-700/50 transition-colors border-l-[3px] ${tierBorderColors[tierKey] ?? ""} ${i < 20 ? "animate-stagger" : ""} ${glowColor ? "tier-glow" : ""}`}
                     style={{
                       ...(i < 20 ? { "--index": i } : {}),
                       ...(glowColor ? { "--tier-glow-color": glowColor } : {}),

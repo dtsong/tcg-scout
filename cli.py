@@ -269,15 +269,11 @@ def buylist(ctx: click.Context) -> None:
         table.add_column("Card", style="bold")
         table.add_column("Set")
         table.add_column("Priority", justify="right")
-        table.add_column("Urgency")
         table.add_column("Type")
         table.add_column("Avg Copies", justify="right")
         table.add_column("Archetypes")
 
-        urgency_styles = {"URGENT": "red bold", "HIGH": "yellow", "MODERATE": "cyan"}
-
         for card in cards[:30]:
-            style = urgency_styles.get(card["urgency"], "white")
             archetypes_str = ", ".join(card["archetypes"][:3])
             if len(card["archetypes"]) > 3:
                 archetypes_str += f" +{len(card['archetypes']) - 3}"
@@ -285,11 +281,9 @@ def buylist(ctx: click.Context) -> None:
                 card["card_name"],
                 f"{card.get('set_code', '?')}-{card.get('set_number', '?')}",
                 f"{card['priority_score']:.1f}",
-                card["urgency"],
                 card["core_flex"],
                 f"{card['avg_copies']:.1f}",
                 archetypes_str,
-                style=style,
             )
 
         console.print(table)

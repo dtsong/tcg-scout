@@ -3,8 +3,8 @@
 import Link from "next/link";
 import { StatCard } from "@/app/components/stat-card";
 import { TierBadge } from "@/app/components/tier-badge";
-import { formatPct } from "@/app/lib/utils";
-import { cn } from "@/app/lib/utils";
+import { formatPct, cn } from "@/app/lib/utils";
+import { DeltaValue } from "@/app/components/delta-value";
 import type { CardDetail, CardArchetype, SynergyPartner, CardAnalysisArchetype } from "@/app/lib/types";
 import {
   AreaChart,
@@ -121,16 +121,6 @@ function UsageTrendChart({ data }: { data: { week: string; usage_pct: number }[]
         </AreaChart>
       </ResponsiveContainer>
     </div>
-  );
-}
-
-function DeltaValue({ delta }: { delta: number }) {
-  if (delta === 0) return <span className="text-xs font-mono text-surface-400">0.0</span>;
-  const positive = delta > 0;
-  return (
-    <span className={`text-xs font-mono tabular-nums ${positive ? "text-emerald-400" : "text-red-400"}`}>
-      {positive ? "+" : ""}{delta.toFixed(1)}
-    </span>
   );
 }
 
