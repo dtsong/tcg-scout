@@ -209,7 +209,7 @@ export default async function ArchetypeDetailPage({
         </h2>
         <p className="text-xs text-surface-400 mb-4">
           Averaged across {arch.deck_count} {arch.deck_count === 1 ? "deck" : "decks"}.
-          Bold = core (80%+), dimmed = flex.
+          Bold = core (75%+), dimmed = flex.
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <DeckColumn

@@ -68,18 +68,38 @@ export function DashboardClient({
       setLoading(true);
       const suffix = window === "7d" ? "-7d" : "-30d";
 
-      const [newMeta, newTrends, newEdge, newSpecs] = await Promise.all([
-        fetchWindowedData<MetaData>(format, "meta.json", suffix),
-        fetchWindowedData<TrendsData>(format, "trends.json", suffix),
-        fetchWindowedData<WinningEdgeCard[]>(format, "winning-edge.json", suffix),
-        fetchWindowedData<AceSpec[]>(format, "ace-specs.json", suffix),
-      ]);
+      try {
+        const [newMeta, newTrends, newEdge, newSpecs] = await Promise.all([
+          fetchWindowedData<MetaData>(format, "meta.json", suffix),
+          fetchWindowedData<TrendsData>(format, "trends.json", suffix),
+          fetchWindowedData<WinningEdgeCard[]>(format, "winning-edge.json", suffix),
+          fetchWindowedData<AceSpec[]>(format, "ace-specs.json", suffix),
+        ]);
 
-      if (newMeta) setMeta(newMeta);
-      if (newTrends) setTrends(newTrends);
-      if (newEdge) setWinningEdge(newEdge);
-      if (newSpecs) setAceSpecs(newSpecs);
-      setLoading(false);
+        if (!newMeta && !newTrends && !newEdge && !newSpecs) {
+          // All fetches failed -- reset to initial data so user doesn't see stale mixed state
+          setMeta(initialMeta);
+          setTrends(initialTrends);
+          setWinningEdge(initialWinningEdge);
+          setAceSpecs(initialAceSpecs);
+          setWindow("all");
+          return;
+        }
+
+        if (newMeta) setMeta(newMeta);
+        if (newTrends) setTrends(newTrends);
+        if (newEdge) setWinningEdge(newEdge);
+        if (newSpecs) setAceSpecs(newSpecs);
+      } catch (err) {
+        console.error("[dashboard] Failed to load windowed data:", err);
+        setMeta(initialMeta);
+        setTrends(initialTrends);
+        setWinningEdge(initialWinningEdge);
+        setAceSpecs(initialAceSpecs);
+        setWindow("all");
+      } finally {
+        setLoading(false);
+      }
     },
     [format, initialMeta, initialTrends, initialWinningEdge, initialAceSpecs],
   );

@@ -395,11 +395,13 @@ export function Optimal60Client({
   const [selectedSlug, setSelectedSlug] = useState(index.archetypes[0]?.slug ?? "");
   const [detail, setDetail] = useState<Optimal60Detail | null>(null);
   const [loading, setLoading] = useState(false);
+  const [fetchError, setFetchError] = useState<string | null>(null);
 
   // Load archetype detail on selection change
   useEffect(() => {
     if (!selectedSlug) return;
     setLoading(true);
+    setFetchError(null);
     fetch(`/data/${format}/optimal-60/${selectedSlug}.json`)
       .then((res) => {
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
@@ -412,6 +414,7 @@ export function Optimal60Client({
       .catch((err) => {
         console.error(`[optimal-60] Failed to load ${selectedSlug}:`, err);
         setDetail(null);
+        setFetchError(`Failed to load decklist for this archetype. Please try again.`);
         setLoading(false);
       });
   }, [selectedSlug, format]);
@@ -523,6 +526,12 @@ export function Optimal60Client({
       {loading && (
         <div className="text-center py-12">
           <span className="text-sm text-surface-400">Loading decklist...</span>
+        </div>
+      )}
+
+      {fetchError && !loading && (
+        <div className="text-center py-12">
+          <p className="text-sm text-red-400">{fetchError}</p>
         </div>
       )}
 

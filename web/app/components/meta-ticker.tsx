@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { useCountUp } from "@/app/hooks/use-count-up";
 
 interface MetaTickerProps {
@@ -12,7 +13,10 @@ interface MetaTickerProps {
 
 function hoursAgo(isoDate: string): string {
   const ms = Date.now() - new Date(isoDate).getTime();
-  if (Number.isNaN(ms)) return "Unknown";
+  if (Number.isNaN(ms)) {
+    console.warn("[meta-ticker] Invalid generatedAt:", isoDate);
+    return "Unknown";
+  }
   const hours = Math.floor(ms / (1000 * 60 * 60));
   if (hours < 1) return "<1h ago";
   if (hours < 24) return `${hours}h ago`;
@@ -29,6 +33,8 @@ export function MetaTicker({
 }: MetaTickerProps) {
   const animatedTournaments = useCountUp(tournamentCount);
   const animatedDecks = useCountUp(deckCount);
+  const [timeAgo, setTimeAgo] = useState("");
+  useEffect(() => setTimeAgo(hoursAgo(generatedAt)), [generatedAt]);
 
   return (
     <div className="w-full bg-surface-850 border-b border-surface-700">
@@ -62,7 +68,7 @@ export function MetaTicker({
             className="inline-block w-1.5 h-1.5 rounded-full bg-terminal animate-pulse-dot"
             aria-hidden="true"
           />
-          <span>Updated {hoursAgo(generatedAt)}</span>
+          <span>Updated {timeAgo}</span>
         </span>
 
         {rotationDays != null && (
