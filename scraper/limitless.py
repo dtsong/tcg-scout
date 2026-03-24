@@ -28,6 +28,9 @@ from scraper.http_client import (
     parse_card_links,
 )
 
+# Backward-compatible alias — tests/test_limitless_transforms.py imports this name
+_DECKLIST_LINE_RE = DECKLIST_LINE_RE
+
 logger = logging.getLogger(__name__)
 
 
