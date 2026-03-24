@@ -1,9 +1,6 @@
-import {
-  getArchetypeReport,
-  getArchetypeSlugs,
-  getFormats,
-  getOptimal60Index,
-} from "@/app/lib/data";
+import type { Metadata } from "next";
+import { getArchetypeReport, getArchetypeSlugs, getFormats, getFormatName, getOptimal60Index } from "@/app/lib/data";
+import { humanizeSlug } from "@/app/lib/metadata";
 import { ReportClient } from "./report-client";
 
 export async function generateStaticParams() {
@@ -22,13 +19,29 @@ export async function generateMetadata({
   params,
 }: {
   params: Promise<{ format: string; slug: string }>;
-}) {
+}): Promise<Metadata> {
   const { format, slug } = await params;
   const report = getArchetypeReport(format, slug);
-  const name = report?.archetype ?? slug;
+  const formatName = getFormatName(format);
+  if (!report) {
+    const humanized = humanizeSlug(slug);
+    return {
+      title: `${humanized} Report -- ${formatName} | Scout`,
+      description: `Deep dive report for ${humanized} in ${formatName}. Report data may not yet be available.`,
+    };
+  }
+  if (!report.archetype) {
+    console.warn(`[metadata] archetype report has no name for ${format}/${slug}, falling back to slug`);
+    const humanized = humanizeSlug(slug);
+    return {
+      title: `${humanized} Report -- ${formatName} | Scout`,
+      description: `Deep dive report for ${humanized} in ${formatName}. Report data may not yet be available.`,
+    };
+  }
+  const name = report.archetype;
   return {
-    title: `${name} Deep Dive | Scout`,
-    description: `Weighted consensus decklist, tech evolution, and performance analysis for ${name}.`,
+    title: `${name} Deep Dive -- ${formatName} | Scout`,
+    description: `Weighted consensus decklist, tech evolution, and performance analysis for ${name} in ${formatName}.`,
   };
 }
 

@@ -1,5 +1,7 @@
 import Link from "next/link";
-import { getArchetype, getArchetypeReport, getArchetypeSlugs, getFormats, getOptimal60Index } from "@/app/lib/data";
+import type { Metadata } from "next";
+import { getArchetype, getArchetypeReport, getArchetypeSlugs, getFormats, getFormatName, getOptimal60Index } from "@/app/lib/data";
+import { safePercent, safeInt, humanizeSlug } from "@/app/lib/metadata";
 import { TierBadge } from "@/app/components/tier-badge";
 import { SpriteRow } from "@/app/components/sprite-row";
 import { StatCard } from "@/app/components/stat-card";
@@ -11,6 +13,29 @@ import { formatPct, formatPlacement } from "@/app/lib/utils";
 import type { ArchetypeCard } from "@/app/lib/types";
 import { Top4CardStats } from "@/app/components/top4-card-stats";
 import { ResultsTable } from "./results-table";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ format: string; slug: string }>;
+}): Promise<Metadata> {
+  const { format, slug } = await params;
+  const arch = getArchetype(format, slug);
+  const name = arch.archetype || humanizeSlug(slug);
+  if (!arch.archetype) {
+    console.warn(`[metadata] archetype name is empty for ${format}/${slug}`);
+  }
+  const share = safePercent(arch.meta_share);
+  const tier = arch.tier || "Unknown";
+  if (!arch.tier) {
+    console.warn(`[metadata] tier is missing for ${format}/${slug}`);
+  }
+  const formatName = getFormatName(format);
+  return {
+    title: `${name} -- ${share}% Meta Share, Tier ${tier} | Scout`,
+    description: `${name} in ${formatName}: ${share}% meta share, Tier ${tier}, ${safeInt(arch.deck_count)} decks. Core cards, results, and performance analysis.`,
+  };
+}
 
 export function generateStaticParams() {
   const formats = getFormats();

@@ -1,21 +1,12 @@
 import { getMetaReport, getFormats } from "@/app/lib/data";
+import { formatPageMetadata } from "@/app/lib/metadata";
 import { ReportClient } from "./report-client";
-import type { Metadata } from "next";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ format: string }>;
-}): Promise<Metadata> {
-  const { format } = await params;
-  return {
-    title: `Meta Report - ${format} | Scout`,
-    description: `Auto-generated meta report for the ${format} format.`,
-    openGraph: {
-      title: `Meta Report - ${format} | Scout`,
-      description: `Auto-generated meta report for the ${format} format.`,
-    },
-  };
+export function generateMetadata({ params }: { params: Promise<{ format: string }> }) {
+  return formatPageMetadata(params, (formatName) => ({
+    title: `Meta Report -- ${formatName} | Scout`,
+    description: `Auto-generated meta report for the ${formatName} Pokemon TCG format. Tier analysis, top decks, and meta trends.`,
+  }));
 }
 
 export async function generateStaticParams() {

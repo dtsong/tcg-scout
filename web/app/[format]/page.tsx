@@ -1,7 +1,15 @@
 import Link from "next/link";
 import { getMeta, getFormats, getAceSpecs, getTrends, getWinningEdge, getTimeline, getMetaEvolution, getCardAnalysis, formatHasData } from "@/app/lib/data";
+import { formatPageMetadata } from "@/app/lib/metadata";
 import { computeCrossMetaStaples } from "@/app/lib/utils";
 import { DashboardClient } from "./dashboard-client";
+
+export function generateMetadata({ params }: { params: Promise<{ format: string }> }) {
+  return formatPageMetadata(params, (formatName) => ({
+    title: `Meta Dashboard -- ${formatName} | Scout`,
+    description: `Latest meta tier list for ${formatName} Pokemon TCG. Archetype rankings, trending cards, and tournament results from Japan's City Leagues.`,
+  }));
+}
 
 export default async function Dashboard({
   params,
