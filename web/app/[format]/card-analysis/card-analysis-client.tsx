@@ -28,13 +28,9 @@ function ConfidenceDot({ confidence, level = "archetype" }: { confidence: number
     ? { high: "High confidence (all archetypes have 10+ top-4 decks)", medium: "Medium confidence (some archetypes have limited samples)", low: "Limited data (at least one archetype has fewer than 5 top-4 decks)" }
     : { high: "High confidence (10+ top-4 decks)", medium: "Medium confidence (5-9 top-4 decks)", low: "Limited data (fewer than 5 top-4 decks)" };
 
-  if (confidence >= 1.0) {
-    return <span className="inline-block w-2 h-2 rounded-full bg-emerald-400" title={labels.high} />;
-  }
-  if (confidence >= 0.5) {
-    return <span className="inline-block w-2 h-2 rounded-full bg-amber-400/70" title={labels.medium} />;
-  }
-  return <span className="inline-block w-2 h-2 rounded-full bg-surface-500" title={labels.low} />;
+  const color = confidence >= 1.0 ? "bg-emerald-400" : confidence >= 0.5 ? "bg-amber-400/70" : "bg-surface-500";
+  const label = confidence >= 1.0 ? labels.high : confidence >= 0.5 ? labels.medium : labels.low;
+  return <span className={`inline-block w-2 h-2 rounded-full ${color}`} title={label} />;
 }
 
 function DeltaBar({ top4Pct, fieldPct }: { top4Pct: number; fieldPct: number }) {
@@ -154,9 +150,9 @@ export function CardAnalysisClient({
   const [expandedCard, setExpandedCard] = useState<string | null>(null);
 
   const featuredCards = useMemo(() => {
-    return [...data.cards]
-      .sort((a, b) => effectiveImpact(b) - effectiveImpact(a))
+    return data.cards
       .filter((c) => effectiveImpact(c) > 0 && (c.confidence ?? 0) >= 0.5)
+      .sort((a, b) => effectiveImpact(b) - effectiveImpact(a))
       .slice(0, 8);
   }, [data.cards]);
 

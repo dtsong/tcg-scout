@@ -151,10 +151,6 @@ describe("CardAnalysisClient", () => {
     const rows = screen.getAllByTestId("card-row");
     expect(rows.length).toBe(3); // All cards show in table
 
-    // Featured strip links go to /format/cards/slug — count those specific links
-    const allLinks = screen.getAllByRole("link");
-    const cardPageLinks = allLinks.filter((link) => link.getAttribute("href")?.includes("/cards/"));
-    // 3 table links + 1 featured link = 4 total card page links
     // "High Impact Card" should appear twice (strip + table), others only once (table)
     expect(screen.getAllByText("High Impact Card").length).toBe(2);
     expect(screen.getAllByText("Low Confidence Card").length).toBe(1);

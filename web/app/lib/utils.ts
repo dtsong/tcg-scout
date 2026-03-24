@@ -1,6 +1,8 @@
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
-import type { CardAnalysisEntry, CrossMetaStaple } from "@/app/lib/types";
+import type { CardAnalysisEntry, CrossMetaStaple, Tier } from "@/app/lib/types";
+
+const COMPETITIVE_TIERS: Tier[] = ["S", "A", "B"];
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -36,9 +38,13 @@ export function computeCrossMetaStaples(cards: CardAnalysisEntry[], limit = 5): 
   return cards
     .map((card) => {
       const tieredArchetypes = card.archetypes.filter(
-        (a) => ["S", "A", "B"].includes(a.tier) && a.delta_vs_field > 0
+        (a) => COMPETITIVE_TIERS.includes(a.tier) && a.delta_vs_field > 0
       );
-      return { card_name: card.card_name, weighted_impact: effectiveImpact(card), tiered_archetype_count: tieredArchetypes.length };
+      return {
+        card_name: card.card_name,
+        weighted_impact: effectiveImpact(card),
+        tiered_archetype_count: tieredArchetypes.length,
+      };
     })
     .filter((c) => c.tiered_archetype_count >= 3 && c.weighted_impact > 0)
     .sort((a, b) => b.tiered_archetype_count - a.tiered_archetype_count || b.weighted_impact - a.weighted_impact)

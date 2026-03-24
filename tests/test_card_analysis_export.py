@@ -110,7 +110,7 @@ def test_export_card_analysis_weighted_impact_favors_higher_tier(tmp_path):
     conn.execute(
         "INSERT INTO tournaments (id, name, date, player_count) VALUES ('t1', 'T1', '2026-03-01', 32)"
     )
-    # S-tier archetype: 10 placements, 5 top-4
+    # S-tier archetype: 10 placements, 4 top-4
     for i in range(1, 11):
         standing = i  # 1-4 are top-4, 5-10 are field
         conn.execute(
@@ -126,20 +126,17 @@ def test_export_card_analysis_weighted_impact_favors_higher_tier(tmp_path):
             (i, standing, f"Player{i}"),
         )
 
-    # "Tech Card" appears only in top-4 of TopDeck (delta = big)
-    # and only in top-4 of RogueDeck but with lower inclusion (delta = small via different card set)
-    # TopDeck top-4 (pids 1-4): Tech Card in all 4 → top4_incl = 100%
-    # TopDeck field (pids 1-10): Tech Card in 4 of 10 → field_incl = 40%, delta = +60
+    # "Tech Card" in all TopDeck top-4 (high delta) and 1 of 2 RogueDeck top-4 (lower delta)
+    # TopDeck top-4 (pids 1-4): 4 of 4 → top4_incl = 100%
+    # TopDeck field (pids 1-10): 4 of 10 → field_incl = 40%, delta = +60
     for pid in [1, 2, 3, 4]:
         conn.execute(
             "INSERT INTO decklist_cards (placement_id, card_id, card_name, count) "
             "VALUES (?, 'tech', 'Tech Card', 1)",
             (pid,),
         )
-    # RogueDeck top-4 (pids 11,12): Tech Card in 1 of 2 → top4_incl = 50%
-    # RogueDeck field (pids 11-14): Tech Card in 2 of 4 → field_incl = 50%, delta = 0 → skipped
-    # Actually we want a non-zero delta, so put card in top-4 only:
-    # top4_incl = 50% (1 of 2), field_incl = 25% (1 of 4), delta = +25
+    # RogueDeck top-4 (pids 11,12): 1 of 2 → top4_incl = 50%
+    # RogueDeck field (pids 11-14): 1 of 4 → field_incl = 25%, delta = +25
     conn.execute(
         "INSERT INTO decklist_cards (placement_id, card_id, card_name, count) "
         "VALUES (11, 'tech', 'Tech Card', 1)"

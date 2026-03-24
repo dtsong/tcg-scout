@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, afterEach } from "vitest";
-import { formatPlacement, formatPct, daysUntil, cn, slugify, computeCrossMetaStaples } from "../utils";
+import { formatPlacement, formatPct, daysUntil, cn, slugify, effectiveImpact, computeCrossMetaStaples } from "../utils";
 import type { CardAnalysisEntry } from "../types";
 
 describe("formatPlacement", () => {
@@ -108,6 +108,24 @@ function makeCard(overrides: Partial<CardAnalysisEntry> & { card_name: string })
 function makeArchetype(tier: string, delta: number) {
   return { archetype: `${tier}Deck`, slug: `${tier.toLowerCase()}-deck`, tier: tier as "S" | "A" | "B" | "C" | "Rogue", delta_vs_field: delta, top4_inclusion_pct: 80, field_inclusion_pct: 60, avg_copies: 2, top4_sample_size: 10, confidence: 1.0 };
 }
+
+describe("effectiveImpact", () => {
+  it("returns weighted_impact when present", () => {
+    const card = makeCard({ card_name: "A", weighted_impact: 12.5, avg_delta: 8.0 });
+    expect(effectiveImpact(card)).toBe(12.5);
+  });
+
+  it("falls back to avg_delta when weighted_impact is undefined", () => {
+    const card = makeCard({ card_name: "A", avg_delta: 8.0 });
+    delete (card as unknown as Record<string, unknown>).weighted_impact;
+    expect(effectiveImpact(card)).toBe(8.0);
+  });
+
+  it("returns weighted_impact of 0 without falling back", () => {
+    const card = makeCard({ card_name: "A", weighted_impact: 0, avg_delta: 5.0 });
+    expect(effectiveImpact(card)).toBe(0);
+  });
+});
 
 describe("computeCrossMetaStaples", () => {
   it("includes cards with 3+ S/A/B archetypes with positive delta", () => {

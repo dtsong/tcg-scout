@@ -2251,6 +2251,8 @@ def export_card_analysis(conn: sqlite3.Connection, output_dir: Path) -> None:
         if len(placement_ids) < 4 or len(top4_ids) < 2:
             continue
 
+        confidence = round(min(1.0, len(top4_ids) / 10), 2)
+
         all_cards = _compute_card_stats_for_ids(conn, placement_ids, category_lookup)
         field_inclusion = {c["card_name"]: c["inclusion_pct"] for c in all_cards}
 
@@ -2271,7 +2273,7 @@ def export_card_analysis(conn: sqlite3.Connection, output_dir: Path) -> None:
                     "field_inclusion_pct": field_pct,
                     "avg_copies": card["avg_copies"],
                     "top4_sample_size": len(top4_ids),
-                    "confidence": round(min(1.0, len(top4_ids) / 10), 2),
+                    "confidence": confidence,
                 }
             )
 
@@ -2289,7 +2291,7 @@ def export_card_analysis(conn: sqlite3.Connection, output_dir: Path) -> None:
                         "field_inclusion_pct": card["inclusion_pct"],
                         "avg_copies": 0,
                         "top4_sample_size": len(top4_ids),
-                        "confidence": round(min(1.0, len(top4_ids) / 10), 2),
+                        "confidence": confidence,
                     }
                 )
 
@@ -2304,8 +2306,9 @@ def export_card_analysis(conn: sqlite3.Connection, output_dir: Path) -> None:
         max_entry = max(archetypes, key=lambda a: a["delta_vs_field"])
 
         # Weighted impact: tier-weighted average delta, discounted by confidence.
-        # Step 1: compute tier-weighted average (confidence weights the average
-        #         so well-sampled archetypes contribute more to the mean).
+        # Step 1: compute tier-weighted average (each archetype's contribution is
+        #         weighted by confidence * tier_weight, so well-sampled archetypes
+        #         in higher tiers contribute more to the mean).
         # Step 2: multiply by card_confidence so low-sample cards are penalized
         #         in the final ranking, not just in the weighting.
         weighted_num = 0.0
