@@ -550,24 +550,38 @@ class LabsLimitlessClient:
 
         init_labs_db(conn)
 
-        # Fetch tournament metadata
+        # Phase 1: Fetch all data over HTTP (no DB writes)
         tournament = self.fetch_tournament_metadata(tournament_id)
 
-        # Fetch standings from Labs
         standings = self.fetch_standings(labs_tournament_id)
         if max_placements:
             standings = standings[:max_placements]
 
+        # Fetch decklists for all placements that have URLs
+        fetched_decklists: dict[str, LabsDecklist] = {}
+        if fetch_decklists:
+            for placement in standings:
+                if placement.decklist_url:
+                    decklist = self.fetch_decklist(placement.decklist_url)
+                    if decklist and decklist.cards:
+                        fetched_decklists[placement.player.player_id] = decklist
+
+        # Phase 2: Write everything in a single fast transaction
         players_stored = 0
         placements_stored = 0
         decklists_stored = 0
 
         try:
-            # Store tournament
+            conn.execute("BEGIN")
+
             conn.execute(
-                """INSERT OR REPLACE INTO tournaments
+                """INSERT INTO tournaments
                 (id, name, date, player_count, country, region, format, source)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?)""",
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+                ON CONFLICT(id) DO UPDATE SET
+                    name=excluded.name, date=excluded.date,
+                    player_count=excluded.player_count, country=excluded.country,
+                    region=excluded.region, format=excluded.format""",
                 (
                     tournament_id,
                     tournament.name,
@@ -583,18 +597,22 @@ class LabsLimitlessClient:
             for placement in standings:
                 player = placement.player
 
-                # Store player
                 conn.execute(
-                    "INSERT OR REPLACE INTO players (id, name, country) VALUES (?, ?, ?)",
+                    """INSERT INTO players (id, name, country) VALUES (?, ?, ?)
+                    ON CONFLICT(id) DO UPDATE SET
+                        name=excluded.name, country=excluded.country""",
                     (player.player_id, player.name, player.country),
                 )
                 players_stored += 1
 
-                # Store placement
-                cursor = conn.execute(
-                    """INSERT OR REPLACE INTO placements
+                conn.execute(
+                    """INSERT INTO placements
                     (tournament_id, player_id, standing, archetype, record_w, record_l, record_t)
-                    VALUES (?, ?, ?, ?, ?, ?, ?)""",
+                    VALUES (?, ?, ?, ?, ?, ?, ?)
+                    ON CONFLICT(tournament_id, player_id) DO UPDATE SET
+                        standing=excluded.standing, archetype=excluded.archetype,
+                        record_w=excluded.record_w, record_l=excluded.record_l,
+                        record_t=excluded.record_t""",
                     (
                         tournament_id,
                         player.player_id,
@@ -605,35 +623,45 @@ class LabsLimitlessClient:
                         placement.record_t,
                     ),
                 )
-                placement_id = cursor.lastrowid
                 placements_stored += 1
 
-                # Fetch and store decklist
-                if fetch_decklists and placement.decklist_url:
-                    decklist = self.fetch_decklist(placement.decklist_url)
-                    if decklist and decklist.cards:
-                        decklist_cursor = conn.execute(
-                            """INSERT OR REPLACE INTO decklists
-                            (placement_id, player_id, tournament_id)
-                            VALUES (?, ?, ?)""",
-                            (placement_id, player.player_id, tournament_id),
-                        )
-                        decklist_id = decklist_cursor.lastrowid
+                # Store decklist if fetched
+                decklist = fetched_decklists.get(player.player_id)
+                if decklist:
+                    # Get the stable placement_id (preserved by upsert)
+                    placement_id = conn.execute(
+                        "SELECT id FROM placements WHERE tournament_id=? AND player_id=?",
+                        (tournament_id, player.player_id),
+                    ).fetchone()[0]
 
-                        for card in decklist.cards:
-                            conn.execute(
-                                """INSERT OR REPLACE INTO decklist_cards
-                                (decklist_id, card_name, card_id, count, category)
-                                VALUES (?, ?, ?, ?, ?)""",
-                                (
-                                    decklist_id,
-                                    card.get("name"),
-                                    card.get("card_id"),
-                                    card.get("count", 1),
-                                    None,  # Category populated later
-                                ),
-                            )
-                        decklists_stored += 1
+                    conn.execute(
+                        """INSERT INTO decklists
+                        (placement_id, player_id, tournament_id) VALUES (?, ?, ?)
+                        ON CONFLICT(tournament_id, player_id) DO UPDATE SET
+                            placement_id=excluded.placement_id""",
+                        (placement_id, player.player_id, tournament_id),
+                    )
+                    decklist_id = conn.execute(
+                        "SELECT id FROM decklists WHERE tournament_id=? AND player_id=?",
+                        (tournament_id, player.player_id),
+                    ).fetchone()[0]
+
+                    # Clear old cards and re-insert
+                    conn.execute("DELETE FROM decklist_cards WHERE decklist_id=?", (decklist_id,))
+                    for card in decklist.cards:
+                        conn.execute(
+                            """INSERT INTO decklist_cards
+                            (decklist_id, card_name, card_id, count, category)
+                            VALUES (?, ?, ?, ?, ?)""",
+                            (
+                                decklist_id,
+                                card.get("name"),
+                                card.get("card_id"),
+                                card.get("count", 1),
+                                None,
+                            ),
+                        )
+                    decklists_stored += 1
 
             conn.commit()
         except Exception:

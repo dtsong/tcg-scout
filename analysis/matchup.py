@@ -419,7 +419,7 @@ def _compute_h2h_from_records(
                 avg_wr = matrix[i][j] / counts[i][j]
                 matrix[i][j] = round(avg_wr, 4)
                 # Approximate CI from sample count
-                ci_lo, ci_hi = _wilson_ci(int(avg_wr * counts[i][j]), counts[i][j])
+                ci_lo, ci_hi = _wilson_ci(round(avg_wr * counts[i][j]), counts[i][j])
                 confidence[i][j] = {"lower": round(ci_lo, 4), "upper": round(ci_hi, 4)}
             else:
                 matrix[i][j] = 0.0
