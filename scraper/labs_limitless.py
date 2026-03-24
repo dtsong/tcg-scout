@@ -282,8 +282,10 @@ class LabsLimitlessClient:
         # Find the standings table
         table = soup.find("table")
         if table is None:
-            logger.warning("No standings table found at %s", url)
-            return []
+            raise ValueError(
+                f"No standings table found at {url}. "
+                "The page structure may have changed or the tournament ID may be incorrect."
+            )
 
         rows = table.find_all("tr")
         for row in rows[1:]:  # Skip header
@@ -310,7 +312,7 @@ class LabsLimitlessClient:
 
     def _parse_standings_row(self, cells: list[Tag]) -> LabsPlacement | None:
         """Parse a single standings table row."""
-        # Parse rank — this is the only expected ValueError/IndexError
+        # Parse rank from first cell
         try:
             rank_text = cells[0].get_text(strip=True)
             standing = int(rank_text.rstrip("."))
@@ -443,8 +445,10 @@ class LabsLimitlessClient:
     def fetch_decklist(self, decklist_url: str) -> LabsDecklist | None:
         """Fetch and parse a decklist from the main Limitless site.
 
-        Uses the same parsing logic as the JP scraper since the HTML
-        structure is identical.
+        Uses a similar two-strategy parsing approach as the JP scraper
+        (structured card-link elements first, text fallback second).
+        Note: separate implementation -- the JP scraper additionally
+        handles basic energy lines without card numbers.
 
         Args:
             decklist_url: Full URL to the decklist page.
@@ -570,12 +574,22 @@ class LabsLimitlessClient:
 
         # Fetch decklists for all placements that have URLs
         fetched_decklists: dict[str, LabsDecklist] = {}
+        decklist_failures = 0
         if fetch_decklists:
-            for placement in standings:
-                if placement.decklist_url:
-                    decklist = self.fetch_decklist(placement.decklist_url)
-                    if decklist and decklist.cards:
-                        fetched_decklists[placement.player.player_id] = decklist
+            decklist_urls = [p for p in standings if p.decklist_url]
+            for placement in decklist_urls:
+                decklist = self.fetch_decklist(placement.decklist_url)
+                if decklist and decklist.cards:
+                    fetched_decklists[placement.player.player_id] = decklist
+                else:
+                    decklist_failures += 1
+            if decklist_failures > 0:
+                logger.warning(
+                    "Failed to fetch %d of %d decklists for tournament %s",
+                    decklist_failures,
+                    len(decklist_urls),
+                    tournament_id,
+                )
 
         # Phase 2: Write everything in a single fast transaction
         players_stored = 0
@@ -676,7 +690,7 @@ class LabsLimitlessClient:
 
             conn.commit()
         except Exception:
-            logger.error("Failed to ingest tournament %s, rolling back", tournament_id)
+            logger.exception("Failed to ingest tournament %s, rolling back", tournament_id)
             conn.rollback()
             raise
 
@@ -684,6 +698,7 @@ class LabsLimitlessClient:
             "players": players_stored,
             "placements": placements_stored,
             "decklists": decklists_stored,
+            "decklist_failures": decklist_failures,
         }
 
     # ------------------------------------------------------------------

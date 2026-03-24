@@ -406,7 +406,7 @@ def _compute_h2h_from_records(
             elif counts[i][j] >= min_matches:
                 avg_wr = matrix[i][j] / counts[i][j]
                 matrix[i][j] = round(avg_wr, 4)
-                # Approximate CI using standard error of proportion
+                # Approximate CI using Wald interval (normal approximation)
                 se = math.sqrt(avg_wr * (1 - avg_wr) / counts[i][j]) if 0 < avg_wr < 1 else 0.0
                 ci_lo = max(0.0, avg_wr - LABS_WILSON_Z * se)
                 ci_hi = min(1.0, avg_wr + LABS_WILSON_Z * se)

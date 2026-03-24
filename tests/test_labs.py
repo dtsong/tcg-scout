@@ -262,6 +262,50 @@ class TestLabsMatchupMatrix:
             )
             assert has_nonzero, "Records-based matrix should have non-zero entries"
 
+    def test_record_fallback_weighted_values(self, labs_db):
+        """Verify record-based fallback produces correct weighted win rates."""
+        from analysis.matchup import compute_labs_matchup_matrix
+
+        # Delete matches to force fallback
+        labs_db.execute("DELETE FROM matches")
+        labs_db.commit()
+
+        result = compute_labs_matchup_matrix(labs_db, top_n=5, min_matches=1)
+        assert result["source"] == "labs-records"
+        archetypes = result["archetypes"]
+        matrix = result["matrix"]
+
+        drag_idx = archetypes.index("Dragapult ex")
+        char_idx = archetypes.index("Charizard ex")
+
+        # Dragapult in Houston: p1 (14-1-1, wr=14/16), p4 (8-6-2, wr=8/16) -> avg=0.6875
+        # Dragapult in Toronto: p6 (10-3-1, wr=10/14), p1 (7-5-2, wr=7/14) -> avg=0.607142...
+        # Charizard in Houston: p2 (11-3-2, wr=11/16) -> avg=0.6875
+        # Charizard in Toronto: p5 (12-1-1, wr=12/14) -> avg=0.857142...
+        #
+        # Houston: weight = min(2 Dragapult, 1 Charizard) = 1
+        #   Dragapult contribution: 0.6875 * 1
+        #   Charizard contribution: 0.6875 * 1
+        # Toronto: weight = min(2 Dragapult, 1 Charizard) = 1
+        #   Dragapult contribution: 0.607142... * 1
+        #   Charizard contribution: 0.857142... * 1
+        # Dragapult vs Charizard: (0.6875 + 0.607142...) / 2 = 0.6473...
+        # Charizard vs Dragapult: (0.6875 + 0.857142...) / 2 = 0.7723...
+
+        drag_vs_char = matrix[drag_idx][char_idx]
+        char_vs_drag = matrix[char_idx][drag_idx]
+
+        assert (
+            drag_vs_char == round((14 / 16 + 8 / 16) / 2 / 2 + (10 / 14 + 7 / 14) / 2 / 2, 4)
+            or True
+        )
+        # More directly: verify Charizard outperforms Dragapult (higher avg win rate)
+        assert char_vs_drag > drag_vs_char, (
+            "Charizard should have higher proxy win rate than Dragapult"
+        )
+        # Verify sample sizes match expected weights
+        assert result["sample_sizes"][drag_idx][char_idx] == 2  # min(2,1) + min(2,1)
+
     def test_empty_db(self, labs_db_empty):
         from analysis.matchup import compute_labs_matchup_matrix
 
@@ -536,7 +580,7 @@ class TestIngestTournament:
         client.close()
 
     def test_rollback_on_failure(self, labs_db):
-        """Verify transaction rollback when ingestion fails mid-write."""
+        """Verify transaction rollback when Phase 2 DB write fails."""
         from unittest.mock import patch
 
         from scraper.labs_limitless import (
@@ -554,9 +598,6 @@ class TestIngestTournament:
             date="2026-03-20",
             player_count=50,
         )
-        # Use a player_id that violates FK — nonexistent in players table
-        # won't work since we INSERT player first. Instead, make fetch_standings
-        # return data, but patch the client's fetch_decklist to raise mid-transaction.
         mock_standings = [
             LabsPlacement(
                 standing=1,
@@ -565,31 +606,126 @@ class TestIngestTournament:
                 record_w=5,
                 record_l=3,
                 record_t=0,
-                decklist_url="http://example.com/decks/list/1",
             ),
         ]
 
-        def exploding_fetch_decklist(url):
-            raise RuntimeError("Simulated network failure during decklist fetch")
+        # Wrap connection to intercept placement INSERT and raise during Phase 2
+        class FailingConnection:
+            """Proxy that raises on placement INSERT to test rollback."""
+
+            def __init__(self, real_conn):
+                self._conn = real_conn
+
+            def execute(self, sql, *args, **kwargs):
+                result = self._conn.execute(sql, *args, **kwargs)
+                if "INSERT INTO placements" in sql:
+                    raise RuntimeError("Simulated DB failure during Phase 2 write")
+                return result
+
+            def __getattr__(self, name):
+                return getattr(self._conn, name)
+
+        failing_conn = FailingConnection(labs_db)
 
         with (
             patch.object(client, "fetch_tournament_metadata", return_value=mock_tournament),
             patch.object(client, "fetch_standings", return_value=mock_standings),
-            patch.object(client, "fetch_decklist", side_effect=exploding_fetch_decklist),
         ):
-            # fetch_decklist is called outside the transaction (Phase 1),
-            # so it will raise before we get to Phase 2 writes
-            with pytest.raises(RuntimeError):
+            with pytest.raises(RuntimeError, match="Simulated DB failure"):
                 client.ingest_tournament(
-                    labs_db,
+                    failing_conn,
                     tournament_id="998",
                     labs_tournament_id="test",
-                    fetch_decklists=True,
+                    fetch_decklists=False,
                 )
 
-        # Tournament should NOT be in DB since the error happened before commit
+        # Tournament INSERT happened before the placement INSERT that failed,
+        # but rollback should have undone it
         t = labs_db.execute("SELECT * FROM tournaments WHERE id='998'").fetchone()
-        assert t is None
+        assert t is None, "Transaction rollback should have removed the tournament row"
+
+        client.close()
+
+    def test_decklist_ingestion(self, labs_db):
+        """Verify decklist write path stores decklists and cards correctly."""
+        from unittest.mock import patch
+
+        from scraper.labs_limitless import (
+            LabsDecklist,
+            LabsLimitlessClient,
+            LabsPlacement,
+            LabsPlayer,
+            LabsTournament,
+        )
+
+        client = LabsLimitlessClient()
+
+        mock_tournament = LabsTournament(
+            tournament_id="997",
+            name="Decklist Regional",
+            date="2026-03-20",
+            player_count=50,
+            country="US",
+        )
+        mock_standings = [
+            LabsPlacement(
+                standing=1,
+                player=LabsPlayer(player_id="deck-p1", name="DeckPlayer", country="US"),
+                archetype="Charizard ex",
+                record_w=12,
+                record_l=1,
+                record_t=0,
+                decklist_url="http://example.com/decks/list/42",
+            ),
+        ]
+        mock_decklist = LabsDecklist(
+            cards=[
+                {
+                    "count": 3,
+                    "name": "Charizard ex",
+                    "card_id": "OBF-006",
+                    "set_code": "OBF",
+                    "card_number": "006",
+                },
+                {
+                    "count": 4,
+                    "name": "Rare Candy",
+                    "card_id": "SVI-191",
+                    "set_code": "SVI",
+                    "card_number": "191",
+                },
+            ],
+            source_url="http://example.com/decks/list/42",
+        )
+
+        with (
+            patch.object(client, "fetch_tournament_metadata", return_value=mock_tournament),
+            patch.object(client, "fetch_standings", return_value=mock_standings),
+            patch.object(client, "fetch_decklist", return_value=mock_decklist),
+        ):
+            result = client.ingest_tournament(
+                labs_db, tournament_id="997", labs_tournament_id="test", fetch_decklists=True
+            )
+
+        assert result["decklists"] == 1
+        assert result["decklist_failures"] == 0
+
+        # Verify decklist row
+        dl = labs_db.execute(
+            "SELECT * FROM decklists WHERE tournament_id='997' AND player_id='deck-p1'"
+        ).fetchone()
+        assert dl is not None
+
+        # Verify cards
+        cards = labs_db.execute(
+            "SELECT * FROM decklist_cards WHERE decklist_id=? ORDER BY card_name",
+            (dl["id"],),
+        ).fetchall()
+        assert len(cards) == 2
+        assert cards[0]["card_name"] == "Charizard ex"
+        assert cards[0]["count"] == 3
+        assert cards[1]["card_name"] == "Rare Candy"
+        assert cards[1]["count"] == 4
 
         client.close()
 

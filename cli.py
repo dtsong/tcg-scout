@@ -1214,9 +1214,17 @@ def scrape_labs(
                 f"{result['placements']} placements, "
                 f"{result['decklists']} decklists.[/green]"
             )
-    except Exception as exc:
+            if result.get("decklist_failures"):
+                console.print(
+                    f"[yellow]Warning: {result['decklist_failures']} decklist(s) "
+                    f"failed to fetch.[/yellow]"
+                )
+    except ValueError as exc:
         console.print(f"[red]Error ingesting tournament: {exc}[/red]")
         raise click.Abort()
+    except Exception:
+        logger.exception("Unexpected error ingesting tournament %s", tournament_id)
+        raise
     finally:
         conn.close()
 
@@ -1229,8 +1237,10 @@ def labs_matchups(ctx: click.Context, top: int) -> None:
     from analysis.matchup import compute_labs_archetype_winrates, compute_labs_matchup_matrix
     from labs_db import get_labs_connection
 
-    conn = get_labs_connection()
+    conn = None
     try:
+        conn = get_labs_connection()
+
         # Archetype win rates
         winrates = compute_labs_archetype_winrates(conn, top_n=top)
         if not winrates["archetypes"]:
@@ -1276,8 +1286,12 @@ def labs_matchups(ctx: click.Context, top: int) -> None:
                     "True H2H match data not available.[/yellow]"
                 )
 
+    except Exception:
+        logger.exception("Failed to compute Labs matchups")
+        raise
     finally:
-        conn.close()
+        if conn is not None:
+            conn.close()
 
 
 @cli.command()
