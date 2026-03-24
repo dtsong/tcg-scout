@@ -167,7 +167,8 @@ export function CardAnalysisClient({
   const stripRef = useRef<HTMLDivElement>(null);
 
   const featuredCards = useMemo(() => {
-    return data.cards
+    return [...data.cards]
+      .sort((a, b) => b.weighted_impact - a.weighted_impact)
       .filter((c) => c.weighted_impact > 0 && c.confidence >= 0.5)
       .slice(0, 8);
   }, [data.cards]);

@@ -1,5 +1,6 @@
 import { describe, it, expect, vi, afterEach } from "vitest";
-import { formatPlacement, formatPct, daysUntil, cn, slugify } from "../utils";
+import { formatPlacement, formatPct, daysUntil, cn, slugify, computeCrossMetaStaples } from "../utils";
+import type { CardAnalysisEntry } from "../types";
 
 describe("formatPlacement", () => {
   it("returns 1st for 1", () => {
@@ -87,5 +88,113 @@ describe("cn", () => {
   it("deduplicates tailwind classes", () => {
     const result = cn("p-4", "p-2");
     expect(result).toBe("p-2");
+  });
+});
+
+function makeCard(overrides: Partial<CardAnalysisEntry> & { card_name: string }): CardAnalysisEntry {
+  return {
+    category: "Trainer",
+    archetypes: [],
+    avg_delta: 0,
+    weighted_impact: 0,
+    confidence: 1.0,
+    archetype_count: 0,
+    max_delta: 0,
+    best_archetype: "",
+    ...overrides,
+  };
+}
+
+function makeArchetype(tier: string, delta: number) {
+  return { archetype: `${tier}Deck`, slug: `${tier.toLowerCase()}-deck`, tier: tier as "S" | "A" | "B" | "C" | "Rogue", delta_vs_field: delta, top4_inclusion_pct: 80, field_inclusion_pct: 60, avg_copies: 2, top4_sample_size: 10, confidence: 1.0 };
+}
+
+describe("computeCrossMetaStaples", () => {
+  it("includes cards with 3+ S/A/B archetypes with positive delta", () => {
+    const cards = [
+      makeCard({
+        card_name: "Staple Card",
+        weighted_impact: 10,
+        archetypes: [makeArchetype("S", 5), makeArchetype("A", 3), makeArchetype("B", 2)],
+      }),
+    ];
+    const result = computeCrossMetaStaples(cards);
+    expect(result).toHaveLength(1);
+    expect(result[0].card_name).toBe("Staple Card");
+    expect(result[0].tiered_archetype_count).toBe(3);
+  });
+
+  it("excludes cards with fewer than 3 qualifying archetypes", () => {
+    const cards = [
+      makeCard({
+        card_name: "Narrow Card",
+        weighted_impact: 15,
+        archetypes: [makeArchetype("S", 5), makeArchetype("A", 3)],
+      }),
+    ];
+    const result = computeCrossMetaStaples(cards);
+    expect(result).toHaveLength(0);
+  });
+
+  it("excludes C/Rogue tiers from archetype count", () => {
+    const cards = [
+      makeCard({
+        card_name: "Wide But Low",
+        weighted_impact: 5,
+        archetypes: [makeArchetype("S", 5), makeArchetype("A", 3), makeArchetype("C", 4), makeArchetype("Rogue", 6)],
+      }),
+    ];
+    const result = computeCrossMetaStaples(cards);
+    // Only S and A count → 2 < 3, excluded
+    expect(result).toHaveLength(0);
+  });
+
+  it("excludes archetypes with negative delta even if S/A/B tier", () => {
+    const cards = [
+      makeCard({
+        card_name: "Mixed Card",
+        weighted_impact: 3,
+        archetypes: [makeArchetype("S", 5), makeArchetype("A", -2), makeArchetype("B", 1), makeArchetype("S", 3)],
+      }),
+    ];
+    const result = computeCrossMetaStaples(cards);
+    // S(+5), A(-2 excluded), B(+1), S(+3) → 3 qualifying → included
+    expect(result).toHaveLength(1);
+    expect(result[0].tiered_archetype_count).toBe(3);
+  });
+
+  it("sorts by tiered_archetype_count desc, then weighted_impact desc", () => {
+    const cards = [
+      makeCard({
+        card_name: "Card A",
+        weighted_impact: 20,
+        archetypes: [makeArchetype("S", 5), makeArchetype("A", 3), makeArchetype("B", 2)],
+      }),
+      makeCard({
+        card_name: "Card B",
+        weighted_impact: 10,
+        archetypes: [makeArchetype("S", 5), makeArchetype("A", 3), makeArchetype("B", 2), makeArchetype("S", 1)],
+      }),
+    ];
+    const result = computeCrossMetaStaples(cards);
+    // Card B has 4 archetypes, Card A has 3 → B first
+    expect(result[0].card_name).toBe("Card B");
+    expect(result[1].card_name).toBe("Card A");
+  });
+
+  it("limits results to 5 by default", () => {
+    const cards = Array.from({ length: 10 }, (_, i) =>
+      makeCard({
+        card_name: `Card ${i}`,
+        weighted_impact: 10 - i,
+        archetypes: [makeArchetype("S", 5), makeArchetype("A", 3), makeArchetype("B", 2)],
+      })
+    );
+    const result = computeCrossMetaStaples(cards);
+    expect(result).toHaveLength(5);
+  });
+
+  it("returns empty array for empty input", () => {
+    expect(computeCrossMetaStaples([])).toEqual([]);
   });
 });

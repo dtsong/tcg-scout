@@ -11,13 +11,7 @@ import { useDateFilter, fetchWindowedData } from "@/app/components/date-filter-p
 import { formatPct, daysUntil } from "@/app/lib/utils";
 import { InfoIcon } from "@/app/components/tooltip";
 import { MetaTimeline } from "@/app/components/meta-timeline";
-import type { MetaData, TrendsData, WinningEdgeCard, AceSpec, TimelineData, TimeWindow, MetaEvolutionMovement } from "@/app/lib/types";
-
-interface CrossMetaStaple {
-  card_name: string;
-  impact: number;
-  archetype_count: number;
-}
+import type { MetaData, TrendsData, WinningEdgeCard, AceSpec, TimelineData, TimeWindow, MetaEvolutionMovement, CrossMetaStaple } from "@/app/lib/types";
 
 interface DashboardClientProps {
   format: string;
@@ -294,10 +288,10 @@ export function DashboardClient({
                     <span className="text-sm text-slate-300 truncate mr-2">{card.card_name}</span>
                     <div className="flex items-center gap-3">
                       <span className="font-mono text-xs text-surface-400 whitespace-nowrap">
-                        {card.archetype_count} archetypes
+                        {card.tiered_archetype_count} archetypes
                       </span>
-                      <span className="font-mono text-xs text-emerald-400 whitespace-nowrap">
-                        +{card.impact.toFixed(1)}
+                      <span className={`font-mono text-xs whitespace-nowrap ${card.weighted_impact >= 0 ? "text-emerald-400" : "text-red-400"}`}>
+                        {card.weighted_impact >= 0 ? "+" : ""}{card.weighted_impact.toFixed(1)}
                       </span>
                     </div>
                   </div>

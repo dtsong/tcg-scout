@@ -2297,6 +2297,8 @@ def export_card_analysis(conn: sqlite3.Connection, output_dir: Path) -> None:
 
     cards = []
     for card_name, archetypes in card_archetypes.items():
+        if not archetypes:
+            continue
         deltas = [a["delta_vs_field"] for a in archetypes]
         avg_delta = round(sum(deltas) / len(deltas), 1)
         max_entry = max(archetypes, key=lambda a: a["delta_vs_field"])

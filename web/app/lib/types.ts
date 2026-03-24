@@ -167,6 +167,12 @@ export interface CardAnalysisData {
   generated_at: string;
 }
 
+export interface CrossMetaStaple {
+  card_name: string;
+  weighted_impact: number;
+  tiered_archetype_count: number;
+}
+
 export interface ArchetypeDetail {
   archetype: string;
   slug: string;
