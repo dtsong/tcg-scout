@@ -4,7 +4,12 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { ChevronDown, ArrowRight } from "lucide-react";
 
-const SCENARIOS = [
+const SCENARIOS: {
+  title: string;
+  description: string;
+  primary: { label: string; path: string };
+  secondary?: { label: string; path: string };
+}[] = [
   {
     title: "Pick a deck for this weekend",
     description:
@@ -23,6 +28,7 @@ const SCENARIOS = [
     description:
       "Identify surging and declining cards, spot format shifts early, and see which cards are gaining or losing play.",
     primary: { label: "Trends", path: "/trends" },
+    secondary: { label: "Dashboard", path: "" },
   },
   {
     title: "Scout a matchup",
@@ -125,7 +131,12 @@ const TOOL_SECTIONS: {
   },
 ];
 
-const GLOSSARY = [
+const GLOSSARY: {
+  id: string;
+  metric: string;
+  definition: string;
+  foundOn: string;
+}[] = [
   {
     id: "meta-share",
     metric: "Meta share",

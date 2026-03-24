@@ -1,5 +1,5 @@
 import { describe, it, expect, afterEach, vi } from "vitest";
-import { render, screen, cleanup } from "@testing-library/react";
+import { render, screen, cleanup, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { GuideContent } from "@/app/components/guide-content";
 
@@ -9,8 +9,17 @@ vi.mock("next/link", () => ({
   ),
 }));
 
+const originalLocation = window.location;
+
 describe("GuideContent", () => {
-  afterEach(cleanup);
+  afterEach(() => {
+    cleanup();
+    Object.defineProperty(window, "location", {
+      value: originalLocation,
+      writable: true,
+      configurable: true,
+    });
+  });
 
   it("renders the page heading", () => {
     render(<GuideContent format="ninja-spinner" />);
@@ -30,30 +39,34 @@ describe("GuideContent", () => {
 
   it("scenario cards link to actual pages", () => {
     render(<GuideContent format="ninja-spinner" />);
-    const dashboardLink = screen.getByRole("link", { name: /Dashboard/ });
-    expect(dashboardLink).toHaveAttribute("href", "/ninja-spinner");
-    const formatEdgeLink = screen.getByRole("link", { name: /Format Edge/ });
-    expect(formatEdgeLink).toHaveAttribute("href", "/ninja-spinner/card-analysis");
-    const trendsLink = screen.getByRole("link", { name: /Trends/ });
-    expect(trendsLink).toHaveAttribute("href", "/ninja-spinner/trends");
-    const archetypesLink = screen.getByRole("link", { name: /Archetypes/ });
-    expect(archetypesLink).toHaveAttribute("href", "/ninja-spinner/archetypes");
-    const championsLink = screen.getByRole("link", { name: /Champions League/ });
-    expect(championsLink).toHaveAttribute("href", "/ninja-spinner/champions");
+    const pickDeck = screen.getByText("Pick a deck for this weekend").closest("div")!;
+    expect(within(pickDeck).getByRole("link", { name: /Dashboard/ })).toHaveAttribute("href", "/ninja-spinner");
+    const findCards = screen.getByText("Find cards that actually win").closest("div")!;
+    expect(within(findCards).getByRole("link", { name: /Format Edge/ })).toHaveAttribute("href", "/ninja-spinner/card-analysis");
+    const trackChanges = screen.getByText("Track what's changing").closest("div")!;
+    expect(within(trackChanges).getByRole("link", { name: /Trends/ })).toHaveAttribute("href", "/ninja-spinner/trends");
+    const scoutMatchup = screen.getByText("Scout a matchup").closest("div")!;
+    expect(within(scoutMatchup).getByRole("link", { name: /Archetypes/ })).toHaveAttribute("href", "/ninja-spinner/archetypes");
+    const studyDecks = screen.getByText("Study winning decklists").closest("div")!;
+    expect(within(studyDecks).getByRole("link", { name: /Champions League/ })).toHaveAttribute("href", "/ninja-spinner/champions");
   });
 
   it("constructs links using the provided format", () => {
     render(<GuideContent format="nihil-zero" />);
-    const dashboardLink = screen.getByRole("link", { name: /Dashboard/ });
-    expect(dashboardLink).toHaveAttribute("href", "/nihil-zero");
-    const trendsLink = screen.getByRole("link", { name: /Trends/ });
-    expect(trendsLink).toHaveAttribute("href", "/nihil-zero/trends");
+    const archetypesLink = screen.getByRole("link", { name: /Archetypes/ });
+    expect(archetypesLink).toHaveAttribute("href", "/nihil-zero/archetypes");
   });
 
   it("renders secondary links when present", () => {
     render(<GuideContent format="ninja-spinner" />);
     const buyListLink = screen.getByRole("link", { name: /Buy List/ });
     expect(buyListLink).toHaveAttribute("href", "/ninja-spinner/buylist");
+  });
+
+  it("does not render extra links for scenarios without a secondary", () => {
+    render(<GuideContent format="ninja-spinner" />);
+    const card = screen.getByText("Find cards that actually win").closest("div")!;
+    expect(within(card).getAllByRole("link")).toHaveLength(1);
   });
 
   it("renders all tool section headings", () => {
@@ -104,6 +117,18 @@ describe("GuideContent", () => {
     // Bullets render as list items
     const bullets = screen.getAllByRole("listitem");
     expect(bullets.length).toBeGreaterThanOrEqual(5);
+  });
+
+  it("opens a section specified in the URL hash on mount", () => {
+    Object.defineProperty(window, "location", {
+      value: { hash: "#buy-list" },
+      writable: true,
+      configurable: true,
+    });
+    render(<GuideContent format="ninja-spinner" />);
+    expect(
+      screen.getByText(/Priority-scored card list/)
+    ).toBeInTheDocument();
   });
 
   it("renders the glossary table", () => {
