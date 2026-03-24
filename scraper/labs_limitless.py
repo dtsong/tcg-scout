@@ -563,26 +563,24 @@ class LabsLimitlessClient(RateLimitedHTTPClient):
         # Fetch decklists for all placements that have URLs
         fetched_decklists: dict[str, LabsDecklist] = {}
         decklist_failures = 0
-        consecutive_auth_failures = 0
-        max_consecutive_auth_failures = 3
+        consecutive_fetch_failures = 0
+        max_consecutive_fetch_failures = 3
         if fetch_decklists:
             placements_with_decklists = [p for p in standings if p.decklist_url]
             for placement in placements_with_decklists:
                 decklist = self.fetch_decklist(placement.decklist_url)
                 if decklist and decklist.cards:
                     fetched_decklists[placement.player.player_id] = decklist
-                    consecutive_auth_failures = 0
+                    consecutive_fetch_failures = 0
                 else:
                     decklist_failures += 1
-                    # Detect if this was an auth failure by checking if the URL
-                    # would have triggered the 401/403 path
                     if decklist is None:
-                        consecutive_auth_failures += 1
-                    if consecutive_auth_failures >= max_consecutive_auth_failures:
+                        consecutive_fetch_failures += 1
+                    if consecutive_fetch_failures >= max_consecutive_fetch_failures:
                         logger.error(
                             "Aborting decklist fetches after %d consecutive failures "
-                            "for tournament %s — scraper may be blocked",
-                            consecutive_auth_failures,
+                            "for tournament %s — site may be down or scraper may be blocked",
+                            consecutive_fetch_failures,
                             tournament_id,
                         )
                         break

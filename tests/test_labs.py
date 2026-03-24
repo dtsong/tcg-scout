@@ -1350,8 +1350,98 @@ class TestWinnerIdMismatch:
         #   551:r2 (Char beat Drag), 551:r3 (Drag beat Char), 552:r1 (Char beat Drag)
         # The ghost_player match should be excluded, keeping totals at 3
         archetypes = result["archetypes"]
-        if "Dragapult ex" in archetypes and "Charizard ex" in archetypes:
-            di = archetypes.index("Dragapult ex")
-            ci = archetypes.index("Charizard ex")
-            sample = result["sample_sizes"][di][ci]
-            assert sample == 3
+        assert "Dragapult ex" in archetypes
+        assert "Charizard ex" in archetypes
+        di = archetypes.index("Dragapult ex")
+        ci = archetypes.index("Charizard ex")
+        sample = result["sample_sizes"][di][ci]
+        assert sample == 3
+
+
+# ---------------------------------------------------------------------------
+# Consecutive fetch failure abort test
+# ---------------------------------------------------------------------------
+
+
+class TestConsecutiveFetchFailureAbort:
+    """Test that ingest_tournament aborts after consecutive decklist failures."""
+
+    @pytest.fixture()
+    def client(self):
+        from scraper.labs_limitless import LabsLimitlessClient
+
+        c = LabsLimitlessClient()
+        yield c
+        c.close()
+
+    def test_aborts_after_three_consecutive_failures(self, client, labs_db, caplog):
+        """Should stop fetching decklists after 3 consecutive None returns."""
+        from scraper.labs_limitless import LabsPlacement, LabsPlayer, LabsTournament
+
+        # Mock fetch_tournament_metadata and fetch_standings
+        tournament = LabsTournament(
+            tournament_id="999", name="Test Regional", date="2026-03-20", player_count=8
+        )
+        placements = [
+            LabsPlacement(
+                standing=i,
+                player=LabsPlayer(player_id=f"tp{i}", name=f"Player {i}"),
+                archetype="Dragapult ex",
+                decklist_url=f"https://example.com/decks/{i}",
+            )
+            for i in range(1, 7)  # 6 placements, all with decklist URLs
+        ]
+
+        with (
+            patch.object(client, "fetch_tournament_metadata", return_value=tournament),
+            patch.object(client, "fetch_standings", return_value=placements),
+            patch.object(client, "fetch_decklist", return_value=None) as mock_fetch,
+        ):
+            import logging
+
+            with caplog.at_level(logging.ERROR):
+                result = client.ingest_tournament(labs_db, "999", "0099")
+
+        # Should have stopped after 3 failures, not tried all 6
+        assert mock_fetch.call_count == 3
+        assert result["decklist_failures"] == 3
+        assert any("Aborting decklist fetches" in msg for msg in caplog.messages)
+
+    def test_success_resets_counter(self, client, labs_db):
+        """A successful fetch between failures should reset the counter."""
+        from scraper.labs_limitless import (
+            LabsDecklist,
+            LabsPlacement,
+            LabsPlayer,
+            LabsTournament,
+        )
+
+        tournament = LabsTournament(
+            tournament_id="998", name="Test Regional 2", date="2026-03-19", player_count=6
+        )
+        placements = [
+            LabsPlacement(
+                standing=i,
+                player=LabsPlayer(player_id=f"tp{i}", name=f"Player {i}"),
+                archetype="Charizard ex",
+                decklist_url=f"https://example.com/decks/{i}",
+            )
+            for i in range(1, 7)  # 6 placements
+        ]
+
+        success = LabsDecklist(cards=[{"name": "Charizard ex", "card_id": "OBF-125", "count": 3}])
+
+        # Pattern: fail, fail, success, fail, fail, success — never hits 3 consecutive
+        side_effects = [None, None, success, None, None, success]
+
+        with (
+            patch.object(client, "fetch_tournament_metadata", return_value=tournament),
+            patch.object(client, "fetch_standings", return_value=placements),
+            patch.object(client, "fetch_decklist", side_effect=side_effects) as mock_fetch,
+        ):
+            result = client.ingest_tournament(labs_db, "998", "0098")
+
+        # All 6 should be attempted (counter resets on success)
+        assert mock_fetch.call_count == 6
+        assert result["decklists"] == 2
+        assert result["decklist_failures"] == 4

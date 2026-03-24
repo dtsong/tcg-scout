@@ -116,6 +116,7 @@ def scrape(
 
         total_placements = 0
         total_decklists = 0
+        failed_tournaments = 0
 
         for i, tournament in enumerate(new_tournaments, 1):
             console.print(
@@ -193,12 +194,18 @@ def scrape(
                     "Failed to ingest tournament %s, rolling back", tournament.source_url
                 )
                 conn.rollback()
+                failed_tournaments += 1
                 continue
 
         console.print(
             f"\n[green]Done! Stored {total_placements} placements "
             f"and {total_decklists} decklists.[/green]"
         )
+        if failed_tournaments:
+            console.print(
+                f"[red]Warning: {failed_tournaments} tournament(s) failed to ingest. "
+                f"Check logs for details.[/red]"
+            )
     finally:
         client.close()
         conn.close()

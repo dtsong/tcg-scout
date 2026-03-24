@@ -89,7 +89,11 @@ def get_labs_connection() -> sqlite3.Connection:
     conn.execute("PRAGMA foreign_keys=ON")
     fk_enabled = conn.execute("PRAGMA foreign_keys").fetchone()[0]
     if not fk_enabled:
-        logger.warning("Foreign keys could not be enabled on %s", LABS_DB_PATH)
+        conn.close()
+        raise RuntimeError(
+            f"Foreign keys could not be enabled on {LABS_DB_PATH}. "
+            "This SQLite build may not support foreign keys."
+        )
     return conn
 
 
