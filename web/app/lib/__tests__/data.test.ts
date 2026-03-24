@@ -330,4 +330,12 @@ describe("getFormatName", () => {
     vi.mocked(fs.readFileSync).mockReturnValue(JSON.stringify(mockFormats));
     expect(getFormatName("unknown-format")).toBe("unknown-format");
   });
+
+  it("falls back to raw slug when name_en is empty string", () => {
+    const formatsWithEmpty = [
+      { ...mockFormats[0], name_en: "" },
+    ];
+    vi.mocked(fs.readFileSync).mockReturnValue(JSON.stringify(formatsWithEmpty));
+    expect(getFormatName("nihil-zero")).toBe("nihil-zero");
+  });
 });

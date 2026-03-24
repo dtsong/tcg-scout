@@ -44,7 +44,12 @@ export function getFormats(): FormatInfo[] {
 
 export function getFormatName(format: string): string {
   const formats = getFormats();
-  return formats.find((f) => f.slug === format)?.name_en ?? format;
+  const match = formats.find((f) => f.slug === format);
+  if (!match || !match.name_en) {
+    console.warn(`[data] getFormatName: no name_en found for format "${format}", falling back to raw slug`);
+    return format;
+  }
+  return match.name_en;
 }
 
 export function getMeta(format: string): MetaData {
