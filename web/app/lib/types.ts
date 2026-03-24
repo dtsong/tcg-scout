@@ -45,6 +45,7 @@ export interface BuylistCard {
   set_code: string | null;
   set_number: string | null;
   priority_score: number;
+  urgency: "URGENT" | "HIGH" | "MODERATE";
   core_flex: "core" | "flex";
   image_path?: string;
   archetypes: string[];
@@ -147,6 +148,7 @@ export interface CardAnalysisArchetype {
   field_inclusion_pct: number;
   avg_copies: number;
   top4_sample_size: number;
+  confidence?: number;
 }
 
 export interface CardAnalysisEntry {
@@ -154,6 +156,8 @@ export interface CardAnalysisEntry {
   category: "Pokemon" | "Trainer" | "Energy";
   archetypes: CardAnalysisArchetype[];
   avg_delta: number;
+  weighted_impact?: number;
+  confidence?: number;
   archetype_count: number;
   max_delta: number;
   best_archetype: string;
@@ -162,6 +166,12 @@ export interface CardAnalysisEntry {
 export interface CardAnalysisData {
   cards: CardAnalysisEntry[];
   generated_at: string;
+}
+
+export interface CrossMetaStaple {
+  card_name: string;
+  weighted_impact: number;
+  tiered_archetype_count: number;
 }
 
 export interface ArchetypeDetail {

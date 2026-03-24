@@ -87,7 +87,7 @@ def test_export_card_analysis_computes_delta(tmp_path):
     assert arch["delta_vs_field"] == 50.0
 
 
-def test_export_card_analysis_sorts_by_avg_delta(tmp_path):
+def test_export_card_analysis_sorts_by_weighted_impact(tmp_path):
     conn = sqlite3.connect(":memory:")
     conn.row_factory = sqlite3.Row
     init_db(conn)
@@ -96,5 +96,97 @@ def test_export_card_analysis_sorts_by_avg_delta(tmp_path):
     import json
 
     data = json.loads((tmp_path / "card-analysis.json").read_text())
-    deltas = [c["avg_delta"] for c in data["cards"]]
-    assert deltas == sorted(deltas, reverse=True)
+    impacts = [c["weighted_impact"] for c in data["cards"]]
+    assert impacts == sorted(impacts, reverse=True)
+
+
+def test_export_card_analysis_weighted_impact_favors_higher_tier(tmp_path):
+    """Weighted impact should skew toward S-tier deltas over Rogue deltas."""
+    conn = sqlite3.connect(":memory:")
+    conn.row_factory = sqlite3.Row
+    init_db(conn)
+
+    # Create S-tier and Rogue-tier archetypes with different deltas for the same card
+    conn.execute(
+        "INSERT INTO tournaments (id, name, date, player_count) VALUES ('t1', 'T1', '2026-03-01', 32)"
+    )
+    # S-tier archetype: 10 placements, 4 top-4
+    for i in range(1, 11):
+        standing = i  # 1-4 are top-4, 5-10 are field
+        conn.execute(
+            "INSERT INTO placements (id, tournament_id, standing, player_name, archetype) "
+            "VALUES (?, 't1', ?, ?, 'TopDeck')",
+            (i, standing, f"Player{i}"),
+        )
+    # Rogue archetype: 4 placements, 2 top-4 (standings 1,2,5,6)
+    for i, standing in [(11, 1), (12, 2), (13, 5), (14, 6)]:
+        conn.execute(
+            "INSERT INTO placements (id, tournament_id, standing, player_name, archetype) "
+            "VALUES (?, 't1', ?, ?, 'RogueDeck')",
+            (i, standing, f"Player{i}"),
+        )
+
+    # "Tech Card" in all TopDeck top-4 (high delta) and 1 of 2 RogueDeck top-4 (lower delta)
+    # TopDeck top-4 (pids 1-4): 4 of 4 → top4_incl = 100%
+    # TopDeck field (pids 1-10): 4 of 10 → field_incl = 40%, delta = +60
+    for pid in [1, 2, 3, 4]:
+        conn.execute(
+            "INSERT INTO decklist_cards (placement_id, card_id, card_name, count) "
+            "VALUES (?, 'tech', 'Tech Card', 1)",
+            (pid,),
+        )
+    # RogueDeck top-4 (pids 11,12): 1 of 2 → top4_incl = 50%
+    # RogueDeck field (pids 11-14): 1 of 4 → field_incl = 25%, delta = +25
+    conn.execute(
+        "INSERT INTO decklist_cards (placement_id, card_id, card_name, count) "
+        "VALUES (11, 'tech', 'Tech Card', 1)"
+    )
+
+    conn.execute(
+        "INSERT INTO meta_snapshots (id, generated_at, tournament_count, deck_count) "
+        "VALUES (1, '2026-03-01', 1, 14)"
+    )
+    conn.execute(
+        "INSERT INTO archetype_stats (snapshot_id, archetype, deck_count, meta_share, tier) "
+        "VALUES (1, 'TopDeck', 10, 71.4, 'S')"
+    )
+    conn.execute(
+        "INSERT INTO archetype_stats (snapshot_id, archetype, deck_count, meta_share, tier) "
+        "VALUES (1, 'RogueDeck', 4, 28.6, 'Rogue')"
+    )
+    conn.commit()
+
+    export_card_analysis(conn, tmp_path)
+    import json
+
+    data = json.loads((tmp_path / "card-analysis.json").read_text())
+    tech = next(c for c in data["cards"] if c["card_name"] == "Tech Card")
+
+    # avg_delta = (60 + 25) / 2 = 42.5
+    # tier_weighted_avg = (60*0.4*5 + 25*0.2*0.5) / (0.4*5 + 0.2*0.5) = 122.5 / 2.1 = 58.33
+    # card_confidence = min(0.4, 0.2) = 0.2
+    # weighted_impact = 58.33 * 0.2 = 11.7
+    assert tech["avg_delta"] == 42.5
+    assert tech["weighted_impact"] == 11.7
+    # Confidence discount penalizes low-sample cards
+    assert tech["weighted_impact"] < tech["avg_delta"]
+
+
+def test_export_card_analysis_includes_confidence(tmp_path):
+    """Each archetype entry should have a confidence field."""
+    conn = sqlite3.connect(":memory:")
+    conn.row_factory = sqlite3.Row
+    init_db(conn)
+    _seed(conn)
+    export_card_analysis(conn, tmp_path)
+    import json
+
+    data = json.loads((tmp_path / "card-analysis.json").read_text())
+    boss = next(c for c in data["cards"] if c["card_name"] == "Boss's Orders")
+    for arch in boss["archetypes"]:
+        assert "confidence" in arch
+        assert 0 <= arch["confidence"] <= 1.0
+    # top4_sample_size=2 for both archetypes -> confidence = min(1.0, 2/10) = 0.2
+    assert boss["archetypes"][0]["confidence"] == 0.2
+    # Card-level confidence = min across archetypes (conservative)
+    assert boss["confidence"] == 0.2
