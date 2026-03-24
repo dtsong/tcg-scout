@@ -506,10 +506,6 @@ class LabsLimitlessClient(RateLimitedHTTPClient):
         Returns:
             Dict with counts: players, placements, decklists.
         """
-        from labs_db import init_labs_db
-
-        init_labs_db(conn)
-
         # Phase 1: Fetch all data over HTTP (no DB writes)
         tournament = self.fetch_tournament_metadata(tournament_id)
 
@@ -609,10 +605,16 @@ class LabsLimitlessClient(RateLimitedHTTPClient):
                 decklist = fetched_decklists.get(player.player_id)
                 if decklist:
                     # Get the stable placement_id (preserved by upsert)
-                    placement_id = conn.execute(
+                    row = conn.execute(
                         "SELECT id FROM placements WHERE tournament_id=? AND player_id=?",
                         (tournament_id, player.player_id),
-                    ).fetchone()[0]
+                    ).fetchone()
+                    if row is None:
+                        raise RuntimeError(
+                            f"placement row missing after upsert for player {player.player_id!r} "
+                            f"in tournament {tournament_id!r}"
+                        )
+                    placement_id = row[0]
 
                     conn.execute(
                         """INSERT INTO decklists
@@ -621,10 +623,16 @@ class LabsLimitlessClient(RateLimitedHTTPClient):
                             placement_id=excluded.placement_id""",
                         (placement_id, player.player_id, tournament_id),
                     )
-                    decklist_id = conn.execute(
+                    row = conn.execute(
                         "SELECT id FROM decklists WHERE tournament_id=? AND player_id=?",
                         (tournament_id, player.player_id),
-                    ).fetchone()[0]
+                    ).fetchone()
+                    if row is None:
+                        raise RuntimeError(
+                            f"decklist row missing after upsert for player {player.player_id!r} "
+                            f"in tournament {tournament_id!r}"
+                        )
+                    decklist_id = row[0]
 
                     # Clear old cards and re-insert
                     conn.execute("DELETE FROM decklist_cards WHERE decklist_id=?", (decklist_id,))

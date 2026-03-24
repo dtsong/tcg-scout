@@ -345,11 +345,13 @@ def _compute_h2h_from_matches(
         if i == j:
             continue  # Mirror match
 
-        totals[i][j] += 1
-        totals[j][i] += 1
         if r["winner_id"] == r["player1_id"]:
+            totals[i][j] += 1
+            totals[j][i] += 1
             wins[i][j] += 1
         elif r["winner_id"] == r["player2_id"]:
+            totals[i][j] += 1
+            totals[j][i] += 1
             wins[j][i] += 1
         else:
             logger.warning(
@@ -358,8 +360,6 @@ def _compute_h2h_from_matches(
                 r["player1_id"],
                 r["player2_id"],
             )
-            totals[i][j] -= 1
-            totals[j][i] -= 1
 
     # Build output matrices
     matrix = [[0.0] * n for _ in range(n)]
