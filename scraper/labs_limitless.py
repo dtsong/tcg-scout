@@ -305,6 +305,17 @@ class LabsLimitlessClient:
                 expected,
                 labs_tournament_id,
             )
+        if placements:
+            unknown_count = sum(1 for p in placements if p.archetype == "Unknown")
+            if unknown_count > len(placements) * 0.5:
+                logger.warning(
+                    "%d of %d placements have Unknown archetype for tournament %s"
+                    " -- sprite parsing may be broken",
+                    unknown_count,
+                    len(placements),
+                    labs_tournament_id,
+                )
+
         logger.info(
             "Parsed %d standings from Labs tournament %s", len(placements), labs_tournament_id
         )
@@ -597,8 +608,6 @@ class LabsLimitlessClient:
         decklists_stored = 0
 
         try:
-            conn.execute("BEGIN")
-
             conn.execute(
                 """INSERT INTO tournaments
                 (id, name, date, player_count, country, region, format, source)

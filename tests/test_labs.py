@@ -295,10 +295,7 @@ class TestLabsMatchupMatrix:
         drag_vs_char = matrix[drag_idx][char_idx]
         char_vs_drag = matrix[char_idx][drag_idx]
 
-        assert (
-            drag_vs_char == round((14 / 16 + 8 / 16) / 2 / 2 + (10 / 14 + 7 / 14) / 2 / 2, 4)
-            or True
-        )
+        assert drag_vs_char == round((14 / 16 + 8 / 16) / 2 / 2 + (10 / 14 + 7 / 14) / 2 / 2, 4)
         # More directly: verify Charizard outperforms Dragapult (higher avg win rate)
         assert char_vs_drag > drag_vs_char, (
             "Charizard should have higher proxy win rate than Dragapult"
@@ -617,10 +614,9 @@ class TestIngestTournament:
                 self._conn = real_conn
 
             def execute(self, sql, *args, **kwargs):
-                result = self._conn.execute(sql, *args, **kwargs)
                 if "INSERT INTO placements" in sql:
                     raise RuntimeError("Simulated DB failure during Phase 2 write")
-                return result
+                return self._conn.execute(sql, *args, **kwargs)
 
             def __getattr__(self, name):
                 return getattr(self._conn, name)

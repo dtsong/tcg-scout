@@ -289,14 +289,17 @@ def _compute_h2h_from_matches(
     wins = [[0] * n for _ in range(n)]
     totals = [[0] * n for _ in range(n)]
 
-    # Aggregate matches
+    # Aggregate matches (filtered to top archetypes)
+    placeholders = ",".join("?" for _ in arch_names)
     rows = conn.execute(
-        """
+        f"""
         SELECT player1_archetype, player2_archetype, winner_id, player1_id, player2_id
         FROM matches
-        WHERE player1_archetype IS NOT NULL AND player2_archetype IS NOT NULL
+        WHERE player1_archetype IN ({placeholders})
+          AND player2_archetype IN ({placeholders})
           AND winner_id IS NOT NULL
-        """
+        """,
+        (*arch_names, *arch_names),
     ).fetchall()
 
     for r in rows:
