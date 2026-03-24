@@ -93,6 +93,8 @@ SPRITE_ARCHETYPE_MAP: dict[str, str] = {
     # Chien-Pao
     "chien-pao": "Chien-Pao ex",
     "baxcalibur-chien-pao": "Chien-Pao ex",
+    # Porygon-Z
+    "porygon-z": "Porygon-Z",
     # Lost Zone
     "comfey-giratina": "Lost Zone Giratina",
     "comfey-sableye": "Lost Zone Box",
