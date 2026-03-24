@@ -405,8 +405,11 @@ class LabsLimitlessClient(RateLimitedHTTPClient):
         """
         try:
             soup = self._soup(decklist_url)
+        except httpx.HTTPStatusError as exc:
+            logger.warning("HTTP %d fetching decklist %s", exc.response.status_code, decklist_url)
+            return None
         except httpx.HTTPError as exc:
-            logger.warning("Failed to fetch decklist %s: %s", decklist_url, exc)
+            logger.warning("Network error fetching decklist %s: %s", decklist_url, exc)
             return None
 
         cards: list[dict[str, Any]] = []

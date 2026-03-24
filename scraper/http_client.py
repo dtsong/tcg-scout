@@ -41,21 +41,21 @@ class RateLimitedHTTPClient:
 
     def _rate_limit(self) -> None:
         """Block until a request slot is available."""
-        with self._lock:
-            now = time.monotonic()
-            self._request_timestamps = [ts for ts in self._request_timestamps if now - ts < 60.0]
-            if len(self._request_timestamps) >= self._max_rpm:
-                oldest = self._request_timestamps[0]
-                wait = 60.0 - (now - oldest) + 0.1
-                if wait > 0:
-                    logger.debug("Rate limit reached, sleeping %.1fs", wait)
-                    time.sleep(wait)
-                # Clean again after sleeping
+        while True:
+            with self._lock:
                 now = time.monotonic()
                 self._request_timestamps = [
                     ts for ts in self._request_timestamps if now - ts < 60.0
                 ]
-            self._request_timestamps.append(time.monotonic())
+                if len(self._request_timestamps) < self._max_rpm:
+                    self._request_timestamps.append(time.monotonic())
+                    return
+                oldest = self._request_timestamps[0]
+                wait = 60.0 - (now - oldest) + 0.1
+            # Sleep outside the lock so other threads aren't blocked
+            if wait > 0:
+                logger.debug("Rate limit reached, sleeping %.1fs", wait)
+                time.sleep(wait)
 
     def _get(self, url: str) -> httpx.Response:
         """GET with rate limiting, retries, and exponential backoff."""
