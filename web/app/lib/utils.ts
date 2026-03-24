@@ -34,6 +34,10 @@ export function effectiveImpact(card: CardAnalysisEntry): number {
   return card.weighted_impact ?? card.avg_delta;
 }
 
+export function effectiveConfidence(card: Pick<CardAnalysisEntry, "confidence">): number {
+  return card.confidence ?? 1.0;
+}
+
 export function computeCrossMetaStaples(cards: CardAnalysisEntry[], limit = 5): CrossMetaStaple[] {
   return cards
     .map((card) => {
