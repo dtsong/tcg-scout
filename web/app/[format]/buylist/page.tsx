@@ -1,21 +1,13 @@
-import type { Metadata } from "next";
-import { getBuylist, getStaples, getFlex, getMeta, formatHasData, getFormatName } from "@/app/lib/data";
+import { getBuylist, getStaples, getFlex, getMeta, formatHasData } from "@/app/lib/data";
+import { formatPageMetadata } from "@/app/lib/metadata";
 import { BuylistClient } from "./buylist-client";
 import Link from "next/link";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ format: string }>;
-}): Promise<Metadata> {
-  const { format } = await params;
-  const formatName = getFormatName(format);
-  const title = `Buy List -- ${formatName} | Scout`;
-  const description = `Priority-ranked buy list for competitive ${formatName} Pokemon TCG decks. Staples, flex picks, and where each card fits.`;
-  return {
-    title,
-    description,
-  };
+export function generateMetadata({ params }: { params: Promise<{ format: string }> }) {
+  return formatPageMetadata(params, (formatName) => ({
+    title: `Buy List -- ${formatName} | Scout`,
+    description: `Priority-ranked buy list for competitive ${formatName} Pokemon TCG decks. Staples, flex picks, and where each card fits.`,
+  }));
 }
 
 export default async function BuylistPage({

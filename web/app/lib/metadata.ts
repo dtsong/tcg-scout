@@ -1,0 +1,23 @@
+import type { Metadata } from "next";
+import { getFormatName } from "@/app/lib/data";
+
+/**
+ * Build page metadata for a format-level page (no slug needed).
+ * Handles the async params unwrapping and format name resolution that
+ * every [format]/* page repeats.
+ */
+export async function formatPageMetadata(
+  params: Promise<{ format: string }>,
+  build: (formatName: string) => { title: string; description: string },
+): Promise<Metadata> {
+  const { format } = await params;
+  const formatName = getFormatName(format);
+  return build(formatName);
+}
+
+/**
+ * Safely format a percentage value, returning "0.0" for NaN/Infinity.
+ */
+export function safePercent(value: number): string {
+  return Number.isFinite(value) ? value.toFixed(1) : "0.0";
+}

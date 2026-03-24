@@ -1,21 +1,13 @@
 import Link from "next/link";
-import type { Metadata } from "next";
-import { getMeta, getFormats, getAceSpecs, getTrends, getWinningEdge, getTimeline, getMetaEvolution, formatHasData, getFormatName } from "@/app/lib/data";
+import { getMeta, getFormats, getAceSpecs, getTrends, getWinningEdge, getTimeline, getMetaEvolution, formatHasData } from "@/app/lib/data";
+import { formatPageMetadata } from "@/app/lib/metadata";
 import { DashboardClient } from "./dashboard-client";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ format: string }>;
-}): Promise<Metadata> {
-  const { format } = await params;
-  const formatName = getFormatName(format);
-  const title = `Meta Dashboard -- ${formatName} | Scout`;
-  const description = `Live meta tier list for ${formatName} Pokemon TCG. Archetype rankings, trending cards, and tournament results from Japan's City Leagues.`;
-  return {
-    title,
-    description,
-  };
+export function generateMetadata({ params }: { params: Promise<{ format: string }> }) {
+  return formatPageMetadata(params, (formatName) => ({
+    title: `Meta Dashboard -- ${formatName} | Scout`,
+    description: `Live meta tier list for ${formatName} Pokemon TCG. Archetype rankings, trending cards, and tournament results from Japan's City Leagues.`,
+  }));
 }
 
 export default async function Dashboard({

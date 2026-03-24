@@ -1,21 +1,13 @@
-import type { Metadata } from "next";
-import { getMetaEvolution, formatHasData, getFormatName } from "@/app/lib/data";
+import { getMetaEvolution, formatHasData } from "@/app/lib/data";
+import { formatPageMetadata } from "@/app/lib/metadata";
 import { ShiftsClient } from "./shifts-client";
 import Link from "next/link";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ format: string }>;
-}): Promise<Metadata> {
-  const { format } = await params;
-  const formatName = getFormatName(format);
-  const title = `Meta Shifts -- ${formatName} | Scout`;
-  const description = `Track how the ${formatName} Pokemon TCG meta is evolving. Card adoptions, drops, and week-over-week changes across archetypes.`;
-  return {
-    title,
-    description,
-  };
+export function generateMetadata({ params }: { params: Promise<{ format: string }> }) {
+  return formatPageMetadata(params, (formatName) => ({
+    title: `Meta Shifts -- ${formatName} | Scout`,
+    description: `Track how the ${formatName} Pokemon TCG meta is evolving. Card adoptions, drops, and week-over-week changes across archetypes.`,
+  }));
 }
 
 export default async function ShiftsPage({

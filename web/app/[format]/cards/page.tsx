@@ -1,21 +1,13 @@
-import type { Metadata } from "next";
-import { getCardIndex, getMeta, formatHasData, getFormatName } from "@/app/lib/data";
+import { getCardIndex, getMeta, formatHasData } from "@/app/lib/data";
+import { formatPageMetadata } from "@/app/lib/metadata";
 import { CardsClient } from "./cards-client";
 import Link from "next/link";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ format: string }>;
-}): Promise<Metadata> {
-  const { format } = await params;
-  const formatName = getFormatName(format);
-  const title = `Card Index -- ${formatName} | Scout`;
-  const description = `Browse all cards played in ${formatName} Pokemon TCG. Usage rates, trends, and top archetypes for every card.`;
-  return {
-    title,
-    description,
-  };
+export function generateMetadata({ params }: { params: Promise<{ format: string }> }) {
+  return formatPageMetadata(params, (formatName) => ({
+    title: `Card Index -- ${formatName} | Scout`,
+    description: `Browse all cards played in ${formatName} Pokemon TCG. Usage rates, trends, and top archetypes for every card.`,
+  }));
 }
 
 export default async function CardsPage({

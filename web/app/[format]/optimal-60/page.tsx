@@ -1,24 +1,16 @@
-import type { Metadata } from "next";
-import { getFormats, getOptimal60Index, getFormatName } from "@/app/lib/data";
+import { getFormats, getOptimal60Index } from "@/app/lib/data";
+import { formatPageMetadata } from "@/app/lib/metadata";
 import { Optimal60Client } from "./optimal-60-client";
 
 export function generateStaticParams() {
   return getFormats().map((f) => ({ format: f.slug }));
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ format: string }>;
-}): Promise<Metadata> {
-  const { format } = await params;
-  const formatName = getFormatName(format);
-  const title = `Optimal 60 -- ${formatName} | Scout`;
-  const description = `Data-backed optimal decklists for top ${formatName} archetypes, powered by Champions League results and the broader meta.`;
-  return {
-    title,
-    description,
-  };
+export function generateMetadata({ params }: { params: Promise<{ format: string }> }) {
+  return formatPageMetadata(params, (formatName) => ({
+    title: `Optimal 60 -- ${formatName} | Scout`,
+    description: `Data-backed optimal decklists for top ${formatName} archetypes, powered by Champions League results and the broader meta.`,
+  }));
 }
 
 export default async function Optimal60Page({

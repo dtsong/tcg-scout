@@ -1,23 +1,15 @@
-import type { Metadata } from "next";
-import { getCLDivision, formatHasData, getFormatName } from "@/app/lib/data";
+import { getCLDivision, formatHasData } from "@/app/lib/data";
+import { formatPageMetadata } from "@/app/lib/metadata";
 import { ChampionsClient } from "./champions-client";
 import Link from "next/link";
 import fs from "fs";
 import path from "path";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ format: string }>;
-}): Promise<Metadata> {
-  const { format } = await params;
-  const formatName = getFormatName(format);
-  const title = `Champions League Results -- ${formatName} | Scout`;
-  const description = `Champions League tournament results and decklists for ${formatName} Pokemon TCG. Top placements, archetype breakdowns, and full deck lists.`;
-  return {
-    title,
-    description,
-  };
+export function generateMetadata({ params }: { params: Promise<{ format: string }> }) {
+  return formatPageMetadata(params, (formatName) => ({
+    title: `Champions League Results -- ${formatName} | Scout`,
+    description: `Champions League tournament results and decklists for ${formatName} Pokemon TCG. Top placements, archetype breakdowns, and full deck lists.`,
+  }));
 }
 
 export default async function ChampionsPage({

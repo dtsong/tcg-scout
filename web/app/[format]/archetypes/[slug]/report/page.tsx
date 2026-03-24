@@ -1,11 +1,5 @@
 import type { Metadata } from "next";
-import {
-  getArchetypeReport,
-  getArchetypeSlugs,
-  getFormats,
-  getFormatName,
-  getOptimal60Index,
-} from "@/app/lib/data";
+import { getArchetypeReport, getArchetypeSlugs, getFormats, getFormatName, getOptimal60Index } from "@/app/lib/data";
 import { ReportClient } from "./report-client";
 
 export async function generateStaticParams() {
@@ -26,14 +20,11 @@ export async function generateMetadata({
   params: Promise<{ format: string; slug: string }>;
 }): Promise<Metadata> {
   const { format, slug } = await params;
-  const report = getArchetypeReport(format, slug);
-  const name = report?.archetype ?? slug;
+  const name = getArchetypeReport(format, slug)?.archetype ?? slug;
   const formatName = getFormatName(format);
-  const title = `${name} Deep Dive -- ${formatName} | Scout`;
-  const description = `Weighted consensus decklist, tech evolution, and performance analysis for ${name} in ${formatName}.`;
   return {
-    title,
-    description,
+    title: `${name} Deep Dive -- ${formatName} | Scout`,
+    description: `Weighted consensus decklist, tech evolution, and performance analysis for ${name} in ${formatName}.`,
   };
 }
 

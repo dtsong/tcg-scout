@@ -1,20 +1,12 @@
-import { getMetaReport, getFormats, getFormatName } from "@/app/lib/data";
+import { getMetaReport, getFormats } from "@/app/lib/data";
+import { formatPageMetadata } from "@/app/lib/metadata";
 import { ReportClient } from "./report-client";
-import type { Metadata } from "next";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ format: string }>;
-}): Promise<Metadata> {
-  const { format } = await params;
-  const formatName = getFormatName(format);
-  const title = `Meta Report -- ${formatName} | Scout`;
-  const description = `Auto-generated meta report for the ${formatName} Pokemon TCG format. Tier analysis, top decks, and meta trends.`;
-  return {
-    title,
-    description,
-  };
+export function generateMetadata({ params }: { params: Promise<{ format: string }> }) {
+  return formatPageMetadata(params, (formatName) => ({
+    title: `Meta Report -- ${formatName} | Scout`,
+    description: `Auto-generated meta report for the ${formatName} Pokemon TCG format. Tier analysis, top decks, and meta trends.`,
+  }));
 }
 
 export async function generateStaticParams() {

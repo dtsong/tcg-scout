@@ -1,21 +1,13 @@
-import type { Metadata } from "next";
-import { getTechForecast, formatHasData, getFormatName } from "@/app/lib/data";
+import { getTechForecast, formatHasData } from "@/app/lib/data";
+import { formatPageMetadata } from "@/app/lib/metadata";
 import { ForecastClient } from "./forecast-client";
 import Link from "next/link";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ format: string }>;
-}): Promise<Metadata> {
-  const { format } = await params;
-  const formatName = getFormatName(format);
-  const title = `Tech Forecast -- ${formatName} | Scout`;
-  const description = `Card adoption trends and tech forecasts for ${formatName} Pokemon TCG. Track rising and falling tech choices across the meta.`;
-  return {
-    title,
-    description,
-  };
+export function generateMetadata({ params }: { params: Promise<{ format: string }> }) {
+  return formatPageMetadata(params, (formatName) => ({
+    title: `Tech Forecast -- ${formatName} | Scout`,
+    description: `Card adoption trends and tech forecasts for ${formatName} Pokemon TCG. Track rising and falling tech choices across the meta.`,
+  }));
 }
 
 export default async function ForecastPage({
