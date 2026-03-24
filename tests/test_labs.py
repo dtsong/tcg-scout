@@ -3,6 +3,7 @@
 import sqlite3
 import sys
 from pathlib import Path
+from unittest.mock import MagicMock, patch
 
 import pytest
 
@@ -761,3 +762,264 @@ class TestReingestionIdempotency:
             "SELECT COUNT(*) FROM decklists WHERE tournament_id='551' AND player_id='p1'"
         ).fetchone()[0]
         assert count == 1
+
+
+# ---------------------------------------------------------------------------
+# HTTP retry/backoff tests (#1)
+# ---------------------------------------------------------------------------
+
+
+class TestGetRetryBackoff:
+    """Test _get() retry logic with mocked HTTP responses."""
+
+    @pytest.fixture()
+    def client(self):
+        from scraper.labs_limitless import LabsLimitlessClient
+
+        c = LabsLimitlessClient()
+        yield c
+        c.close()
+
+    def _mock_response(self, status_code, url="http://test"):
+        resp = MagicMock()
+        resp.status_code = status_code
+        resp.text = ""
+        resp.request = MagicMock()
+        resp.request.url = url
+        resp.raise_for_status = MagicMock()
+        if status_code >= 400:
+            import httpx
+
+            resp.raise_for_status.side_effect = httpx.HTTPStatusError(
+                f"Status {status_code}", request=resp.request, response=resp
+            )
+        return resp
+
+    def test_retry_on_429_then_success(self, client):
+        """429 should trigger retry; success on second attempt."""
+        ok_resp = self._mock_response(200)
+        client._client.get = MagicMock(side_effect=[self._mock_response(429), ok_resp])
+        with patch.object(client, "_rate_limit"), patch("scraper.http_client.time.sleep"):
+            result = client._get("http://test")
+        assert result.status_code == 200
+        assert client._client.get.call_count == 2
+
+    def test_retry_on_500_then_success(self, client):
+        """5xx should trigger retry; success on second attempt."""
+        ok_resp = self._mock_response(200)
+        client._client.get = MagicMock(side_effect=[self._mock_response(500), ok_resp])
+        with patch.object(client, "_rate_limit"), patch("scraper.http_client.time.sleep"):
+            result = client._get("http://test")
+        assert result.status_code == 200
+
+    def test_404_raises_immediately(self, client):
+        """404 should raise HTTPStatusError without retry."""
+        import httpx
+
+        client._client.get = MagicMock(return_value=self._mock_response(404))
+        with patch.object(client, "_rate_limit"), patch("scraper.http_client.time.sleep"):
+            with pytest.raises(httpx.HTTPStatusError):
+                client._get("http://test")
+        assert client._client.get.call_count == 1
+
+    def test_exhaustion_raises_after_all_retries(self, client):
+        """All retries returning 500 should raise."""
+        import httpx
+
+        client._client.get = MagicMock(side_effect=[self._mock_response(500)] * client._max_retries)
+        with patch.object(client, "_rate_limit"), patch("scraper.http_client.time.sleep"):
+            with pytest.raises(httpx.HTTPError, match="Failed after"):
+                client._get("http://test")
+
+    def test_network_error_retries(self, client):
+        """Network errors (ConnectError) should retry."""
+        import httpx
+
+        ok_resp = self._mock_response(200)
+        client._client.get = MagicMock(
+            side_effect=[httpx.ConnectError("Connection refused"), ok_resp]
+        )
+        with patch.object(client, "_rate_limit"), patch("scraper.http_client.time.sleep"):
+            result = client._get("http://test")
+        assert result.status_code == 200
+        assert client._client.get.call_count == 2
+
+    def test_network_error_exhaustion_raises(self, client):
+        """Repeated network errors should raise after all retries."""
+        import httpx
+
+        client._client.get = MagicMock(
+            side_effect=[httpx.ConnectError("Connection refused")] * client._max_retries
+        )
+        with patch.object(client, "_rate_limit"), patch("scraper.http_client.time.sleep"):
+            with pytest.raises(httpx.HTTPError, match="Failed after"):
+                client._get("http://test")
+
+
+# ---------------------------------------------------------------------------
+# Tournament metadata parsing tests (#2)
+# ---------------------------------------------------------------------------
+
+
+class TestFetchTournamentMetadata:
+    """Test fetch_tournament_metadata HTML parsing."""
+
+    @pytest.fixture()
+    def client(self):
+        from scraper.labs_limitless import LabsLimitlessClient
+
+        c = LabsLimitlessClient()
+        yield c
+        c.close()
+
+    def _mock_soup(self, client, html):
+        from bs4 import BeautifulSoup
+
+        with patch.object(client, "_soup", return_value=BeautifulSoup(html, "html.parser")):
+            return client.fetch_tournament_metadata("551")
+
+    def test_valid_page(self, client):
+        html = """
+        <html><body>
+            <h1>Regional Houston, TX | Pokémon</h1>
+            <span>21 Mar 26</span>
+            <span>2635 Players</span>
+            <img src="/flags/us.png" alt="US">
+        </body></html>
+        """
+        result = self._mock_soup(client, html)
+        assert result.name == "Regional Houston, TX"
+        assert result.date == "2026-03-21"
+        assert result.player_count == 2635
+        assert result.country == "US"
+
+    def test_four_digit_year(self, client):
+        html = """
+        <html><body>
+            <h1>Regional Toronto</h1>
+            <span>14 Mar 2026</span>
+            <span>1200 Players</span>
+        </body></html>
+        """
+        result = self._mock_soup(client, html)
+        assert result.date == "2026-03-14"
+
+    def test_missing_date_raises(self, client):
+        html = "<html><body><h1>Some Tournament</h1></body></html>"
+        with pytest.raises(ValueError, match="Could not parse required metadata"):
+            self._mock_soup(client, html)
+
+    def test_missing_name_raises(self, client):
+        html = "<html><body><span>21 Mar 26</span></body></html>"
+        with pytest.raises(ValueError, match="Could not parse required metadata"):
+            self._mock_soup(client, html)
+
+    def test_missing_player_count_warns(self, client, caplog):
+        import logging
+
+        html = """
+        <html><body>
+            <h1>Regional Test</h1>
+            <span>21 Mar 26</span>
+        </body></html>
+        """
+        with caplog.at_level(logging.WARNING):
+            result = self._mock_soup(client, html)
+        assert result.player_count == 0
+        assert "Could not parse player count" in caplog.text
+
+    def test_comma_in_player_count(self, client):
+        html = """
+        <html><body>
+            <h1>Big Regional</h1>
+            <span>21 Mar 26</span>
+            <span>2,635 Players</span>
+        </body></html>
+        """
+        result = self._mock_soup(client, html)
+        assert result.player_count == 2635
+
+
+# ---------------------------------------------------------------------------
+# Decklist parsing tests (#3)
+# ---------------------------------------------------------------------------
+
+
+class TestFetchDecklistParsing:
+    """Test fetch_decklist parsing strategies."""
+
+    @pytest.fixture()
+    def client(self):
+        from scraper.labs_limitless import LabsLimitlessClient
+
+        c = LabsLimitlessClient()
+        yield c
+        c.close()
+
+    def _mock_soup(self, client, html):
+        from bs4 import BeautifulSoup
+
+        with patch.object(client, "_soup", return_value=BeautifulSoup(html, "html.parser")):
+            return client.fetch_decklist("http://example.com/decks/list/42")
+
+    def test_card_link_strategy(self, client):
+        html = """
+        <html><body>
+            <a class="card-link" href="/cards/OBF/006">
+                <span class="card-count">3</span>
+                <span class="card-name">Charizard ex</span>
+            </a>
+            <a class="card-link" href="/cards/SVI/191">
+                <span class="card-count">4</span>
+                <span class="card-name">Rare Candy</span>
+            </a>
+        </body></html>
+        """
+        result = self._mock_soup(client, html)
+        assert result is not None
+        assert len(result.cards) == 2
+        assert result.cards[0]["name"] == "Charizard ex"
+        assert result.cards[0]["count"] == 3
+        assert result.cards[0]["set_code"] == "OBF"
+        assert result.cards[0]["card_number"] == "006"
+        assert result.cards[0]["card_id"] == "OBF-006"
+
+    def test_text_format_fallback(self, client):
+        html = """
+        <html><body>
+        <pre>
+3 Charizard ex OBF 006
+4 Rare Candy SVI 191
+        </pre>
+        </body></html>
+        """
+        result = self._mock_soup(client, html)
+        assert result is not None
+        assert len(result.cards) == 2
+        assert result.cards[0]["name"] == "Charizard ex"
+        assert result.cards[0]["count"] == 3
+
+    def test_no_cards_returns_none(self, client):
+        html = "<html><body><p>No decklist available</p></body></html>"
+        result = self._mock_soup(client, html)
+        assert result is None
+
+    def test_unparseable_count_defaults_to_1(self, client):
+        html = """
+        <html><body>
+            <a class="card-link" href="/cards/OBF/006">
+                <span class="card-count">abc</span>
+                <span class="card-name">Charizard ex</span>
+            </a>
+        </body></html>
+        """
+        result = self._mock_soup(client, html)
+        assert result is not None
+        assert result.cards[0]["count"] == 1
+
+    def test_http_error_returns_none(self, client):
+        import httpx
+
+        with patch.object(client, "_soup", side_effect=httpx.HTTPError("Connection failed")):
+            result = client.fetch_decklist("http://example.com/decks/list/42")
+        assert result is None

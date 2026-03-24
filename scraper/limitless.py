@@ -6,15 +6,13 @@ from limitlesstcg.com using httpx sync client with rate limiting.
 
 import logging
 import re
-import threading
-import time
 from dataclasses import dataclass, field
 from datetime import date, datetime
 from typing import Any
 from urllib.parse import urljoin
 
 import httpx
-from bs4 import BeautifulSoup, Tag
+from bs4 import Tag
 
 from analysis.archetype import normalize_archetype
 from config import (
@@ -23,6 +21,7 @@ from config import (
     LIMITLESS_REQUESTS_PER_MINUTE,
     LIMITLESS_TIMEOUT,
 )
+from scraper.http_client import RateLimitedHTTPClient
 
 logger = logging.getLogger(__name__)
 
@@ -69,102 +68,18 @@ _DECKLIST_LINE_RE = re.compile(r"^(\d+)\s+(.+?)\s+([A-Z0-9]{2,5}[A-Z]?|Energy)\s
 # ---------------------------------------------------------------------------
 
 
-class LimitlessClient:
+class LimitlessClient(RateLimitedHTTPClient):
     """Synchronous scraper for LimitlessTCG tournament data."""
 
     def __init__(self) -> None:
-        self._base_url = LIMITLESS_BASE_URL
-        self._max_rpm = LIMITLESS_REQUESTS_PER_MINUTE
-        self._timeout = LIMITLESS_TIMEOUT
-        self._max_retries = LIMITLESS_MAX_RETRIES
-        self._request_timestamps: list[float] = []
-        self._lock = threading.Lock()
-        self._client = httpx.Client(
-            base_url=self._base_url,
-            timeout=self._timeout,
-            follow_redirects=True,
-            headers={
-                "User-Agent": "TrainerLab-Scout/1.0 (rotation-analysis)",
-            },
+        super().__init__(
+            base_url=LIMITLESS_BASE_URL,
+            max_rpm=LIMITLESS_REQUESTS_PER_MINUTE,
+            timeout=LIMITLESS_TIMEOUT,
+            max_retries=LIMITLESS_MAX_RETRIES,
+            user_agent="TrainerLab-Scout/1.0 (rotation-analysis)",
+            use_base_url=True,
         )
-
-    # ------------------------------------------------------------------
-    # HTTP helpers
-    # ------------------------------------------------------------------
-
-    def _rate_limit(self) -> None:
-        """Block until a request slot is available (max N requests/minute)."""
-        with self._lock:
-            now = time.monotonic()
-            # Remove timestamps older than 60 seconds
-            self._request_timestamps = [ts for ts in self._request_timestamps if now - ts < 60.0]
-            if len(self._request_timestamps) >= self._max_rpm:
-                oldest = self._request_timestamps[0]
-                wait = 60.0 - (now - oldest) + 0.1
-                if wait > 0:
-                    logger.debug("Rate limit reached, sleeping %.1fs", wait)
-                    time.sleep(wait)
-                # Clean again after sleeping
-                now = time.monotonic()
-                self._request_timestamps = [
-                    ts for ts in self._request_timestamps if now - ts < 60.0
-                ]
-            self._request_timestamps.append(time.monotonic())
-
-    def _get(self, url: str) -> httpx.Response:
-        """GET with rate limiting, retries, and exponential backoff."""
-        base_delay = 1.0
-        last_exc: Exception | None = None
-
-        for attempt in range(self._max_retries):
-            self._rate_limit()
-            try:
-                response = self._client.get(url)
-
-                if response.status_code == 404:
-                    raise httpx.HTTPStatusError(
-                        "Not Found",
-                        request=response.request,
-                        response=response,
-                    )
-
-                if response.status_code == 429 or response.status_code >= 500:
-                    delay = base_delay * (2**attempt)
-                    logger.warning(
-                        "Retryable status %d for %s, retrying in %.1fs (attempt %d/%d)",
-                        response.status_code,
-                        url,
-                        delay,
-                        attempt + 1,
-                        self._max_retries,
-                    )
-                    time.sleep(delay)
-                    continue
-
-                response.raise_for_status()
-                return response
-
-            except httpx.HTTPStatusError:
-                raise
-            except httpx.HTTPError as exc:
-                last_exc = exc
-                delay = base_delay * (2**attempt)
-                logger.warning(
-                    "Request error for %s: %s, retrying in %.1fs (attempt %d/%d)",
-                    url,
-                    exc,
-                    delay,
-                    attempt + 1,
-                    self._max_retries,
-                )
-                time.sleep(delay)
-
-        raise httpx.ConnectError(f"Failed after {self._max_retries} retries: {last_exc}")
-
-    def _soup(self, url: str) -> BeautifulSoup:
-        """Fetch a page and return parsed BeautifulSoup."""
-        resp = self._get(url)
-        return BeautifulSoup(resp.text, "html.parser")
 
     # ------------------------------------------------------------------
     # Tournament listings
@@ -532,19 +447,8 @@ class LimitlessClient:
         archetype = " / ".join(names) if names else ""
         return archetype, sprite_urls
 
-    # ------------------------------------------------------------------
-    # Cleanup
-    # ------------------------------------------------------------------
-
-    def close(self) -> None:
-        """Close the underlying HTTP client."""
-        self._client.close()
-
     def __enter__(self) -> "LimitlessClient":
         return self
-
-    def __exit__(self, *args: Any) -> None:
-        self.close()
 
 
 def match_archetype_labels(

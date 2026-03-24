@@ -4,8 +4,41 @@ import logging
 import math
 import sqlite3
 from collections import defaultdict
+from typing import TypedDict
 
 from config import LABS_MIN_MATCHES_TO_PUBLISH, LABS_WILSON_Z
+
+
+class ConfidenceInterval(TypedDict):
+    lower: float
+    upper: float
+
+
+class ArchetypeWinrateEntry(TypedDict):
+    archetype: str
+    players: int
+    total_wins: int
+    total_losses: int
+    total_ties: int
+    total_matches: int
+    win_rate: float
+    ci_lower: float
+    ci_upper: float
+
+
+class WinrateResult(TypedDict):
+    archetypes: list[ArchetypeWinrateEntry]
+    source: str
+    tournament_count: int
+
+
+class MatchupMatrixResult(TypedDict):
+    archetypes: list[str]
+    matrix: list[list[float]]
+    sample_sizes: list[list[int]]
+    confidence: list[list[ConfidenceInterval]]
+    source: str
+
 
 logger = logging.getLogger(__name__)
 
@@ -122,7 +155,7 @@ def compute_labs_archetype_winrates(
     conn: sqlite3.Connection,
     top_n: int = 20,
     min_players: int = 5,
-) -> dict:
+) -> WinrateResult:
     """Compute archetype win rates from Labs placement records.
 
     Uses actual W-L-T records from tournament standings to compute
@@ -223,11 +256,13 @@ def _top_archetypes(conn: sqlite3.Connection, top_n: int) -> list[sqlite3.Row]:
     ).fetchall()
 
 
-_EMPTY_MATRIX: dict = {
+# NOTE: Callers must add "source" key when returning this sentinel.
+_EMPTY_MATRIX: MatchupMatrixResult = {
     "archetypes": [],
     "matrix": [],
     "sample_sizes": [],
     "confidence": [],
+    "source": "",
 }
 
 
@@ -235,7 +270,7 @@ def compute_labs_matchup_matrix(
     conn: sqlite3.Connection,
     top_n: int = 15,
     min_matches: int = LABS_MIN_MATCHES_TO_PUBLISH,
-) -> dict:
+) -> MatchupMatrixResult:
     """Compute archetype-vs-archetype matchup data from Labs H2H matches.
 
     When actual match-level H2H data is available (matches table), computes
@@ -276,7 +311,7 @@ def _compute_h2h_from_matches(
     conn: sqlite3.Connection,
     top_n: int,
     min_matches: int,
-) -> dict:
+) -> MatchupMatrixResult:
     """Compute true H2H win rates from the matches table."""
     arch_rows = _top_archetypes(conn, top_n)
     if not arch_rows:
@@ -316,6 +351,15 @@ def _compute_h2h_from_matches(
             wins[i][j] += 1
         elif r["winner_id"] == r["player2_id"]:
             wins[j][i] += 1
+        else:
+            logger.warning(
+                "Match winner_id %r does not match player1_id %r or player2_id %r — skipping",
+                r["winner_id"],
+                r["player1_id"],
+                r["player2_id"],
+            )
+            totals[i][j] -= 1
+            totals[j][i] -= 1
 
     # Build output matrices
     matrix = [[0.0] * n for _ in range(n)]
@@ -345,7 +389,7 @@ def _compute_h2h_from_records(
     conn: sqlite3.Connection,
     top_n: int,
     min_matches: int,
-) -> dict:
+) -> MatchupMatrixResult:
     """Approximate matchup comparison from archetype W-L-T records.
 
     When true H2H pairings aren't available, compare archetype

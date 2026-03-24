@@ -10,14 +10,12 @@ Labs standings pages are server-rendered HTML — no browser rendering needed.
 import logging
 import re
 import sqlite3
-import threading
-import time
 from dataclasses import dataclass, field
 from typing import Any
 from urllib.parse import urljoin
 
 import httpx
-from bs4 import BeautifulSoup, Tag
+from bs4 import Tag
 
 from config import (
     LABS_BASE_URL,
@@ -25,6 +23,7 @@ from config import (
     LABS_REQUESTS_PER_MINUTE,
     LABS_TIMEOUT,
 )
+from scraper.http_client import RateLimitedHTTPClient
 
 logger = logging.getLogger(__name__)
 
@@ -42,6 +41,10 @@ class LabsPlayer:
     name: str
     country: str = ""
 
+    def __post_init__(self) -> None:
+        if not self.player_id.strip():
+            raise ValueError("player_id must be non-empty")
+
 
 @dataclass
 class LabsPlacement:
@@ -53,6 +56,12 @@ class LabsPlacement:
     record_t: int = 0
     decklist_url: str | None = None
     sprite_urls: list[str] = field(default_factory=list)
+
+    def __post_init__(self) -> None:
+        if self.standing < 1:
+            raise ValueError(f"standing must be >= 1, got {self.standing}")
+        if self.record_w < 0 or self.record_l < 0 or self.record_t < 0:
+            raise ValueError("W/L/T records must be non-negative")
 
 
 @dataclass
@@ -78,99 +87,18 @@ class LabsDecklist:
 # ---------------------------------------------------------------------------
 
 
-class LabsLimitlessClient:
+class LabsLimitlessClient(RateLimitedHTTPClient):
     """Scraper for Labs Limitless international tournament data."""
 
     def __init__(self) -> None:
-        self._base_url = LABS_BASE_URL
-        self._labs_url = LABS_STANDINGS_URL
-        self._max_rpm = LABS_REQUESTS_PER_MINUTE
-        self._timeout = LABS_TIMEOUT
-        self._max_retries = LABS_MAX_RETRIES
-        self._request_timestamps: list[float] = []
-        self._lock = threading.Lock()
-        self._client = httpx.Client(
-            timeout=self._timeout,
-            follow_redirects=True,
-            headers={
-                "User-Agent": "TrainerLab-Scout/1.0 (labs-analysis)",
-            },
+        super().__init__(
+            base_url=LABS_BASE_URL,
+            max_rpm=LABS_REQUESTS_PER_MINUTE,
+            timeout=LABS_TIMEOUT,
+            max_retries=LABS_MAX_RETRIES,
+            user_agent="TrainerLab-Scout/1.0 (labs-analysis)",
         )
-
-    # ------------------------------------------------------------------
-    # HTTP helpers (same pattern as LimitlessClient)
-    # ------------------------------------------------------------------
-
-    def _rate_limit(self) -> None:
-        """Block until a request slot is available."""
-        with self._lock:
-            now = time.monotonic()
-            self._request_timestamps = [ts for ts in self._request_timestamps if now - ts < 60.0]
-            if len(self._request_timestamps) >= self._max_rpm:
-                oldest = self._request_timestamps[0]
-                wait = 60.0 - (now - oldest) + 0.1
-                logger.debug("Rate limit reached, sleeping %.1fs", wait)
-                time.sleep(wait)
-            self._request_timestamps.append(time.monotonic())
-
-    def _get(self, url: str) -> httpx.Response:
-        """GET with rate limiting, retries, and exponential backoff."""
-        base_delay = 1.0
-        last_exc: Exception | None = None
-
-        for attempt in range(self._max_retries):
-            self._rate_limit()
-            try:
-                response = self._client.get(url)
-
-                if response.status_code == 404:
-                    raise httpx.HTTPStatusError(
-                        "Not Found",
-                        request=response.request,
-                        response=response,
-                    )
-
-                if response.status_code == 429 or response.status_code >= 500:
-                    delay = base_delay * (2**attempt)
-                    logger.warning(
-                        "Retryable status %d for %s, retrying in %.1fs (attempt %d/%d)",
-                        response.status_code,
-                        url,
-                        delay,
-                        attempt + 1,
-                        self._max_retries,
-                    )
-                    time.sleep(delay)
-                    continue
-
-                response.raise_for_status()
-                return response
-
-            except httpx.HTTPStatusError:
-                raise
-            except httpx.HTTPError as exc:
-                last_exc = exc
-                delay = base_delay * (2**attempt)
-                logger.warning(
-                    "Request error for %s: %s, retrying in %.1fs (attempt %d/%d)",
-                    url,
-                    exc,
-                    delay,
-                    attempt + 1,
-                    self._max_retries,
-                )
-                time.sleep(delay)
-
-        if last_exc is None:
-            raise httpx.HTTPError(
-                f"Failed after {self._max_retries} retries with retryable status codes"
-            )
-        raise httpx.HTTPError(f"Failed after {self._max_retries} retries: {last_exc}") from last_exc
-
-    def _soup(self, url: str) -> BeautifulSoup:
-        """Fetch a page and return parsed BeautifulSoup."""
-        resp = self._get(url)
-        return BeautifulSoup(resp.text, "html.parser")
+        self._labs_url = LABS_STANDINGS_URL
 
     # ------------------------------------------------------------------
     # Tournament metadata from main Limitless site
@@ -354,6 +282,7 @@ class LabsLimitlessClient:
 
         # Find record column (W-L-T format like "15 - 1 - 2")
         record_w, record_l, record_t = 0, 0, 0
+        record_found = False
         for cell in cells:
             text = cell.get_text(strip=True)
             record_match = re.match(r"^(\d+)\s*-\s*(\d+)\s*-\s*(\d+)$", text)
@@ -361,7 +290,14 @@ class LabsLimitlessClient:
                 record_w = int(record_match.group(1))
                 record_l = int(record_match.group(2))
                 record_t = int(record_match.group(3))
+                record_found = True
                 break
+        if not record_found:
+            logger.warning(
+                "No W-L-T record parsed for player %s (standing %d)",
+                player_name,
+                standing,
+            )
 
         # Find deck/archetype cell (contains sprite images)
         archetype = ""
@@ -595,12 +531,19 @@ class LabsLimitlessClient:
                 else:
                     decklist_failures += 1
             if decklist_failures > 0:
-                logger.warning(
-                    "Failed to fetch %d of %d decklists for tournament %s",
-                    decklist_failures,
-                    len(decklist_urls),
-                    tournament_id,
-                )
+                if decklist_urls and decklist_failures == len(decklist_urls):
+                    logger.error(
+                        "ALL %d decklist fetches failed for tournament %s — site structure may have changed",
+                        decklist_failures,
+                        tournament_id,
+                    )
+                else:
+                    logger.warning(
+                        "Failed to fetch %d of %d decklists for tournament %s",
+                        decklist_failures,
+                        len(decklist_urls),
+                        tournament_id,
+                    )
 
         # Phase 2: Write everything in a single fast transaction
         players_stored = 0
@@ -710,16 +653,5 @@ class LabsLimitlessClient:
             "decklist_failures": decklist_failures,
         }
 
-    # ------------------------------------------------------------------
-    # Cleanup
-    # ------------------------------------------------------------------
-
-    def close(self) -> None:
-        """Close the underlying HTTP client."""
-        self._client.close()
-
     def __enter__(self) -> "LabsLimitlessClient":
         return self
-
-    def __exit__(self, *args: Any) -> None:
-        self.close()
