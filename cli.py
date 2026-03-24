@@ -131,61 +131,69 @@ def scrape(
                 console.print("    [yellow]No placements found, skipping[/yellow]")
                 continue
 
-            # Store tournament (Limitless only tracks open division)
+            # Store tournament and placements in a transaction
             # Parse prefecture from tournament name (e.g. "City League Osaka" -> "Osaka")
             prefecture = None
             if "City League " in tournament.name:
                 prefecture = tournament.name.split("City League ", 1)[1].strip() or None
-            conn.execute(
-                "INSERT OR REPLACE INTO tournaments (id, name, date, player_count, country, division, prefecture) "
-                "VALUES (?, ?, ?, ?, ?, ?, ?)",
-                (
-                    tournament.source_url,
-                    tournament.name,
-                    tournament.tournament_date.isoformat(),
-                    tournament.player_count,
-                    "JP",
-                    "open",
-                    prefecture,
-                ),
-            )
 
-            # Store placements and decklists
-            for placement in placements:
-                cursor = conn.execute(
-                    "INSERT INTO placements (tournament_id, standing, player_name, archetype, decklist_url) "
-                    "VALUES (?, ?, ?, ?, ?)",
+            try:
+                conn.execute(
+                    "INSERT OR REPLACE INTO tournaments (id, name, date, player_count, country, division, prefecture) "
+                    "VALUES (?, ?, ?, ?, ?, ?, ?)",
                     (
                         tournament.source_url,
-                        placement.placement,
-                        placement.player_name,
-                        placement.archetype,
-                        placement.decklist_url,
+                        tournament.name,
+                        tournament.tournament_date.isoformat(),
+                        tournament.player_count,
+                        "JP",
+                        "open",
+                        prefecture,
                     ),
                 )
-                placement_id = cursor.lastrowid
 
-                # Fetch and store decklist if available
-                if fetch_decklists and placement.decklist_url:
-                    decklist = client.fetch_decklist(placement.decklist_url)
-                    if decklist and decklist.cards:
-                        for card in decklist.cards:
-                            conn.execute(
-                                "INSERT OR REPLACE INTO decklist_cards "
-                                "(placement_id, card_id, card_name, count) "
-                                "VALUES (?, ?, ?, ?)",
-                                (
-                                    placement_id,
-                                    card.get("card_id", card.get("name", "unknown")),
-                                    card.get("name"),
-                                    card.get("count", 1),
-                                ),
-                            )
-                        total_decklists += 1
+                # Store placements and decklists
+                for placement in placements:
+                    cursor = conn.execute(
+                        "INSERT INTO placements (tournament_id, standing, player_name, archetype, decklist_url) "
+                        "VALUES (?, ?, ?, ?, ?)",
+                        (
+                            tournament.source_url,
+                            placement.placement,
+                            placement.player_name,
+                            placement.archetype,
+                            placement.decklist_url,
+                        ),
+                    )
+                    placement_id = cursor.lastrowid
 
-                total_placements += 1
+                    # Fetch and store decklist if available
+                    if fetch_decklists and placement.decklist_url:
+                        decklist = client.fetch_decklist(placement.decklist_url)
+                        if decklist and decklist.cards:
+                            for card in decklist.cards:
+                                conn.execute(
+                                    "INSERT OR REPLACE INTO decklist_cards "
+                                    "(placement_id, card_id, card_name, count) "
+                                    "VALUES (?, ?, ?, ?)",
+                                    (
+                                        placement_id,
+                                        card.get("card_id", card.get("name", "unknown")),
+                                        card.get("name"),
+                                        card.get("count", 1),
+                                    ),
+                                )
+                            total_decklists += 1
 
-            conn.commit()
+                    total_placements += 1
+
+                conn.commit()
+            except Exception:
+                logger.exception(
+                    "Failed to ingest tournament %s, rolling back", tournament.source_url
+                )
+                conn.rollback()
+                continue
 
         console.print(
             f"\n[green]Done! Stored {total_placements} placements "

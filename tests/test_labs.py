@@ -1235,3 +1235,123 @@ class TestDataClassValidation:
 
         with pytest.raises(ValueError, match="name must be non-empty"):
             LabsTournament(tournament_id="t1", name="", date="2026-01-01")
+
+
+# ---------------------------------------------------------------------------
+# Rate limiter unit tests
+# ---------------------------------------------------------------------------
+
+
+class TestRateLimiter:
+    """Test RateLimitedHTTPClient._rate_limit() logic."""
+
+    def test_under_limit_proceeds_immediately(self):
+        """Requests under the RPM limit should proceed without sleeping."""
+        from scraper.http_client import RateLimitedHTTPClient
+
+        client = RateLimitedHTTPClient(max_rpm=5)
+        try:
+            with patch("scraper.http_client.time.sleep") as mock_sleep:
+                client._rate_limit()
+                mock_sleep.assert_not_called()
+            assert len(client._request_timestamps) == 1
+        finally:
+            client.close()
+
+    def test_at_limit_blocks(self):
+        """Requests at the RPM limit should sleep until a slot opens."""
+        from scraper.http_client import RateLimitedHTTPClient
+
+        client = RateLimitedHTTPClient(max_rpm=2)
+        try:
+            # Pre-fill timestamps to simulate 2 recent requests
+            now = __import__("time").monotonic()
+            client._request_timestamps = [now - 10, now - 5]
+
+            with patch("scraper.http_client.time.sleep") as mock_sleep:
+                # After sleeping, re-check should find the slot available
+                # since timestamps will be pruned after 60s. We simulate
+                # the passage of time by having sleep advance monotonic.
+                original_monotonic = __import__("time").monotonic
+
+                call_count = [0]
+
+                def fake_monotonic():
+                    call_count[0] += 1
+                    if call_count[0] > 4:
+                        # After sleep, return time > 60s past oldest
+                        return now + 61
+                    return original_monotonic()
+
+                with patch("scraper.http_client.time.monotonic", side_effect=fake_monotonic):
+                    client._rate_limit()
+
+                assert mock_sleep.called
+        finally:
+            client.close()
+
+    def test_old_timestamps_pruned(self):
+        """Timestamps older than 60s should be pruned."""
+        from scraper.http_client import RateLimitedHTTPClient
+
+        client = RateLimitedHTTPClient(max_rpm=5)
+        try:
+            now = __import__("time").monotonic()
+            # Add timestamps from 90s ago (should be pruned)
+            client._request_timestamps = [now - 90, now - 80, now - 70]
+
+            client._rate_limit()
+            # Old timestamps should be pruned, only the new one remains
+            assert len(client._request_timestamps) == 1
+        finally:
+            client.close()
+
+
+# ---------------------------------------------------------------------------
+# Winner ID mismatch test
+# ---------------------------------------------------------------------------
+
+
+class TestWinnerIdMismatch:
+    """Test that invalid winner_id rows are excluded from H2H matrix."""
+
+    def test_mismatch_skipped_and_warned(self, labs_db, caplog):
+        """Matches with winner_id matching neither player should be skipped."""
+        from analysis.matchup import compute_labs_matchup_matrix
+
+        # Insert a match with a winner_id that doesn't match either player
+        labs_db.execute(
+            "INSERT INTO matches (id, tournament_id, round, player1_id, player2_id, "
+            "winner_id, player1_archetype, player2_archetype) "
+            "VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+            (
+                "551:r99:p1:p2",
+                "551",
+                99,
+                "p1",
+                "p2",
+                "ghost_player",
+                "Dragapult ex",
+                "Charizard ex",
+            ),
+        )
+        labs_db.commit()
+
+        import logging
+
+        with caplog.at_level(logging.WARNING):
+            result = compute_labs_matchup_matrix(labs_db, min_matches=1)
+
+        # Should have warned about the mismatch
+        assert any("does not match" in msg for msg in caplog.messages)
+
+        # The mismatch match should NOT be counted in the totals
+        # Original seed: Drag vs Char has 3 valid matches:
+        #   551:r2 (Char beat Drag), 551:r3 (Drag beat Char), 552:r1 (Char beat Drag)
+        # The ghost_player match should be excluded, keeping totals at 3
+        archetypes = result["archetypes"]
+        if "Dragapult ex" in archetypes and "Charizard ex" in archetypes:
+            di = archetypes.index("Dragapult ex")
+            ci = archetypes.index("Charizard ex")
+            sample = result["sample_sizes"][di][ci]
+            assert sample == 3

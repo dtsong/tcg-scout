@@ -30,6 +30,10 @@ logger = logging.getLogger(__name__)
 
 LABS_STANDINGS_URL = "https://labs.limitlesstcg.com"
 
+_LABS_DECKLIST_LINE_RE = re.compile(
+    r"^(\d+)\s+(.+?)\s+([A-Z0-9]{2,5}[A-Z]?|Energy)\s+(\d+|[A-Z]+\d*)$"
+)
+
 _MONTH_TO_NUM = {
     "Jan": "01",
     "Feb": "02",
@@ -288,6 +292,12 @@ class LabsLimitlessClient(RateLimitedHTTPClient):
 
         if not player_id:
             player_id = f"unknown-{player_name}"
+            logger.warning(
+                "No player ID found for %r (standing %d), using synthetic ID %r",
+                player_name,
+                standing,
+                player_id,
+            )
 
         # Column 2: Country flag
         country = ""
@@ -344,6 +354,11 @@ class LabsLimitlessClient(RateLimitedHTTPClient):
 
         # Fallback archetype from text if no sprites found
         if not archetype:
+            logger.debug(
+                "No sprite-based archetype for player %s (standing %d), trying text fallback",
+                player_name,
+                standing,
+            )
             for cell in cells:
                 text = cell.get_text(strip=True)
                 # Skip numeric cells, record cells (W-L-T pattern), country codes
@@ -485,9 +500,7 @@ class LabsLimitlessClient(RateLimitedHTTPClient):
             logger.info(
                 "No card-link elements found in %s, falling back to text parsing", decklist_url
             )
-            decklist_re = re.compile(
-                r"^(\d+)\s+(.+?)\s+([A-Z0-9]{2,5}[A-Z]?|Energy)\s+(\d+|[A-Z]+\d*)$"
-            )
+            decklist_re = _LABS_DECKLIST_LINE_RE
             text = soup.get_text("\n")
             for line in text.split("\n"):
                 line = line.strip()
@@ -550,14 +563,29 @@ class LabsLimitlessClient(RateLimitedHTTPClient):
         # Fetch decklists for all placements that have URLs
         fetched_decklists: dict[str, LabsDecklist] = {}
         decklist_failures = 0
+        consecutive_auth_failures = 0
+        max_consecutive_auth_failures = 3
         if fetch_decklists:
             placements_with_decklists = [p for p in standings if p.decklist_url]
             for placement in placements_with_decklists:
                 decklist = self.fetch_decklist(placement.decklist_url)
                 if decklist and decklist.cards:
                     fetched_decklists[placement.player.player_id] = decklist
+                    consecutive_auth_failures = 0
                 else:
                     decklist_failures += 1
+                    # Detect if this was an auth failure by checking if the URL
+                    # would have triggered the 401/403 path
+                    if decklist is None:
+                        consecutive_auth_failures += 1
+                    if consecutive_auth_failures >= max_consecutive_auth_failures:
+                        logger.error(
+                            "Aborting decklist fetches after %d consecutive failures "
+                            "for tournament %s — scraper may be blocked",
+                            consecutive_auth_failures,
+                            tournament_id,
+                        )
+                        break
             if placements_with_decklists and decklist_failures == len(placements_with_decklists):
                 logger.error(
                     "ALL %d decklist fetches failed for tournament %s — site structure may have changed",

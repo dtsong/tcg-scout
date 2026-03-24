@@ -243,6 +243,11 @@ class LimitlessClient(RateLimitedHTTPClient):
             try:
                 rank = int(rank_text.rstrip("."))
             except (ValueError, AttributeError):
+                logger.warning(
+                    "Failed to parse rank %r at %s, skipping row",
+                    rank_text,
+                    tournament_url,
+                )
                 continue
 
             # Column 1: player name

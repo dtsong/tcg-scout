@@ -87,6 +87,9 @@ def get_labs_connection() -> sqlite3.Connection:
     conn.row_factory = sqlite3.Row
     conn.execute("PRAGMA journal_mode=WAL")
     conn.execute("PRAGMA foreign_keys=ON")
+    fk_enabled = conn.execute("PRAGMA foreign_keys").fetchone()[0]
+    if not fk_enabled:
+        logger.warning("Foreign keys could not be enabled on %s", LABS_DB_PATH)
     return conn
 
 

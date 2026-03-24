@@ -107,7 +107,8 @@ class RateLimitedHTTPClient:
 
         if last_exc is None:
             raise httpx.HTTPError(
-                f"Failed after {self._max_retries} retries with retryable status codes"
+                f"Failed after {self._max_retries} retries with retryable status codes "
+                f"(last status: {response.status_code})"
             )
         raise httpx.HTTPError(f"Failed after {self._max_retries} retries: {last_exc}") from last_exc
 
