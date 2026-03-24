@@ -1,7 +1,13 @@
-import { describe, it, expect, afterEach } from "vitest";
+import { describe, it, expect, afterEach, vi } from "vitest";
 import { render, screen, cleanup } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { GuideClient } from "../guide-client";
+
+vi.mock("next/link", () => ({
+  default: ({ href, children, ...props }: { href: string; children: React.ReactNode; [key: string]: unknown }) => (
+    <a href={href} {...props}>{children}</a>
+  ),
+}));
 
 describe("GuideClient", () => {
   afterEach(cleanup);
@@ -20,6 +26,26 @@ describe("GuideClient", () => {
     expect(screen.getByText("Track what's changing")).toBeInTheDocument();
     expect(screen.getByText("Scout a matchup")).toBeInTheDocument();
     expect(screen.getByText("Study winning decklists")).toBeInTheDocument();
+  });
+
+  it("scenario cards link to actual pages", () => {
+    render(<GuideClient format="ninja-spinner" />);
+    const dashboardLink = screen.getByRole("link", { name: /Dashboard/ });
+    expect(dashboardLink).toHaveAttribute("href", "/ninja-spinner");
+    const formatEdgeLink = screen.getByRole("link", { name: /Format Edge/ });
+    expect(formatEdgeLink).toHaveAttribute("href", "/ninja-spinner/card-analysis");
+    const trendsLink = screen.getByRole("link", { name: /Trends/ });
+    expect(trendsLink).toHaveAttribute("href", "/ninja-spinner/trends");
+    const archetypesLink = screen.getByRole("link", { name: /Archetypes/ });
+    expect(archetypesLink).toHaveAttribute("href", "/ninja-spinner/archetypes");
+    const championsLink = screen.getByRole("link", { name: /Champions League/ });
+    expect(championsLink).toHaveAttribute("href", "/ninja-spinner/champions");
+  });
+
+  it("renders secondary links when present", () => {
+    render(<GuideClient format="ninja-spinner" />);
+    const buyListLink = screen.getByRole("link", { name: /Buy List/ });
+    expect(buyListLink).toHaveAttribute("href", "/ninja-spinner/buylist");
   });
 
   it("renders all tool section headings", () => {
@@ -45,7 +71,6 @@ describe("GuideClient", () => {
     const user = userEvent.setup();
     render(<GuideClient />);
     // Format Edge accordion content should be collapsed initially
-    // Check for text that only appears in the accordion body (not the glossary)
     expect(
       screen.queryByText(/overrepresented in top-4 finishing decks/)
     ).not.toBeInTheDocument();

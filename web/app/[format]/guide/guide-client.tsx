@@ -1,43 +1,41 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { ChevronDown } from "lucide-react";
+import { useParams } from "next/navigation";
+import Link from "next/link";
+import { ChevronDown, ArrowRight } from "lucide-react";
 
 const SCENARIOS = [
   {
     title: "Pick a deck for this weekend",
     description:
       "Check the tier list to see what's performing, then use the buy list to find what cards you need.",
-    tools: "Dashboard + Buy List",
-    anchor: "#dashboard",
+    primary: { label: "Dashboard", path: "" },
+    secondary: { label: "Buy List", path: "/buylist" },
   },
   {
     title: "Find cards that actually win",
     description:
       "See which cards appear in top-4 finishes more than their overall play rate predicts, broken down by archetype.",
-    tools: "Format Edge",
-    anchor: "#format-edge",
+    primary: { label: "Format Edge", path: "/card-analysis" },
   },
   {
     title: "Track what's changing",
     description:
       "Identify surging and declining cards, spot format shifts early, and see which cards are gaining or losing play.",
-    tools: "Trends + Dashboard",
-    anchor: "#trends",
+    primary: { label: "Trends", path: "/trends" },
   },
   {
     title: "Scout a matchup",
     description:
       "Check head-to-head performance advantages and card overlap between two archetypes.",
-    tools: "Archetypes + Matchup Matrix",
-    anchor: "#archetypes",
+    primary: { label: "Archetypes", path: "/archetypes" },
   },
   {
     title: "Study winning decklists",
     description:
       "Browse full translated decklists from Japan's premier events across all divisions.",
-    tools: "Champions League",
-    anchor: "#champions-league",
+    primary: { label: "Champions League", path: "/champions" },
   },
 ];
 
@@ -187,6 +185,7 @@ const GLOSSARY = [
 ];
 
 export function GuideClient() {
+  const { format } = useParams<{ format: string }>();
   const [openSections, setOpenSections] = useState<Set<string>>(
     new Set(["dashboard"])
   );
@@ -238,21 +237,35 @@ export function GuideClient() {
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {SCENARIOS.map((scenario) => (
-            <a
-              key={scenario.anchor}
-              href={scenario.anchor}
-              className="bg-surface-800 border border-surface-600 rounded-lg p-4 hover:border-surface-500 transition-colors block"
+            <div
+              key={scenario.primary.path}
+              className="bg-surface-800 border border-surface-600 rounded-lg p-4 hover:border-surface-500 transition-colors"
             >
-              <p className="text-xs font-mono text-accent mb-2">
-                {scenario.tools}
-              </p>
               <h3 className="text-sm font-display font-semibold text-slate-200 mb-2">
                 {scenario.title}
               </h3>
-              <p className="text-xs text-surface-300 font-body leading-relaxed">
+              <p className="text-xs text-surface-300 font-body leading-relaxed mb-3">
                 {scenario.description}
               </p>
-            </a>
+              <div className="flex items-center gap-3 mt-auto">
+                <Link
+                  href={`/${format}${scenario.primary.path}`}
+                  className="inline-flex items-center gap-1 text-xs font-mono text-accent hover:text-amber-300 transition-colors"
+                >
+                  {scenario.primary.label}
+                  <ArrowRight className="w-3 h-3" />
+                </Link>
+                {scenario.secondary && (
+                  <Link
+                    href={`/${format}${scenario.secondary.path}`}
+                    className="inline-flex items-center gap-1 text-xs font-mono text-surface-400 hover:text-surface-200 transition-colors"
+                  >
+                    {scenario.secondary.label}
+                    <ArrowRight className="w-3 h-3" />
+                  </Link>
+                )}
+              </div>
+            </div>
           ))}
         </div>
       </section>
