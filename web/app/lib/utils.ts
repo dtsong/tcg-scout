@@ -1,5 +1,6 @@
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
+import type { CardAnalysisEntry, CrossMetaStaple } from "@/app/lib/types";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -26,8 +27,6 @@ export function daysUntil(dateStr: string): number {
 export function slugify(name: string): string {
   return name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 }
-
-import type { CardAnalysisEntry, CrossMetaStaple } from "@/app/lib/types";
 
 export function computeCrossMetaStaples(cards: CardAnalysisEntry[], limit = 5): CrossMetaStaple[] {
   return cards

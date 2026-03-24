@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo, useRef } from "react";
+import { useState, useMemo } from "react";
 import Link from "next/link";
 import type { CardAnalysisData, CardAnalysisEntry } from "@/app/lib/types";
 import { slugify } from "@/app/lib/utils";
@@ -164,7 +164,6 @@ export function CardAnalysisClient({
   const [search, setSearch] = useState("");
   const [sortBy, setSortBy] = useState<SortField>("weighted_impact");
   const [expandedCard, setExpandedCard] = useState<string | null>(null);
-  const stripRef = useRef<HTMLDivElement>(null);
 
   const featuredCards = useMemo(() => {
     return [...data.cards]
@@ -231,7 +230,6 @@ export function CardAnalysisClient({
             <InfoIcon tooltip="Cards with the highest tier-weighted edge score and at least medium data confidence. Impact is weighted so cards winning in S-tier archetypes rank higher than those in Rogue decks." />
           </h2>
           <div
-            ref={stripRef}
             className="flex gap-3 overflow-x-auto pb-2 scrollbar-thin scrollbar-thumb-surface-600 scrollbar-track-transparent"
           >
             {featuredCards.map((card) => (
