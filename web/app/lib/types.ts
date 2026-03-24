@@ -45,6 +45,7 @@ export interface BuylistCard {
   set_code: string | null;
   set_number: string | null;
   priority_score: number;
+  urgency: "URGENT" | "HIGH" | "MODERATE";
   core_flex: "core" | "flex";
   image_path?: string;
   archetypes: string[];
