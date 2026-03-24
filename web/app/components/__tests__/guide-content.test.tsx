@@ -42,6 +42,14 @@ describe("GuideContent", () => {
     expect(championsLink).toHaveAttribute("href", "/ninja-spinner/champions");
   });
 
+  it("constructs links using the provided format", () => {
+    render(<GuideContent format="nihil-zero" />);
+    const dashboardLink = screen.getByRole("link", { name: /Dashboard/ });
+    expect(dashboardLink).toHaveAttribute("href", "/nihil-zero");
+    const trendsLink = screen.getByRole("link", { name: /Trends/ });
+    expect(trendsLink).toHaveAttribute("href", "/nihil-zero/trends");
+  });
+
   it("renders secondary links when present", () => {
     render(<GuideContent format="ninja-spinner" />);
     const buyListLink = screen.getByRole("link", { name: /Buy List/ });
