@@ -553,23 +553,6 @@ class LabsLimitlessClient:
         # Fetch tournament metadata
         tournament = self.fetch_tournament_metadata(tournament_id)
 
-        # Store tournament
-        conn.execute(
-            """INSERT OR REPLACE INTO tournaments
-            (id, name, date, player_count, country, region, format, source)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?)""",
-            (
-                tournament_id,
-                tournament.name,
-                tournament.date,
-                tournament.player_count,
-                tournament.country,
-                tournament.region,
-                tournament.format,
-                "limitless-labs",
-            ),
-        )
-
         # Fetch standings from Labs
         standings = self.fetch_standings(labs_tournament_id)
         if max_placements:
@@ -580,6 +563,23 @@ class LabsLimitlessClient:
         decklists_stored = 0
 
         try:
+            # Store tournament
+            conn.execute(
+                """INSERT OR REPLACE INTO tournaments
+                (id, name, date, player_count, country, region, format, source)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?)""",
+                (
+                    tournament_id,
+                    tournament.name,
+                    tournament.date,
+                    tournament.player_count,
+                    tournament.country,
+                    tournament.region,
+                    tournament.format,
+                    "limitless-labs",
+                ),
+            )
+
             for placement in standings:
                 player = placement.player
 
