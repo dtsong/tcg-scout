@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { getFormats } from "@/app/lib/data";
-import { GuideClient } from "./guide-client";
+import { GuideContent } from "@/app/components/guide-content";
 
 export const metadata: Metadata = {
   title: "How Scout Works | Scout",
@@ -12,6 +12,11 @@ export function generateStaticParams() {
   return getFormats().map((f) => ({ format: f.slug }));
 }
 
-export default function GuidePage() {
-  return <GuideClient />;
+export default async function GuidePage({
+  params,
+}: {
+  params: Promise<{ format: string }>;
+}) {
+  const { format } = await params;
+  return <GuideContent format={format} />;
 }
