@@ -231,6 +231,11 @@ class LimitlessClient(RateLimitedHTTPClient):
 
             cells = row.find_all("td")
             if len(cells) < 3:
+                logger.warning(
+                    "Skipping standings row with %d cells (expected >=3) at %s",
+                    len(cells),
+                    tournament_url,
+                )
                 continue
 
             # Column 0: rank
@@ -310,8 +315,16 @@ class LimitlessClient(RateLimitedHTTPClient):
 
         try:
             soup = self._soup(url)
-        except httpx.HTTPStatusError:
-            logger.warning("Failed to fetch decklist: %s", decklist_url)
+        except httpx.HTTPStatusError as exc:
+            status = exc.response.status_code
+            if status in (401, 403):
+                logger.error(
+                    "HTTP %d fetching decklist %s — scraper may be blocked",
+                    status,
+                    decklist_url,
+                )
+            else:
+                logger.warning("HTTP %d fetching decklist %s", status, decklist_url)
             return None
         except httpx.HTTPError as exc:
             logger.warning("Network error fetching decklist %s: %s", decklist_url, exc)
@@ -344,7 +357,11 @@ class LimitlessClient(RateLimitedHTTPClient):
                     try:
                         count = int(count_el.get_text(strip=True))
                     except ValueError:
-                        pass
+                        logger.warning(
+                            "Could not parse card count %r in decklist %s, defaulting to 1",
+                            count_el.get_text(strip=True),
+                            decklist_url,
+                        )
 
                 name = name_el.get_text(strip=True) if name_el else link.get_text(strip=True)
                 if not name:
@@ -364,6 +381,9 @@ class LimitlessClient(RateLimitedHTTPClient):
 
         # Strategy 2: Text format fallback
         if not cards:
+            logger.info(
+                "No card-link elements found in %s, falling back to text parsing", decklist_url
+            )
             text = soup.get_text("\n")
             for line in text.split("\n"):
                 line = line.strip()

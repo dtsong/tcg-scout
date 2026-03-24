@@ -30,6 +30,21 @@ logger = logging.getLogger(__name__)
 
 LABS_STANDINGS_URL = "https://labs.limitlesstcg.com"
 
+_MONTH_TO_NUM = {
+    "Jan": "01",
+    "Feb": "02",
+    "Mar": "03",
+    "Apr": "04",
+    "May": "05",
+    "Jun": "06",
+    "Jul": "07",
+    "Aug": "08",
+    "Sep": "09",
+    "Oct": "10",
+    "Nov": "11",
+    "Dec": "12",
+}
+
 
 # ---------------------------------------------------------------------------
 # Data classes
@@ -147,21 +162,7 @@ class LabsLimitlessClient(RateLimitedHTTPClient):
                 day, month, year = date_match.groups()
                 if len(year) == 2:
                     year = f"20{year}"
-                months = {
-                    "Jan": "01",
-                    "Feb": "02",
-                    "Mar": "03",
-                    "Apr": "04",
-                    "May": "05",
-                    "Jun": "06",
-                    "Jul": "07",
-                    "Aug": "08",
-                    "Sep": "09",
-                    "Oct": "10",
-                    "Nov": "11",
-                    "Dec": "12",
-                }
-                date = f"{year}-{months[month]}-{int(day):02d}"
+                date = f"{year}-{_MONTH_TO_NUM[month]}-{int(day):02d}"
 
             # Look for player count
             players_match = re.search(r"(\d[\d,]+)\s*[Pp]layers?", text)
@@ -223,9 +224,11 @@ class LabsLimitlessClient(RateLimitedHTTPClient):
             )
 
         rows = table.find_all("tr")
+        skipped_short = 0
         for row in rows[1:]:  # Skip header
             cells = row.find_all("td")
             if len(cells) < 5:
+                skipped_short += 1
                 logger.warning(
                     "Skipping standings row with %d cells (expected >=5) in tournament %s",
                     len(cells),
@@ -237,7 +240,7 @@ class LabsLimitlessClient(RateLimitedHTTPClient):
             if placement:
                 placements.append(placement)
 
-        expected = len(rows) - 1  # exclude header
+        expected = len(rows) - 1 - skipped_short  # exclude header and short rows
         if placements and len(placements) < expected:
             logger.warning(
                 "%d of %d standings rows failed to parse for tournament %s",
@@ -555,22 +558,19 @@ class LabsLimitlessClient(RateLimitedHTTPClient):
                     fetched_decklists[placement.player.player_id] = decklist
                 else:
                     decklist_failures += 1
-            if decklist_failures > 0:
-                if placements_with_decklists and decklist_failures == len(
-                    placements_with_decklists
-                ):
-                    logger.error(
-                        "ALL %d decklist fetches failed for tournament %s — site structure may have changed",
-                        decklist_failures,
-                        tournament_id,
-                    )
-                else:
-                    logger.warning(
-                        "Failed to fetch %d of %d decklists for tournament %s",
-                        decklist_failures,
-                        len(placements_with_decklists),
-                        tournament_id,
-                    )
+            if placements_with_decklists and decklist_failures == len(placements_with_decklists):
+                logger.error(
+                    "ALL %d decklist fetches failed for tournament %s — site structure may have changed",
+                    decklist_failures,
+                    tournament_id,
+                )
+            elif decklist_failures > 0:
+                logger.warning(
+                    "Failed to fetch %d of %d decklists for tournament %s",
+                    decklist_failures,
+                    len(placements_with_decklists),
+                    tournament_id,
+                )
 
         # Phase 2: Write everything in a single fast transaction
         players_stored = 0
