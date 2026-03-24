@@ -1169,6 +1169,110 @@ def export_web(ctx: click.Context, narrative: bool, strict: bool) -> None:
         conn.close()
 
 
+@cli.command("scrape-labs")
+@click.argument("tournament_id", type=str)
+@click.argument("labs_id", type=str)
+@click.option("--fetch-decklists/--no-decklists", default=True, help="Fetch decklists")
+@click.option("--max-placements", default=None, type=int, help="Limit to top N standings")
+@click.pass_context
+def scrape_labs(
+    ctx: click.Context,
+    tournament_id: str,
+    labs_id: str,
+    fetch_decklists: bool,
+    max_placements: int | None,
+) -> None:
+    """Scrape international tournament data from Labs Limitless.
+
+    TOURNAMENT_ID is the main Limitless tournament ID (e.g. 551).
+    LABS_ID is the Labs tournament ID (e.g. 0058).
+
+    Example: scout scrape-labs 551 0058
+    """
+    from labs_db import get_labs_connection, init_labs_db
+    from scraper.labs_limitless import LabsLimitlessClient
+
+    conn = get_labs_connection()
+    init_labs_db(conn)
+
+    client = LabsLimitlessClient()
+    try:
+        console.print(
+            f"[cyan]Scraping Labs tournament {tournament_id} (Labs ID: {labs_id})...[/cyan]"
+        )
+
+        result = client.ingest_tournament(
+            conn,
+            tournament_id=tournament_id,
+            labs_tournament_id=labs_id,
+            fetch_decklists=fetch_decklists,
+            max_placements=max_placements,
+        )
+
+        console.print(
+            f"\n[green]Done! Stored {result['players']} players, "
+            f"{result['placements']} placements, "
+            f"{result['decklists']} decklists.[/green]"
+        )
+    finally:
+        client.close()
+        conn.close()
+
+
+@cli.command("labs-matchups")
+@click.option("--top", default=15, help="Number of top archetypes")
+@click.pass_context
+def labs_matchups(ctx: click.Context, top: int) -> None:
+    """Compute H2H matchup data from Labs international tournaments."""
+    from analysis.matchup import compute_labs_archetype_winrates, compute_labs_matchup_matrix
+    from labs_db import get_labs_connection
+
+    conn = get_labs_connection()
+    try:
+        # Archetype win rates
+        winrates = compute_labs_archetype_winrates(conn, top_n=top)
+        if not winrates["archetypes"]:
+            console.print("[yellow]No Labs data found. Run 'scout scrape-labs' first.[/yellow]")
+            return
+
+        console.print(
+            f"\n[green]Labs matchup data from {winrates['tournament_count']} tournament(s)[/green]"
+        )
+
+        # Display win rates table
+        table = Table(title="Archetype Win Rates (Labs H2H)")
+        table.add_column("Archetype", style="bold")
+        table.add_column("Players", justify="right")
+        table.add_column("Record", justify="right")
+        table.add_column("Win Rate", justify="right")
+        table.add_column("95% CI", justify="right")
+
+        for arch in winrates["archetypes"]:
+            wr_pct = f"{arch['win_rate'] * 100:.1f}%"
+            ci = f"{arch['ci_lower'] * 100:.1f}-{arch['ci_upper'] * 100:.1f}%"
+            record = f"{arch['total_wins']}-{arch['total_losses']}-{arch['total_ties']}"
+            table.add_row(
+                arch["archetype"],
+                str(arch["players"]),
+                record,
+                wr_pct,
+                ci,
+            )
+
+        console.print(table)
+
+        # Matchup matrix
+        matrix_data = compute_labs_matchup_matrix(conn, top_n=top)
+        if matrix_data["archetypes"]:
+            console.print(
+                f"\n[cyan]Matchup matrix: {len(matrix_data['archetypes'])} archetypes "
+                f"(source: {matrix_data['source']})[/cyan]"
+            )
+
+    finally:
+        conn.close()
+
+
 @cli.command()
 @click.option("--strict", is_flag=True, help="Treat warnings as errors")
 @click.pass_context
