@@ -291,7 +291,7 @@ export function DashboardClient({
                       <span className="font-mono text-xs text-surface-400 whitespace-nowrap">
                         {card.tiered_archetype_count} archetypes
                       </span>
-                      <DeltaValue delta={card.weighted_impact ?? 0} />
+                      <DeltaValue delta={card.weighted_impact} />
                     </div>
                   </div>
                 ))}

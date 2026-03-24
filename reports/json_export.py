@@ -2316,7 +2316,7 @@ def export_card_analysis(conn: sqlite3.Connection, output_dir: Path) -> None:
             weighted_num += a["delta_vs_field"] * conf * tw
             weighted_den += conf * tw
         tier_weighted_avg = weighted_num / weighted_den if weighted_den > 0 else 0.0
-        card_confidence = round(min(a["confidence"] for a in archetypes), 2)
+        card_confidence = round(min(arch["confidence"] for arch in archetypes), 2)
         weighted_impact = round(tier_weighted_avg * card_confidence, 1)
 
         cards.append(

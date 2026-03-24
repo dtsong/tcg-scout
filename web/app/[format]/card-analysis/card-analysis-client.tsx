@@ -3,7 +3,7 @@
 import { useState, useMemo } from "react";
 import Link from "next/link";
 import type { CardAnalysisData, CardAnalysisEntry } from "@/app/lib/types";
-import { slugify } from "@/app/lib/utils";
+import { slugify, effectiveImpact } from "@/app/lib/utils";
 import { DeltaValue } from "@/app/components/delta-value";
 import { InfoIcon } from "@/app/components/tooltip";
 
@@ -64,9 +64,9 @@ function FeaturedCard({ card, format }: { card: CardAnalysisEntry; format: strin
       </p>
       <p className="text-[10px] text-surface-500 uppercase mt-0.5">{card.category}</p>
       <div className="flex items-center justify-between mt-2">
-        <DeltaValue delta={card.weighted_impact ?? card.avg_delta} size="lg" />
+        <DeltaValue delta={effectiveImpact(card)} size="lg" />
         <div className="flex items-center gap-1.5">
-          <ConfidenceDot confidence={card.confidence ?? 1} level="card" />
+          <ConfidenceDot confidence={card.confidence ?? 0} level="card" />
           <span className="text-[10px] text-surface-400 font-mono">{card.archetype_count} arch</span>
         </div>
       </div>
@@ -103,13 +103,13 @@ function CardRow({
         </div>
         <div className="flex items-center gap-4 sm:gap-6 shrink-0">
           <div className="text-right w-14">
-            <DeltaValue delta={card.weighted_impact ?? card.avg_delta} />
+            <DeltaValue delta={effectiveImpact(card)} />
           </div>
           <div className="text-right w-14 hidden sm:block">
             <DeltaValue delta={card.max_delta} />
           </div>
           <div className="flex items-center gap-1.5">
-            <ConfidenceDot confidence={card.confidence ?? 1} level="card" />
+            <ConfidenceDot confidence={card.confidence ?? 0} level="card" />
             <span className="text-xs text-surface-400 font-mono w-6 text-right">
               {card.archetype_count}
             </span>
@@ -121,7 +121,7 @@ function CardRow({
           {card.archetypes.map((a) => (
             <div key={a.slug} className="flex items-center justify-between gap-2 py-1.5 px-3 rounded bg-surface-800">
               <div className="flex items-center gap-2 min-w-0">
-                <ConfidenceDot confidence={a.confidence ?? 1} />
+                <ConfidenceDot confidence={a.confidence ?? 0} />
                 <Link
                   href={`/${format}/archetypes/${a.slug}`}
                   className="text-xs text-slate-400 hover:text-accent truncate"
@@ -155,8 +155,8 @@ export function CardAnalysisClient({
 
   const featuredCards = useMemo(() => {
     return [...data.cards]
-      .sort((a, b) => (b.weighted_impact ?? b.avg_delta) - (a.weighted_impact ?? a.avg_delta))
-      .filter((c) => (c.weighted_impact ?? c.avg_delta) > 0 && (c.confidence ?? 1) >= 0.5)
+      .sort((a, b) => effectiveImpact(b) - effectiveImpact(a))
+      .filter((c) => effectiveImpact(c) > 0 && (c.confidence ?? 0) >= 0.5)
       .slice(0, 8);
   }, [data.cards]);
 
@@ -176,7 +176,7 @@ export function CardAnalysisClient({
     }
     return [...cards].sort((a, b) => {
       if (sortBy === "archetype_count") return b.archetype_count - a.archetype_count;
-      if (sortBy === "weighted_impact") return (b.weighted_impact ?? b.avg_delta) - (a.weighted_impact ?? a.avg_delta);
+      if (sortBy === "weighted_impact") return effectiveImpact(b) - effectiveImpact(a);
       return b[sortBy] - a[sortBy];
     });
   }, [data.cards, categoryFilter, search, sortBy]);
