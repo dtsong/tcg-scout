@@ -76,7 +76,10 @@ export async function fetchWindowedData<T>(
 
   try {
     const res = await fetch(windowedPath);
-    if (!res.ok) return null;
+    if (!res.ok) {
+      console.warn(`[date-filter] HTTP ${res.status} fetching ${windowedPath}`);
+      return null;
+    }
     return await res.json();
   } catch (err) {
     console.error(`[date-filter] Failed to fetch ${windowedPath}:`, err);

@@ -11,22 +11,20 @@ const DURATION = 600; // ms
 /**
  * Animates a number from 0 to `target` over 600ms with ease-out.
  * Respects prefers-reduced-motion by returning the target immediately.
+ * @param decimals - number of decimal places to round to (default: 0)
  * Use with `font-mono tabular-nums` to prevent digit width shifts.
  */
 export function useCountUp(target: number, decimals = 0): number {
   const [value, setValue] = useState(0);
   const rafRef = useRef<number | null>(null);
   const startRef = useRef<number | null>(null);
-  const reducedMotion = useRef(false);
 
   useEffect(() => {
-    reducedMotion.current = window.matchMedia(
+    const prefersReduced = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
     ).matches;
-  }, []);
 
-  useEffect(() => {
-    if (reducedMotion.current || target === 0) {
+    if (prefersReduced || target === 0) {
       setValue(target);
       return;
     }

@@ -22,6 +22,7 @@ export function humanizeSlug(slug: string): string {
 
 /**
  * Safely format a percentage value, returning "0.0" for NaN/Infinity.
+ * Logs a console.error for non-finite inputs.
  */
 export function safePercent(value: number): string {
   if (!Number.isFinite(value)) {
@@ -33,6 +34,7 @@ export function safePercent(value: number): string {
 
 /**
  * Safely round to an integer, returning 0 for NaN/Infinity.
+ * Logs a console.error for non-finite inputs.
  */
 export function safeInt(value: number): number {
   if (!Number.isFinite(value)) {

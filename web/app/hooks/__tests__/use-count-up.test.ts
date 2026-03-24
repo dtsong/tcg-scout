@@ -73,8 +73,7 @@ describe("useCountUp", () => {
 
     const { result } = renderHook(() => useCountUp(500));
 
-    // The first useEffect sets reducedMotion, the second reads it.
-    // Both run synchronously during renderHook, so the value should be set.
+    // The consolidated useEffect checks matchMedia and returns target immediately.
     expect(result.current).toBe(500);
   });
 });

@@ -82,7 +82,6 @@ def generate_buylist(conn: sqlite3.Connection, snapshot_id: int) -> list[dict]:
             "card_name": None,
             "card_id": None,
             "archetypes": [],
-            "archetype_tiers": [],
             "priority_score": 0.0,
             "core_in_any": False,
             "max_inclusion_rate": 0.0,
@@ -162,7 +161,6 @@ def generate_buylist(conn: sqlite3.Connection, snapshot_id: int) -> list[dict]:
             entry["card_name"] = stats["card_name"]
             entry["card_id"] = stats["card_id"]
             entry["archetypes"].append(archetype)
-            entry["archetype_tiers"].append(tier)
             entry["priority_score"] += avg_copies * tier_weight
             entry["max_inclusion_rate"] = max(entry["max_inclusion_rate"], inclusion_rate)
             entry["max_avg_copies"] = max(entry["max_avg_copies"], avg_copies)
@@ -209,7 +207,7 @@ def generate_buylist(conn: sqlite3.Connection, snapshot_id: int) -> list[dict]:
             }
         )
 
-    # Step 9: Sort by priority_score descending
+    # Step 8: Sort by priority_score descending
     results.sort(key=lambda x: x["priority_score"], reverse=True)
 
     logger.info("Generated buylist with %d cards", len(results))

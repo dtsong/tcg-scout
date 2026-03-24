@@ -411,6 +411,7 @@ export function Optimal60Client({
       })
       .catch((err) => {
         console.error(`[optimal-60] Failed to load ${selectedSlug}:`, err);
+        setDetail(null);
         setLoading(false);
       });
   }, [selectedSlug, format]);

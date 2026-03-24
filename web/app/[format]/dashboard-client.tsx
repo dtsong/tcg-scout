@@ -24,6 +24,18 @@ interface DashboardClientProps {
   metaEvolution?: MetaEvolutionMovement[];
 }
 
+const tierGlowColors: Record<string, string> = {
+  S: "var(--color-tier-s)",
+  A: "var(--color-tier-a)",
+};
+
+const tierBorderColors: Record<string, string> = {
+  s: "border-l-tier-s",
+  a: "border-l-tier-a",
+  b: "border-l-tier-b",
+  rogue: "border-l-tier-rogue",
+};
+
 export function DashboardClient({
   format,
   formatStatus,
@@ -88,16 +100,6 @@ export function DashboardClient({
     ["S", "A", "B"].includes(a.tier),
   );
 
-  const tierGlowColors: Record<string, string> = {
-    S: "var(--color-tier-s)",
-    A: "var(--color-tier-a)",
-  };
-  const tierBorderColors: Record<string, string> = {
-    s: "border-l-tier-s",
-    a: "border-l-tier-a",
-    b: "border-l-tier-b",
-    rogue: "border-l-tier-rogue",
-  };
   const surgingCards = (trends.surging || []).slice(0, 5);
   const decliningCards = (trends.declining || []).slice(0, 5);
   const topEdge = winningEdge.slice(0, 5);

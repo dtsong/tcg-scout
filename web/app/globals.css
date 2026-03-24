@@ -77,7 +77,7 @@ body {
   );
 }
 
-/* Staggered row reveal animation */
+/* Row reveal animation (used by both staggered and non-staggered variants) */
 @keyframes row-reveal {
   from {
     opacity: 0;

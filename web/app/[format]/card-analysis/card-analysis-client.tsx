@@ -156,7 +156,7 @@ export function CardAnalysisClient({
                 sortBy === field ? "bg-surface-600 text-slate-200" : "text-surface-400 hover:text-slate-300"
               }`}
             >
-              {field === "avg_delta" ? "Avg Edge" : field === "max_delta" ? "Best Edge" : "# Archetypes"}
+              {{ avg_delta: "Avg Edge", max_delta: "Best Edge", archetype_count: "# Archetypes" }[field]}
             </button>
           ))}
         </div>
