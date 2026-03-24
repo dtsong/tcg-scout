@@ -19,12 +19,20 @@ export async function formatPageMetadata(
  * Safely format a percentage value, returning "0.0" for NaN/Infinity.
  */
 export function safePercent(value: number): string {
-  return Number.isFinite(value) ? value.toFixed(1) : "0.0";
+  if (!Number.isFinite(value)) {
+    console.warn(`[metadata] safePercent received non-finite value: ${value}`);
+    return "0.0";
+  }
+  return value.toFixed(1);
 }
 
 /**
  * Safely coerce an integer value, returning 0 for NaN/Infinity.
  */
 export function safeInt(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+  if (!Number.isFinite(value)) {
+    console.warn(`[metadata] safeInt received non-finite value: ${value}`);
+    return 0;
+  }
+  return value;
 }

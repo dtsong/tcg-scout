@@ -35,13 +35,18 @@ function readJson<T>(filePath: string): T {
     throw new Error(`Path traversal blocked: ${filePath}`);
   }
   const raw = fs.readFileSync(resolved, "utf-8");
-  return JSON.parse(raw);
+  try {
+    return JSON.parse(raw);
+  } catch (err) {
+    throw new Error(`Failed to parse JSON at ${resolved}: ${(err as Error).message}`);
+  }
 }
 
 export function getFormats(): FormatInfo[] {
   return readJson("formats.json");
 }
 
+/** Resolve a format slug to its display name. Throws if slug not found. Falls back to humanized slug if name_en is empty. */
 export function getFormatName(format: string): string {
   const formats = getFormats();
   const match = formats.find((f) => f.slug === format);
@@ -51,8 +56,8 @@ export function getFormatName(format: string): string {
     );
   }
   if (!match.name_en) {
-    console.warn(`[data] getFormatName: name_en is empty for format "${format}", falling back to raw slug`);
-    return format;
+    console.warn(`[data] getFormatName: name_en is empty for format "${format}", falling back to humanized slug`);
+    return format.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
   }
   return match.name_en;
 }

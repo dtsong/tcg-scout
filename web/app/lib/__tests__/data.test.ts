@@ -288,9 +288,9 @@ describe("getMetaEvolution", () => {
     expect(result.movements).toEqual([]);
   });
 
-  it("throws on non-ENOENT errors", () => {
+  it("throws with file path context on malformed JSON", () => {
     vi.mocked(fs.readFileSync).mockReturnValue("not valid json{{{");
-    expect(() => getMetaEvolution("ninja-spinner")).toThrow();
+    expect(() => getMetaEvolution("ninja-spinner")).toThrow("Failed to parse JSON at");
   });
 });
 
@@ -331,11 +331,14 @@ describe("getFormatName", () => {
     expect(() => getFormatName("unknown-format")).toThrow('format "unknown-format" not found');
   });
 
-  it("falls back to raw slug when name_en is empty string", () => {
+  it("falls back to humanized slug when name_en is empty string", () => {
+    const spy = vi.spyOn(console, "warn").mockImplementation(() => {});
     const formatsWithEmpty = [
       { ...mockFormats[0], name_en: "" },
     ];
     vi.mocked(fs.readFileSync).mockReturnValue(JSON.stringify(formatsWithEmpty));
-    expect(getFormatName("nihil-zero")).toBe("nihil-zero");
+    expect(getFormatName("nihil-zero")).toBe("Nihil Zero");
+    expect(spy).toHaveBeenCalledWith(expect.stringContaining("name_en is empty"));
+    spy.mockRestore();
   });
 });

@@ -20,7 +20,11 @@ export async function generateMetadata({
   params: Promise<{ format: string; slug: string }>;
 }): Promise<Metadata> {
   const { format, slug } = await params;
-  const name = getArchetypeReport(format, slug)?.archetype ?? slug;
+  const report = getArchetypeReport(format, slug);
+  const name = report?.archetype ?? slug;
+  if (!report?.archetype) {
+    console.warn(`[metadata] archetype report missing or has no name for ${format}/${slug}, falling back to slug`);
+  }
   const formatName = getFormatName(format);
   return {
     title: `${name} Deep Dive -- ${formatName} | Scout`,

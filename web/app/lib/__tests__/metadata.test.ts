@@ -70,13 +70,19 @@ describe("safePercent", () => {
     expect(safePercent(100)).toBe("100.0");
   });
 
-  it("returns '0.0' for NaN", () => {
+  it("returns '0.0' for NaN and warns", () => {
+    const spy = vi.spyOn(console, "warn").mockImplementation(() => {});
     expect(safePercent(NaN)).toBe("0.0");
+    expect(spy).toHaveBeenCalledWith(expect.stringContaining("safePercent received non-finite value"));
+    spy.mockRestore();
   });
 
-  it("returns '0.0' for Infinity", () => {
+  it("returns '0.0' for Infinity and warns", () => {
+    const spy = vi.spyOn(console, "warn").mockImplementation(() => {});
     expect(safePercent(Infinity)).toBe("0.0");
     expect(safePercent(-Infinity)).toBe("0.0");
+    expect(spy).toHaveBeenCalledTimes(2);
+    spy.mockRestore();
   });
 });
 
@@ -86,13 +92,19 @@ describe("safeInt", () => {
     expect(safeInt(0)).toBe(0);
   });
 
-  it("returns 0 for NaN", () => {
+  it("returns 0 for NaN and warns", () => {
+    const spy = vi.spyOn(console, "warn").mockImplementation(() => {});
     expect(safeInt(NaN)).toBe(0);
+    expect(spy).toHaveBeenCalledWith(expect.stringContaining("safeInt received non-finite value"));
+    spy.mockRestore();
   });
 
-  it("returns 0 for Infinity", () => {
+  it("returns 0 for Infinity and warns", () => {
+    const spy = vi.spyOn(console, "warn").mockImplementation(() => {});
     expect(safeInt(Infinity)).toBe(0);
     expect(safeInt(-Infinity)).toBe(0);
+    expect(spy).toHaveBeenCalledTimes(2);
+    spy.mockRestore();
   });
 });
 
@@ -124,11 +136,12 @@ describe("formatPageMetadata", () => {
 describe("archetype metadata formatting", () => {
   function buildArchetypeMetadata(format: string, slug: string) {
     const arch = getArchetype(format, slug);
+    const name = arch.archetype || slug;
     const share = safePercent(arch.meta_share);
     const formatName = getFormatName(format);
     return {
-      title: `${arch.archetype} -- ${share}% Meta Share, Tier ${arch.tier ?? "Unranked"} | Scout`,
-      description: `${arch.archetype} in ${formatName}: ${share}% meta share, Tier ${arch.tier ?? "Unranked"}, ${safeInt(arch.deck_count)} decks. Core cards, results, and performance analysis.`,
+      title: `${name} -- ${share}% Meta Share, Tier ${arch.tier} | Scout`,
+      description: `${name} in ${formatName}: ${share}% meta share, Tier ${arch.tier}, ${safeInt(arch.deck_count)} decks. Core cards, results, and performance analysis.`,
     };
   }
 
@@ -149,38 +162,45 @@ describe("archetype metadata formatting", () => {
   });
 
   it("handles NaN meta_share gracefully", () => {
+    const spy = vi.spyOn(console, "warn").mockImplementation(() => {});
     setupArchMocks({ archetype: "Bad Data", meta_share: NaN, tier: "Rogue" });
 
     const meta = buildArchetypeMetadata("ninja-spinner", "bad-data");
     expect(meta.title).toBe("Bad Data -- 0.0% Meta Share, Tier Rogue | Scout");
     expect(meta.title).not.toContain("NaN");
+    spy.mockRestore();
   });
 
   it("handles NaN deck_count gracefully", () => {
+    const spy = vi.spyOn(console, "warn").mockImplementation(() => {});
     setupArchMocks({ archetype: "Broken Deck", deck_count: NaN, tier: "B" });
 
     const meta = buildArchetypeMetadata("ninja-spinner", "broken-deck");
     expect(meta.description).toContain("0 decks");
     expect(meta.description).not.toContain("NaN");
+    spy.mockRestore();
   });
 
-  it("handles missing tier gracefully", () => {
-    setupArchMocks({ archetype: "No Tier", tier: undefined });
+  it("falls back to slug when archetype name is empty", () => {
+    const spy = vi.spyOn(console, "warn").mockImplementation(() => {});
+    setupArchMocks({ archetype: "", slug: "empty-name", tier: "Rogue" });
 
-    const meta = buildArchetypeMetadata("ninja-spinner", "no-tier");
-    expect(meta.title).toContain("Tier Unranked");
-    expect(meta.title).not.toContain("undefined");
+    const meta = buildArchetypeMetadata("ninja-spinner", "empty-name");
+    expect(meta.title).toContain("empty-name -- ");
+    expect(meta.title).not.toContain(" -- -- ");
+    spy.mockRestore();
   });
 });
 
 describe("card metadata formatting", () => {
   function buildCardMetadata(format: string, slug: string) {
     const card = getCardDetail(format, slug);
+    const name = card.card_name || slug;
     const usage = safePercent(card.usage_pct);
     const formatName = getFormatName(format);
     return {
-      title: `${card.card_name} -- ${usage}% Usage | Scout`,
-      description: `${card.card_name} appears in ${usage}% of ${formatName} decks across ${safeInt(card.unique_archetypes)} archetypes. Usage trends, synergy partners, and decklist data.`,
+      title: `${name} -- ${usage}% Usage | Scout`,
+      description: `${name} appears in ${usage}% of ${formatName} decks across ${safeInt(card.unique_archetypes)} archetypes. Usage trends, synergy partners, and decklist data.`,
     };
   }
 
@@ -201,18 +221,32 @@ describe("card metadata formatting", () => {
   });
 
   it("handles NaN usage_pct gracefully", () => {
+    const spy = vi.spyOn(console, "warn").mockImplementation(() => {});
     setupCardMocks({ card_name: "Bad Card", usage_pct: NaN });
 
     const meta = buildCardMetadata("ninja-spinner", "bad-card");
     expect(meta.title).toBe("Bad Card -- 0.0% Usage | Scout");
     expect(meta.title).not.toContain("NaN");
+    spy.mockRestore();
   });
 
   it("handles NaN unique_archetypes gracefully", () => {
+    const spy = vi.spyOn(console, "warn").mockImplementation(() => {});
     setupCardMocks({ card_name: "Broken Card", unique_archetypes: NaN });
 
     const meta = buildCardMetadata("ninja-spinner", "broken-card");
     expect(meta.description).toContain("across 0 archetypes");
     expect(meta.description).not.toContain("NaN");
+    spy.mockRestore();
+  });
+
+  it("falls back to slug when card_name is empty", () => {
+    const spy = vi.spyOn(console, "warn").mockImplementation(() => {});
+    setupCardMocks({ card_name: "", slug: "empty-card" });
+
+    const meta = buildCardMetadata("ninja-spinner", "empty-card");
+    expect(meta.title).toContain("empty-card -- ");
+    expect(meta.title).not.toContain(" -- -- ");
+    spy.mockRestore();
   });
 });

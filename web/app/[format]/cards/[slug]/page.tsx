@@ -11,11 +11,15 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { format, slug } = await params;
   const card = getCardDetail(format, slug);
+  const name = card.card_name || slug;
+  if (!card.card_name) {
+    console.warn(`[metadata] card name is empty for ${format}/${slug}`);
+  }
   const usage = safePercent(card.usage_pct);
   const formatName = getFormatName(format);
   return {
-    title: `${card.card_name} -- ${usage}% Usage | Scout`,
-    description: `${card.card_name} appears in ${usage}% of ${formatName} decks across ${safeInt(card.unique_archetypes)} archetypes. Usage trends, synergy partners, and decklist data.`,
+    title: `${name} -- ${usage}% Usage | Scout`,
+    description: `${name} appears in ${usage}% of ${formatName} decks across ${safeInt(card.unique_archetypes)} archetypes. Usage trends, synergy partners, and decklist data.`,
   };
 }
 

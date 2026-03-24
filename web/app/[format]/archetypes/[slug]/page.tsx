@@ -21,11 +21,15 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { format, slug } = await params;
   const arch = getArchetype(format, slug);
+  const name = arch.archetype || slug;
+  if (!arch.archetype) {
+    console.warn(`[metadata] archetype name is empty for ${format}/${slug}`);
+  }
   const share = safePercent(arch.meta_share);
   const formatName = getFormatName(format);
   return {
-    title: `${arch.archetype} -- ${share}% Meta Share, Tier ${arch.tier ?? "Unranked"} | Scout`,
-    description: `${arch.archetype} in ${formatName}: ${share}% meta share, Tier ${arch.tier ?? "Unranked"}, ${safeInt(arch.deck_count)} decks. Core cards, results, and performance analysis.`,
+    title: `${name} -- ${share}% Meta Share, Tier ${arch.tier} | Scout`,
+    description: `${name} in ${formatName}: ${share}% meta share, Tier ${arch.tier}, ${safeInt(arch.deck_count)} decks. Core cards, results, and performance analysis.`,
   };
 }
 
