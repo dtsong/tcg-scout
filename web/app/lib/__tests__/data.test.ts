@@ -12,7 +12,7 @@ vi.mock("fs", () => ({
 }));
 
 import fs from "fs";
-import { getMeta, getTrends, getArchetypeSlugs, getFormats, getCardAnalysis, getTechForecast, getMetaReport, getMetaEvolution } from "../data";
+import { getMeta, getTrends, getArchetypeSlugs, getFormats, getFormatName, getCardAnalysis, getTechForecast, getMetaReport, getMetaEvolution } from "../data";
 
 beforeEach(() => {
   vi.clearAllMocks();
@@ -291,5 +291,43 @@ describe("getMetaEvolution", () => {
   it("throws on non-ENOENT errors", () => {
     vi.mocked(fs.readFileSync).mockReturnValue("not valid json{{{");
     expect(() => getMetaEvolution("ninja-spinner")).toThrow();
+  });
+});
+
+describe("getFormatName", () => {
+  const mockFormats = [
+    {
+      slug: "nihil-zero",
+      name: "ニヒルゼロ",
+      name_en: "Perfect Order",
+      description: "Test",
+      dataset_start: "2026-01-23",
+      dataset_end: "2026-03-13",
+      status: "active",
+    },
+    {
+      slug: "ninja-spinner",
+      name: "忍スピナー",
+      name_en: "Ninja Spinner",
+      description: "Test",
+      dataset_start: "2026-03-01",
+      dataset_end: "2026-06-01",
+      status: "active",
+    },
+  ];
+
+  it("returns name_en when format slug matches", () => {
+    vi.mocked(fs.readFileSync).mockReturnValue(JSON.stringify(mockFormats));
+    expect(getFormatName("nihil-zero")).toBe("Perfect Order");
+  });
+
+  it("returns name_en for a different matching slug", () => {
+    vi.mocked(fs.readFileSync).mockReturnValue(JSON.stringify(mockFormats));
+    expect(getFormatName("ninja-spinner")).toBe("Ninja Spinner");
+  });
+
+  it("falls back to raw format slug when no match found", () => {
+    vi.mocked(fs.readFileSync).mockReturnValue(JSON.stringify(mockFormats));
+    expect(getFormatName("unknown-format")).toBe("unknown-format");
   });
 });

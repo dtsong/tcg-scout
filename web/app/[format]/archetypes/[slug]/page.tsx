@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { getArchetype, getArchetypeReport, getArchetypeSlugs, getFormats, getOptimal60Index } from "@/app/lib/data";
+import { getArchetype, getArchetypeReport, getArchetypeSlugs, getFormats, getFormatName, getOptimal60Index } from "@/app/lib/data";
 import { TierBadge } from "@/app/components/tier-badge";
 import { SpriteRow } from "@/app/components/sprite-row";
 import { StatCard } from "@/app/components/stat-card";
@@ -20,9 +20,10 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { format, slug } = await params;
   const arch = getArchetype(format, slug);
-  const share = arch.meta_share.toFixed(1);
+  const share = Number.isFinite(arch.meta_share) ? arch.meta_share.toFixed(1) : "0.0";
   const title = `${arch.archetype} -- ${share}% Meta Share, Tier ${arch.tier} | Scout`;
-  const description = `${arch.archetype} in ${format}: ${share}% meta share, Tier ${arch.tier}, ${arch.deck_count} decks. Core cards, results, and performance analysis.`;
+  const formatName = getFormatName(format);
+  const description = `${arch.archetype} in ${formatName}: ${share}% meta share, Tier ${arch.tier}, ${arch.deck_count} decks. Core cards, results, and performance analysis.`;
   return {
     title,
     description,

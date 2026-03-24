@@ -10,7 +10,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { format } = await params;
   const formatName = getFormatName(format);
-  const title = `${formatName} Meta Dashboard | Scout`;
+  const title = `Meta Dashboard -- ${formatName} | Scout`;
   const description = `Live meta tier list for ${formatName} Pokemon TCG. Archetype rankings, trending cards, and tournament results from Japan's City Leagues.`;
   return {
     title,
