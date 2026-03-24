@@ -6,17 +6,6 @@ export const metadata: Metadata = {
   title: "How Scout Works | Scout",
   description:
     "Learn how to use Scout's meta analytics tools to pick decks, find winning cards, track trends, and scout matchups.",
-  openGraph: {
-    title: "How Scout Works | Scout",
-    description:
-      "Learn how to use Scout's meta analytics tools to pick decks, find winning cards, track trends, and scout matchups.",
-  },
-  twitter: {
-    card: "summary",
-    title: "How Scout Works | Scout",
-    description:
-      "Learn how to use Scout's meta analytics tools to pick decks, find winning cards, track trends, and scout matchups.",
-  },
 };
 
 export function generateStaticParams() {

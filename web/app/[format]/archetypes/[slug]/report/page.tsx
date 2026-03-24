@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import {
   getArchetypeReport,
   getArchetypeSlugs,
@@ -22,7 +23,7 @@ export async function generateMetadata({
   params,
 }: {
   params: Promise<{ format: string; slug: string }>;
-}) {
+}): Promise<Metadata> {
   const { format, slug } = await params;
   const report = getArchetypeReport(format, slug);
   const name = report?.archetype ?? slug;
@@ -31,8 +32,6 @@ export async function generateMetadata({
   return {
     title,
     description,
-    openGraph: { title, description },
-    twitter: { card: "summary", title, description },
   };
 }
 

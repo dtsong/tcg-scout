@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { getFormats, getOptimal60Index, getFormatName } from "@/app/lib/data";
 import { Optimal60Client } from "./optimal-60-client";
 
@@ -9,7 +10,7 @@ export async function generateMetadata({
   params,
 }: {
   params: Promise<{ format: string }>;
-}) {
+}): Promise<Metadata> {
   const { format } = await params;
   const formatName = getFormatName(format);
   const title = `Optimal 60 -- ${formatName} | Scout`;
@@ -17,8 +18,6 @@ export async function generateMetadata({
   return {
     title,
     description,
-    openGraph: { title, description },
-    twitter: { card: "summary", title, description },
   };
 }
 

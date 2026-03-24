@@ -9,20 +9,14 @@ export async function generateMetadata({
   params: Promise<{ format: string; slug: string }>;
 }): Promise<Metadata> {
   const { format, slug } = await params;
-  try {
-    const card = getCardDetail(format, slug);
-    const usage = (card.usage_pct * 100).toFixed(1);
-    const title = `${card.card_name} -- ${usage}% Usage | Scout`;
-    const description = `${card.card_name} appears in ${usage}% of ${format} decks across ${card.unique_archetypes} archetypes. Usage trends, synergy partners, and decklist data.`;
-    return {
-      title,
-      description,
-      openGraph: { title, description },
-      twitter: { card: "summary", title, description },
-    };
-  } catch {
-    return {};
-  }
+  const card = getCardDetail(format, slug);
+  const usage = (card.usage_pct * 100).toFixed(1);
+  const title = `${card.card_name} -- ${usage}% Usage | Scout`;
+  const description = `${card.card_name} appears in ${usage}% of ${format} decks across ${card.unique_archetypes} archetypes. Usage trends, synergy partners, and decklist data.`;
+  return {
+    title,
+    description,
+  };
 }
 
 export const dynamicParams = false;

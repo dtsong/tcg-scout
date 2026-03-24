@@ -36,18 +36,12 @@ export const metadata: Metadata = {
   description:
     "Competitive intelligence for the JP Pokemon TCG rotation format. Meta tier list, buy lists, trends, and Champions League results.",
   openGraph: {
-    title: "Scout | JP Meta Explorer",
-    description:
-      "Competitive intelligence for the JP Pokemon TCG rotation format. Meta tier list, buy lists, trends, and Champions League results.",
     siteName: "Scout",
     type: "website",
     url: "https://scout.trainerlab.io",
   },
   twitter: {
     card: "summary",
-    title: "Scout | JP Meta Explorer",
-    description:
-      "Competitive intelligence for the JP Pokemon TCG rotation format. Meta tier list, buy lists, trends, and Champions League results.",
   },
 };
 
