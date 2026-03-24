@@ -188,7 +188,7 @@ export function GuideContent({ format }: { format: string }) {
     new Set(["dashboard"])
   );
 
-  // Open and scroll to section from URL hash (e.g. /guide#buy-list)
+  // Open and scroll to section from URL hash (e.g. #buy-list)
   useEffect(() => {
     const hash = window.location.hash.replace("#", "");
     if (!hash) return;

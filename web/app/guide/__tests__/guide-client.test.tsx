@@ -1,7 +1,7 @@
 import { describe, it, expect, afterEach, vi } from "vitest";
 import { render, screen, cleanup } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { GuideClient } from "../guide-client";
+import { GuideContent } from "@/app/components/guide-content";
 
 vi.mock("next/link", () => ({
   default: ({ href, children, ...props }: { href: string; children: React.ReactNode; [key: string]: unknown }) => (
@@ -9,16 +9,16 @@ vi.mock("next/link", () => ({
   ),
 }));
 
-describe("GuideClient", () => {
+describe("GuideContent", () => {
   afterEach(cleanup);
 
   it("renders the page heading", () => {
-    render(<GuideClient />);
+    render(<GuideContent format="ninja-spinner" />);
     expect(screen.getByText("How Scout Works")).toBeInTheDocument();
   });
 
   it("renders all scenario cards", () => {
-    render(<GuideClient />);
+    render(<GuideContent format="ninja-spinner" />);
     expect(
       screen.getByText("Pick a deck for this weekend")
     ).toBeInTheDocument();
@@ -29,7 +29,7 @@ describe("GuideClient", () => {
   });
 
   it("scenario cards link to actual pages", () => {
-    render(<GuideClient format="ninja-spinner" />);
+    render(<GuideContent format="ninja-spinner" />);
     const dashboardLink = screen.getByRole("link", { name: /Dashboard/ });
     expect(dashboardLink).toHaveAttribute("href", "/ninja-spinner");
     const formatEdgeLink = screen.getByRole("link", { name: /Format Edge/ });
@@ -43,13 +43,13 @@ describe("GuideClient", () => {
   });
 
   it("renders secondary links when present", () => {
-    render(<GuideClient format="ninja-spinner" />);
+    render(<GuideContent format="ninja-spinner" />);
     const buyListLink = screen.getByRole("link", { name: /Buy List/ });
     expect(buyListLink).toHaveAttribute("href", "/ninja-spinner/buylist");
   });
 
   it("renders all tool section headings", () => {
-    render(<GuideClient />);
+    render(<GuideContent format="ninja-spinner" />);
     // Use getAllByText since some names also appear in the glossary "Found on" column
     expect(screen.getAllByText("Dashboard").length).toBeGreaterThanOrEqual(1);
     expect(screen.getAllByText("Archetypes").length).toBeGreaterThanOrEqual(1);
@@ -63,13 +63,13 @@ describe("GuideClient", () => {
   });
 
   it("has first section (Dashboard) open by default", () => {
-    render(<GuideClient />);
+    render(<GuideContent format="ninja-spinner" />);
     expect(screen.getByText(/Tiers are based on meta share/)).toBeInTheDocument();
   });
 
   it("expands a collapsed section on click", async () => {
     const user = userEvent.setup();
-    render(<GuideClient />);
+    render(<GuideContent format="ninja-spinner" />);
     // Format Edge accordion content should be collapsed initially
     expect(
       screen.queryByText(/overrepresented in top-4 finishing decks/)
@@ -85,7 +85,7 @@ describe("GuideClient", () => {
   });
 
   it("renders intro paragraph and bullet items when section is open", () => {
-    render(<GuideClient />);
+    render(<GuideContent format="ninja-spinner" />);
     // Dashboard is open by default — check intro and bullets
     expect(
       screen.getByText(
@@ -101,7 +101,7 @@ describe("GuideClient", () => {
   });
 
   it("renders the glossary table", () => {
-    render(<GuideClient />);
+    render(<GuideContent format="ninja-spinner" />);
     expect(screen.getByText("Metric Glossary")).toBeInTheDocument();
     expect(screen.getByText("Meta share")).toBeInTheDocument();
     expect(screen.getByText("Weighted share")).toBeInTheDocument();
