@@ -189,7 +189,7 @@ def scrape(
                     total_placements += 1
 
                 conn.commit()
-            except Exception:
+            except sqlite3.Error:
                 logger.exception(
                     "Failed to ingest tournament %s, rolling back", tournament.source_url
                 )

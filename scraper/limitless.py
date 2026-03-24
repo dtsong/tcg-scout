@@ -21,7 +21,12 @@ from config import (
     LIMITLESS_REQUESTS_PER_MINUTE,
     LIMITLESS_TIMEOUT,
 )
-from scraper.http_client import RateLimitedHTTPClient
+from scraper.http_client import (
+    DECKLIST_LINE_RE,
+    RateLimitedHTTPClient,
+    extract_sprites,
+    parse_card_links,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -54,13 +59,6 @@ class LimitlessTournament:
     source_url: str
     player_count: int = 0
     placements: list[LimitlessPlacement] = field(default_factory=list)
-
-
-# ---------------------------------------------------------------------------
-# Decklist text-line regex
-# ---------------------------------------------------------------------------
-
-_DECKLIST_LINE_RE = re.compile(r"^(\d+)\s+(.+?)\s+([A-Z0-9]{2,5}[A-Z]?|Energy)\s+(\d+|[A-Z]+\d*)$")
 
 
 # ---------------------------------------------------------------------------
@@ -328,61 +326,15 @@ class LimitlessClient(RateLimitedHTTPClient):
                     status,
                     decklist_url,
                 )
-            else:
-                logger.warning("HTTP %d fetching decklist %s", status, decklist_url)
+                raise  # Let caller trip circuit breaker
+            logger.warning("HTTP %d fetching decklist %s", status, decklist_url)
             return None
-        except httpx.HTTPError as exc:
+        except (httpx.TimeoutException, httpx.ConnectError, httpx.ReadError) as exc:
             logger.warning("Network error fetching decklist %s: %s", decklist_url, exc)
             return None
 
-        cards: list[dict[str, Any]] = []
-
         # Strategy 1: Structured card-link elements
-        # Format: <a class="card-link" href="/cards/SET/NUM">
-        #           <span class="card-count">4</span>
-        #           <span class="card-name">Dragapult ex</span>
-        #         </a>
-        card_links = soup.find_all("a", class_="card-link")
-        if card_links:
-            for link in card_links:
-                href = link.get("href", "")
-                # Remove query params (e.g. ?translate=en)
-                href_clean = href.split("?")[0].rstrip("/")
-                parts = href_clean.split("/")
-
-                set_code = parts[2] if len(parts) > 2 else ""
-                card_number = parts[3] if len(parts) > 3 else ""
-
-                # Extract count and name from spans
-                count_el = link.find("span", class_="card-count")
-                name_el = link.find("span", class_="card-name")
-
-                count = 1
-                if count_el:
-                    try:
-                        count = int(count_el.get_text(strip=True))
-                    except ValueError:
-                        logger.warning(
-                            "Could not parse card count %r in decklist %s, defaulting to 1",
-                            count_el.get_text(strip=True),
-                            decklist_url,
-                        )
-
-                name = name_el.get_text(strip=True) if name_el else link.get_text(strip=True)
-                if not name:
-                    continue
-
-                cards.append(
-                    {
-                        "count": count,
-                        "name": name,
-                        "set_code": set_code,
-                        "card_number": card_number,
-                        "card_id": f"{set_code}-{card_number}"
-                        if set_code and card_number
-                        else name,
-                    }
-                )
+        cards = parse_card_links(soup, decklist_url)
 
         # Strategy 2: Text format fallback
         if not cards:
@@ -395,7 +347,7 @@ class LimitlessClient(RateLimitedHTTPClient):
                 if not line:
                     continue
 
-                match = _DECKLIST_LINE_RE.match(line)
+                match = DECKLIST_LINE_RE.match(line)
                 if match:
                     count = int(match.group(1))
                     name = match.group(2).strip()
@@ -440,40 +392,8 @@ class LimitlessClient(RateLimitedHTTPClient):
     def _extract_archetype_and_sprites(
         link_tag: Tag,
     ) -> tuple[str, list[str]]:
-        """Extract archetype name and sprite URLs from a deck link tag.
-
-        Looks for <img> tags inside the link and extracts Pokemon names from
-        the alt attribute or from the filename in the src attribute.
-
-        Args:
-            link_tag: A BeautifulSoup Tag (typically an <a> element).
-
-        Returns:
-            Tuple of (archetype_string, list_of_sprite_urls).
-        """
-        sprite_urls: list[str] = []
-        names: list[str] = []
-
-        imgs = link_tag.find_all("img") if link_tag else []
-        for img in imgs:
-            src = img.get("src", "")
-            alt = img.get("alt", "")
-
-            if src:
-                sprite_urls.append(src)
-
-            # Prefer alt text for the name
-            if alt and alt.strip():
-                names.append(alt.strip())
-            elif src:
-                # Extract name from filename
-                filename_match = re.search(r"/([a-zA-Z0-9_-]+)\.png", src)
-                if filename_match:
-                    raw = filename_match.group(1).replace("_", " ").replace("-", " ")
-                    names.append(raw.title())
-
-        archetype = " / ".join(names) if names else ""
-        return archetype, sprite_urls
+        """Extract archetype name and sprite URLs from a deck link tag."""
+        return extract_sprites(link_tag, join_sep=" / ")
 
     def __enter__(self) -> "LimitlessClient":
         return self

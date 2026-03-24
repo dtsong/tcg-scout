@@ -77,6 +77,13 @@ CREATE TABLE IF NOT EXISTS archetype_mapping (
     scout_slug TEXT NOT NULL,
     scout_name TEXT NOT NULL
 );
+
+CREATE INDEX IF NOT EXISTS idx_matches_archetypes
+    ON matches(player1_archetype, player2_archetype);
+CREATE INDEX IF NOT EXISTS idx_placements_archetype
+    ON placements(archetype);
+CREATE INDEX IF NOT EXISTS idx_placements_tournament_archetype
+    ON placements(tournament_id, archetype);
 """
 
 

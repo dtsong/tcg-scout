@@ -24,15 +24,16 @@ from config import (
     LABS_REQUESTS_PER_MINUTE,
     LABS_TIMEOUT,
 )
-from scraper.http_client import RateLimitedHTTPClient
+from scraper.http_client import (
+    DECKLIST_LINE_RE,
+    RateLimitedHTTPClient,
+    extract_sprites,
+    parse_card_links,
+)
 
 logger = logging.getLogger(__name__)
 
 LABS_STANDINGS_URL = "https://labs.limitlesstcg.com"
-
-_LABS_DECKLIST_LINE_RE = re.compile(
-    r"^(\d+)\s+(.+?)\s+([A-Z0-9]{2,5}[A-Z]?|Energy)\s+(\d+|[A-Z]+\d*)$"
-)
 
 _MONTH_TO_NUM = {
     "Jan": "01",
@@ -151,13 +152,13 @@ class LabsLimitlessClient(RateLimitedHTTPClient):
         title_el = soup.find("h1") or soup.find("title")
         if title_el:
             name = title_el.get_text(strip=True)
-            # Remove "| Pair" suffix or similar
+            # Remove pipe-delimited suffixes (e.g. "| Pokémon")
             name = name.split("|")[0].strip()
 
         # Try to extract date and player count from info section
         for el in soup.find_all(["span", "div", "p"]):
             text = el.get_text(strip=True)
-            # Look for date patterns like "21 Mar 26" or "March 21, 2026"
+            # Look for date patterns like "21 Mar 26" or "21 Mar 2026"
             date_match = re.search(
                 r"(\d{1,2})\s+(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+(\d{2,4})",
                 text,
@@ -392,34 +393,10 @@ class LabsLimitlessClient(RateLimitedHTTPClient):
     @staticmethod
     def _extract_archetype(cell: Tag) -> tuple[str, list[str]]:
         """Extract archetype name and sprite URLs from a cell."""
-        sprite_urls: list[str] = []
-        names: list[str] = []
-
-        for img in cell.find_all("img"):
-            src = img.get("src", "")
-            alt = img.get("alt", "")
-            if src and "pokemon" in src:
-                sprite_urls.append(src)
-            if alt and alt.strip():
-                names.append(alt.strip())
-            elif src:
-                filename_match = re.search(r"/([a-zA-Z0-9_-]+)\.png", src)
-                if filename_match:
-                    raw = filename_match.group(1).replace("_", " ").replace("-", " ")
-                    names.append(raw.title())
-
-        # Also check link text
-        link = cell.find("a")
-        if link and not names:
-            text = link.get_text(strip=True)
-            if text:
-                names.append(text)
-
-        archetype = " ".join(names) if names else ""
-        return archetype, sprite_urls
+        return extract_sprites(cell, join_sep=" ")
 
     # ------------------------------------------------------------------
-    # Decklists (delegates to main Limitless site patterns)
+    # Decklists — parsed from main Limitless site (same HTML structure as JP scraper)
     # ------------------------------------------------------------------
 
     def fetch_decklist(self, decklist_url: str) -> LabsDecklist | None:
@@ -446,67 +423,27 @@ class LabsLimitlessClient(RateLimitedHTTPClient):
                     status,
                     decklist_url,
                 )
-            else:
-                logger.warning("HTTP %d fetching decklist %s", status, decklist_url)
+                raise  # Let caller trip circuit breaker
+            logger.warning("HTTP %d fetching decklist %s", status, decklist_url)
             return None
-        except httpx.HTTPError as exc:
+        except (httpx.TimeoutException, httpx.ConnectError, httpx.ReadError) as exc:
             logger.warning("Network error fetching decklist %s: %s", decklist_url, exc)
             return None
 
-        cards: list[dict[str, Any]] = []
-
         # Strategy 1: Structured card-link elements
-        card_links = soup.find_all("a", class_="card-link")
-        if card_links:
-            for link in card_links:
-                href = link.get("href", "").split("?")[0].rstrip("/")
-                parts = href.split("/")
-
-                set_code = parts[2] if len(parts) > 2 else ""
-                card_number = parts[3] if len(parts) > 3 else ""
-
-                count_el = link.find("span", class_="card-count")
-                name_el = link.find("span", class_="card-name")
-
-                count = 1
-                if count_el:
-                    try:
-                        count = int(count_el.get_text(strip=True))
-                    except ValueError:
-                        logger.warning(
-                            "Could not parse card count %r in decklist %s, defaulting to 1",
-                            count_el.get_text(strip=True),
-                            decklist_url,
-                        )
-
-                name = name_el.get_text(strip=True) if name_el else link.get_text(strip=True)
-                if not name:
-                    continue
-
-                cards.append(
-                    {
-                        "count": count,
-                        "name": name,
-                        "set_code": set_code,
-                        "card_number": card_number,
-                        "card_id": f"{set_code}-{card_number}"
-                        if set_code and card_number
-                        else name,
-                    }
-                )
+        cards = parse_card_links(soup, decklist_url)
 
         # Strategy 2: Text format fallback
         if not cards:
             logger.info(
                 "No card-link elements found in %s, falling back to text parsing", decklist_url
             )
-            decklist_re = _LABS_DECKLIST_LINE_RE
             text = soup.get_text("\n")
             for line in text.split("\n"):
                 line = line.strip()
                 if not line:
                     continue
-                match = decklist_re.match(line)
+                match = DECKLIST_LINE_RE.match(line)
                 if match:
                     cards.append(
                         {
@@ -568,7 +505,20 @@ class LabsLimitlessClient(RateLimitedHTTPClient):
         if fetch_decklists:
             placements_with_decklists = [p for p in standings if p.decklist_url]
             for placement in placements_with_decklists:
-                decklist = self.fetch_decklist(placement.decklist_url)
+                try:
+                    decklist = self.fetch_decklist(placement.decklist_url)
+                except httpx.HTTPStatusError as exc:
+                    status = exc.response.status_code
+                    if status in (401, 403):
+                        decklist_failures += len(placements_with_decklists) - len(fetched_decklists)
+                        logger.error(
+                            "Aborting decklist fetches — HTTP %d indicates scraper is blocked "
+                            "for tournament %s",
+                            status,
+                            tournament_id,
+                        )
+                        break
+                    decklist = None
                 if decklist and decklist.cards:
                     fetched_decklists[placement.player.player_id] = decklist
                     consecutive_fetch_failures = 0

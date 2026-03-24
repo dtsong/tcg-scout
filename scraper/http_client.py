@@ -1,14 +1,113 @@
 """Rate-limited HTTP client base class for Limitless scrapers."""
 
 import logging
+import re
 import threading
 import time
 from typing import Any
 
 import httpx
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, Tag
 
 logger = logging.getLogger(__name__)
+
+# Shared regex for text-format decklist line parsing (used by both scrapers)
+DECKLIST_LINE_RE = re.compile(r"^(\d+)\s+(.+?)\s+([A-Z0-9]{2,5}[A-Z]?|Energy)\s+(\d+|[A-Z]+\d*)$")
+
+
+def parse_card_links(soup: BeautifulSoup, decklist_url: str) -> list[dict[str, Any]]:
+    """Parse structured card-link elements from a decklist page.
+
+    Shared by both JP and Labs scrapers since the HTML format is identical.
+
+    Returns:
+        List of card dicts with keys: count, name, set_code, card_number, card_id.
+    """
+    cards: list[dict[str, Any]] = []
+    card_links = soup.find_all("a", class_="card-link")
+    if not card_links:
+        return cards
+
+    for link in card_links:
+        href = link.get("href", "").split("?")[0].rstrip("/")
+        parts = href.split("/")
+
+        set_code = parts[2] if len(parts) > 2 else ""
+        card_number = parts[3] if len(parts) > 3 else ""
+
+        count_el = link.find("span", class_="card-count")
+        name_el = link.find("span", class_="card-name")
+
+        count = 1
+        if count_el:
+            try:
+                count = int(count_el.get_text(strip=True))
+            except ValueError:
+                logger.warning(
+                    "Could not parse card count %r in decklist %s, defaulting to 1",
+                    count_el.get_text(strip=True),
+                    decklist_url,
+                )
+
+        name = name_el.get_text(strip=True) if name_el else link.get_text(strip=True)
+        if not name:
+            continue
+
+        cards.append(
+            {
+                "count": count,
+                "name": name,
+                "set_code": set_code,
+                "card_number": card_number,
+                "card_id": f"{set_code}-{card_number}" if set_code and card_number else name,
+            }
+        )
+    return cards
+
+
+def extract_sprites(cell: Tag, join_sep: str = " ") -> tuple[str, list[str]]:
+    """Extract archetype name and sprite URLs from an HTML element.
+
+    Shared by both JP and Labs scrapers. Looks for <img> tags and extracts
+    Pokemon names from alt text or filenames.
+
+    Args:
+        cell: A BeautifulSoup Tag containing sprite images.
+        join_sep: Separator for joining multiple Pokemon names.
+
+    Returns:
+        Tuple of (archetype_string, list_of_sprite_urls).
+    """
+    sprite_urls: list[str] = []
+    names: list[str] = []
+
+    imgs = cell.find_all("img") if cell else []
+    for img in imgs:
+        src = img.get("src", "")
+        alt = img.get("alt", "")
+
+        if src and "pokemon" in src:
+            sprite_urls.append(src)
+        elif src:
+            sprite_urls.append(src)
+
+        if alt and alt.strip():
+            names.append(alt.strip())
+        elif src:
+            filename_match = re.search(r"/([a-zA-Z0-9_-]+)\.png", src)
+            if filename_match:
+                raw = filename_match.group(1).replace("_", " ").replace("-", " ")
+                names.append(raw.title())
+
+    # Also check link text as fallback
+    link = cell.find("a")
+    if link and not names:
+        text = link.get_text(strip=True)
+        if text:
+            names.append(text)
+
+    archetype = join_sep.join(names) if names else ""
+    return archetype, sprite_urls
 
 
 class RateLimitedHTTPClient:
@@ -61,11 +160,13 @@ class RateLimitedHTTPClient:
         """GET with rate limiting, retries, and exponential backoff."""
         base_delay = 1.0
         last_exc: Exception | None = None
+        last_response: httpx.Response | None = None
 
         for attempt in range(self._max_retries):
             self._rate_limit()
             try:
                 response = self._client.get(url)
+                last_response = response
 
                 if response.status_code == 404:
                     raise httpx.HTTPStatusError(
@@ -106,9 +207,9 @@ class RateLimitedHTTPClient:
                 time.sleep(delay)
 
         if last_exc is None:
+            status_info = f" (last status: {last_response.status_code})" if last_response else ""
             raise httpx.HTTPError(
-                f"Failed after {self._max_retries} retries with retryable status codes "
-                f"(last status: {response.status_code})"
+                f"Failed after {self._max_retries} retries with retryable status codes{status_info}"
             )
         raise httpx.HTTPError(f"Failed after {self._max_retries} retries: {last_exc}") from last_exc
 

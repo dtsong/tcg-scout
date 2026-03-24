@@ -1017,14 +1017,21 @@ class TestFetchDecklistParsing:
         assert result is not None
         assert result.cards[0]["count"] == 1
 
-    def test_http_error_returns_none(self, client):
+    def test_network_error_returns_none(self, client):
         import httpx
 
-        with patch.object(client, "_soup", side_effect=httpx.HTTPError("Connection failed")):
+        with patch.object(client, "_soup", side_effect=httpx.ConnectError("Connection failed")):
             result = client.fetch_decklist("http://example.com/decks/list/42")
         assert result is None
 
-    def test_http_403_returns_none_and_logs_error(self, client, caplog):
+    def test_timeout_error_returns_none(self, client):
+        import httpx
+
+        with patch.object(client, "_soup", side_effect=httpx.ReadTimeout("Read timed out")):
+            result = client.fetch_decklist("http://example.com/decks/list/42")
+        assert result is None
+
+    def test_http_403_raises_and_logs_error(self, client, caplog):
         import logging
 
         import httpx
@@ -1034,8 +1041,8 @@ class TestFetchDecklistParsing:
         mock_request = MagicMock()
         exc = httpx.HTTPStatusError("Forbidden", request=mock_request, response=mock_resp)
         with caplog.at_level(logging.ERROR), patch.object(client, "_soup", side_effect=exc):
-            result = client.fetch_decklist("http://example.com/decks/list/42")
-        assert result is None
+            with pytest.raises(httpx.HTTPStatusError):
+                client.fetch_decklist("http://example.com/decks/list/42")
         assert "scraper may be blocked" in caplog.text
 
 
@@ -1169,6 +1176,70 @@ class TestIngestEdgeCases:
                 max_placements=3,
             )
         assert result["placements"] == 3
+
+    def test_reingest_tournament_preserves_data(self, client, labs_db):
+        """Calling ingest_tournament twice with the same data should not duplicate rows."""
+        from scraper.labs_limitless import (
+            LabsDecklist,
+            LabsPlacement,
+            LabsPlayer,
+            LabsTournament,
+        )
+
+        mock_tournament = LabsTournament(
+            tournament_id="950", name="Reingest Test", date="2026-03-20"
+        )
+        mock_standings = [
+            LabsPlacement(
+                standing=1,
+                player=LabsPlayer(player_id="rp1", name="RePlayer1"),
+                archetype="Charizard ex",
+                record_w=10,
+                record_l=2,
+                record_t=0,
+                decklist_url="http://example.com/decks/list/99",
+            ),
+        ]
+        mock_decklist = LabsDecklist(
+            cards=[
+                {"name": "Charizard ex", "card_id": "SV5-123", "count": 3},
+                {"name": "Rare Candy", "card_id": "SV1-191", "count": 4},
+            ],
+            source_url="http://example.com/decks/list/99",
+        )
+
+        for _ in range(2):
+            with (
+                patch.object(client, "fetch_tournament_metadata", return_value=mock_tournament),
+                patch.object(client, "fetch_standings", return_value=mock_standings),
+                patch.object(client, "fetch_decklist", return_value=mock_decklist),
+            ):
+                result = client.ingest_tournament(
+                    labs_db,
+                    tournament_id="950",
+                    labs_tournament_id="test-reingest",
+                )
+
+        # Verify no duplicates
+        assert result["placements"] == 1
+        assert result["decklists"] == 1
+
+        tournament_count = labs_db.execute(
+            "SELECT COUNT(*) FROM tournaments WHERE id='950'"
+        ).fetchone()[0]
+        assert tournament_count == 1
+
+        placement_count = labs_db.execute(
+            "SELECT COUNT(*) FROM placements WHERE tournament_id='950'"
+        ).fetchone()[0]
+        assert placement_count == 1
+
+        card_count = labs_db.execute(
+            """SELECT COUNT(*) FROM decklist_cards dc
+               JOIN decklists d ON dc.decklist_id = d.id
+               WHERE d.tournament_id='950'"""
+        ).fetchone()[0]
+        assert card_count == 2
 
     def test_min_matches_threshold_zeroes_sparse_data(self, labs_db):
         """Verify min_matches threshold suppresses low-confidence cells."""
@@ -1342,8 +1413,8 @@ class TestWinnerIdMismatch:
         with caplog.at_level(logging.WARNING):
             result = compute_labs_matchup_matrix(labs_db, min_matches=1)
 
-        # Should have warned about the mismatch
-        assert any("does not match" in msg for msg in caplog.messages)
+        # Should have warned about skipped matches
+        assert any("Skipped" in msg and "winner_id" in msg for msg in caplog.messages)
 
         # The mismatch match should NOT be counted in the totals
         # Original seed: Drag vs Char has 3 valid matches:

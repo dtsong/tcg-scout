@@ -340,6 +340,7 @@ def _compute_h2h_from_matches(
         (*arch_names, *arch_names),
     ).fetchall()
 
+    skipped_winner_mismatch = 0
     for r in rows:
         a1, a2 = r["player1_archetype"], r["player2_archetype"]
         if a1 not in arch_idx or a2 not in arch_idx:
@@ -357,12 +358,16 @@ def _compute_h2h_from_matches(
             totals[j][i] += 1
             wins[j][i] += 1
         else:
-            logger.warning(
-                "Match winner_id %r does not match player1_id %r or player2_id %r — skipping",
-                r["winner_id"],
-                r["player1_id"],
-                r["player2_id"],
-            )
+            skipped_winner_mismatch += 1
+
+    if skipped_winner_mismatch:
+        logger.warning(
+            "Skipped %d match(es) where winner_id matched neither player — "
+            "possible data quality issue (%.1f%% of %d rows)",
+            skipped_winner_mismatch,
+            100 * skipped_winner_mismatch / len(rows) if rows else 0,
+            len(rows),
+        )
 
     # Build output matrices
     matrix = [[0.0] * n for _ in range(n)]

@@ -180,7 +180,7 @@ LIMITLESS_TIMEOUT = 30.0
 LIMITLESS_MAX_RETRIES = 3
 
 # Scraping — Labs Limitless (international tournament data)
-LABS_BASE_URL = "https://limitlesstcg.com"
+LABS_BASE_URL = "https://limitlesstcg.com"  # Main site for metadata + decklists; Labs standings use labs.limitlesstcg.com
 LABS_REQUESTS_PER_MINUTE = 20
 LABS_TIMEOUT = 30.0
 LABS_MAX_RETRIES = 3
