@@ -313,6 +313,9 @@ class LimitlessClient(RateLimitedHTTPClient):
         except httpx.HTTPStatusError:
             logger.warning("Failed to fetch decklist: %s", decklist_url)
             return None
+        except httpx.HTTPError as exc:
+            logger.warning("Network error fetching decklist %s: %s", decklist_url, exc)
+            return None
 
         cards: list[dict[str, Any]] = []
 

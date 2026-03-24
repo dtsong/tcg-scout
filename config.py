@@ -187,7 +187,8 @@ LABS_MAX_RETRIES = 3
 
 # Labs matchup analysis thresholds
 LABS_MIN_MATCHES_TO_PUBLISH = 30  # Minimum H2H matches for credible win rate
-LABS_WILSON_Z = 1.96  # z-score for 95% confidence interval
+LABS_MIN_ENCOUNTERS_TO_PUBLISH = 5  # Minimum weighted encounters for record-based fallback
+LABS_CI_Z = 1.96  # z-score for 95% confidence interval (used in Wilson and Wald CIs)
 
 # Pokemon JP API: City League event_type values (3:N = City League Season N)
 # Each season maps to a different competitive period within the championship year.

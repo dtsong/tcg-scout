@@ -17,6 +17,7 @@ from urllib.parse import urljoin
 import httpx
 from bs4 import Tag
 
+from analysis.archetype import normalize_archetype
 from config import (
     LABS_BASE_URL,
     LABS_MAX_RETRIES,
@@ -74,6 +75,12 @@ class LabsTournament:
     region: str = ""
     format: str = ""
     placements: list[LabsPlacement] = field(default_factory=list)
+
+    def __post_init__(self) -> None:
+        if not self.tournament_id.strip():
+            raise ValueError("tournament_id must be non-empty")
+        if not self.name.strip():
+            raise ValueError("name must be non-empty")
 
 
 @dataclass
@@ -219,6 +226,11 @@ class LabsLimitlessClient(RateLimitedHTTPClient):
         for row in rows[1:]:  # Skip header
             cells = row.find_all("td")
             if len(cells) < 5:
+                logger.warning(
+                    "Skipping standings row with %d cells (expected >=5) in tournament %s",
+                    len(cells),
+                    labs_tournament_id,
+                )
                 continue
 
             placement = self._parse_standings_row(cells)
@@ -339,6 +351,9 @@ class LabsLimitlessClient(RateLimitedHTTPClient):
                         archetype = text
                         break
 
+        # Normalize archetype using sprite URLs (consistent with JP scraper)
+        archetype = normalize_archetype(sprite_urls, html_archetype=archetype)
+
         player = LabsPlayer(
             player_id=player_id,
             name=player_name,
@@ -348,7 +363,7 @@ class LabsLimitlessClient(RateLimitedHTTPClient):
         return LabsPlacement(
             standing=standing,
             player=player,
-            archetype=archetype or "Unknown",
+            archetype=archetype,
             record_w=record_w,
             record_l=record_l,
             record_t=record_t,
@@ -392,10 +407,10 @@ class LabsLimitlessClient(RateLimitedHTTPClient):
     def fetch_decklist(self, decklist_url: str) -> LabsDecklist | None:
         """Fetch and parse a decklist from the main Limitless site.
 
-        Uses a similar two-strategy parsing approach as the JP scraper
-        (structured card-link elements first, text fallback second).
-        Note: separate implementation -- the JP scraper additionally
-        handles basic energy lines without card numbers.
+        Tries structured card-link elements (class="card-link") first.
+        Falls back to text-line regex parsing if no card links are found.
+        Does not handle bare basic energy lines (e.g., "2 Basic Fire Energy"
+        without a set code).
 
         Args:
             decklist_url: Full URL to the decklist page.
@@ -406,7 +421,15 @@ class LabsLimitlessClient(RateLimitedHTTPClient):
         try:
             soup = self._soup(decklist_url)
         except httpx.HTTPStatusError as exc:
-            logger.warning("HTTP %d fetching decklist %s", exc.response.status_code, decklist_url)
+            status = exc.response.status_code
+            if status in (401, 403):
+                logger.error(
+                    "HTTP %d fetching decklist %s — scraper may be blocked",
+                    status,
+                    decklist_url,
+                )
+            else:
+                logger.warning("HTTP %d fetching decklist %s", status, decklist_url)
             return None
         except httpx.HTTPError as exc:
             logger.warning("Network error fetching decklist %s: %s", decklist_url, exc)
@@ -456,6 +479,9 @@ class LabsLimitlessClient(RateLimitedHTTPClient):
 
         # Strategy 2: Text format fallback
         if not cards:
+            logger.info(
+                "No card-link elements found in %s, falling back to text parsing", decklist_url
+            )
             decklist_re = re.compile(
                 r"^(\d+)\s+(.+?)\s+([A-Z0-9]{2,5}[A-Z]?|Energy)\s+(\d+|[A-Z]+\d*)$"
             )
@@ -504,7 +530,7 @@ class LabsLimitlessClient(RateLimitedHTTPClient):
             max_placements: Limit standings to top N (None = all).
 
         Returns:
-            Dict with counts: players, placements, decklists.
+            Dict with counts: players, placements, decklists, decklist_failures.
         """
         # Phase 1: Fetch all data over HTTP (no DB writes)
         tournament = self.fetch_tournament_metadata(tournament_id)
@@ -522,15 +548,17 @@ class LabsLimitlessClient(RateLimitedHTTPClient):
         fetched_decklists: dict[str, LabsDecklist] = {}
         decklist_failures = 0
         if fetch_decklists:
-            decklist_urls = [p for p in standings if p.decklist_url]
-            for placement in decklist_urls:
+            placements_with_decklists = [p for p in standings if p.decklist_url]
+            for placement in placements_with_decklists:
                 decklist = self.fetch_decklist(placement.decklist_url)
                 if decklist and decklist.cards:
                     fetched_decklists[placement.player.player_id] = decklist
                 else:
                     decklist_failures += 1
             if decklist_failures > 0:
-                if decklist_urls and decklist_failures == len(decklist_urls):
+                if placements_with_decklists and decklist_failures == len(
+                    placements_with_decklists
+                ):
                     logger.error(
                         "ALL %d decklist fetches failed for tournament %s — site structure may have changed",
                         decklist_failures,
@@ -540,7 +568,7 @@ class LabsLimitlessClient(RateLimitedHTTPClient):
                     logger.warning(
                         "Failed to fetch %d of %d decklists for tournament %s",
                         decklist_failures,
-                        len(decklist_urls),
+                        len(placements_with_decklists),
                         tournament_id,
                     )
 

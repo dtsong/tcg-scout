@@ -253,7 +253,7 @@ class TestLabsMatchupMatrix:
         labs_db.execute("DELETE FROM matches")
         labs_db.commit()
 
-        result = compute_labs_matchup_matrix(labs_db, top_n=5, min_matches=1)
+        result = compute_labs_matchup_matrix(labs_db, top_n=5, min_matches=1, min_encounters=1)
         assert result["source"] == "labs-records"
         # Verify matrix values are populated (not just structure)
         if result["archetypes"]:
@@ -271,7 +271,7 @@ class TestLabsMatchupMatrix:
         labs_db.execute("DELETE FROM matches")
         labs_db.commit()
 
-        result = compute_labs_matchup_matrix(labs_db, top_n=5, min_matches=1)
+        result = compute_labs_matchup_matrix(labs_db, top_n=5, min_matches=1, min_encounters=1)
         assert result["source"] == "labs-records"
         archetypes = result["archetypes"]
         matrix = result["matrix"]
@@ -1023,3 +1023,215 @@ class TestFetchDecklistParsing:
         with patch.object(client, "_soup", side_effect=httpx.HTTPError("Connection failed")):
             result = client.fetch_decklist("http://example.com/decks/list/42")
         assert result is None
+
+    def test_http_403_returns_none_and_logs_error(self, client, caplog):
+        import logging
+
+        import httpx
+
+        mock_resp = MagicMock()
+        mock_resp.status_code = 403
+        mock_request = MagicMock()
+        exc = httpx.HTTPStatusError("Forbidden", request=mock_request, response=mock_resp)
+        with caplog.at_level(logging.ERROR), patch.object(client, "_soup", side_effect=exc):
+            result = client.fetch_decklist("http://example.com/decks/list/42")
+        assert result is None
+        assert "scraper may be blocked" in caplog.text
+
+
+# ---------------------------------------------------------------------------
+# fetch_standings integration tests
+# ---------------------------------------------------------------------------
+
+
+class TestFetchStandings:
+    """Test fetch_standings with mocked HTML pages."""
+
+    @pytest.fixture()
+    def client(self):
+        from scraper.labs_limitless import LabsLimitlessClient
+
+        c = LabsLimitlessClient()
+        yield c
+        c.close()
+
+    def test_no_table_raises_value_error(self, client):
+        from bs4 import BeautifulSoup
+
+        html = "<html><body><p>No standings here</p></body></html>"
+        with patch.object(client, "_soup", return_value=BeautifulSoup(html, "html.parser")):
+            with pytest.raises(ValueError, match="No standings table found"):
+                client.fetch_standings("0058")
+
+    def test_rows_with_few_cells_skipped_with_warning(self, client, caplog):
+        import logging
+
+        from bs4 import BeautifulSoup
+
+        html = """
+        <html><body><table>
+            <tr><th>Rank</th><th>Player</th><th>Country</th><th>Record</th><th>Deck</th></tr>
+            <tr><td>1.</td><td>Short</td></tr>
+            <tr><td>2.</td>
+                <td><a href="/players/100">Alice</a></td>
+                <td><img src="/flags/us.png" alt="US"></td>
+                <td>10 - 2 - 1</td>
+                <td><img src="/pokemon/charizard.png" alt="Charizard"></td>
+            </tr>
+        </table></body></html>
+        """
+        with (
+            caplog.at_level(logging.WARNING),
+            patch.object(client, "_soup", return_value=BeautifulSoup(html, "html.parser")),
+        ):
+            placements = client.fetch_standings("0058")
+        assert len(placements) == 1
+        assert "Skipping standings row with 2 cells" in caplog.text
+
+    def test_unknown_archetype_warning(self, client, caplog):
+        import logging
+
+        from bs4 import BeautifulSoup
+
+        # Build a table where >50% are Unknown archetype
+        rows = ["<tr><th>R</th><th>P</th><th>C</th><th>Rec</th><th>Deck</th></tr>"]
+        for i in range(1, 4):
+            rows.append(
+                f"<tr><td>{i}.</td>"
+                f'<td><a href="/players/{i}">Player{i}</a></td>'
+                f"<td></td><td>5 - 3 - 0</td><td></td></tr>"
+            )
+        html = f"<html><body><table>{''.join(rows)}</table></body></html>"
+        with (
+            caplog.at_level(logging.WARNING),
+            patch.object(client, "_soup", return_value=BeautifulSoup(html, "html.parser")),
+        ):
+            placements = client.fetch_standings("0058")
+        assert all(p.archetype == "Unknown" for p in placements)
+        assert "sprite parsing may be broken" in caplog.text
+
+
+# ---------------------------------------------------------------------------
+# ingest_tournament edge cases
+# ---------------------------------------------------------------------------
+
+
+class TestIngestEdgeCases:
+    """Test ingest_tournament edge cases from review findings."""
+
+    @pytest.fixture()
+    def client(self):
+        from scraper.labs_limitless import LabsLimitlessClient
+
+        c = LabsLimitlessClient()
+        yield c
+        c.close()
+
+    def test_empty_standings_raises_value_error(self, client, labs_db):
+        from scraper.labs_limitless import LabsTournament
+
+        mock_tournament = LabsTournament(
+            tournament_id="900", name="Empty Regional", date="2026-03-20"
+        )
+        with (
+            patch.object(client, "fetch_tournament_metadata", return_value=mock_tournament),
+            patch.object(client, "fetch_standings", return_value=[]),
+        ):
+            with pytest.raises(ValueError, match="No standings found"):
+                client.ingest_tournament(labs_db, tournament_id="900", labs_tournament_id="test")
+
+    def test_max_placements_truncation(self, client, labs_db):
+        from scraper.labs_limitless import LabsPlacement, LabsPlayer, LabsTournament
+
+        mock_tournament = LabsTournament(
+            tournament_id="901", name="Truncation Test", date="2026-03-20"
+        )
+        mock_standings = [
+            LabsPlacement(
+                standing=i,
+                player=LabsPlayer(player_id=f"trunc-p{i}", name=f"Player{i}"),
+                archetype="Charizard ex",
+                record_w=10,
+                record_l=2,
+                record_t=0,
+            )
+            for i in range(1, 11)
+        ]
+        with (
+            patch.object(client, "fetch_tournament_metadata", return_value=mock_tournament),
+            patch.object(client, "fetch_standings", return_value=mock_standings),
+        ):
+            result = client.ingest_tournament(
+                labs_db,
+                tournament_id="901",
+                labs_tournament_id="test",
+                fetch_decklists=False,
+                max_placements=3,
+            )
+        assert result["placements"] == 3
+
+    def test_min_matches_threshold_zeroes_sparse_data(self, labs_db):
+        """Verify min_matches threshold suppresses low-confidence cells."""
+        from analysis.matchup import compute_labs_matchup_matrix
+
+        # With min_matches=100 (very high), all cells should be 0.0
+        result = compute_labs_matchup_matrix(labs_db, top_n=5, min_matches=100)
+        n = len(result["archetypes"])
+        for i in range(n):
+            for j in range(n):
+                if i != j:
+                    assert result["matrix"][i][j] == 0.0
+
+
+# ---------------------------------------------------------------------------
+# Data class validation tests
+# ---------------------------------------------------------------------------
+
+
+class TestDataClassValidation:
+    """Test __post_init__ validators on data classes."""
+
+    def test_labs_player_empty_id_raises(self):
+        from scraper.labs_limitless import LabsPlayer
+
+        with pytest.raises(ValueError, match="player_id must be non-empty"):
+            LabsPlayer(player_id="", name="Test")
+
+    def test_labs_player_whitespace_id_raises(self):
+        from scraper.labs_limitless import LabsPlayer
+
+        with pytest.raises(ValueError, match="player_id must be non-empty"):
+            LabsPlayer(player_id="   ", name="Test")
+
+    def test_labs_placement_zero_standing_raises(self):
+        from scraper.labs_limitless import LabsPlacement, LabsPlayer
+
+        with pytest.raises(ValueError, match="standing must be >= 1"):
+            LabsPlacement(
+                standing=0,
+                player=LabsPlayer(player_id="p1", name="Test"),
+                archetype="Test",
+            )
+
+    def test_labs_placement_negative_record_raises(self):
+        from scraper.labs_limitless import LabsPlacement, LabsPlayer
+
+        with pytest.raises(ValueError, match="W/L/T records must be non-negative"):
+            LabsPlacement(
+                standing=1,
+                player=LabsPlayer(player_id="p1", name="Test"),
+                archetype="Test",
+                record_w=-1,
+            )
+
+    def test_labs_tournament_empty_id_raises(self):
+        from scraper.labs_limitless import LabsTournament
+
+        with pytest.raises(ValueError, match="tournament_id must be non-empty"):
+            LabsTournament(tournament_id="", name="Test", date="2026-01-01")
+
+    def test_labs_tournament_empty_name_raises(self):
+        from scraper.labs_limitless import LabsTournament
+
+        with pytest.raises(ValueError, match="name must be non-empty"):
+            LabsTournament(tournament_id="t1", name="", date="2026-01-01")

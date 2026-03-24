@@ -6,7 +6,7 @@ import sqlite3
 from collections import defaultdict
 from typing import TypedDict
 
-from config import LABS_MIN_MATCHES_TO_PUBLISH, LABS_WILSON_Z
+from config import LABS_CI_Z, LABS_MIN_ENCOUNTERS_TO_PUBLISH, LABS_MIN_MATCHES_TO_PUBLISH
 
 
 class ConfidenceInterval(TypedDict):
@@ -137,7 +137,7 @@ def compute_matchup_matrix(
 # ---------------------------------------------------------------------------
 
 
-def _wilson_ci(wins: int, total: int, z: float = LABS_WILSON_Z) -> tuple[float, float]:
+def _wilson_ci(wins: int, total: int, z: float = LABS_CI_Z) -> tuple[float, float]:
     """Compute Wilson score confidence interval for a proportion.
 
     Returns (lower_bound, upper_bound) as proportions in [0, 1].
@@ -256,20 +256,22 @@ def _top_archetypes(conn: sqlite3.Connection, top_n: int) -> list[sqlite3.Row]:
     ).fetchall()
 
 
-# NOTE: Callers must add "source" key when returning this sentinel.
-_EMPTY_MATRIX: MatchupMatrixResult = {
-    "archetypes": [],
-    "matrix": [],
-    "sample_sizes": [],
-    "confidence": [],
-    "source": "",
-}
+def _empty_matrix(source: str) -> MatchupMatrixResult:
+    """Return an empty matrix result with fresh lists (no shared state)."""
+    return {
+        "archetypes": [],
+        "matrix": [],
+        "sample_sizes": [],
+        "confidence": [],
+        "source": source,
+    }
 
 
 def compute_labs_matchup_matrix(
     conn: sqlite3.Connection,
     top_n: int = 15,
     min_matches: int = LABS_MIN_MATCHES_TO_PUBLISH,
+    min_encounters: int = LABS_MIN_ENCOUNTERS_TO_PUBLISH,
 ) -> MatchupMatrixResult:
     """Compute archetype-vs-archetype matchup data from Labs H2H matches.
 
@@ -280,7 +282,8 @@ def compute_labs_matchup_matrix(
     Args:
         conn: SQLite connection to labs.db.
         top_n: Number of top archetypes by player count.
-        min_matches: Minimum matches between a pair to publish.
+        min_matches: Minimum H2H matches between a pair to publish.
+        min_encounters: Minimum weighted encounters for record-based fallback.
 
     Returns:
         {
@@ -303,8 +306,8 @@ def compute_labs_matchup_matrix(
     if has_matches:
         return _compute_h2h_from_matches(conn, top_n, min_matches)
 
-    logger.info("No match-level H2H data; falling back to record-based comparison")
-    return _compute_h2h_from_records(conn, top_n, min_matches)
+    logger.warning("No match-level H2H data; falling back to record-based comparison")
+    return _compute_h2h_from_records(conn, top_n, min_encounters)
 
 
 def _compute_h2h_from_matches(
@@ -315,7 +318,7 @@ def _compute_h2h_from_matches(
     """Compute true H2H win rates from the matches table."""
     arch_rows = _top_archetypes(conn, top_n)
     if not arch_rows:
-        return {**_EMPTY_MATRIX, "source": "labs-h2h"}
+        return _empty_matrix("labs-h2h")
 
     arch_names = [r["archetype"] for r in arch_rows]
     arch_idx = {name: i for i, name in enumerate(arch_names)}
@@ -388,16 +391,18 @@ def _compute_h2h_from_matches(
 def _compute_h2h_from_records(
     conn: sqlite3.Connection,
     top_n: int,
-    min_matches: int,
+    min_encounters: int,
 ) -> MatchupMatrixResult:
     """Approximate matchup comparison from archetype W-L-T records.
 
     When true H2H pairings aren't available, compare archetype
     win rates within the same tournaments as a performance proxy.
+    Weights each tournament's contribution by min(players_a, players_b)
+    as a proxy for how many head-to-head encounters likely occurred.
     """
     arch_rows = _top_archetypes(conn, top_n)
     if not arch_rows:
-        return {**_EMPTY_MATRIX, "source": "labs-records"}
+        return _empty_matrix("labs-records")
 
     arch_names = [r["archetype"] for r in arch_rows]
     arch_set = set(arch_names)
@@ -450,13 +455,13 @@ def _compute_h2h_from_records(
             if i == j:
                 matrix[i][j] = 0.5
                 confidence[i][j] = {"lower": 0.5, "upper": 0.5}
-            elif counts[i][j] >= min_matches:
+            elif counts[i][j] >= min_encounters:
                 avg_wr = matrix[i][j] / counts[i][j]
                 matrix[i][j] = round(avg_wr, 4)
                 # Approximate CI using Wald interval (normal approximation)
                 se = math.sqrt(avg_wr * (1 - avg_wr) / counts[i][j]) if 0 < avg_wr < 1 else 0.0
-                ci_lo = max(0.0, avg_wr - LABS_WILSON_Z * se)
-                ci_hi = min(1.0, avg_wr + LABS_WILSON_Z * se)
+                ci_lo = max(0.0, avg_wr - LABS_CI_Z * se)
+                ci_hi = min(1.0, avg_wr + LABS_CI_Z * se)
                 confidence[i][j] = {"lower": round(ci_lo, 4), "upper": round(ci_hi, 4)}
             else:
                 matrix[i][j] = 0.0
