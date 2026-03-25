@@ -217,10 +217,14 @@ export default function FormatSelectorPage() {
               </p>
               <p className="text-xs text-surface-300 mt-3">
                 New here?{" "}
-                <Link href="/nihil-zero/guide" className="text-accent hover:text-accent/80 transition-colors">
-                  Read the guide
+                <Link href="/start" className="text-accent hover:text-accent/80 transition-colors">
+                  Check out the quickstart
                 </Link>{" "}
-                to learn how Scout works. Have feedback or feature requests? Reach out:
+                to get oriented, or{" "}
+                <Link href="/nihil-zero/guide" className="text-accent hover:text-accent/80 transition-colors">
+                  read the guide
+                </Link>{" "}
+                for details. Have feedback or feature requests? Reach out:
               </p>
               <div className="flex items-center gap-4 mt-2">
                 <a
