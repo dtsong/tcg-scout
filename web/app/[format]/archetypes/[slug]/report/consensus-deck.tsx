@@ -1,7 +1,8 @@
 import type { ConsensusCard } from "@/app/lib/types";
 import { CopyDecklistButton } from "@/app/components/copy-decklist-button";
+import { CardLink } from "@/app/components/card-link";
 
-function ConsensusCardRow({ card }: { card: ConsensusCard }) {
+function ConsensusCardRow({ card, format }: { card: ConsensusCard; format: string }) {
   const isCore = card.consensus === "core";
   const isCommon = card.consensus === "common";
 
@@ -16,17 +17,17 @@ function ConsensusCardRow({ card }: { card: ConsensusCard }) {
           <span className="font-mono text-xs w-6 h-5 flex items-center justify-center rounded bg-surface-700 text-slate-300 shrink-0 tabular-nums">
             {card.count}
           </span>
-          <span
+          <CardLink
+            name={card.card_name}
+            format={format}
             className={`text-sm truncate ${
               isCore
-                ? "text-slate-100 font-medium"
+                ? "text-slate-100 font-medium hover:text-accent"
                 : isCommon
-                  ? "text-slate-300"
-                  : "text-slate-500 italic"
-            }`}
-          >
-            {card.card_name}
-          </span>
+                  ? "text-slate-300 hover:text-accent"
+                  : "text-slate-500 italic hover:text-accent"
+            } transition-colors`}
+          />
         </div>
         <div className="flex items-center gap-2 ml-2 shrink-0">
           <span
@@ -57,10 +58,12 @@ function CategoryColumn({
   title,
   cards,
   count,
+  format,
 }: {
   title: string;
   cards: ConsensusCard[];
   count: number;
+  format: string;
 }) {
   if (cards.length === 0) return null;
   return (
@@ -75,7 +78,7 @@ function CategoryColumn({
       </div>
       <div className="p-1.5 space-y-0.5">
         {cards.map((card) => (
-          <ConsensusCardRow key={card.card_name} card={card} />
+          <ConsensusCardRow key={card.card_name} card={card} format={format} />
         ))}
       </div>
     </div>
@@ -88,12 +91,14 @@ export function ConsensusDeck({
   totalPokemon,
   totalTrainer,
   totalEnergy,
+  format,
 }: {
   cards: ConsensusCard[];
   qualityScore: number;
   totalPokemon: number;
   totalTrainer: number;
   totalEnergy: number;
+  format: string;
 }) {
   const pokemon = cards.filter((c) => c.category === "Pokemon");
   const trainer = cards.filter((c) => c.category === "Trainer");
@@ -112,9 +117,9 @@ export function ConsensusDeck({
         </span>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-        <CategoryColumn title="Pokemon" cards={pokemon} count={totalPokemon} />
-        <CategoryColumn title="Trainer" cards={trainer} count={totalTrainer} />
-        <CategoryColumn title="Energy" cards={energy} count={totalEnergy} />
+        <CategoryColumn title="Pokemon" cards={pokemon} count={totalPokemon} format={format} />
+        <CategoryColumn title="Trainer" cards={trainer} count={totalTrainer} format={format} />
+        <CategoryColumn title="Energy" cards={energy} count={totalEnergy} format={format} />
       </div>
       <div className="mt-4">
         <CopyDecklistButton cards={cards} />

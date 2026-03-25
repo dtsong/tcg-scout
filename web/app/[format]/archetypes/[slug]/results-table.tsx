@@ -5,8 +5,9 @@ import { ChevronDown, ChevronRight, ChevronUp } from "lucide-react";
 import { formatPlacement } from "@/app/lib/utils";
 import type { ArchetypeResult, DecklistCard } from "@/app/lib/types";
 import { CopyDecklistButton } from "@/app/components/copy-decklist-button";
+import { CardLink } from "@/app/components/card-link";
 
-function DecklistView({ decklist }: { decklist: DecklistCard[] }) {
+function DecklistView({ decklist, format }: { decklist: DecklistCard[]; format: string }) {
   const grouped: Record<string, DecklistCard[]> = {};
   for (const card of decklist) {
     const cat = card.category ?? "Other";
@@ -31,9 +32,7 @@ function DecklistView({ decklist }: { decklist: DecklistCard[] }) {
                   key={card.card_name}
                   className="flex items-baseline justify-between text-sm"
                 >
-                  <span className="text-surface-200 truncate mr-2">
-                    {card.card_name}
-                  </span>
+                  <CardLink name={card.card_name} format={format} className="text-surface-200 hover:text-accent transition-colors truncate mr-2" />
                   <span className="text-surface-400 font-mono tabular-nums shrink-0">
                     x{card.count}
                   </span>
@@ -50,7 +49,7 @@ function DecklistView({ decklist }: { decklist: DecklistCard[] }) {
   );
 }
 
-export function ResultsTable({ results }: { results: ArchetypeResult[] }) {
+export function ResultsTable({ results, format }: { results: ArchetypeResult[]; format: string }) {
   const [expanded, setExpanded] = useState(false);
   const [expandedRows, setExpandedRows] = useState<Set<string>>(new Set());
 
@@ -152,7 +151,7 @@ export function ResultsTable({ results }: { results: ArchetypeResult[] }) {
                       {isRowExpanded && hasDecklist && (
                         <tr key={`${rowKey}-decklist`} className="border-b border-surface-700">
                           <td colSpan={5} className="bg-surface-900/50">
-                            <DecklistView decklist={result.decklist!} />
+                            <DecklistView decklist={result.decklist!} format={format} />
                           </td>
                         </tr>
                       )}

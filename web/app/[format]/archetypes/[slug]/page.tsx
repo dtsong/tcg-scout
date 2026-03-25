@@ -12,6 +12,7 @@ import { VariantBreakdown } from "@/app/components/variant-breakdown";
 import { formatPct, formatPlacement } from "@/app/lib/utils";
 import type { ArchetypeCard } from "@/app/lib/types";
 import { Top4CardStats } from "@/app/components/top4-card-stats";
+import { CardLink } from "@/app/components/card-link";
 import { ResultsTable } from "./results-table";
 
 export async function generateMetadata({
@@ -69,7 +70,7 @@ function groupByCategory(cards: ArchetypeCard[]) {
   return { pokemon, trainer, energy };
 }
 
-function CardRow({ card, isCore }: { card: ArchetypeCard; isCore: boolean }) {
+function CardRow({ card, isCore, format }: { card: ArchetypeCard; isCore: boolean; format: string }) {
   const copies = card.avg_copies % 1 === 0
     ? card.avg_copies.toString()
     : card.avg_copies.toFixed(1);
@@ -85,9 +86,11 @@ function CardRow({ card, isCore }: { card: ArchetypeCard; isCore: boolean }) {
           <span className="font-mono text-xs w-7 h-6 flex items-center justify-center rounded bg-surface-700 text-slate-300 shrink-0 tabular-nums">
             {copies}
           </span>
-          <span className={`text-sm truncate ${isCore ? "text-slate-200" : "text-slate-400"}`}>
-            {card.card_name}
-          </span>
+          <CardLink
+            name={card.card_name}
+            format={format}
+            className={`text-sm truncate ${isCore ? "text-slate-200 hover:text-accent" : "text-slate-400 hover:text-accent"} transition-colors`}
+          />
         </div>
         <span className={`text-xs font-mono ml-3 shrink-0 tabular-nums ${
           card.inclusion_pct >= 80 ? "text-accent/70" : "text-surface-400"
@@ -104,11 +107,13 @@ function DeckColumn({
   cards,
   coreNames,
   count,
+  format,
 }: {
   title: string;
   cards: ArchetypeCard[];
   coreNames: Set<string>;
   count: number;
+  format: string;
 }) {
   if (cards.length === 0) return null;
   return (
@@ -125,6 +130,7 @@ function DeckColumn({
             key={card.card_name}
             card={card}
             isCore={coreNames.has(card.card_name)}
+            format={format}
           />
         ))}
       </div>
@@ -223,18 +229,21 @@ export default async function ArchetypeDetailPage({
             cards={pokemon}
             coreNames={coreNames}
             count={totalCards(pokemon)}
+            format={format}
           />
           <DeckColumn
             title="Trainer"
             cards={trainer}
             coreNames={coreNames}
             count={totalCards(trainer)}
+            format={format}
           />
           <DeckColumn
             title="Energy"
             cards={energy}
             coreNames={coreNames}
             count={totalCards(energy)}
+            format={format}
           />
         </div>
       </section>
@@ -257,7 +266,7 @@ export default async function ArchetypeDetailPage({
 
       {/* Results */}
       {arch.results && arch.results.length > 0 && (
-        <ResultsTable results={arch.results} />
+        <ResultsTable results={arch.results} format={format} />
       )}
     </div>
   );

@@ -8,6 +8,7 @@ import { TierBadge } from "@/app/components/tier-badge";
 import { StatCard } from "@/app/components/stat-card";
 import { cn, formatPct } from "@/app/lib/utils";
 import { CopyDecklistButton } from "@/app/components/copy-decklist-button";
+import { CardLink } from "@/app/components/card-link";
 import type {
   Optimal60Index,
   Optimal60IndexEntry,
@@ -57,7 +58,7 @@ const consensusConfig: Record<
 
 // --- Card row with CL overlay ---
 
-function Optimal60CardRow({ card }: { card: Optimal60Card }) {
+function Optimal60CardRow({ card, format }: { card: Optimal60Card; format: string }) {
   const config = consensusConfig[card.consensus];
   const showDelta = Math.abs(card.inclusion_delta) > 15 && card.cl_inclusion_pct > 0;
 
@@ -87,9 +88,7 @@ function Optimal60CardRow({ card }: { card: Optimal60Card }) {
           <span className="font-mono text-xs w-6 h-5 flex items-center justify-center rounded bg-surface-700 text-slate-300 shrink-0 tabular-nums">
             {card.count}
           </span>
-          <span className={cn("text-sm truncate", config.cardText)}>
-            {card.card_name}
-          </span>
+          <CardLink name={card.card_name} format={format} className={cn("text-sm truncate hover:text-accent transition-colors", config.cardText)} />
         </div>
         <div className="flex items-center gap-1.5 ml-2 shrink-0">
           {showDelta && (
@@ -136,10 +135,12 @@ function CategoryColumn({
   title,
   cards,
   count,
+  format,
 }: {
   title: string;
   cards: Optimal60Card[];
   count: number;
+  format: string;
 }) {
   if (cards.length === 0) return null;
   return (
@@ -152,7 +153,7 @@ function CategoryColumn({
       </div>
       <div className="p-1.5 space-y-0.5">
         {cards.map((card) => (
-          <Optimal60CardRow key={card.card_name} card={card} />
+          <Optimal60CardRow key={card.card_name} card={card} format={format} />
         ))}
       </div>
     </div>
@@ -600,16 +601,19 @@ export function Optimal60Client({
                 title="Pokemon"
                 cards={detail.cards.filter((c) => c.category === "Pokemon")}
                 count={detail.total_pokemon}
+                format={format}
               />
               <CategoryColumn
                 title="Trainer"
                 cards={detail.cards.filter((c) => c.category === "Trainer")}
                 count={detail.total_trainer}
+                format={format}
               />
               <CategoryColumn
                 title="Energy"
                 cards={detail.cards.filter((c) => c.category === "Energy")}
                 count={detail.total_energy}
+                format={format}
               />
             </div>
             <div className="mt-4">

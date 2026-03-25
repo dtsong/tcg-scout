@@ -1,4 +1,5 @@
 import type { NotableTech } from "@/app/lib/types";
+import { CardLink } from "@/app/components/card-link";
 
 const EVENT_STYLES: Record<string, { bg: string; text: string; border: string; label: string }> = {
   appeared: { bg: "bg-emerald-500/15", text: "text-emerald-400", border: "border-emerald-400", label: "New" },
@@ -7,7 +8,7 @@ const EVENT_STYLES: Record<string, { bg: string; text: string; border: string; l
   disappeared: { bg: "bg-surface-600/50", text: "text-surface-400", border: "border-surface-400", label: "Dropped" },
 };
 
-export function NotableTechs({ techs }: { techs: NotableTech[] }) {
+export function NotableTechs({ techs, format }: { techs: NotableTech[]; format: string }) {
   if (techs.length === 0) return null;
 
   return (
@@ -35,9 +36,7 @@ export function NotableTechs({ techs }: { techs: NotableTech[] }) {
             {/* Content */}
             <div className="flex-1 min-w-0 pb-2">
               <div className="flex items-center gap-2 flex-wrap">
-                <span className="text-sm font-medium text-slate-200">
-                  {tech.card_name}
-                </span>
+                <CardLink name={tech.card_name} format={format} className="text-sm font-medium text-slate-200 hover:text-accent transition-colors" />
                 <span className={`text-[10px] px-1.5 py-0.5 rounded-full ${style.bg} ${style.text}`}>
                   {style.label}
                 </span>

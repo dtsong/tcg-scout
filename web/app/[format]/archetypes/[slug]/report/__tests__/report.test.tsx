@@ -75,6 +75,7 @@ describe("ConsensusDeck", () => {
         totalPokemon={4}
         totalTrainer={4}
         totalEnergy={10}
+        format="nihil-zero"
       />,
     );
 
@@ -92,6 +93,7 @@ describe("ConsensusDeck", () => {
         totalPokemon={4}
         totalTrainer={4}
         totalEnergy={10}
+        format="nihil-zero"
       />,
     );
 
@@ -108,6 +110,7 @@ describe("ConsensusDeck", () => {
         totalPokemon={4}
         totalTrainer={4}
         totalEnergy={10}
+        format="nihil-zero"
       />,
     );
 
@@ -167,21 +170,21 @@ describe("NotableTechs", () => {
   ];
 
   it("renders tech events", () => {
-    render(<NotableTechs techs={techs} />);
+    render(<NotableTechs techs={techs} format="nihil-zero" />);
 
     expect(screen.getByText("Solrock")).toBeDefined();
     expect(screen.getByText("Old Card")).toBeDefined();
   });
 
   it("shows event badges", () => {
-    render(<NotableTechs techs={techs} />);
+    render(<NotableTechs techs={techs} format="nihil-zero" />);
 
     expect(screen.getByText("New")).toBeDefined();
     expect(screen.getByText("Dropped")).toBeDefined();
   });
 
   it("returns null for empty techs", () => {
-    const { container } = render(<NotableTechs techs={[]} />);
+    const { container } = render(<NotableTechs techs={[]} format="nihil-zero" />);
     expect(container.innerHTML).toBe("");
   });
 });

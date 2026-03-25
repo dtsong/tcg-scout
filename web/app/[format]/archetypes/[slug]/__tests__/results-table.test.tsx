@@ -24,7 +24,7 @@ describe("ResultsTable", () => {
 
   it("renders tournament name as external link when tournament_url is present", async () => {
     const user = userEvent.setup();
-    render(<ResultsTable results={[resultWithUrl]} />);
+    render(<ResultsTable results={[resultWithUrl]} format="nihil-zero" />);
 
     // Expand the results section
     await user.click(screen.getByRole("button", { name: /results/i }));
@@ -37,7 +37,7 @@ describe("ResultsTable", () => {
 
   it("renders tournament name as plain text when tournament_url is absent", async () => {
     const user = userEvent.setup();
-    render(<ResultsTable results={[resultWithoutUrl]} />);
+    render(<ResultsTable results={[resultWithoutUrl]} format="nihil-zero" />);
 
     await user.click(screen.getByRole("button", { name: /results/i }));
 
