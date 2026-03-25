@@ -380,6 +380,8 @@ class LabsLimitlessClient(RateLimitedHTTPClient):
 
         # Normalize archetype using sprite URLs (consistent with JP scraper)
         archetype = normalize_archetype(sprite_urls, html_archetype=archetype)
+        if not archetype:
+            archetype = "Unknown"
 
         player = LabsPlayer(
             player_id=player_id,

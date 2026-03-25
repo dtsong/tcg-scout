@@ -10,8 +10,8 @@ from config import LABS_CI_Z, LABS_MIN_ENCOUNTERS_TO_PUBLISH, LABS_MIN_MATCHES_T
 
 
 class ConfidenceInterval(TypedDict):
-    lower: float
-    upper: float
+    lower: float | None
+    upper: float | None
 
 
 class ArchetypeWinrateEntry(TypedDict):
@@ -34,7 +34,7 @@ class WinrateResult(TypedDict):
 
 class MatchupMatrixResult(TypedDict):
     archetypes: list[str]
-    matrix: list[list[float]]
+    matrix: list[list[float | None]]
     sample_sizes: list[list[int]]
     confidence: list[list[ConfidenceInterval]]
     source: str
@@ -288,7 +288,7 @@ def compute_labs_matchup_matrix(
     Returns:
         {
             "archetypes": [name, ...],
-            "matrix": [[win_rate, ...], ...],  # matrix[i][j] = i's win rate vs j
+            "matrix": [[win_rate|None, ...], ...],  # None = insufficient data
             "sample_sizes": [[count, ...], ...],
             "confidence": [[{"lower": f, "upper": f}, ...], ...],
             "source": "labs-h2h" | "labs-records",
@@ -369,9 +369,11 @@ def _compute_h2h_from_matches(
             len(rows),
         )
 
-    # Build output matrices
-    matrix = [[0.0] * n for _ in range(n)]
-    confidence = [[{"lower": 0.0, "upper": 0.0} for _ in range(n)] for _ in range(n)]
+    # Build output matrices (None = insufficient data)
+    matrix: list[list[float | None]] = [[None] * n for _ in range(n)]
+    confidence: list[list[ConfidenceInterval]] = [
+        [{"lower": None, "upper": None} for _ in range(n)] for _ in range(n)
+    ]
 
     for i in range(n):
         for j in range(n):
@@ -433,10 +435,9 @@ def _compute_h2h_from_records(
         if r["archetype"] in arch_set and r["avg_wr"] is not None:
             tourney_data[r["tournament_id"]][r["archetype"]] = (r["avg_wr"], r["players"])
 
-    # Compute pairwise win rate comparisons
-    matrix = [[0.0] * n for _ in range(n)]
+    # Accumulate weighted win rates (0.0-initialized for arithmetic)
+    wr_accum = [[0.0] * n for _ in range(n)]
     counts = [[0] * n for _ in range(n)]
-    confidence = [[{"lower": 0.0, "upper": 0.0} for _ in range(n)] for _ in range(n)]
 
     for _tid, arch_wrs in tourney_data.items():
         for i in range(n):
@@ -449,29 +450,30 @@ def _compute_h2h_from_records(
                 wr_j, players_j = arch_wrs[arch_names[j]]
                 # Weight by min player count as proxy for actual matchup encounters
                 weight = min(players_i, players_j)
-                matrix[i][j] += wr_i * weight
-                matrix[j][i] += wr_j * weight
+                wr_accum[i][j] += wr_i * weight
+                wr_accum[j][i] += wr_j * weight
                 counts[i][j] += weight
                 counts[j][i] += weight
 
-    # Average and apply minimum threshold
+    # Build final matrices (None = insufficient data)
+    matrix: list[list[float | None]] = [[None] * n for _ in range(n)]
+    confidence: list[list[ConfidenceInterval]] = [
+        [{"lower": None, "upper": None} for _ in range(n)] for _ in range(n)
+    ]
+
     for i in range(n):
         for j in range(n):
             if i == j:
                 matrix[i][j] = 0.5
                 confidence[i][j] = {"lower": 0.5, "upper": 0.5}
             elif counts[i][j] >= min_encounters:
-                avg_wr = matrix[i][j] / counts[i][j]
+                avg_wr = wr_accum[i][j] / counts[i][j]
                 matrix[i][j] = round(avg_wr, 4)
                 # Approximate CI using Wald interval (normal approximation)
                 se = math.sqrt(avg_wr * (1 - avg_wr) / counts[i][j]) if 0 < avg_wr < 1 else 0.0
                 ci_lo = max(0.0, avg_wr - LABS_CI_Z * se)
                 ci_hi = min(1.0, avg_wr + LABS_CI_Z * se)
                 confidence[i][j] = {"lower": round(ci_lo, 4), "upper": round(ci_hi, 4)}
-            else:
-                matrix[i][j] = 0.0
-                confidence[i][j] = {"lower": 0.0, "upper": 0.0}
-
     return {
         "archetypes": arch_names,
         "matrix": matrix,

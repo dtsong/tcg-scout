@@ -1245,13 +1245,13 @@ class TestIngestEdgeCases:
         """Verify min_matches threshold suppresses low-confidence cells."""
         from analysis.matchup import compute_labs_matchup_matrix
 
-        # With min_matches=100 (very high), all cells should be 0.0
+        # With min_matches=100 (very high), all non-diagonal cells should be None
         result = compute_labs_matchup_matrix(labs_db, top_n=5, min_matches=100)
         n = len(result["archetypes"])
         for i in range(n):
             for j in range(n):
                 if i != j:
-                    assert result["matrix"][i][j] == 0.0
+                    assert result["matrix"][i][j] is None
 
 
 # ---------------------------------------------------------------------------
@@ -1580,9 +1580,67 @@ class TestRecordFallbackZeroMatches:
         result = compute_labs_matchup_matrix(conn, top_n=5)
         conn.close()
 
-        # With zero records, avg_wr is NULL and filtered out — matrix should have no data
-        # but must not contain NaN or crash
-        for row in result["matrix"]:
-            for val in row:
-                assert val == val  # NaN != NaN, so this catches NaN
-                assert isinstance(val, (int, float))
+        # With zero records, avg_wr is NULL and filtered out — non-diagonal cells
+        # should be None (insufficient data), not 0.0 or NaN
+        for i, row in enumerate(result["matrix"]):
+            for j, val in enumerate(row):
+                if i == j:
+                    assert val == 0.5  # Mirror match
+                else:
+                    assert val is None, (
+                        f"Expected None for insufficient data at [{i}][{j}], got {val}"
+                    )
+
+
+class TestEmptyArchetypeNormalization:
+    """Verify that empty archetype from normalize_archetype becomes 'Unknown'."""
+
+    def test_empty_archetype_becomes_unknown(self) -> None:
+        """When normalize_archetype returns '', the placement should use 'Unknown'."""
+        from scraper.labs_limitless import LabsLimitlessClient
+
+        client = LabsLimitlessClient()
+
+        # Build a minimal row with no sprites and no text fallback
+        from bs4 import BeautifulSoup
+
+        html = (
+            "<tr>"
+            "<td>1.</td>"
+            "<td><a href='/players/999'>TestPlayer</a></td>"
+            "<td></td>"
+            "<td>10 - 2 - 0</td>"
+            "<td></td>"
+            "</tr>"
+        )
+        soup = BeautifulSoup(html, "html.parser")
+        cells = soup.find_all("td")
+
+        with patch("scraper.labs_limitless.normalize_archetype", return_value=""):
+            placement = client._parse_standings_row(cells)
+
+        assert placement is not None
+        assert placement.archetype == "Unknown"
+        client.close()
+
+
+class TestDateParsingNonAsciiMonth:
+    """Verify date parsing handles unrecognized month names gracefully."""
+
+    def test_unrecognized_month_raises_with_context(self) -> None:
+        """When month isn't in _MONTH_TO_NUM, metadata parse raises ValueError."""
+        from scraper.labs_limitless import LabsLimitlessClient
+
+        client = LabsLimitlessClient()
+
+        # Page with a non-ASCII month that won't match the regex
+        html = "<html><h1>Test Tournament</h1><span>21 Mär 2026</span></html>"
+        mock_response = MagicMock()
+        mock_response.text = html
+        mock_response.status_code = 200
+
+        with patch.object(client, "_get", return_value=mock_response):
+            with pytest.raises(ValueError, match="Could not parse required metadata"):
+                client.fetch_tournament_metadata("999")
+
+        client.close()

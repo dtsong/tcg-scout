@@ -210,11 +210,18 @@ class RateLimitedHTTPClient:
                 )
                 time.sleep(delay)
 
-        if last_exc is None:
-            status_info = f" (last status: {last_response.status_code})" if last_response else ""
+        # Two exhaustion paths:
+        # 1. Retryable status codes (429/5xx) — last_exc is None, last_response is set
+        # 2. Network errors (timeout, connect) — last_exc is set
+        if last_response is not None and last_exc is None:
             raise httpx.HTTPError(
-                f"Failed after {self._max_retries} retries with retryable status codes{status_info}"
+                f"Failed after {self._max_retries} retries with retryable status codes"
+                f" (last status: {last_response.status_code})"
             )
+        # Network error path — last_exc is guaranteed non-None here because
+        # the only way to reach this point without last_response is via the
+        # except httpx.HTTPError branch which always sets last_exc.
+        assert last_exc is not None, "unreachable: loop must set last_exc or last_response"
         raise httpx.HTTPError(f"Failed after {self._max_retries} retries: {last_exc}") from last_exc
 
     def _soup(self, url: str) -> BeautifulSoup:
