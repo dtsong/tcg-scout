@@ -37,7 +37,7 @@ describe("StartContent", () => {
     render(<StartContent />);
     expect(screen.getByText("Post-rotation preview")).toBeInTheDocument();
     expect(
-      screen.getByText(/Nihil Zero mirrors the upcoming international/)
+      screen.getByText(/Nihil Zero mirrors the international/)
     ).toBeInTheDocument();
   });
 

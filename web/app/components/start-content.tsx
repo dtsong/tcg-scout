@@ -1,9 +1,6 @@
-"use client";
-
 import Link from "next/link";
 import {
   Layers,
-  Crosshair,
   Zap,
   TrendingUp,
   Swords,
@@ -100,8 +97,7 @@ export function StartContent() {
               Post-rotation preview
             </p>
             <p className="text-xs text-surface-300 mt-1">
-              Nihil Zero mirrors the upcoming international post-rotation format
-              (April 10th).{" "}
+              Nihil Zero mirrors the international post-rotation format.{" "}
               <span className="text-accent group-hover:text-accent/80 transition-colors">
                 Explore the data
               </span>
@@ -125,18 +121,7 @@ export function StartContent() {
           <WorkflowDiagram format={DEFAULT_FORMAT} />
         </div>
 
-        {/* Download link placeholder: uncomment when scout-workflow.png is added to web/public/images/
-        <div className="mt-4 text-center">
-          <a
-            href="/images/scout-workflow.png"
-            download="scout-workflow.png"
-            className="inline-flex items-center gap-2 text-xs text-surface-400 hover:text-surface-300 transition-colors"
-          >
-            <Download className="w-3.5 h-3.5" />
-            Save workflow image for sharing
-          </a>
-        </div>
-        */}
+        {/* TODO: add downloadable scout-workflow.png image for sharing */}
       </section>
 
       {/* Feature Highlights */}
@@ -205,8 +190,8 @@ export function StartContent() {
               Nihil Zero
             </h3>
             <p className="text-xs text-surface-300 mt-2 leading-relaxed">
-              430 tournaments archived. Mirrors the upcoming international
-              post-rotation format (April 10th).
+              430 tournaments archived. Mirrors the international
+              post-rotation format.
             </p>
           </Link>
         </div>
