@@ -79,10 +79,10 @@ describe("ConsensusDeck", () => {
       />,
     );
 
-    expect(screen.getByText("Ultra Ball")).toBeDefined();
-    expect(screen.getByText("Charizard ex")).toBeDefined();
-    expect(screen.getByText("Solrock")).toBeDefined();
-    expect(screen.getByText("Fire Energy")).toBeDefined();
+    expect(screen.getByRole("link", { name: "Ultra Ball" })).toHaveAttribute("href", "/nihil-zero/cards/ultra-ball");
+    expect(screen.getByRole("link", { name: "Charizard ex" })).toBeDefined();
+    expect(screen.getByRole("link", { name: "Solrock" })).toBeDefined();
+    expect(screen.getByRole("link", { name: "Fire Energy" })).toBeDefined();
   });
 
   it("shows consensus labels", () => {
