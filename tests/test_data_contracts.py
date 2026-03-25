@@ -119,7 +119,7 @@ class TestBuylistContract:
         buylist = json.loads((export_dir / "buylist.json").read_text())
 
         _assert_type(buylist, list, "buylist.json root")
-        assert len(buylist) > 0, "buylist should not be empty when S/A/B archetypes exist"
+        assert len(buylist) > 0, "buylist should not be empty with test fixture data"
         for item in buylist:
             _assert_keys(
                 item,
@@ -129,6 +129,7 @@ class TestBuylistContract:
                     "set_code",
                     "set_number",
                     "priority_score",
+                    "urgency",
                     "core_flex",
                     "archetypes",
                     "avg_copies",
@@ -141,6 +142,9 @@ class TestBuylistContract:
             _assert_type(item["archetypes"], list, "archetypes")
             _assert_type(item["avg_copies"], (int, float), "avg_copies")
             _assert_type(item["inclusion_rate"], (int, float), "inclusion_rate")
+            assert item["urgency"] in {"URGENT", "HIGH", "MODERATE"}, (
+                f"Invalid urgency: {item['urgency']}"
+            )
             assert item["core_flex"] in {"core", "flex"}, f"Invalid core_flex: {item['core_flex']}"
 
 

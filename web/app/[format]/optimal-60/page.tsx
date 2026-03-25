@@ -1,4 +1,4 @@
-import { getFormats, getFormatName, getOptimal60Index } from "@/app/lib/data";
+import { getFormats, getOptimal60Index } from "@/app/lib/data";
 import { formatPageMetadata } from "@/app/lib/metadata";
 import { Optimal60Client } from "./optimal-60-client";
 

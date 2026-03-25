@@ -88,7 +88,8 @@ def db() -> sqlite3.Connection:
 
     # --- Cards table (for JP→EN translation + image URLs) ---
     conn.executemany(
-        "INSERT INTO cards (id, name_en, name_jp, set_code, image_url) VALUES (?, ?, ?, ?, ?)",
+        "INSERT INTO cards (id, name_en, name_jp, set_code, image_url, supertype, rotation_legal) "
+        "VALUES (?, ?, ?, ?, ?, ?, ?)",
         [
             (
                 "sv5-001",
@@ -96,6 +97,8 @@ def db() -> sqlite3.Connection:
                 "リザードンex",
                 "sv5",
                 "https://images.pokemontcg.io/sv5/001.png",
+                "Pokemon",
+                1,
             ),
             (
                 "sv5-002",
@@ -103,6 +106,8 @@ def db() -> sqlite3.Connection:
                 "ドラパルトex",
                 "sv5",
                 "https://images.pokemontcg.io/sv5/002.png",
+                "Pokemon",
+                1,
             ),
             (
                 "sv5-003",
@@ -110,6 +115,17 @@ def db() -> sqlite3.Connection:
                 "ふしぎなアメ",
                 "sv5",
                 "https://images.pokemontcg.io/sv5/003.png",
+                "Trainer",
+                1,
+            ),
+            (
+                "sv5-rotated",
+                "Rotated Card",
+                "ローテカード",
+                "sv1",
+                "https://images.pokemontcg.io/sv1/001.png",
+                "Trainer",
+                0,
             ),
         ],
     )
@@ -257,6 +273,10 @@ def db_integration() -> sqlite3.Connection:
     for pid in gholdengo_pids:
         decklist_rows.append((pid, "card-gholdengo", "Gholdengo ex", 2))
 
+    # Rotated card (rotation_legal=0) in all open placements — buylist should exclude
+    for pid in range(1, 13):
+        decklist_rows.append((pid, "sv1-rotated", "Rotated Card", 1))
+
     # Late-week-only card for trend testing (weeks 3-4 only)
     for pid in [7, 8, 9, 10, 11, 12]:
         decklist_rows.append((pid, "card-judge", "Judge", 2))
@@ -274,7 +294,8 @@ def db_integration() -> sqlite3.Connection:
 
     # --- Cards table ---
     conn.executemany(
-        "INSERT INTO cards (id, name_en, name_jp, set_code, image_url, supertype) VALUES (?, ?, ?, ?, ?, ?)",
+        "INSERT INTO cards (id, name_en, name_jp, set_code, image_url, supertype, rotation_legal) "
+        "VALUES (?, ?, ?, ?, ?, ?, ?)",
         [
             (
                 "sv5-001",
@@ -283,6 +304,7 @@ def db_integration() -> sqlite3.Connection:
                 "sv5",
                 "https://img/sv5-001.png",
                 "Pokemon",
+                1,
             ),
             (
                 "sv5-002",
@@ -291,8 +313,17 @@ def db_integration() -> sqlite3.Connection:
                 "sv5",
                 "https://img/sv5-002.png",
                 "Pokemon",
+                1,
             ),
-            ("sv5-003", "Rare Candy", "ふしぎなアメ", "sv5", "https://img/sv5-003.png", "Trainer"),
+            (
+                "sv5-003",
+                "Rare Candy",
+                "ふしぎなアメ",
+                "sv5",
+                "https://img/sv5-003.png",
+                "Trainer",
+                1,
+            ),
             (
                 "sv5-004",
                 "Raging Bolt ex",
@@ -300,6 +331,7 @@ def db_integration() -> sqlite3.Connection:
                 "sv5",
                 "https://img/sv5-004.png",
                 "Pokemon",
+                1,
             ),
             (
                 "sv5-005",
@@ -308,6 +340,7 @@ def db_integration() -> sqlite3.Connection:
                 "sv5",
                 "https://img/sv5-005.png",
                 "Pokemon",
+                1,
             ),
             (
                 "sv5-006",
@@ -316,6 +349,16 @@ def db_integration() -> sqlite3.Connection:
                 "sv5",
                 "https://img/sv5-006.png",
                 "Pokemon",
+                1,
+            ),
+            (
+                "sv1-rotated",
+                "Rotated Card",
+                "ローテカード",
+                "sv1",
+                "https://img/sv1-001.png",
+                "Trainer",
+                0,
             ),
         ],
     )

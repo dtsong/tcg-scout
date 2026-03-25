@@ -4,6 +4,8 @@ import re
 import sys
 from pathlib import Path
 
+import pytest
+
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from analysis.archetype import (
@@ -119,34 +121,35 @@ class TestSpriteKeyToFilenames:
         assert _sprite_key_to_filenames("") == []
 
 
-# --- Sprite map consistency ---
+# --- SPRITE_ARCHETYPE_MAP consistency ---
+
+KEY_PATTERN = re.compile(r"^[a-z0-9-]+$")
 
 
 class TestSpriteMapConsistency:
-    """Guard against data entry errors in the manually-maintained sprite map."""
-
-    KEY_PATTERN = re.compile(r"^[a-z0-9-]+$")
-
-    def test_multi_sprite_composites_in_sprite_map(self):
-        """Multi-sprite composite keys (2+ filenames) should have an entry in SPRITE_ARCHETYPE_MAP."""
-        multi_keys = {k for k, v in _COMPOSITE_SPRITE_FILENAMES.items() if len(v) >= 2}
-        missing = multi_keys - set(SPRITE_ARCHETYPE_MAP.keys())
-        assert not missing, (
-            f"Multi-sprite composite keys missing from SPRITE_ARCHETYPE_MAP: {missing}"
+    @pytest.mark.parametrize("key", list(_COMPOSITE_SPRITE_FILENAMES.keys()))
+    def test_composite_keys_in_archetype_map(self, key):
+        assert key in SPRITE_ARCHETYPE_MAP, (
+            f"Composite key {key!r} missing from SPRITE_ARCHETYPE_MAP"
         )
 
-    def test_all_keys_match_slug_pattern(self):
-        for key in SPRITE_ARCHETYPE_MAP:
-            assert self.KEY_PATTERN.match(key), f"Key does not match slug pattern: {key!r}"
+    @pytest.mark.parametrize("key", list(SPRITE_ARCHETYPE_MAP.keys()))
+    def test_sprite_keys_are_lowercase_hyphenated(self, key):
+        assert KEY_PATTERN.match(key), f"Key {key!r} does not match ^[a-z0-9-]+$"
 
-    def test_no_empty_archetype_names(self):
-        for key, name in SPRITE_ARCHETYPE_MAP.items():
-            assert name.strip(), f"Empty archetype name for key: {key!r}"
+    @pytest.mark.parametrize("key,name", list(SPRITE_ARCHETYPE_MAP.items()))
+    def test_no_empty_archetype_names(self, key, name):
+        assert isinstance(name, str) and name.strip(), (
+            f"SPRITE_ARCHETYPE_MAP[{key!r}] has empty or non-string value"
+        )
 
-    def test_composite_filenames_are_valid(self):
-        for key, filenames in _COMPOSITE_SPRITE_FILENAMES.items():
-            assert len(filenames) >= 1, f"Composite key {key!r} should have >= 1 filename"
-            for fn in filenames:
-                assert self.KEY_PATTERN.match(fn), (
-                    f"Invalid filename {fn!r} in composite key {key!r}"
-                )
+    @pytest.mark.parametrize(
+        "key,filenames",
+        list(_COMPOSITE_SPRITE_FILENAMES.items()),
+    )
+    def test_composite_filenames_are_valid(self, key, filenames):
+        for filename in filenames:
+            assert isinstance(filename, str) and KEY_PATTERN.match(filename), (
+                f"Filename {filename!r} in _COMPOSITE_SPRITE_FILENAMES[{key!r}] "
+                f"is invalid (must match ^[a-z0-9-]+$)"
+            )

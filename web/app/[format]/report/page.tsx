@@ -5,7 +5,7 @@ import { ReportClient } from "./report-client";
 export function generateMetadata({ params }: { params: Promise<{ format: string }> }) {
   return formatPageMetadata(params, (formatName) => ({
     title: `Meta Report -- ${formatName} | Scout`,
-    description: `Auto-generated meta report for ${formatName} Pokemon TCG. Archetype analysis, meta trends, and competitive insights.`,
+    description: `Auto-generated meta report for the ${formatName} Pokemon TCG format. Tier analysis, top decks, and meta trends.`,
   }));
 }
 

@@ -22,8 +22,14 @@ export async function generateMetadata({
   const { format, slug } = await params;
   const arch = getArchetype(format, slug);
   const name = arch.archetype || humanizeSlug(slug);
+  if (!arch.archetype) {
+    console.warn(`[metadata] archetype name is empty for ${format}/${slug}`);
+  }
   const share = safePercent(arch.meta_share);
   const tier = arch.tier || "Unknown";
+  if (!arch.tier) {
+    console.warn(`[metadata] tier is missing for ${format}/${slug}`);
+  }
   const formatName = getFormatName(format);
   return {
     title: `${name} -- ${share}% Meta Share, Tier ${tier} | Scout`,

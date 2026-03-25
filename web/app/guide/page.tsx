@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
 
 export default function GuidePage() {
-  redirect("/nihil-zero/guide");
+  redirect("/ninja-spinner/guide");
 }

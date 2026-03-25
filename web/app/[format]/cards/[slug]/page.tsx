@@ -12,6 +12,9 @@ export async function generateMetadata({
   const { format, slug } = await params;
   const card = getCardDetail(format, slug);
   const name = card.card_name || humanizeSlug(slug);
+  if (!card.card_name) {
+    console.warn(`[metadata] card name is empty for ${format}/${slug}`);
+  }
   const usage = safePercent(card.usage_pct);
   const formatName = getFormatName(format);
   return {

@@ -1,11 +1,5 @@
 import type { Metadata } from "next";
-import {
-  getArchetypeReport,
-  getArchetypeSlugs,
-  getFormats,
-  getFormatName,
-  getOptimal60Index,
-} from "@/app/lib/data";
+import { getArchetypeReport, getArchetypeSlugs, getFormats, getFormatName, getOptimal60Index } from "@/app/lib/data";
 import { humanizeSlug } from "@/app/lib/metadata";
 import { ReportClient } from "./report-client";
 

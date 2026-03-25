@@ -2,7 +2,8 @@
 
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
-import { ArrowRight, TrendingUp, TrendingDown, Trophy, ShoppingCart, Calendar, Zap } from "lucide-react";
+import { ArrowRight, TrendingUp, TrendingDown, Trophy, ShoppingCart, Calendar, Zap, Layers } from "lucide-react";
+import { DeltaValue } from "@/app/components/delta-value";
 import { TierBadge } from "@/app/components/tier-badge";
 import { StatCard } from "@/app/components/stat-card";
 import { DateFilter } from "@/app/components/date-filter";
@@ -11,7 +12,7 @@ import { useDateFilter, fetchWindowedData } from "@/app/components/date-filter-p
 import { formatPct, daysUntil } from "@/app/lib/utils";
 import { InfoIcon } from "@/app/components/tooltip";
 import { MetaTimeline } from "@/app/components/meta-timeline";
-import type { MetaData, TrendsData, WinningEdgeCard, AceSpec, TimelineData, TimeWindow, MetaEvolutionMovement } from "@/app/lib/types";
+import type { MetaData, TrendsData, WinningEdgeCard, AceSpec, TimelineData, TimeWindow, MetaEvolutionMovement, CrossMetaStaple } from "@/app/lib/types";
 
 interface DashboardClientProps {
   format: string;
@@ -22,6 +23,7 @@ interface DashboardClientProps {
   aceSpecs: AceSpec[];
   timeline?: TimelineData | null;
   metaEvolution?: MetaEvolutionMovement[];
+  crossMetaStaples?: CrossMetaStaple[];
 }
 
 const tierGlowColors: Record<string, string> = {
@@ -45,6 +47,7 @@ export function DashboardClient({
   aceSpecs: initialAceSpecs,
   timeline,
   metaEvolution = [],
+  crossMetaStaples = [],
 }: DashboardClientProps) {
   const { activeWindow, customRange, setWindow } = useDateFilter();
 
@@ -299,6 +302,37 @@ export function DashboardClient({
             </div>
           </section>
         </div>
+
+        {/* Cross-Meta Staples */}
+        {crossMetaStaples.length > 0 && (
+          <div className="mt-6">
+            <section className="bg-surface-800 border border-surface-600 rounded-lg p-5">
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="font-display text-sm font-semibold text-slate-200 flex items-center gap-2">
+                  <Layers className="w-4 h-4 text-tier-a" />
+                  Cross-Meta Staples
+                  <InfoIcon tooltip="Cards with a positive edge in top-4 finishes across 3 or more S/A/B-tier archetypes. These are format-defining cards that give an edge regardless of which competitive deck you play." />
+                </h3>
+                <Link href={`/${format}/card-analysis`} className="text-xs text-accent hover:text-accent/80">
+                  Format Edge
+                </Link>
+              </div>
+              <div className="space-y-3">
+                {crossMetaStaples.map((card) => (
+                  <div key={card.card_name} className="flex items-center justify-between">
+                    <span className="text-sm text-slate-300 truncate mr-2">{card.card_name}</span>
+                    <div className="flex items-center gap-3">
+                      <span className="font-mono text-xs text-surface-400 whitespace-nowrap">
+                        {card.tiered_archetype_count} archetypes
+                      </span>
+                      <DeltaValue delta={card.weighted_impact} />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </section>
+          </div>
+        )}
 
         {/* Biggest Copy-Count Shifts */}
         {metaEvolution.length > 0 && (

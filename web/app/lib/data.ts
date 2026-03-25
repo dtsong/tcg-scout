@@ -46,19 +46,21 @@ export function getFormats(): FormatInfo[] {
   return readJson("formats.json");
 }
 
+/** Resolve a format slug to its display name. Throws if slug not found. Falls back to humanized slug if name_en is empty. */
 export function getFormatName(format: string): string {
   const formats = getFormats();
-  const found = formats.find((f) => f.slug === format);
-  if (!found) {
+  const match = formats.find((f) => f.slug === format);
+  if (!match) {
     throw new Error(
       `getFormatName: format "${format}" not found in formats.json. Available: [${formats.map((f) => f.slug).join(", ")}]`,
     );
   }
-  if (!found.name_en) {
+  if (!match.name_en) {
     console.warn(`[data] getFormatName: name_en is empty for format "${format}", falling back to humanized slug`);
+    // Avoid circular: inline the same logic as humanizeSlug
     return format.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
   }
-  return found.name_en;
+  return match.name_en;
 }
 
 export function getMeta(format: string): MetaData {
@@ -281,4 +283,3 @@ export function getCityLeagueIndex(format: string): CityLeagueIndex | null {
     throw err;
   }
 }
-

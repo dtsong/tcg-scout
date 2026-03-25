@@ -18,7 +18,7 @@ import { formatPageMetadata, safePercent, safeInt, humanizeSlug } from "../metad
 const MOCK_FORMATS = [
   {
     slug: "ninja-spinner",
-    name: "Ninja Spinner",
+    name: "\u5fcd\u30b9\u30d4\u30ca\u30fc",
     name_en: "Ninja Spinner",
     description: "Test",
     dataset_start: "2026-03-01",

@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { getMeta, getFormats, getAceSpecs, getTrends, getWinningEdge, getTimeline, getMetaEvolution, formatHasData } from "@/app/lib/data";
+import { getMeta, getFormats, getAceSpecs, getTrends, getWinningEdge, getTimeline, getMetaEvolution, getCardAnalysis, formatHasData } from "@/app/lib/data";
 import { formatPageMetadata } from "@/app/lib/metadata";
+import { computeCrossMetaStaples } from "@/app/lib/utils";
 import { DashboardClient } from "./dashboard-client";
 
 export function generateMetadata({ params }: { params: Promise<{ format: string }> }) {
@@ -41,6 +42,9 @@ export default async function Dashboard({
   const winningEdge = getWinningEdge(format);
   const timeline = getTimeline(format);
   const metaEvolution = getMetaEvolution(format);
+  const cardAnalysis = getCardAnalysis(format);
+
+  const crossMetaStaples = computeCrossMetaStaples(cardAnalysis?.cards ?? []);
 
   return (
     <DashboardClient
@@ -52,6 +56,7 @@ export default async function Dashboard({
       aceSpecs={aceSpecs}
       timeline={timeline}
       metaEvolution={metaEvolution.highlights}
+      crossMetaStaples={crossMetaStaples}
     />
   );
 }
