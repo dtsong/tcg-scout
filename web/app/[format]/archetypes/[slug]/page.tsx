@@ -186,7 +186,7 @@ export default async function ArchetypeDetailPage({
           )}
           {hasOptimal60 && (
             <Link
-              href={`/${format}/optimal-60`}
+              href={`/${format}/optimal-60?deck=${slug}`}
               className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-teal-400 bg-teal-500/10 hover:bg-teal-500/20 border border-teal-500/20 rounded-md transition-colors"
             >
               View Optimal 60

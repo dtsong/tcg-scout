@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { getFormats, getOptimal60Index } from "@/app/lib/data";
 import { formatPageMetadata } from "@/app/lib/metadata";
 import { Optimal60Client } from "./optimal-60-client";
@@ -34,5 +35,9 @@ export default async function Optimal60Page({
     );
   }
 
-  return <Optimal60Client index={index} format={format} />;
+  return (
+    <Suspense>
+      <Optimal60Client index={index} format={format} />
+    </Suspense>
+  );
 }

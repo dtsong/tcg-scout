@@ -97,7 +97,7 @@ export function ReportClient({
       {/* Optimal 60 callout */}
       {hasOptimal60 && (
         <Link
-          href={`/${format}/optimal-60`}
+          href={`/${format}/optimal-60?deck=${report.slug}`}
           className="flex items-center gap-3 p-4 bg-teal-500/5 border border-teal-500/20 rounded-md hover:bg-teal-500/10 transition-colors"
         >
           <span className="text-teal-400 text-sm font-medium">
