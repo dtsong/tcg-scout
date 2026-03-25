@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { slugify } from "@/app/lib/utils";
 
