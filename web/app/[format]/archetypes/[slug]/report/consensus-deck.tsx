@@ -2,6 +2,12 @@ import type { ConsensusCard } from "@/app/lib/types";
 import { CopyDecklistButton } from "@/app/components/copy-decklist-button";
 import { CardLink } from "@/app/components/card-link";
 
+function consensusTextClass(consensus: string): string {
+  if (consensus === "core") return "text-slate-100 font-medium";
+  if (consensus === "common") return "text-slate-300";
+  return "text-slate-500 italic";
+}
+
 function ConsensusCardRow({ card, format }: { card: ConsensusCard; format: string }) {
   const isCore = card.consensus === "core";
   const isCommon = card.consensus === "common";
@@ -20,13 +26,7 @@ function ConsensusCardRow({ card, format }: { card: ConsensusCard; format: strin
           <CardLink
             name={card.card_name}
             format={format}
-            className={`text-sm truncate ${
-              isCore
-                ? "text-slate-100 font-medium"
-                : isCommon
-                  ? "text-slate-300"
-                  : "text-slate-500 italic"
-            }`}
+            className={`text-sm truncate ${consensusTextClass(card.consensus)}`}
           />
         </div>
         <div className="flex items-center gap-2 ml-2 shrink-0">

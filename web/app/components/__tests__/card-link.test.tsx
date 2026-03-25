@@ -26,6 +26,20 @@ describe("CardLink", () => {
     expect(link.className).toContain("hover:text-accent");
   });
 
+  it("renders plain span when name produces empty slug", () => {
+    const { container } = render(<CardLink name="" format="nihil-zero" />);
+    const span = container.querySelector("span");
+    expect(span).not.toBeNull();
+    expect(container.querySelector("a")).toBeNull();
+  });
+
+  it("renders plain span when format is empty", () => {
+    render(<CardLink name="Rare Candy" format="" />);
+    const span = screen.getByText("Rare Candy");
+    expect(span.tagName).toBe("SPAN");
+    expect(span.closest("a")).toBeNull();
+  });
+
   it("stops event propagation on click", async () => {
     const parentHandler = vi.fn();
     const user = userEvent.setup();
