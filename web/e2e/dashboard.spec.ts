@@ -42,9 +42,9 @@ test.describe("Dashboard", () => {
 
   test("shows tournament and deck stats", async ({ page }) => {
     await page.goto("/ninja-spinner");
-    // Hero section has tournament/deck count spans
+    // Meta ticker has "N tournaments" span
     await expect(
-      page.locator("span").filter({ hasText: "Tournaments" }),
+      page.locator("span").filter({ hasText: /^\d+\s+tournaments$/i }),
     ).toBeVisible();
     await expect(
       page.locator("th").filter({ hasText: "Decks" }),
