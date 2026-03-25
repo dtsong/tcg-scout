@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
+import { useSearchParams } from "next/navigation";
 import { ChevronDown, Search } from "lucide-react";
 import { SpriteRow } from "@/app/components/sprite-row";
 import { TierBadge } from "@/app/components/tier-badge";
@@ -392,10 +393,24 @@ export function Optimal60Client({
   index: Optimal60Index;
   format: string;
 }) {
-  const [selectedSlug, setSelectedSlug] = useState(index.archetypes[0]?.slug ?? "");
+  const searchParams = useSearchParams();
+  const deckParam = searchParams.get("deck");
+  const initialSlug =
+    (deckParam && index.archetypes.some((a) => a.slug === deckParam) ? deckParam : null) ??
+    index.archetypes[0]?.slug ??
+    "";
+
+  const [selectedSlug, setSelectedSlug] = useState(initialSlug);
   const [detail, setDetail] = useState<Optimal60Detail | null>(null);
   const [loading, setLoading] = useState(false);
   const [fetchError, setFetchError] = useState<string | null>(null);
+
+  const handleSelect = useCallback((slug: string) => {
+    setSelectedSlug(slug);
+    const url = new URL(window.location.href);
+    url.searchParams.set("deck", slug);
+    window.history.replaceState({}, "", url.toString());
+  }, []);
 
   // Load archetype detail on selection change
   useEffect(() => {
@@ -460,7 +475,7 @@ export function Optimal60Client({
       <ArchetypeSelector
         archetypes={index.archetypes}
         selectedSlug={selectedSlug}
-        onSelect={setSelectedSlug}
+        onSelect={handleSelect}
       />
 
       {/* Selected archetype stats */}
