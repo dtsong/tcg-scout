@@ -85,7 +85,6 @@ export function ReportClient({
             totalPokemon={report.consensus_60.total_pokemon}
             totalTrainer={report.consensus_60.total_trainer}
             totalEnergy={report.consensus_60.total_energy}
-            format={format}
           />
           {report.narrative?.consensus_rationale && (
             <p className="text-sm text-slate-400 leading-relaxed mt-4">
@@ -142,7 +141,7 @@ export function ReportClient({
             Biggest card adoption and drop events in the timeline.
           </p>
           <div className="bg-surface-800 border border-surface-600 rounded-md p-4">
-            <NotableTechs techs={report.notable_techs} format={format} />
+            <NotableTechs techs={report.notable_techs} />
           </div>
         </section>
       )}

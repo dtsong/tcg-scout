@@ -70,7 +70,7 @@ function groupByCategory(cards: ArchetypeCard[]) {
   return { pokemon, trainer, energy };
 }
 
-function CardRow({ card, isCore, format }: { card: ArchetypeCard; isCore: boolean; format: string }) {
+function CardRow({ card, isCore }: { card: ArchetypeCard; isCore: boolean }) {
   const copies = card.avg_copies % 1 === 0
     ? card.avg_copies.toString()
     : card.avg_copies.toFixed(1);
@@ -88,7 +88,6 @@ function CardRow({ card, isCore, format }: { card: ArchetypeCard; isCore: boolea
           </span>
           <CardLink
             name={card.card_name}
-            format={format}
             className={`text-sm truncate ${isCore ? "text-slate-200" : "text-slate-400"}`}
           />
         </div>
@@ -107,13 +106,11 @@ function DeckColumn({
   cards,
   coreNames,
   count,
-  format,
 }: {
   title: string;
   cards: ArchetypeCard[];
   coreNames: Set<string>;
   count: number;
-  format: string;
 }) {
   if (cards.length === 0) return null;
   return (
@@ -130,7 +127,6 @@ function DeckColumn({
             key={card.card_name}
             card={card}
             isCore={coreNames.has(card.card_name)}
-            format={format}
           />
         ))}
       </div>
@@ -229,21 +225,18 @@ export default async function ArchetypeDetailPage({
             cards={pokemon}
             coreNames={coreNames}
             count={totalCards(pokemon)}
-            format={format}
           />
           <DeckColumn
             title="Trainer"
             cards={trainer}
             coreNames={coreNames}
             count={totalCards(trainer)}
-            format={format}
           />
           <DeckColumn
             title="Energy"
             cards={energy}
             coreNames={coreNames}
             count={totalCards(energy)}
-            format={format}
           />
         </div>
       </section>
@@ -266,7 +259,7 @@ export default async function ArchetypeDetailPage({
 
       {/* Results */}
       {arch.results && arch.results.length > 0 && (
-        <ResultsTable results={arch.results} format={format} />
+        <ResultsTable results={arch.results} />
       )}
     </div>
   );

@@ -8,7 +8,7 @@ function consensusTextClass(consensus: string): string {
   return "text-slate-500 italic";
 }
 
-function ConsensusCardRow({ card, format }: { card: ConsensusCard; format: string }) {
+function ConsensusCardRow({ card }: { card: ConsensusCard }) {
   const isCore = card.consensus === "core";
   const isCommon = card.consensus === "common";
 
@@ -25,7 +25,6 @@ function ConsensusCardRow({ card, format }: { card: ConsensusCard; format: strin
           </span>
           <CardLink
             name={card.card_name}
-            format={format}
             className={`text-sm truncate ${consensusTextClass(card.consensus)}`}
           />
         </div>
@@ -58,12 +57,10 @@ function CategoryColumn({
   title,
   cards,
   count,
-  format,
 }: {
   title: string;
   cards: ConsensusCard[];
   count: number;
-  format: string;
 }) {
   if (cards.length === 0) return null;
   return (
@@ -78,7 +75,7 @@ function CategoryColumn({
       </div>
       <div className="p-1.5 space-y-0.5">
         {cards.map((card) => (
-          <ConsensusCardRow key={card.card_name} card={card} format={format} />
+          <ConsensusCardRow key={card.card_name} card={card} />
         ))}
       </div>
     </div>
@@ -91,14 +88,12 @@ export function ConsensusDeck({
   totalPokemon,
   totalTrainer,
   totalEnergy,
-  format,
 }: {
   cards: ConsensusCard[];
   qualityScore: number;
   totalPokemon: number;
   totalTrainer: number;
   totalEnergy: number;
-  format: string;
 }) {
   const pokemon = cards.filter((c) => c.category === "Pokemon");
   const trainer = cards.filter((c) => c.category === "Trainer");
@@ -117,9 +112,9 @@ export function ConsensusDeck({
         </span>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-        <CategoryColumn title="Pokemon" cards={pokemon} count={totalPokemon} format={format} />
-        <CategoryColumn title="Trainer" cards={trainer} count={totalTrainer} format={format} />
-        <CategoryColumn title="Energy" cards={energy} count={totalEnergy} format={format} />
+        <CategoryColumn title="Pokemon" cards={pokemon} count={totalPokemon} />
+        <CategoryColumn title="Trainer" cards={trainer} count={totalTrainer} />
+        <CategoryColumn title="Energy" cards={energy} count={totalEnergy} />
       </div>
       <div className="mt-4">
         <CopyDecklistButton cards={cards} />

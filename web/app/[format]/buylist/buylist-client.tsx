@@ -36,7 +36,7 @@ export function BuylistClient({
   const cardNameColumn = {
     key: "card_name" as const,
     header: "Card",
-    render: (c: { card_name: string }) => <CardLink name={c.card_name} format={format} className="text-slate-200" />,
+    render: (c: { card_name: string }) => <CardLink name={c.card_name} className="text-slate-200" />,
     sortValue: (c: { card_name: string }) => c.card_name,
   };
 

@@ -37,5 +37,5 @@ export default async function ForecastPage({
     );
   }
 
-  return <ForecastClient forecast={forecast} format={format} />;
+  return <ForecastClient forecast={forecast} />;
 }

@@ -1,8 +1,12 @@
-import { describe, it, expect, afterEach } from "vitest";
+import { describe, it, expect, afterEach, vi } from "vitest";
 import { render, screen, cleanup } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { ResultsTable } from "../results-table";
 import type { ArchetypeResult } from "@/app/lib/types";
+
+vi.mock("next/navigation", () => ({
+  useParams: () => ({ format: "nihil-zero" }),
+}));
 
 const resultWithUrl: ArchetypeResult = {
   tournament_name: "Osaka CL Jan",
@@ -36,7 +40,7 @@ describe("ResultsTable", () => {
 
   it("renders tournament name as external link when tournament_url is present", async () => {
     const user = userEvent.setup();
-    render(<ResultsTable results={[resultWithUrl]} format="nihil-zero" />);
+    render(<ResultsTable results={[resultWithUrl]} />);
 
     // Expand the results section
     await user.click(screen.getByRole("button", { name: /results/i }));
@@ -49,7 +53,7 @@ describe("ResultsTable", () => {
 
   it("renders tournament name as plain text when tournament_url is absent", async () => {
     const user = userEvent.setup();
-    render(<ResultsTable results={[resultWithoutUrl]} format="nihil-zero" />);
+    render(<ResultsTable results={[resultWithoutUrl]} />);
 
     await user.click(screen.getByRole("button", { name: /results/i }));
 
@@ -59,7 +63,7 @@ describe("ResultsTable", () => {
 
   it("renders card names as links in expanded decklist", async () => {
     const user = userEvent.setup();
-    render(<ResultsTable results={[resultWithDecklist]} format="nihil-zero" />);
+    render(<ResultsTable results={[resultWithDecklist]} />);
 
     await user.click(screen.getByRole("button", { name: /results/i }));
     // Expand the row to show decklist

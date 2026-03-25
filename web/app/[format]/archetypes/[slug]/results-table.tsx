@@ -7,7 +7,7 @@ import type { ArchetypeResult, DecklistCard } from "@/app/lib/types";
 import { CopyDecklistButton } from "@/app/components/copy-decklist-button";
 import { CardLink } from "@/app/components/card-link";
 
-function DecklistView({ decklist, format }: { decklist: DecklistCard[]; format: string }) {
+function DecklistView({ decklist }: { decklist: DecklistCard[] }) {
   const grouped: Record<string, DecklistCard[]> = {};
   for (const card of decklist) {
     const cat = card.category ?? "Other";
@@ -32,7 +32,7 @@ function DecklistView({ decklist, format }: { decklist: DecklistCard[]; format: 
                   key={card.card_name}
                   className="flex items-baseline justify-between text-sm"
                 >
-                  <CardLink name={card.card_name} format={format} className="text-surface-200 truncate mr-2" />
+                  <CardLink name={card.card_name} className="text-surface-200 truncate mr-2" />
                   <span className="text-surface-400 font-mono tabular-nums shrink-0">
                     x{card.count}
                   </span>
@@ -49,7 +49,7 @@ function DecklistView({ decklist, format }: { decklist: DecklistCard[]; format: 
   );
 }
 
-export function ResultsTable({ results, format }: { results: ArchetypeResult[]; format: string }) {
+export function ResultsTable({ results }: { results: ArchetypeResult[] }) {
   const [expanded, setExpanded] = useState(false);
   const [expandedRows, setExpandedRows] = useState<Set<string>>(new Set());
 
@@ -151,7 +151,7 @@ export function ResultsTable({ results, format }: { results: ArchetypeResult[]; 
                       {isRowExpanded && hasDecklist && (
                         <tr key={`${rowKey}-decklist`} className="border-b border-surface-700">
                           <td colSpan={5} className="bg-surface-900/50">
-                            <DecklistView decklist={result.decklist!} format={format} />
+                            <DecklistView decklist={result.decklist!} />
                           </td>
                         </tr>
                       )}
