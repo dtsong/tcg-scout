@@ -308,71 +308,6 @@ class TestBuylistCrossArchetypeAggregation:
         assert zard["archetypes"] == ["Charizard ex"]
 
 
-# --- Urgency classification ---
-
-
-class TestBuylistUrgency:
-    """Tests for URGENT / HIGH / MODERATE urgency labels."""
-
-    def test_urgent_core_in_two_sa_archetypes(self, db_buylist):
-        """Nest Ball: core (inclusion >= 0.75, avg 4 >= 2 for Trainer), in S + A archetypes.
-
-        Core in at least 2 S/A archetypes => URGENT.
-        """
-        result = generate_buylist(db_buylist, snapshot_id=1)
-        nest = next(r for r in result if r["card_name"] == "Nest Ball")
-        assert nest["urgency"] == "URGENT"
-
-    def test_high_core_in_one_sa_archetype(self, db_buylist):
-        """Charizard ex: core Pokemon (inclusion 1.0, avg 3 >= 3), in 1 S-tier archetype.
-
-        Core in exactly 1 S/A archetype => HIGH.
-        """
-        result = generate_buylist(db_buylist, snapshot_id=1)
-        zard = next(r for r in result if r["card_name"] == "Charizard ex")
-        assert zard["urgency"] == "HIGH"
-
-    def test_high_any_card_in_three_or_more_archetypes(self, db_buylist):
-        """Boss's Orders: avg 2, inclusion 1.0, Trainer threshold 2 => core.
-
-        Core in 2 S/A archetypes (S + A) => actually URGENT.
-        But we verify the >=3 archetype rule separately below.
-        """
-        result = generate_buylist(db_buylist, snapshot_id=1)
-        boss = next(r for r in result if r["card_name"] == "Boss's Orders")
-        # Boss is core (Trainer, avg 2 >= 2, inclusion 1.0) and in S + A => URGENT
-        assert boss["urgency"] == "URGENT"
-
-    def test_high_via_archetype_count(self, db_buylist):
-        """A flex card in >=3 archetypes should be HIGH even without core status."""
-        # Add a flex card (low copies) to all 3 archetypes
-        for pid in [1, 3, 5]:
-            db_buylist.execute(
-                "INSERT INTO decklist_cards (placement_id, card_id, card_name, count) VALUES (?, ?, ?, ?)",
-                (pid, "card-flex", "Flex Tool", 1),
-            )
-        db_buylist.execute(
-            "INSERT INTO cards (id, name_en, name_jp, set_code, set_number, image_url, supertype, rotation_legal) "
-            "VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
-            ("card-flex", "Flex Tool", "フレックス", "sv5", "200", None, "Trainer", 1),
-        )
-        db_buylist.commit()
-
-        result = generate_buylist(db_buylist, snapshot_id=1)
-        flex = next(r for r in result if r["card_name"] == "Flex Tool")
-        # inclusion_rate = 0.5 (1 of 2 decks per archetype) => not core
-        # But appears in 3 archetypes => HIGH
-        assert flex["core_flex"] == "flex"
-        assert flex["urgency"] == "HIGH"
-
-    def test_moderate_default(self, db_buylist):
-        """A card in only one B-tier archetype with flex status should be MODERATE."""
-        result = generate_buylist(db_buylist, snapshot_id=1)
-        bolt = next(r for r in result if r["card_name"] == "Raging Bolt ex")
-        # Raging Bolt ex: core Pokemon in B-tier only (no S/A), 1 archetype => MODERATE
-        assert bolt["urgency"] == "MODERATE"
-
-
 # --- Core vs flex classification ---
 
 
@@ -447,7 +382,6 @@ class TestBuylistResultStructure:
         "set_code",
         "set_number",
         "priority_score",
-        "urgency",
         "core_flex",
         "archetypes",
         "avg_copies",
