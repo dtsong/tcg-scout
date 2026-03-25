@@ -395,10 +395,8 @@ export function Optimal60Client({
 }) {
   const searchParams = useSearchParams();
   const deckParam = searchParams.get("deck");
-  const initialSlug =
-    (deckParam && index.archetypes.some((a) => a.slug === deckParam) ? deckParam : null) ??
-    index.archetypes[0]?.slug ??
-    "";
+  const matchedSlug = index.archetypes.find((a) => a.slug === deckParam)?.slug;
+  const initialSlug = matchedSlug ?? index.archetypes[0]?.slug ?? "";
 
   const [selectedSlug, setSelectedSlug] = useState(initialSlug);
   const [detail, setDetail] = useState<Optimal60Detail | null>(null);
