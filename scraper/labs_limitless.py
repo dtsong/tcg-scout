@@ -11,7 +11,6 @@ import logging
 import re
 import sqlite3
 from dataclasses import dataclass, field
-from typing import Any
 from urllib.parse import urljoin
 
 import httpx
@@ -26,6 +25,7 @@ from config import (
 )
 from scraper.http_client import (
     DECKLIST_LINE_RE,
+    CardEntry,
     RateLimitedHTTPClient,
     extract_sprites,
     parse_card_links,
@@ -105,7 +105,7 @@ class LabsTournament:
 
 @dataclass
 class LabsDecklist:
-    cards: list[dict[str, Any]]
+    cards: list[CardEntry]
     source_url: str | None = None
 
 
@@ -671,6 +671,9 @@ class LabsLimitlessClient(RateLimitedHTTPClient):
             conn.rollback()
             raise
         except Exception:
+            logger.exception(
+                "Unexpected error ingesting tournament %s, rolling back", tournament_id
+            )
             conn.rollback()
             raise
 

@@ -102,6 +102,7 @@ def get_labs_connection() -> sqlite3.Connection:
                 "This SQLite build may not support foreign keys."
             )
     except Exception:
+        logger.exception("Failed to initialize Labs database connection at %s", LABS_DB_PATH)
         conn.close()
         raise
     return conn

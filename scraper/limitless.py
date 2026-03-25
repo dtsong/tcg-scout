@@ -8,7 +8,6 @@ import logging
 import re
 from dataclasses import dataclass, field
 from datetime import date, datetime
-from typing import Any
 from urllib.parse import urljoin
 
 import httpx
@@ -23,6 +22,7 @@ from config import (
 )
 from scraper.http_client import (
     DECKLIST_LINE_RE,
+    CardEntry,
     RateLimitedHTTPClient,
     extract_sprites,
     parse_card_links,
@@ -41,7 +41,7 @@ logger = logging.getLogger(__name__)
 
 @dataclass
 class LimitlessDecklist:
-    cards: list[dict[str, Any]]  # Each dict has: count, name, set_code, card_number
+    cards: list[CardEntry]
     source_url: str | None = None
 
 

@@ -4,7 +4,7 @@ import logging
 import math
 import sqlite3
 from collections import defaultdict
-from typing import TypedDict
+from typing import Literal, TypedDict
 
 from config import LABS_CI_Z, LABS_MIN_ENCOUNTERS_TO_PUBLISH, LABS_MIN_MATCHES_TO_PUBLISH
 
@@ -28,7 +28,7 @@ class ArchetypeWinrateEntry(TypedDict):
 
 class WinrateResult(TypedDict):
     archetypes: list[ArchetypeWinrateEntry]
-    source: str
+    source: Literal["labs-h2h"]
     tournament_count: int
 
 
@@ -37,7 +37,7 @@ class MatchupMatrixResult(TypedDict):
     matrix: list[list[float | None]]
     sample_sizes: list[list[int]]
     confidence: list[list[ConfidenceInterval]]
-    source: str
+    source: Literal["labs-h2h", "labs-records"]
 
 
 logger = logging.getLogger(__name__)
@@ -386,6 +386,9 @@ def _compute_h2h_from_matches(
                 matrix[i][j] = round(wr, 4)
                 confidence[i][j] = {"lower": round(ci_lo, 4), "upper": round(ci_hi, 4)}
 
+    n = len(arch_names)
+    assert len(matrix) == n and len(totals) == n and len(confidence) == n
+
     return {
         "archetypes": arch_names,
         "matrix": matrix,
@@ -474,6 +477,9 @@ def _compute_h2h_from_records(
                 ci_lo = max(0.0, avg_wr - LABS_CI_Z * se)
                 ci_hi = min(1.0, avg_wr + LABS_CI_Z * se)
                 confidence[i][j] = {"lower": round(ci_lo, 4), "upper": round(ci_hi, 4)}
+    n = len(arch_names)
+    assert len(matrix) == n and len(counts) == n and len(confidence) == n
+
     return {
         "archetypes": arch_names,
         "matrix": matrix,

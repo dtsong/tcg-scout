@@ -4,7 +4,7 @@ import logging
 import re
 import threading
 import time
-from typing import Any
+from typing import Any, TypedDict
 
 import httpx
 from bs4 import BeautifulSoup, Tag
@@ -15,7 +15,15 @@ logger = logging.getLogger(__name__)
 DECKLIST_LINE_RE = re.compile(r"^(\d+)\s+(.+?)\s+([A-Z0-9]{2,5}[A-Z]?|Energy)\s+(\d+|[A-Z]+\d*)$")
 
 
-def parse_card_links(soup: BeautifulSoup, decklist_url: str) -> list[dict[str, Any]]:
+class CardEntry(TypedDict):
+    count: int
+    name: str
+    set_code: str
+    card_number: str
+    card_id: str
+
+
+def parse_card_links(soup: BeautifulSoup, decklist_url: str) -> list[CardEntry]:
     """Parse structured card-link elements from a decklist page.
 
     Shared by both JP and Labs scrapers since the HTML format is identical.
@@ -23,7 +31,7 @@ def parse_card_links(soup: BeautifulSoup, decklist_url: str) -> list[dict[str, A
     Returns:
         List of card dicts with keys: count, name, set_code, card_number, card_id.
     """
-    cards: list[dict[str, Any]] = []
+    cards: list[CardEntry] = []
     card_links = soup.find_all("a", class_="card-link")
     if not card_links:
         return cards
@@ -221,7 +229,8 @@ class RateLimitedHTTPClient:
         # Network error path — last_exc is guaranteed non-None here because
         # the only way to reach this point without last_response is via the
         # except httpx.HTTPError branch which always sets last_exc.
-        assert last_exc is not None, "unreachable: loop must set last_exc or last_response"
+        if last_exc is None:
+            raise RuntimeError("unreachable: retry loop must set last_exc or last_response")
         raise httpx.HTTPError(f"Failed after {self._max_retries} retries: {last_exc}") from last_exc
 
     def _soup(self, url: str) -> BeautifulSoup:
