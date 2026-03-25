@@ -6,6 +6,7 @@ import type { CardAnalysisData, CardAnalysisEntry } from "@/app/lib/types";
 import { slugify, effectiveImpact, effectiveConfidence } from "@/app/lib/utils";
 import { DeltaValue } from "@/app/components/delta-value";
 import { InfoIcon } from "@/app/components/tooltip";
+import { CardLink } from "@/app/components/card-link";
 
 type CategoryFilter = "all" | "Pokemon" | "Trainer" | "Energy";
 type SortField = "weighted_impact" | "max_delta" | "archetype_count";
@@ -103,13 +104,7 @@ function CardRow({
         className="w-full px-4 py-3 flex items-center justify-between gap-4 hover:bg-surface-700/40 transition-colors text-left"
       >
         <div className="flex items-center gap-3 min-w-0">
-          <Link
-            href={`/${format}/cards/${slugify(card.card_name)}`}
-            onClick={(e) => e.stopPropagation()}
-            className="text-sm text-slate-300 hover:text-accent truncate"
-          >
-            {card.card_name}
-          </Link>
+          <CardLink name={card.card_name} format={format} className="text-sm text-slate-300 truncate" />
           <span className="text-[10px] text-surface-500 uppercase hidden sm:inline">{card.category}</span>
         </div>
         <div className="flex items-center gap-4 sm:gap-6 shrink-0">

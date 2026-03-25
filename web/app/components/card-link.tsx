@@ -1,13 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { slugify } from "@/app/lib/utils";
-import { cn } from "@/app/lib/utils";
+import { slugify, cn } from "@/app/lib/utils";
 
 // Links a card name to its detail page at /{format}/cards/{slug}.
 // Assumes the target page exists (card is in the card index export).
 // stopPropagation prevents parent clickable containers (e.g., expandable
-// table rows in ResultsTable/Top4CardStats) from toggling on link click.
+// table rows) from toggling on link click. Harmless in non-clickable contexts.
 export function CardLink({
   name,
   format,
