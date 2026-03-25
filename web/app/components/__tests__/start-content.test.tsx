@@ -18,9 +18,6 @@ vi.mock("next/link", () => ({
   ),
 }));
 
-vi.mock("next/navigation", () => ({
-  useParams: () => ({ format: "ninja-spinner" }),
-}));
 
 describe("StartContent", () => {
   afterEach(cleanup);

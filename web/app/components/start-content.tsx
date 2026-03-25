@@ -9,7 +9,6 @@ import {
   Swords,
   Trophy,
   ArrowRight,
-  Download,
   BookOpen,
 } from "lucide-react";
 import { WorkflowDiagram } from "./workflow-diagram";
@@ -126,6 +125,7 @@ export function StartContent() {
           <WorkflowDiagram format={DEFAULT_FORMAT} />
         </div>
 
+        {/* Download link placeholder: uncomment when scout-workflow.png is added to web/public/images/
         <div className="mt-4 text-center">
           <a
             href="/images/scout-workflow.png"
@@ -136,6 +136,7 @@ export function StartContent() {
             Save workflow image for sharing
           </a>
         </div>
+        */}
       </section>
 
       {/* Feature Highlights */}
@@ -217,7 +218,7 @@ export function StartContent() {
           Looking for metric definitions?
         </h3>
         <p className="text-xs text-surface-300 mt-1.5 leading-relaxed">
-          This page is the quickstart -- where to go first and in what order.
+          This page is the quickstart: where to go first and in what order.
           The{" "}
           <Link
             href={`/${DEFAULT_FORMAT}/guide`}
