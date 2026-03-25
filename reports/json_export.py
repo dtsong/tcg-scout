@@ -811,7 +811,7 @@ def _compute_weighted_shares(conn: sqlite3.Connection, snapshot: dict) -> dict[s
         cached = {
             a["archetype"]: a["weighted_share"]
             for a in archetypes
-            if a["weighted_share"] is not None
+            if a["weighted_share"] is not None and a["weighted_share"] > 0
         }
         if cached:
             return cached

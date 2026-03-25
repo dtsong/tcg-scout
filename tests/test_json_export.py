@@ -145,6 +145,20 @@ class TestComputeWeightedShares:
         assert "Charizard ex" in shares
         assert "Raging Bolt ex" in shares
 
+    def test_falls_back_when_weighted_share_is_zero(self, db):
+        snapshot = {
+            "archetypes": [
+                {"archetype": "Charizard ex", "weighted_share": 0.0},
+                {"archetype": "Dragapult ex", "weighted_share": 0.0},
+                {"archetype": "Raging Bolt ex", "weighted_share": 0.0},
+            ]
+        }
+        shares = _compute_weighted_shares(db, snapshot)
+        # Should fall back to computation — all 3 archetypes with non-zero values
+        assert "Charizard ex" in shares
+        assert all(v > 0 for v in shares.values())
+        assert abs(sum(shares.values()) - 100.0) < 0.5
+
     def test_falls_back_when_weighted_share_key_missing(self, db):
         snapshot = {
             "archetypes": [
