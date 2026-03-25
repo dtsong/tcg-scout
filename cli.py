@@ -4,6 +4,7 @@ import logging
 import sqlite3
 
 import click
+import httpx
 from rich.console import Console
 from rich.table import Table
 
@@ -116,6 +117,7 @@ def scrape(
 
         total_placements = 0
         total_decklists = 0
+        failed_tournaments = 0
 
         for i, tournament in enumerate(new_tournaments, 1):
             console.print(
@@ -131,66 +133,80 @@ def scrape(
                 console.print("    [yellow]No placements found, skipping[/yellow]")
                 continue
 
-            # Store tournament (Limitless only tracks open division)
+            # Store tournament and placements in a transaction
             # Parse prefecture from tournament name (e.g. "City League Osaka" -> "Osaka")
             prefecture = None
             if "City League " in tournament.name:
                 prefecture = tournament.name.split("City League ", 1)[1].strip() or None
-            conn.execute(
-                "INSERT OR REPLACE INTO tournaments (id, name, date, player_count, country, division, prefecture) "
-                "VALUES (?, ?, ?, ?, ?, ?, ?)",
-                (
-                    tournament.source_url,
-                    tournament.name,
-                    tournament.tournament_date.isoformat(),
-                    tournament.player_count,
-                    "JP",
-                    "open",
-                    prefecture,
-                ),
-            )
 
-            # Store placements and decklists
-            for placement in placements:
-                cursor = conn.execute(
-                    "INSERT INTO placements (tournament_id, standing, player_name, archetype, decklist_url) "
-                    "VALUES (?, ?, ?, ?, ?)",
+            try:
+                conn.execute(
+                    "INSERT OR REPLACE INTO tournaments (id, name, date, player_count, country, division, prefecture) "
+                    "VALUES (?, ?, ?, ?, ?, ?, ?)",
                     (
                         tournament.source_url,
-                        placement.placement,
-                        placement.player_name,
-                        placement.archetype,
-                        placement.decklist_url,
+                        tournament.name,
+                        tournament.tournament_date.isoformat(),
+                        tournament.player_count,
+                        "JP",
+                        "open",
+                        prefecture,
                     ),
                 )
-                placement_id = cursor.lastrowid
 
-                # Fetch and store decklist if available
-                if fetch_decklists and placement.decklist_url:
-                    decklist = client.fetch_decklist(placement.decklist_url)
-                    if decklist and decklist.cards:
-                        for card in decklist.cards:
-                            conn.execute(
-                                "INSERT OR REPLACE INTO decklist_cards "
-                                "(placement_id, card_id, card_name, count) "
-                                "VALUES (?, ?, ?, ?)",
-                                (
-                                    placement_id,
-                                    card.get("card_id", card.get("name", "unknown")),
-                                    card.get("name"),
-                                    card.get("count", 1),
-                                ),
-                            )
-                        total_decklists += 1
+                # Store placements and decklists
+                for placement in placements:
+                    cursor = conn.execute(
+                        "INSERT INTO placements (tournament_id, standing, player_name, archetype, decklist_url) "
+                        "VALUES (?, ?, ?, ?, ?)",
+                        (
+                            tournament.source_url,
+                            placement.placement,
+                            placement.player_name,
+                            placement.archetype,
+                            placement.decklist_url,
+                        ),
+                    )
+                    placement_id = cursor.lastrowid
 
-                total_placements += 1
+                    # Fetch and store decklist if available
+                    if fetch_decklists and placement.decklist_url:
+                        decklist = client.fetch_decklist(placement.decklist_url)
+                        if decklist and decklist.cards:
+                            for card in decklist.cards:
+                                conn.execute(
+                                    "INSERT OR REPLACE INTO decklist_cards "
+                                    "(placement_id, card_id, card_name, count) "
+                                    "VALUES (?, ?, ?, ?)",
+                                    (
+                                        placement_id,
+                                        card.get("card_id", card.get("name", "unknown")),
+                                        card.get("name"),
+                                        card.get("count", 1),
+                                    ),
+                                )
+                            total_decklists += 1
 
-            conn.commit()
+                    total_placements += 1
+
+                conn.commit()
+            except sqlite3.Error:
+                logger.exception(
+                    "Failed to ingest tournament %s, rolling back", tournament.source_url
+                )
+                conn.rollback()
+                failed_tournaments += 1
+                continue
 
         console.print(
             f"\n[green]Done! Stored {total_placements} placements "
             f"and {total_decklists} decklists.[/green]"
         )
+        if failed_tournaments:
+            console.print(
+                f"[red]Warning: {failed_tournaments} tournament(s) failed to ingest. "
+                f"Check logs for details.[/red]"
+            )
     finally:
         client.close()
         conn.close()
@@ -1167,6 +1183,141 @@ def export_web(ctx: click.Context, narrative: bool, strict: bool) -> None:
                 console.print("[yellow]Narrative report generation skipped.[/yellow]")
     finally:
         conn.close()
+
+
+@cli.command("scrape-labs")
+@click.argument("tournament_id", type=str)
+@click.argument("labs_id", type=str)
+@click.option("--fetch-decklists/--no-decklists", default=True, help="Fetch decklists")
+@click.option("--max-placements", default=None, type=int, help="Limit to top N standings")
+@click.pass_context
+def scrape_labs(
+    ctx: click.Context,
+    tournament_id: str,
+    labs_id: str,
+    fetch_decklists: bool,
+    max_placements: int | None,
+) -> None:
+    """Scrape international tournament data from Labs Limitless.
+
+    TOURNAMENT_ID is the main Limitless tournament ID (e.g. 551).
+    LABS_ID is the Labs tournament ID (e.g. 0058).
+
+    Example: scout scrape-labs 551 0058
+    """
+    from labs_db import get_labs_connection, init_labs_db
+    from scraper.labs_limitless import LabsLimitlessClient
+
+    conn = get_labs_connection()
+    init_labs_db(conn)
+
+    try:
+        with LabsLimitlessClient() as client:
+            console.print(
+                f"[cyan]Scraping Labs tournament {tournament_id} (Labs ID: {labs_id})...[/cyan]"
+            )
+
+            result = client.ingest_tournament(
+                conn,
+                tournament_id=tournament_id,
+                labs_tournament_id=labs_id,
+                fetch_decklists=fetch_decklists,
+                max_placements=max_placements,
+            )
+
+            console.print(
+                f"\n[green]Done! Stored {result['players']} players, "
+                f"{result['placements']} placements, "
+                f"{result['decklists']} decklists.[/green]"
+            )
+            if result.get("decklist_failures"):
+                console.print(
+                    f"[yellow]Warning: {result['decklist_failures']} decklist(s) "
+                    f"failed to fetch.[/yellow]"
+                )
+    except ValueError as exc:
+        console.print(f"[red]Error ingesting tournament: {exc}[/red]")
+        raise click.Abort()
+    except httpx.HTTPStatusError as exc:
+        console.print(
+            f"[red]HTTP {exc.response.status_code} from {exc.request.url} — "
+            f"check your internet connection and verify the tournament ID.[/red]"
+        )
+        raise click.Abort()
+    except (httpx.TimeoutException, httpx.ConnectError) as exc:
+        console.print(f"[red]Network error: {exc}. Check your internet connection.[/red]")
+        raise click.Abort()
+    except Exception:
+        logger.exception("Unexpected error ingesting tournament %s", tournament_id)
+        raise
+    finally:
+        conn.close()
+
+
+@cli.command("labs-matchups")
+@click.option("--top", default=15, help="Number of top archetypes")
+@click.pass_context
+def labs_matchups(ctx: click.Context, top: int) -> None:
+    """Compute H2H matchup data from Labs international tournaments."""
+    from analysis.matchup import compute_labs_archetype_winrates, compute_labs_matchup_matrix
+    from labs_db import get_labs_connection, init_labs_db
+
+    conn = None
+    try:
+        conn = get_labs_connection()
+        init_labs_db(conn)
+
+        # Archetype win rates
+        winrates = compute_labs_archetype_winrates(conn, top_n=top)
+        if not winrates["archetypes"]:
+            console.print("[yellow]No Labs data found. Run 'scout scrape-labs' first.[/yellow]")
+            return
+
+        console.print(
+            f"\n[green]Labs matchup data from {winrates['tournament_count']} tournament(s)[/green]"
+        )
+
+        # Display win rates table
+        table = Table(title="Archetype Win Rates (Labs H2H)")
+        table.add_column("Archetype", style="bold")
+        table.add_column("Players", justify="right")
+        table.add_column("Record", justify="right")
+        table.add_column("Win Rate", justify="right")
+        table.add_column("95% CI", justify="right")
+
+        for arch in winrates["archetypes"]:
+            wr_pct = f"{arch['win_rate'] * 100:.1f}%"
+            ci = f"{arch['ci_lower'] * 100:.1f}-{arch['ci_upper'] * 100:.1f}%"
+            record = f"{arch['total_wins']}-{arch['total_losses']}-{arch['total_ties']}"
+            table.add_row(
+                arch["archetype"],
+                str(arch["players"]),
+                record,
+                wr_pct,
+                ci,
+            )
+
+        console.print(table)
+
+        # Matchup matrix
+        matrix_data = compute_labs_matchup_matrix(conn, top_n=top)
+        if matrix_data["archetypes"]:
+            console.print(
+                f"\n[cyan]Matchup matrix: {len(matrix_data['archetypes'])} archetypes "
+                f"(source: {matrix_data['source']})[/cyan]"
+            )
+            if matrix_data["source"] == "labs-records":
+                console.print(
+                    "[yellow]Note: Using approximate record-based comparison. "
+                    "True H2H match data not available.[/yellow]"
+                )
+
+    except Exception:
+        logger.exception("Failed to compute Labs matchups")
+        raise
+    finally:
+        if conn is not None:
+            conn.close()
 
 
 @cli.command()

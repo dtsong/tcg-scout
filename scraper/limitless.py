@@ -6,15 +6,12 @@ from limitlesstcg.com using httpx sync client with rate limiting.
 
 import logging
 import re
-import threading
-import time
 from dataclasses import dataclass, field
 from datetime import date, datetime
-from typing import Any
 from urllib.parse import urljoin
 
 import httpx
-from bs4 import BeautifulSoup, Tag
+from bs4 import Tag
 
 from analysis.archetype import normalize_archetype
 from config import (
@@ -23,6 +20,16 @@ from config import (
     LIMITLESS_REQUESTS_PER_MINUTE,
     LIMITLESS_TIMEOUT,
 )
+from scraper.http_client import (
+    DECKLIST_LINE_RE,
+    CardEntry,
+    RateLimitedHTTPClient,
+    extract_sprites,
+    parse_card_links,
+)
+
+# Backward-compatible alias — tests/test_limitless_transforms.py imports this name
+_DECKLIST_LINE_RE = DECKLIST_LINE_RE
 
 logger = logging.getLogger(__name__)
 
@@ -34,7 +41,7 @@ logger = logging.getLogger(__name__)
 
 @dataclass
 class LimitlessDecklist:
-    cards: list[dict[str, Any]]  # Each dict has: count, name, set_code, card_number
+    cards: list[CardEntry]
     source_url: str | None = None
 
 
@@ -58,113 +65,22 @@ class LimitlessTournament:
 
 
 # ---------------------------------------------------------------------------
-# Decklist text-line regex
-# ---------------------------------------------------------------------------
-
-_DECKLIST_LINE_RE = re.compile(r"^(\d+)\s+(.+?)\s+([A-Z0-9]{2,5}[A-Z]?|Energy)\s+(\d+|[A-Z]+\d*)$")
-
-
-# ---------------------------------------------------------------------------
 # Client
 # ---------------------------------------------------------------------------
 
 
-class LimitlessClient:
+class LimitlessClient(RateLimitedHTTPClient):
     """Synchronous scraper for LimitlessTCG tournament data."""
 
     def __init__(self) -> None:
-        self._base_url = LIMITLESS_BASE_URL
-        self._max_rpm = LIMITLESS_REQUESTS_PER_MINUTE
-        self._timeout = LIMITLESS_TIMEOUT
-        self._max_retries = LIMITLESS_MAX_RETRIES
-        self._request_timestamps: list[float] = []
-        self._lock = threading.Lock()
-        self._client = httpx.Client(
-            base_url=self._base_url,
-            timeout=self._timeout,
-            follow_redirects=True,
-            headers={
-                "User-Agent": "TrainerLab-Scout/1.0 (rotation-analysis)",
-            },
+        super().__init__(
+            base_url=LIMITLESS_BASE_URL,
+            max_rpm=LIMITLESS_REQUESTS_PER_MINUTE,
+            timeout=LIMITLESS_TIMEOUT,
+            max_retries=LIMITLESS_MAX_RETRIES,
+            user_agent="TrainerLab-Scout/1.0 (rotation-analysis)",
+            use_base_url=True,
         )
-
-    # ------------------------------------------------------------------
-    # HTTP helpers
-    # ------------------------------------------------------------------
-
-    def _rate_limit(self) -> None:
-        """Block until a request slot is available (max N requests/minute)."""
-        with self._lock:
-            now = time.monotonic()
-            # Remove timestamps older than 60 seconds
-            self._request_timestamps = [ts for ts in self._request_timestamps if now - ts < 60.0]
-            if len(self._request_timestamps) >= self._max_rpm:
-                oldest = self._request_timestamps[0]
-                wait = 60.0 - (now - oldest) + 0.1
-                if wait > 0:
-                    logger.debug("Rate limit reached, sleeping %.1fs", wait)
-                    time.sleep(wait)
-                # Clean again after sleeping
-                now = time.monotonic()
-                self._request_timestamps = [
-                    ts for ts in self._request_timestamps if now - ts < 60.0
-                ]
-            self._request_timestamps.append(time.monotonic())
-
-    def _get(self, url: str) -> httpx.Response:
-        """GET with rate limiting, retries, and exponential backoff."""
-        base_delay = 1.0
-        last_exc: Exception | None = None
-
-        for attempt in range(self._max_retries):
-            self._rate_limit()
-            try:
-                response = self._client.get(url)
-
-                if response.status_code == 404:
-                    raise httpx.HTTPStatusError(
-                        "Not Found",
-                        request=response.request,
-                        response=response,
-                    )
-
-                if response.status_code == 429 or response.status_code >= 500:
-                    delay = base_delay * (2**attempt)
-                    logger.warning(
-                        "Retryable status %d for %s, retrying in %.1fs (attempt %d/%d)",
-                        response.status_code,
-                        url,
-                        delay,
-                        attempt + 1,
-                        self._max_retries,
-                    )
-                    time.sleep(delay)
-                    continue
-
-                response.raise_for_status()
-                return response
-
-            except httpx.HTTPStatusError:
-                raise
-            except httpx.HTTPError as exc:
-                last_exc = exc
-                delay = base_delay * (2**attempt)
-                logger.warning(
-                    "Request error for %s: %s, retrying in %.1fs (attempt %d/%d)",
-                    url,
-                    exc,
-                    delay,
-                    attempt + 1,
-                    self._max_retries,
-                )
-                time.sleep(delay)
-
-        raise httpx.ConnectError(f"Failed after {self._max_retries} retries: {last_exc}")
-
-    def _soup(self, url: str) -> BeautifulSoup:
-        """Fetch a page and return parsed BeautifulSoup."""
-        resp = self._get(url)
-        return BeautifulSoup(resp.text, "html.parser")
 
     # ------------------------------------------------------------------
     # Tournament listings
@@ -316,6 +232,11 @@ class LimitlessClient:
 
             cells = row.find_all("td")
             if len(cells) < 3:
+                logger.warning(
+                    "Skipping standings row with %d cells (expected >=3) at %s",
+                    len(cells),
+                    tournament_url,
+                )
                 continue
 
             # Column 0: rank
@@ -323,6 +244,11 @@ class LimitlessClient:
             try:
                 rank = int(rank_text.rstrip("."))
             except (ValueError, AttributeError):
+                logger.warning(
+                    "Failed to parse rank %r at %s, skipping row",
+                    rank_text,
+                    tournament_url,
+                )
                 continue
 
             # Column 1: player name
@@ -395,64 +321,36 @@ class LimitlessClient:
 
         try:
             soup = self._soup(url)
-        except httpx.HTTPStatusError:
-            logger.warning("Failed to fetch decklist: %s", decklist_url)
+        except httpx.HTTPStatusError as exc:
+            status = exc.response.status_code
+            if status in (401, 403):
+                logger.error(
+                    "HTTP %d fetching decklist %s — scraper may be blocked",
+                    status,
+                    decklist_url,
+                )
+                raise  # Let caller trip circuit breaker
+            logger.warning("HTTP %d fetching decklist %s", status, decklist_url)
+            return None
+        except (httpx.TimeoutException, httpx.ConnectError, httpx.ReadError) as exc:
+            logger.warning("Network error fetching decklist %s: %s", decklist_url, exc)
             return None
 
-        cards: list[dict[str, Any]] = []
-
         # Strategy 1: Structured card-link elements
-        # Format: <a class="card-link" href="/cards/SET/NUM">
-        #           <span class="card-count">4</span>
-        #           <span class="card-name">Dragapult ex</span>
-        #         </a>
-        card_links = soup.find_all("a", class_="card-link")
-        if card_links:
-            for link in card_links:
-                href = link.get("href", "")
-                # Remove query params (e.g. ?translate=en)
-                href_clean = href.split("?")[0].rstrip("/")
-                parts = href_clean.split("/")
-
-                set_code = parts[2] if len(parts) > 2 else ""
-                card_number = parts[3] if len(parts) > 3 else ""
-
-                # Extract count and name from spans
-                count_el = link.find("span", class_="card-count")
-                name_el = link.find("span", class_="card-name")
-
-                count = 1
-                if count_el:
-                    try:
-                        count = int(count_el.get_text(strip=True))
-                    except ValueError:
-                        pass
-
-                name = name_el.get_text(strip=True) if name_el else link.get_text(strip=True)
-                if not name:
-                    continue
-
-                cards.append(
-                    {
-                        "count": count,
-                        "name": name,
-                        "set_code": set_code,
-                        "card_number": card_number,
-                        "card_id": f"{set_code}-{card_number}"
-                        if set_code and card_number
-                        else name,
-                    }
-                )
+        cards = parse_card_links(soup, decklist_url)
 
         # Strategy 2: Text format fallback
         if not cards:
+            logger.info(
+                "No card-link elements found in %s, falling back to text parsing", decklist_url
+            )
             text = soup.get_text("\n")
             for line in text.split("\n"):
                 line = line.strip()
                 if not line:
                     continue
 
-                match = _DECKLIST_LINE_RE.match(line)
+                match = DECKLIST_LINE_RE.match(line)
                 if match:
                     count = int(match.group(1))
                     name = match.group(2).strip()
@@ -497,54 +395,11 @@ class LimitlessClient:
     def _extract_archetype_and_sprites(
         link_tag: Tag,
     ) -> tuple[str, list[str]]:
-        """Extract archetype name and sprite URLs from a deck link tag.
-
-        Looks for <img> tags inside the link and extracts Pokemon names from
-        the alt attribute or from the filename in the src attribute.
-
-        Args:
-            link_tag: A BeautifulSoup Tag (typically an <a> element).
-
-        Returns:
-            Tuple of (archetype_string, list_of_sprite_urls).
-        """
-        sprite_urls: list[str] = []
-        names: list[str] = []
-
-        imgs = link_tag.find_all("img") if link_tag else []
-        for img in imgs:
-            src = img.get("src", "")
-            alt = img.get("alt", "")
-
-            if src:
-                sprite_urls.append(src)
-
-            # Prefer alt text for the name
-            if alt and alt.strip():
-                names.append(alt.strip())
-            elif src:
-                # Extract name from filename
-                filename_match = re.search(r"/([a-zA-Z0-9_-]+)\.png", src)
-                if filename_match:
-                    raw = filename_match.group(1).replace("_", " ").replace("-", " ")
-                    names.append(raw.title())
-
-        archetype = " / ".join(names) if names else ""
-        return archetype, sprite_urls
-
-    # ------------------------------------------------------------------
-    # Cleanup
-    # ------------------------------------------------------------------
-
-    def close(self) -> None:
-        """Close the underlying HTTP client."""
-        self._client.close()
+        """Extract archetype name and sprite URLs from a deck link tag."""
+        return extract_sprites(link_tag, join_sep=" / ")
 
     def __enter__(self) -> "LimitlessClient":
         return self
-
-    def __exit__(self, *args: Any) -> None:
-        self.close()
 
 
 def match_archetype_labels(

@@ -173,11 +173,22 @@ CORE_INCLUSION_RATE = 0.75
 CORE_AVG_COPIES_POKEMON = 3
 CORE_AVG_COPIES_OTHER = 2  # Trainers and Energy
 
-# Scraping
+# Scraping — JP City League (limitlesstcg.com)
 LIMITLESS_BASE_URL = "https://limitlesstcg.com"
 LIMITLESS_REQUESTS_PER_MINUTE = 25
 LIMITLESS_TIMEOUT = 30.0
 LIMITLESS_MAX_RETRIES = 3
+
+# Scraping — Labs Limitless (international tournament data)
+LABS_BASE_URL = "https://limitlesstcg.com"  # Main site for metadata + decklists; Labs standings use labs.limitlesstcg.com
+LABS_REQUESTS_PER_MINUTE = 20
+LABS_TIMEOUT = 30.0
+LABS_MAX_RETRIES = 3
+
+# Labs matchup analysis thresholds
+LABS_MIN_MATCHES_TO_PUBLISH = 30  # Minimum H2H matches for credible win rate
+LABS_MIN_ENCOUNTERS_TO_PUBLISH = 5  # Minimum weighted encounters for record-based fallback
+LABS_CI_Z = 1.96  # z-score for 95% confidence interval (used in Wilson and Wald CIs)
 
 # Pokemon JP API: City League event_type values (3:N = City League Season N)
 # Each season maps to a different competitive period within the championship year.
