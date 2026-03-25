@@ -89,7 +89,7 @@ function CardRow({ card, isCore, format }: { card: ArchetypeCard; isCore: boolea
           <CardLink
             name={card.card_name}
             format={format}
-            className={`text-sm truncate ${isCore ? "text-slate-200 hover:text-accent" : "text-slate-400 hover:text-accent"} transition-colors`}
+            className={`text-sm truncate ${isCore ? "text-slate-200" : "text-slate-400"} hover:text-accent transition-colors`}
           />
         </div>
         <span className={`text-xs font-mono ml-3 shrink-0 tabular-nums ${

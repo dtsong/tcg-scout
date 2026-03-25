@@ -34,6 +34,13 @@ export function BuylistClient({
   const [staples, setStaples] = useState(initialStaples);
   const [flex, setFlex] = useState(initialFlex);
 
+  const cardNameColumn = {
+    key: "card_name" as const,
+    header: "Card",
+    render: (c: { card_name: string }) => <CardLink name={c.card_name} format={format} className="text-slate-200 hover:text-accent transition-colors" />,
+    sortValue: (c: { card_name: string }) => c.card_name,
+  };
+
   const fetchWindowData = useCallback(
     async (window: TimeWindow) => {
       if (window === "all" || window === "custom") {
@@ -115,12 +122,7 @@ export function BuylistClient({
               searchKey={(c) => c.card_name}
               searchPlaceholder="Search cards..."
               columns={[
-                {
-                  key: "card_name",
-                  header: "Card",
-                  render: (c) => <CardLink name={c.card_name} format={format} className="text-slate-200 hover:text-accent transition-colors" />,
-                  sortValue: (c) => c.card_name,
-                },
+                cardNameColumn,
                 {
                   key: "buy",
                   header: "",

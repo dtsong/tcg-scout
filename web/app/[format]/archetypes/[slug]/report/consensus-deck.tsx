@@ -20,13 +20,13 @@ function ConsensusCardRow({ card, format }: { card: ConsensusCard; format: strin
           <CardLink
             name={card.card_name}
             format={format}
-            className={`text-sm truncate ${
+            className={`text-sm truncate hover:text-accent transition-colors ${
               isCore
-                ? "text-slate-100 font-medium hover:text-accent"
+                ? "text-slate-100 font-medium"
                 : isCommon
-                  ? "text-slate-300 hover:text-accent"
-                  : "text-slate-500 italic hover:text-accent"
-            } transition-colors`}
+                  ? "text-slate-300"
+                  : "text-slate-500 italic"
+            }`}
           />
         </div>
         <div className="flex items-center gap-2 ml-2 shrink-0">
