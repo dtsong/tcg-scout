@@ -9,6 +9,7 @@ import { useDateFilter, fetchWindowedData } from "@/app/components/date-filter-p
 import { ExternalLink } from "lucide-react";
 import { formatPct } from "@/app/lib/utils";
 import { cn } from "@/app/lib/utils";
+import { CardLink } from "@/app/components/card-link";
 import type { BuylistCard, StapleCard, TimeWindow } from "@/app/lib/types";
 
 const tabs = ["Full List", "Staples", "Flex"] as const;
@@ -117,7 +118,7 @@ export function BuylistClient({
                 {
                   key: "card_name",
                   header: "Card",
-                  render: (c) => <span className="text-slate-200">{c.card_name}</span>,
+                  render: (c) => <CardLink name={c.card_name} format={format} className="text-slate-200 hover:text-accent transition-colors" />,
                   sortValue: (c) => c.card_name,
                 },
                 {
@@ -200,7 +201,7 @@ export function BuylistClient({
               {
                 key: "card_name",
                 header: "Card",
-                render: (c) => <span className="text-slate-200">{c.card_name}</span>,
+                render: (c) => <CardLink name={c.card_name} format={format} className="text-slate-200 hover:text-accent transition-colors" />,
                 sortValue: (c) => c.card_name,
               },
               {
@@ -252,7 +253,7 @@ export function BuylistClient({
               {
                 key: "card_name",
                 header: "Card",
-                render: (c) => <span className="text-slate-200">{c.card_name}</span>,
+                render: (c) => <CardLink name={c.card_name} format={format} className="text-slate-200 hover:text-accent transition-colors" />,
                 sortValue: (c) => c.card_name,
               },
               {
