@@ -19,7 +19,7 @@ export function CardLink({
   return (
     <Link
       href={`/${format}/cards/${slugify(name)}`}
-      className={cn("hover:text-accent transition-colors", className)}
+      className={cn(className, "hover:text-accent transition-colors")}
       onClick={(e) => e.stopPropagation()}
     >
       {name}

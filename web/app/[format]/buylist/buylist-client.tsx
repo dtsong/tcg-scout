@@ -7,8 +7,7 @@ import { DataTable } from "@/app/components/data-table";
 import { DateFilter } from "@/app/components/date-filter";
 import { useDateFilter, fetchWindowedData } from "@/app/components/date-filter-provider";
 import { ExternalLink } from "lucide-react";
-import { formatPct } from "@/app/lib/utils";
-import { cn } from "@/app/lib/utils";
+import { formatPct, cn } from "@/app/lib/utils";
 import { CardLink } from "@/app/components/card-link";
 import type { BuylistCard, StapleCard, TimeWindow } from "@/app/lib/types";
 
