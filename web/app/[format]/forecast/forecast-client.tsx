@@ -349,7 +349,7 @@ export function ForecastClient({
                         )}
                       </td>
                       <td className="px-4 py-3 text-slate-200">
-                        <CardLink name={card.card_name} format={format} className="text-slate-200 hover:text-accent transition-colors" />
+                        <CardLink name={card.card_name} format={format} className="text-slate-200" />
                       </td>
                       <td className="px-4 py-3 text-right font-mono tabular-nums text-surface-300">
                         {card.current_adoption_pct.toFixed(1)}%

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { slugify } from "@/app/lib/utils";
+import { cn } from "@/app/lib/utils";
 
 // Links a card name to its detail page at /{format}/cards/{slug}.
 // Assumes the target page exists (card is in the card index export).
@@ -19,7 +20,7 @@ export function CardLink({
   return (
     <Link
       href={`/${format}/cards/${slugify(name)}`}
-      className={className ?? "hover:text-accent transition-colors"}
+      className={cn("hover:text-accent transition-colors", className)}
       onClick={(e) => e.stopPropagation()}
     >
       {name}

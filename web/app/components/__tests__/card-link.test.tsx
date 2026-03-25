@@ -12,16 +12,18 @@ describe("CardLink", () => {
     expect(link).toHaveAttribute("href", "/nihil-zero/cards/boss-s-orders");
   });
 
-  it("applies default className when none provided", () => {
+  it("always includes hover and transition classes", () => {
     render(<CardLink name="Rare Candy" format="ninja-spinner" />);
     const link = screen.getByRole("link", { name: "Rare Candy" });
     expect(link.className).toContain("hover:text-accent");
+    expect(link.className).toContain("transition-colors");
   });
 
-  it("applies custom className when provided", () => {
-    render(<CardLink name="Prime Catcher" format="nihil-zero" className="text-slate-200 hover:text-accent" />);
+  it("merges custom className with base hover classes", () => {
+    render(<CardLink name="Prime Catcher" format="nihil-zero" className="text-slate-200" />);
     const link = screen.getByRole("link", { name: "Prime Catcher" });
     expect(link.className).toContain("text-slate-200");
+    expect(link.className).toContain("hover:text-accent");
   });
 
   it("stops event propagation on click", async () => {

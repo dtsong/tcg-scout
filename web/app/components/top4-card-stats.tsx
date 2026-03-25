@@ -175,7 +175,7 @@ function TopCardRow({
             <span className="font-mono text-xs w-7 h-6 flex items-center justify-center rounded bg-surface-700 text-slate-300 shrink-0 tabular-nums">
               {copies}
             </span>
-            <CardLink name={card.card_name} format={format} className="text-sm text-slate-300 hover:text-accent transition-colors truncate" />
+            <CardLink name={card.card_name} format={format} className="text-sm text-slate-300 truncate" />
           </div>
           <div className="flex items-center gap-3 shrink-0">
             <span className="text-xs font-mono text-surface-400 tabular-nums w-10 text-right">

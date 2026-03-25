@@ -172,8 +172,8 @@ describe("NotableTechs", () => {
   it("renders tech events", () => {
     render(<NotableTechs techs={techs} format="nihil-zero" />);
 
-    expect(screen.getByText("Solrock")).toBeDefined();
-    expect(screen.getByText("Old Card")).toBeDefined();
+    expect(screen.getByRole("link", { name: "Solrock" })).toHaveAttribute("href", "/nihil-zero/cards/solrock");
+    expect(screen.getByRole("link", { name: "Old Card" })).toHaveAttribute("href", "/nihil-zero/cards/old-card");
   });
 
   it("shows event badges", () => {

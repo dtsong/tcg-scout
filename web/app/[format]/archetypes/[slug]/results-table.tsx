@@ -32,7 +32,7 @@ function DecklistView({ decklist, format }: { decklist: DecklistCard[]; format: 
                   key={card.card_name}
                   className="flex items-baseline justify-between text-sm"
                 >
-                  <CardLink name={card.card_name} format={format} className="text-surface-200 hover:text-accent transition-colors truncate mr-2" />
+                  <CardLink name={card.card_name} format={format} className="text-surface-200 truncate mr-2" />
                   <span className="text-surface-400 font-mono tabular-nums shrink-0">
                     x{card.count}
                   </span>

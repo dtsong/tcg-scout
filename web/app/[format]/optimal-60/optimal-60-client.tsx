@@ -88,7 +88,7 @@ function Optimal60CardRow({ card, format }: { card: Optimal60Card; format: strin
           <span className="font-mono text-xs w-6 h-5 flex items-center justify-center rounded bg-surface-700 text-slate-300 shrink-0 tabular-nums">
             {card.count}
           </span>
-          <CardLink name={card.card_name} format={format} className={cn("text-sm truncate hover:text-accent transition-colors", config.cardText)} />
+          <CardLink name={card.card_name} format={format} className={cn("text-sm truncate", config.cardText)} />
         </div>
         <div className="flex items-center gap-1.5 ml-2 shrink-0">
           {showDelta && (

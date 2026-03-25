@@ -37,7 +37,7 @@ export function BuylistClient({
   const cardNameColumn = {
     key: "card_name" as const,
     header: "Card",
-    render: (c: { card_name: string }) => <CardLink name={c.card_name} format={format} className="text-slate-200 hover:text-accent transition-colors" />,
+    render: (c: { card_name: string }) => <CardLink name={c.card_name} format={format} className="text-slate-200" />,
     sortValue: (c: { card_name: string }) => c.card_name,
   };
 
@@ -200,12 +200,7 @@ export function BuylistClient({
             searchKey={(c) => c.card_name}
             searchPlaceholder="Search staples..."
             columns={[
-              {
-                key: "card_name",
-                header: "Card",
-                render: (c) => <CardLink name={c.card_name} format={format} className="text-slate-200 hover:text-accent transition-colors" />,
-                sortValue: (c) => c.card_name,
-              },
+              cardNameColumn,
               {
                 key: "usage_pct",
                 header: "Usage",
@@ -252,12 +247,7 @@ export function BuylistClient({
             searchKey={(c) => c.card_name}
             searchPlaceholder="Search flex cards..."
             columns={[
-              {
-                key: "card_name",
-                header: "Card",
-                render: (c) => <CardLink name={c.card_name} format={format} className="text-slate-200 hover:text-accent transition-colors" />,
-                sortValue: (c) => c.card_name,
-              },
+              cardNameColumn,
               {
                 key: "usage_pct",
                 header: "Usage",

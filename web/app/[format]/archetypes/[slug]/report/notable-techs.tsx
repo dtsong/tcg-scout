@@ -36,7 +36,7 @@ export function NotableTechs({ techs, format }: { techs: NotableTech[]; format: 
             {/* Content */}
             <div className="flex-1 min-w-0 pb-2">
               <div className="flex items-center gap-2 flex-wrap">
-                <CardLink name={tech.card_name} format={format} className="text-sm font-medium text-slate-200 hover:text-accent transition-colors" />
+                <CardLink name={tech.card_name} format={format} className="text-sm font-medium text-slate-200" />
                 <span className={`text-[10px] px-1.5 py-0.5 rounded-full ${style.bg} ${style.text}`}>
                   {style.label}
                 </span>
