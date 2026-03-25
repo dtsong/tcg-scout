@@ -164,8 +164,8 @@ export function DataTable<T>({
             {paged.map((row, i) => (
               <tr
                 key={i}
-                className="border-b border-surface-700 hover:bg-surface-700/50 transition-colors animate-row-reveal"
-                style={{ animationDelay: `${Math.min(i, 30) * 20}ms` }}
+                className={`border-b border-surface-700 hover:bg-surface-700/50 transition-colors duration-[var(--duration-fast)] ${i < 20 ? "animate-stagger" : ""}`}
+                style={i < 20 ? { "--index": i } as React.CSSProperties : undefined}
               >
                 {columns.map((col) => (
                   <td

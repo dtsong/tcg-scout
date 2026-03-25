@@ -42,7 +42,7 @@ export function TierBadge({ tier, className }: { tier: Tier; className?: string 
   return (
     <span
       className={cn(
-        "inline-flex items-center justify-center w-7 h-7 text-xs font-bold font-display rounded-full ring-1",
+        "inline-flex items-center justify-center w-7 h-7 text-xs font-bold font-display rounded-full ring-1 transition-transform duration-[var(--duration-fast)] hover:scale-105",
         config.bg,
         config.ring,
         config.text,

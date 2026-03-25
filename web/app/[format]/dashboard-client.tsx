@@ -26,6 +26,18 @@ interface DashboardClientProps {
   crossMetaStaples?: CrossMetaStaple[];
 }
 
+const tierGlowColors: Record<string, string> = {
+  S: "var(--color-tier-s)",
+  A: "var(--color-tier-a)",
+};
+
+const tierBorderColors: Record<string, string> = {
+  s: "border-l-tier-s",
+  a: "border-l-tier-a",
+  b: "border-l-tier-b",
+  rogue: "border-l-tier-rogue",
+};
+
 export function DashboardClient({
   format,
   formatStatus,
@@ -59,18 +71,39 @@ export function DashboardClient({
       setLoading(true);
       const suffix = window === "7d" ? "-7d" : "-30d";
 
-      const [newMeta, newTrends, newEdge, newSpecs] = await Promise.all([
-        fetchWindowedData<MetaData>(format, "meta.json", suffix),
-        fetchWindowedData<TrendsData>(format, "trends.json", suffix),
-        fetchWindowedData<WinningEdgeCard[]>(format, "winning-edge.json", suffix),
-        fetchWindowedData<AceSpec[]>(format, "ace-specs.json", suffix),
-      ]);
+      try {
+        const [newMeta, newTrends, newEdge, newSpecs] = await Promise.all([
+          fetchWindowedData<MetaData>(format, "meta.json", suffix),
+          fetchWindowedData<TrendsData>(format, "trends.json", suffix),
+          fetchWindowedData<WinningEdgeCard[]>(format, "winning-edge.json", suffix),
+          fetchWindowedData<AceSpec[]>(format, "ace-specs.json", suffix),
+        ]);
 
-      if (newMeta) setMeta(newMeta);
-      if (newTrends) setTrends(newTrends);
-      if (newEdge) setWinningEdge(newEdge);
-      if (newSpecs) setAceSpecs(newSpecs);
-      setLoading(false);
+        if (!newMeta || !newTrends || !newEdge || !newSpecs) {
+          // Any fetch returned null -- reset all to avoid mixed-window data
+          console.warn("[dashboard] Partial windowed data failure, resetting to initial");
+          setMeta(initialMeta);
+          setTrends(initialTrends);
+          setWinningEdge(initialWinningEdge);
+          setAceSpecs(initialAceSpecs);
+          setWindow("all");
+          return;
+        }
+
+        setMeta(newMeta);
+        setTrends(newTrends);
+        setWinningEdge(newEdge);
+        setAceSpecs(newSpecs);
+      } catch (err) {
+        console.error("[dashboard] Failed to load windowed data:", err);
+        setMeta(initialMeta);
+        setTrends(initialTrends);
+        setWinningEdge(initialWinningEdge);
+        setAceSpecs(initialAceSpecs);
+        setWindow("all");
+      } finally {
+        setLoading(false);
+      }
     },
     [format, initialMeta, initialTrends, initialWinningEdge, initialAceSpecs],
   );
@@ -90,6 +123,7 @@ export function DashboardClient({
   const topArchetypes = meta.archetypes.filter((a) =>
     ["S", "A", "B"].includes(a.tier),
   );
+
   const surgingCards = (trends.surging || []).slice(0, 5);
   const decliningCards = (trends.declining || []).slice(0, 5);
   const topEdge = winningEdge.slice(0, 5);
@@ -99,7 +133,7 @@ export function DashboardClient({
   return (
     <div className="space-y-6">
       {/* Hero + Stats + Date Filter */}
-      <section className="relative rounded-lg bg-surface-800 border border-surface-600 p-5 sm:p-6 scanline-overlay">
+      <section className="relative rounded-md bg-surface-800 border border-surface-600 p-5 sm:p-6 scanline-overlay">
         <div className="relative">
           <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
             <p className="text-sm text-surface-300 max-w-xl">
@@ -161,7 +195,7 @@ export function DashboardClient({
         {/* Quick Insights Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {/* Surging Cards */}
-          <section className="bg-surface-800 border border-surface-600 rounded-lg p-5">
+          <section className="animate-stagger bg-surface-800 border border-surface-600 rounded-md p-5" style={{ "--index": 0 } as React.CSSProperties}>
             <div className="flex items-center justify-between mb-4">
               <h3 className="font-display text-sm font-semibold text-slate-200 flex items-center gap-2">
                 <TrendingUp className="w-4 h-4 text-signal-up" />
@@ -188,7 +222,7 @@ export function DashboardClient({
           </section>
 
           {/* Declining Cards */}
-          <section className="bg-surface-800 border border-surface-600 rounded-lg p-5">
+          <section className="animate-stagger bg-surface-800 border border-surface-600 rounded-md p-5" style={{ "--index": 1 } as React.CSSProperties}>
             <div className="flex items-center justify-between mb-4">
               <h3 className="font-display text-sm font-semibold text-slate-200 flex items-center gap-2">
                 <TrendingDown className="w-4 h-4 text-signal-down" />
@@ -215,7 +249,7 @@ export function DashboardClient({
           </section>
 
           {/* Winning Edge */}
-          <section className="bg-surface-800 border border-surface-600 rounded-lg p-5">
+          <section className="animate-stagger bg-surface-800 border border-surface-600 rounded-md p-5" style={{ "--index": 2 } as React.CSSProperties}>
             <div className="flex items-center justify-between mb-4">
               <h3 className="font-display text-sm font-semibold text-slate-200 flex items-center gap-2">
                 <Trophy className="w-4 h-4 text-tier-s" />
@@ -242,7 +276,7 @@ export function DashboardClient({
           </section>
 
           {/* ACE SPEC Distribution */}
-          <section className="bg-surface-800 border border-surface-600 rounded-lg p-5">
+          <section className="animate-stagger bg-surface-800 border border-surface-600 rounded-md p-5" style={{ "--index": 3 } as React.CSSProperties}>
             <div className="flex items-center justify-between mb-4">
               <h3 className="font-display text-sm font-semibold text-slate-200 flex items-center gap-2">
                 <ShoppingCart className="w-4 h-4 text-tier-rogue" />
@@ -303,7 +337,7 @@ export function DashboardClient({
         {/* Biggest Copy-Count Shifts */}
         {metaEvolution.length > 0 && (
           <div className="mt-6">
-            <section className="bg-surface-800 border border-surface-600 rounded-lg p-5">
+            <section className="bg-surface-800 border border-surface-600 rounded-md p-5">
               <div className="flex items-center justify-between mb-4">
                 <h3 className="font-display text-sm font-semibold text-slate-200 flex items-center gap-2">
                   <Zap className="w-4 h-4 text-amber-400" />
@@ -358,7 +392,7 @@ export function DashboardClient({
               View all <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>
-          <div className="bg-surface-800 border border-surface-600 rounded-lg overflow-hidden">
+          <div className="bg-surface-800 border border-surface-600 rounded-md overflow-hidden">
             <table className="w-full text-sm">
               <thead>
                 <tr className="border-b border-surface-600 text-[11px] text-surface-300 uppercase tracking-wider">
@@ -369,11 +403,17 @@ export function DashboardClient({
                 </tr>
               </thead>
               <tbody>
-                {topArchetypes.map((arch, i) => (
+                {topArchetypes.map((arch, i) => {
+                  const tierKey = arch.tier.toLowerCase() === "rogue" ? "rogue" : arch.tier.toLowerCase();
+                  const glowColor = tierGlowColors[arch.tier];
+                  return (
                   <tr
                     key={arch.slug}
-                    className="border-b border-surface-700 hover:bg-surface-700/50 transition-colors animate-row-reveal"
-                    style={{ animationDelay: `${i * 20}ms` }}
+                    className={`border-b border-surface-700 hover:bg-surface-700/50 transition-colors border-l-[3px] ${tierBorderColors[tierKey] ?? ""} ${i < 20 ? "animate-stagger" : ""} ${glowColor ? "tier-glow" : ""}`}
+                    style={{
+                      ...(i < 20 ? { "--index": i } : {}),
+                      ...(glowColor ? { "--tier-glow-color": glowColor } : {}),
+                    } as React.CSSProperties}
                   >
                     <td className="px-3 py-2">
                       <TierBadge tier={arch.tier} />
@@ -394,7 +434,8 @@ export function DashboardClient({
                       {arch.deck_count}
                     </td>
                   </tr>
-                ))}
+                  );
+                })}
               </tbody>
             </table>
           </div>
@@ -408,11 +449,12 @@ export function DashboardClient({
           { href: `/${format}/buylist`, title: "Buy List", desc: "Priority acquisition guide" },
           { href: `/${format}/trends`, title: "Trends", desc: "Usage shifts & winning edge" },
           { href: `/${format}/champions`, title: "Champions League", desc: "Top cut decklists" },
-        ].map(({ href, title, desc }) => (
+        ].map(({ href, title, desc }, i) => (
           <Link
             key={href}
             href={href}
-            className="group bg-surface-800 border border-surface-600 rounded-lg p-4 hover:border-surface-400 transition-colors"
+            className="group animate-stagger bg-surface-800 border border-surface-600 rounded-md p-4 hover:border-surface-500 transition-colors"
+            style={{ "--index": i } as React.CSSProperties}
           >
             <h3 className="font-display font-semibold text-slate-200 group-hover:text-accent transition-colors">
               {title}

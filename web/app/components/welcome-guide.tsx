@@ -58,7 +58,7 @@ export function WelcomeGuide() {
   if (!visible) return null;
 
   return (
-    <section className="relative rounded-lg bg-surface-800 border border-accent/20 p-5 sm:p-6">
+    <section className="relative rounded-md bg-surface-800 border border-accent/20 p-5 sm:p-6">
       <button
         onClick={dismiss}
         className="absolute top-3 right-3 p-1 rounded-md text-surface-400 hover:text-slate-200 hover:bg-surface-700 transition-colors"

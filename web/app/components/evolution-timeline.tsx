@@ -23,7 +23,7 @@ export function EvolutionTimeline({
         {evolution.map((event) => (
           <div
             key={event.week}
-            className="bg-surface-800 border border-surface-600 rounded-lg p-4"
+            className="bg-surface-800 border border-surface-600 rounded-md p-4"
           >
             <div className="text-xs font-mono text-surface-400 mb-2">
               Week of {formatWeek(event.week)}

@@ -1,7 +1,9 @@
 import Link from "next/link";
 import { Nav } from "@/app/components/nav";
+import { MetaTicker } from "@/app/components/meta-ticker";
 import { DateFilterProvider } from "@/app/components/date-filter-provider";
 import { getFormats, getMeta, formatHasData } from "@/app/lib/data";
+import { daysUntil } from "@/app/lib/utils";
 import type { FormatInfo } from "@/app/lib/types";
 
 export function generateStaticParams() {
@@ -18,13 +20,24 @@ export default async function FormatLayout({
   const { format } = await params;
 
   const hasData = formatHasData(format);
-  const dateRange = hasData
-    ? getMeta(format).date_range
-    : { start: "2026-01-01", end: "2026-12-31" };
+  const meta = hasData ? getMeta(format) : null;
+  const dateRange = meta?.date_range ?? { start: "2026-01-01", end: "2026-12-31" };
   const formats = getFormats();
+  const rotationDays = meta?.rotation_date
+    ? Math.max(0, daysUntil(meta.rotation_date))
+    : undefined;
 
   return (
     <DateFilterProvider initialDateRange={dateRange}>
+      {meta && (
+        <MetaTicker
+          formatName={meta.format?.name_en ?? format}
+          tournamentCount={meta.tournament_count}
+          deckCount={meta.deck_count}
+          generatedAt={meta.generated_at}
+          rotationDays={rotationDays}
+        />
+      )}
       <Nav format={format} formats={formats} />
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {children}

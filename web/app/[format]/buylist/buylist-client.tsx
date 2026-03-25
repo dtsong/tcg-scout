@@ -108,7 +108,7 @@ export function BuylistClient({
 
       {activeTab === "Full List" && (
         <div className="space-y-4">
-          <div className="bg-surface-800 border border-surface-600 rounded-lg overflow-hidden">
+          <div className="bg-surface-800 border border-surface-600 rounded-md overflow-hidden">
             <DataTable
               data={buylist}
               searchKey={(c) => c.card_name}
@@ -191,7 +191,7 @@ export function BuylistClient({
       )}
 
       {activeTab === "Staples" && (
-        <div className="bg-surface-800 border border-surface-600 rounded-lg overflow-hidden">
+        <div className="bg-surface-800 border border-surface-600 rounded-md overflow-hidden">
           <DataTable
             data={staples}
             searchKey={(c) => c.card_name}
@@ -243,7 +243,7 @@ export function BuylistClient({
       )}
 
       {activeTab === "Flex" && (
-        <div className="bg-surface-800 border border-surface-600 rounded-lg overflow-hidden">
+        <div className="bg-surface-800 border border-surface-600 rounded-md overflow-hidden">
           <DataTable
             data={flex}
             searchKey={(c) => c.card_name}

@@ -112,7 +112,7 @@ function DeckColumn({
 }) {
   if (cards.length === 0) return null;
   return (
-    <div className="bg-surface-800 border border-surface-600 rounded-lg overflow-hidden">
+    <div className="bg-surface-800 border border-surface-600 rounded-md overflow-hidden">
       <div className="px-3 py-2 border-b border-surface-600 flex items-center justify-between">
         <h3 className="text-xs font-semibold text-surface-300 uppercase tracking-wider">
           {title}
@@ -215,7 +215,7 @@ export default async function ArchetypeDetailPage({
         </h2>
         <p className="text-xs text-surface-400 mb-4">
           Averaged across {arch.deck_count} {arch.deck_count === 1 ? "deck" : "decks"}.
-          Bold = core (80%+), dimmed = flex.
+          Bold = core (75%+), dimmed = flex.
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <DeckColumn

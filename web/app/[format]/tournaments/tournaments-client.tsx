@@ -315,7 +315,16 @@ export function TournamentsClient({
           "city-league-index.json",
           suffix,
         );
-        if (newIndex) setIndex(newIndex);
+        if (newIndex) {
+          setIndex(newIndex);
+        } else {
+          setIndex(initialIndex);
+          setWindow("all");
+        }
+      } catch (err) {
+        console.error("[tournaments] Failed to load windowed data:", err);
+        setIndex(initialIndex);
+        setWindow("all");
       } finally {
         setLoading(false);
       }
@@ -348,7 +357,7 @@ export function TournamentsClient({
   return (
     <div className="space-y-6">
       {/* Hero header */}
-      <section className="relative rounded-lg bg-surface-800 border border-surface-600 p-5 sm:p-6 scanline-overlay">
+      <section className="relative rounded-md bg-surface-800 border border-surface-600 p-5 sm:p-6 scanline-overlay">
         <div className="relative">
           <h1 className="font-display text-2xl font-bold text-slate-100">
             Tournaments
@@ -411,7 +420,7 @@ export function TournamentsClient({
             <Link
               key={arch.slug}
               href={`/${format}/archetypes/${arch.slug}`}
-              className="flex items-center gap-2 px-3 py-2 rounded-lg bg-surface-800 border border-surface-600 hover:border-surface-500 transition-colors"
+              className="flex items-center gap-2 px-3 py-2 rounded-md bg-surface-800 border border-surface-600 hover:border-surface-500 transition-colors"
             >
               {arch.sprite_filenames && arch.sprite_filenames.length > 0 && (
                 <SpriteRow filenames={arch.sprite_filenames} size={20} />
@@ -439,7 +448,7 @@ export function TournamentsClient({
           loading && "opacity-50 pointer-events-none",
         )}
       >
-        <div className="rounded-lg bg-surface-800 border border-surface-600 overflow-hidden">
+        <div className="rounded-md bg-surface-800 border border-surface-600 overflow-hidden">
           {/* Column headers (desktop) */}
           <div className="hidden sm:flex items-center gap-3 px-4 py-2 border-b border-surface-600 text-xs text-surface-400 uppercase tracking-wider font-semibold">
             <div className="w-4" />

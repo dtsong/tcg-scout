@@ -11,7 +11,6 @@ COLUMNS = [
     "set_code",
     "set_number",
     "priority_score",
-    "urgency",
     "core_flex",
     "archetypes",
     "avg_copies",

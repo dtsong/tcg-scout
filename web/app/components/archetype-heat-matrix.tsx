@@ -57,7 +57,10 @@ export function ArchetypeHeatMatrix({
         {data.archetypes.map((arch, j) => (
           <div
             key={`h-${j}`}
-            className="flex items-end justify-center pb-1"
+            className={cn(
+              "flex items-end justify-center pb-1 transition-opacity duration-[var(--duration-fast)]",
+              hovered !== null && hovered.col !== j ? "opacity-30" : "opacity-100",
+            )}
             title={arch.archetype}
           >
             <SpriteRow filenames={arch.sprite_filenames?.slice(0, 1) ?? []} size={16} />
@@ -68,7 +71,10 @@ export function ArchetypeHeatMatrix({
         {data.archetypes.map((rowArch, i) => (
           <Fragment key={i}>
             <div
-              className="flex items-center gap-1.5 pr-2 h-9"
+              className={cn(
+                "flex items-center gap-1.5 pr-2 h-9 transition-opacity duration-[var(--duration-fast)]",
+                hovered !== null && hovered.row !== i ? "opacity-30" : "opacity-100",
+              )}
             >
               <SpriteRow filenames={rowArch.sprite_filenames?.slice(0, 1) ?? []} size={16} />
               <a
@@ -82,13 +88,18 @@ export function ArchetypeHeatMatrix({
             {data.archetypes.map((colArch, j) => {
               const value = data.matrix[i][j];
               const isDiag = i === j;
-              const isHovered = hovered?.row === i || hovered?.col === j;
+              const isInCrosshair = hovered?.row === i || hovered?.col === j;
+              const isDimmed = hovered !== null && !isInCrosshair;
+              const isTarget = hovered?.row === i && hovered?.col === j;
               const cell = (
                 <div
                   className={cn(
-                    "h-9 w-9 flex items-center justify-center text-[9px] font-mono tabular-nums transition-opacity",
+                    "h-9 w-9 flex items-center justify-center text-[9px] font-mono tabular-nums",
+                    "transition-opacity duration-[var(--duration-fast)]",
                     cellColor(value, isDiag),
-                    isHovered && !isDiag ? "ring-1 ring-blue-400/40" : "",
+                    isTarget && !isDiag ? "ring-1 ring-terminal/60" : "",
+                    isInCrosshair && !isDiag && !isTarget ? "ring-1 ring-blue-400/30" : "",
+                    isDimmed ? "opacity-30" : "opacity-100",
                     isDiag ? "text-surface-400" : value > 0 ? "text-slate-300" : "text-surface-500",
                   )}
                   onMouseEnter={() => setHovered({ row: i, col: j })}

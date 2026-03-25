@@ -98,7 +98,7 @@ export function ReportClient({
       {hasOptimal60 && (
         <Link
           href={`/${format}/optimal-60`}
-          className="flex items-center gap-3 p-4 bg-teal-500/5 border border-teal-500/20 rounded-lg hover:bg-teal-500/10 transition-colors"
+          className="flex items-center gap-3 p-4 bg-teal-500/5 border border-teal-500/20 rounded-md hover:bg-teal-500/10 transition-colors"
         >
           <span className="text-teal-400 text-sm font-medium">
             Optimal 60 Available
@@ -140,7 +140,7 @@ export function ReportClient({
           <p className="text-xs text-surface-400 mb-4">
             Biggest card adoption and drop events in the timeline.
           </p>
-          <div className="bg-surface-800 border border-surface-600 rounded-lg p-4">
+          <div className="bg-surface-800 border border-surface-600 rounded-md p-4">
             <NotableTechs techs={report.notable_techs} />
           </div>
         </section>
@@ -162,7 +162,7 @@ export function ReportClient({
               value={formatPct(report.weighted_share)}
             />
           </div>
-          <div className="bg-surface-800 border border-surface-600 rounded-lg p-4">
+          <div className="bg-surface-800 border border-surface-600 rounded-md p-4">
             <PlacementDistribution brackets={report.placement_distribution} />
           </div>
         </section>

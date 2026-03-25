@@ -46,7 +46,10 @@ export function MatchupHeatMatrix({ data }: { data: MatchupMatrixData }) {
         {data.archetypes.map((name, j) => (
           <div
             key={`h-${j}`}
-            className="flex items-end justify-center pb-1"
+            className={cn(
+              "flex items-end justify-center pb-1 transition-opacity duration-[var(--duration-fast)]",
+              hovered !== null && hovered.col !== j ? "opacity-30" : "opacity-100",
+            )}
             title={name}
           >
             <span className="text-[8px] text-surface-400 writing-vertical"
@@ -61,7 +64,10 @@ export function MatchupHeatMatrix({ data }: { data: MatchupMatrixData }) {
         {data.archetypes.map((rowName, i) => (
           <Fragment key={i}>
             <div
-              className="flex items-center pr-2 h-10"
+              className={cn(
+                "flex items-center pr-2 h-10 transition-opacity duration-[var(--duration-fast)]",
+                hovered !== null && hovered.row !== i ? "opacity-30" : "opacity-100",
+              )}
             >
               <span
                 className="text-[10px] text-surface-300 truncate max-w-[110px]"
@@ -74,14 +80,19 @@ export function MatchupHeatMatrix({ data }: { data: MatchupMatrixData }) {
               const value = data.matrix[i][j];
               const samples = data.sample_sizes[i][j];
               const isDiag = i === j;
-              const isHovered = hovered?.row === i || hovered?.col === j;
+              const isInCrosshair = hovered?.row === i || hovered?.col === j;
+              const isDimmed = hovered !== null && !isInCrosshair;
+              const isTarget = hovered?.row === i && hovered?.col === j;
               const text = isDiag ? "-" : cellText(value, samples);
               const cell = (
                 <div
                   className={cn(
-                    "h-10 w-10 flex items-center justify-center text-[9px] font-mono tabular-nums transition-opacity",
+                    "h-10 w-10 flex items-center justify-center text-[9px] font-mono tabular-nums",
+                    "transition-opacity duration-[var(--duration-fast)]",
                     isDiag ? "bg-surface-600" : cellColor(value),
-                    isHovered && !isDiag ? "ring-1 ring-surface-400/40" : "",
+                    isTarget && !isDiag ? "ring-1 ring-terminal/60" : "",
+                    isInCrosshair && !isDiag && !isTarget ? "ring-1 ring-surface-400/30" : "",
+                    isDimmed ? "opacity-30" : "opacity-100",
                     isDiag
                       ? "text-surface-400"
                       : value > 0

@@ -86,7 +86,7 @@ export function TechEvolutionChart({
           );
         })}
       </div>
-      <div className="bg-surface-800 border border-surface-600 rounded-lg p-4">
+      <div className="bg-surface-800 border border-surface-600 rounded-md p-4">
         <div className="h-64">
           <ResponsiveContainer width="100%" height="100%">
             <LineChart data={data} margin={{ top: 4, right: 4, bottom: 4, left: 4 }}>

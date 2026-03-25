@@ -291,7 +291,7 @@ export function GuideContent({ format }: { format: string }) {
               <div
                 key={section.id}
                 id={section.id}
-                className="bg-surface-800 border border-surface-600 rounded-lg overflow-hidden"
+                className="bg-surface-800 border border-surface-600 rounded-md overflow-hidden"
               >
                 <button
                   onClick={() => toggleSection(section.id)}

@@ -283,4 +283,3 @@ export function getCityLeagueIndex(format: string): CityLeagueIndex | null {
     throw err;
   }
 }
-

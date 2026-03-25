@@ -82,7 +82,6 @@ def generate_buylist(conn: sqlite3.Connection, snapshot_id: int) -> list[dict]:
             "card_name": None,
             "card_id": None,
             "archetypes": [],
-            "archetype_tiers": [],
             "priority_score": 0.0,
             "core_in_any": False,
             "max_inclusion_rate": 0.0,
@@ -162,7 +161,6 @@ def generate_buylist(conn: sqlite3.Connection, snapshot_id: int) -> list[dict]:
             entry["card_name"] = stats["card_name"]
             entry["card_id"] = stats["card_id"]
             entry["archetypes"].append(archetype)
-            entry["archetype_tiers"].append(tier)
             entry["priority_score"] += avg_copies * tier_weight
             entry["max_inclusion_rate"] = max(entry["max_inclusion_rate"], inclusion_rate)
             entry["max_avg_copies"] = max(entry["max_avg_copies"], avg_copies)
@@ -194,19 +192,6 @@ def generate_buylist(conn: sqlite3.Connection, snapshot_id: int) -> list[dict]:
             set_number = None
 
         core_flex = "core" if entry["core_in_any"] else "flex"
-        archetype_count = len(entry["archetypes"])
-        sa_tiers = {"S", "A"}
-        sa_core_count = sum(1 for t in entry["archetype_tiers"] if t in sa_tiers)
-
-        # Step 8: Urgency labels
-        if core_flex == "core" and sa_core_count >= 2:
-            urgency = "URGENT"
-        elif core_flex == "core" and sa_core_count >= 1:
-            urgency = "HIGH"
-        elif archetype_count >= 3:
-            urgency = "HIGH"
-        else:
-            urgency = "MODERATE"
 
         results.append(
             {
@@ -215,7 +200,6 @@ def generate_buylist(conn: sqlite3.Connection, snapshot_id: int) -> list[dict]:
                 "set_code": set_code,
                 "set_number": set_number,
                 "priority_score": round(entry["priority_score"], 1),
-                "urgency": urgency,
                 "core_flex": core_flex,
                 "archetypes": entry["archetypes"],
                 "avg_copies": round(entry["max_avg_copies"], 1),
@@ -223,7 +207,7 @@ def generate_buylist(conn: sqlite3.Connection, snapshot_id: int) -> list[dict]:
             }
         )
 
-    # Step 9: Sort by priority_score descending
+    # Step 8: Sort by priority_score descending
     results.sort(key=lambda x: x["priority_score"], reverse=True)
 
     logger.info("Generated buylist with %d cards", len(results))

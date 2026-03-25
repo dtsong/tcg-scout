@@ -53,7 +53,7 @@ function makeBuylistCard(overrides: Partial<BuylistCard>): BuylistCard {
     set_code: null,
     set_number: null,
     priority_score: 10.0,
-    urgency: "MODERATE",
+
     core_flex: "core",
     archetypes: ["Charizard ex"],
     avg_copies: 2.5,
@@ -76,7 +76,7 @@ const mockBuylist: BuylistCard[] = [
   makeBuylistCard({
     card_name: "Charizard ex",
     priority_score: 25.3,
-    urgency: "URGENT",
+
     core_flex: "core",
     archetypes: ["Charizard ex", "Charizard Pidgeot"],
     avg_copies: 3.0,
@@ -85,7 +85,7 @@ const mockBuylist: BuylistCard[] = [
   makeBuylistCard({
     card_name: "Rare Candy",
     priority_score: 18.7,
-    urgency: "HIGH",
+
     core_flex: "core",
     archetypes: ["Charizard ex", "Gardevoir ex", "Mewtwo ex"],
     avg_copies: 4.0,
@@ -94,7 +94,7 @@ const mockBuylist: BuylistCard[] = [
   makeBuylistCard({
     card_name: "Iono",
     priority_score: 12.1,
-    urgency: "MODERATE",
+
     core_flex: "flex",
     archetypes: ["Dragapult ex"],
     avg_copies: 2.0,

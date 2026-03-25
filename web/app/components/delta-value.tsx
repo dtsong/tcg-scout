@@ -4,6 +4,7 @@ interface DeltaValueProps {
 }
 
 export function DeltaValue({ delta, size = "sm" }: DeltaValueProps) {
+  if (!Number.isFinite(delta)) return <span className="font-mono text-surface-400">--</span>;
   if (delta === 0) return <span className="font-mono text-surface-400">0.0</span>;
   const positive = delta > 0;
   const sizeClass = size === "lg" ? "text-sm" : "text-xs";

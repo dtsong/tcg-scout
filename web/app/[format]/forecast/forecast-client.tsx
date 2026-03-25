@@ -287,7 +287,7 @@ export function ForecastClient({
       </div>
 
       {/* Card table */}
-      <div className="bg-surface-800 border border-surface-600 rounded-lg overflow-hidden">
+      <div className="bg-surface-800 border border-surface-600 rounded-md overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full">
             <thead>

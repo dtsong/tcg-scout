@@ -64,7 +64,7 @@ function NavDropdown({
         />
       </button>
       {open && (
-        <div className="absolute top-full left-0 mt-1.5 min-w-[180px] bg-surface-700 border border-surface-500 rounded-lg shadow-xl shadow-black/40 overflow-hidden z-50">
+        <div className="absolute top-full left-0 mt-1.5 min-w-[180px] bg-surface-700 border border-surface-500 rounded-md shadow-xl shadow-black/40 overflow-hidden z-50">
           {group.items.map(({ href, label }) => {
             const active =
               href === `/${format}`
@@ -180,7 +180,7 @@ export function Nav({ format, formats }: { format: string; formats: FormatInfo[]
               </button>
 
               {formatOpen && (
-                <div className="absolute top-full left-0 mt-1.5 min-w-[200px] bg-surface-700 border border-surface-500 rounded-lg shadow-xl shadow-black/40 overflow-hidden z-50">
+                <div className="absolute top-full left-0 mt-1.5 min-w-[200px] bg-surface-700 border border-surface-500 rounded-md shadow-xl shadow-black/40 overflow-hidden z-50">
                   {formats.map((f) => (
                     <button
                       key={f.slug}
