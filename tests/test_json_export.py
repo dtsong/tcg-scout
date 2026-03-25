@@ -159,6 +159,19 @@ class TestComputeWeightedShares:
         assert all(v > 0 for v in shares.values())
         assert abs(sum(shares.values()) - 100.0) < 0.5
 
+    def test_uses_cache_with_mixed_zero_and_nonzero(self, db):
+        snapshot = {
+            "archetypes": [
+                {"archetype": "Charizard ex", "weighted_share": 45.0},
+                {"archetype": "Dragapult ex", "weighted_share": 0.0},
+                {"archetype": "Raging Bolt ex", "weighted_share": 55.0},
+            ]
+        }
+        shares = _compute_weighted_shares(db, snapshot)
+        # Cache path taken; zero-share archetype excluded
+        assert shares == {"Charizard ex": 45.0, "Raging Bolt ex": 55.0}
+        assert "Dragapult ex" not in shares
+
     def test_falls_back_when_weighted_share_key_missing(self, db):
         snapshot = {
             "archetypes": [

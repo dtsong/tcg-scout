@@ -805,7 +805,9 @@ def _compute_weighted_shares(conn: sqlite3.Connection, snapshot: dict) -> dict[s
     Uses cached weighted_share from archetype_stats if available (computed during
     meta snapshot). Falls back to computing from scratch for older snapshots.
     """
-    # Try cached values first (handle both dict and sqlite3.Row objects)
+    # Try cached values first (handle both dict and sqlite3.Row objects).
+    # Filter > 0: pre-migration snapshots stored 0.0 as default for missing weighted_share.
+    # A truly computed share is always > 0 for any archetype with at least one placement.
     archetypes = snapshot.get("archetypes", [])
     try:
         cached = {
@@ -815,12 +817,8 @@ def _compute_weighted_shares(conn: sqlite3.Connection, snapshot: dict) -> dict[s
         }
         if cached:
             return cached
-    except (KeyError, IndexError):
-        # KeyError: dict archetypes missing weighted_share key (pre-migration data)
-        # IndexError: sqlite3.Row objects without weighted_share column
-        logger.info(
-            "weighted_share not in snapshot archetypes (pre-migration data), computing from scratch"
-        )
+    except (KeyError, IndexError) as exc:
+        logger.warning("Cannot use cached weighted_share (key=%s), computing from scratch", exc)
 
     # Fallback: compute from scratch (for snapshots without cached values)
     rows = conn.execute(
@@ -841,6 +839,7 @@ def _compute_weighted_shares(conn: sqlite3.Connection, snapshot: dict) -> dict[s
         total_weight += weight
 
     if total_weight == 0:
+        logger.warning("No placement data for weighted share computation")
         return {}
 
     return {arch: round(w / total_weight * 100, 2) for arch, w in weighted_sums.items()}
