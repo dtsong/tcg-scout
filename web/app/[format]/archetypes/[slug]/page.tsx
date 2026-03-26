@@ -15,6 +15,7 @@ import type { ArchetypeCard } from "@/app/lib/types";
 import { Top4CardStats } from "@/app/components/top4-card-stats";
 import { CardLink } from "@/app/components/card-link";
 import { KeyMatchups } from "@/app/components/key-matchups";
+import { ShareButton } from "@/app/components/share-button";
 import { ResultsTable } from "./results-table";
 
 export async function generateMetadata({
@@ -159,6 +160,12 @@ export default async function ArchetypeDetailPage({
           <h1 className="font-display text-2xl font-bold text-slate-100">
             {arch.archetype}
           </h1>
+          <ShareButton
+            title={`${arch.archetype} - Scout`}
+            text={`${arch.archetype} (${arch.tier} tier) - ${formatPct(arch.meta_share)} meta share`}
+            pageType="archetype"
+            className="ml-auto"
+          />
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 mt-4">
           <StatCard label="Meta Share" value={formatPct(arch.meta_share)} />
