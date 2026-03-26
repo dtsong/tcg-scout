@@ -108,10 +108,8 @@ describe("ArchetypeDetailClient", () => {
 
   it("renders all four tab buttons", () => {
     const { scope } = renderClient();
-    expect(scope.getByText("Overview")).toBeInTheDocument();
-    // "Decklist" appears as both tab button and section header -- use role
-    const tabButtons = scope.getAllByRole("button");
-    const tabLabels = tabButtons.map((b) => b.textContent);
+    const tabs = scope.getAllByRole("tab");
+    const tabLabels = tabs.map((t) => t.textContent);
     expect(tabLabels).toContain("Overview");
     expect(tabLabels).toContain("Decklist");
     expect(tabLabels).toContain("Matchups");
@@ -150,7 +148,7 @@ describe("ArchetypeDetailClient", () => {
 
   it("navigates to tab via router.replace on click", async () => {
     const { scope } = renderClient();
-    const decklistTab = scope.getAllByRole("button").find((b) => b.textContent === "Decklist")!;
+    const decklistTab = scope.getAllByRole("tab").find((b) => b.textContent === "Decklist")!;
     await userEvent.click(decklistTab);
     expect(mockReplace).toHaveBeenCalledWith(
       "/ninja-spinner/archetypes/dragapult-dusknoir?tab=decklist",
@@ -165,5 +163,57 @@ describe("ArchetypeDetailClient", () => {
       "/ninja-spinner/archetypes/dragapult-dusknoir",
       { scroll: false },
     );
+  });
+
+  it("shows fallback message on matchups tab when matchupData is null", () => {
+    mockSearchParams = new URLSearchParams("tab=matchups");
+    const { scope } = { scope: within(render(
+      <ArchetypeDetailClient
+        arch={baseArch}
+        matchupData={null}
+        format="ninja-spinner"
+        slug="dragapult-dusknoir"
+        hasReport={false}
+        hasOptimal60={false}
+      />,
+    ).container) };
+    expect(scope.getByText("No matchup data available for this format.")).toBeInTheDocument();
+  });
+
+  it("shows fallback message on results tab when results are empty", () => {
+    mockSearchParams = new URLSearchParams("tab=results");
+    const archNoResults = { ...baseArch, results: [], evolution: [] };
+    const { scope } = { scope: within(render(
+      <ArchetypeDetailClient
+        arch={archNoResults}
+        matchupData={matchupData}
+        format="ninja-spinner"
+        slug="dragapult-dusknoir"
+        hasReport={false}
+        hasOptimal60={false}
+      />,
+    ).container) };
+    expect(scope.getByText("No tournament results recorded.")).toBeInTheDocument();
+  });
+
+  it("shows empty overview message when archetype has minimal data", () => {
+    mockSearchParams = new URLSearchParams();
+    const minimalArch = {
+      ...baseArch,
+      weekly_shares: [{ week: "2026-03-01", meta_share: 10, deck_count: 1 }],
+      variants: [{ name: "Base", deck_count: 1, pct: 100 }],
+      radar: undefined,
+    };
+    const { scope } = { scope: within(render(
+      <ArchetypeDetailClient
+        arch={minimalArch}
+        matchupData={null}
+        format="ninja-spinner"
+        slug="dragapult-dusknoir"
+        hasReport={false}
+        hasOptimal60={false}
+      />,
+    ).container) };
+    expect(scope.getByText(/Not enough data for an overview yet/)).toBeInTheDocument();
   });
 });

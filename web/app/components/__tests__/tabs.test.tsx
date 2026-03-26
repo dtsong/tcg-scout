@@ -20,15 +20,23 @@ describe("Tabs", () => {
     expect(scope.getByText("Matchups")).toBeInTheDocument();
   });
 
-  it("highlights the active tab", () => {
+  it("highlights the active tab with aria-selected", () => {
     const { container } = render(
       <Tabs tabs={tabs} activeTab="decklist" onTabChange={() => {}} />,
     );
     const scope = within(container);
     const activeBtn = scope.getByText("Decklist");
-    expect(activeBtn.className).toContain("bg-surface-600");
+    expect(activeBtn).toHaveAttribute("aria-selected", "true");
+    expect(activeBtn).toHaveAttribute("role", "tab");
     const inactiveBtn = scope.getByText("Overview");
-    expect(inactiveBtn.className).not.toContain("bg-surface-600 ");
+    expect(inactiveBtn).toHaveAttribute("aria-selected", "false");
+  });
+
+  it("has tablist role on container", () => {
+    const { container } = render(
+      <Tabs tabs={tabs} activeTab="overview" onTabChange={() => {}} />,
+    );
+    expect(container.querySelector("[role='tablist']")).toBeInTheDocument();
   });
 
   it("calls onTabChange when a tab is clicked", async () => {

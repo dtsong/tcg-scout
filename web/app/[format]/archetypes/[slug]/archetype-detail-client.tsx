@@ -1,7 +1,7 @@
 "use client";
 
 import { useSearchParams, useRouter, usePathname } from "next/navigation";
-import { useCallback, Suspense } from "react";
+import { useCallback, useMemo, Suspense } from "react";
 import Link from "next/link";
 import type { ArchetypeDetail, ArchetypeCard, MatchupMatrixData } from "@/app/lib/types";
 import { TierBadge } from "@/app/components/tier-badge";
@@ -155,8 +155,14 @@ function ArchetypeDetailInner({
     [searchParams, router, pathname],
   );
 
-  const coreNames = new Set(arch.core_cards.map((c) => c.card_name));
-  const { pokemon, trainer, energy } = groupByCategory(arch.all_cards);
+  const coreNames = useMemo(
+    () => new Set(arch.core_cards.map((c) => c.card_name)),
+    [arch.core_cards],
+  );
+  const { pokemon, trainer, energy } = useMemo(
+    () => groupByCategory(arch.all_cards),
+    [arch.all_cards],
+  );
   const totalCards = (cat: ArchetypeCard[]) =>
     cat.reduce((sum, c) => sum + Math.round(c.avg_copies), 0);
 
@@ -222,28 +228,39 @@ function ArchetypeDetailInner({
       />
 
       {/* Tab content */}
-      <div>
-        {activeTab === "overview" && (
-          <div className="space-y-8">
-            {arch.weekly_shares && arch.weekly_shares.length >= 3 && (
-              <PerformanceTrendline data={arch.weekly_shares} />
-            )}
-            {arch.variants && arch.variants.length >= 2 && (
-              <VariantBreakdown
-                variants={arch.variants}
-                deckCount={arch.deck_count}
-              />
-            )}
-            {arch.radar && <ArchetypeRadar radar={arch.radar} />}
-            {matchupData && (
-              <KeyMatchups
-                data={matchupData}
-                archetype={arch.archetype}
-                format={format}
-              />
-            )}
-          </div>
-        )}
+      <div role="tabpanel">
+        {activeTab === "overview" && (() => {
+          const hasTrendline = arch.weekly_shares && arch.weekly_shares.length >= 3;
+          const hasVariants = arch.variants && arch.variants.length >= 2;
+          const hasRadar = !!arch.radar;
+          const hasMatchups = !!matchupData;
+          const hasContent = hasTrendline || hasVariants || hasRadar || hasMatchups;
+
+          return (
+            <div className="space-y-8">
+              {hasTrendline && <PerformanceTrendline data={arch.weekly_shares!} />}
+              {hasVariants && (
+                <VariantBreakdown
+                  variants={arch.variants!}
+                  deckCount={arch.deck_count}
+                />
+              )}
+              {hasRadar && <ArchetypeRadar radar={arch.radar!} />}
+              {hasMatchups && (
+                <KeyMatchups
+                  data={matchupData!}
+                  archetype={arch.archetype}
+                  format={format}
+                />
+              )}
+              {!hasContent && (
+                <p className="text-surface-400 text-sm">
+                  Not enough data for an overview yet. Check back after more tournaments.
+                </p>
+              )}
+            </div>
+          );
+        })()}
 
         {activeTab === "decklist" && (
           <div className="space-y-8">

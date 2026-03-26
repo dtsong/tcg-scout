@@ -17,10 +17,15 @@ export function Tabs({
   onTabChange: (id: string) => void;
 }) {
   return (
-    <div className="inline-flex items-center gap-1 overflow-x-auto bg-surface-700/50 rounded-lg p-1 border border-surface-600">
+    <div
+      role="tablist"
+      className="inline-flex items-center gap-1 overflow-x-auto bg-surface-700/50 rounded-lg p-1 border border-surface-600"
+    >
       {tabs.map((tab) => (
         <button
           key={tab.id}
+          role="tab"
+          aria-selected={activeTab === tab.id}
           onClick={() => onTabChange(tab.id)}
           className={cn(
             "px-4 py-2 text-sm font-medium rounded-md transition-colors whitespace-nowrap",
