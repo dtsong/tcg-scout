@@ -135,6 +135,7 @@ export function DashboardClient({
     ["S", "A", "B"].includes(a.tier),
   );
 
+  // Mirrors config.BREAKOUT_THRESHOLD (50) and config.BREAKOUT_DISPLAY_COUNT (3)
   const rogueBreakouts = meta.archetypes
     .filter((a) => a.tier === "Rogue" && (a.breakout_score ?? 0) > 50)
     .sort((a, b) => (b.breakout_score ?? 0) - (a.breakout_score ?? 0))

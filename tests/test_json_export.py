@@ -1130,10 +1130,10 @@ class TestComputeBreakoutScore:
     def test_trending_up_boosts_score(self):
         """Trending up should score higher than stable."""
         stable = _compute_breakout_score(
-            meta_share=0.5, weighted_share=1.0, best_placement=4, trend="stable", trend_delta=0.0
+            meta_share=0.5, weighted_share=0.5, best_placement=16, trend="stable", trend_delta=0.0
         )
         up = _compute_breakout_score(
-            meta_share=0.5, weighted_share=1.0, best_placement=4, trend="up", trend_delta=5.0
+            meta_share=0.5, weighted_share=0.5, best_placement=16, trend="up", trend_delta=5.0
         )
         assert up > stable
 
@@ -1152,7 +1152,21 @@ class TestComputeBreakoutScore:
         score = _compute_breakout_score(
             meta_share=0.0, weighted_share=1.0, best_placement=1, trend="new", trend_delta=0.0
         )
-        assert score > 0
+        assert 0 < score <= 100
+
+    def test_score_capped_at_100(self):
+        """Extreme overperformance should not produce scores above 100."""
+        score = _compute_breakout_score(
+            meta_share=0.01, weighted_share=10.0, best_placement=1, trend="new", trend_delta=0.0
+        )
+        assert score <= 100
+
+    def test_negative_trend_delta_floors_recency(self):
+        """Negative trend_delta with 'up' trend should not produce negative recency."""
+        score = _compute_breakout_score(
+            meta_share=0.5, weighted_share=1.0, best_placement=4, trend="up", trend_delta=-20.0
+        )
+        assert score >= 0
 
     def test_returns_float(self):
         """Score should be a rounded float."""

@@ -940,10 +940,15 @@ def _compute_breakout_score(
     - Recency: trending up or newly appearing (30%)
     - Placement ceiling: how high the deck has finished (30%)
     """
-    overperformance = weighted_share / max(meta_share, 0.01)
-    recency = 1.0 if trend == "new" else (1.0 + trend_delta / 10.0) if trend == "up" else 0.5
+    overperformance = min(weighted_share / max(meta_share, 0.01), 5.0)
+    if trend == "new":
+        recency = 1.0
+    elif trend == "up":
+        recency = max(0.0, 1.0 + trend_delta / 10.0)
+    else:
+        recency = 0.5
     placement = max(0, (9 - best_placement)) / 8.0
-    return round((overperformance * 0.4 + recency * 0.3 + placement * 0.3) * 100, 1)
+    return round(min(100.0, (overperformance * 0.4 + recency * 0.3 + placement * 0.3) * 100), 1)
 
 
 def _bulk_fetch_archetype_placements(
