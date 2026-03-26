@@ -206,6 +206,27 @@ export interface MatchupMatrixData {
   sample_sizes: number[][];
 }
 
+export interface ArchetypeMatchupEntry {
+  archetype: string;
+  win_rate: number;
+  sample_size: number;
+  ci_lower: number | null;
+  ci_upper: number | null;
+}
+
+export interface ArchetypeMatchups {
+  favorable: ArchetypeMatchupEntry[];
+  unfavorable: ArchetypeMatchupEntry[];
+}
+
+export interface LabsMatchupData {
+  archetypes: string[];
+  matrix: (number | null)[][];
+  sample_sizes: number[][];
+  confidence: { lower: number | null; upper: number | null }[][];
+  source: "labs-h2h" | "labs-records";
+}
+
 export interface TimelineWeek {
   week: string;
   tournament_count: number;

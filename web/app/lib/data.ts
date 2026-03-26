@@ -20,6 +20,9 @@ import type {
   MetaEvolutionData,
   MatchupMatrixData,
   OverlapMatrixData,
+  LabsMatchupData,
+  ArchetypeMatchups,
+  ArchetypeMatchupEntry,
   CardAnalysisData,
   TechForecast,
   MetaReport,
@@ -188,6 +191,51 @@ export function getMatchupMatrix(format: string): MatchupMatrixData | null {
     console.error(`Failed to load matchup matrix for ${format}:`, err);
     return null;
   }
+}
+
+export function getLabsMatchup(format: string): LabsMatchupData | null {
+  try {
+    return readJson(`${format}/matchup-h2h.json`);
+  } catch (err) {
+    if (isFileNotFound(err)) return null;
+    console.error(`Failed to load Labs matchup for ${format}:`, err);
+    return null;
+  }
+}
+
+export function extractArchetypeMatchups(
+  data: LabsMatchupData,
+  archetype: string,
+  topN: number = 5,
+): ArchetypeMatchups {
+  const idx = data.archetypes.indexOf(archetype);
+  if (idx === -1) return { favorable: [], unfavorable: [] };
+
+  const entries: ArchetypeMatchupEntry[] = [];
+  for (let j = 0; j < data.archetypes.length; j++) {
+    if (j === idx) continue;
+    const wr = data.matrix[idx][j];
+    if (wr === null) continue;
+    entries.push({
+      archetype: data.archetypes[j],
+      win_rate: wr,
+      sample_size: data.sample_sizes[idx][j],
+      ci_lower: data.confidence[idx][j].lower,
+      ci_upper: data.confidence[idx][j].upper,
+    });
+  }
+
+  const favorable = entries
+    .filter((e) => e.win_rate > 0.5)
+    .sort((a, b) => b.win_rate - a.win_rate)
+    .slice(0, topN);
+
+  const unfavorable = entries
+    .filter((e) => e.win_rate < 0.5)
+    .sort((a, b) => a.win_rate - b.win_rate)
+    .slice(0, topN);
+
+  return { favorable, unfavorable };
 }
 
 export function getArchetypeOverlap(format: string): OverlapMatrixData | null {
