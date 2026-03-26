@@ -55,7 +55,11 @@ const FEATURE_CARDS = [
   },
 ];
 
-export function StartContent({ format }: { format: string }) {
+interface StartContentProps {
+  format: string;
+}
+
+export function StartContent({ format }: StartContentProps) {
   return (
     <div className="space-y-16">
       {/* Hero */}

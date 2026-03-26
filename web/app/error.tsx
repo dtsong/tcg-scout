@@ -23,6 +23,11 @@ export default function Error({
       <p className="text-sm text-surface-300 mb-8 text-center max-w-md">
         An unexpected error occurred. Try refreshing, or head back to the homepage.
       </p>
+      {error.digest && (
+        <p className="text-xs text-surface-500 mb-4 font-mono">
+          Reference: {error.digest}
+        </p>
+      )}
       <div className="flex items-center gap-3">
         <button
           onClick={reset}

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { ArrowUpDown, Search } from "lucide-react";
 import { cn } from "@/app/lib/utils";
 
@@ -70,7 +70,7 @@ export function DataTable<T>({
   const totalPages = paginated && pageSize > 0 ? Math.ceil(sorted.length / pageSize) : 1;
 
   // Reset page when filters change
-  useMemo(() => {
+  useEffect(() => {
     setPage(0);
   }, [search, data]);
 

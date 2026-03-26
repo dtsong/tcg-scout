@@ -1,9 +1,8 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getArchetype, getArchetypeReport, getArchetypeSlugs, getFormats, getFormatName, getMatchupMatrix, getOptimal60Index } from "@/app/lib/data";
+import { tryGetArchetype, getArchetypeReport, getArchetypeSlugs, getFormats, getFormatName, getMatchupMatrix, getOptimal60Index } from "@/app/lib/data";
 import { safePercent, safeInt, humanizeSlug } from "@/app/lib/metadata";
-import type { ArchetypeDetail } from "@/app/lib/types";
 import { archetypeOgMetadata } from "@/app/lib/og";
 import { TierBadge } from "@/app/components/tier-badge";
 import { SpriteRow } from "@/app/components/sprite-row";
@@ -20,16 +19,6 @@ import { KeyMatchups } from "@/app/components/key-matchups";
 import { ShareButton } from "@/app/components/share-button";
 import { ResultsTable } from "./results-table";
 
-/** Load archetype data, returning null for missing files (ENOENT). */
-function tryGetArchetype(format: string, slug: string): ArchetypeDetail | null {
-  try {
-    return getArchetype(format, slug);
-  } catch (err) {
-    if ((err as NodeJS.ErrnoException).code === "ENOENT") return null;
-    throw err;
-  }
-}
-
 export async function generateMetadata({
   params,
 }: {
@@ -37,7 +26,10 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { format, slug } = await params;
   const arch = tryGetArchetype(format, slug);
-  if (!arch) return { title: "Archetype Not Found | Scout" };
+  if (!arch) {
+    console.warn(`[metadata] archetype file not found for ${format}/${slug}`);
+    return { title: "Archetype Not Found | Scout" };
+  }
   if (!arch.archetype) {
     console.warn(`[metadata] archetype name is empty for ${format}/${slug}`);
   }

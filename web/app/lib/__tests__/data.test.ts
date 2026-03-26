@@ -12,7 +12,7 @@ vi.mock("fs", () => ({
 }));
 
 import fs from "fs";
-import { getMeta, getTrends, getArchetypeSlugs, getFormats, getDefaultFormat, getFormatName, getCardAnalysis, getTechForecast, getMetaReport, getMetaEvolution } from "../data";
+import { getMeta, getTrends, getArchetypeSlugs, getFormats, getDefaultFormat, getFormatName, getCardAnalysis, getTechForecast, getMetaReport, getMetaEvolution, tryGetArchetype } from "../data";
 
 beforeEach(() => {
   vi.clearAllMocks();
@@ -78,9 +78,9 @@ describe("getDefaultFormat", () => {
     expect(getDefaultFormat()).toBe("some-format");
   });
 
-  it("returns ninja-spinner when formats array is empty", () => {
+  it("throws when formats array is empty", () => {
     vi.mocked(fs.readFileSync).mockReturnValue(JSON.stringify([]));
-    expect(getDefaultFormat()).toBe("ninja-spinner");
+    expect(() => getDefaultFormat()).toThrow("formats.json contains no formats");
   });
 });
 
@@ -331,6 +331,28 @@ describe("getMetaEvolution", () => {
   it("throws with file path context on malformed JSON", () => {
     vi.mocked(fs.readFileSync).mockReturnValue("not valid json{{{");
     expect(() => getMetaEvolution("ninja-spinner")).toThrow("Failed to parse JSON at");
+  });
+});
+
+describe("tryGetArchetype", () => {
+  it("returns archetype data when file exists", () => {
+    const mockArch = { archetype: "Charizard ex", tier: "S", meta_share: 10 };
+    vi.mocked(fs.readFileSync).mockReturnValue(JSON.stringify(mockArch));
+    const result = tryGetArchetype("ninja-spinner", "charizard-ex");
+    expect(result).not.toBeNull();
+    expect(result!.archetype).toBe("Charizard ex");
+  });
+
+  it("returns null when file does not exist (ENOENT)", () => {
+    vi.mocked(fs.readFileSync).mockImplementation(() => {
+      throw Object.assign(new Error("ENOENT"), { code: "ENOENT" });
+    });
+    expect(tryGetArchetype("ninja-spinner", "missing")).toBeNull();
+  });
+
+  it("re-throws non-ENOENT errors", () => {
+    vi.mocked(fs.readFileSync).mockReturnValue("not valid json{{{");
+    expect(() => tryGetArchetype("ninja-spinner", "bad-json")).toThrow("Failed to parse JSON");
   });
 });
 

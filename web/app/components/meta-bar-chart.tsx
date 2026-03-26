@@ -25,7 +25,11 @@ function truncate(text: string, maxLength: number): string {
   return text.slice(0, maxLength - 3) + "...";
 }
 
-export function MetaBarChart({ data }: { data: ArchetypeSummary[] }) {
+interface MetaBarChartProps {
+  data: ArchetypeSummary[];
+}
+
+export function MetaBarChart({ data }: MetaBarChartProps) {
   const isNarrow = useMediaQuery("(max-width: 640px)");
   const nameLimit = isNarrow ? 12 : 20;
   const marginLeft = isNarrow ? 80 : 140;

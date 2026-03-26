@@ -54,8 +54,10 @@ export function getDefaultFormat(): string {
   const frozen = formats.find((f) => f.status === "frozen");
   const slug = frozen?.slug ?? formats[0]?.slug;
   if (!slug) {
-    console.warn("[data] getDefaultFormat: no formats found, falling back to ninja-spinner");
-    return "ninja-spinner";
+    throw new Error(
+      "[data] getDefaultFormat: formats.json contains no formats. " +
+      "Run the export pipeline to generate format data."
+    );
   }
   return slug;
 }
@@ -113,6 +115,16 @@ export function getAceSpecs(format: string): AceSpec[] {
 
 export function getArchetype(format: string, slug: string): ArchetypeDetail {
   return readJson(`${format}/archetypes/${slug}.json`);
+}
+
+/** Load archetype data, returning null for missing files (ENOENT). */
+export function tryGetArchetype(format: string, slug: string): ArchetypeDetail | null {
+  try {
+    return getArchetype(format, slug);
+  } catch (err) {
+    if (isFileNotFound(err)) return null;
+    throw err;
+  }
 }
 
 export function getArchetypeSlugs(format: string): string[] {
