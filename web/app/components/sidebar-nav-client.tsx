@@ -52,6 +52,8 @@ export function SidebarNavClient({ format, formats }: SidebarNavClientProps) {
           .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
         if (visible.length > 0) {
           setActiveSection(visible[0].target.id);
+        } else if (entries.every((e) => !e.isIntersecting)) {
+          setActiveSection(null);
         }
       },
       { rootMargin: "-20% 0px -60% 0px", threshold: 0 },
@@ -59,7 +61,7 @@ export function SidebarNavClient({ format, formats }: SidebarNavClientProps) {
 
     elements.forEach((el) => observer.observe(el));
     return () => observer.disconnect();
-  }, [isDashboard]);
+  }, [isDashboard, format]);
 
   const isQuickLinkActive = (anchor: string) => {
     const href = `/${format}/${anchor}`;
