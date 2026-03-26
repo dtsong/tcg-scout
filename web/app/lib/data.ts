@@ -52,7 +52,12 @@ export function getDefaultFormat(): string {
   const active = formats.find((f) => f.status === "active");
   if (active) return active.slug;
   const frozen = formats.find((f) => f.status === "frozen");
-  return frozen?.slug ?? formats[0]?.slug ?? "ninja-spinner";
+  const slug = frozen?.slug ?? formats[0]?.slug;
+  if (!slug) {
+    console.warn("[data] getDefaultFormat: no formats found, falling back to ninja-spinner");
+    return "ninja-spinner";
+  }
+  return slug;
 }
 
 /** Resolve a format slug to its display name. Throws if slug not found. Falls back to humanized slug if name_en is empty. */

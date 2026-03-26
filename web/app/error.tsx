@@ -11,7 +11,7 @@ export default function Error({
   reset: () => void;
 }) {
   useEffect(() => {
-    console.error("[error-boundary]", error.message, error.digest ?? "");
+    console.error("[error-boundary]", error);
   }, [error]);
 
   return (
