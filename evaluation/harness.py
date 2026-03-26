@@ -81,7 +81,8 @@ class Scorer(ABC):
         Returns
         -------
         ScoredResult
-            Must set example_id to "" (harness fills it in).
+            Must set example_id to "" (harness overwrites example_id
+            and passed based on pass_threshold).
         """
         ...
 
@@ -186,8 +187,17 @@ def load_golden_dataset(path: Path) -> list[GoldenExample]:
         }
     """
     data = json.loads(path.read_text(encoding="utf-8"))
+    if "examples" not in data:
+        raise ValueError(
+            f"Golden dataset {path} is missing 'examples' key. Available keys: {list(data.keys())}"
+        )
     examples = []
-    for item in data.get("examples", []):
+    for i, item in enumerate(data["examples"]):
+        for required_key in ("id", "input_prompt"):
+            if required_key not in item:
+                raise ValueError(
+                    f"Example at index {i} in {path} is missing required key '{required_key}'"
+                )
         examples.append(
             GoldenExample(
                 id=item["id"],
@@ -226,15 +236,41 @@ class EvalHarness:
         """
         data = json.loads(dataset_path.read_text(encoding="utf-8"))
         dataset_name = data.get("name", dataset_path.stem)
-        examples = load_golden_dataset(dataset_path)
+        if "examples" not in data:
+            raise ValueError(
+                f"Golden dataset {dataset_path} is missing 'examples' key. "
+                f"Available keys: {list(data.keys())}"
+            )
+        examples = [
+            GoldenExample(
+                id=item["id"],
+                input_prompt=item["input_prompt"],
+                expected=item.get("expected", {}),
+                metadata=item.get("metadata", {}),
+            )
+            for item in data["examples"]
+        ]
 
         results: list[ScoredResult] = []
         for example in examples:
             logger.info("Evaluating example %s", example.id)
-            model_output = self.client.generate(
-                example.input_prompt,
-                system_prompt=system_prompt,
-            )
+            try:
+                model_output = self.client.generate(
+                    example.input_prompt,
+                    system_prompt=system_prompt,
+                )
+            except Exception as exc:
+                logger.error("Model call failed for example %s: %s", example.id, exc)
+                results.append(
+                    ScoredResult(
+                        example_id=example.id,
+                        score=0.0,
+                        passed=False,
+                        model_output="",
+                        details={"error": str(exc)},
+                    )
+                )
+                continue
             result = self.scorer.score(model_output, example.expected)
             result.example_id = example.id
             result.passed = result.score >= pass_threshold

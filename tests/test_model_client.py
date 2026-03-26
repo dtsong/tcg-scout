@@ -91,6 +91,39 @@ class TestGenerate:
         call_kwargs = mock_create.call_args[1]
         assert "system" not in call_kwargs
 
+    def test_raises_on_empty_content(self):
+        with patch("reports.model_client.anthropic.Anthropic") as MockAnthropicCls:
+            mock_message = MagicMock()
+            mock_message.content = []
+            mock_message.stop_reason = "end_turn"
+            MockAnthropicCls.return_value.messages.create.return_value = mock_message
+            client = ModelClient(model_id="test-model")
+            with pytest.raises(ValueError, match="empty content"):
+                client.generate("prompt")
+
+    def test_raises_on_non_text_block(self):
+        with patch("reports.model_client.anthropic.Anthropic") as MockAnthropicCls:
+            mock_block = MagicMock(spec=[])  # no .text attribute
+            mock_message = MagicMock()
+            mock_message.content = [mock_block]
+            MockAnthropicCls.return_value.messages.create.return_value = mock_message
+            client = ModelClient(model_id="test-model")
+            with pytest.raises(TypeError, match="Expected TextBlock"):
+                client.generate("prompt")
+
+    def test_api_error_propagates(self):
+        import anthropic as anthropic_mod
+
+        with patch("reports.model_client.anthropic.Anthropic") as MockAnthropicCls:
+            MockAnthropicCls.return_value.messages.create.side_effect = anthropic_mod.APIError(
+                message="rate limited",
+                request=MagicMock(),
+                body=None,
+            )
+            client = ModelClient(model_id="test-model")
+            with pytest.raises(anthropic_mod.APIError):
+                client.generate("prompt")
+
     def test_per_call_overrides(self):
         with patch("reports.model_client.anthropic.Anthropic") as MockAnthropicCls:
             mock_resp = _mock_anthropic_response("ok")
@@ -121,6 +154,21 @@ class TestCacheKey:
     def test_key_length(self):
         key = ModelClient.cache_key("test")
         assert len(key) == 12
+
+    def test_different_system_prompts_different_keys(self):
+        k1 = ModelClient.cache_key("prompt", system_prompt="sys1")
+        k2 = ModelClient.cache_key("prompt", system_prompt="sys2")
+        assert k1 != k2
+
+    def test_different_model_ids_different_keys(self):
+        k1 = ModelClient.cache_key("prompt", model_id="model-a")
+        k2 = ModelClient.cache_key("prompt", model_id="model-b")
+        assert k1 != k2
+
+    def test_different_temperature_different_keys(self):
+        k1 = ModelClient.cache_key("prompt", temperature=0.3)
+        k2 = ModelClient.cache_key("prompt", temperature=0.9)
+        assert k1 != k2
 
 
 # --- generate_cached ---
@@ -157,6 +205,28 @@ class TestGenerateCached:
         assert hit2
         assert text1 == text2
         assert mock_create.call_count == 1
+
+    def test_corrupt_cache_regenerates(self, tmp_path):
+        with patch("reports.model_client.anthropic.Anthropic") as MockAnthropicCls:
+            mock_resp = _mock_anthropic_response("regenerated")
+            MockAnthropicCls.return_value.messages.create.return_value = mock_resp
+            client = ModelClient(model_id="m")
+
+            # Write corrupt cache file
+            data_hash = client.cache_key(
+                "prompt",
+                model_id="m",
+                system_prompt="",
+                temperature=0.3,
+                max_tokens=2048,
+            )
+            cache_file = tmp_path / f".llm-cache-{data_hash}.json"
+            cache_file.write_text("not valid json", encoding="utf-8")
+
+            text, _, hit = client.generate_cached("prompt", tmp_path)
+
+        assert text == "regenerated"
+        assert not hit
 
     def test_custom_cache_prefix(self, tmp_path):
         with patch("reports.model_client.anthropic.Anthropic") as MockAnthropicCls:

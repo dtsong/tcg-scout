@@ -40,6 +40,16 @@ describe("trackEvent", () => {
     expect(track).toHaveBeenCalledTimes(4);
   });
 
+  it("does not throw when track() fails", () => {
+    const mockTrack = track as ReturnType<typeof vi.fn>;
+    mockTrack.mockImplementation(() => {
+      throw new Error("SDK init failed");
+    });
+
+    expect(() => trackEvent("share_click")).not.toThrow();
+    mockTrack.mockImplementation(() => {});
+  });
+
   it("is a no-op when window is undefined (SSR)", () => {
     const originalWindow = globalThis.window;
     // @ts-expect-error -- simulating SSR by removing window

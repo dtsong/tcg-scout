@@ -20,5 +20,9 @@ export function trackEvent(
   properties?: Record<string, string | number | boolean>,
 ): void {
   if (typeof window === "undefined") return;
-  track(name, properties);
+  try {
+    track(name, properties);
+  } catch (err) {
+    console.error("Analytics tracking failed:", err);
+  }
 }

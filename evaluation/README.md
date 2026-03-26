@@ -57,7 +57,7 @@ class MyScorer(Scorer):
 from reports.model_client import ModelClient
 from evaluation.harness import EvalHarness, ContainsKeywordsScorer
 
-client = ModelClient(model_id="claude-haiku-4-5-20251001")
+client = ModelClient(model_id="your-model-id")
 harness = EvalHarness(client, ContainsKeywordsScorer())
 report = harness.run(Path("evaluation/datasets/my-dataset.json"))
 print(f"Passed: {report.passed}/{report.total}")
@@ -70,5 +70,5 @@ evaluation/
   __init__.py
   harness.py           # Core framework
   README.md            # This file
-  datasets/            # Golden dataset JSON files (add yours here)
+  datasets/            # Create this directory for golden dataset JSON files
 ```

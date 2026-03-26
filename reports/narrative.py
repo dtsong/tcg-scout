@@ -1,4 +1,4 @@
-"""Auto-generated meta reports for Scout Web via Claude Haiku LLM."""
+"""Auto-generated meta reports for Scout Web via LLM."""
 
 import hashlib
 import json
@@ -160,7 +160,7 @@ def generate_report(
     Steps:
       1. Assembles context from exported JSON files
       2. Renders the Jinja2 prompt template
-      3. Calls Claude Haiku to generate narrative
+      3. Calls the LLM to generate narrative
       4. Parses and validates the response
       5. Writes report.json and report-thread.json
       6. Uses prompt+data hash caching to skip regeneration if unchanged

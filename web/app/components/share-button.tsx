@@ -114,27 +114,38 @@ export function ShareButton({
         });
         trackEvent("share_click", { method: "web-share", page_type: pageType });
         return;
-      } catch {
-        // User cancelled or API failed -- fall through to dropdown
+      } catch (err) {
+        if (err instanceof DOMException && err.name === "AbortError") {
+          // User cancelled the share dialog -- fall through to dropdown
+        } else {
+          console.error("Web Share API failed:", err);
+        }
       }
     }
     setOpen((prev) => !prev);
   };
 
   const handleCopyLink = async () => {
+    let success = false;
     try {
       await navigator.clipboard.writeText(resolvedUrl);
+      success = true;
     } catch {
       // Fallback for older browsers
-      const textarea = document.createElement("textarea");
-      textarea.value = resolvedUrl;
-      textarea.style.position = "fixed";
-      textarea.style.opacity = "0";
-      document.body.appendChild(textarea);
-      textarea.select();
-      document.execCommand("copy");
-      document.body.removeChild(textarea);
+      try {
+        const textarea = document.createElement("textarea");
+        textarea.value = resolvedUrl;
+        textarea.style.position = "fixed";
+        textarea.style.opacity = "0";
+        document.body.appendChild(textarea);
+        textarea.select();
+        success = document.execCommand("copy");
+        document.body.removeChild(textarea);
+      } catch (fallbackErr) {
+        console.error("Clipboard fallback failed:", fallbackErr);
+      }
     }
+    if (!success) return;
     setCopied(true);
     trackEvent("share_click", { method: "copy-link", page_type: pageType });
     trackEvent("copy_link", { page_type: pageType });

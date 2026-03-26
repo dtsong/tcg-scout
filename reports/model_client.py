@@ -67,17 +67,39 @@ class ModelClient:
         if system_prompt is not None:
             kwargs["system"] = system_prompt
 
-        message = self._client.messages.create(**kwargs)
-        return message.content[0].text.strip()
+        try:
+            message = self._client.messages.create(**kwargs)
+        except anthropic.APIError as exc:
+            logger.error("Anthropic API error (model=%s): %s", self.model_id, exc)
+            raise
+
+        if not message.content:
+            raise ValueError(
+                f"Model returned empty content (model={self.model_id}, "
+                f"stop_reason={message.stop_reason})"
+            )
+
+        block = message.content[0]
+        if not hasattr(block, "text"):
+            raise TypeError(f"Expected TextBlock, got {type(block).__name__}")
+
+        return block.text.strip()
 
     # ------------------------------------------------------------------
     # Caching helpers
     # ------------------------------------------------------------------
 
     @staticmethod
-    def cache_key(prompt: str) -> str:
+    def cache_key(
+        prompt: str,
+        model_id: str = "",
+        system_prompt: str = "",
+        temperature: float = 0.0,
+        max_tokens: int = 0,
+    ) -> str:
         """Return a short hash suitable for use as a file-system cache key."""
-        return hashlib.sha256(prompt.encode("utf-8")).hexdigest()[:12]
+        blob = f"{model_id}:{system_prompt}:{temperature}:{max_tokens}:{prompt}"
+        return hashlib.sha256(blob.encode("utf-8")).hexdigest()[:12]
 
     def generate_cached(
         self,
@@ -96,13 +118,26 @@ class ModelClient:
         tuple[str, str, bool]
             (response_text, data_hash, cache_hit)
         """
-        data_hash = self.cache_key(user_prompt)
+        eff_temp = temperature if temperature is not None else self.temperature
+        eff_max = max_tokens if max_tokens is not None else self.max_tokens
+        data_hash = self.cache_key(
+            user_prompt,
+            model_id=self.model_id,
+            system_prompt=system_prompt or "",
+            temperature=eff_temp,
+            max_tokens=eff_max,
+        )
         cache_path = cache_dir / f"{cache_prefix}-{data_hash}.json"
 
         if cache_path.exists():
-            logger.info("Cache hit (hash %s)", data_hash)
-            cached = json.loads(cache_path.read_text(encoding="utf-8"))
-            return cached["response"], data_hash, True
+            try:
+                cached = json.loads(cache_path.read_text(encoding="utf-8"))
+                response = cached["response"]
+                logger.info("Cache hit (hash %s)", data_hash)
+                return response, data_hash, True
+            except (json.JSONDecodeError, KeyError, UnicodeDecodeError) as exc:
+                logger.warning("Corrupt cache file %s, regenerating: %s", cache_path, exc)
+                cache_path.unlink(missing_ok=True)
 
         logger.info("Calling %s (hash %s)", self.model_id, data_hash)
         response = self.generate(

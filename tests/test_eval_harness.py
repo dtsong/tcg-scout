@@ -73,6 +73,22 @@ class TestLoadGoldenDataset:
         examples = load_golden_dataset(path)
         assert examples == []
 
+    def test_missing_examples_key_raises(self, tmp_path):
+        path = _write_dataset(tmp_path, {"name": "bad"})
+        with pytest.raises(ValueError, match="missing 'examples' key"):
+            load_golden_dataset(path)
+
+    def test_missing_required_field_raises(self, tmp_path):
+        path = _write_dataset(
+            tmp_path,
+            {
+                "name": "bad",
+                "examples": [{"id": "ex-001"}],  # missing input_prompt
+            },
+        )
+        with pytest.raises(ValueError, match="missing required key 'input_prompt'"):
+            load_golden_dataset(path)
+
 
 # --- ExactMatchScorer ---
 
@@ -224,6 +240,29 @@ class TestEvalHarness:
         harness = EvalHarness(mock_client, ContainsKeywordsScorer())
         report = harness.run(path, pass_threshold=0.4)
         assert report.passed == 1
+
+    def test_model_failure_produces_partial_results(self, tmp_path):
+        path = _write_dataset(tmp_path)
+        mock_client = self._make_mock_client([])
+        # First example succeeds, second fails
+        mock_client.generate.side_effect = [
+            "Dragapult Dusknoir",
+            RuntimeError("API timeout"),
+        ]
+        harness = EvalHarness(mock_client, ExactMatchScorer())
+        report = harness.run(path)
+        assert report.total == 2
+        assert report.results[0].passed is True
+        assert report.results[1].passed is False
+        assert "error" in report.results[1].details
+
+    def test_missing_examples_key_raises(self, tmp_path):
+        path = tmp_path / "bad-dataset.json"
+        path.write_text(json.dumps({"name": "bad"}), encoding="utf-8")
+        mock_client = self._make_mock_client([])
+        harness = EvalHarness(mock_client, ExactMatchScorer())
+        with pytest.raises(ValueError, match="missing 'examples' key"):
+            harness.run(path)
 
     def test_system_prompt_forwarded(self, tmp_path):
         dataset = {

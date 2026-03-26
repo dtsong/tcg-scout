@@ -6,7 +6,7 @@ const SITE_URL = "https://scout.trainerlab.io";
 
 /**
  * Build the full public URL for an archetype sprite image.
- * Sprites are stored at /images/sprites/{filename} and served from the CDN.
+ * Sprites are stored at /images/sprites/{filename} and served statically by Vercel.
  */
 function spriteUrl(filename: string): string {
   return `${SITE_URL}/images/sprites/${filename}`;
