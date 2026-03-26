@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Crosshair, ChevronRight } from "lucide-react";
-import { getFormats } from "@/app/lib/data";
+import { getFormats, getDefaultFormat } from "@/app/lib/data";
 
 function formatFreshness(generatedAt?: string): string | null {
   if (!generatedAt) return null;
@@ -33,7 +33,7 @@ const DEFAULT_STYLE = {
 
 export default function FormatSelectorPage() {
   const formats = getFormats();
-  const defaultFormat = formats.find((f) => f.status === "active")?.slug ?? formats[0]?.slug ?? "ninja-spinner";
+  const defaultFormat = getDefaultFormat();
 
   return (
     <div className="min-h-screen flex flex-col">

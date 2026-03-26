@@ -12,7 +12,7 @@ vi.mock("fs", () => ({
 }));
 
 import fs from "fs";
-import { getMeta, getTrends, getArchetypeSlugs, getFormats, getFormatName, getCardAnalysis, getTechForecast, getMetaReport, getMetaEvolution } from "../data";
+import { getMeta, getTrends, getArchetypeSlugs, getFormats, getDefaultFormat, getFormatName, getCardAnalysis, getTechForecast, getMetaReport, getMetaEvolution } from "../data";
 
 beforeEach(() => {
   vi.clearAllMocks();
@@ -41,6 +41,46 @@ describe("getFormats", () => {
     expect(result).toHaveLength(1);
     expect(result[0].slug).toBe("nihil-zero");
     expect(result[0].status).toBe("active");
+  });
+});
+
+describe("getDefaultFormat", () => {
+  const fmt = (slug: string, status: string) => ({
+    slug,
+    name: slug,
+    name_en: slug,
+    description: "",
+    dataset_start: "2026-01-01",
+    dataset_end: "2026-03-01",
+    status,
+    tournament_count: 10,
+    deck_count: 50,
+  });
+
+  it("returns the active format slug", () => {
+    vi.mocked(fs.readFileSync).mockReturnValue(
+      JSON.stringify([fmt("ninja-spinner", "active"), fmt("nihil-zero", "frozen")]),
+    );
+    expect(getDefaultFormat()).toBe("ninja-spinner");
+  });
+
+  it("falls back to frozen when no active format exists", () => {
+    vi.mocked(fs.readFileSync).mockReturnValue(
+      JSON.stringify([fmt("nihil-zero", "frozen")]),
+    );
+    expect(getDefaultFormat()).toBe("nihil-zero");
+  });
+
+  it("falls back to first format when none are active or frozen", () => {
+    vi.mocked(fs.readFileSync).mockReturnValue(
+      JSON.stringify([fmt("some-format", "archived")]),
+    );
+    expect(getDefaultFormat()).toBe("some-format");
+  });
+
+  it("returns ninja-spinner when formats array is empty", () => {
+    vi.mocked(fs.readFileSync).mockReturnValue(JSON.stringify([]));
+    expect(getDefaultFormat()).toBe("ninja-spinner");
   });
 });
 

@@ -14,6 +14,7 @@ import {
 import { TrendingUp, TrendingDown, Trophy } from "lucide-react";
 import { DateFilter } from "@/app/components/date-filter";
 import { useDateFilter, fetchWindowedData } from "@/app/components/date-filter-provider";
+import { useMediaQuery } from "@/app/hooks/use-media-query";
 import type { TrendsData, WinningEdgeCard, TimeWindow } from "@/app/lib/types";
 
 export function TrendsClient({
@@ -31,15 +32,7 @@ export function TrendsClient({
   const [trends, setTrends] = useState(initialTrends);
   const [winningEdge, setWinningEdge] = useState(initialWinningEdge);
   const [loading, setLoading] = useState(false);
-  const [isNarrow, setIsNarrow] = useState(false);
-
-  useEffect(() => {
-    const mq = window.matchMedia("(max-width: 640px)");
-    setIsNarrow(mq.matches);
-    const handler = (e: MediaQueryListEvent) => setIsNarrow(e.matches);
-    mq.addEventListener("change", handler);
-    return () => mq.removeEventListener("change", handler);
-  }, []);
+  const isNarrow = useMediaQuery("(max-width: 640px)");
 
   const fetchWindowData = useCallback(
     async (window: TimeWindow) => {

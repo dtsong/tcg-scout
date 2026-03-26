@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getArchetype, getArchetypeReport, getArchetypeSlugs, getFormats, getFormatName, getMatchupMatrix, getOptimal60Index } from "@/app/lib/data";
 import { safePercent, safeInt, humanizeSlug } from "@/app/lib/metadata";
+import type { ArchetypeDetail } from "@/app/lib/types";
 import { TierBadge } from "@/app/components/tier-badge";
 import { SpriteRow } from "@/app/components/sprite-row";
 import { StatCard } from "@/app/components/stat-card";
@@ -17,21 +18,24 @@ import { CardLink } from "@/app/components/card-link";
 import { KeyMatchups } from "@/app/components/key-matchups";
 import { ResultsTable } from "./results-table";
 
+/** Load archetype data, returning null for missing files (ENOENT). */
+function tryGetArchetype(format: string, slug: string): ArchetypeDetail | null {
+  try {
+    return getArchetype(format, slug);
+  } catch (err) {
+    if ((err as NodeJS.ErrnoException).code === "ENOENT") return null;
+    throw err;
+  }
+}
+
 export async function generateMetadata({
   params,
 }: {
   params: Promise<{ format: string; slug: string }>;
 }): Promise<Metadata> {
   const { format, slug } = await params;
-  let arch;
-  try {
-    arch = getArchetype(format, slug);
-  } catch (err) {
-    if ((err as NodeJS.ErrnoException).code === "ENOENT") {
-      return { title: "Archetype Not Found | Scout" };
-    }
-    throw err;
-  }
+  const arch = tryGetArchetype(format, slug);
+  if (!arch) return { title: "Archetype Not Found | Scout" };
   const name = arch.archetype || humanizeSlug(slug);
   if (!arch.archetype) {
     console.warn(`[metadata] archetype name is empty for ${format}/${slug}`);
@@ -150,16 +154,8 @@ export default async function ArchetypeDetailPage({
   params: Promise<{ format: string; slug: string }>;
 }) {
   const { format, slug } = await params;
-
-  let arch;
-  try {
-    arch = getArchetype(format, slug);
-  } catch (err) {
-    if ((err as NodeJS.ErrnoException).code === "ENOENT") {
-      notFound();
-    }
-    throw err;
-  }
+  const arch = tryGetArchetype(format, slug);
+  if (!arch) notFound();
   const matchupData = getMatchupMatrix(format);
   const hasReport = getArchetypeReport(format, slug) !== null;
   const optimal60Index = getOptimal60Index(format);

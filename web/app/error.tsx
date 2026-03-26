@@ -1,13 +1,19 @@
 "use client";
 
+import { useEffect } from "react";
 import { Crosshair } from "lucide-react";
 
 export default function Error({
+  error,
   reset,
 }: {
   error: Error & { digest?: string };
   reset: () => void;
 }) {
+  useEffect(() => {
+    console.error("[error-boundary]", error.message, error.digest ?? "");
+  }, [error]);
+
   return (
     <div className="min-h-screen flex flex-col items-center justify-center px-4">
       <Crosshair className="w-10 h-10 text-surface-500 mb-6" />
