@@ -31,6 +31,15 @@ export function TrendsClient({
   const [trends, setTrends] = useState(initialTrends);
   const [winningEdge, setWinningEdge] = useState(initialWinningEdge);
   const [loading, setLoading] = useState(false);
+  const [isNarrow, setIsNarrow] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 640px)");
+    setIsNarrow(mq.matches);
+    const handler = (e: MediaQueryListEvent) => setIsNarrow(e.matches);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  }, []);
 
   const fetchWindowData = useCallback(
     async (window: TimeWindow) => {
@@ -113,7 +122,7 @@ export function TrendsClient({
           Top Surging Cards: Early vs Late Period
         </h2>
         <ResponsiveContainer width="100%" height={450}>
-          <BarChart data={chartData} layout="vertical" margin={{ left: 200, right: 20 }}>
+          <BarChart data={chartData} layout="vertical" margin={{ left: isNarrow ? 100 : 200, right: 20 }}>
             <XAxis
               type="number"
               tickFormatter={(v) => `${v}%`}
@@ -124,10 +133,10 @@ export function TrendsClient({
             <YAxis
               type="category"
               dataKey="name"
-              tick={{ fill: "#94a3b8", fontSize: 12 }}
+              tick={{ fill: "#94a3b8", fontSize: isNarrow ? 10 : 12 }}
               axisLine={false}
               tickLine={false}
-              width={200}
+              width={isNarrow ? 100 : 200}
             />
             <Tooltip
               wrapperStyle={{ outline: 'none' }}

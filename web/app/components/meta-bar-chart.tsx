@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import {
   BarChart,
   Bar,
@@ -20,15 +21,25 @@ const tierColors: Record<Tier, string> = {
 };
 
 export function MetaBarChart({ data }: { data: ArchetypeSummary[] }) {
+  const [isNarrow, setIsNarrow] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 640px)");
+    setIsNarrow(mq.matches);
+    const handler = (e: MediaQueryListEvent) => setIsNarrow(e.matches);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  }, []);
+
   const chartData = data.slice(0, 20).map((a) => ({
-    name: a.archetype.length > 20 ? a.archetype.slice(0, 18) + "..." : a.archetype,
+    name: a.archetype.length > (isNarrow ? 12 : 20) ? a.archetype.slice(0, isNarrow ? 10 : 18) + "..." : a.archetype,
     share: a.meta_share,
     tier: a.tier,
   }));
 
   return (
     <ResponsiveContainer width="100%" height={500}>
-      <BarChart data={chartData} layout="vertical" margin={{ left: 140, right: 20 }}>
+      <BarChart data={chartData} layout="vertical" margin={{ left: isNarrow ? 80 : 140, right: 20 }}>
         <XAxis
           type="number"
           tickFormatter={(v) => `${v}%`}
@@ -39,10 +50,10 @@ export function MetaBarChart({ data }: { data: ArchetypeSummary[] }) {
         <YAxis
           type="category"
           dataKey="name"
-          tick={{ fill: "#94a3b8", fontSize: 12 }}
+          tick={{ fill: "#94a3b8", fontSize: isNarrow ? 10 : 12 }}
           axisLine={false}
           tickLine={false}
-          width={140}
+          width={isNarrow ? 80 : 140}
         />
         <Tooltip
           wrapperStyle={{ outline: 'none' }}
