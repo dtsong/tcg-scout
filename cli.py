@@ -1173,8 +1173,12 @@ def export_web(ctx: click.Context, narrative: bool, strict: bool) -> None:
 
             labs_conn = get_labs_connection()
             init_labs_db(labs_conn)
-        except (ImportError, FileNotFoundError):
-            logger.info("No Labs database available, skipping Labs exports")
+        except ImportError:
+            logger.info("Labs module not available, skipping Labs exports")
+        except Exception:
+            logger.warning(
+                "Failed to connect to Labs database, skipping Labs exports", exc_info=True
+            )
 
         out, skipped = export_all(conn, format_slug=fmt, strict=strict, labs_conn=labs_conn)
         console.print(f"[green]Web data exported to {out}[/green]")

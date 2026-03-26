@@ -1048,3 +1048,51 @@ class TestExportLabsMatchup:
         export_labs_matchup(labs_db_empty, tmp_path)
         output = tmp_path / "matchup-h2h.json"
         assert not output.exists()
+
+
+class TestExportAllLabsIntegration:
+    def test_export_all_with_labs_conn_produces_matchup_h2h(
+        self, db_single_tournament, tmp_path, labs_db
+    ):
+        from reports.json_export import export_all
+
+        out, skipped = export_all(db_single_tournament, output_dir=tmp_path, labs_conn=labs_db)
+        assert (out / "matchup-h2h.json").exists()
+
+    def test_export_all_without_labs_conn_skips_matchup(self, db_single_tournament, tmp_path):
+        from reports.json_export import export_all
+
+        out, skipped = export_all(db_single_tournament, output_dir=tmp_path, labs_conn=None)
+        assert not (out / "matchup-h2h.json").exists()
+
+    def test_export_all_labs_error_non_strict_appends_skipped(self, db_single_tournament, tmp_path):
+        import sqlite3
+
+        from reports.json_export import export_all
+
+        broken_conn = sqlite3.connect(":memory:")
+        out, skipped = export_all(
+            db_single_tournament,
+            output_dir=tmp_path,
+            labs_conn=broken_conn,
+            strict=False,
+        )
+        assert "labs matchup" in skipped
+        broken_conn.close()
+
+    def test_export_all_labs_error_strict_raises(self, db_single_tournament, tmp_path):
+        import sqlite3
+
+        import pytest
+
+        from reports.json_export import export_all
+
+        broken_conn = sqlite3.connect(":memory:")
+        with pytest.raises((sqlite3.OperationalError, ValueError)):
+            export_all(
+                db_single_tournament,
+                output_dir=tmp_path,
+                labs_conn=broken_conn,
+                strict=True,
+            )
+        broken_conn.close()
