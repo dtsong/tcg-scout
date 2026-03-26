@@ -23,18 +23,18 @@ describe("StartContent", () => {
   afterEach(cleanup);
 
   it("renders the hero headline", () => {
-    render(<StartContent />);
+    render(<StartContent format="ninja-spinner" />);
     expect(screen.getByText("Everything in one place")).toBeInTheDocument();
   });
 
   it("renders the primary CTA linking to the active format", () => {
-    render(<StartContent />);
+    render(<StartContent format="ninja-spinner" />);
     const cta = screen.getByRole("link", { name: /Jump into the meta/ });
     expect(cta).toHaveAttribute("href", "/ninja-spinner");
   });
 
   it("renders the Nihil Zero post-rotation callout", () => {
-    render(<StartContent />);
+    render(<StartContent format="ninja-spinner" />);
     expect(screen.getByText("Post-rotation preview")).toBeInTheDocument();
     expect(
       screen.getByText(/Nihil Zero mirrors the international/)
@@ -42,12 +42,12 @@ describe("StartContent", () => {
   });
 
   it("renders the workflow section heading", () => {
-    render(<StartContent />);
+    render(<StartContent format="ninja-spinner" />);
     expect(screen.getByText("How to use Scout")).toBeInTheDocument();
   });
 
   it("renders all 6 feature highlight cards", () => {
-    render(<StartContent />);
+    render(<StartContent format="ninja-spinner" />);
     expect(screen.getByText("Read the meta")).toBeInTheDocument();
     expect(screen.getByText("Pick a deck")).toBeInTheDocument();
     // "Find winning cards" and "Track what's changing" also appear in the
@@ -59,7 +59,7 @@ describe("StartContent", () => {
   });
 
   it("feature highlight links point to format-prefixed paths", () => {
-    render(<StartContent />);
+    render(<StartContent format="ninja-spinner" />);
     const links = screen.getAllByRole("link");
     const hrefs = links.map((l) => l.getAttribute("href"));
     expect(hrefs).toContain("/ninja-spinner/optimal-60");
@@ -69,13 +69,13 @@ describe("StartContent", () => {
   });
 
   it("renders format spotlight with both formats", () => {
-    render(<StartContent />);
+    render(<StartContent format="ninja-spinner" />);
     expect(screen.getByText("Ninja Spinner")).toBeInTheDocument();
     expect(screen.getByText("Nihil Zero")).toBeInTheDocument();
   });
 
   it("renders guide cross-reference link", () => {
-    render(<StartContent />);
+    render(<StartContent format="ninja-spinner" />);
     expect(
       screen.getByText("Looking for metric definitions?")
     ).toBeInTheDocument();
@@ -84,7 +84,7 @@ describe("StartContent", () => {
   });
 
   it("renders footer CTA and social links", () => {
-    render(<StartContent />);
+    render(<StartContent format="ninja-spinner" />);
     expect(screen.getByText("Ready to start?")).toBeInTheDocument();
     expect(
       screen.getByRole("link", { name: /Open the dashboard/ })

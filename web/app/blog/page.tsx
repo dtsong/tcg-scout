@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { getDefaultFormat } from "@/app/lib/data";
 
 export const metadata: Metadata = {
   title: "Scout v1.1.0 - Format Edge, Tournament Links, and More",
@@ -187,7 +188,7 @@ export default function BlogPage() {
           This is exactly the kind of movement that Format Edge was built to
           surface. Check the{" "}
           <Link
-            href="/ninja-spinner/card-analysis"
+            href={`/${getDefaultFormat()}/card-analysis`}
             className="text-accent hover:text-accent/80 transition-colors"
           >
             Ninja Spinner Format Edge

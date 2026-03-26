@@ -10,8 +10,6 @@ import {
 } from "lucide-react";
 import { WorkflowDiagram } from "./workflow-diagram";
 
-const DEFAULT_FORMAT = "ninja-spinner";
-
 const FEATURE_CARDS = [
   {
     icon: Layers,
@@ -57,7 +55,7 @@ const FEATURE_CARDS = [
   },
 ];
 
-export function StartContent() {
+export function StartContent({ format }: { format: string }) {
   return (
     <div className="space-y-16">
       {/* Hero */}
@@ -73,7 +71,7 @@ export function StartContent() {
 
         <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
           <Link
-            href={`/${DEFAULT_FORMAT}`}
+            href={`/${format}`}
             className="inline-flex items-center gap-2 px-6 py-3 bg-accent text-surface-900 font-display font-semibold text-sm rounded-lg hover:bg-accent/90 transition-colors"
           >
             Jump into the meta
@@ -118,7 +116,7 @@ export function StartContent() {
         </div>
 
         <div className="bg-surface-800 border border-surface-600 rounded-xl p-6 sm:p-8">
-          <WorkflowDiagram format={DEFAULT_FORMAT} />
+          <WorkflowDiagram format={format} />
         </div>
 
         {/* TODO: add downloadable scout-workflow.png image for sharing */}
@@ -136,7 +134,7 @@ export function StartContent() {
           {FEATURE_CARDS.map((card) => (
             <Link
               key={card.title}
-              href={`/${DEFAULT_FORMAT}${card.path}`}
+              href={`/${format}${card.path}`}
               className="group bg-surface-800 border border-surface-600 rounded-lg p-5 hover:border-surface-500 transition-colors"
             >
               <card.icon className="w-5 h-5 text-accent mb-3" />
@@ -206,7 +204,7 @@ export function StartContent() {
           This page is the quickstart: where to go first and in what order.
           The{" "}
           <Link
-            href={`/${DEFAULT_FORMAT}/guide`}
+            href={`/${format}/guide`}
             className="text-accent hover:text-accent/80 transition-colors"
           >
             Guide
@@ -220,7 +218,7 @@ export function StartContent() {
       <section className="text-center pb-4">
         <p className="text-lg text-surface-300 font-display">Ready to start?</p>
         <Link
-          href={`/${DEFAULT_FORMAT}`}
+          href={`/${format}`}
           className="inline-flex items-center gap-2 mt-4 px-6 py-3 bg-accent text-surface-900 font-display font-semibold text-sm rounded-lg hover:bg-accent/90 transition-colors"
         >
           Open the dashboard

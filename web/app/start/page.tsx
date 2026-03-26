@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { StartContent } from "@/app/components/start-content";
+import { getDefaultFormat } from "@/app/lib/data";
 
 export const metadata: Metadata = {
   title: "Get Started with Scout | Pokemon TCG Meta Explorer",
@@ -21,5 +22,5 @@ export const metadata: Metadata = {
 };
 
 export default function StartPage() {
-  return <StartContent />;
+  return <StartContent format={getDefaultFormat()} />;
 }
