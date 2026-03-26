@@ -63,4 +63,52 @@ describe("Tabs", () => {
     await userEvent.click(scope.getByText("Matchups"));
     expect(onChange).toHaveBeenCalledWith("matchups");
   });
+
+  it("navigates to next tab on ArrowRight", async () => {
+    const onChange = vi.fn();
+    const { container } = render(
+      <Tabs tabs={tabs} activeTab="overview" onTabChange={onChange} />,
+    );
+    const scope = within(container);
+    const overviewBtn = scope.getByText("Overview");
+    overviewBtn.focus();
+    await userEvent.keyboard("{ArrowRight}");
+    expect(onChange).toHaveBeenCalledWith("decklist");
+  });
+
+  it("navigates to previous tab on ArrowLeft", async () => {
+    const onChange = vi.fn();
+    const { container } = render(
+      <Tabs tabs={tabs} activeTab="decklist" onTabChange={onChange} />,
+    );
+    const scope = within(container);
+    const decklistBtn = scope.getByText("Decklist");
+    decklistBtn.focus();
+    await userEvent.keyboard("{ArrowLeft}");
+    expect(onChange).toHaveBeenCalledWith("overview");
+  });
+
+  it("wraps around from last tab to first on ArrowRight", async () => {
+    const onChange = vi.fn();
+    const { container } = render(
+      <Tabs tabs={tabs} activeTab="matchups" onTabChange={onChange} />,
+    );
+    const scope = within(container);
+    const matchupsBtn = scope.getByText("Matchups");
+    matchupsBtn.focus();
+    await userEvent.keyboard("{ArrowRight}");
+    expect(onChange).toHaveBeenCalledWith("overview");
+  });
+
+  it("wraps around from first tab to last on ArrowLeft", async () => {
+    const onChange = vi.fn();
+    const { container } = render(
+      <Tabs tabs={tabs} activeTab="overview" onTabChange={onChange} />,
+    );
+    const scope = within(container);
+    const overviewBtn = scope.getByText("Overview");
+    overviewBtn.focus();
+    await userEvent.keyboard("{ArrowLeft}");
+    expect(onChange).toHaveBeenCalledWith("matchups");
+  });
 });

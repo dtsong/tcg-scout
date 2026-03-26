@@ -16,12 +16,24 @@ export function Tabs({
   activeTab: string;
   onTabChange: (id: string) => void;
 }) {
+  function handleKeyDown(e: React.KeyboardEvent, index: number) {
+    let nextIndex: number | null = null;
+    if (e.key === "ArrowRight") nextIndex = (index + 1) % tabs.length;
+    if (e.key === "ArrowLeft") nextIndex = (index - 1 + tabs.length) % tabs.length;
+    if (nextIndex !== null) {
+      e.preventDefault();
+      const nextTab = document.getElementById(`tab-${tabs[nextIndex].id}`);
+      nextTab?.focus();
+      onTabChange(tabs[nextIndex].id);
+    }
+  }
+
   return (
     <div
       role="tablist"
       className="inline-flex items-center gap-1 overflow-x-auto bg-surface-700/50 rounded-lg p-1 border border-surface-600"
     >
-      {tabs.map((tab) => (
+      {tabs.map((tab, index) => (
         <button
           key={tab.id}
           id={`tab-${tab.id}`}
@@ -30,6 +42,7 @@ export function Tabs({
           aria-controls={`tabpanel-${tab.id}`}
           tabIndex={activeTab === tab.id ? 0 : -1}
           onClick={() => onTabChange(tab.id)}
+          onKeyDown={(e) => handleKeyDown(e, index)}
           className={cn(
             "px-4 py-2 text-sm font-medium rounded-md transition-colors whitespace-nowrap",
             activeTab === tab.id
