@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { getArchetype, getArchetypeReport, getArchetypeSlugs, getFormats, getFormatName, getMatchupMatrix, getOptimal60Index } from "@/app/lib/data";
 import { safePercent, safeInt, humanizeSlug } from "@/app/lib/metadata";
+import { archetypeOgMetadata } from "@/app/lib/og";
 import { TierBadge } from "@/app/components/tier-badge";
 import { SpriteRow } from "@/app/components/sprite-row";
 import { StatCard } from "@/app/components/stat-card";
@@ -23,20 +24,14 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { format, slug } = await params;
   const arch = getArchetype(format, slug);
-  const name = arch.archetype || humanizeSlug(slug);
   if (!arch.archetype) {
     console.warn(`[metadata] archetype name is empty for ${format}/${slug}`);
   }
-  const share = safePercent(arch.meta_share);
-  const tier = arch.tier || "Unknown";
   if (!arch.tier) {
     console.warn(`[metadata] tier is missing for ${format}/${slug}`);
   }
   const formatName = getFormatName(format);
-  return {
-    title: `${name} -- ${share}% Meta Share, Tier ${tier} | Scout`,
-    description: `${name} in ${formatName}: ${share}% meta share, Tier ${tier}, ${safeInt(arch.deck_count)} decks. Core cards, results, and performance analysis.`,
-  };
+  return archetypeOgMetadata(format, formatName, arch, slug);
 }
 
 export function generateStaticParams() {
