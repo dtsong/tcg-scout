@@ -26,6 +26,7 @@ export interface ArchetypeSummary {
   sprite_filenames?: string[];
   trend?: "up" | "down" | "new" | "stable";
   trend_delta?: number;
+  breakout_score?: number;
 }
 
 export interface MetaData {
@@ -35,6 +36,8 @@ export interface MetaData {
   date_range: { start: string; end: string };
   rotation_date: string;
   tier_thresholds: Record<string, number>;
+  breakout_threshold?: number;
+  breakout_display_count?: number;
   archetypes: ArchetypeSummary[];
   format?: { slug: string; name: string; name_en: string };
 }

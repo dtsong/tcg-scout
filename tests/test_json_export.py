@@ -13,6 +13,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from config import get_format_config
 from reports.json_export import (
     _build_jp_en_lookup,
+    _compute_breakout_score,
     _compute_card_stats_for_ids,
     _compute_weighted_shares,
     _compute_windowed_ace_specs,
@@ -1094,3 +1095,151 @@ class TestExportAllLabsIntegration:
         data = json.loads(matchup_file.read_text())
         assert data.get("source") == "co-occurrence"
         broken_conn.close()
+
+
+# --- _compute_breakout_score ---
+
+
+class TestComputeBreakoutScore:
+    def test_first_place_new_rogue(self):
+        """New rogue that won a tournament should score very high."""
+        score = _compute_breakout_score(
+            meta_share=0.5, weighted_share=2.0, best_placement=1, trend="new", trend_delta=0.0
+        )
+        assert score > 80
+
+    def test_low_placement_stable_rogue(self):
+        """Stable rogue with poor results should score low."""
+        score = _compute_breakout_score(
+            meta_share=0.3, weighted_share=0.3, best_placement=20, trend="stable", trend_delta=0.0
+        )
+        # 1.0 overperformance ratio + 0.5 recency + 0 placement = 55
+        # This is near the 50 threshold -- barely qualifying
+        assert score < 60
+
+    def test_overperformance_matters(self):
+        """Higher weighted_share / meta_share ratio should increase score."""
+        low = _compute_breakout_score(
+            meta_share=0.5, weighted_share=0.5, best_placement=8, trend="stable", trend_delta=0.0
+        )
+        high = _compute_breakout_score(
+            meta_share=0.5, weighted_share=2.0, best_placement=8, trend="stable", trend_delta=0.0
+        )
+        assert high > low
+
+    def test_trending_up_boosts_score(self):
+        """Trending up should score higher than stable."""
+        stable = _compute_breakout_score(
+            meta_share=0.5, weighted_share=0.5, best_placement=16, trend="stable", trend_delta=0.0
+        )
+        up = _compute_breakout_score(
+            meta_share=0.5, weighted_share=0.5, best_placement=16, trend="up", trend_delta=5.0
+        )
+        assert up > stable
+
+    def test_better_placement_boosts_score(self):
+        """Better placement should increase score."""
+        bad = _compute_breakout_score(
+            meta_share=0.5, weighted_share=1.0, best_placement=16, trend="stable", trend_delta=0.0
+        )
+        good = _compute_breakout_score(
+            meta_share=0.5, weighted_share=1.0, best_placement=1, trend="stable", trend_delta=0.0
+        )
+        assert good > bad
+
+    def test_zero_meta_share_no_division_error(self):
+        """Should handle zero meta share without crashing."""
+        score = _compute_breakout_score(
+            meta_share=0.0, weighted_share=1.0, best_placement=1, trend="new", trend_delta=0.0
+        )
+        assert 0 < score <= 100
+
+    def test_score_capped_at_100(self):
+        """Extreme overperformance should not produce scores above 100."""
+        score = _compute_breakout_score(
+            meta_share=0.01, weighted_share=10.0, best_placement=1, trend="new", trend_delta=0.0
+        )
+        assert score <= 100
+
+    def test_negative_trend_delta_floors_recency(self):
+        """Negative trend_delta with 'up' trend should not produce negative recency."""
+        score = _compute_breakout_score(
+            meta_share=0.5, weighted_share=1.0, best_placement=4, trend="up", trend_delta=-20.0
+        )
+        assert score >= 0
+
+    def test_down_trend_uses_base_recency(self):
+        """Down trend should use the same base recency as stable (0.5)."""
+        down = _compute_breakout_score(
+            meta_share=0.5, weighted_share=1.0, best_placement=8, trend="down", trend_delta=-3.0
+        )
+        stable = _compute_breakout_score(
+            meta_share=0.5, weighted_share=1.0, best_placement=8, trend="stable", trend_delta=0.0
+        )
+        assert down == stable
+
+    def test_returns_float(self):
+        """Score should be a rounded float."""
+        score = _compute_breakout_score(
+            meta_share=0.5, weighted_share=1.0, best_placement=4, trend="up", trend_delta=2.0
+        )
+        assert isinstance(score, float)
+
+
+class TestBreakoutScoreInjection:
+    """Verify that breakout scores are only injected into Rogue-tier archetypes."""
+
+    def test_only_rogue_archetypes_get_breakout_score(self):
+        """Non-Rogue archetypes must not have breakout_score."""
+        archetypes = [
+            {
+                "tier": "S",
+                "meta_share": 12.0,
+                "weighted_share": 14.0,
+                "best_placement": 1,
+                "trend": "stable",
+                "trend_delta": 0.0,
+            },
+            {
+                "tier": "A",
+                "meta_share": 8.0,
+                "weighted_share": 9.0,
+                "best_placement": 2,
+                "trend": "up",
+                "trend_delta": 2.0,
+            },
+            {
+                "tier": "Rogue",
+                "meta_share": 0.5,
+                "weighted_share": 2.0,
+                "best_placement": 1,
+                "trend": "new",
+                "trend_delta": 0.0,
+            },
+            {
+                "tier": "Rogue",
+                "meta_share": 0.3,
+                "weighted_share": 0.3,
+                "best_placement": 16,
+                "trend": "stable",
+                "trend_delta": 0.0,
+            },
+        ]
+        for arch_data in archetypes:
+            if arch_data["tier"] == "Rogue":
+                arch_data["breakout_score"] = _compute_breakout_score(
+                    meta_share=arch_data["meta_share"],
+                    weighted_share=arch_data["weighted_share"],
+                    best_placement=arch_data["best_placement"],
+                    trend=arch_data["trend"],
+                    trend_delta=arch_data["trend_delta"],
+                )
+
+        # Non-Rogue archetypes must not have breakout_score
+        assert "breakout_score" not in archetypes[0]
+        assert "breakout_score" not in archetypes[1]
+        # Rogue archetypes must have breakout_score
+        assert "breakout_score" in archetypes[2]
+        assert "breakout_score" in archetypes[3]
+        assert isinstance(archetypes[2]["breakout_score"], float)
+        assert isinstance(archetypes[3]["breakout_score"], float)

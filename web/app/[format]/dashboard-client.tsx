@@ -2,7 +2,8 @@
 
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
-import { ArrowRight, TrendingUp, TrendingDown, Trophy, ShoppingCart, Calendar, Zap, Layers } from "lucide-react";
+import { ArrowRight, TrendingUp, TrendingDown, Trophy, ShoppingCart, Calendar, Zap, Layers, Award } from "lucide-react";
+import { SpriteRow } from "@/app/components/sprite-row";
 import { ShareButton } from "@/app/components/share-button";
 import { DeltaValue } from "@/app/components/delta-value";
 import { TierBadge } from "@/app/components/tier-badge";
@@ -36,8 +37,19 @@ const tierBorderColors: Record<string, string> = {
   s: "border-l-tier-s",
   a: "border-l-tier-a",
   b: "border-l-tier-b",
+  c: "border-l-tier-c",
   rogue: "border-l-tier-rogue",
 };
+
+function placementLabel(placement: number): string {
+  if (placement < 1) return "N/A";
+  if (placement === 1) return "1st Place";
+  if (placement === 2) return "2nd Place";
+  if (placement <= 4) return `Top 4`;
+  if (placement <= 8) return `Top 8`;
+  if (placement <= 16) return `Top 16`;
+  return `Top ${placement}`;
+}
 
 export function DashboardClient({
   format,
@@ -125,6 +137,13 @@ export function DashboardClient({
     ["S", "A", "B"].includes(a.tier),
   );
 
+  const breakoutThreshold = meta.breakout_threshold ?? 50;
+  const breakoutDisplayCount = meta.breakout_display_count ?? 3;
+  const rogueBreakouts = meta.archetypes
+    .filter((a) => a.tier === "Rogue" && (a.breakout_score ?? 0) >= breakoutThreshold)
+    .sort((a, b) => (b.breakout_score ?? 0) - (a.breakout_score ?? 0))
+    .slice(0, breakoutDisplayCount);
+
   const surgingCards = (trends.surging || []).slice(0, 5);
   const decliningCards = (trends.declining || []).slice(0, 5);
   const topEdge = winningEdge.slice(0, 5);
@@ -198,13 +217,166 @@ export function DashboardClient({
       {/* Welcome Guide (first visit only) */}
       <WelcomeGuide />
 
+      {/* Top 6 Archetypes Hero */}
+      {meta.archetypes.length > 0 && (
+        <section id="hero">
+          <div className="flex items-center justify-between mb-3">
+            <h2 className="font-display text-lg font-semibold text-slate-100 flex items-center gap-2">
+              <Award className="w-5 h-5 text-tier-s" />
+              Top Decks
+            </h2>
+            <Link
+              href={`/${format}/archetypes`}
+              className="text-sm text-accent hover:text-accent/80 flex items-center gap-1"
+            >
+              All archetypes <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
+          {/* Desktop: 3x2 grid, Mobile: horizontal scroll */}
+          <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+            {meta.archetypes.slice(0, 6).map((arch, i) => {
+              const tierKey = arch.tier.toLowerCase();
+              return (
+                <Link
+                  key={arch.slug}
+                  href={`/${format}/archetypes/${arch.slug}`}
+                  className={`animate-stagger group bg-surface-800 border border-surface-600 rounded-lg p-4 border-l-4 ${tierBorderColors[tierKey] ?? ""} hover:-translate-y-0.5 hover:shadow-lg hover:shadow-black/30 hover:border-surface-500 transition-all duration-150`}
+                  style={{ "--index": i } as React.CSSProperties}
+                >
+                  <div className="flex items-center gap-3 mb-2">
+                    <SpriteRow filenames={arch.sprite_filenames ?? []} size={40} />
+                    <div className="min-w-0 flex-1">
+                      <div className="flex items-center gap-2">
+                        <span className="font-display text-base font-semibold text-slate-100 truncate group-hover:text-accent transition-colors">
+                          {arch.archetype}
+                        </span>
+                        <TierBadge tier={arch.tier} />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex items-end justify-between mt-1">
+                    <div>
+                      <span className="font-mono text-2xl font-bold text-slate-100 tabular-nums">
+                        {formatPct(arch.meta_share)}
+                      </span>
+                      <span className="text-xs text-surface-400 ml-1">meta share</span>
+                    </div>
+                    <div className="text-right">
+                      <div className="text-xs text-surface-400">
+                        Best: {placementLabel(arch.best_placement)}
+                      </div>
+                      {arch.trend && arch.trend !== "stable" && (
+                        <div className="flex items-center justify-end gap-1 mt-0.5">
+                          {arch.trend === "up" || arch.trend === "new" ? (
+                            <TrendingUp className="w-3 h-3 text-signal-up" />
+                          ) : (
+                            <TrendingDown className="w-3 h-3 text-signal-down" />
+                          )}
+                          <span className={`font-mono text-[11px] ${arch.trend === "up" || arch.trend === "new" ? "text-signal-up" : "text-signal-down"}`}>
+                            {arch.trend === "new" ? "New" : `${(arch.trend_delta ?? 0) > 0 ? "+" : ""}${(arch.trend_delta ?? 0).toFixed(1)}%`}
+                          </span>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+          {/* Mobile: horizontal scroll with snap */}
+          <div className="flex sm:hidden gap-3 overflow-x-auto snap-x snap-mandatory pb-2 -mx-4 px-4 scrollbar-hide">
+            {meta.archetypes.slice(0, 6).map((arch, i) => {
+              const tierKey = arch.tier.toLowerCase();
+              return (
+                <Link
+                  key={arch.slug}
+                  href={`/${format}/archetypes/${arch.slug}`}
+                  className={`animate-stagger snap-start shrink-0 w-[72%] bg-surface-800 border border-surface-600 rounded-lg p-4 border-l-4 ${tierBorderColors[tierKey] ?? ""}`}
+                  style={{ "--index": i } as React.CSSProperties}
+                >
+                  <div className="flex items-center gap-3 mb-2">
+                    <SpriteRow filenames={arch.sprite_filenames ?? []} size={36} />
+                    <div className="min-w-0 flex-1">
+                      <div className="flex items-center gap-2">
+                        <span className="font-display text-sm font-semibold text-slate-100 truncate">
+                          {arch.archetype}
+                        </span>
+                        <TierBadge tier={arch.tier} />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex items-end justify-between mt-1">
+                    <div>
+                      <span className="font-mono text-xl font-bold text-slate-100 tabular-nums">
+                        {formatPct(arch.meta_share)}
+                      </span>
+                    </div>
+                    <div className="text-right text-xs text-surface-400">
+                      Best: {placementLabel(arch.best_placement)}
+                      {arch.trend && arch.trend !== "stable" && (
+                        <div className="flex items-center justify-end gap-1 mt-0.5">
+                          {arch.trend === "up" || arch.trend === "new" ? (
+                            <TrendingUp className="w-3 h-3 text-signal-up" />
+                          ) : (
+                            <TrendingDown className="w-3 h-3 text-signal-down" />
+                          )}
+                          <span className={`font-mono text-[11px] ${arch.trend === "up" || arch.trend === "new" ? "text-signal-up" : "text-signal-down"}`}>
+                            {arch.trend === "new" ? "New" : `${(arch.trend_delta ?? 0) > 0 ? "+" : ""}${(arch.trend_delta ?? 0).toFixed(1)}%`}
+                          </span>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+        </section>
+      )}
+
+      {/* Breakout Watch — Rogue archetypes with high breakout scores */}
+      {rogueBreakouts.length > 0 && (
+        <section id="breakout" className="bg-surface-850 rounded-md p-4 border border-surface-700/50">
+          <h3 className="font-display text-sm font-semibold text-slate-200 flex items-center gap-2 mb-3">
+            <Zap className="w-4 h-4 text-tier-rogue" />
+            Breakout Watch
+            <span className="text-xs font-normal text-surface-400">Low usage, high ceiling</span>
+          </h3>
+          <div className="space-y-2">
+            {rogueBreakouts.map((arch) => (
+              <Link
+                key={arch.slug}
+                href={`/${format}/archetypes/${arch.slug}`}
+                className="flex items-center gap-3 py-1.5 px-2 -mx-2 rounded hover:bg-surface-700/50 transition-colors group"
+              >
+                <SpriteRow filenames={arch.sprite_filenames ?? []} size={32} />
+                <span className="font-display text-sm font-medium text-slate-200 group-hover:text-accent transition-colors truncate">
+                  {arch.archetype}
+                </span>
+                <span className="ml-auto flex items-center gap-3 shrink-0">
+                  <span className="text-xs text-surface-400">
+                    {formatPct(arch.meta_share)} usage
+                  </span>
+                  <span className="text-xs text-surface-400">
+                    Best: {placementLabel(arch.best_placement)}
+                  </span>
+                  {arch.trend === "up" || arch.trend === "new" ? (
+                    <TrendingUp className="w-3.5 h-3.5 text-signal-up" />
+                  ) : null}
+                </span>
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
+
       {/* Loading overlay */}
       <div className={loading ? "opacity-50 pointer-events-none transition-opacity" : "transition-opacity"}>
-        {/* Quick Insights Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        {/* Quick Insights — compact grid, no card wrappers */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-4">
           {/* Surging Cards */}
-          <section className="animate-stagger bg-surface-800 border border-surface-600 rounded-md p-5" style={{ "--index": 0 } as React.CSSProperties}>
-            <div className="flex items-center justify-between mb-4">
+          <section className="animate-stagger border-b border-surface-700 pb-4 lg:border-b-0 lg:pb-0" style={{ "--index": 0 } as React.CSSProperties}>
+            <div className="flex items-center justify-between mb-3">
               <h3 className="font-display text-sm font-semibold text-slate-200 flex items-center gap-2">
                 <TrendingUp className="w-4 h-4 text-signal-up" />
                 Surging Cards
@@ -214,7 +386,7 @@ export function DashboardClient({
                 More
               </Link>
             </div>
-            <div className="space-y-3">
+            <div className="space-y-2.5">
               {surgingCards.map((card) => (
                 <div key={card.card_name} className="flex items-center justify-between">
                   <span className="text-sm text-slate-300 truncate mr-2">{card.card_name}</span>
@@ -230,8 +402,8 @@ export function DashboardClient({
           </section>
 
           {/* Declining Cards */}
-          <section className="animate-stagger bg-surface-800 border border-surface-600 rounded-md p-5" style={{ "--index": 1 } as React.CSSProperties}>
-            <div className="flex items-center justify-between mb-4">
+          <section className="animate-stagger border-b border-surface-700 pb-4 lg:border-b-0 lg:pb-0" style={{ "--index": 1 } as React.CSSProperties}>
+            <div className="flex items-center justify-between mb-3">
               <h3 className="font-display text-sm font-semibold text-slate-200 flex items-center gap-2">
                 <TrendingDown className="w-4 h-4 text-signal-down" />
                 Declining Cards
@@ -241,7 +413,7 @@ export function DashboardClient({
                 More
               </Link>
             </div>
-            <div className="space-y-3">
+            <div className="space-y-2.5">
               {decliningCards.map((card) => (
                 <div key={card.card_name} className="flex items-center justify-between">
                   <span className="text-sm text-slate-300 truncate mr-2">{card.card_name}</span>
@@ -257,8 +429,8 @@ export function DashboardClient({
           </section>
 
           {/* Winning Edge */}
-          <section className="animate-stagger bg-surface-800 border border-surface-600 rounded-md p-5" style={{ "--index": 2 } as React.CSSProperties}>
-            <div className="flex items-center justify-between mb-4">
+          <section className="animate-stagger border-b border-surface-700 pb-4 lg:border-b-0 lg:pb-0" style={{ "--index": 2 } as React.CSSProperties}>
+            <div className="flex items-center justify-between mb-3">
               <h3 className="font-display text-sm font-semibold text-slate-200 flex items-center gap-2">
                 <Trophy className="w-4 h-4 text-tier-s" />
                 Winning Edge
@@ -268,7 +440,7 @@ export function DashboardClient({
                 More
               </Link>
             </div>
-            <div className="space-y-3">
+            <div className="space-y-2.5">
               {topEdge.map((card) => (
                 <div key={card.card_name} className="flex items-center justify-between">
                   <span className="text-sm text-slate-300 truncate mr-2">{card.card_name}</span>
@@ -284,8 +456,8 @@ export function DashboardClient({
           </section>
 
           {/* ACE SPEC Distribution */}
-          <section className="animate-stagger bg-surface-800 border border-surface-600 rounded-md p-5" style={{ "--index": 3 } as React.CSSProperties}>
-            <div className="flex items-center justify-between mb-4">
+          <section className="animate-stagger" style={{ "--index": 3 } as React.CSSProperties}>
+            <div className="flex items-center justify-between mb-3">
               <h3 className="font-display text-sm font-semibold text-slate-200 flex items-center gap-2">
                 <ShoppingCart className="w-4 h-4 text-tier-rogue" />
                 ACE SPECs
@@ -295,7 +467,7 @@ export function DashboardClient({
                 Buy List
               </Link>
             </div>
-            <div className="space-y-3">
+            <div className="space-y-2.5">
               {topAceSpecs.map((spec) => (
                 <div key={spec.card_name} className="flex items-center justify-between">
                   <span className="text-sm text-slate-300 truncate mr-2">{spec.card_name}</span>
@@ -313,71 +485,67 @@ export function DashboardClient({
 
         {/* Cross-Meta Staples */}
         {crossMetaStaples.length > 0 && (
-          <div className="mt-6">
-            <section className="bg-surface-800 border border-surface-600 rounded-lg p-5">
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="font-display text-sm font-semibold text-slate-200 flex items-center gap-2">
-                  <Layers className="w-4 h-4 text-tier-a" />
-                  Cross-Meta Staples
-                  <InfoIcon tooltip="Cards with a positive edge in top-4 finishes across 3 or more S/A/B-tier archetypes. These are format-defining cards that give an edge regardless of which competitive deck you play." />
-                </h3>
-                <Link href={`/${format}/card-analysis`} className="text-xs text-accent hover:text-accent/80">
-                  Format Edge
-                </Link>
-              </div>
-              <div className="space-y-3">
-                {crossMetaStaples.map((card) => (
-                  <div key={card.card_name} className="flex items-center justify-between">
-                    <span className="text-sm text-slate-300 truncate mr-2">{card.card_name}</span>
-                    <div className="flex items-center gap-3">
-                      <span className="font-mono text-xs text-surface-400 whitespace-nowrap">
-                        {card.tiered_archetype_count} archetypes
-                      </span>
-                      <DeltaValue delta={card.weighted_impact} />
-                    </div>
+          <section className="mt-6 border-t border-surface-700 pt-5">
+            <div className="flex items-center justify-between mb-3">
+              <h3 className="font-display text-sm font-semibold text-slate-200 flex items-center gap-2">
+                <Layers className="w-4 h-4 text-tier-a" />
+                Cross-Meta Staples
+                <InfoIcon tooltip="Cards with a positive edge in top-4 finishes across 3 or more S/A/B-tier archetypes. These are format-defining cards that give an edge regardless of which competitive deck you play." />
+              </h3>
+              <Link href={`/${format}/card-analysis`} className="text-xs text-accent hover:text-accent/80">
+                Format Edge
+              </Link>
+            </div>
+            <div className="space-y-2.5">
+              {crossMetaStaples.map((card) => (
+                <div key={card.card_name} className="flex items-center justify-between">
+                  <span className="text-sm text-slate-300 truncate mr-2">{card.card_name}</span>
+                  <div className="flex items-center gap-3">
+                    <span className="font-mono text-xs text-surface-400 whitespace-nowrap">
+                      {card.tiered_archetype_count} archetypes
+                    </span>
+                    <DeltaValue delta={card.weighted_impact} />
                   </div>
-                ))}
-              </div>
-            </section>
-          </div>
+                </div>
+              ))}
+            </div>
+          </section>
         )}
 
         {/* Biggest Copy-Count Shifts */}
         {metaEvolution.length > 0 && (
-          <div className="mt-6">
-            <section className="bg-surface-800 border border-surface-600 rounded-md p-5">
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="font-display text-sm font-semibold text-slate-200 flex items-center gap-2">
-                  <Zap className="w-4 h-4 text-amber-400" />
-                  Biggest Copy-Count Shifts
-                </h3>
-                <Link
-                  href={`/${format}/shifts`}
-                  className="text-xs text-amber-400 hover:text-amber-300 flex items-center gap-1"
-                >
-                  View all <ArrowRight className="w-3 h-3" />
-                </Link>
-              </div>
-              <div className="space-y-3">
-                {metaEvolution.map((m, i) => (
-                  <div key={i} className="flex items-center justify-between">
-                    <div className="flex items-center gap-2 min-w-0 mr-2">
-                      {m.direction === "adopted" ? (
-                        <TrendingUp className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                      ) : (
-                        <TrendingDown className="w-3.5 h-3.5 text-red-400 shrink-0" />
-                      )}
-                      <span className="text-sm text-slate-300 truncate">{m.card}</span>
-                      <span className="text-[10px] text-surface-400 shrink-0">in {m.archetype}</span>
-                    </div>
-                    <span className="font-mono text-xs text-surface-300 whitespace-nowrap">
-                      {m.from_pct.toFixed(0)}% &rarr; {m.to_pct.toFixed(0)}%
-                    </span>
+          <section className="mt-6 border-t border-surface-700 pt-5">
+            <div className="flex items-center justify-between mb-3">
+              <h3 className="font-display text-sm font-semibold text-slate-200 flex items-center gap-2">
+                <Zap className="w-4 h-4 text-amber-400" />
+                Biggest Copy-Count Shifts
+              </h3>
+              <Link
+                href={`/${format}/shifts`}
+                className="text-xs text-amber-400 hover:text-amber-300 flex items-center gap-1"
+              >
+                View all <ArrowRight className="w-3 h-3" />
+              </Link>
+            </div>
+            <div className="space-y-2.5">
+              {metaEvolution.map((m, i) => (
+                <div key={i} className="flex items-center justify-between">
+                  <div className="flex items-center gap-2 min-w-0 mr-2">
+                    {m.direction === "adopted" ? (
+                      <TrendingUp className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                    ) : (
+                      <TrendingDown className="w-3.5 h-3.5 text-red-400 shrink-0" />
+                    )}
+                    <span className="text-sm text-slate-300 truncate">{m.card}</span>
+                    <span className="text-[10px] text-surface-400 shrink-0">in {m.archetype}</span>
                   </div>
-                ))}
-              </div>
-            </section>
-          </div>
+                  <span className="font-mono text-xs text-surface-300 whitespace-nowrap">
+                    {m.from_pct.toFixed(0)}% &rarr; {m.to_pct.toFixed(0)}%
+                  </span>
+                </div>
+              ))}
+            </div>
+          </section>
         )}
 
         {/* Meta Timeline */}
@@ -388,7 +556,7 @@ export function DashboardClient({
         )}
 
         {/* Tier List Preview */}
-        <section className="mt-6" data-testid="tier-section">
+        <section id="tier-list" className="mt-6" data-testid="tier-section">
           <div className="flex items-center justify-between mb-3">
             <h2 className="font-display text-lg font-semibold text-slate-100">
               Meta Tier List
@@ -400,24 +568,24 @@ export function DashboardClient({
               View all <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>
-          <div className="bg-surface-800 border border-surface-600 rounded-md overflow-hidden">
+          <div className="overflow-hidden rounded-md border border-surface-700">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-surface-600 text-[11px] text-surface-300 uppercase tracking-wider">
+                <tr className="border-b border-surface-700 text-[11px] text-surface-300 uppercase tracking-wider bg-surface-850">
                   <th className="text-left px-3 py-2">Tier</th>
                   <th className="text-left px-3 py-2">Archetype</th>
                   <th className="text-right px-3 py-2">Share</th>
                   <th className="text-right px-3 py-2 hidden sm:table-cell">Decks</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody className="divide-y divide-surface-700">
                 {topArchetypes.map((arch, i) => {
-                  const tierKey = arch.tier.toLowerCase() === "rogue" ? "rogue" : arch.tier.toLowerCase();
+                  const tierKey = arch.tier.toLowerCase();
                   const glowColor = tierGlowColors[arch.tier];
                   return (
                   <tr
                     key={arch.slug}
-                    className={`border-b border-surface-700 hover:bg-surface-700/50 transition-colors border-l-[3px] ${tierBorderColors[tierKey] ?? ""} ${i < 20 ? "animate-stagger" : ""} ${glowColor ? "tier-glow" : ""}`}
+                    className={`hover:bg-surface-700/50 transition-colors border-l-[3px] ${tierBorderColors[tierKey] ?? ""} ${i < 20 ? "animate-stagger" : ""} ${glowColor ? "tier-glow" : ""}`}
                     style={{
                       ...(i < 20 ? { "--index": i } : {}),
                       ...(glowColor ? { "--tier-glow-color": glowColor } : {}),
@@ -450,7 +618,7 @@ export function DashboardClient({
         </section>
       </div>
 
-      {/* Nav Cards */}
+      {/* Nav Links — lightweight, no card containers */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
         {[
           { href: `/${format}/archetypes`, title: "Archetypes", desc: `${meta.archetypes.length} decks tracked` },
@@ -461,13 +629,13 @@ export function DashboardClient({
           <Link
             key={href}
             href={href}
-            className="group animate-stagger bg-surface-800 border border-surface-600 rounded-md p-4 hover:border-surface-500 transition-colors"
+            className="group animate-stagger border border-surface-600 rounded-md p-3 hover:border-surface-500 hover:bg-surface-800/50 transition-colors"
             style={{ "--index": i } as React.CSSProperties}
           >
-            <h3 className="font-display font-semibold text-slate-200 group-hover:text-accent transition-colors">
+            <h3 className="font-display text-sm font-semibold text-slate-200 group-hover:text-accent transition-colors">
               {title}
             </h3>
-            <p className="text-sm text-surface-300 mt-1">{desc}</p>
+            <p className="text-xs text-surface-400 mt-0.5">{desc}</p>
           </Link>
         ))}
       </div>

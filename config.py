@@ -100,6 +100,10 @@ PLACEMENT_WEIGHTS = {
 # Default weight for standings beyond top 16
 PLACEMENT_WEIGHT_DEFAULT = 1.0
 
+# Breakout score thresholds for Rogue Spotlight
+BREAKOUT_THRESHOLD = 50  # Minimum score (0-100) to qualify for Rogue Spotlight
+BREAKOUT_DISPLAY_COUNT = 3  # Max rogues shown in spotlight
+
 # Minimum adoption percentage change (week-over-week) to classify as rising/falling.
 TECH_TREND_THRESHOLD = 2.0
 
