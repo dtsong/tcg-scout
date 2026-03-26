@@ -130,8 +130,8 @@ export function ShareButton({
     try {
       await navigator.clipboard.writeText(resolvedUrl);
       success = true;
-    } catch {
-      // Fallback for older browsers
+    } catch (clipErr) {
+      console.warn("Clipboard API unavailable, trying fallback:", clipErr);
       try {
         const textarea = document.createElement("textarea");
         textarea.value = resolvedUrl;
