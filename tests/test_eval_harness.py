@@ -242,12 +242,20 @@ class TestEvalHarness:
         assert report.passed == 1
 
     def test_model_failure_produces_partial_results(self, tmp_path):
+        from unittest.mock import MagicMock as _MagicMock
+
+        import anthropic as anthropic_mod
+
         path = _write_dataset(tmp_path)
         mock_client = self._make_mock_client([])
-        # First example succeeds, second fails
+        # First example succeeds, second fails with an API error
         mock_client.generate.side_effect = [
             "Dragapult Dusknoir",
-            RuntimeError("API timeout"),
+            anthropic_mod.APIError(
+                message="API timeout",
+                request=_MagicMock(),
+                body=None,
+            ),
         ]
         harness = EvalHarness(mock_client, ExactMatchScorer())
         report = harness.run(path)
@@ -262,6 +270,19 @@ class TestEvalHarness:
         mock_client = self._make_mock_client([])
         harness = EvalHarness(mock_client, ExactMatchScorer())
         with pytest.raises(ValueError, match="missing 'examples' key"):
+            harness.run(path)
+
+    def test_missing_example_field_in_run_raises(self, tmp_path):
+        path = _write_dataset(
+            tmp_path,
+            {
+                "name": "bad",
+                "examples": [{"id": "ex-001"}],  # missing input_prompt
+            },
+        )
+        mock_client = self._make_mock_client([])
+        harness = EvalHarness(mock_client, ExactMatchScorer())
+        with pytest.raises(ValueError, match="missing required key 'input_prompt'"):
             harness.run(path)
 
     def test_system_prompt_forwarded(self, tmp_path):

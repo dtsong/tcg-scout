@@ -104,7 +104,7 @@ export function ShareButton({
   );
 
   const handlePrimary = async () => {
-    // Try Web Share API first (mobile)
+    // Try native Web Share API first (supported on mobile and some desktop browsers)
     if (typeof navigator !== "undefined" && navigator.share) {
       try {
         await navigator.share({
@@ -116,10 +116,10 @@ export function ShareButton({
         return;
       } catch (err) {
         if (err instanceof DOMException && err.name === "AbortError") {
-          // User cancelled the share dialog -- fall through to dropdown
-        } else {
-          console.error("Web Share API failed:", err);
+          return; // User cancelled -- do nothing
         }
+        console.error("Web Share API failed:", err);
+        // Fall through to dropdown as fallback
       }
     }
     setOpen((prev) => !prev);
@@ -145,7 +145,10 @@ export function ShareButton({
         console.error("Clipboard fallback failed:", fallbackErr);
       }
     }
-    if (!success) return;
+    if (!success) {
+      setOpen(false);
+      return;
+    }
     setCopied(true);
     trackEvent("share_click", { method: "copy-link", page_type: pageType });
     trackEvent("copy_link", { page_type: pageType });

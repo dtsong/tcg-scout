@@ -272,9 +272,13 @@ function MobileDrawer({
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, [open, onClose]);
 
-  // Close drawer on route change
+  // Close drawer on route change (skip initial render)
+  const prevPathname = useRef(pathname);
   useEffect(() => {
-    onClose();
+    if (prevPathname.current !== pathname) {
+      onClose();
+      prevPathname.current = pathname;
+    }
   }, [pathname, onClose]);
 
   const currentFormat = formats.find((f) => f.slug === format);
@@ -298,6 +302,7 @@ function MobileDrawer({
       {/* Drawer panel */}
       <div
         ref={drawerRef}
+        id="mobile-nav-drawer"
         role="dialog"
         aria-modal="true"
         aria-label="Navigation menu"

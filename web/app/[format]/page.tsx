@@ -15,8 +15,8 @@ export async function generateMetadata({
   let meta = null;
   try {
     meta = getMeta(format);
-  } catch {
-    // Format may not have data yet; proceed with null meta
+  } catch (err) {
+    console.error(`[generateMetadata] Failed to load meta for format "${format}":`, err);
   }
   return dashboardOgMetadata(format, formatName, meta);
 }

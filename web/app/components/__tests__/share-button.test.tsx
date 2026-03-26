@@ -159,6 +159,60 @@ describe("ShareButton", () => {
     expect(screen.queryByRole("menu")).toBeNull();
   });
 
+  it("does not open dropdown when user cancels Web Share (AbortError)", async () => {
+    const user = userEvent.setup();
+    const abortError = new DOMException("Share cancelled", "AbortError");
+    const shareFn = vi.fn().mockRejectedValue(abortError);
+    Object.defineProperty(window, "navigator", {
+      value: { ...originalNavigator, share: shareFn, clipboard: { writeText: vi.fn() } },
+      writable: true,
+      configurable: true,
+    });
+
+    render(<ShareButton title="Test" pageType="archetype" />);
+    await user.click(screen.getByRole("button", { name: /share/i }));
+
+    expect(shareFn).toHaveBeenCalled();
+    expect(screen.queryByRole("menu")).toBeNull();
+  });
+
+  it("falls through to dropdown when Web Share API fails with non-abort error", async () => {
+    const user = userEvent.setup();
+    const shareFn = vi.fn().mockRejectedValue(new Error("NotAllowedError"));
+    Object.defineProperty(window, "navigator", {
+      value: { ...originalNavigator, share: shareFn, clipboard: { writeText: vi.fn() } },
+      writable: true,
+      configurable: true,
+    });
+
+    render(<ShareButton title="Test" pageType="archetype" />);
+    await user.click(screen.getByRole("button", { name: /share/i }));
+
+    expect(shareFn).toHaveBeenCalled();
+    expect(screen.getByRole("menu")).toBeDefined();
+  });
+
+  it("closes dropdown when clipboard copy fails completely", async () => {
+    const user = userEvent.setup();
+    const writeText = vi.fn().mockRejectedValue(new Error("Clipboard blocked"));
+    Object.defineProperty(window, "navigator", {
+      value: { ...originalNavigator, share: undefined, clipboard: { writeText } },
+      writable: true,
+      configurable: true,
+    });
+    // Also disable execCommand fallback
+    document.execCommand = vi.fn().mockReturnValue(false);
+
+    render(<ShareButton title="Test" pageType="archetype" url="https://example.com" />);
+
+    await user.click(screen.getByRole("button", { name: /share/i }));
+    expect(screen.getByRole("menu")).toBeDefined();
+
+    await user.click(screen.getByText("Copy Link"));
+    expect(screen.queryByRole("menu")).toBeNull();
+    expect(trackEvent).not.toHaveBeenCalled();
+  });
+
   it("has correct ARIA attributes", () => {
     render(<ShareButton title="Test" pageType="archetype" />);
     const button = screen.getByRole("button", { name: /share/i });

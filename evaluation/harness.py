@@ -16,6 +16,8 @@ from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
 from pathlib import Path
 
+import anthropic
+
 from reports.model_client import ModelClient
 
 logger = logging.getLogger(__name__)
@@ -169,6 +171,38 @@ class JSONSchemaScorer(Scorer):
 # ------------------------------------------------------------------
 
 
+def _parse_golden_examples(data: dict, source: str) -> list[GoldenExample]:
+    """Parse golden examples from already-loaded JSON data.
+
+    Parameters
+    ----------
+    data:
+        Parsed JSON dictionary with an ``examples`` key.
+    source:
+        Label for error messages (typically the file path).
+    """
+    if "examples" not in data:
+        raise ValueError(
+            f"Golden dataset {source} is missing 'examples' key. Available keys: {list(data.keys())}"
+        )
+    examples = []
+    for i, item in enumerate(data["examples"]):
+        for required_key in ("id", "input_prompt"):
+            if required_key not in item:
+                raise ValueError(
+                    f"Example at index {i} in {source} is missing required key '{required_key}'"
+                )
+        examples.append(
+            GoldenExample(
+                id=item["id"],
+                input_prompt=item["input_prompt"],
+                expected=item.get("expected", {}),
+                metadata=item.get("metadata", {}),
+            )
+        )
+    return examples
+
+
 def load_golden_dataset(path: Path) -> list[GoldenExample]:
     """Load golden examples from a JSON file.
 
@@ -187,26 +221,7 @@ def load_golden_dataset(path: Path) -> list[GoldenExample]:
         }
     """
     data = json.loads(path.read_text(encoding="utf-8"))
-    if "examples" not in data:
-        raise ValueError(
-            f"Golden dataset {path} is missing 'examples' key. Available keys: {list(data.keys())}"
-        )
-    examples = []
-    for i, item in enumerate(data["examples"]):
-        for required_key in ("id", "input_prompt"):
-            if required_key not in item:
-                raise ValueError(
-                    f"Example at index {i} in {path} is missing required key '{required_key}'"
-                )
-        examples.append(
-            GoldenExample(
-                id=item["id"],
-                input_prompt=item["input_prompt"],
-                expected=item.get("expected", {}),
-                metadata=item.get("metadata", {}),
-            )
-        )
-    return examples
+    return _parse_golden_examples(data, str(path))
 
 
 class EvalHarness:
@@ -236,27 +251,7 @@ class EvalHarness:
         """
         data = json.loads(dataset_path.read_text(encoding="utf-8"))
         dataset_name = data.get("name", dataset_path.stem)
-        if "examples" not in data:
-            raise ValueError(
-                f"Golden dataset {dataset_path} is missing 'examples' key. "
-                f"Available keys: {list(data.keys())}"
-            )
-        examples = []
-        for i, item in enumerate(data["examples"]):
-            for required_key in ("id", "input_prompt"):
-                if required_key not in item:
-                    raise ValueError(
-                        f"Example at index {i} in {dataset_path} is missing "
-                        f"required key '{required_key}'"
-                    )
-            examples.append(
-                GoldenExample(
-                    id=item["id"],
-                    input_prompt=item["input_prompt"],
-                    expected=item.get("expected", {}),
-                    metadata=item.get("metadata", {}),
-                )
-            )
+        examples = _parse_golden_examples(data, str(dataset_path))
 
         results: list[ScoredResult] = []
         for example in examples:
@@ -266,7 +261,7 @@ class EvalHarness:
                     example.input_prompt,
                     system_prompt=system_prompt,
                 )
-            except Exception as exc:
+            except (anthropic.APIError, ValueError, TypeError) as exc:
                 logger.error("Model call failed for example %s: %s", example.id, exc)
                 results.append(
                     ScoredResult(

@@ -228,6 +228,48 @@ class TestGenerateCached:
         assert text == "regenerated"
         assert not hit
 
+    def test_per_call_overrides_produce_distinct_cache_keys(self, tmp_path):
+        with patch("reports.model_client.anthropic.Anthropic") as MockAnthropicCls:
+            call_count = 0
+
+            def make_response(*args, **kwargs):
+                nonlocal call_count
+                call_count += 1
+                return _mock_anthropic_response(f"response-{call_count}")
+
+            MockAnthropicCls.return_value.messages.create.side_effect = make_response
+            client = ModelClient(model_id="m")
+
+            # Same prompt, different temperature -> should produce two cache misses
+            text1, hash1, hit1 = client.generate_cached("prompt", tmp_path, temperature=0.3)
+            text2, hash2, hit2 = client.generate_cached("prompt", tmp_path, temperature=0.9)
+
+        assert not hit1
+        assert not hit2
+        assert hash1 != hash2
+        assert text1 != text2
+        assert call_count == 2
+
+    def test_per_call_max_tokens_override_distinct_cache(self, tmp_path):
+        with patch("reports.model_client.anthropic.Anthropic") as MockAnthropicCls:
+            call_count = 0
+
+            def make_response(*args, **kwargs):
+                nonlocal call_count
+                call_count += 1
+                return _mock_anthropic_response(f"response-{call_count}")
+
+            MockAnthropicCls.return_value.messages.create.side_effect = make_response
+            client = ModelClient(model_id="m")
+
+            text1, hash1, hit1 = client.generate_cached("prompt", tmp_path, max_tokens=512)
+            text2, hash2, hit2 = client.generate_cached("prompt", tmp_path, max_tokens=4096)
+
+        assert not hit1
+        assert not hit2
+        assert hash1 != hash2
+        assert call_count == 2
+
     def test_custom_cache_prefix(self, tmp_path):
         with patch("reports.model_client.anthropic.Anthropic") as MockAnthropicCls:
             mock_resp = _mock_anthropic_response("ok")
