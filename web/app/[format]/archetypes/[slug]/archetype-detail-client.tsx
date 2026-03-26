@@ -311,7 +311,7 @@ function ArchetypeDetailInner({
               <EvolutionTimeline evolution={arch.evolution} />
             )}
             {arch.results && arch.results.length > 0 ? (
-              <ResultsTable results={arch.results} />
+              <ResultsTable results={arch.results} defaultExpanded />
             ) : (
               <p className="text-surface-400 text-sm">
                 No tournament results recorded.
