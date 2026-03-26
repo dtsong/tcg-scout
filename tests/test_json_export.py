@@ -13,6 +13,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from config import get_format_config
 from reports.json_export import (
     _build_jp_en_lookup,
+    _compute_breakout_score,
     _compute_card_stats_for_ids,
     _compute_weighted_shares,
     _compute_windowed_ace_specs,
@@ -1094,3 +1095,68 @@ class TestExportAllLabsIntegration:
         data = json.loads(matchup_file.read_text())
         assert data.get("source") == "co-occurrence"
         broken_conn.close()
+
+
+# --- _compute_breakout_score ---
+
+
+class TestComputeBreakoutScore:
+    def test_first_place_new_rogue(self):
+        """New rogue that won a tournament should score very high."""
+        score = _compute_breakout_score(
+            meta_share=0.5, weighted_share=2.0, best_placement=1, trend="new", trend_delta=0.0
+        )
+        assert score > 80
+
+    def test_low_placement_stable_rogue(self):
+        """Stable rogue with poor results should score low."""
+        score = _compute_breakout_score(
+            meta_share=0.3, weighted_share=0.3, best_placement=20, trend="stable", trend_delta=0.0
+        )
+        # 1.0 overperformance ratio + 0.5 recency + 0 placement = 55
+        # This is near the 50 threshold -- barely qualifying
+        assert score < 60
+
+    def test_overperformance_matters(self):
+        """Higher weighted_share / meta_share ratio should increase score."""
+        low = _compute_breakout_score(
+            meta_share=0.5, weighted_share=0.5, best_placement=8, trend="stable", trend_delta=0.0
+        )
+        high = _compute_breakout_score(
+            meta_share=0.5, weighted_share=2.0, best_placement=8, trend="stable", trend_delta=0.0
+        )
+        assert high > low
+
+    def test_trending_up_boosts_score(self):
+        """Trending up should score higher than stable."""
+        stable = _compute_breakout_score(
+            meta_share=0.5, weighted_share=1.0, best_placement=4, trend="stable", trend_delta=0.0
+        )
+        up = _compute_breakout_score(
+            meta_share=0.5, weighted_share=1.0, best_placement=4, trend="up", trend_delta=5.0
+        )
+        assert up > stable
+
+    def test_better_placement_boosts_score(self):
+        """Better placement should increase score."""
+        bad = _compute_breakout_score(
+            meta_share=0.5, weighted_share=1.0, best_placement=16, trend="stable", trend_delta=0.0
+        )
+        good = _compute_breakout_score(
+            meta_share=0.5, weighted_share=1.0, best_placement=1, trend="stable", trend_delta=0.0
+        )
+        assert good > bad
+
+    def test_zero_meta_share_no_division_error(self):
+        """Should handle zero meta share without crashing."""
+        score = _compute_breakout_score(
+            meta_share=0.0, weighted_share=1.0, best_placement=1, trend="new", trend_delta=0.0
+        )
+        assert score > 0
+
+    def test_returns_float(self):
+        """Score should be a rounded float."""
+        score = _compute_breakout_score(
+            meta_share=0.5, weighted_share=1.0, best_placement=4, trend="up", trend_delta=2.0
+        )
+        assert isinstance(score, float)

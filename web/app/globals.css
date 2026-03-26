@@ -142,6 +142,15 @@ body {
   animation: pulse-dot 2s ease-in-out infinite;
 }
 
+/* Hide scrollbar while keeping scroll functionality */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
 /* Reduced motion: disable all animations and transitions */
 @media (prefers-reduced-motion: reduce) {
   .animate-row-reveal,

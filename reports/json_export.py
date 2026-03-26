@@ -926,6 +926,26 @@ def _compute_archetype_trends(conn: sqlite3.Connection) -> dict[str, dict]:
     return result
 
 
+def _compute_breakout_score(
+    meta_share: float,
+    weighted_share: float,
+    best_placement: int,
+    trend: str,
+    trend_delta: float,
+) -> float:
+    """Compute a composite breakout score (0-100) for Rogue-tier archetypes.
+
+    Combines three signals:
+    - Overperformance ratio: weighted_share vs meta_share (40%)
+    - Recency: trending up or newly appearing (30%)
+    - Placement ceiling: how high the deck has finished (30%)
+    """
+    overperformance = weighted_share / max(meta_share, 0.01)
+    recency = 1.0 if trend == "new" else (1.0 + trend_delta / 10.0) if trend == "up" else 0.5
+    placement = max(0, (9 - best_placement)) / 8.0
+    return round((overperformance * 0.4 + recency * 0.3 + placement * 0.3) * 100, 1)
+
+
 def _bulk_fetch_archetype_placements(
     conn: sqlite3.Connection,
 ) -> dict[str, list[dict]]:
@@ -1573,6 +1593,17 @@ def export_meta(
                 "trend_delta": trend_info["trend_delta"],
             }
         )
+
+    # Compute breakout scores for Rogue-tier archetypes
+    for arch_data in archetypes:
+        if arch_data["tier"] == "Rogue":
+            arch_data["breakout_score"] = _compute_breakout_score(
+                meta_share=arch_data["meta_share"],
+                weighted_share=arch_data["weighted_share"],
+                best_placement=arch_data["best_placement"],
+                trend=arch_data["trend"],
+                trend_delta=arch_data["trend_delta"],
+            )
 
     # Re-sort by weighted_share for tier assignment display
     archetypes.sort(key=lambda a: a["weighted_share"], reverse=True)

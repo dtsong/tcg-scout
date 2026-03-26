@@ -26,6 +26,7 @@ export interface ArchetypeSummary {
   sprite_filenames?: string[];
   trend?: "up" | "down" | "new" | "stable";
   trend_delta?: number;
+  breakout_score?: number;
 }
 
 export interface MetaData {

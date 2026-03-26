@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Nav } from "@/app/components/nav";
 import { MetaTicker } from "@/app/components/meta-ticker";
+import { FormatSidebar } from "@/app/components/format-sidebar";
 import { DateFilterProvider } from "@/app/components/date-filter-provider";
 import { getFormats, getMeta, formatHasData } from "@/app/lib/data";
 import { daysUntil } from "@/app/lib/utils";
@@ -39,9 +40,16 @@ export default async function FormatLayout({
         />
       )}
       <Nav format={format} formats={formats} />
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {children}
-      </main>
+      <div className="max-w-7xl mx-auto flex">
+        {meta && (
+          <aside className="hidden lg:block w-56 shrink-0 sticky top-16 h-[calc(100vh-4rem)] overflow-y-auto border-r border-surface-700 px-4 py-6">
+            <FormatSidebar meta={meta} format={format} formats={formats} rotationDays={rotationDays} />
+          </aside>
+        )}
+        <main className="flex-1 min-w-0 px-4 sm:px-6 lg:px-8 py-8">
+          {children}
+        </main>
+      </div>
       <footer className="border-t border-surface-700 mt-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-4">
           <nav className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-surface-400">
