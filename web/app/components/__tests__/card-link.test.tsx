@@ -57,6 +57,13 @@ describe("CardLink", () => {
     expect(span.closest("a")).toBeNull();
   });
 
+  it("uses format from route params in href", () => {
+    mockUseParams.mockReturnValue({ format: "ninja-spinner" });
+    render(<CardLink name="Rare Candy" />);
+    const link = screen.getByRole("link", { name: "Rare Candy" });
+    expect(link).toHaveAttribute("href", "/ninja-spinner/cards/rare-candy");
+  });
+
   it("stops event propagation on click", async () => {
     const parentHandler = vi.fn();
     const user = userEvent.setup();

@@ -67,27 +67,10 @@ function DeltaBar({ top4Pct, fieldPct }: { top4Pct: number; fieldPct: number }) 
 
 function FeaturedCard({ card, format }: { card: CardAnalysisEntry; format: string }) {
   const slug = slugify(card.card_name);
-  if (!slug || !format) {
-    return (
-      <div className="flex-shrink-0 w-40 bg-surface-800 border border-surface-600 rounded-lg p-3">
-        <p className="text-sm text-slate-200 font-medium truncate">{card.card_name}</p>
-        <p className="text-[10px] text-surface-500 uppercase mt-0.5">{card.category}</p>
-        <div className="flex items-center justify-between mt-2">
-          <DeltaValue delta={effectiveImpact(card)} size="lg" />
-          <div className="flex items-center gap-1.5">
-            <ConfidenceDot confidence={card.confidence} level="card" />
-            <span className="text-[10px] text-surface-400 font-mono">{card.archetype_count} arch</span>
-          </div>
-        </div>
-      </div>
-    );
-  }
-  return (
-    <Link
-      href={`/${format}/cards/${slug}`}
-      className="flex-shrink-0 w-40 bg-surface-800 border border-surface-600 rounded-lg p-3 hover:border-surface-400 transition-colors group"
-    >
-      <p className="text-sm text-slate-200 font-medium truncate group-hover:text-accent transition-colors">
+  const isLinkable = Boolean(slug && format);
+  const content = (
+    <>
+      <p className={`text-sm text-slate-200 font-medium truncate ${isLinkable ? "group-hover:text-accent transition-colors" : ""}`}>
         {card.card_name}
       </p>
       <p className="text-[10px] text-surface-500 uppercase mt-0.5">{card.category}</p>
@@ -98,6 +81,17 @@ function FeaturedCard({ card, format }: { card: CardAnalysisEntry; format: strin
           <span className="text-[10px] text-surface-400 font-mono">{card.archetype_count} arch</span>
         </div>
       </div>
+    </>
+  );
+  if (!isLinkable) {
+    return <div className="flex-shrink-0 w-40 bg-surface-800 border border-surface-600 rounded-lg p-3">{content}</div>;
+  }
+  return (
+    <Link
+      href={`/${format}/cards/${slug}`}
+      className="flex-shrink-0 w-40 bg-surface-800 border border-surface-600 rounded-lg p-3 hover:border-surface-400 transition-colors group"
+    >
+      {content}
     </Link>
   );
 }
