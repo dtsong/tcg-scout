@@ -1162,24 +1162,23 @@ def backfill_archetypes(
 @click.pass_context
 def export_web(ctx: click.Context, narrative: bool, strict: bool) -> None:
     """Export JSON data for the Scout Web dashboard."""
+    from labs_db import get_labs_connection, init_labs_db
     from reports.json_export import export_all, export_formats, export_narrative
 
     fmt = ctx.obj["format"]
     conn = get_format_connection(fmt)
+    # Open Labs connection for matchup cascade (auto-upgrades when data exists)
     labs_conn = None
     try:
-        try:
-            from labs_db import get_labs_connection, init_labs_db
-
-            labs_conn = get_labs_connection()
-            init_labs_db(labs_conn)
-        except ImportError:
-            logger.info("Labs module not available, skipping Labs exports")
-        except Exception:
-            logger.warning(
-                "Failed to connect to Labs database, skipping Labs exports", exc_info=True
-            )
-
+        labs_conn = get_labs_connection()
+        init_labs_db(labs_conn)
+    except (FileNotFoundError, sqlite3.OperationalError) as exc:
+        console.print(f"[yellow]Labs DB unavailable, using co-occurrence only: {exc}[/yellow]")
+        labs_conn = None
+    except Exception:
+        logger.warning("Failed to connect to Labs database, skipping Labs exports", exc_info=True)
+        labs_conn = None
+    try:
         out, skipped = export_all(conn, format_slug=fmt, strict=strict, labs_conn=labs_conn)
         console.print(f"[green]Web data exported to {out}[/green]")
         if skipped:

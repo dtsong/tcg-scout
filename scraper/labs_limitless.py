@@ -48,7 +48,24 @@ _MONTH_TO_NUM = {
     "Oct": "10",
     "Nov": "11",
     "Dec": "12",
+    # Full month names (Limitless changed format to "21st March 2026")
+    "January": "01",
+    "February": "02",
+    "March": "03",
+    "April": "04",
+    # "May" already covered above (abbreviated = full)
+    "June": "06",
+    "July": "07",
+    "August": "08",
+    "September": "09",
+    "October": "10",
+    "November": "11",
+    "December": "12",
 }
+
+_DATE_RE = re.compile(
+    rf"(\d{{1,2}})(?:st|nd|rd|th)?\s+({'|'.join(_MONTH_TO_NUM.keys())})\s+(\d{{2,4}})"
+)
 
 
 # ---------------------------------------------------------------------------
@@ -158,11 +175,8 @@ class LabsLimitlessClient(RateLimitedHTTPClient):
         # Try to extract date and player count from info section
         for el in soup.find_all(["span", "div", "p"]):
             text = el.get_text(strip=True)
-            # Look for date patterns like "21 Mar 26" or "21 Mar 2026"
-            date_match = re.search(
-                r"(\d{1,2})\s+(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+(\d{2,4})",
-                text,
-            )
+            # Look for date patterns like "21 Mar 26", "21 Mar 2026", or "21st March 2026"
+            date_match = _DATE_RE.search(text)
             if date_match and not date:
                 day, month, year = date_match.groups()
                 if len(year) == 2:

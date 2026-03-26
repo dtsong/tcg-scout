@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { getArchetype, getArchetypeReport, getArchetypeSlugs, getFormats, getFormatName, getOptimal60Index, getLabsMatchup, extractArchetypeMatchups } from "@/app/lib/data";
+import { getArchetype, getArchetypeReport, getArchetypeSlugs, getFormats, getFormatName, getMatchupMatrix, getOptimal60Index } from "@/app/lib/data";
 import { safePercent, safeInt, humanizeSlug } from "@/app/lib/metadata";
 import { TierBadge } from "@/app/components/tier-badge";
 import { SpriteRow } from "@/app/components/sprite-row";
@@ -13,8 +13,8 @@ import { formatPct, formatPlacement } from "@/app/lib/utils";
 import type { ArchetypeCard } from "@/app/lib/types";
 import { Top4CardStats } from "@/app/components/top4-card-stats";
 import { CardLink } from "@/app/components/card-link";
+import { KeyMatchups } from "@/app/components/key-matchups";
 import { ResultsTable } from "./results-table";
-import { ArchetypeMatchups } from "@/app/components/archetype-matchups";
 
 export async function generateMetadata({
   params,
@@ -142,11 +142,7 @@ export default async function ArchetypeDetailPage({
 }) {
   const { format, slug } = await params;
   const arch = getArchetype(format, slug);
-  const labsMatchup = getLabsMatchup(format);
-  const matchups = labsMatchup
-    ? extractArchetypeMatchups(labsMatchup, arch.archetype)
-    : null;
-  const matchupSource = labsMatchup?.source ?? null;
+  const matchupData = getMatchupMatrix(format);
   const hasReport = getArchetypeReport(format, slug) !== null;
   const optimal60Index = getOptimal60Index(format);
   const hasOptimal60 = optimal60Index?.archetypes.some((a) => a.slug === slug) ?? false;
@@ -216,13 +212,9 @@ export default async function ArchetypeDetailPage({
       {/* Radar */}
       {arch.radar && <ArchetypeRadar radar={arch.radar} />}
 
-      {/* Matchups */}
-      {matchups && matchupSource && (matchups.favorable.length > 0 || matchups.unfavorable.length > 0) && (
-        <ArchetypeMatchups
-          matchups={matchups}
-          source={matchupSource}
-          format={format}
-        />
+      {/* Key Matchups */}
+      {matchupData && (
+        <KeyMatchups data={matchupData} archetype={arch.archetype} format={format} />
       )}
 
       {/* Decklist */}

@@ -200,31 +200,18 @@ export interface ArchetypeVariant {
   pct: number;
 }
 
+export interface ConfidenceInterval {
+  lower: number | null;
+  upper: number | null;
+}
+
 export interface MatchupMatrixData {
-  archetypes: string[];
-  matrix: number[][];
-  sample_sizes: number[][];
-}
-
-export interface ArchetypeMatchupEntry {
-  archetype: string;
-  win_rate: number;
-  sample_size: number;
-  ci_lower: number | null;
-  ci_upper: number | null;
-}
-
-export interface ArchetypeMatchups {
-  favorable: ArchetypeMatchupEntry[];
-  unfavorable: ArchetypeMatchupEntry[];
-}
-
-export interface LabsMatchupData {
   archetypes: string[];
   matrix: (number | null)[][];
   sample_sizes: number[][];
-  confidence: { lower: number | null; upper: number | null }[][];
-  source: "labs-h2h" | "labs-records";
+  confidence?: ConfidenceInterval[][];
+  source?: "labs-h2h" | "labs-records" | "co-occurrence";
+  methodology?: string;
 }
 
 export interface TimelineWeek {
