@@ -147,11 +147,14 @@ class ModelClient:
             max_tokens=max_tokens,
         )
 
-        cache_path.parent.mkdir(parents=True, exist_ok=True)
-        cache_path.write_text(
-            json.dumps({"response": response}, ensure_ascii=False),
-            encoding="utf-8",
-        )
+        try:
+            cache_path.parent.mkdir(parents=True, exist_ok=True)
+            cache_path.write_text(
+                json.dumps({"response": response}, ensure_ascii=False),
+                encoding="utf-8",
+            )
+        except OSError as exc:
+            logger.warning("Failed to write cache file %s: %s", cache_path, exc)
         return response, data_hash, False
 
 

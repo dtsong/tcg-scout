@@ -241,15 +241,22 @@ class EvalHarness:
                 f"Golden dataset {dataset_path} is missing 'examples' key. "
                 f"Available keys: {list(data.keys())}"
             )
-        examples = [
-            GoldenExample(
-                id=item["id"],
-                input_prompt=item["input_prompt"],
-                expected=item.get("expected", {}),
-                metadata=item.get("metadata", {}),
+        examples = []
+        for i, item in enumerate(data["examples"]):
+            for required_key in ("id", "input_prompt"):
+                if required_key not in item:
+                    raise ValueError(
+                        f"Example at index {i} in {dataset_path} is missing "
+                        f"required key '{required_key}'"
+                    )
+            examples.append(
+                GoldenExample(
+                    id=item["id"],
+                    input_prompt=item["input_prompt"],
+                    expected=item.get("expected", {}),
+                    metadata=item.get("metadata", {}),
+                )
             )
-            for item in data["examples"]
-        ]
 
         results: list[ScoredResult] = []
         for example in examples:
