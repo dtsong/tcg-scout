@@ -3600,7 +3600,7 @@ def export_all(
     # Matchup data with cascade: Labs H2H > Labs records > co-occurrence
     try:
         export_matchup_data(conn, out, labs_conn=labs_conn)
-    except (sqlite3.OperationalError, ValueError) as exc:
+    except (sqlite3.OperationalError, ValueError, KeyError) as exc:
         if strict:
             raise
         logger.warning("Skipping matchup data export: %s", exc)

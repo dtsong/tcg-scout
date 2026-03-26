@@ -1175,6 +1175,9 @@ def export_web(ctx: click.Context, narrative: bool, strict: bool) -> None:
     except (FileNotFoundError, sqlite3.OperationalError) as exc:
         console.print(f"[yellow]Labs DB unavailable, using co-occurrence only: {exc}[/yellow]")
         labs_conn = None
+    except Exception:
+        logger.warning("Failed to connect to Labs database, skipping Labs exports", exc_info=True)
+        labs_conn = None
     try:
         out, skipped = export_all(conn, format_slug=fmt, strict=strict, labs_conn=labs_conn)
         console.print(f"[green]Web data exported to {out}[/green]")

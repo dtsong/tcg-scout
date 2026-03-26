@@ -12,6 +12,7 @@ import pytest
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from db import SCHEMA
+from labs_db import LABS_SCHEMA
 
 
 @pytest.fixture()
@@ -408,6 +409,91 @@ def db_empty() -> sqlite3.Connection:
     conn.row_factory = sqlite3.Row
     conn.execute("PRAGMA foreign_keys=ON")
     conn.executescript(SCHEMA)
+    conn.commit()
+    yield conn
+    conn.close()
+
+
+@pytest.fixture()
+def labs_db() -> sqlite3.Connection:
+    """In-memory Labs database with seed data for matchup testing.
+
+    Seed data:
+    - 2 tournaments (Houston Regional, Toronto Regional)
+    - 6 players
+    - 8 placements across 3 archetypes with W-L-T records
+    - 4 matches (for H2H testing)
+    """
+    conn = sqlite3.connect(":memory:")
+    conn.row_factory = sqlite3.Row
+    conn.execute("PRAGMA foreign_keys=ON")
+    conn.executescript(LABS_SCHEMA)
+
+    # Tournaments
+    conn.executemany(
+        "INSERT INTO tournaments (id, name, date, player_count, country, source) "
+        "VALUES (?, ?, ?, ?, ?, ?)",
+        [
+            ("551", "Regional Houston, TX", "2026-03-21", 2635, "US", "limitless-labs"),
+            ("552", "Regional Toronto", "2026-03-14", 1200, "CA", "limitless-labs"),
+        ],
+    )
+
+    # Players
+    conn.executemany(
+        "INSERT INTO players (id, name, country) VALUES (?, ?, ?)",
+        [
+            ("p1", "Alice", "US"),
+            ("p2", "Bob", "US"),
+            ("p3", "Charlie", "CA"),
+            ("p4", "Diana", "JP"),
+            ("p5", "Eve", "US"),
+            ("p6", "Frank", "MX"),
+        ],
+    )
+
+    # Placements with W-L-T records
+    conn.executemany(
+        "INSERT INTO placements (id, tournament_id, player_id, standing, archetype, "
+        "record_w, record_l, record_t) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+        [
+            # Houston
+            (1, "551", "p1", 1, "Dragapult ex", 14, 1, 1),
+            (2, "551", "p2", 5, "Charizard ex", 11, 3, 2),
+            (3, "551", "p3", 20, "Gardevoir ex", 9, 5, 2),
+            (4, "551", "p4", 50, "Dragapult ex", 8, 6, 2),
+            # Toronto
+            (5, "552", "p5", 1, "Charizard ex", 12, 1, 1),
+            (6, "552", "p6", 3, "Dragapult ex", 10, 3, 1),
+            (7, "552", "p3", 10, "Gardevoir ex", 8, 4, 2),
+            (8, "552", "p1", 15, "Dragapult ex", 7, 5, 2),
+        ],
+    )
+
+    # Matches (H2H round-by-round data)
+    conn.executemany(
+        "INSERT INTO matches (id, tournament_id, round, player1_id, player2_id, "
+        "winner_id, player1_archetype, player2_archetype) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+        [
+            ("551:r1:p1:p3", "551", 1, "p1", "p3", "p1", "Dragapult ex", "Gardevoir ex"),
+            ("551:r2:p2:p4", "551", 2, "p2", "p4", "p2", "Charizard ex", "Dragapult ex"),
+            ("551:r3:p1:p2", "551", 3, "p1", "p2", "p1", "Dragapult ex", "Charizard ex"),
+            ("552:r1:p5:p6", "552", 1, "p5", "p6", "p5", "Charizard ex", "Dragapult ex"),
+        ],
+    )
+
+    conn.commit()
+    yield conn
+    conn.close()
+
+
+@pytest.fixture()
+def labs_db_empty() -> sqlite3.Connection:
+    """Empty Labs database with schema only."""
+    conn = sqlite3.connect(":memory:")
+    conn.row_factory = sqlite3.Row
+    conn.execute("PRAGMA foreign_keys=ON")
+    conn.executescript(LABS_SCHEMA)
     conn.commit()
     yield conn
     conn.close()

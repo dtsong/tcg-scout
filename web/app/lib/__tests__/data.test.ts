@@ -342,3 +342,4 @@ describe("getFormatName", () => {
     spy.mockRestore();
   });
 });
+

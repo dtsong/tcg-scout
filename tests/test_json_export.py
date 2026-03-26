@@ -1023,3 +1023,74 @@ class TestExportTrendsEdgeCases:
         data = json.loads((tmp_path / "trends.json").read_text())
         assert data["early_decks"] == 0 or data["late_decks"] == 0
         conn.close()
+
+
+class TestExportMatchupData:
+    def test_exports_labs_matchup_json(self, tmp_path, labs_db, db_single_tournament):
+        from reports.json_export import export_matchup_data
+
+        export_matchup_data(db_single_tournament, tmp_path, labs_conn=labs_db)
+        output = tmp_path / "matchup.json"
+        assert output.exists()
+
+        import json
+
+        data = json.loads(output.read_text())
+        assert "archetypes" in data
+        assert "matrix" in data
+        assert "sample_sizes" in data
+        assert "source" in data
+
+    def test_falls_back_to_co_occurrence_without_labs(self, tmp_path, db):
+        from reports.json_export import export_matchup_data
+
+        export_matchup_data(db, tmp_path, labs_conn=None)
+        output = tmp_path / "matchup.json"
+        assert output.exists()
+
+        import json
+
+        data = json.loads(output.read_text())
+        assert data.get("source") == "co-occurrence"
+
+
+class TestExportAllLabsIntegration:
+    def test_export_all_with_labs_conn_produces_matchup(
+        self, db_single_tournament, tmp_path, labs_db
+    ):
+        from reports.json_export import export_all
+
+        out, skipped = export_all(db_single_tournament, output_dir=tmp_path, labs_conn=labs_db)
+        assert (out / "matchup.json").exists()
+
+    def test_export_all_without_labs_conn_still_produces_matchup(
+        self, db_single_tournament, tmp_path
+    ):
+        from reports.json_export import export_all
+
+        out, skipped = export_all(db_single_tournament, output_dir=tmp_path, labs_conn=None)
+        # Co-occurrence fallback should still produce matchup.json
+        assert (out / "matchup.json").exists()
+
+    def test_export_all_broken_labs_falls_through_to_co_occurrence(
+        self, db_single_tournament, tmp_path
+    ):
+        """A broken Labs conn should not crash; cascade falls through to co-occurrence."""
+        import json
+        import sqlite3
+
+        from reports.json_export import export_all
+
+        broken_conn = sqlite3.connect(":memory:")
+        out, skipped = export_all(
+            db_single_tournament,
+            output_dir=tmp_path,
+            labs_conn=broken_conn,
+            strict=False,
+        )
+        # Should still produce matchup.json via co-occurrence fallback
+        matchup_file = out / "matchup.json"
+        assert matchup_file.exists()
+        data = json.loads(matchup_file.read_text())
+        assert data.get("source") == "co-occurrence"
+        broken_conn.close()

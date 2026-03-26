@@ -40,6 +40,74 @@ class MatchupMatrixResult(TypedDict):
     source: Literal["labs-h2h", "labs-records"]
 
 
+class ArchetypeMatchupEntry(TypedDict):
+    archetype: str
+    win_rate: float
+    sample_size: int
+    ci_lower: float | None
+    ci_upper: float | None
+
+
+class ArchetypeMatchups(TypedDict):
+    favorable: list[ArchetypeMatchupEntry]
+    unfavorable: list[ArchetypeMatchupEntry]
+
+
+def extract_archetype_matchups(
+    matrix_result: MatchupMatrixResult,
+    archetype: str,
+    top_n: int = 5,
+) -> ArchetypeMatchups:
+    """Extract top favorable/unfavorable matchups for one archetype.
+
+    Args:
+        matrix_result: Output from compute_labs_matchup_matrix().
+        archetype: The archetype name to extract matchups for.
+        top_n: Number of matchups to return per category.
+
+    Returns:
+        {"favorable": [...], "unfavorable": [...]} sorted by win rate.
+    """
+    archetypes = matrix_result["archetypes"]
+    if archetype not in archetypes:
+        return {"favorable": [], "unfavorable": []}
+
+    idx = archetypes.index(archetype)
+    matrix = matrix_result["matrix"]
+    samples = matrix_result["sample_sizes"]
+    confidence = matrix_result["confidence"]
+
+    entries: list[ArchetypeMatchupEntry] = []
+    for j, opp in enumerate(archetypes):
+        if j == idx:
+            continue
+        wr = matrix[idx][j]
+        if wr is None:
+            continue
+        entries.append(
+            {
+                "archetype": opp,
+                "win_rate": round(wr, 4),
+                "sample_size": samples[idx][j],
+                "ci_lower": confidence[idx][j]["lower"],
+                "ci_upper": confidence[idx][j]["upper"],
+            }
+        )
+
+    favorable = sorted(
+        [e for e in entries if e["win_rate"] > 0.5],
+        key=lambda e: e["win_rate"],
+        reverse=True,
+    )[:top_n]
+
+    unfavorable = sorted(
+        [e for e in entries if e["win_rate"] < 0.5],
+        key=lambda e: e["win_rate"],
+    )[:top_n]
+
+    return {"favorable": favorable, "unfavorable": unfavorable}
+
+
 logger = logging.getLogger(__name__)
 
 
