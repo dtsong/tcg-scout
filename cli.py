@@ -1167,6 +1167,7 @@ def export_web(ctx: click.Context, narrative: bool, strict: bool) -> None:
 
     fmt = ctx.obj["format"]
     conn = get_format_connection(fmt)
+    init_db(conn)
     # Open Labs connection for matchup cascade (auto-upgrades when data exists)
     labs_conn = None
     try:
