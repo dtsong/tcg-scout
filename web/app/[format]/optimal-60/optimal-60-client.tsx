@@ -179,12 +179,10 @@ function ArchetypeListContent({
   archetypes,
   selectedSlug,
   onSelect,
-  format,
 }: {
   archetypes: Optimal60IndexEntry[];
   selectedSlug: string;
   onSelect: (slug: string) => void;
-  format: string;
 }) {
   const [search, setSearch] = useState("");
   const selectedRef = useRef<HTMLButtonElement>(null);
@@ -284,12 +282,10 @@ function MobileArchetypeDrawer({
   archetypes,
   selectedSlug,
   onSelect,
-  format,
 }: {
   archetypes: Optimal60IndexEntry[];
   selectedSlug: string;
   onSelect: (slug: string) => void;
-  format: string;
 }) {
   const [open, setOpen] = useState(false);
   const selected = archetypes.find((a) => a.slug === selectedSlug);
@@ -365,7 +361,6 @@ function MobileArchetypeDrawer({
               archetypes={archetypes}
               selectedSlug={selectedSlug}
               onSelect={handleSelect}
-              format={format}
             />
           </div>
         </div>
@@ -467,6 +462,7 @@ export function Optimal60Client({
     const controller = new AbortController();
     setLoading(true);
     setFetchError(null);
+    setDetail(null);
     fetch(`/data/${format}/optimal-60/${selectedSlug}.json`, { signal: controller.signal })
       .then((res) => {
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
@@ -483,7 +479,7 @@ export function Optimal60Client({
         setFetchError(
           err.message?.includes("HTTP 404")
             ? "Decklist data is not available for this archetype."
-            : "Failed to load decklist. Please try again.",
+            : "Failed to load decklist data.",
         );
         setLoading(false);
       });
@@ -545,7 +541,7 @@ export function Optimal60Client({
 
       {/* Two-column layout: sidebar + content */}
       {index.archetypes.length > 0 && (
-      <div className="lg:flex lg:gap-6">
+        <div className="lg:flex lg:gap-6">
         {/* Desktop sidebar */}
         <aside className="hidden lg:block lg:w-72 lg:shrink-0">
           <div className="sticky top-24 bg-surface-800 border border-surface-600 rounded-md overflow-hidden flex flex-col max-h-[calc(100vh-8rem)]">
@@ -553,7 +549,6 @@ export function Optimal60Client({
               archetypes={index.archetypes}
               selectedSlug={selectedSlug}
               onSelect={handleSelect}
-              format={format}
             />
           </div>
         </aside>
@@ -564,7 +559,6 @@ export function Optimal60Client({
             archetypes={index.archetypes}
             selectedSlug={selectedSlug}
             onSelect={handleSelect}
-            format={format}
           />
         </div>
 
@@ -591,7 +585,7 @@ export function Optimal60Client({
                 <StatCard
                   label="Meta Share"
                   value={formatPct(selected.meta_share)}
-                  tooltip="Percentage of all tournament decks that play this archetype across the Nihil Zero format"
+                  tooltip="Percentage of all tournament decks that play this archetype in the current format"
                 />
                 <StatCard
                   label="List Consensus"
@@ -724,7 +718,7 @@ export function Optimal60Client({
               {/* Divergence panel */}
               {detail.has_cl_data && <DivergencePanel cards={detail.cards} />}
 
-              {/* Narrative placeholder */}
+              {/* Narrative summary */}
               {detail.narrative?.summary && (
                 <div className="bg-surface-800 border-l-4 border-amber-500 rounded-r-lg p-5">
                   <p className="text-sm text-slate-300 leading-relaxed">
@@ -735,7 +729,7 @@ export function Optimal60Client({
             </>
           )}
         </div>
-      </div>
+        </div>
       )}
     </div>
   );
