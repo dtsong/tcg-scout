@@ -130,7 +130,8 @@ export function DataTable<T>({
           </div>
         )}
       </div>
-      <div className="overflow-x-auto">
+      <div className="relative">
+        <div className="overflow-x-auto">
         <table className="w-full">
           <thead>
             <tr className="border-b border-surface-600 text-xs text-surface-300 uppercase tracking-wider">
@@ -183,6 +184,9 @@ export function DataTable<T>({
             ))}
           </tbody>
         </table>
+        </div>
+        {/* Gradient fade hint for mobile horizontal scroll */}
+        <div className="absolute top-0 right-0 bottom-0 w-8 bg-gradient-to-l from-surface-800 to-transparent pointer-events-none sm:hidden" />
       </div>
       {paged.length === 0 && (
         <div className="text-center py-8 text-surface-400 text-sm">No results found</div>
