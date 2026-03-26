@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
-import { Search, X, ChevronRight, ExternalLink } from "lucide-react";
+import { Search, X, ChevronRight, ArrowRight } from "lucide-react";
 import { SpriteRow } from "@/app/components/sprite-row";
 import { TierBadge } from "@/app/components/tier-badge";
 import { StatCard } from "@/app/components/stat-card";
@@ -181,13 +181,12 @@ function ArchetypeListContent({
   format: string;
 }) {
   const [search, setSearch] = useState("");
-  const inputRef = useRef<HTMLInputElement>(null);
   const selectedRef = useRef<HTMLButtonElement>(null);
 
-  // Auto-scroll selected into view on mount
+  // Auto-scroll selected into view on mount and selection change
   useEffect(() => {
     selectedRef.current?.scrollIntoView({ block: "nearest" });
-  }, []);
+  }, [selectedSlug]);
 
   const filtered = search
     ? archetypes.filter((a) => a.archetype.toLowerCase().includes(search.toLowerCase()))
@@ -208,7 +207,6 @@ function ArchetypeListContent({
         <div className="relative">
           <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-surface-400" />
           <input
-            ref={inputRef}
             type="text"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
@@ -266,20 +264,22 @@ function ArchetypeListContent({
             })}
           </div>
         ))}
-        {filtered.length === 0 && (
+        {grouped.length === 0 && (
           <div className="px-3 py-4 text-sm text-surface-400 text-center">No matches</div>
         )}
 
         {/* Archetype overview link at bottom of sidebar */}
-        <div className="p-3 border-t border-surface-700">
-          <Link
-            href={`/${format}/archetypes/${selectedSlug}`}
-            className="flex items-center gap-1.5 px-2 py-1.5 text-[11px] text-surface-400 hover:text-slate-200 transition-colors"
-          >
-            <ExternalLink className="w-3 h-3" />
-            View Archetype Overview
-          </Link>
-        </div>
+        {selectedSlug && (
+          <div className="p-3 border-t border-surface-700">
+            <Link
+              href={`/${format}/archetypes/${selectedSlug}`}
+              className="flex items-center gap-1.5 px-2 py-1.5 text-[11px] text-surface-400 hover:text-slate-200 transition-colors"
+            >
+              <ArrowRight className="w-3 h-3" />
+              View Archetype Overview
+            </Link>
+          </div>
+        )}
       </div>
     </>
   );
@@ -301,11 +301,18 @@ function MobileArchetypeDrawer({
   const [open, setOpen] = useState(false);
   const selected = archetypes.find((a) => a.slug === selectedSlug);
 
-  // Prevent body scroll when drawer is open
+  // Prevent body scroll and add Escape key handler when drawer is open
   useEffect(() => {
     if (open) {
       document.body.style.overflow = "hidden";
-      return () => { document.body.style.overflow = ""; };
+      const handleKeyDown = (e: KeyboardEvent) => {
+        if (e.key === "Escape") setOpen(false);
+      };
+      document.addEventListener("keydown", handleKeyDown);
+      return () => {
+        document.body.style.overflow = "";
+        document.removeEventListener("keydown", handleKeyDown);
+      };
     }
   }, [open]);
 
@@ -353,6 +360,7 @@ function MobileArchetypeDrawer({
               <span className="text-sm font-medium text-slate-200">Select Archetype</span>
               <button
                 onClick={() => setOpen(false)}
+                aria-label="Close archetype selector"
                 className="p-1 text-surface-400 hover:text-slate-200 transition-colors"
               >
                 <X className="w-4 h-4" />
@@ -443,6 +451,7 @@ export function Optimal60Client({
   const searchParams = useSearchParams();
   const deckParam = searchParams.get("deck");
   const matchedSlug = index.archetypes.find((a) => a.slug === deckParam)?.slug;
+  const deckNotFound = deckParam != null && matchedSlug == null;
   const initialSlug = matchedSlug ?? index.archetypes[0]?.slug ?? "";
 
   const [selectedSlug, setSelectedSlug] = useState(initialSlug);
@@ -516,7 +525,23 @@ export function Optimal60Client({
         </p>
       </div>
 
-      {/* Two-column layout: sidebar + content */}
+      {/* Invalid deck param notice */}
+      {deckNotFound && (
+        <div className="bg-surface-800 border border-amber-500/30 rounded-md p-3 text-sm text-amber-300">
+          Archetype &ldquo;{deckParam}&rdquo; was not found. Showing the top archetype instead.
+        </div>
+      )}
+
+      {/* Empty state */}
+      {index.archetypes.length === 0 ? (
+        <div className="text-center py-12">
+          <p className="text-sm text-surface-400">
+            No archetype data is available for this format yet.
+          </p>
+        </div>
+      ) : (
+
+      /* Two-column layout: sidebar + content */
       <div className="lg:flex lg:gap-6">
         {/* Desktop sidebar */}
         <aside className="hidden lg:block lg:w-72 lg:shrink-0">
@@ -555,7 +580,7 @@ export function Optimal60Client({
                   href={`/${format}/archetypes/${selectedSlug}`}
                   className="inline-flex items-center gap-1 px-2.5 py-1 text-[11px] font-medium text-surface-300 hover:text-slate-100 bg-surface-700 hover:bg-surface-600 border border-surface-600 rounded-md transition-colors ml-auto"
                 >
-                  <ExternalLink className="w-3 h-3" />
+                  <ArrowRight className="w-3 h-3" />
                   Overview
                 </Link>
               </div>
@@ -628,7 +653,7 @@ export function Optimal60Client({
             </div>
           )}
 
-          {detail && !loading && (
+          {selected && detail && !loading && (
             <>
               {/* Legend */}
               <div className="flex flex-wrap items-center gap-4 text-[10px] text-surface-400">
@@ -712,6 +737,7 @@ export function Optimal60Client({
           )}
         </div>
       </div>
+      )}
     </div>
   );
 }
