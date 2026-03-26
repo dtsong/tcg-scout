@@ -12,6 +12,8 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': path.resolve(__dirname, '.'),
+      '@vercel/analytics/next': path.resolve(__dirname, '__mocks__/vercel-analytics.ts'),
+      '@vercel/analytics': path.resolve(__dirname, '__mocks__/vercel-analytics.ts'),
     },
   },
 })
