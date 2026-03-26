@@ -3,7 +3,7 @@
 import json
 import sys
 from pathlib import Path
-from unittest.mock import MagicMock, patch
+from unittest.mock import MagicMock
 
 import pytest
 
@@ -11,6 +11,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 pytest.importorskip("anthropic")
 
+from reports.model_client import ModelClient
 from reports.narrative import (
     _slugify,
     assemble_report_context,
@@ -257,6 +258,14 @@ class TestValidateReportFacts:
 # --- generate_report (integration, LLM mocked) ---
 
 
+def _make_mock_client(llm_response: str) -> ModelClient:
+    """Create a ModelClient with a mocked generate method."""
+    client = MagicMock(spec=ModelClient)
+    client.model_id = "test-model"
+    client.generate.return_value = llm_response
+    return client
+
+
 class TestGenerateReport:
     def test_writes_report_json(self, tmp_path):
         from reports.narrative import generate_report
@@ -278,14 +287,8 @@ class TestGenerateReport:
             }
         )
 
-        mock_content = MagicMock()
-        mock_content.text = llm_response
-        mock_message = MagicMock()
-        mock_message.content = [mock_content]
-
-        with patch("anthropic.Anthropic") as MockClient:
-            MockClient.return_value.messages.create.return_value = mock_message
-            result_path = generate_report("test-format", data_dir, output_dir)
+        mock_client = _make_mock_client(llm_response)
+        result_path = generate_report("test-format", data_dir, output_dir, model_client=mock_client)
 
         assert result_path.exists()
         report = json.loads(result_path.read_text(encoding="utf-8"))
@@ -307,14 +310,8 @@ class TestGenerateReport:
             }
         )
 
-        mock_content = MagicMock()
-        mock_content.text = llm_response
-        mock_message = MagicMock()
-        mock_message.content = [mock_content]
-
-        with patch("anthropic.Anthropic") as MockClient:
-            MockClient.return_value.messages.create.return_value = mock_message
-            generate_report("test-format", data_dir, output_dir)
+        mock_client = _make_mock_client(llm_response)
+        generate_report("test-format", data_dir, output_dir, model_client=mock_client)
 
         thread_path = output_dir / "test-format" / "report-thread.json"
         assert thread_path.exists()
@@ -329,16 +326,11 @@ class TestGenerateReport:
         output_dir = tmp_path / "output"
 
         llm_response = json.dumps({"sections": [], "tweets": []})
-        mock_content = MagicMock()
-        mock_content.text = llm_response
-        mock_message = MagicMock()
-        mock_message.content = [mock_content]
+        mock_client = _make_mock_client(llm_response)
 
-        with patch("anthropic.Anthropic") as MockClient:
-            MockClient.return_value.messages.create.return_value = mock_message
-            generate_report("test-format", data_dir, output_dir)
-            generate_report("test-format", data_dir, output_dir)
-            assert MockClient.return_value.messages.create.call_count == 1
+        generate_report("test-format", data_dir, output_dir, model_client=mock_client)
+        generate_report("test-format", data_dir, output_dir, model_client=mock_client)
+        assert mock_client.generate.call_count == 1
 
     def test_generates_report_json_with_valid_shape(self, tmp_path):
         from reports.narrative import generate_report
@@ -356,14 +348,8 @@ class TestGenerateReport:
             for i in range(5)
         ]
         llm_response = json.dumps({"sections": sections, "tweets": ["t1", "t2"]})
-        mock_content = MagicMock()
-        mock_content.text = llm_response
-        mock_message = MagicMock()
-        mock_message.content = [mock_content]
-
-        with patch("anthropic.Anthropic") as MockClient:
-            MockClient.return_value.messages.create.return_value = mock_message
-            result_path = generate_report("test-format", data_dir, output_dir)
+        mock_client = _make_mock_client(llm_response)
+        result_path = generate_report("test-format", data_dir, output_dir, model_client=mock_client)
 
         report = json.loads(result_path.read_text(encoding="utf-8"))
         assert len(report["sections"]) == 5
