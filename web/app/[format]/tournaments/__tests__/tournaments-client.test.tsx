@@ -245,6 +245,25 @@ describe("TournamentsClient", () => {
     expect(screen.getByText("Nagoya CL")).toBeInTheDocument();
   });
 
+  it("collapses an expanded date group on click", () => {
+    const tournaments = [
+      makeTournament({ id: "t-1", name: "Tokyo CL", date: "2026-03-20" }),
+      makeTournament({ id: "t-2", name: "Osaka CL", date: "2026-03-20" }),
+    ];
+    render(
+      <TournamentsClient
+        format="ninja-spinner"
+        index={makeIndex(tournaments)}
+        dateRange={defaultDateRange}
+      />,
+    );
+    // Latest group is expanded by default
+    expect(screen.getByText("Tokyo CL")).toBeInTheDocument();
+    // Click to collapse
+    fireEvent.click(screen.getByText("Mar 20, 2026"));
+    expect(screen.queryByText("Tokyo CL")).not.toBeInTheDocument();
+  });
+
   it("shows group tournament count label", () => {
     const tournaments = [
       makeTournament({ id: "t-1", name: "Tokyo CL", date: "2026-03-20" }),

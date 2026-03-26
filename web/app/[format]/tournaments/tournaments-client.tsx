@@ -351,14 +351,14 @@ export function TournamentsClient({
     return new Set(groups.length > 0 ? [groups[0].date] : []);
   });
 
-  // Reset collapse state when date window changes
+  // Reset collapse state when displayed tournaments change
   useEffect(() => {
     if (dateGroups.length > 0) {
       setExpandedDates(new Set([dateGroups[0].date]));
     } else {
       setExpandedDates(new Set());
     }
-  }, [activeWindow, customRange]);
+  }, [dateGroups]);
 
   const toggleDateGroup = useCallback((date: string) => {
     setExpandedDates((prev) => {
@@ -491,9 +491,11 @@ export function TournamentsClient({
             return (
               <div key={group.date}>
                 {/* Date group header */}
-                <div
-                  className="sticky top-14 z-10 flex items-center gap-2 px-4 py-2 bg-surface-700/90 backdrop-blur-sm border-b border-surface-600 cursor-pointer select-none hover:bg-surface-700 transition-colors"
+                <button
+                  type="button"
+                  className="sticky top-14 z-10 flex items-center gap-2 px-4 py-2 w-full text-left bg-surface-700/90 backdrop-blur-sm border-b border-surface-600 cursor-pointer select-none hover:bg-surface-700 transition-colors"
                   onClick={() => toggleDateGroup(group.date)}
+                  aria-expanded={isExpanded}
                 >
                   <ChevronRight
                     className={cn(
@@ -510,7 +512,7 @@ export function TournamentsClient({
                       ? "tournament"
                       : "tournaments"}
                   </span>
-                </div>
+                </button>
 
                 {/* Tournament rows */}
                 {isExpanded &&
