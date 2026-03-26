@@ -52,6 +52,8 @@ def deep_db() -> sqlite3.Connection:
         rows.append((pid, "c-nest", "Nest Ball", 4))
         rows.append((pid, "c-boss", "Boss's Orders", 2))
         rows.append((pid, "c-main-ex", "Main ex", 3))
+        rows.append((pid, "c-psychic", "Psychic Energy", 5))
+        rows.append((pid, "c-fire", "Fire Energy", 3))
 
     # Card only in 1st place deck (high weight)
     rows.append((1, "c-tech-a", "Tech Card A", 2))
@@ -205,6 +207,17 @@ def test_notable_techs():
     assert len(result) == 1
     assert result[0]["card_name"] == "Rising Card"
     assert result[0]["event"] == "surged"
+
+
+def test_consensus_includes_energy(deep_db):
+    result = compute_weighted_consensus_60(deep_db, "Test Deck")
+    assert result is not None
+    assert result["total_energy"] > 0
+    energy_cards = [c for c in result["cards"] if c["category"] == "Energy"]
+    assert len(energy_cards) >= 2
+    names = {c["card_name"] for c in energy_cards}
+    assert "Psychic Energy" in names
+    assert "Fire Energy" in names
 
 
 def test_nonexistent_archetype(deep_db):

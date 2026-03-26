@@ -38,8 +38,6 @@ def compute_weighted_consensus_60(
 
     placement_ids = [r["placement_id"] for r in rows]
 
-    energy_names = sorted(BASIC_ENERGY_NAMES)
-    energy_placeholders = ",".join("?" * len(energy_names))
     pid_placeholders = ",".join("?" * len(placement_ids))
 
     # Only consider placements that actually have decklists
@@ -66,9 +64,8 @@ def compute_weighted_consensus_60(
         SELECT dc.placement_id, dc.card_name, dc.count
         FROM decklist_cards dc
         WHERE dc.placement_id IN ({pid_placeholders})
-          AND dc.card_name NOT IN ({energy_placeholders})
         """,
-        (*placement_ids, *energy_names),
+        placement_ids,
     ).fetchall()
 
     if not card_rows:
