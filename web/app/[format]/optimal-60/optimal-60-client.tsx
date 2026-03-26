@@ -167,6 +167,12 @@ function formatOrdinal(n: number): string {
   return n + (s[(v - 20) % 10] || s[v] || s[0]);
 }
 
+function clPlacementStyle(placement: number): string {
+  if (placement <= 8) return "bg-teal-500/15 text-teal-400";
+  if (placement <= 16) return "bg-teal-500/8 text-teal-400/70";
+  return "bg-surface-700 text-surface-400";
+}
+
 // --- Archetype list content (shared between sidebar and drawer) ---
 
 function ArchetypeListContent({
@@ -267,19 +273,6 @@ function ArchetypeListContent({
         {grouped.length === 0 && (
           <div className="px-3 py-4 text-sm text-surface-400 text-center">No matches</div>
         )}
-
-        {/* Archetype overview link at bottom of sidebar */}
-        {selectedSlug && (
-          <div className="p-3 border-t border-surface-700">
-            <Link
-              href={`/${format}/archetypes/${selectedSlug}`}
-              className="flex items-center gap-1.5 px-2 py-1.5 text-[11px] text-surface-400 hover:text-slate-200 transition-colors"
-            >
-              <ArrowRight className="w-3 h-3" />
-              View Archetype Overview
-            </Link>
-          </div>
-        )}
       </div>
     </>
   );
@@ -303,17 +296,17 @@ function MobileArchetypeDrawer({
 
   // Prevent body scroll and add Escape key handler when drawer is open
   useEffect(() => {
-    if (open) {
-      document.body.style.overflow = "hidden";
-      const handleKeyDown = (e: KeyboardEvent) => {
-        if (e.key === "Escape") setOpen(false);
-      };
-      document.addEventListener("keydown", handleKeyDown);
-      return () => {
-        document.body.style.overflow = "";
-        document.removeEventListener("keydown", handleKeyDown);
-      };
-    }
+    if (!open) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.body.style.overflow = prev;
+      document.removeEventListener("keydown", handleKeyDown);
+    };
   }, [open]);
 
   const handleSelect = (slug: string) => {
@@ -347,11 +340,13 @@ function MobileArchetypeDrawer({
 
       {/* Drawer overlay */}
       {open && (
-        <div className="fixed inset-0 z-40">
+        <div className="fixed inset-0 z-40" role="dialog" aria-modal="true" aria-label="Select archetype">
           {/* Backdrop */}
-          <div
+          <button
             className="absolute inset-0 bg-black/60"
             onClick={() => setOpen(false)}
+            aria-label="Close archetype selector"
+            tabIndex={-1}
           />
           {/* Panel */}
           <div className="absolute left-0 top-0 bottom-0 w-80 max-w-[85vw] bg-surface-900 border-r border-surface-600 flex flex-col shadow-2xl">
@@ -469,9 +464,10 @@ export function Optimal60Client({
   // Load archetype detail on selection change
   useEffect(() => {
     if (!selectedSlug) return;
+    const controller = new AbortController();
     setLoading(true);
     setFetchError(null);
-    fetch(`/data/${format}/optimal-60/${selectedSlug}.json`)
+    fetch(`/data/${format}/optimal-60/${selectedSlug}.json`, { signal: controller.signal })
       .then((res) => {
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         return res.json();
@@ -481,11 +477,17 @@ export function Optimal60Client({
         setLoading(false);
       })
       .catch((err) => {
+        if (err.name === "AbortError") return;
         console.error(`[optimal-60] Failed to load ${selectedSlug}:`, err);
         setDetail(null);
-        setFetchError(`Failed to load decklist for this archetype. Please try again.`);
+        setFetchError(
+          err.message?.includes("HTTP 404")
+            ? "Decklist data is not available for this archetype."
+            : "Failed to load decklist. Please try again.",
+        );
         setLoading(false);
       });
+    return () => controller.abort();
   }, [selectedSlug, format]);
 
   const selected = index.archetypes.find((a) => a.slug === selectedSlug);
@@ -526,22 +528,23 @@ export function Optimal60Client({
       </div>
 
       {/* Invalid deck param notice */}
-      {deckNotFound && (
+      {deckNotFound && index.archetypes.length > 0 && (
         <div className="bg-surface-800 border border-amber-500/30 rounded-md p-3 text-sm text-amber-300">
           Archetype &ldquo;{deckParam}&rdquo; was not found. Showing the top archetype instead.
         </div>
       )}
 
       {/* Empty state */}
-      {index.archetypes.length === 0 ? (
+      {index.archetypes.length === 0 && (
         <div className="text-center py-12">
           <p className="text-sm text-surface-400">
             No archetype data is available for this format yet.
           </p>
         </div>
-      ) : (
+      )}
 
-      /* Two-column layout: sidebar + content */
+      {/* Two-column layout: sidebar + content */}
+      {index.archetypes.length > 0 && (
       <div className="lg:flex lg:gap-6">
         {/* Desktop sidebar */}
         <aside className="hidden lg:block lg:w-72 lg:shrink-0">
@@ -624,11 +627,7 @@ export function Optimal60Client({
                         key={i}
                         className={cn(
                           "px-1.5 py-0.5 rounded font-mono text-[11px]",
-                          p <= 8
-                            ? "bg-teal-500/15 text-teal-400"
-                            : p <= 16
-                              ? "bg-teal-500/8 text-teal-400/70"
-                              : "bg-surface-700 text-surface-400",
+                          clPlacementStyle(p),
                         )}
                       >
                         {formatOrdinal(p)}
