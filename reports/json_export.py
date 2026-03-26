@@ -28,7 +28,11 @@ from analysis.deep_dive import (
     compute_weighted_consensus_60,
 )
 from analysis.evolution import compute_archetype_evolution, compute_meta_evolution
-from analysis.matchup import compute_matchup_matrix
+from analysis.matchup import (
+    compute_labs_archetype_winrates,
+    compute_labs_matchup_matrix,
+    compute_matchup_matrix,
+)
 from analysis.meta import get_latest_snapshot
 from analysis.optimal_60 import compute_optimal_60
 from analysis.synergy import compute_archetype_overlap_matrix, compute_synergy_pairs
@@ -3014,6 +3018,83 @@ def export_matchup_matrix(conn: sqlite3.Connection, output_dir: Path) -> None:
         logger.info("Exported matchup matrix (%d archetypes)", len(data["archetypes"]))
 
 
+def export_matchup_data(
+    conn: sqlite3.Connection,
+    output_dir: Path,
+    labs_conn: "sqlite3.Connection | None" = None,
+) -> None:
+    """Export matchup data with cascade: Labs H2H > Labs records > co-occurrence.
+
+    Tries the best available data source and falls back gracefully:
+    1. Labs H2H (actual match-level win rates with Wilson CI)
+    2. Labs records (W-L-T based win rate proxy with CI)
+    3. Co-occurrence proxy (standing-based performance advantage, no CI)
+
+    The output JSON always includes a ``source`` field so the frontend
+    can display the data provenance.
+    """
+    # Try Labs first if connection provided
+    if labs_conn is not None:
+        # Check if Labs has any placement data
+        try:
+            labs_placement_count = labs_conn.execute("SELECT COUNT(*) FROM placements").fetchone()[
+                0
+            ]
+        except sqlite3.OperationalError:
+            logger.debug("Labs placements table not available")
+            labs_placement_count = 0
+
+        if labs_placement_count > 0:
+            # Labs has data -- use the Labs cascade (H2H > records)
+            result = compute_labs_matchup_matrix(labs_conn)
+            if result["archetypes"]:
+                _write_json(result, output_dir / "matchup.json")
+                logger.info(
+                    "Exported matchup matrix (source=%s, %d archetypes)",
+                    result["source"],
+                    len(result["archetypes"]),
+                )
+
+                # Also export Labs archetype win rates (lower threshold for early data)
+                winrates = compute_labs_archetype_winrates(labs_conn, min_players=2)
+                if winrates["archetypes"]:
+                    _write_json(winrates, output_dir / "labs-winrates.json")
+                    logger.info(
+                        "Exported Labs archetype win rates (%d archetypes)",
+                        len(winrates["archetypes"]),
+                    )
+                return
+            logger.info(
+                "Labs has %d placements but matchup matrix is empty "
+                "(insufficient data for thresholds), falling through to co-occurrence",
+                labs_placement_count,
+            )
+
+    # Fallback: co-occurrence proxy from JP data
+    data = compute_matchup_matrix(conn)
+    if data["archetypes"]:
+        data["source"] = "co-occurrence"
+        data["methodology"] = "Performance Advantage"
+        _write_json(data, output_dir / "matchup.json")
+        logger.info(
+            "Exported matchup matrix (source=co-occurrence, %d archetypes)",
+            len(data["archetypes"]),
+        )
+    else:
+        # Write empty result so the frontend knows there's no data
+        _write_json(
+            {
+                "archetypes": [],
+                "matrix": [],
+                "sample_sizes": [],
+                "source": "co-occurrence",
+                "methodology": "Performance Advantage",
+            },
+            output_dir / "matchup.json",
+        )
+        logger.info("Exported empty matchup matrix (no data available)")
+
+
 def export_archetype_overlap(conn: sqlite3.Connection, output_dir: Path) -> None:
     """Export archetype card overlap matrix for heat map visualization."""
     data = compute_archetype_overlap_matrix(conn)
@@ -3461,6 +3542,7 @@ def export_all(
     output_dir: Path | None = None,
     format_slug: str | None = None,
     strict: bool = False,
+    labs_conn: "sqlite3.Connection | None" = None,
 ) -> tuple[Path, list[str]]:
     """Run all exports. Returns (output_directory, skipped_export_names).
 
@@ -3506,7 +3588,6 @@ def export_all(
     for export_fn, name in [
         (export_cards, "cards"),
         (export_archetype_overlap, "archetype overlap"),
-        (export_matchup_matrix, "matchup matrix"),
         (export_tech_forecast, "tech forecast"),
     ]:
         try:
@@ -3516,6 +3597,14 @@ def export_all(
                 raise
             logger.warning("Skipping %s export (data unavailable): %s", name, exc)
             skipped.append(name)
+    # Matchup data with cascade: Labs H2H > Labs records > co-occurrence
+    try:
+        export_matchup_data(conn, out, labs_conn=labs_conn)
+    except (sqlite3.OperationalError, ValueError) as exc:
+        if strict:
+            raise
+        logger.warning("Skipping matchup data export: %s", exc)
+        skipped.append("matchup data")
     try:
         export_meta_evolution(conn, out, format_slug=slug)
     except (sqlite3.OperationalError, ValueError) as exc:

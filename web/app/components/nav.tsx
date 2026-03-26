@@ -118,6 +118,7 @@ export function Nav({ format, formats }: { format: string; formats: FormatInfo[]
   }
 
   const dashboardLink = { href: `/${format}`, label: "Dashboard" };
+  const matchupsLink = { href: `/${format}/matchups`, label: "Matchups" };
 
   const groups: NavGroup[] = [
     {
@@ -148,6 +149,7 @@ export function Nav({ format, formats }: { format: string; formats: FormatInfo[]
   ];
 
   const dashboardActive = pathname === `/${format}`;
+  const matchupsActive = pathname.startsWith(`/${format}/matchups`);
 
   return (
     <nav className="border-b border-surface-600 bg-surface-800/80 backdrop-blur-sm sticky top-0 z-50" data-testid="main-nav">
@@ -230,6 +232,17 @@ export function Nav({ format, formats }: { format: string; formats: FormatInfo[]
               )}
             >
               Dashboard
+            </Link>
+            <Link
+              href={matchupsLink.href}
+              className={cn(
+                "px-3 py-1.5 text-sm rounded-md whitespace-nowrap transition-colors",
+                matchupsActive
+                  ? "bg-surface-600 text-slate-100"
+                  : "text-surface-300 hover:text-slate-200 hover:bg-surface-700",
+              )}
+            >
+              Matchups
             </Link>
             {groups.map((group) => (
               <NavDropdown

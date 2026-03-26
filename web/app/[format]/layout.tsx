@@ -48,6 +48,7 @@ export default async function FormatLayout({
             <Link href={`/${format}`} className="hover:text-slate-200 transition-colors">Dashboard</Link>
             <Link href={`/${format}/optimal-60`} className="hover:text-slate-200 transition-colors">Optimal 60</Link>
             <Link href={`/${format}/archetypes`} className="hover:text-slate-200 transition-colors">Archetypes</Link>
+            <Link href={`/${format}/matchups`} className="hover:text-slate-200 transition-colors">Matchups</Link>
             <Link href={`/${format}/cards`} className="hover:text-slate-200 transition-colors">Cards</Link>
             <Link href={`/${format}/card-analysis`} className="hover:text-slate-200 transition-colors">Format Edge</Link>
             <Link href={`/${format}/buylist`} className="hover:text-slate-200 transition-colors">Buy List</Link>

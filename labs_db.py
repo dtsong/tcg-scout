@@ -75,7 +75,8 @@ CREATE TABLE IF NOT EXISTS decklist_cards (
 CREATE TABLE IF NOT EXISTS archetype_mapping (
     labs_label TEXT PRIMARY KEY,
     scout_slug TEXT NOT NULL,
-    scout_name TEXT NOT NULL
+    scout_name TEXT NOT NULL,
+    sprite_key TEXT
 );
 
 CREATE INDEX IF NOT EXISTS idx_matches_archetypes
