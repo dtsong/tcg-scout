@@ -16,6 +16,8 @@ export function Tabs({
   activeTab: string;
   onTabChange: (id: string) => void;
 }) {
+  if (tabs.length === 0) return null;
+
   function handleKeyDown(e: React.KeyboardEvent, index: number) {
     let nextIndex: number | null = null;
     if (e.key === "ArrowRight") nextIndex = (index + 1) % tabs.length;
@@ -23,6 +25,9 @@ export function Tabs({
     if (nextIndex !== null) {
       e.preventDefault();
       const nextTab = document.getElementById(`tab-${tabs[nextIndex].id}`);
+      if (process.env.NODE_ENV !== "production" && !nextTab) {
+        console.warn(`[Tabs] Could not find element #tab-${tabs[nextIndex].id}`);
+      }
       nextTab?.focus();
       onTabChange(tabs[nextIndex].id);
     }

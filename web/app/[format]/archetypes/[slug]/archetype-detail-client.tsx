@@ -123,6 +123,43 @@ function groupByCategory(cards: ArchetypeCard[]) {
   return { pokemon, trainer, energy };
 }
 
+function OverviewTab({
+  arch,
+  matchupData,
+  format,
+}: {
+  arch: ArchetypeDetail;
+  matchupData: MatchupMatrixData | null;
+  format: string;
+}) {
+  const hasTrendline = arch.weekly_shares && arch.weekly_shares.length >= 3;
+  const hasVariants = arch.variants && arch.variants.length >= 2;
+  const hasRadar = !!arch.radar;
+  const hasMatchups = !!matchupData;
+  const hasContent = hasTrendline || hasVariants || hasRadar || hasMatchups;
+
+  return (
+    <div className="space-y-8">
+      {hasTrendline && <PerformanceTrendline data={arch.weekly_shares!} />}
+      {hasVariants && (
+        <VariantBreakdown
+          variants={arch.variants!}
+          deckCount={arch.deck_count}
+        />
+      )}
+      {hasRadar && <ArchetypeRadar radar={arch.radar!} />}
+      {hasMatchups && (
+        <KeyMatchups data={matchupData!} archetype={arch.archetype} format={format} />
+      )}
+      {!hasContent && (
+        <p className="text-surface-400 text-sm">
+          Not enough data for an overview yet. Check back after more tournaments.
+        </p>
+      )}
+    </div>
+  );
+}
+
 function TabContent({
   arch,
   matchupData,
@@ -165,43 +202,15 @@ function TabContent({
 
   return (
     <>
-      {/* Tab bar */}
       <Tabs
         tabs={TABS}
         activeTab={activeTab}
         onTabChange={handleTabChange}
       />
 
-      {/* Tab content */}
       <div role="tabpanel" id={`tabpanel-${activeTab}`} aria-labelledby={`tab-${activeTab}`}>
         {activeTab === "overview" && (
-          <div className="space-y-8">
-            {arch.weekly_shares && arch.weekly_shares.length >= 3 && (
-              <PerformanceTrendline data={arch.weekly_shares} />
-            )}
-            {arch.variants && arch.variants.length >= 2 && (
-              <VariantBreakdown
-                variants={arch.variants}
-                deckCount={arch.deck_count}
-              />
-            )}
-            {arch.radar && <ArchetypeRadar radar={arch.radar} />}
-            {matchupData && (
-              <KeyMatchups
-                data={matchupData}
-                archetype={arch.archetype}
-                format={format}
-              />
-            )}
-            {!(arch.weekly_shares && arch.weekly_shares.length >= 3) &&
-              !(arch.variants && arch.variants.length >= 2) &&
-              !arch.radar &&
-              !matchupData && (
-              <p className="text-surface-400 text-sm">
-                Not enough data for an overview yet. Check back after more tournaments.
-              </p>
-            )}
-          </div>
+          <OverviewTab arch={arch} matchupData={matchupData} format={format} />
         )}
 
         {activeTab === "decklist" && (
@@ -212,7 +221,7 @@ function TabContent({
               </h2>
               <p className="text-xs text-surface-400 mb-4">
                 Averaged across {arch.deck_count}{" "}
-                {arch.deck_count === 1 ? "deck" : "decks"}. Bold = core (75%+),
+                {arch.deck_count === 1 ? "deck" : "decks"}. Bold = core (80%+),
                 dimmed = flex.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
