@@ -488,6 +488,18 @@ def labs_db() -> sqlite3.Connection:
 
 
 @pytest.fixture()
+def labs_db_empty() -> sqlite3.Connection:
+    """Empty Labs database with schema only."""
+    conn = sqlite3.connect(":memory:")
+    conn.row_factory = sqlite3.Row
+    conn.execute("PRAGMA foreign_keys=ON")
+    conn.executescript(LABS_SCHEMA)
+    conn.commit()
+    yield conn
+    conn.close()
+
+
+@pytest.fixture()
 def db_single_tournament() -> sqlite3.Connection:
     """Single tournament with 2 placements -- minimum viable export data."""
     conn = sqlite3.connect(":memory:")

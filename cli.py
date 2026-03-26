@@ -1166,8 +1166,17 @@ def export_web(ctx: click.Context, narrative: bool, strict: bool) -> None:
 
     fmt = ctx.obj["format"]
     conn = get_format_connection(fmt)
+    labs_conn = None
     try:
-        out, skipped = export_all(conn, format_slug=fmt, strict=strict)
+        try:
+            from labs_db import get_labs_connection, init_labs_db
+
+            labs_conn = get_labs_connection()
+            init_labs_db(labs_conn)
+        except Exception:
+            logger.info("No Labs database available, skipping Labs exports")
+
+        out, skipped = export_all(conn, format_slug=fmt, strict=strict, labs_conn=labs_conn)
         console.print(f"[green]Web data exported to {out}[/green]")
         if skipped:
             console.print(
@@ -1183,6 +1192,8 @@ def export_web(ctx: click.Context, narrative: bool, strict: bool) -> None:
                 console.print("[yellow]Narrative report generation skipped.[/yellow]")
     finally:
         conn.close()
+        if labs_conn:
+            labs_conn.close()
 
 
 @cli.command("scrape-labs")

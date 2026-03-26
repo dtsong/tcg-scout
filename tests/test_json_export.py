@@ -1023,3 +1023,28 @@ class TestExportTrendsEdgeCases:
         data = json.loads((tmp_path / "trends.json").read_text())
         assert data["early_decks"] == 0 or data["late_decks"] == 0
         conn.close()
+
+
+class TestExportLabsMatchup:
+    def test_exports_matchup_h2h_json(self, tmp_path, labs_db):
+        from reports.json_export import export_labs_matchup
+
+        export_labs_matchup(labs_db, tmp_path)
+        output = tmp_path / "matchup-h2h.json"
+        assert output.exists()
+
+        import json
+
+        data = json.loads(output.read_text())
+        assert "archetypes" in data
+        assert "matrix" in data
+        assert "sample_sizes" in data
+        assert "confidence" in data
+        assert "source" in data
+
+    def test_skips_on_empty_db(self, tmp_path, labs_db_empty):
+        from reports.json_export import export_labs_matchup
+
+        export_labs_matchup(labs_db_empty, tmp_path)
+        output = tmp_path / "matchup-h2h.json"
+        assert not output.exists()

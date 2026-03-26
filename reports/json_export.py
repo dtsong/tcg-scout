@@ -28,7 +28,7 @@ from analysis.deep_dive import (
     compute_weighted_consensus_60,
 )
 from analysis.evolution import compute_archetype_evolution, compute_meta_evolution
-from analysis.matchup import compute_matchup_matrix
+from analysis.matchup import compute_labs_matchup_matrix, compute_matchup_matrix
 from analysis.meta import get_latest_snapshot
 from analysis.optimal_60 import compute_optimal_60
 from analysis.synergy import compute_archetype_overlap_matrix, compute_synergy_pairs
@@ -3014,6 +3014,18 @@ def export_matchup_matrix(conn: sqlite3.Connection, output_dir: Path) -> None:
         logger.info("Exported matchup matrix (%d archetypes)", len(data["archetypes"]))
 
 
+def export_labs_matchup(conn: sqlite3.Connection, output_dir: Path) -> None:
+    """Export Labs H2H matchup matrix with win rates and confidence intervals."""
+    data = compute_labs_matchup_matrix(conn)
+    if data["archetypes"]:
+        _write_json(data, output_dir / "matchup-h2h.json")
+        logger.info(
+            "Exported Labs matchup matrix (%d archetypes, source=%s)",
+            len(data["archetypes"]),
+            data["source"],
+        )
+
+
 def export_archetype_overlap(conn: sqlite3.Connection, output_dir: Path) -> None:
     """Export archetype card overlap matrix for heat map visualization."""
     data = compute_archetype_overlap_matrix(conn)
@@ -3461,6 +3473,7 @@ def export_all(
     output_dir: Path | None = None,
     format_slug: str | None = None,
     strict: bool = False,
+    labs_conn: sqlite3.Connection | None = None,
 ) -> tuple[Path, list[str]]:
     """Run all exports. Returns (output_directory, skipped_export_names).
 
@@ -3538,6 +3551,15 @@ def export_all(
             raise
         logger.warning("Skipping optimal 60 export: %s", exc)
         skipped.append("optimal 60")
+
+    if labs_conn is not None:
+        try:
+            export_labs_matchup(labs_conn, out)
+        except (sqlite3.OperationalError, ValueError) as exc:
+            if strict:
+                raise
+            logger.warning("Skipping Labs matchup export: %s", exc)
+            skipped.append("labs matchup")
 
     if skipped:
         logger.info("Skipped %d optional exports: %s", len(skipped), ", ".join(skipped))
