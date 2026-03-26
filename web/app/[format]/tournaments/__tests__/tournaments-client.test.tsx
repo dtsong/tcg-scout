@@ -1,5 +1,5 @@
 import { describe, it, expect, afterEach, vi } from "vitest";
-import { render, screen, cleanup } from "@testing-library/react";
+import { render, screen, cleanup, fireEvent } from "@testing-library/react";
 import { TournamentsClient } from "../tournaments-client";
 import type {
   CityLeagueIndex,
@@ -232,12 +232,36 @@ describe("TournamentsClient", () => {
         dateRange={defaultDateRange}
       />,
     );
+    // Latest date group (Mar 20) is expanded by default
     expect(screen.getByText("Tokyo CL")).toBeInTheDocument();
     expect(screen.getByText("Osaka CL")).toBeInTheDocument();
-    expect(screen.getByText("Nagoya CL")).toBeInTheDocument();
+    // Older date group (Mar 19) is collapsed by default
+    expect(screen.queryByText("Nagoya CL")).not.toBeInTheDocument();
     // Both date group headers should appear
     expect(screen.getByText("Mar 20, 2026")).toBeInTheDocument();
     expect(screen.getByText("Mar 19, 2026")).toBeInTheDocument();
+    // Click the collapsed group header to expand it
+    fireEvent.click(screen.getByText("Mar 19, 2026"));
+    expect(screen.getByText("Nagoya CL")).toBeInTheDocument();
+  });
+
+  it("collapses an expanded date group on click", () => {
+    const tournaments = [
+      makeTournament({ id: "t-1", name: "Tokyo CL", date: "2026-03-20" }),
+      makeTournament({ id: "t-2", name: "Osaka CL", date: "2026-03-20" }),
+    ];
+    render(
+      <TournamentsClient
+        format="ninja-spinner"
+        index={makeIndex(tournaments)}
+        dateRange={defaultDateRange}
+      />,
+    );
+    // Latest group is expanded by default
+    expect(screen.getByText("Tokyo CL")).toBeInTheDocument();
+    // Click to collapse
+    fireEvent.click(screen.getByText("Mar 20, 2026"));
+    expect(screen.queryByText("Tokyo CL")).not.toBeInTheDocument();
   });
 
   it("shows group tournament count label", () => {
