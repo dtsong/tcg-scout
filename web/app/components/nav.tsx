@@ -4,7 +4,7 @@ import { useState, useRef, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { cn } from "@/app/lib/utils";
-import { Crosshair, ChevronDown } from "lucide-react";
+import { Crosshair, ChevronDown, Menu, X } from "lucide-react";
 import type { FormatInfo } from "@/app/lib/types";
 
 interface NavGroup {
@@ -96,6 +96,7 @@ export function Nav({ format, formats }: { format: string; formats: FormatInfo[]
   const pathname = usePathname();
   const router = useRouter();
   const [formatOpen, setFormatOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
   const formatRef = useRef<HTMLDivElement>(null);
 
   const currentFormat = formats.find((f) => f.slug === format);
@@ -221,7 +222,7 @@ export function Nav({ format, formats }: { format: string; formats: FormatInfo[]
               )}
             </div>
           </div>
-          <div className="flex items-center gap-1">
+          <div className="hidden lg:flex items-center gap-1">
             <Link
               href={dashboardLink.href}
               className={cn(
@@ -259,6 +260,65 @@ export function Nav({ format, formats }: { format: string; formats: FormatInfo[]
               Guide
             </Link>
           </div>
+
+          <button
+            onClick={() => setMobileOpen(true)}
+            className="lg:hidden p-2 text-surface-300 hover:text-slate-200 transition-colors"
+            data-testid="mobile-menu-button"
+            aria-label="Open menu"
+          >
+            <Menu className="w-5 h-5" />
+          </button>
+
+          {/* Mobile Drawer */}
+          {mobileOpen && (
+            <div className="fixed inset-0 z-50 lg:hidden" data-testid="mobile-drawer">
+              <div
+                className="absolute inset-0 bg-black/60"
+                onClick={() => setMobileOpen(false)}
+              />
+              <div className="absolute top-0 right-0 h-full w-72 bg-surface-800 border-l border-surface-600 overflow-y-auto">
+                <div className="flex items-center justify-between px-4 h-14 border-b border-surface-600">
+                  <span className="text-sm font-display font-semibold text-slate-200">
+                    {displayName}
+                  </span>
+                  <button
+                    onClick={() => setMobileOpen(false)}
+                    className="p-2 text-surface-300 hover:text-slate-200"
+                    data-testid="mobile-drawer-close"
+                    aria-label="Close menu"
+                  >
+                    <X className="w-5 h-5" />
+                  </button>
+                </div>
+                <nav className="px-2 py-3 space-y-0.5">
+                  {[
+                    dashboardLink,
+                    matchupsLink,
+                    ...groups.flatMap((g) => g.items),
+                    { href: `/${format}/guide`, label: "Guide" },
+                  ].map(({ href, label }) => {
+                    const active = href === `/${format}` ? pathname === `/${format}` : pathname.startsWith(href);
+                    return (
+                      <Link
+                        key={href}
+                        href={href}
+                        onClick={() => setMobileOpen(false)}
+                        className={cn(
+                          "block px-3 py-2.5 text-sm rounded-md transition-colors",
+                          active
+                            ? "bg-surface-600 text-slate-100"
+                            : "text-surface-300 hover:bg-surface-700 hover:text-slate-200",
+                        )}
+                      >
+                        {label}
+                      </Link>
+                    );
+                  })}
+                </nav>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </nav>
