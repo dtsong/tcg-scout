@@ -49,8 +49,8 @@ function DecklistView({ decklist }: { decklist: DecklistCard[] }) {
   );
 }
 
-export function ResultsTable({ results }: { results: ArchetypeResult[] }) {
-  const [expanded, setExpanded] = useState(false);
+export function ResultsTable({ results, defaultExpanded = false }: { results: ArchetypeResult[]; defaultExpanded?: boolean }) {
+  const [expanded, setExpanded] = useState(defaultExpanded);
   const [expandedRows, setExpandedRows] = useState<Set<string>>(new Set());
 
   const toggleRow = (key: string) => {
