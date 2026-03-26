@@ -1,5 +1,5 @@
 import { describe, it, expect, afterEach, vi } from "vitest";
-import { render, screen, cleanup } from "@testing-library/react";
+import { render, screen, cleanup, within } from "@testing-library/react";
 import { DashboardClient } from "../dashboard-client";
 import type {
   MetaData,
@@ -63,6 +63,10 @@ vi.mock("@/app/components/tier-badge", () => ({
 
 vi.mock("@/app/components/tooltip", () => ({
   InfoIcon: () => <span data-testid="info-icon" />,
+}));
+
+vi.mock("@/app/components/sprite-row", () => ({
+  SpriteRow: () => <span data-testid="sprite-row" />,
 }));
 
 // --- Test Data ---
@@ -176,14 +180,16 @@ describe("DashboardClient", () => {
 
   it("excludes Rogue-tier archetypes from the tier list preview", () => {
     renderDashboard();
-    expect(screen.queryByText("Banette ex")).not.toBeInTheDocument();
+    const tierSection = within(screen.getByTestId("tier-section"));
+    expect(tierSection.queryByText("Banette ex")).not.toBeInTheDocument();
   });
 
   it("displays archetype names in the tier list", () => {
     renderDashboard();
-    expect(screen.getByText("Dragapult ex")).toBeInTheDocument();
-    expect(screen.getByText("Charizard Pidgeot")).toBeInTheDocument();
-    expect(screen.getByText("Raging Bolt")).toBeInTheDocument();
+    const tierSection = within(screen.getByTestId("tier-section"));
+    expect(tierSection.getByText("Dragapult ex")).toBeInTheDocument();
+    expect(tierSection.getByText("Charizard Pidgeot")).toBeInTheDocument();
+    expect(tierSection.getByText("Raging Bolt")).toBeInTheDocument();
   });
 
   it("displays meta share percentages", () => {

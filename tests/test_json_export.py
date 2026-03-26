@@ -1168,9 +1168,78 @@ class TestComputeBreakoutScore:
         )
         assert score >= 0
 
+    def test_down_trend_uses_base_recency(self):
+        """Down trend should use the same base recency as stable (0.5)."""
+        down = _compute_breakout_score(
+            meta_share=0.5, weighted_share=1.0, best_placement=8, trend="down", trend_delta=-3.0
+        )
+        stable = _compute_breakout_score(
+            meta_share=0.5, weighted_share=1.0, best_placement=8, trend="stable", trend_delta=0.0
+        )
+        assert down == stable
+
     def test_returns_float(self):
         """Score should be a rounded float."""
         score = _compute_breakout_score(
             meta_share=0.5, weighted_share=1.0, best_placement=4, trend="up", trend_delta=2.0
         )
         assert isinstance(score, float)
+
+
+class TestBreakoutScoreInjection:
+    """Verify that breakout scores are only injected into Rogue-tier archetypes."""
+
+    def test_only_rogue_archetypes_get_breakout_score(self):
+        """Non-Rogue archetypes must not have breakout_score."""
+        archetypes = [
+            {
+                "tier": "S",
+                "meta_share": 12.0,
+                "weighted_share": 14.0,
+                "best_placement": 1,
+                "trend": "stable",
+                "trend_delta": 0.0,
+            },
+            {
+                "tier": "A",
+                "meta_share": 8.0,
+                "weighted_share": 9.0,
+                "best_placement": 2,
+                "trend": "up",
+                "trend_delta": 2.0,
+            },
+            {
+                "tier": "Rogue",
+                "meta_share": 0.5,
+                "weighted_share": 2.0,
+                "best_placement": 1,
+                "trend": "new",
+                "trend_delta": 0.0,
+            },
+            {
+                "tier": "Rogue",
+                "meta_share": 0.3,
+                "weighted_share": 0.3,
+                "best_placement": 16,
+                "trend": "stable",
+                "trend_delta": 0.0,
+            },
+        ]
+        for arch_data in archetypes:
+            if arch_data["tier"] == "Rogue":
+                arch_data["breakout_score"] = _compute_breakout_score(
+                    meta_share=arch_data["meta_share"],
+                    weighted_share=arch_data["weighted_share"],
+                    best_placement=arch_data["best_placement"],
+                    trend=arch_data["trend"],
+                    trend_delta=arch_data["trend_delta"],
+                )
+
+        # Non-Rogue archetypes must not have breakout_score
+        assert "breakout_score" not in archetypes[0]
+        assert "breakout_score" not in archetypes[1]
+        # Rogue archetypes must have breakout_score
+        assert "breakout_score" in archetypes[2]
+        assert "breakout_score" in archetypes[3]
+        assert isinstance(archetypes[2]["breakout_score"], float)
+        assert isinstance(archetypes[3]["breakout_score"], float)

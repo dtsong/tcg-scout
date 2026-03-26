@@ -38,6 +38,8 @@ from analysis.optimal_60 import compute_optimal_60
 from analysis.synergy import compute_archetype_overlap_matrix, compute_synergy_pairs
 from analysis.tech_forecast import compute_tech_forecast
 from config import (
+    BREAKOUT_DISPLAY_COUNT,
+    BREAKOUT_THRESHOLD,
     DATASET_END,
     DATASET_START,
     DEFAULT_FORMAT,
@@ -1623,6 +1625,8 @@ def export_meta(
         },
         "rotation_date": rotation_date,
         "tier_thresholds": TIER_THRESHOLDS,
+        "breakout_threshold": BREAKOUT_THRESHOLD,
+        "breakout_display_count": BREAKOUT_DISPLAY_COUNT,
         "archetypes": archetypes,
     }
 

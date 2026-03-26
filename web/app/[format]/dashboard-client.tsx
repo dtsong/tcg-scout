@@ -41,6 +41,7 @@ const tierBorderColors: Record<string, string> = {
 };
 
 function placementLabel(placement: number): string {
+  if (placement < 1) return "N/A";
   if (placement === 1) return "1st Place";
   if (placement === 2) return "2nd Place";
   if (placement <= 4) return `Top 4`;
@@ -135,11 +136,12 @@ export function DashboardClient({
     ["S", "A", "B"].includes(a.tier),
   );
 
-  // Mirrors config.BREAKOUT_THRESHOLD (50) and config.BREAKOUT_DISPLAY_COUNT (3)
+  const breakoutThreshold = meta.breakout_threshold ?? 50;
+  const breakoutDisplayCount = meta.breakout_display_count ?? 3;
   const rogueBreakouts = meta.archetypes
-    .filter((a) => a.tier === "Rogue" && (a.breakout_score ?? 0) > 50)
+    .filter((a) => a.tier === "Rogue" && (a.breakout_score ?? 0) >= breakoutThreshold)
     .sort((a, b) => (b.breakout_score ?? 0) - (a.breakout_score ?? 0))
-    .slice(0, 3);
+    .slice(0, breakoutDisplayCount);
 
   const surgingCards = (trends.surging || []).slice(0, 5);
   const decliningCards = (trends.declining || []).slice(0, 5);
@@ -225,7 +227,7 @@ export function DashboardClient({
           {/* Desktop: 3x2 grid, Mobile: horizontal scroll */}
           <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
             {meta.archetypes.slice(0, 6).map((arch, i) => {
-              const tierKey = arch.tier.toLowerCase() === "rogue" ? "rogue" : arch.tier.toLowerCase();
+              const tierKey = arch.tier.toLowerCase();
               return (
                 <Link
                   key={arch.slug}
@@ -276,7 +278,7 @@ export function DashboardClient({
           {/* Mobile: horizontal scroll with snap */}
           <div className="flex sm:hidden gap-3 overflow-x-auto snap-x snap-mandatory pb-2 -mx-4 px-4 scrollbar-hide">
             {meta.archetypes.slice(0, 6).map((arch, i) => {
-              const tierKey = arch.tier.toLowerCase() === "rogue" ? "rogue" : arch.tier.toLowerCase();
+              const tierKey = arch.tier.toLowerCase();
               return (
                 <Link
                   key={arch.slug}
@@ -570,7 +572,7 @@ export function DashboardClient({
               </thead>
               <tbody className="divide-y divide-surface-700">
                 {topArchetypes.map((arch, i) => {
-                  const tierKey = arch.tier.toLowerCase() === "rogue" ? "rogue" : arch.tier.toLowerCase();
+                  const tierKey = arch.tier.toLowerCase();
                   const glowColor = tierGlowColors[arch.tier];
                   return (
                   <tr

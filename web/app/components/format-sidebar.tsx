@@ -37,7 +37,7 @@ export function FormatSidebar({ meta, format, formats, rotationDays }: FormatSid
           </div>
           <div className="flex items-center justify-between">
             <span className="text-surface-400">Range</span>
-            <span className="font-mono text-xs text-slate-200 tabular-nums">{meta.date_range.start.slice(5)} - {meta.date_range.end.slice(5)}</span>
+            <span className="font-mono text-xs text-slate-200 tabular-nums">{meta.date_range?.start?.slice(5) ?? "?"} - {meta.date_range?.end?.slice(5) ?? "?"}</span>
           </div>
           {rotationDays !== undefined && rotationDays > 0 && (
             <div className="flex items-center justify-between">
