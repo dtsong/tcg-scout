@@ -101,22 +101,30 @@ export function MatchupsClient({
           <>
             <span className="flex items-center gap-1.5">
               <span className="w-4 h-4 rounded bg-emerald-500/40" />
-              &gt;55% (favorable)
+              60%+ (strong)
             </span>
             <span className="flex items-center gap-1.5">
-              <span className="w-4 h-4 rounded bg-emerald-500/15" />
-              50-55%
+              <span className="w-4 h-4 rounded bg-emerald-500/25" />
+              55-59%
             </span>
             <span className="flex items-center gap-1.5">
-              <span className="w-4 h-4 rounded bg-red-500/15" />
-              45-50%
+              <span className="w-4 h-4 rounded bg-emerald-500/10" />
+              50-54%
+            </span>
+            <span className="flex items-center gap-1.5">
+              <span className="w-4 h-4 rounded bg-red-500/10" />
+              46-49%
+            </span>
+            <span className="flex items-center gap-1.5">
+              <span className="w-4 h-4 rounded bg-red-500/25" />
+              41-45%
             </span>
             <span className="flex items-center gap-1.5">
               <span className="w-4 h-4 rounded bg-red-500/40" />
-              &lt;45% (unfavorable)
+              40% or less (strong)
             </span>
             <span className="flex items-center gap-1.5">
-              <span className="w-4 h-4 rounded bg-surface-600" />
+              <span className="w-4 h-4 rounded bg-surface-700/50" />
               Insufficient data
             </span>
           </>

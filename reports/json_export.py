@@ -3040,7 +3040,8 @@ def export_matchup_data(
             labs_placement_count = labs_conn.execute("SELECT COUNT(*) FROM placements").fetchone()[
                 0
             ]
-        except Exception:
+        except sqlite3.OperationalError:
+            logger.debug("Labs placements table not available")
             labs_placement_count = 0
 
         if labs_placement_count > 0:
@@ -3063,6 +3064,11 @@ def export_matchup_data(
                         len(winrates["archetypes"]),
                     )
                 return
+            logger.info(
+                "Labs has %d placements but matchup matrix is empty "
+                "(insufficient data for thresholds), falling through to co-occurrence",
+                labs_placement_count,
+            )
 
     # Fallback: co-occurrence proxy from JP data
     data = compute_matchup_matrix(conn)

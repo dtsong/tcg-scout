@@ -63,6 +63,10 @@ _MONTH_TO_NUM = {
     "December": "12",
 }
 
+_DATE_RE = re.compile(
+    rf"(\d{{1,2}})(?:st|nd|rd|th)?\s+({'|'.join(_MONTH_TO_NUM.keys())})\s+(\d{{2,4}})"
+)
+
 
 # ---------------------------------------------------------------------------
 # Data classes
@@ -172,11 +176,7 @@ class LabsLimitlessClient(RateLimitedHTTPClient):
         for el in soup.find_all(["span", "div", "p"]):
             text = el.get_text(strip=True)
             # Look for date patterns like "21 Mar 26", "21 Mar 2026", or "21st March 2026"
-            _MONTH_NAMES = "|".join(_MONTH_TO_NUM.keys())
-            date_match = re.search(
-                rf"(\d{{1,2}})(?:st|nd|rd|th)?\s+({_MONTH_NAMES})\s+(\d{{2,4}})",
-                text,
-            )
+            date_match = _DATE_RE.search(text)
             if date_match and not date:
                 day, month, year = date_match.groups()
                 if len(year) == 2:

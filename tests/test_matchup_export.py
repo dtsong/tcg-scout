@@ -324,7 +324,7 @@ class TestExportMatchupData:
         export_matchup_data(conn, tmp_path, labs_conn=None)
 
         matchup_file = tmp_path / "matchup.json"
-        # Should either not exist or have empty archetypes
-        if matchup_file.exists():
-            data = json.loads(matchup_file.read_text())
-            assert data["archetypes"] == []
+        assert matchup_file.exists(), "Empty JP DB should still produce a matchup.json"
+        data = json.loads(matchup_file.read_text())
+        assert data["archetypes"] == []
+        assert data["source"] == "co-occurrence"

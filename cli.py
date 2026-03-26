@@ -1172,7 +1172,7 @@ def export_web(ctx: click.Context, narrative: bool, strict: bool) -> None:
     try:
         labs_conn = get_labs_connection()
         init_labs_db(labs_conn)
-    except Exception as exc:
+    except (FileNotFoundError, sqlite3.OperationalError) as exc:
         console.print(f"[yellow]Labs DB unavailable, using co-occurrence only: {exc}[/yellow]")
         labs_conn = None
     try:

@@ -53,6 +53,7 @@ export function KeyMatchups({
     if (value === null || value === undefined) continue;
     const sampleSize = data.sample_sizes[idx]?.[j] ?? 0;
     // Filter out insufficient data
+    if (winRate && sampleSize < 5) continue;
     if (!winRate && sampleSize < 10) continue;
     entries.push({
       archetype: data.archetypes[j],
