@@ -84,6 +84,9 @@ function FeaturedCard({ card, format }: { card: CardAnalysisEntry; format: strin
     </>
   );
   if (!isLinkable) {
+    if (process.env.NODE_ENV === "development") {
+      console.warn(`[FeaturedCard] non-linkable: name="${card.card_name}", format="${format}"`);
+    }
     return <div className="flex-shrink-0 w-40 bg-surface-800 border border-surface-600 rounded-lg p-3">{content}</div>;
   }
   return (

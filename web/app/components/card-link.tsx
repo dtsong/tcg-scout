@@ -21,7 +21,9 @@ export function CardLink({
   const { format } = useParams<{ format: string }>();
   const slug = slugify(name);
   if (!slug || !format) {
-    console.warn(`[CardLink] fallback to span: name="${name}", format="${format}"`);
+    if (process.env.NODE_ENV === "development") {
+      console.warn(`[CardLink] fallback to span: name="${name}", format="${format}"`);
+    }
     return <span className={className}>{name}</span>;
   }
   return (
