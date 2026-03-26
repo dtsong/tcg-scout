@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import type { MetaData, FormatInfo } from "@/app/lib/types";
 
 interface FormatSidebarProps {
@@ -19,6 +22,9 @@ const quickLinks = [
 ];
 
 export function FormatSidebar({ meta, format, formats, rotationDays }: FormatSidebarProps) {
+  const pathname = usePathname();
+  const isDashboard = pathname === `/${format}`;
+
   return (
     <div className="space-y-6 text-sm">
       {/* Format Stats */}
@@ -48,27 +54,29 @@ export function FormatSidebar({ meta, format, formats, rotationDays }: FormatSid
         </div>
       </div>
 
-      {/* Dashboard Sections */}
-      <div>
-        <h3 className="font-display text-xs font-semibold text-surface-300 uppercase tracking-wider mb-3">
-          On This Page
-        </h3>
-        <nav className="space-y-1">
-          {[
-            { id: "hero", label: "Top Decks" },
-            { id: "breakout", label: "Breakout Watch" },
-            { id: "tier-list", label: "Tier List" },
-          ].map(({ id, label }) => (
-            <a
-              key={id}
-              href={`#${id}`}
-              className="block py-1 pl-3 border-l-2 border-transparent text-surface-400 hover:text-slate-200 hover:border-l-accent transition-colors"
-            >
-              {label}
-            </a>
-          ))}
-        </nav>
-      </div>
+      {/* Dashboard Sections — only shown on the dashboard route */}
+      {isDashboard && (
+        <div>
+          <h3 className="font-display text-xs font-semibold text-surface-300 uppercase tracking-wider mb-3">
+            On This Page
+          </h3>
+          <nav className="space-y-1">
+            {[
+              { id: "hero", label: "Top Decks" },
+              { id: "breakout", label: "Breakout Watch" },
+              { id: "tier-list", label: "Tier List" },
+            ].map(({ id, label }) => (
+              <a
+                key={id}
+                href={`#${id}`}
+                className="block py-1 pl-3 border-l-2 border-transparent text-surface-400 hover:text-slate-200 hover:border-l-accent transition-colors"
+              >
+                {label}
+              </a>
+            ))}
+          </nav>
+        </div>
+      )}
 
       {/* Quick Links */}
       <div>
