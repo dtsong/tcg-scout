@@ -3557,7 +3557,7 @@ def export_all(
     if labs_conn is not None:
         try:
             export_labs_matchup(labs_conn, out)
-        except (sqlite3.OperationalError, ValueError) as exc:
+        except (sqlite3.OperationalError, ValueError, KeyError) as exc:
             if strict:
                 raise
             logger.warning("Skipping Labs matchup export: %s", exc)

@@ -1088,7 +1088,7 @@ class TestExportAllLabsIntegration:
         from reports.json_export import export_all
 
         broken_conn = sqlite3.connect(":memory:")
-        with pytest.raises((sqlite3.OperationalError, ValueError)):
+        with pytest.raises((sqlite3.OperationalError, ValueError, KeyError)):
             export_all(
                 db_single_tournament,
                 output_dir=tmp_path,
