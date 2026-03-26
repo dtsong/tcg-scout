@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { Outfit, JetBrains_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -56,6 +57,7 @@ export default function RootLayout({
     >
       <body className="min-h-screen antialiased">
         {children}
+        <Analytics />
       </body>
     </html>
   );
