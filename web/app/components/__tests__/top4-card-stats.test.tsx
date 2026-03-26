@@ -4,6 +4,10 @@ import userEvent from "@testing-library/user-event";
 import { Top4CardStats } from "../top4-card-stats";
 import type { TopPerformerCard, CardDecklistData } from "@/app/lib/types";
 
+vi.mock("next/navigation", () => ({
+  useParams: () => ({ format: "nihil-zero" }),
+}));
+
 function makeCard(overrides: Partial<TopPerformerCard> & { card_name: string }): TopPerformerCard {
   return {
     inclusion_pct: 80,
@@ -85,13 +89,6 @@ describe("Top4CardStats", () => {
 
     const bossLink = screen.getByRole("link", { name: "Boss's Orders" });
     expect(bossLink).toHaveAttribute("href", "/nihil-zero/cards/boss-s-orders");
-  });
-
-  it("uses format prop in card link URLs", () => {
-    render(<Top4CardStats {...defaultProps} format="standard" />);
-
-    const link = screen.getByRole("link", { name: "Charizard ex" });
-    expect(link).toHaveAttribute("href", "/standard/cards/charizard-ex");
   });
 
   it("sorts cards by delta descending within each section", () => {

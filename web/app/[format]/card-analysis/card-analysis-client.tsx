@@ -6,6 +6,7 @@ import type { CardAnalysisData, CardAnalysisEntry } from "@/app/lib/types";
 import { slugify, effectiveImpact, effectiveConfidence } from "@/app/lib/utils";
 import { DeltaValue } from "@/app/components/delta-value";
 import { InfoIcon } from "@/app/components/tooltip";
+import { CardLink } from "@/app/components/card-link";
 
 type CategoryFilter = "all" | "Pokemon" | "Trainer" | "Energy";
 type SortField = "weighted_impact" | "max_delta" | "archetype_count";
@@ -65,12 +66,11 @@ function DeltaBar({ top4Pct, fieldPct }: { top4Pct: number; fieldPct: number }) 
 }
 
 function FeaturedCard({ card, format }: { card: CardAnalysisEntry; format: string }) {
-  return (
-    <Link
-      href={`/${format}/cards/${slugify(card.card_name)}`}
-      className="flex-shrink-0 w-40 bg-surface-800 border border-surface-600 rounded-lg p-3 hover:border-surface-400 transition-colors group"
-    >
-      <p className="text-sm text-slate-200 font-medium truncate group-hover:text-accent transition-colors">
+  const slug = slugify(card.card_name);
+  const isLinkable = Boolean(slug && format);
+  const content = (
+    <>
+      <p className={`text-sm text-slate-200 font-medium truncate ${isLinkable ? "group-hover:text-accent transition-colors" : ""}`}>
         {card.card_name}
       </p>
       <p className="text-[10px] text-surface-500 uppercase mt-0.5">{card.category}</p>
@@ -81,6 +81,20 @@ function FeaturedCard({ card, format }: { card: CardAnalysisEntry; format: strin
           <span className="text-[10px] text-surface-400 font-mono">{card.archetype_count} arch</span>
         </div>
       </div>
+    </>
+  );
+  if (!isLinkable) {
+    if (process.env.NODE_ENV === "development") {
+      console.warn(`[FeaturedCard] non-linkable: name="${card.card_name}", format="${format}"`);
+    }
+    return <div className="flex-shrink-0 w-40 bg-surface-800 border border-surface-600 rounded-lg p-3">{content}</div>;
+  }
+  return (
+    <Link
+      href={`/${format}/cards/${slug}`}
+      className="flex-shrink-0 w-40 bg-surface-800 border border-surface-600 rounded-lg p-3 hover:border-surface-400 transition-colors group"
+    >
+      {content}
     </Link>
   );
 }
@@ -103,13 +117,7 @@ function CardRow({
         className="w-full px-4 py-3 flex items-center justify-between gap-4 hover:bg-surface-700/40 transition-colors text-left"
       >
         <div className="flex items-center gap-3 min-w-0">
-          <Link
-            href={`/${format}/cards/${slugify(card.card_name)}`}
-            onClick={(e) => e.stopPropagation()}
-            className="text-sm text-slate-300 hover:text-accent truncate"
-          >
-            {card.card_name}
-          </Link>
+          <CardLink name={card.card_name} className="text-sm text-slate-300 truncate" />
           <span className="text-[10px] text-surface-500 uppercase hidden sm:inline">{card.category}</span>
         </div>
         <div className="flex items-center gap-4 sm:gap-6 shrink-0">

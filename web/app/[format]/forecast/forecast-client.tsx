@@ -19,6 +19,7 @@ import {
   ArrowUpDown,
 } from "lucide-react";
 import type { TechForecast, TechForecastCard } from "@/app/lib/types";
+import { CardLink } from "@/app/components/card-link";
 
 type SortKey =
   | "card_name"
@@ -346,7 +347,7 @@ export function ForecastClient({
                         )}
                       </td>
                       <td className="px-4 py-3 text-slate-200">
-                        {card.card_name}
+                        <CardLink name={card.card_name} className="text-slate-200" />
                       </td>
                       <td className="px-4 py-3 text-right font-mono tabular-nums text-surface-300">
                         {card.current_adoption_pct.toFixed(1)}%

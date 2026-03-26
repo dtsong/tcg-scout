@@ -1,8 +1,12 @@
-import { describe, it, expect, afterEach } from "vitest";
+import { describe, it, expect, afterEach, vi } from "vitest";
 import { render, screen, cleanup } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { ResultsTable } from "../results-table";
 import type { ArchetypeResult } from "@/app/lib/types";
+
+vi.mock("next/navigation", () => ({
+  useParams: () => ({ format: "nihil-zero" }),
+}));
 
 const resultWithUrl: ArchetypeResult = {
   tournament_name: "Osaka CL Jan",
@@ -17,6 +21,18 @@ const resultWithoutUrl: ArchetypeResult = {
   date: "2026-02-10",
   standing: 4,
   player_name: "Bob",
+};
+
+const resultWithDecklist: ArchetypeResult = {
+  tournament_name: "Berlin CL Mar",
+  tournament_url: "https://play.limitless.gg/tournaments/xyz",
+  date: "2026-03-15",
+  standing: 2,
+  player_name: "Carol",
+  decklist: [
+    { card_name: "Rare Candy", count: 4, category: "Trainer" },
+    { card_name: "Charizard ex", count: 3, category: "Pokemon" },
+  ],
 };
 
 describe("ResultsTable", () => {
@@ -43,5 +59,18 @@ describe("ResultsTable", () => {
 
     expect(screen.getByText("Tokyo CL Feb")).toBeInTheDocument();
     expect(screen.queryByRole("link", { name: "Tokyo CL Feb" })).toBeNull();
+  });
+
+  it("renders card names as links in expanded decklist", async () => {
+    const user = userEvent.setup();
+    render(<ResultsTable results={[resultWithDecklist]} />);
+
+    await user.click(screen.getByRole("button", { name: /results/i }));
+    // Expand the row to show decklist
+    await user.click(screen.getByText("Carol"));
+
+    const cardLink = screen.getByRole("link", { name: "Rare Candy" });
+    expect(cardLink).toHaveAttribute("href", "/nihil-zero/cards/rare-candy");
+    expect(screen.getByRole("link", { name: "Charizard ex" })).toHaveAttribute("href", "/nihil-zero/cards/charizard-ex");
   });
 });

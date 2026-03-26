@@ -7,8 +7,8 @@ import { DataTable } from "@/app/components/data-table";
 import { DateFilter } from "@/app/components/date-filter";
 import { useDateFilter, fetchWindowedData } from "@/app/components/date-filter-provider";
 import { ExternalLink } from "lucide-react";
-import { formatPct } from "@/app/lib/utils";
-import { cn } from "@/app/lib/utils";
+import { formatPct, cn } from "@/app/lib/utils";
+import { CardLink } from "@/app/components/card-link";
 import type { BuylistCard, StapleCard, TimeWindow } from "@/app/lib/types";
 
 const tabs = ["Full List", "Staples", "Flex"] as const;
@@ -32,6 +32,13 @@ export function BuylistClient({
   const [buylist, setBuylist] = useState(initialBuylist);
   const [staples, setStaples] = useState(initialStaples);
   const [flex, setFlex] = useState(initialFlex);
+
+  const cardNameColumn = {
+    key: "card_name" as const,
+    header: "Card",
+    render: (c: { card_name: string }) => <CardLink name={c.card_name} className="text-slate-200" />,
+    sortValue: (c: { card_name: string }) => c.card_name,
+  };
 
   const fetchWindowData = useCallback(
     async (window: TimeWindow) => {
@@ -114,12 +121,7 @@ export function BuylistClient({
               searchKey={(c) => c.card_name}
               searchPlaceholder="Search cards..."
               columns={[
-                {
-                  key: "card_name",
-                  header: "Card",
-                  render: (c) => <span className="text-slate-200">{c.card_name}</span>,
-                  sortValue: (c) => c.card_name,
-                },
+                cardNameColumn,
                 {
                   key: "buy",
                   header: "",
@@ -197,12 +199,7 @@ export function BuylistClient({
             searchKey={(c) => c.card_name}
             searchPlaceholder="Search staples..."
             columns={[
-              {
-                key: "card_name",
-                header: "Card",
-                render: (c) => <span className="text-slate-200">{c.card_name}</span>,
-                sortValue: (c) => c.card_name,
-              },
+              cardNameColumn,
               {
                 key: "usage_pct",
                 header: "Usage",
@@ -249,12 +246,7 @@ export function BuylistClient({
             searchKey={(c) => c.card_name}
             searchPlaceholder="Search flex cards..."
             columns={[
-              {
-                key: "card_name",
-                header: "Card",
-                render: (c) => <span className="text-slate-200">{c.card_name}</span>,
-                sortValue: (c) => c.card_name,
-              },
+              cardNameColumn,
               {
                 key: "usage_pct",
                 header: "Usage",

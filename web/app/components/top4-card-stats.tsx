@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ChevronDown, ExternalLink } from "lucide-react";
 import type { TopPerformerCard, CardDecklistData, CardDecklistResult } from "@/app/lib/types";
 import { slugify } from "@/app/lib/utils";
+import { CardLink } from "@/app/components/card-link";
 
 type CategoryFilter = "all" | "Pokemon" | "Trainer" | "Energy";
 
@@ -174,13 +175,7 @@ function TopCardRow({
             <span className="font-mono text-xs w-7 h-6 flex items-center justify-center rounded bg-surface-700 text-slate-300 shrink-0 tabular-nums">
               {copies}
             </span>
-            <Link
-              href={`/${format}/cards/${slugify(card.card_name)}`}
-              className="text-sm text-slate-300 hover:text-accent transition-colors truncate"
-              onClick={(e) => e.stopPropagation()}
-            >
-              {card.card_name}
-            </Link>
+            <CardLink name={card.card_name} className="text-sm text-slate-300 truncate" />
           </div>
           <div className="flex items-center gap-3 shrink-0">
             <span className="text-xs font-mono text-surface-400 tabular-nums w-10 text-right">

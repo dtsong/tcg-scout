@@ -12,6 +12,7 @@ import { VariantBreakdown } from "@/app/components/variant-breakdown";
 import { formatPct, formatPlacement } from "@/app/lib/utils";
 import type { ArchetypeCard } from "@/app/lib/types";
 import { Top4CardStats } from "@/app/components/top4-card-stats";
+import { CardLink } from "@/app/components/card-link";
 import { ResultsTable } from "./results-table";
 
 export async function generateMetadata({
@@ -85,9 +86,10 @@ function CardRow({ card, isCore }: { card: ArchetypeCard; isCore: boolean }) {
           <span className="font-mono text-xs w-7 h-6 flex items-center justify-center rounded bg-surface-700 text-slate-300 shrink-0 tabular-nums">
             {copies}
           </span>
-          <span className={`text-sm truncate ${isCore ? "text-slate-200" : "text-slate-400"}`}>
-            {card.card_name}
-          </span>
+          <CardLink
+            name={card.card_name}
+            className={`text-sm truncate ${isCore ? "text-slate-200" : "text-slate-400"}`}
+          />
         </div>
         <span className={`text-xs font-mono ml-3 shrink-0 tabular-nums ${
           card.inclusion_pct >= 80 ? "text-accent/70" : "text-surface-400"

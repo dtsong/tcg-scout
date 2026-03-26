@@ -8,6 +8,7 @@ import { TierBadge } from "@/app/components/tier-badge";
 import { StatCard } from "@/app/components/stat-card";
 import { cn, formatPct } from "@/app/lib/utils";
 import { CopyDecklistButton } from "@/app/components/copy-decklist-button";
+import { CardLink } from "@/app/components/card-link";
 import type {
   Optimal60Index,
   Optimal60IndexEntry,
@@ -87,9 +88,7 @@ function Optimal60CardRow({ card }: { card: Optimal60Card }) {
           <span className="font-mono text-xs w-6 h-5 flex items-center justify-center rounded bg-surface-700 text-slate-300 shrink-0 tabular-nums">
             {card.count}
           </span>
-          <span className={cn("text-sm truncate", config.cardText)}>
-            {card.card_name}
-          </span>
+          <CardLink name={card.card_name} className={cn("text-sm truncate", config.cardText)} />
         </div>
         <div className="flex items-center gap-1.5 ml-2 shrink-0">
           {showDelta && (

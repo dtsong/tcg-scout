@@ -1,6 +1,6 @@
 import { describe, it, expect, afterEach } from "vitest";
 import { render, screen, cleanup } from "@testing-library/react";
-import type { ArchetypeReport, ConsensusCard, PlacementBracket, NotableTech } from "@/app/lib/types";
+import type { ConsensusCard, PlacementBracket, NotableTech } from "@/app/lib/types";
 
 // Mock next/link
 import { vi } from "vitest";
@@ -8,6 +8,10 @@ vi.mock("next/link", () => ({
   default: ({ children, href }: { children: React.ReactNode; href: string }) => (
     <a href={href}>{children}</a>
   ),
+}));
+
+vi.mock("next/navigation", () => ({
+  useParams: () => ({ format: "nihil-zero" }),
 }));
 
 // Mock recharts to avoid canvas issues in test
@@ -78,10 +82,10 @@ describe("ConsensusDeck", () => {
       />,
     );
 
-    expect(screen.getByText("Ultra Ball")).toBeDefined();
-    expect(screen.getByText("Charizard ex")).toBeDefined();
-    expect(screen.getByText("Solrock")).toBeDefined();
-    expect(screen.getByText("Fire Energy")).toBeDefined();
+    expect(screen.getByRole("link", { name: "Ultra Ball" })).toHaveAttribute("href", "/nihil-zero/cards/ultra-ball");
+    expect(screen.getByRole("link", { name: "Charizard ex" })).toBeDefined();
+    expect(screen.getByRole("link", { name: "Solrock" })).toBeDefined();
+    expect(screen.getByRole("link", { name: "Fire Energy" })).toBeDefined();
   });
 
   it("shows consensus labels", () => {
@@ -169,8 +173,8 @@ describe("NotableTechs", () => {
   it("renders tech events", () => {
     render(<NotableTechs techs={techs} />);
 
-    expect(screen.getByText("Solrock")).toBeDefined();
-    expect(screen.getByText("Old Card")).toBeDefined();
+    expect(screen.getByRole("link", { name: "Solrock" })).toHaveAttribute("href", "/nihil-zero/cards/solrock");
+    expect(screen.getByRole("link", { name: "Old Card" })).toHaveAttribute("href", "/nihil-zero/cards/old-card");
   });
 
   it("shows event badges", () => {

@@ -1,8 +1,12 @@
-import { describe, it, expect, afterEach } from "vitest";
+import { describe, it, expect, afterEach, vi } from "vitest";
 import { render, screen, cleanup } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { CardAnalysisClient } from "../card-analysis-client";
 import type { CardAnalysisData } from "@/app/lib/types";
+
+vi.mock("next/navigation", () => ({
+  useParams: () => ({ format: "nihil-zero" }),
+}));
 
 const mockData: CardAnalysisData = {
   cards: [
