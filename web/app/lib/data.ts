@@ -22,7 +22,6 @@ import type {
   OverlapMatrixData,
   LabsMatchupData,
   ArchetypeMatchups,
-  ArchetypeMatchupEntry,
   CardAnalysisData,
   TechForecast,
   MetaReport,
@@ -211,7 +210,7 @@ export function extractArchetypeMatchups(
   const idx = data.archetypes.indexOf(archetype);
   if (idx === -1) return { favorable: [], unfavorable: [] };
 
-  const entries: ArchetypeMatchupEntry[] = [];
+  const entries: ArchetypeMatchups["favorable"] = [];
   for (let j = 0; j < data.archetypes.length; j++) {
     if (j === idx) continue;
     const wr = data.matrix[idx][j];

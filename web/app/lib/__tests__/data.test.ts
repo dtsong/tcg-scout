@@ -12,7 +12,8 @@ vi.mock("fs", () => ({
 }));
 
 import fs from "fs";
-import { getMeta, getTrends, getArchetypeSlugs, getFormats, getFormatName, getCardAnalysis, getTechForecast, getMetaReport, getMetaEvolution } from "../data";
+import { getMeta, getTrends, getArchetypeSlugs, getFormats, getFormatName, getCardAnalysis, getTechForecast, getMetaReport, getMetaEvolution, extractArchetypeMatchups } from "../data";
+import type { LabsMatchupData } from "../types";
 
 beforeEach(() => {
   vi.clearAllMocks();
@@ -340,5 +341,69 @@ describe("getFormatName", () => {
     expect(getFormatName("nihil-zero")).toBe("Nihil Zero");
     expect(spy).toHaveBeenCalledWith(expect.stringContaining("name_en is empty"));
     spy.mockRestore();
+  });
+});
+
+describe("extractArchetypeMatchups", () => {
+  const mockData: LabsMatchupData = {
+    archetypes: ["Charizard ex", "Dragapult ex", "Gardevoir ex"],
+    matrix: [
+      [0.5, 0.6, 0.4],
+      [0.4, 0.5, 0.7],
+      [0.6, 0.3, 0.5],
+    ],
+    sample_sizes: [
+      [0, 40, 35],
+      [40, 0, 50],
+      [35, 50, 0],
+    ],
+    confidence: [
+      [{ lower: 0.5, upper: 0.5 }, { lower: 0.5, upper: 0.7 }, { lower: 0.3, upper: 0.5 }],
+      [{ lower: 0.3, upper: 0.5 }, { lower: 0.5, upper: 0.5 }, { lower: 0.6, upper: 0.8 }],
+      [{ lower: 0.5, upper: 0.7 }, { lower: 0.2, upper: 0.4 }, { lower: 0.5, upper: 0.5 }],
+    ],
+    source: "labs-h2h",
+  };
+
+  it("returns favorable and unfavorable matchups", () => {
+    const result = extractArchetypeMatchups(mockData, "Charizard ex");
+    expect(result.favorable).toHaveLength(1);
+    expect(result.unfavorable).toHaveLength(1);
+    expect(result.favorable[0].archetype).toBe("Dragapult ex");
+    expect(result.favorable[0].win_rate).toBe(0.6);
+    expect(result.unfavorable[0].archetype).toBe("Gardevoir ex");
+    expect(result.unfavorable[0].win_rate).toBe(0.4);
+  });
+
+  it("returns empty lists for unknown archetype", () => {
+    const result = extractArchetypeMatchups(mockData, "Nonexistent");
+    expect(result.favorable).toEqual([]);
+    expect(result.unfavorable).toEqual([]);
+  });
+
+  it("skips null matrix entries", () => {
+    const dataWithNulls: LabsMatchupData = {
+      ...mockData,
+      matrix: [
+        [0.5, null, 0.4],
+        [null, 0.5, 0.7],
+        [0.6, 0.3, 0.5],
+      ],
+    };
+    const result = extractArchetypeMatchups(dataWithNulls, "Charizard ex");
+    expect(result.favorable).toHaveLength(0);
+    expect(result.unfavorable).toHaveLength(1);
+  });
+
+  it("respects topN parameter", () => {
+    const result = extractArchetypeMatchups(mockData, "Dragapult ex", 1);
+    expect(result.favorable.length).toBeLessThanOrEqual(1);
+    expect(result.unfavorable.length).toBeLessThanOrEqual(1);
+  });
+
+  it("excludes exactly 0.5 win rate from both lists", () => {
+    const result = extractArchetypeMatchups(mockData, "Charizard ex");
+    const allRates = [...result.favorable, ...result.unfavorable].map((e) => e.win_rate);
+    expect(allRates).not.toContain(0.5);
   });
 });

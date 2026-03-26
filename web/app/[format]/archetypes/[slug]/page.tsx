@@ -146,6 +146,7 @@ export default async function ArchetypeDetailPage({
   const matchups = labsMatchup
     ? extractArchetypeMatchups(labsMatchup, arch.archetype)
     : null;
+  const matchupSource = labsMatchup?.source ?? null;
   const hasReport = getArchetypeReport(format, slug) !== null;
   const optimal60Index = getOptimal60Index(format);
   const hasOptimal60 = optimal60Index?.archetypes.some((a) => a.slug === slug) ?? false;
@@ -216,10 +217,10 @@ export default async function ArchetypeDetailPage({
       {arch.radar && <ArchetypeRadar radar={arch.radar} />}
 
       {/* Matchups */}
-      {matchups && (matchups.favorable.length > 0 || matchups.unfavorable.length > 0) && (
+      {matchups && matchupSource && (matchups.favorable.length > 0 || matchups.unfavorable.length > 0) && (
         <ArchetypeMatchups
           matchups={matchups}
-          source={labsMatchup!.source}
+          source={matchupSource}
           format={format}
         />
       )}

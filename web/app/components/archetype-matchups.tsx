@@ -1,11 +1,7 @@
 import Link from "next/link";
-import { cn } from "@/app/lib/utils";
+import { cn, slugify } from "@/app/lib/utils";
 import type { ArchetypeMatchups as ArchetypeMatchupsType } from "@/app/lib/types";
 import { Tooltip } from "@/app/components/tooltip";
-
-function slugify(name: string): string {
-  return name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
-}
 
 function WinRateBar({
   winRate,

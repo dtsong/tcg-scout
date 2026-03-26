@@ -3024,6 +3024,8 @@ def export_labs_matchup(conn: sqlite3.Connection, output_dir: Path) -> None:
             len(data["archetypes"]),
             data["source"],
         )
+    else:
+        logger.info("Labs matchup matrix empty (no archetypes met threshold), skipping")
 
 
 def export_archetype_overlap(conn: sqlite3.Connection, output_dir: Path) -> None:
