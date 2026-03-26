@@ -345,6 +345,33 @@ export function TournamentsClient({
 
   const dateGroups = useMemo(() => groupByDate(index.tournaments), [index.tournaments]);
 
+  // Collapsible date groups: latest date expanded, rest collapsed
+  const [expandedDates, setExpandedDates] = useState<Set<string>>(() => {
+    const groups = groupByDate(initialIndex.tournaments);
+    return new Set(groups.length > 0 ? [groups[0].date] : []);
+  });
+
+  // Reset collapse state when date window changes
+  useEffect(() => {
+    if (dateGroups.length > 0) {
+      setExpandedDates(new Set([dateGroups[0].date]));
+    } else {
+      setExpandedDates(new Set());
+    }
+  }, [activeWindow, customRange]);
+
+  const toggleDateGroup = useCallback((date: string) => {
+    setExpandedDates((prev) => {
+      const next = new Set(prev);
+      if (next.has(date)) {
+        next.delete(date);
+      } else {
+        next.add(date);
+      }
+      return next;
+    });
+  }, []);
+
   // Compute "this week" count
   const thisWeekCount = useMemo(
     () => index.tournaments.filter((t) => daysSince(t.date) <= 7).length,
@@ -459,27 +486,40 @@ export function TournamentsClient({
             <div className="shrink-0">Winner</div>
           </div>
 
-          {dateGroups.map((group) => (
-            <div key={group.date}>
-              {/* Date group header */}
-              <div className="sticky top-14 z-10 flex items-center gap-2 px-4 py-2 bg-surface-700/90 backdrop-blur-sm border-b border-surface-600">
-                <span className="text-sm font-medium text-slate-200">
-                  {formatDate(group.date)}
-                </span>
-                <span className="text-xs text-surface-400 font-mono">
-                  {group.tournaments.length}{" "}
-                  {group.tournaments.length === 1
-                    ? "tournament"
-                    : "tournaments"}
-                </span>
-              </div>
+          {dateGroups.map((group) => {
+            const isExpanded = expandedDates.has(group.date);
+            return (
+              <div key={group.date}>
+                {/* Date group header */}
+                <div
+                  className="sticky top-14 z-10 flex items-center gap-2 px-4 py-2 bg-surface-700/90 backdrop-blur-sm border-b border-surface-600 cursor-pointer select-none hover:bg-surface-700 transition-colors"
+                  onClick={() => toggleDateGroup(group.date)}
+                >
+                  <ChevronRight
+                    className={cn(
+                      "w-3.5 h-3.5 text-surface-400 transition-transform duration-150",
+                      isExpanded && "rotate-90",
+                    )}
+                  />
+                  <span className="text-sm font-medium text-slate-200">
+                    {formatDate(group.date)}
+                  </span>
+                  <span className="text-xs text-surface-400 font-mono">
+                    {group.tournaments.length}{" "}
+                    {group.tournaments.length === 1
+                      ? "tournament"
+                      : "tournaments"}
+                  </span>
+                </div>
 
-              {/* Tournament rows */}
-              {group.tournaments.map((t) => (
-                <TournamentRow key={t.id} tournament={t} format={format} />
-              ))}
-            </div>
-          ))}
+                {/* Tournament rows */}
+                {isExpanded &&
+                  group.tournaments.map((t) => (
+                    <TournamentRow key={t.id} tournament={t} format={format} />
+                  ))}
+              </div>
+            );
+          })}
 
           {dateGroups.length === 0 && (
             <div className="text-center py-12 text-surface-300">

@@ -1,5 +1,5 @@
 import { describe, it, expect, afterEach, vi } from "vitest";
-import { render, screen, cleanup } from "@testing-library/react";
+import { render, screen, cleanup, fireEvent } from "@testing-library/react";
 import { TournamentsClient } from "../tournaments-client";
 import type {
   CityLeagueIndex,
@@ -232,12 +232,17 @@ describe("TournamentsClient", () => {
         dateRange={defaultDateRange}
       />,
     );
+    // Latest date group (Mar 20) is expanded by default
     expect(screen.getByText("Tokyo CL")).toBeInTheDocument();
     expect(screen.getByText("Osaka CL")).toBeInTheDocument();
-    expect(screen.getByText("Nagoya CL")).toBeInTheDocument();
+    // Older date group (Mar 19) is collapsed by default
+    expect(screen.queryByText("Nagoya CL")).not.toBeInTheDocument();
     // Both date group headers should appear
     expect(screen.getByText("Mar 20, 2026")).toBeInTheDocument();
     expect(screen.getByText("Mar 19, 2026")).toBeInTheDocument();
+    // Click the collapsed group header to expand it
+    fireEvent.click(screen.getByText("Mar 19, 2026"));
+    expect(screen.getByText("Nagoya CL")).toBeInTheDocument();
   });
 
   it("shows group tournament count label", () => {
