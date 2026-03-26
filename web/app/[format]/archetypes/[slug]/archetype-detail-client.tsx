@@ -34,6 +34,10 @@ function isValidTab(tab: string | null): tab is TabId {
   return tab !== null && VALID_TABS.has(tab);
 }
 
+function totalCards(cat: ArchetypeCard[]) {
+  return cat.reduce((sum, c) => sum + Math.round(c.avg_copies), 0);
+}
+
 function CardRow({ card, isCore }: { card: ArchetypeCard; isCore: boolean }) {
   const copies =
     card.avg_copies % 1 === 0
@@ -119,20 +123,14 @@ function groupByCategory(cards: ArchetypeCard[]) {
   return { pokemon, trainer, energy };
 }
 
-function ArchetypeDetailInner({
+function TabContent({
   arch,
   matchupData,
   format,
-  slug,
-  hasReport,
-  hasOptimal60,
 }: {
   arch: ArchetypeDetail;
   matchupData: MatchupMatrixData | null;
   format: string;
-  slug: string;
-  hasReport: boolean;
-  hasOptimal60: boolean;
 }) {
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -141,9 +139,10 @@ function ArchetypeDetailInner({
   const rawTab = searchParams.get("tab");
   const activeTab: TabId = isValidTab(rawTab) ? rawTab : "overview";
 
+  const searchString = searchParams.toString();
   const handleTabChange = useCallback(
     (id: string) => {
-      const params = new URLSearchParams(searchParams.toString());
+      const params = new URLSearchParams(searchString);
       if (id === "overview") {
         params.delete("tab");
       } else {
@@ -152,7 +151,7 @@ function ArchetypeDetailInner({
       const qs = params.toString();
       router.replace(`${pathname}${qs ? `?${qs}` : ""}`, { scroll: false });
     },
-    [searchParams, router, pathname],
+    [searchString, router, pathname],
   );
 
   const coreNames = useMemo(
@@ -163,104 +162,47 @@ function ArchetypeDetailInner({
     () => groupByCategory(arch.all_cards),
     [arch.all_cards],
   );
-  const totalCards = (cat: ArchetypeCard[]) =>
-    cat.reduce((sum, c) => sum + Math.round(c.avg_copies), 0);
 
   return (
-    <div className="space-y-6">
-      {/* Header -- always visible */}
-      <div>
-        <div className="flex items-center gap-3 mb-2">
-          <TierBadge tier={arch.tier} />
-          <SpriteRow filenames={arch.sprite_filenames ?? []} size={32} />
-          <h1 className="font-display text-2xl font-bold text-slate-100">
-            {arch.archetype}
-          </h1>
-          <ShareButton
-            title={`${arch.archetype} - Scout`}
-            text={`${arch.archetype} (${arch.tier} tier) - ${formatPct(arch.meta_share)} meta share`}
-            pageType="archetype"
-            className="ml-auto"
-          />
-        </div>
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 mt-4">
-          <StatCard label="Meta Share" value={formatPct(arch.meta_share)} />
-          {arch.weighted_share != null ? (
-            <StatCard
-              label="Weighted Share"
-              value={formatPct(arch.weighted_share)}
-              tooltip="Placements weighted by finish: 1st = 3x, 2nd = 2.5x, 3rd-4th = 2x, 5th-8th = 1.5x, 9th-16th = 1.2x, 17th+ = 1x. Surfaces decks that win, not just decks that show up."
-            />
-          ) : (
-            <StatCard label="Decks" value={arch.deck_count} />
-          )}
-          <StatCard
-            label="Best Finish"
-            value={formatPlacement(arch.best_placement)}
-          />
-          <StatCard label="Core Cards" value={arch.core_cards.length} />
-        </div>
-        <div className="flex flex-wrap gap-2 mt-4">
-          {hasReport && (
-            <Link
-              href={`/${format}/archetypes/${slug}/report`}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-amber-400 bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/20 rounded-md transition-colors"
-            >
-              View Deep Dive Report
-            </Link>
-          )}
-          {hasOptimal60 && (
-            <Link
-              href={`/${format}/optimal-60?deck=${slug}`}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-teal-400 bg-teal-500/10 hover:bg-teal-500/20 border border-teal-500/20 rounded-md transition-colors"
-            >
-              View Optimal 60
-            </Link>
-          )}
-        </div>
-      </div>
-
+    <>
       {/* Tab bar */}
       <Tabs
-        tabs={[...TABS]}
+        tabs={TABS}
         activeTab={activeTab}
         onTabChange={handleTabChange}
       />
 
       {/* Tab content */}
-      <div role="tabpanel">
-        {activeTab === "overview" && (() => {
-          const hasTrendline = arch.weekly_shares && arch.weekly_shares.length >= 3;
-          const hasVariants = arch.variants && arch.variants.length >= 2;
-          const hasRadar = !!arch.radar;
-          const hasMatchups = !!matchupData;
-          const hasContent = hasTrendline || hasVariants || hasRadar || hasMatchups;
-
-          return (
-            <div className="space-y-8">
-              {hasTrendline && <PerformanceTrendline data={arch.weekly_shares!} />}
-              {hasVariants && (
-                <VariantBreakdown
-                  variants={arch.variants!}
-                  deckCount={arch.deck_count}
-                />
-              )}
-              {hasRadar && <ArchetypeRadar radar={arch.radar!} />}
-              {hasMatchups && (
-                <KeyMatchups
-                  data={matchupData!}
-                  archetype={arch.archetype}
-                  format={format}
-                />
-              )}
-              {!hasContent && (
-                <p className="text-surface-400 text-sm">
-                  Not enough data for an overview yet. Check back after more tournaments.
-                </p>
-              )}
-            </div>
-          );
-        })()}
+      <div role="tabpanel" id={`tabpanel-${activeTab}`} aria-labelledby={`tab-${activeTab}`}>
+        {activeTab === "overview" && (
+          <div className="space-y-8">
+            {arch.weekly_shares && arch.weekly_shares.length >= 3 && (
+              <PerformanceTrendline data={arch.weekly_shares} />
+            )}
+            {arch.variants && arch.variants.length >= 2 && (
+              <VariantBreakdown
+                variants={arch.variants}
+                deckCount={arch.deck_count}
+              />
+            )}
+            {arch.radar && <ArchetypeRadar radar={arch.radar} />}
+            {matchupData && (
+              <KeyMatchups
+                data={matchupData}
+                archetype={arch.archetype}
+                format={format}
+              />
+            )}
+            {!(arch.weekly_shares && arch.weekly_shares.length >= 3) &&
+              !(arch.variants && arch.variants.length >= 2) &&
+              !arch.radar &&
+              !matchupData && (
+              <p className="text-surface-400 text-sm">
+                Not enough data for an overview yet. Check back after more tournaments.
+              </p>
+            )}
+          </div>
+        )}
 
         {activeTab === "decklist" && (
           <div className="space-y-8">
@@ -337,11 +279,18 @@ function ArchetypeDetailInner({
           </div>
         )}
       </div>
-    </div>
+    </>
   );
 }
 
-export function ArchetypeDetailClient(props: {
+export function ArchetypeDetailClient({
+  arch,
+  matchupData,
+  format,
+  slug,
+  hasReport,
+  hasOptimal60,
+}: {
   arch: ArchetypeDetail;
   matchupData: MatchupMatrixData | null;
   format: string;
@@ -350,8 +299,80 @@ export function ArchetypeDetailClient(props: {
   hasOptimal60: boolean;
 }) {
   return (
-    <Suspense fallback={null}>
-      <ArchetypeDetailInner {...props} />
-    </Suspense>
+    <div className="space-y-6">
+      {/* Header -- always visible, no Suspense needed */}
+      <div>
+        <div className="flex items-center gap-3 mb-2">
+          <TierBadge tier={arch.tier} />
+          <SpriteRow filenames={arch.sprite_filenames ?? []} size={32} />
+          <h1 className="font-display text-2xl font-bold text-slate-100">
+            {arch.archetype}
+          </h1>
+          <ShareButton
+            title={`${arch.archetype} - Scout`}
+            text={`${arch.archetype} (${arch.tier} tier) - ${formatPct(arch.meta_share)} meta share`}
+            pageType="archetype"
+            className="ml-auto"
+          />
+        </div>
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 mt-4">
+          <StatCard label="Meta Share" value={formatPct(arch.meta_share)} />
+          {arch.weighted_share != null ? (
+            <StatCard
+              label="Weighted Share"
+              value={formatPct(arch.weighted_share)}
+              tooltip="Placements weighted by finish: 1st = 3x, 2nd = 2.5x, 3rd-4th = 2x, 5th-8th = 1.5x, 9th-16th = 1.2x, 17th+ = 1x. Surfaces decks that win, not just decks that show up."
+            />
+          ) : (
+            <StatCard label="Decks" value={arch.deck_count} />
+          )}
+          <StatCard
+            label="Best Finish"
+            value={formatPlacement(arch.best_placement)}
+          />
+          <StatCard label="Core Cards" value={arch.core_cards.length} />
+        </div>
+        <div className="flex flex-wrap gap-2 mt-4">
+          {hasReport && (
+            <Link
+              href={`/${format}/archetypes/${slug}/report`}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-amber-400 bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/20 rounded-md transition-colors"
+            >
+              View Deep Dive Report
+            </Link>
+          )}
+          {hasOptimal60 && (
+            <Link
+              href={`/${format}/optimal-60?deck=${slug}`}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-teal-400 bg-teal-500/10 hover:bg-teal-500/20 border border-teal-500/20 rounded-md transition-colors"
+            >
+              View Optimal 60
+            </Link>
+          )}
+        </div>
+      </div>
+
+      {/* Tab area -- Suspense wraps only the search-params-dependent content */}
+      <Suspense fallback={<TabsFallback />}>
+        <TabContent arch={arch} matchupData={matchupData} format={format} />
+      </Suspense>
+    </div>
+  );
+}
+
+function TabsFallback() {
+  return (
+    <div className="space-y-6 animate-pulse">
+      <div className="inline-flex items-center gap-1 bg-surface-700/50 rounded-lg p-1 border border-surface-600">
+        {TABS.map((tab) => (
+          <div key={tab.id} className="px-4 py-2 rounded-md">
+            <div className="h-4 w-16 bg-surface-600 rounded" />
+          </div>
+        ))}
+      </div>
+      <div className="space-y-4">
+        <div className="h-48 bg-surface-700/30 rounded-lg" />
+      </div>
+    </div>
   );
 }

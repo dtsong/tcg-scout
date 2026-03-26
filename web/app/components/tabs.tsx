@@ -12,7 +12,7 @@ export function Tabs({
   activeTab,
   onTabChange,
 }: {
-  tabs: TabItem[];
+  tabs: readonly TabItem[];
   activeTab: string;
   onTabChange: (id: string) => void;
 }) {
@@ -24,8 +24,11 @@ export function Tabs({
       {tabs.map((tab) => (
         <button
           key={tab.id}
+          id={`tab-${tab.id}`}
           role="tab"
           aria-selected={activeTab === tab.id}
+          aria-controls={`tabpanel-${tab.id}`}
+          tabIndex={activeTab === tab.id ? 0 : -1}
           onClick={() => onTabChange(tab.id)}
           className={cn(
             "px-4 py-2 text-sm font-medium rounded-md transition-colors whitespace-nowrap",

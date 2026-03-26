@@ -32,6 +32,21 @@ describe("Tabs", () => {
     expect(inactiveBtn).toHaveAttribute("aria-selected", "false");
   });
 
+  it("sets aria-controls and tabIndex on tab buttons", () => {
+    const { container } = render(
+      <Tabs tabs={tabs} activeTab="decklist" onTabChange={() => {}} />,
+    );
+    const scope = within(container);
+    const activeBtn = scope.getByText("Decklist");
+    expect(activeBtn).toHaveAttribute("id", "tab-decklist");
+    expect(activeBtn).toHaveAttribute("aria-controls", "tabpanel-decklist");
+    expect(activeBtn).toHaveAttribute("tabIndex", "0");
+    const inactiveBtn = scope.getByText("Overview");
+    expect(inactiveBtn).toHaveAttribute("id", "tab-overview");
+    expect(inactiveBtn).toHaveAttribute("aria-controls", "tabpanel-overview");
+    expect(inactiveBtn).toHaveAttribute("tabIndex", "-1");
+  });
+
   it("has tablist role on container", () => {
     const { container } = render(
       <Tabs tabs={tabs} activeTab="overview" onTabChange={() => {}} />,

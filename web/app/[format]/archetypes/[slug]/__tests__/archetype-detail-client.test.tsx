@@ -196,6 +196,42 @@ describe("ArchetypeDetailClient", () => {
     expect(scope.getByText("No tournament results recorded.")).toBeInTheDocument();
   });
 
+  it("renders Deep Dive Report link when hasReport is true", () => {
+    mockSearchParams = new URLSearchParams();
+    const { container } = render(
+      <ArchetypeDetailClient
+        arch={baseArch}
+        matchupData={matchupData}
+        format="ninja-spinner"
+        slug="dragapult-dusknoir"
+        hasReport={true}
+        hasOptimal60={false}
+      />,
+    );
+    const scope = within(container);
+    const link = scope.getByText("View Deep Dive Report");
+    expect(link).toBeInTheDocument();
+    expect(link.closest("a")).toHaveAttribute("href", "/ninja-spinner/archetypes/dragapult-dusknoir/report");
+  });
+
+  it("renders Optimal 60 link with correct href when hasOptimal60 is true", () => {
+    mockSearchParams = new URLSearchParams();
+    const { container } = render(
+      <ArchetypeDetailClient
+        arch={baseArch}
+        matchupData={matchupData}
+        format="ninja-spinner"
+        slug="dragapult-dusknoir"
+        hasReport={false}
+        hasOptimal60={true}
+      />,
+    );
+    const scope = within(container);
+    const link = scope.getByText("View Optimal 60");
+    expect(link).toBeInTheDocument();
+    expect(link.closest("a")).toHaveAttribute("href", "/ninja-spinner/optimal-60?deck=dragapult-dusknoir");
+  });
+
   it("shows empty overview message when archetype has minimal data", () => {
     mockSearchParams = new URLSearchParams();
     const minimalArch = {
