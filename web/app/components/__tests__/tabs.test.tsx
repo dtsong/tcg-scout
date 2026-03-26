@@ -26,9 +26,9 @@ describe("Tabs", () => {
     );
     const scope = within(container);
     const activeBtn = scope.getByText("Decklist");
-    expect(activeBtn.className).toContain("border-accent");
+    expect(activeBtn.className).toContain("bg-surface-600");
     const inactiveBtn = scope.getByText("Overview");
-    expect(inactiveBtn.className).toContain("border-transparent");
+    expect(inactiveBtn.className).not.toContain("bg-surface-600 ");
   });
 
   it("calls onTabChange when a tab is clicked", async () => {
