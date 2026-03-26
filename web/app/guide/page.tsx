@@ -1,5 +1,6 @@
 import { redirect } from "next/navigation";
+import { getDefaultFormat } from "@/app/lib/data";
 
 export default function GuidePage() {
-  redirect("/ninja-spinner/guide");
+  redirect(`/${getDefaultFormat()}/guide`);
 }

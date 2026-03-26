@@ -79,7 +79,6 @@ describe("Nav", () => {
     it("dropdown trigger has aria-expanded=false initially", () => {
       renderNav();
       const triggers = screen.getAllByRole("button", { name: "Decks" });
-      // Desktop trigger
       const desktopTrigger = triggers[0];
       expect(desktopTrigger).toHaveAttribute("aria-expanded", "false");
       expect(desktopTrigger).toHaveAttribute("aria-haspopup", "menu");
@@ -106,13 +105,12 @@ describe("Nav", () => {
       expect(menu).toBeInTheDocument();
 
       const items = within(menu).getAllByRole("menuitem");
-      expect(items.length).toBe(3); // Optimal 60, Archetypes, Champions League
+      expect(items.length).toBe(3);
     });
 
     it("format switcher has aria-expanded and aria-haspopup", () => {
       renderNav();
       const formatBtns = screen.getAllByRole("button", { name: /Ninja Spinner/i });
-      // First one is the desktop format switcher in the top bar
       const desktopFormatBtn = formatBtns[0];
       expect(desktopFormatBtn).toHaveAttribute("aria-expanded", "false");
       expect(desktopFormatBtn).toHaveAttribute("aria-haspopup", "menu");
@@ -197,7 +195,6 @@ describe("Nav", () => {
 
       await user.click(screen.getByRole("button", { name: "Close menu" }));
 
-      // Drawer should transition out (translate-x-full class indicates closed)
       expect(hamburger).toHaveAttribute("aria-expanded", "false");
     });
 
@@ -223,7 +220,6 @@ describe("Nav", () => {
 
       await user.click(screen.getByRole("button", { name: "Open menu" }));
 
-      // Find the mobile Decks button (inside the drawer)
       const drawer = screen.getByRole("dialog");
       const decksBtn = within(drawer).getByRole("button", { name: "Decks" });
       expect(decksBtn).toHaveAttribute("aria-expanded", "false");
@@ -262,7 +258,6 @@ describe("Nav", () => {
 
     it("desktop nav links have min 44px height", () => {
       renderNav();
-      // Dashboard link - check the desktop one (has min-h-11)
       const links = screen.getAllByRole("link", { name: "Dashboard" });
       const desktopLink = links.find((l) => l.className.includes("min-h-11"));
       expect(desktopLink).toBeTruthy();

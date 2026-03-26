@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { ArrowUpDown, Search } from "lucide-react";
 import { cn } from "@/app/lib/utils";
 
@@ -70,7 +70,7 @@ export function DataTable<T>({
   const totalPages = paginated && pageSize > 0 ? Math.ceil(sorted.length / pageSize) : 1;
 
   // Reset page when filters change
-  useMemo(() => {
+  useEffect(() => {
     setPage(0);
   }, [search, data]);
 
@@ -130,59 +130,63 @@ export function DataTable<T>({
           </div>
         )}
       </div>
-      <div className="overflow-x-auto">
-        <table className="w-full">
-          <thead>
-            <tr className="border-b border-surface-600 text-xs text-surface-300 uppercase tracking-wider">
-              {columns.map((col) => (
-                <th
-                  key={col.key}
-                  className={cn(
-                    "px-4 py-3",
-                    col.align === "right" ? "text-right" : "text-left",
-                    col.hideOnMobile && "hidden sm:table-cell",
-                    col.sortValue && "cursor-pointer select-none hover:text-slate-300",
-                  )}
-                  onClick={() => col.sortValue && toggleSort(col.key)}
-                >
-                  <span className="inline-flex items-center gap-1">
-                    {col.header}
-                    {col.sortValue && (
-                      <ArrowUpDown
-                        className={cn(
-                          "w-3 h-3",
-                          sortCol === col.key ? "text-accent" : "text-surface-500",
-                        )}
-                      />
-                    )}
-                  </span>
-                </th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {paged.map((row, i) => (
-              <tr
-                key={i}
-                className={`border-b border-surface-700 hover:bg-surface-700/50 transition-colors duration-[var(--duration-fast)] ${i < 20 ? "animate-stagger" : ""}`}
-                style={i < 20 ? { "--index": i } as React.CSSProperties : undefined}
-              >
+      <div className="relative">
+        <div className="overflow-x-auto">
+          <table className="w-full">
+            <thead>
+              <tr className="border-b border-surface-600 text-xs text-surface-300 uppercase tracking-wider">
                 {columns.map((col) => (
-                  <td
+                  <th
                     key={col.key}
                     className={cn(
                       "px-4 py-3",
-                      col.align === "right" && "text-right",
+                      col.align === "right" ? "text-right" : "text-left",
                       col.hideOnMobile && "hidden sm:table-cell",
+                      col.sortValue && "cursor-pointer select-none hover:text-slate-300",
                     )}
+                    onClick={() => col.sortValue && toggleSort(col.key)}
                   >
-                    {col.render(row)}
-                  </td>
+                    <span className="inline-flex items-center gap-1">
+                      {col.header}
+                      {col.sortValue && (
+                        <ArrowUpDown
+                          className={cn(
+                            "w-3 h-3",
+                            sortCol === col.key ? "text-accent" : "text-surface-500",
+                          )}
+                        />
+                      )}
+                    </span>
+                  </th>
                 ))}
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {paged.map((row, i) => (
+                <tr
+                  key={i}
+                  className={`border-b border-surface-700 hover:bg-surface-700/50 transition-colors duration-[var(--duration-fast)] ${i < 20 ? "animate-stagger" : ""}`}
+                  style={i < 20 ? { "--index": i } as React.CSSProperties : undefined}
+                >
+                  {columns.map((col) => (
+                    <td
+                      key={col.key}
+                      className={cn(
+                        "px-4 py-3",
+                        col.align === "right" && "text-right",
+                        col.hideOnMobile && "hidden sm:table-cell",
+                      )}
+                    >
+                      {col.render(row)}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        {/* Gradient fade hint for mobile horizontal scroll */}
+        <div className="absolute top-0 right-0 bottom-0 w-8 bg-gradient-to-l from-surface-800 to-transparent pointer-events-none sm:hidden" />
       </div>
       {paged.length === 0 && (
         <div className="text-center py-8 text-surface-400 text-sm">No results found</div>

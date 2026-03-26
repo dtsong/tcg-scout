@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { getArchetype, getArchetypeReport, getArchetypeSlugs, getFormats, getFormatName, getMatchupMatrix, getOptimal60Index } from "@/app/lib/data";
+import { notFound } from "next/navigation";
+import { tryGetArchetype, getArchetypeReport, getArchetypeSlugs, getFormats, getFormatName, getMatchupMatrix, getOptimal60Index } from "@/app/lib/data";
 import { safePercent, safeInt, humanizeSlug } from "@/app/lib/metadata";
 import { archetypeOgMetadata } from "@/app/lib/og";
 import { TierBadge } from "@/app/components/tier-badge";
@@ -24,7 +25,11 @@ export async function generateMetadata({
   params: Promise<{ format: string; slug: string }>;
 }): Promise<Metadata> {
   const { format, slug } = await params;
-  const arch = getArchetype(format, slug);
+  const arch = tryGetArchetype(format, slug);
+  if (!arch) {
+    console.warn(`[metadata] archetype file not found for ${format}/${slug}`);
+    return { title: "Archetype Not Found | Scout" };
+  }
   if (!arch.archetype) {
     console.warn(`[metadata] archetype name is empty for ${format}/${slug}`);
   }
@@ -137,7 +142,8 @@ export default async function ArchetypeDetailPage({
   params: Promise<{ format: string; slug: string }>;
 }) {
   const { format, slug } = await params;
-  const arch = getArchetype(format, slug);
+  const arch = tryGetArchetype(format, slug);
+  if (!arch) notFound();
   const matchupData = getMatchupMatrix(format);
   const hasReport = getArchetypeReport(format, slug) !== null;
   const optimal60Index = getOptimal60Index(format);

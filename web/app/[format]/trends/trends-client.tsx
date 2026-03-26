@@ -14,6 +14,7 @@ import {
 import { TrendingUp, TrendingDown, Trophy } from "lucide-react";
 import { DateFilter } from "@/app/components/date-filter";
 import { useDateFilter, fetchWindowedData } from "@/app/components/date-filter-provider";
+import { useMediaQuery } from "@/app/hooks/use-media-query";
 import type { TrendsData, WinningEdgeCard, TimeWindow } from "@/app/lib/types";
 
 export function TrendsClient({
@@ -31,6 +32,7 @@ export function TrendsClient({
   const [trends, setTrends] = useState(initialTrends);
   const [winningEdge, setWinningEdge] = useState(initialWinningEdge);
   const [loading, setLoading] = useState(false);
+  const isNarrow = useMediaQuery("(max-width: 640px)");
 
   const fetchWindowData = useCallback(
     async (window: TimeWindow) => {
@@ -113,7 +115,7 @@ export function TrendsClient({
           Top Surging Cards: Early vs Late Period
         </h2>
         <ResponsiveContainer width="100%" height={450}>
-          <BarChart data={chartData} layout="vertical" margin={{ left: 200, right: 20 }}>
+          <BarChart data={chartData} layout="vertical" margin={{ left: isNarrow ? 100 : 200, right: 20 }}>
             <XAxis
               type="number"
               tickFormatter={(v) => `${v}%`}
@@ -124,10 +126,10 @@ export function TrendsClient({
             <YAxis
               type="category"
               dataKey="name"
-              tick={{ fill: "#94a3b8", fontSize: 12 }}
+              tick={{ fill: "#94a3b8", fontSize: isNarrow ? 10 : 12 }}
               axisLine={false}
               tickLine={false}
-              width={200}
+              width={isNarrow ? 100 : 200}
             />
             <Tooltip
               wrapperStyle={{ outline: 'none' }}

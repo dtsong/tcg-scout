@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Crosshair, ChevronRight } from "lucide-react";
-import { getFormats } from "@/app/lib/data";
+import { getFormats, getDefaultFormat } from "@/app/lib/data";
 
 function formatFreshness(generatedAt?: string): string | null {
   if (!generatedAt) return null;
@@ -33,6 +33,7 @@ const DEFAULT_STYLE = {
 
 export default function FormatSelectorPage() {
   const formats = getFormats();
+  const defaultFormat = getDefaultFormat();
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -221,7 +222,7 @@ export default function FormatSelectorPage() {
                   Check out the quickstart
                 </Link>{" "}
                 to get oriented, or{" "}
-                <Link href="/nihil-zero/guide" className="text-accent hover:text-accent/80 transition-colors">
+                <Link href={`/${defaultFormat}/guide`} className="text-accent hover:text-accent/80 transition-colors">
                   read the guide
                 </Link>{" "}
                 for details. Have feedback or feature requests? Reach out:

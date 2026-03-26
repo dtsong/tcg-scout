@@ -9,6 +9,7 @@ import {
   ResponsiveContainer,
   Cell,
 } from "recharts";
+import { useMediaQuery } from "@/app/hooks/use-media-query";
 import type { ArchetypeSummary, Tier } from "@/app/lib/types";
 
 const tierColors: Record<Tier, string> = {
@@ -19,16 +20,29 @@ const tierColors: Record<Tier, string> = {
   Rogue: "#a855f7",
 };
 
-export function MetaBarChart({ data }: { data: ArchetypeSummary[] }) {
+function truncate(text: string, maxLength: number): string {
+  if (text.length <= maxLength) return text;
+  return text.slice(0, maxLength - 3) + "...";
+}
+
+interface MetaBarChartProps {
+  data: ArchetypeSummary[];
+}
+
+export function MetaBarChart({ data }: MetaBarChartProps) {
+  const isNarrow = useMediaQuery("(max-width: 640px)");
+  const nameLimit = isNarrow ? 12 : 20;
+  const marginLeft = isNarrow ? 80 : 140;
+
   const chartData = data.slice(0, 20).map((a) => ({
-    name: a.archetype.length > 20 ? a.archetype.slice(0, 18) + "..." : a.archetype,
+    name: truncate(a.archetype, nameLimit),
     share: a.meta_share,
     tier: a.tier,
   }));
 
   return (
     <ResponsiveContainer width="100%" height={500}>
-      <BarChart data={chartData} layout="vertical" margin={{ left: 140, right: 20 }}>
+      <BarChart data={chartData} layout="vertical" margin={{ left: marginLeft, right: 20 }}>
         <XAxis
           type="number"
           tickFormatter={(v) => `${v}%`}
@@ -39,10 +53,10 @@ export function MetaBarChart({ data }: { data: ArchetypeSummary[] }) {
         <YAxis
           type="category"
           dataKey="name"
-          tick={{ fill: "#94a3b8", fontSize: 12 }}
+          tick={{ fill: "#94a3b8", fontSize: isNarrow ? 10 : 12 }}
           axisLine={false}
           tickLine={false}
-          width={140}
+          width={marginLeft}
         />
         <Tooltip
           wrapperStyle={{ outline: 'none' }}

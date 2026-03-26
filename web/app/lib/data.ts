@@ -46,6 +46,22 @@ export function getFormats(): FormatInfo[] {
   return readJson("formats.json");
 }
 
+/** Return the slug of the first active format, falling back to the first format with data. */
+export function getDefaultFormat(): string {
+  const formats = getFormats();
+  const active = formats.find((f) => f.status === "active");
+  if (active) return active.slug;
+  const frozen = formats.find((f) => f.status === "frozen");
+  const slug = frozen?.slug ?? formats[0]?.slug;
+  if (!slug) {
+    throw new Error(
+      "[data] getDefaultFormat: formats.json contains no formats. " +
+      "Run the export pipeline to generate format data."
+    );
+  }
+  return slug;
+}
+
 /** Resolve a format slug to its display name. Throws if slug not found. Falls back to humanized slug if name_en is empty. */
 export function getFormatName(format: string): string {
   const formats = getFormats();
@@ -99,6 +115,16 @@ export function getAceSpecs(format: string): AceSpec[] {
 
 export function getArchetype(format: string, slug: string): ArchetypeDetail {
   return readJson(`${format}/archetypes/${slug}.json`);
+}
+
+/** Load archetype data, returning null for missing files (ENOENT). */
+export function tryGetArchetype(format: string, slug: string): ArchetypeDetail | null {
+  try {
+    return getArchetype(format, slug);
+  } catch (err) {
+    if (isFileNotFound(err)) return null;
+    throw err;
+  }
 }
 
 export function getArchetypeSlugs(format: string): string[] {
