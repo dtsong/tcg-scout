@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { getArchetype, getArchetypeReport, getArchetypeSlugs, getFormats, getFormatName, getMatchupMatrix, getOptimal60Index } from "@/app/lib/data";
 import { safePercent, safeInt, humanizeSlug } from "@/app/lib/metadata";
+import { archetypeOgMetadata } from "@/app/lib/og";
 import { TierBadge } from "@/app/components/tier-badge";
 import { SpriteRow } from "@/app/components/sprite-row";
 import { StatCard } from "@/app/components/stat-card";
@@ -14,6 +15,7 @@ import type { ArchetypeCard } from "@/app/lib/types";
 import { Top4CardStats } from "@/app/components/top4-card-stats";
 import { CardLink } from "@/app/components/card-link";
 import { KeyMatchups } from "@/app/components/key-matchups";
+import { ShareButton } from "@/app/components/share-button";
 import { ResultsTable } from "./results-table";
 
 export async function generateMetadata({
@@ -23,20 +25,14 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { format, slug } = await params;
   const arch = getArchetype(format, slug);
-  const name = arch.archetype || humanizeSlug(slug);
   if (!arch.archetype) {
     console.warn(`[metadata] archetype name is empty for ${format}/${slug}`);
   }
-  const share = safePercent(arch.meta_share);
-  const tier = arch.tier || "Unknown";
   if (!arch.tier) {
     console.warn(`[metadata] tier is missing for ${format}/${slug}`);
   }
   const formatName = getFormatName(format);
-  return {
-    title: `${name} -- ${share}% Meta Share, Tier ${tier} | Scout`,
-    description: `${name} in ${formatName}: ${share}% meta share, Tier ${tier}, ${safeInt(arch.deck_count)} decks. Core cards, results, and performance analysis.`,
-  };
+  return archetypeOgMetadata(format, formatName, arch, slug);
 }
 
 export function generateStaticParams() {
@@ -164,6 +160,12 @@ export default async function ArchetypeDetailPage({
           <h1 className="font-display text-2xl font-bold text-slate-100">
             {arch.archetype}
           </h1>
+          <ShareButton
+            title={`${arch.archetype} - Scout`}
+            text={`${arch.archetype} (${arch.tier} tier) - ${formatPct(arch.meta_share)} meta share`}
+            pageType="archetype"
+            className="ml-auto"
+          />
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 mt-4">
           <StatCard label="Meta Share" value={formatPct(arch.meta_share)} />

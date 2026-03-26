@@ -1,4 +1,4 @@
-"""Auto-generated meta reports for Scout Web via Claude Haiku LLM."""
+"""Auto-generated meta reports for Scout Web via LLM."""
 
 import hashlib
 import json
@@ -7,10 +7,9 @@ import re
 from datetime import UTC, datetime
 from pathlib import Path
 
-import anthropic
 from jinja2 import Environment, FileSystemLoader
 
-from config import REPORT_LLM_MAX_TOKENS, REPORT_LLM_MODEL, REPORT_LLM_TEMPERATURE
+from reports.model_client import ModelClient, create_client_from_config
 
 logger = logging.getLogger(__name__)
 
@@ -149,14 +148,19 @@ def validate_report_facts(report_text: str, context: dict) -> list[str]:
     return errors
 
 
-def generate_report(format_slug: str, data_dir: Path, output_dir: Path) -> Path:
+def generate_report(
+    format_slug: str,
+    data_dir: Path,
+    output_dir: Path,
+    model_client: ModelClient | None = None,
+) -> Path:
     """
     Generate a narrative meta report for the given format.
 
     Steps:
       1. Assembles context from exported JSON files
       2. Renders the Jinja2 prompt template
-      3. Calls Claude Haiku to generate narrative
+      3. Calls the LLM to generate narrative
       4. Parses and validates the response
       5. Writes report.json and report-thread.json
       6. Uses prompt+data hash caching to skip regeneration if unchanged
@@ -193,15 +197,11 @@ def generate_report(format_slug: str, data_dir: Path, output_dir: Path) -> Path:
         )
         return report_path
 
-    logger.info("Calling %s for format %s (hash %s)", REPORT_LLM_MODEL, format_slug, data_hash)
-    client = anthropic.Anthropic()
-    message = client.messages.create(
-        model=REPORT_LLM_MODEL,
-        max_tokens=REPORT_LLM_MAX_TOKENS,
-        temperature=REPORT_LLM_TEMPERATURE,
-        messages=[{"role": "user", "content": prompt}],
-    )
-    raw_text = message.content[0].text.strip()
+    if model_client is None:
+        model_client = create_client_from_config()
+
+    logger.info("Calling %s for format %s (hash %s)", model_client.model_id, format_slug, data_hash)
+    raw_text = model_client.generate(prompt)
 
     # Parse JSON response
     try:

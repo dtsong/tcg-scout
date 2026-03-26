@@ -1,14 +1,24 @@
 import Link from "next/link";
-import { getMeta, getFormats, getAceSpecs, getTrends, getWinningEdge, getTimeline, getMetaEvolution, getCardAnalysis, formatHasData } from "@/app/lib/data";
-import { formatPageMetadata } from "@/app/lib/metadata";
+import type { Metadata } from "next";
+import { getMeta, getFormats, getAceSpecs, getTrends, getWinningEdge, getTimeline, getMetaEvolution, getCardAnalysis, formatHasData, getFormatName } from "@/app/lib/data";
 import { computeCrossMetaStaples } from "@/app/lib/utils";
+import { dashboardOgMetadata } from "@/app/lib/og";
 import { DashboardClient } from "./dashboard-client";
 
-export function generateMetadata({ params }: { params: Promise<{ format: string }> }) {
-  return formatPageMetadata(params, (formatName) => ({
-    title: `Meta Dashboard -- ${formatName} | Scout`,
-    description: `Latest meta tier list for ${formatName} Pokemon TCG. Archetype rankings, trending cards, and tournament results from Japan's City Leagues.`,
-  }));
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ format: string }>;
+}): Promise<Metadata> {
+  const { format } = await params;
+  const formatName = getFormatName(format);
+  let meta = null;
+  try {
+    meta = getMeta(format);
+  } catch (err) {
+    console.error(`[generateMetadata] Failed to load meta for format "${format}":`, err);
+  }
+  return dashboardOgMetadata(format, formatName, meta);
 }
 
 export default async function Dashboard({

@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { ArrowRight, TrendingUp, TrendingDown, Trophy, ShoppingCart, Calendar, Zap, Layers } from "lucide-react";
+import { ShareButton } from "@/app/components/share-button";
 import { DeltaValue } from "@/app/components/delta-value";
 import { TierBadge } from "@/app/components/tier-badge";
 import { StatCard } from "@/app/components/stat-card";
@@ -157,11 +158,18 @@ export function DashboardClient({
               </div>
             )}
           </div>
-          <p className="text-xs text-surface-400 mt-2">
-            <Link href={`/${format}/guide#dashboard`} className="text-accent hover:text-accent/80 transition-colors">
-              How to read the dashboard &rarr;
-            </Link>
-          </p>
+          <div className="flex items-center gap-3 mt-2">
+            <p className="text-xs text-surface-400">
+              <Link href={`/${format}/guide#dashboard`} className="text-accent hover:text-accent/80 transition-colors">
+                How to read the dashboard &rarr;
+              </Link>
+            </p>
+            <ShareButton
+              title={`${formatName} Meta Dashboard - Scout`}
+              text={`${formatName} meta breakdown: ${meta.tournament_count} tournaments, ${meta.deck_count} decks analyzed`}
+              pageType="dashboard"
+            />
+          </div>
           <div className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm">
             <div>
               <span className="text-surface-300">Tournaments </span>
