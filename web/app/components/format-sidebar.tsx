@@ -54,7 +54,7 @@ export function FormatSidebar({ meta, format, formats, rotationDays }: FormatSid
         </div>
       </div>
 
-      {/* Dashboard Sections — only shown on the dashboard route */}
+      {/* Dashboard-only sections */}
       {isDashboard && (
         <div>
           <h3 className="font-display text-xs font-semibold text-surface-300 uppercase tracking-wider mb-3">
