@@ -56,7 +56,7 @@ function CardRow({ card, isCore }: { card: ArchetypeCard; isCore: boolean }) {
           </span>
           <CardLink
             name={card.card_name}
-            className={`text-sm truncate ${isCore ? "text-slate-200" : "text-slate-400"}`}
+            className={`text-sm truncate ${isCore ? "font-semibold text-slate-200" : "text-slate-400"}`}
           />
         </div>
         <span
