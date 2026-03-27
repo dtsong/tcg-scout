@@ -9,7 +9,6 @@ from collections import defaultdict
 from datetime import date, timedelta
 from pathlib import Path
 
-from analysis.archetype import _COMPOSITE_SPRITE_FILENAMES, SPRITE_ARCHETYPE_MAP
 from analysis.archetype_classifier import classify_decklist
 from analysis.buylist import generate_buylist
 from analysis.card_stats import (
@@ -748,69 +747,23 @@ def _slugify(name: str) -> str:
 
 
 def _get_sprite_filenames(archetype_name: str) -> list[str]:
-    """Get sprite filenames for an archetype.
+    """Get sprite filenames for an archetype in Limitless-style naming.
 
-    Priority: exact reverse lookup in SPRITE_ARCHETYPE_MAP, then derive from name.
+    Limitless-style names map directly to filenames:
+    - "Dragapult" -> ["dragapult.png"]
+    - "Dragapult / Dusknoir" -> ["dragapult.png", "dusknoir.png"]
+    - "Lucario-Mega" -> ["lucario-mega.png"]
+    - "Unknown" -> []
     """
-    # Priority 1: Reverse lookup from canonical map
-    for key, name in SPRITE_ARCHETYPE_MAP.items():
-        if name == archetype_name:
-            filenames = _COMPOSITE_SPRITE_FILENAMES.get(key, [key])
-            return [f"{fn}.png" for fn in filenames]
+    if not archetype_name or archetype_name == "Unknown":
+        return []
 
-    # Priority 2: Derive from archetype name by parsing Pokemon names
-    # "Dragapult Meowth" -> ["dragapult.png", "meowth.png"]
-    # "Mega Lucario Noctowl" -> ["lucario-mega.png", "noctowl.png"]
-    # "Ceruledge ex" -> ["ceruledge.png"]
-    parts = archetype_name.split()
+    # Limitless-style: split on " / " for multi-sprite archetypes
+    parts = archetype_name.split(" / ")
     filenames: list[str] = []
-    i = 0
-    while i < len(parts):
-        part = parts[i].lower()
-        # Skip suffixes and non-Pokemon tokens
-        if part in ("ex", "box", "stall", "control", "x", "y", "unknown"):
-            i += 1
-            continue
-        # "Mega X" -> "x-mega", "Mega Charizard X" -> "charizard-mega-x"
-        if part == "mega" and i + 1 < len(parts):
-            next_part = parts[i + 1].lower()
-            if next_part not in ("ex", "box", "stall", "control", "unknown"):
-                # Check for "Mega Pokemon X/Y" variant (e.g. Mega Charizard X)
-                if i + 2 < len(parts) and parts[i + 2].lower() in ("x", "y"):
-                    filenames.append(f"{next_part}-mega-{parts[i + 2].lower()}.png")
-                    i += 3
-                    continue
-                filenames.append(f"{next_part}-mega.png")
-                i += 2
-                continue
-        # Handle hyphenated names (Porygon-Z, Raging Bolt, etc.)
-        if i + 1 < len(parts) and parts[i + 1].lower() not in (
-            "ex",
-            "box",
-            "stall",
-            "control",
-            "mega",
-        ):
-            # Check if this could be a two-word Pokemon name
-            combined = f"{part}-{parts[i + 1].lower()}"
-            # Known two-word Pokemon that use hyphens in sprite names
-            if combined in (
-                "raging-bolt",
-                "iron-hands",
-                "iron-valiant",
-                "roaring-moon",
-                "chien-pao",
-                "porygon-z",
-                "ogerpon-wellspring",
-                "ogerpon-cornerstone",
-                "ho-oh",
-                "zacian-crowned",
-            ):
-                filenames.append(f"{combined}.png")
-                i += 2
-                continue
-        filenames.append(f"{part}.png")
-        i += 1
+    for part in parts:
+        fn = part.strip().lower() + ".png"
+        filenames.append(fn)
 
     return filenames[:2]  # Max 2 sprites per archetype
 

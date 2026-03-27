@@ -59,21 +59,21 @@ class TestSlugify:
 
 
 class TestGetSpriteFilenames:
-    def test_known_single_sprite(self):
-        result = _get_sprite_filenames("Charizard ex")
-        assert "charizard.png" in result
+    def test_single_sprite(self):
+        result = _get_sprite_filenames("Charizard")
+        assert result == ["charizard.png"]
 
-    def test_known_composite(self):
-        # "Charizard ex" maps to "charizard" key first, but also "charizard-pidgeot"
-        # The function returns the first match — which is "charizard" -> ["charizard.png"]
-        result = _get_sprite_filenames("Charizard ex")
-        assert len(result) >= 1
-        assert all(fn.endswith(".png") for fn in result)
+    def test_multi_sprite(self):
+        result = _get_sprite_filenames("Dragapult / Dusknoir")
+        assert result == ["dragapult.png", "dusknoir.png"]
 
-    def test_unknown_archetype(self):
-        result = _get_sprite_filenames("Nonexistent Archetype")
-        # Auto-derives from name: "Nonexistent Archetype" -> ["nonexistent.png", "archetype.png"]
-        assert result == ["nonexistent.png", "archetype.png"]
+    def test_unknown_returns_empty(self):
+        result = _get_sprite_filenames("Unknown")
+        assert result == []
+
+    def test_mega_sprite(self):
+        result = _get_sprite_filenames("Lucario-Mega")
+        assert result == ["lucario-mega.png"]
 
 
 # --- _build_jp_en_lookup ---
@@ -856,17 +856,17 @@ class TestTop4SegmentedStats:
 
 class TestGetSpriteFilenamesMega:
     def test_mega_archetype(self):
-        result = _get_sprite_filenames("Mega Lucario ex")
-        assert "lucario-mega.png" in result
+        result = _get_sprite_filenames("Lucario-Mega")
+        assert result == ["lucario-mega.png"]
 
     def test_mega_with_secondary(self):
-        result = _get_sprite_filenames("Mega Lucario Solrock")
+        result = _get_sprite_filenames("Lucario-Mega / Solrock")
         assert "lucario-mega.png" in result
         assert "solrock.png" in result
 
     def test_hyphenated_pokemon(self):
-        result = _get_sprite_filenames("Chien-Pao ex")
-        assert "chien-pao.png" in result
+        result = _get_sprite_filenames("Chien-Pao")
+        assert result == ["chien-pao.png"]
 
 
 # --- _detect_variants ---
