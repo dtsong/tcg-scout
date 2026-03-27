@@ -50,6 +50,8 @@ _COMPOSITE_SPRITE_FILENAMES: dict[str, list[str]] = {
     "greninja-starmie-mega": ["greninja", "starmie-mega"],
     "dusknoir-starmie-mega": ["dusknoir", "starmie-mega"],
     "froslass-mega-grimmsnarl": ["froslass-mega", "grimmsnarl"],
+    "meganium-mega-venusaur-mega": ["meganium-mega", "venusaur-mega"],
+    "meganium-venusaur-mega": ["meganium", "venusaur-mega"],
     "iron-valiant": ["iron-valiant"],
     "iron-hands": ["iron-hands"],
     "raging-bolt": ["raging-bolt"],
@@ -144,6 +146,8 @@ SPRITE_ARCHETYPE_MAP: dict[str, str] = {
     "greninja-starmie-mega": "Mega Starmie Greninja",
     "dusknoir-starmie-mega": "Mega Starmie Dusknoir",
     "froslass-mega-grimmsnarl": "Mega Froslass Grimmsnarl",
+    "meganium-mega-venusaur-mega": "Mega Venusaur Meganium",
+    "meganium-venusaur-mega": "Mega Venusaur Meganium",
     # JP post-rotation non-Mega composites
     "dragapult-dusknoir": "Dragapult Dusknoir",
     "dragapult-noctowl": "Dragapult Noctowl",
