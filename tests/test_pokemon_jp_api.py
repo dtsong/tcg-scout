@@ -181,7 +181,7 @@ class TestStoreCLResults:
             "SELECT archetype FROM placements WHERE tournament_id = ? AND standing = 1",
             ("jp-77777",),
         ).fetchone()
-        assert p1["archetype"] == "Charizard ex"
+        assert p1["archetype"] == "Charizard / Pidgeot"
 
         # Placement without decklist stays Unknown
         p2 = db.execute(
@@ -208,7 +208,7 @@ class TestClassifyJPDecklist:
             ),
         ]
         result = classify_jp_decklist(cards)
-        assert result == "Charizard ex"
+        assert result == "Charizard / Pidgeot"
 
     def test_unknown_when_no_mappings(self, db):
         """classify_jp_decklist returns Unknown when cards can't be translated to known anchors."""
@@ -235,7 +235,7 @@ class TestClassifyJPDecklist:
         assert result == "Unknown"
 
     def test_mega_starmie_greninja(self, db):
-        """Deck with Mega Starmie ex + Greninja ex classifies as Mega Starmie Greninja."""
+        """Deck with Mega Starmie ex + Greninja ex classifies as Greninja / Starmie-Mega."""
         cards = [
             JPDeckCard(name_jp="メガスターミーex", count=1, category="Pokemon"),
             JPDeckCard(name_jp="ゲッコウガex", count=3, category="Pokemon"),
@@ -243,17 +243,17 @@ class TestClassifyJPDecklist:
             JPDeckCard(name_jp="基本水エネルギー", count=6, category="Energy"),
         ]
         result = classify_jp_decklist(cards)
-        assert result == "Mega Starmie Greninja"
+        assert result == "Greninja / Starmie-Mega"
 
     def test_dragapult_dusknoir(self, db):
-        """Deck with Dragapult ex + Dusknoir classifies as Dragapult Dusknoir."""
+        """Deck with Dragapult ex + Dusknoir classifies as Dragapult / Dusknoir."""
         cards = [
             JPDeckCard(name_jp="ドラパルトex", count=3, category="Pokemon"),
             JPDeckCard(name_jp="ヨノワール", count=2, category="Pokemon"),
             JPDeckCard(name_jp="基本超エネルギー", count=8, category="Energy"),
         ]
         result = classify_jp_decklist(cards)
-        assert result == "Dragapult Dusknoir"
+        assert result == "Dragapult / Dusknoir"
 
     def test_mega_kangaskhan(self, db):
         """Deck with Mega Kangaskhan ex classifies correctly."""
@@ -262,17 +262,17 @@ class TestClassifyJPDecklist:
             JPDeckCard(name_jp="基本無色エネルギー", count=4, category="Energy"),
         ]
         result = classify_jp_decklist(cards)
-        assert result == "Mega Kangaskhan ex"
+        assert result == "Kangaskhan-Mega"
 
     def test_mega_lucario_with_hariyama(self, db):
-        """Deck with Mega Lucario ex + Hariyama classifies as Mega Lucario."""
+        """Deck with Mega Lucario ex + Hariyama classifies as Hariyama / Lucario-Mega."""
         cards = [
             JPDeckCard(name_jp="メガルカリオex", count=2, category="Pokemon"),
             JPDeckCard(name_jp="ハリテヤマ", count=2, category="Pokemon"),
             JPDeckCard(name_jp="基本闘エネルギー", count=6, category="Energy"),
         ]
         result = classify_jp_decklist(cards)
-        assert result == "Mega Lucario"
+        assert result == "Hariyama / Lucario-Mega"
 
 
 class TestEventTypeConfig:

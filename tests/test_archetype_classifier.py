@@ -16,7 +16,7 @@ class TestClassifyDecklist:
             {"card_name": "Charmander", "count": 3, "category": "Pokemon"},
             {"card_name": "Rare Candy", "count": 4, "category": "Trainer"},
         ]
-        assert classify_decklist(cards) == "Charizard ex"
+        assert classify_decklist(cards) == "Charizard / Pidgeot"
 
     def test_dragapult_dusknoir(self):
         cards = [
@@ -24,7 +24,7 @@ class TestClassifyDecklist:
             {"card_name": "Dusknoir", "count": 2, "category": "Pokemon"},
             {"card_name": "Dreepy", "count": 4, "category": "Pokemon"},
         ]
-        assert classify_decklist(cards) == "Dragapult Dusknoir"
+        assert classify_decklist(cards) == "Dragapult / Dusknoir"
 
     def test_single_anchor(self):
         cards = [
@@ -32,7 +32,7 @@ class TestClassifyDecklist:
             {"card_name": "Ralts", "count": 4, "category": "Pokemon"},
             {"card_name": "Kirlia", "count": 3, "category": "Pokemon"},
         ]
-        assert classify_decklist(cards) == "Gardevoir ex"
+        assert classify_decklist(cards) == "Gardevoir"
 
     def test_unknown_deck(self):
         cards = [
@@ -46,7 +46,7 @@ class TestClassifyDecklist:
             {"card_name": "Mega Lucario ex", "count": 3, "category": "Pokemon"},
             {"card_name": "Solrock", "count": 2, "category": "Pokemon"},
         ]
-        assert classify_decklist(cards) == "Mega Lucario Solrock"
+        assert classify_decklist(cards) == "Lucario-Mega / Solrock"
 
     def test_trainers_ignored(self):
         """Only Pokemon cards are considered for classification."""
@@ -68,7 +68,7 @@ class TestClassifyFromDecklist:
             {"card_name": "Charizard ex", "count": 2, "category": "Pokemon"},
             {"card_name": "Pidgeot ex", "count": 2, "category": "Pokemon"},
         ]
-        assert classify_from_decklist(cards) == "Charizard ex"
+        assert classify_from_decklist(cards) == "Charizard / Pidgeot"
 
     def test_falls_back_to_unknown(self):
         from analysis.archetype import classify_from_decklist
