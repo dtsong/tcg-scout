@@ -178,6 +178,16 @@ export function ChampionsClient({
         </p>
       </div>
 
+      {/* Incomplete Results Notice */}
+      {division.placements.length > 0 &&
+        !division.placements.some((p) => p.standing === 1) && (
+          <div className="bg-amber-900/30 border border-amber-700/50 rounded-md px-4 py-3 text-sm text-amber-200">
+            <span className="font-medium">Preliminary results.</span>{" "}
+            Official top cut data is not yet available. Showing community-submitted placements
+            from Day 1. This page will be updated when full results are published.
+          </div>
+        )}
+
       {/* Division Tabs */}
       <div className="flex items-center gap-1 border-b border-surface-600">
         {divisionTabs.map(({ key, label }) => (

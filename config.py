@@ -167,6 +167,7 @@ CL_WEIGHT_MULTIPLIER = {
 # Limitless tournament URLs for Champions League events
 CL_TOURNAMENT_IDS = {
     "https://limitlesstcg.com/tournaments/547",  # Fukuoka CL 2026
+    "https://limitlesstcg.com/tournaments/548",  # Osaka CL 2026
 }
 
 # CL boost factor for Optimal 60 computation
