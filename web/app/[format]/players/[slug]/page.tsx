@@ -2,12 +2,9 @@ import {
   getPlayerDetail,
   getPlayerSlugs,
   getFormats,
-  formatHasData,
 } from "@/app/lib/data";
 import Link from "next/link";
 import type { Metadata } from "next";
-
-export const dynamicParams = false;
 
 export async function generateMetadata({
   params,
@@ -27,7 +24,6 @@ export function generateStaticParams() {
   const formats = getFormats();
   const params: { format: string; slug: string }[] = [];
   for (const fmt of formats) {
-    if (!formatHasData(fmt.slug)) continue;
     const slugs = getPlayerSlugs(fmt.slug);
     for (const slug of slugs) {
       params.push({ format: fmt.slug, slug });
