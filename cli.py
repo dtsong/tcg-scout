@@ -705,9 +705,9 @@ def import_cl(ctx: click.Context, data_dir: str) -> None:
             )
 
             # Store placements
-            # Key by (standing, deck_code) since player_name can be empty
-            # and multiple players may share the same standing
-            placement_id_map: dict[tuple[int, str], int] = {}
+            # Key by (standing, deck_code, player_name) to avoid collisions:
+            # player_name is often empty, deck_code is unique per submission
+            placement_id_map: dict[tuple[int, str, str], int] = {}
             with open(placements_file, newline="", encoding="utf-8") as f:
                 reader = csv.DictReader(f)
                 for row in reader:
@@ -723,7 +723,7 @@ def import_cl(ctx: click.Context, data_dir: str) -> None:
                             row["deck_url"],
                         ),
                     )
-                    key = (int(row["standing"]), row["deck_code"])
+                    key = (int(row["standing"]), row["deck_code"], row["player_name"])
                     placement_id_map[key] = cursor.lastrowid
                     total_placements += 1
 
@@ -731,9 +731,9 @@ def import_cl(ctx: click.Context, data_dir: str) -> None:
             with open(decklists_file, newline="", encoding="utf-8") as f:
                 reader = csv.DictReader(f)
                 for row in reader:
-                    key = (int(row["standing"]), row["deck_code"])
+                    key = (int(row["standing"]), row["deck_code"], row["player_name"])
                     pid = placement_id_map.get(key)
-                    if not pid:
+                    if pid is None:
                         continue
                     conn.execute(
                         "INSERT OR REPLACE INTO cl_decklist_cards "
