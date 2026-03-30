@@ -11,10 +11,6 @@ import logging
 import os
 import re
 from dataclasses import dataclass, field
-from typing import TYPE_CHECKING
-
-if TYPE_CHECKING:
-    from playwright.async_api import Page
 
 logger = logging.getLogger(__name__)
 

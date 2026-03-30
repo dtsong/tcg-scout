@@ -21,7 +21,7 @@ import re
 from dataclasses import dataclass, field
 from typing import TYPE_CHECKING
 
-from bs4 import BeautifulSoup, Tag
+from bs4 import BeautifulSoup
 
 if TYPE_CHECKING:
     from playwright.async_api import Page

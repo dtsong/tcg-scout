@@ -10,7 +10,6 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from scraper.pokecabook import (
     PBAvgCard,
     PBCard,
-    PBDeckEntry,
     _is_category_header,
     _parse_placement_text,
     parse_avg_cards_from_html,
