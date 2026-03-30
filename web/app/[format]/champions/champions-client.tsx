@@ -241,9 +241,44 @@ export function ChampionsClient({
               </tr>
             </thead>
             <tbody>
-              {division.placements.map((p) => (
-                <PlacementRow key={`${p.standing}-${p.player_name}`} placement={p} />
-              ))}
+              {(() => {
+                const rows: React.ReactNode[] = [];
+                const placementsByStanding = new Map<number, CLPlacement[]>();
+                for (const p of division.placements) {
+                  const list = placementsByStanding.get(p.standing) ?? [];
+                  list.push(p);
+                  placementsByStanding.set(p.standing, list);
+                }
+                const maxTopCut = 16;
+                for (let i = 1; i <= maxTopCut; i++) {
+                  const entries = placementsByStanding.get(i);
+                  if (entries) {
+                    for (const p of entries) {
+                      rows.push(
+                        <PlacementRow key={`${p.standing}-${p.deck_code ?? p.player_name}`} placement={p} />
+                      );
+                    }
+                    placementsByStanding.delete(i);
+                  } else if (division.placements.some((p) => p.standing <= maxTopCut)) {
+                    rows.push(
+                      <tr key={`gap-${i}`} className="border-b border-surface-700">
+                        <td className="px-4 py-3 font-mono tabular-nums text-surface-500 w-16">{i}</td>
+                        <td className="px-4 py-3 text-surface-500 italic" colSpan={3}>Data not yet available</td>
+                      </tr>
+                    );
+                  }
+                }
+                // Remaining placements beyond Top 16
+                const remaining = [...placementsByStanding.entries()]
+                  .sort(([a], [b]) => a - b)
+                  .flatMap(([, ps]) => ps);
+                for (const p of remaining) {
+                  rows.push(
+                    <PlacementRow key={`${p.standing}-${p.deck_code ?? p.player_name}`} placement={p} />
+                  );
+                }
+                return rows;
+              })()}
             </tbody>
           </table>
         </div>
