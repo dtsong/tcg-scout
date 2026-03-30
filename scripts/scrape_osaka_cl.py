@@ -1,15 +1,24 @@
 #!/usr/bin/env python3
-"""Scrape Osaka CL 2026 results from pokekameshi.com using local Playwright.
+"""Scrape Osaka CL 2026 results from pokekameshi.com using Kernel.sh cloud browsers.
 
 Phase 1: Scrape standings + deck codes from pokekameshi
 Phase 2: Fetch decklists from pokemon-card.com using deck codes
 Output: CSV files compatible with `scout import-cl --dir data/osaka-cl`
+
+Usage:
+  python scripts/scrape_osaka_cl.py [divisions...] [--no-decklists] [--decklists-only] [--debug]
+
+  --decklists-only  Skip Phase 1 (pokekameshi), read existing placement CSVs,
+                    and only fetch decklists for entries with deck codes.
+  --no-decklists    Skip Phase 2 (decklist fetching).
+  --debug           Dump page structure during Phase 1.
 """
 
 import asyncio
 import csv
 import json
 import logging
+import os
 import sys
 from dataclasses import dataclass
 from pathlib import Path
@@ -44,6 +53,8 @@ JP_ENERGY_MAP = {
     "基本鋼エネルギー": ("Metal Energy", "Energy"),
 }
 
+BROWSER_POOL_SIZE = 4
+
 
 @dataclass
 class Placement:
@@ -61,6 +72,36 @@ class DeckCard:
     card_number: str
     count: int
     category: str
+
+
+def _create_kernel():
+    """Create a Kernel client, raising if no API key is set."""
+    from kernel import Kernel
+
+    api_key = os.environ.get("KERNEL_API_KEY", "")
+    if not api_key:
+        raise ValueError("KERNEL_API_KEY environment variable is required")
+    return Kernel(api_key=api_key)
+
+
+async def _create_browser(pw, kernel):
+    """Create a Kernel.sh cloud browser and return (session_id, browser, page)."""
+    kb = kernel.browsers.create()
+    browser = await pw.chromium.connect_over_cdp(kb.cdp_ws_url)
+    page = browser.contexts[0].pages[0]
+    return kb.session_id, browser, page
+
+
+async def _destroy_browser(kernel, session_id, browser):
+    """Close a browser and delete its Kernel session."""
+    try:
+        await browser.close()
+    except Exception:
+        pass
+    try:
+        kernel.browsers.delete_by_id(session_id)
+    except Exception:
+        pass
 
 
 async def scrape_pokekameshi(page, url: str) -> list[Placement]:
@@ -327,6 +368,30 @@ def _merge_card_data(img_cards: list[dict], text_data: list[dict], deck_url: str
     return result
 
 
+def read_placements_csv(division: str) -> list[Placement]:
+    """Read existing placement CSV and return Placement objects."""
+    csv_path = OUTPUT_DIR / f"{division}-placements.csv"
+    if not csv_path.exists():
+        logger.warning("No placement CSV found: %s", csv_path)
+        return []
+
+    placements = []
+    with open(csv_path, newline="", encoding="utf-8") as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            placements.append(
+                Placement(
+                    standing=int(row["standing"]),
+                    player_name=row.get("player_name", ""),
+                    region=row.get("region", ""),
+                    deck_code=row.get("deck_code", ""),
+                    deck_url=row.get("deck_url", ""),
+                )
+            )
+    logger.info("Read %d placements from %s", len(placements), csv_path)
+    return placements
+
+
 def write_csvs(division: str, placements: list[Placement], decklists: dict[str, list[DeckCard]]):
     """Write the CSV and meta files for a division."""
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
@@ -389,131 +454,177 @@ def write_csvs(division: str, placements: list[Placement], decklists: dict[str, 
     )
 
 
+async def fetch_decklists_pooled(
+    pw, kernel, placements: list[Placement]
+) -> dict[str, list[DeckCard]]:
+    """Fetch decklists concurrently using a pool of Kernel.sh cloud browsers."""
+    # Filter to placements that have deck codes
+    targets = [p for p in placements if p.deck_code and p.deck_url]
+    if not targets:
+        return {}
+
+    pool_size = min(BROWSER_POOL_SIZE, len(targets))
+    logger.info(
+        "Fetching %d decklists with %d browser pool", len(targets), pool_size
+    )
+
+    # Create browser pool
+    pool_queue: asyncio.Queue = asyncio.Queue()
+    pool_entries: list[tuple[str, object, object]] = []
+    for _ in range(pool_size):
+        session_id, browser, page = await _create_browser(pw, kernel)
+        entry = (session_id, browser, page)
+        pool_entries.append(entry)
+        await pool_queue.put(entry)
+
+    decklists: dict[str, list[DeckCard]] = {}
+    sem = asyncio.Semaphore(pool_size)
+
+    async def _fetch_one(placement: Placement):
+        async with sem:
+            session_id, browser, page = await pool_queue.get()
+            try:
+                cards = await fetch_decklist(page, placement.deck_url)
+                if cards:
+                    decklists[placement.deck_code] = cards
+                    logger.info("  %s: %d cards", placement.deck_code, len(cards))
+                else:
+                    logger.warning("  %s: no cards extracted", placement.deck_code)
+                await asyncio.sleep(1)  # Be respectful
+            finally:
+                await pool_queue.put((session_id, browser, page))
+
+    # Run all fetches concurrently (bounded by pool size via semaphore)
+    await asyncio.gather(*[_fetch_one(p) for p in targets])
+
+    # Tear down pool
+    for session_id, browser, _ in pool_entries:
+        await _destroy_browser(kernel, session_id, browser)
+    logger.info("Browser pool stopped")
+
+    return decklists
+
+
 async def main():
     from playwright.async_api import async_playwright
 
-    fetch_decklists = "--no-decklists" not in sys.argv
-    divisions = (
-        sys.argv[1:] if sys.argv[1:] and not sys.argv[1].startswith("-") else list(PAGES.keys())
-    )
-    # Filter out flags
-    divisions = [d for d in divisions if not d.startswith("-")]
+    flags = {a for a in sys.argv[1:] if a.startswith("-")}
+    fetch_decklists = "--no-decklists" not in flags
+    decklists_only = "--decklists-only" in flags
+    debug = "--debug" in flags
+
+    divisions = [a for a in sys.argv[1:] if not a.startswith("-")]
     if not divisions:
         divisions = list(PAGES.keys())
 
+    kernel = _create_kernel()
+
     async with async_playwright() as pw:
-        browser = await pw.chromium.launch(headless=True)
-        context = await browser.new_context(
-            user_agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
-            locale="ja-JP",
-        )
-        page = await context.new_page()
-
         for division in divisions:
-            url = PAGES.get(division)
-            if not url:
-                logger.warning("Unknown division: %s", division)
-                continue
-
             logger.info("=== Processing %s ===", division)
 
-            # Phase 1: Scrape standings
-            placements = await scrape_pokekameshi(page, url)
-            logger.info("Found %d placements for %s", len(placements), division)
+            if decklists_only:
+                # Phase 1 skipped: read existing placements from CSV
+                placements = read_placements_csv(division)
+                if not placements:
+                    logger.warning("No placements for %s, skipping", division)
+                    continue
+            else:
+                # Phase 1: Scrape standings from pokekameshi using a single browser
+                url = PAGES.get(division)
+                if not url:
+                    logger.warning("Unknown division: %s", division)
+                    continue
 
-            for i, p in enumerate(placements[:5]):
-                logger.info("  #%d %s - %s", p.standing, p.player_name or "(unknown)", p.deck_code)
+                session_id, browser, page = await _create_browser(pw, kernel)
+                try:
+                    placements = await scrape_pokekameshi(page, url)
+                    logger.info("Found %d placements for %s", len(placements), division)
 
-            # Debug: dump page structure
-            if "--debug" in sys.argv:
-                debug_html = await page.evaluate("""() => {
-                    // Find all headings (h2, h3, h4) to understand page structure
-                    const headings = document.querySelectorAll('.entry-content h2, .entry-content h3, .entry-content h4');
-                    const results = [];
-                    for (const h of headings) {
-                        results.push({
-                            tag: h.tagName,
-                            text: h.innerText.substring(0, 200),
-                            id: h.id || '',
-                        });
-                    }
+                    for p in placements[:5]:
+                        logger.info(
+                            "  #%d %s - %s",
+                            p.standing,
+                            p.player_name or "(unknown)",
+                            p.deck_code,
+                        )
 
-                    // Also find deck links with their preceding heading context
-                    const links = document.querySelectorAll('a[href*="pokemon-card.com/deck/confirm"]');
-                    const linkContexts = [];
-                    for (let i = 0; i < Math.min(links.length, 5); i++) {
-                        const link = links[i];
-                        // Walk up to find the article section boundary
-                        let el = link;
-                        for (let j = 0; j < 15; j++) {
-                            if (el.parentElement) el = el.parentElement;
-                            if (el.tagName === 'ARTICLE' || el.classList.contains('entry-content')) break;
-                        }
-                        // Find preceding heading
-                        let prev = link;
-                        let heading = '';
-                        while (prev) {
-                            prev = prev.previousElementSibling || (prev.parentElement ? prev.parentElement.previousElementSibling : null);
-                            if (prev && ['H2','H3','H4'].includes(prev.tagName)) {
-                                heading = prev.innerText;
-                                break;
+                    if debug:
+                        debug_html = await page.evaluate("""() => {
+                            const headings = document.querySelectorAll('.entry-content h2, .entry-content h3, .entry-content h4');
+                            const results = [];
+                            for (const h of headings) {
+                                results.push({
+                                    tag: h.tagName,
+                                    text: h.innerText.substring(0, 200),
+                                    id: h.id || '',
+                                });
                             }
-                            if (!prev && link.parentElement) {
-                                // Walk up and look at previous siblings
-                                let parent = link.parentElement;
-                                for (let k = 0; k < 10; k++) {
-                                    if (!parent) break;
-                                    let sib = parent.previousElementSibling;
-                                    while (sib) {
-                                        if (['H2','H3','H4'].includes(sib.tagName)) {
-                                            heading = sib.innerText;
-                                            break;
-                                        }
-                                        sib = sib.previousElementSibling;
-                                    }
-                                    if (heading) break;
-                                    parent = parent.parentElement;
+
+                            const links = document.querySelectorAll('a[href*="pokemon-card.com/deck/confirm"]');
+                            const linkContexts = [];
+                            for (let i = 0; i < Math.min(links.length, 5); i++) {
+                                const link = links[i];
+                                let el = link;
+                                for (let j = 0; j < 15; j++) {
+                                    if (el.parentElement) el = el.parentElement;
+                                    if (el.tagName === 'ARTICLE' || el.classList.contains('entry-content')) break;
                                 }
-                                break;
+                                let prev = link;
+                                let heading = '';
+                                while (prev) {
+                                    prev = prev.previousElementSibling || (prev.parentElement ? prev.parentElement.previousElementSibling : null);
+                                    if (prev && ['H2','H3','H4'].includes(prev.tagName)) {
+                                        heading = prev.innerText;
+                                        break;
+                                    }
+                                    if (!prev && link.parentElement) {
+                                        let parent = link.parentElement;
+                                        for (let k = 0; k < 10; k++) {
+                                            if (!parent) break;
+                                            let sib = parent.previousElementSibling;
+                                            while (sib) {
+                                                if (['H2','H3','H4'].includes(sib.tagName)) {
+                                                    heading = sib.innerText;
+                                                    break;
+                                                }
+                                                sib = sib.previousElementSibling;
+                                            }
+                                            if (heading) break;
+                                            parent = parent.parentElement;
+                                        }
+                                        break;
+                                    }
+                                }
+                                linkContexts.push({
+                                    index: i,
+                                    href: link.href,
+                                    heading: heading.substring(0, 200),
+                                });
                             }
-                        }
-                        linkContexts.push({
-                            index: i,
-                            href: link.href,
-                            heading: heading.substring(0, 200),
-                        });
-                    }
-                    return { headings: results, link_contexts: linkContexts };
-                }""")
-                logger.info("=== PAGE HEADINGS ===")
-                for h in debug_html.get("headings", []):
-                    logger.info("  %s: %s", h["tag"], h["text"])
-                logger.info("=== DECK LINK CONTEXTS ===")
-                for lc in debug_html.get("link_contexts", []):
-                    logger.info(
-                        "  Entry %d: heading='%s' href=%s",
-                        lc["index"],
-                        lc["heading"],
-                        lc["href"][-30:],
-                    )
+                            return { headings: results, link_contexts: linkContexts };
+                        }""")
+                        logger.info("=== PAGE HEADINGS ===")
+                        for h in debug_html.get("headings", []):
+                            logger.info("  %s: %s", h["tag"], h["text"])
+                        logger.info("=== DECK LINK CONTEXTS ===")
+                        for lc in debug_html.get("link_contexts", []):
+                            logger.info(
+                                "  Entry %d: heading='%s' href=%s",
+                                lc["index"],
+                                lc["heading"],
+                                lc["href"][-30:],
+                            )
+                finally:
+                    await _destroy_browser(kernel, session_id, browser)
 
             # Phase 2: Fetch decklists (optional)
             decklists: dict[str, list[DeckCard]] = {}
             if fetch_decklists and placements:
-                logger.info("Fetching decklists for %d placements...", len(placements))
-                for p in placements:
-                    cards = await fetch_decklist(page, p.deck_url)
-                    if cards:
-                        decklists[p.deck_code] = cards
-                        logger.info("  %s: %d cards", p.deck_code, len(cards))
-                    else:
-                        logger.warning("  %s: no cards extracted", p.deck_code)
-                    await asyncio.sleep(1)  # Be respectful
+                decklists = await fetch_decklists_pooled(pw, kernel, placements)
 
             # Write output
             write_csvs(division, placements, decklists)
-
-        await browser.close()
 
     logger.info("\n=== Done! Files written to %s ===", OUTPUT_DIR)
     logger.info("Next: scout --format ninja-spinner import-cl --dir %s", OUTPUT_DIR)

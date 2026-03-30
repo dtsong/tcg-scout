@@ -1535,5 +1535,194 @@ def players_profile(ctx: click.Context, player_id: int) -> None:
         conn.close()
 
 
+@cli.command("scrape-pokecazilla")
+@click.argument("url")
+@click.option("--list-articles", is_flag=True, help="List recent Pokemon TCG articles instead of scraping a URL")
+@click.option("--max-pages", default=3, help="Max listing pages to scan (with --list-articles)")
+@click.pass_context
+def scrape_pokecazilla(
+    ctx: click.Context,
+    url: str,
+    list_articles: bool,
+    max_pages: int,
+) -> None:
+    """Scrape tournament results from pokecazilla.com.
+
+    Requires KERNEL_API_KEY in .env for cloud browser rendering.
+
+    \b
+    Examples:
+        scout scrape-pokecazilla https://pokecazilla.com/column/cl2026osaka-decks/
+        scout scrape-pokecazilla --list-articles https://pokecazilla.com/category/pokemon/
+    """
+    import asyncio
+
+    from dotenv import load_dotenv
+
+    load_dotenv()
+
+    from scraper.pokecazilla import PokecazillaClient
+
+    try:
+        client = PokecazillaClient()
+    except ValueError as e:
+        console.print(f"[red]{e}[/red]")
+        raise SystemExit(1)
+
+    if list_articles:
+        console.print(f"[cyan]Listing Pokemon TCG articles (max {max_pages} pages)...[/cyan]")
+        entries = asyncio.run(client.list_pokemon_articles(max_pages=max_pages))
+
+        table = Table(title="Pokecazilla Pokemon TCG Articles")
+        table.add_column("Date", style="dim")
+        table.add_column("Title")
+        table.add_column("URL", style="cyan")
+
+        for entry in entries:
+            table.add_row(entry.date or "-", entry.title, entry.url)
+
+        console.print(table)
+        console.print(f"\n[green]Found {len(entries)} articles.[/green]")
+    else:
+        console.print(f"[cyan]Scraping article: {url}[/cyan]")
+        article = asyncio.run(client.fetch_article(url))
+
+        console.print(f"\n[bold]{article.title}[/bold]")
+        console.print(f"URL: {article.url}\n")
+
+        if not article.placements:
+            console.print("[yellow]No placements found in article.[/yellow]")
+            return
+
+        table = Table(title="Top 8 Placements")
+        table.add_column("#", justify="right", style="bold")
+        table.add_column("Archetype (JP)")
+        table.add_column("Deck Code", style="cyan")
+        table.add_column("Deck URL", style="dim")
+
+        for p in sorted(article.placements, key=lambda x: x.standing):
+            table.add_row(
+                str(p.standing),
+                p.archetype_jp,
+                p.deck_code or "-",
+                p.deck_url or "-",
+            )
+
+        console.print(table)
+        console.print(f"\n[green]{len(article.placements)} placements extracted.[/green]")
+
+
+@cli.command("scrape-pokecabook")
+@click.argument("url")
+@click.option(
+    "--mode",
+    type=click.Choice(["recipe", "analysis", "list"]),
+    default="recipe",
+    help="Extraction mode: recipe (deck), analysis (avg counts), list (search articles)",
+)
+@click.option("--search", default=None, help="Search query for list mode")
+@click.option("--max-pages", default=1, help="Max listing pages for list mode")
+@click.pass_context
+def scrape_pokecabook(
+    ctx: click.Context,
+    url: str,
+    mode: str,
+    search: str | None,
+    max_pages: int,
+) -> None:
+    """Scrape deck recipes and analytics from pokecabook.com.
+
+    URL is required for recipe/analysis modes. For list mode, pass the base URL
+    or use --search to filter.
+
+    \b
+    Examples:
+        scout scrape-pokecabook https://pokecabook.com/archives/307010
+        scout scrape-pokecabook https://pokecabook.com/archives/307010 --mode analysis
+        scout scrape-pokecabook https://pokecabook.com --mode list --search "CL大阪"
+    """
+    import asyncio
+
+    from dotenv import load_dotenv
+
+    load_dotenv()
+
+    from scraper.pokecabook import PokecaBookClient
+
+    try:
+        client = PokecaBookClient()
+    except ValueError as e:
+        console.print(f"[red]{e}[/red]")
+        raise SystemExit(1)
+
+    if mode == "list":
+        articles = asyncio.run(client.list_articles(search_query=search, max_pages=max_pages))
+        if not articles:
+            console.print("[yellow]No articles found.[/yellow]")
+            return
+
+        table = Table(title=f"PokecaBook Articles ({len(articles)} found)")
+        table.add_column("Date", style="dim")
+        table.add_column("Category")
+        table.add_column("Title", style="bold")
+        table.add_column("URL", style="dim")
+
+        for a in articles:
+            table.add_row(a.date, a.category, a.title, a.url)
+        console.print(table)
+
+    elif mode == "analysis":
+        analysis = asyncio.run(client.fetch_archetype_analysis(url))
+        console.print(f"\n[bold]{analysis.archetype_jp}[/bold]")
+        if analysis.sample_size:
+            console.print(f"  Sample size: {analysis.sample_size} decklists")
+
+        if not analysis.avg_cards:
+            console.print("[yellow]No average card data found.[/yellow]")
+            return
+
+        table = Table(title="Average Card Counts")
+        table.add_column("Category", style="dim")
+        table.add_column("Card Name (JP)", style="bold")
+        table.add_column("Avg Count", justify="right")
+        table.add_column("Adoption %", justify="right")
+
+        for card in analysis.avg_cards:
+            table.add_row(
+                card.category,
+                card.name_jp,
+                f"{card.avg_count:.1f}" if card.avg_count else "-",
+                f"{card.adoption_rate:.0f}%" if card.adoption_rate else "-",
+            )
+        console.print(table)
+
+    else:  # recipe
+        recipe = asyncio.run(client.fetch_deck_recipe(url))
+        console.print(f"\n[bold]{recipe.title}[/bold]")
+        if recipe.event_name:
+            console.print(f"  Event: {recipe.event_name}")
+        if recipe.placement:
+            console.print(f"  Placement: {recipe.placement}")
+        if recipe.player_name:
+            console.print(f"  Player: {recipe.player_name}")
+
+        if not recipe.cards:
+            console.print("[yellow]No cards extracted from article.[/yellow]")
+            return
+
+        total = sum(c.count for c in recipe.cards)
+        table = Table(title=f"Deck Recipe ({total} cards)")
+        table.add_column("Category", style="dim")
+        table.add_column("Card Name (JP)", style="bold")
+        table.add_column("Count", justify="right")
+
+        current_cat = ""
+        for card in recipe.cards:
+            cat_display = card.category if card.category != current_cat else ""
+            current_cat = card.category
+            table.add_row(cat_display, card.name_jp, str(card.count))
+        console.print(table)
+
+
 if __name__ == "__main__":
     cli()
