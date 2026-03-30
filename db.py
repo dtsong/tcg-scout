@@ -119,6 +119,35 @@ CREATE TABLE IF NOT EXISTS cl_decklist_cards (
     category TEXT,                     -- Pokemon, Trainer, Energy
     PRIMARY KEY (placement_id, card_name_jp)
 );
+
+-- Player identity (manual curation)
+CREATE TABLE IF NOT EXISTS players (
+    id INTEGER PRIMARY KEY,
+    display_name TEXT NOT NULL,
+    country TEXT DEFAULT 'JP',
+    notes TEXT,
+    twitter_handle TEXT,
+    youtube_url TEXT,
+    blog_url TEXT,
+    created_at TEXT DEFAULT (datetime('now'))
+);
+
+-- Maps raw tournament names to player IDs (many-to-one)
+CREATE TABLE IF NOT EXISTS player_aliases (
+    id INTEGER PRIMARY KEY,
+    alias TEXT NOT NULL,
+    player_id INTEGER NOT NULL REFERENCES players(id),
+    source TEXT,                       -- 'limitless', 'pokemon_jp', 'pokekameshi', etc.
+    UNIQUE(alias, source)
+);
+
+-- Bridge: links existing placements to player identities (non-destructive)
+CREATE TABLE IF NOT EXISTS placement_players (
+    placement_id INTEGER NOT NULL REFERENCES placements(id),
+    player_id INTEGER NOT NULL REFERENCES players(id),
+    confidence REAL DEFAULT 1.0 CHECK(confidence >= 0.0 AND confidence <= 1.0),
+    PRIMARY KEY (placement_id, player_id)
+);
 """
 
 

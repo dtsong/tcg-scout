@@ -2,7 +2,7 @@
 
 import logging
 import sqlite3
-from datetime import datetime
+from datetime import UTC, datetime
 
 from config import PLACEMENT_WEIGHT_DEFAULT, PLACEMENT_WEIGHTS, TIER_THRESHOLDS
 
@@ -63,7 +63,7 @@ def compute_meta_snapshot(
         INSERT INTO meta_snapshots (generated_at, tournament_count, deck_count)
         VALUES (?, ?, ?)
         """,
-        (datetime.utcnow().isoformat(), tournament_count, total_decks),
+        (datetime.now(UTC).isoformat(), tournament_count, total_decks),
     )
     snapshot_id = cur.lastrowid
 

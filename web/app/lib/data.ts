@@ -11,7 +11,10 @@ import type {
   ArchetypeReport,
   CLDivision,
   CityLeagueIndex,
+  CuratedPlayer,
   FormatInfo,
+  PlayerDetail,
+  PlayerSummary,
   TimelineData,
   CardSummary,
   CardDetail,
@@ -308,4 +311,37 @@ export function getCityLeagueIndex(format: string): CityLeagueIndex | null {
     if (isFileNotFound(err)) return null;
     throw err;
   }
+}
+
+export function getPlayerIndex(format: string): PlayerSummary[] | null {
+  try {
+    return readJson(`${format}/players/index.json`);
+  } catch (err) {
+    if (isFileNotFound(err)) return null;
+    throw err;
+  }
+}
+
+export function getCuratedPlayers(format: string): CuratedPlayer[] | null {
+  try {
+    return readJson(`${format}/players/curated.json`);
+  } catch (err) {
+    if (isFileNotFound(err)) return null;
+    throw err;
+  }
+}
+
+export function getPlayerDetail(format: string, slug: string): PlayerDetail | null {
+  try {
+    return readJson(`${format}/players/${slug}.json`);
+  } catch (err) {
+    if (isFileNotFound(err)) return null;
+    throw err;
+  }
+}
+
+export function getPlayerSlugs(format: string): string[] {
+  const curated = getCuratedPlayers(format);
+  if (!curated) return [];
+  return curated.map((p) => p.slug);
 }
