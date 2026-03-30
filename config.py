@@ -336,10 +336,10 @@ ARCHETYPE_ANCHOR_CARDS: dict[str, dict[str, str] | str] = {
     },
     "Zoroark": "Zoroark",
     # --- Support/rogue archetypes ---
-    "Applin": {
-        "_default": "Applin / Thwackey",
-        "Thwackey": "Applin / Thwackey",
-        "Rillaboom": "Applin / Rillaboom",
+    "Dipplin": {
+        "_default": "Dipplin / Thwackey",
+        "Thwackey": "Dipplin / Thwackey",
+        "Rillaboom": "Dipplin / Rillaboom",
     },
     "Arboliva ex": {
         "_default": "Arboliva",
@@ -440,7 +440,7 @@ JP_CARD_NAME_MAP: dict[str, str] = {
     # Ninja Spinner format anchors
     "モモワロウex": "Pecharunt ex",
     "ブルンゲルex": "Jellicent ex",
-    "カジッチュ": "Applin",
+    "カジッチュ": "Dipplin",
     "メガヤンマex": "Mega Yanmega ex",
     "メガクチートex": "Mega Mawile ex",
     "メガヘラクロスex": "Mega Heracross ex",
