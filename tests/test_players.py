@@ -201,7 +201,7 @@ class TestGetPlayerProfile:
         link_placements_by_alias(db_players, player_id, "Alice")
 
         profile = get_player_profile(db_players, player_id)
-        dates = [e["date"] for e in profile.deck_timeline]
+        dates = [e.date for e in profile.deck_timeline]
         assert dates == sorted(dates, reverse=True)
 
     def test_aliases_included(self, db_players):

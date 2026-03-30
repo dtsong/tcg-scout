@@ -143,9 +143,9 @@ CREATE TABLE IF NOT EXISTS player_aliases (
 
 -- Bridge: links existing placements to player identities (non-destructive)
 CREATE TABLE IF NOT EXISTS placement_players (
-    placement_id INTEGER NOT NULL,
+    placement_id INTEGER NOT NULL REFERENCES placements(id),
     player_id INTEGER NOT NULL REFERENCES players(id),
-    confidence REAL DEFAULT 1.0,      -- 1.0 = manual, 0.5 = heuristic
+    confidence REAL DEFAULT 1.0 CHECK(confidence >= 0.0 AND confidence <= 1.0),
     PRIMARY KEY (placement_id, player_id)
 );
 """

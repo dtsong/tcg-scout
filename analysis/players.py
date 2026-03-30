@@ -1,9 +1,12 @@
 """Player intelligence: performance tracking, consistency scoring, deck timelines."""
 
+import logging
 import sqlite3
 from dataclasses import dataclass
 
 from config import PLACEMENT_WEIGHT_DEFAULT, PLACEMENT_WEIGHTS
+
+logger = logging.getLogger(__name__)
 
 
 @dataclass
@@ -18,6 +21,27 @@ class TopPerformer:
 
 
 @dataclass
+class PlacementRecord:
+    """A single placement linked to a player via the bridge table."""
+
+    standing: int
+    archetype: str
+    player_name: str
+    tournament_name: str
+    date: str
+    confidence: float
+
+
+@dataclass
+class DeckTimelineEntry:
+    """A single entry in a player's deck timeline."""
+
+    date: str
+    archetype: str
+    standing: int
+
+
+@dataclass
 class PlayerProfile:
     """Full profile for a curated player identity."""
 
@@ -29,10 +53,10 @@ class PlayerProfile:
     youtube_url: str | None
     blog_url: str | None
     aliases: list[str]
-    placements: list[dict]
+    placements: list[PlacementRecord]
     tournament_count: int
     weighted_score: float
-    deck_timeline: list[dict]
+    deck_timeline: list[DeckTimelineEntry]
 
 
 def _placement_weight(standing: int) -> float:
@@ -69,46 +93,26 @@ def list_top_performers(
     if not rows:
         return []
 
-    # Aggregate by player_name
-    players: dict[str, dict] = {}
+    # Aggregate by player_name, dedup tournaments by date
+    aggregated: dict[str, dict] = {}
     for row in rows:
         name = row["player_name"]
-        if name not in players:
-            players[name] = {
-                "tournaments": set(),
-                "best": row["standing"],
-                "score": 0.0,
-                "archetypes": [],
-            }
-        entry = players[name]
-        # Use (tournament implied by date + standing) as dedup key
-        entry["tournaments"].add(row["standing"])
-        entry["best"] = min(entry["best"], row["standing"])
-        entry["score"] += _placement_weight(row["standing"])
-        if row["archetype"] not in entry["archetypes"]:
-            entry["archetypes"].append(row["archetype"])
-
-    # We need actual tournament count, not unique standings
-    # Re-aggregate properly
-    players2: dict[str, dict] = {}
-    for row in rows:
-        name = row["player_name"]
-        if name not in players2:
-            players2[name] = {
+        if name not in aggregated:
+            aggregated[name] = {
                 "dates": set(),
                 "best": row["standing"],
                 "score": 0.0,
                 "archetypes": [],
             }
-        entry = players2[name]
-        entry["dates"].add(row["date"] if isinstance(row["date"], str) else str(row["date"]))
+        entry = aggregated[name]
+        entry["dates"].add(str(row["date"]))
         entry["best"] = min(entry["best"], row["standing"])
         entry["score"] += _placement_weight(row["standing"])
         if row["archetype"] not in entry["archetypes"]:
             entry["archetypes"].append(row["archetype"])
 
     results = []
-    for name, data in players2.items():
+    for name, data in aggregated.items():
         count = len(data["dates"])
         if count < min_appearances:
             continue
@@ -160,13 +164,22 @@ def get_player_profile(conn: sqlite3.Connection, player_id: int) -> PlayerProfil
         (player_id,),
     ).fetchall()
 
-    placement_list = [dict(row) for row in placements]
-    tournament_dates = {p["date"] for p in placement_list}
-    weighted_score = sum(_placement_weight(p["standing"]) for p in placement_list)
+    placement_list = [
+        PlacementRecord(
+            standing=row["standing"],
+            archetype=row["archetype"],
+            player_name=row["player_name"],
+            tournament_name=row["tournament_name"],
+            date=row["date"],
+            confidence=row["confidence"],
+        )
+        for row in placements
+    ]
+    tournament_dates = {p.date for p in placement_list}
+    weighted_score = sum(_placement_weight(p.standing) for p in placement_list)
 
-    # Deck timeline: archetype per tournament date
     deck_timeline = [
-        {"date": p["date"], "archetype": p["archetype"], "standing": p["standing"]}
+        DeckTimelineEntry(date=p.date, archetype=p.archetype, standing=p.standing)
         for p in placement_list
     ]
 

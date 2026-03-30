@@ -3559,6 +3559,7 @@ def export_players(conn: sqlite3.Connection, output_dir: Path) -> None:
     for row in player_rows:
         profile = get_player_profile(conn, row["id"])
         if profile is None:
+            logger.warning("Skipping player %d: profile returned None", row["id"])
             continue
         slug = _slugify(profile.display_name)
         profile_data = {
@@ -3573,8 +3574,21 @@ def export_players(conn: sqlite3.Connection, output_dir: Path) -> None:
             "aliases": profile.aliases,
             "tournament_count": profile.tournament_count,
             "weighted_score": profile.weighted_score,
-            "deck_timeline": profile.deck_timeline,
-            "placements": profile.placements,
+            "deck_timeline": [
+                {"date": e.date, "archetype": e.archetype, "standing": e.standing}
+                for e in profile.deck_timeline
+            ],
+            "placements": [
+                {
+                    "standing": p.standing,
+                    "archetype": p.archetype,
+                    "player_name": p.player_name,
+                    "tournament_name": p.tournament_name,
+                    "date": p.date,
+                    "confidence": p.confidence,
+                }
+                for p in profile.placements
+            ],
         }
         _write_json(profile_data, output_dir / "players" / f"{slug}.json")
         profiles.append(
@@ -3687,7 +3701,7 @@ def export_all(
         skipped.append("optimal 60")
     try:
         export_players(conn, out)
-    except (sqlite3.OperationalError, ValueError) as exc:
+    except (sqlite3.OperationalError, ValueError, KeyError) as exc:
         if strict:
             raise
         logger.warning("Skipping player export: %s", exc)
