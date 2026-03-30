@@ -228,11 +228,12 @@ ARCHETYPE_ANCHOR_CARDS: dict[str, dict[str, str] | str] = {
     },
     # --- Standard archetypes ---
     "Charizard ex": {
-        "_default": "Charizard / Pidgeot",
+        "_default": "Charizard",
+        "Pidgeot ex": "Charizard / Pidgeot",
         "Dusknoir": "Charizard / Dusknoir",
     },
     "Dragapult ex": {
-        "_default": "Dragapult / Pidgeot",
+        "_default": "Dragapult",
         "Pidgeot ex": "Dragapult / Pidgeot",
         "Dusknoir": "Dragapult / Dusknoir",
         "Noctowl": "Dragapult / Noctowl",
@@ -335,10 +336,10 @@ ARCHETYPE_ANCHOR_CARDS: dict[str, dict[str, str] | str] = {
     },
     "Zoroark": "Zoroark",
     # --- Support/rogue archetypes ---
-    "Dipplin": {
-        "_default": "Dipplin / Thwackey",
-        "Thwackey": "Dipplin / Thwackey",
-        "Rillaboom": "Dipplin / Rillaboom",
+    "Applin": {
+        "_default": "Applin / Thwackey",
+        "Thwackey": "Applin / Thwackey",
+        "Rillaboom": "Applin / Rillaboom",
     },
     "Arboliva ex": {
         "_default": "Arboliva",
@@ -439,7 +440,7 @@ JP_CARD_NAME_MAP: dict[str, str] = {
     # Ninja Spinner format anchors
     "モモワロウex": "Pecharunt ex",
     "ブルンゲルex": "Jellicent ex",
-    "カジッチュ": "Dipplin",
+    "カジッチュ": "Applin",
     "メガヤンマex": "Mega Yanmega ex",
     "メガクチートex": "Mega Mawile ex",
     "メガヘラクロスex": "Mega Heracross ex",
@@ -451,7 +452,7 @@ JP_CARD_NAME_MAP: dict[str, str] = {
     "ピカチュウex": "Pikachu ex",
     "ゲノセクトex": "Genesect ex",
     "ヤドキング": "Slowking",
-    "キチキギスex": "Okidogi",
+    "キチキギスex": "Fezandipiti ex",
     "スピアーex": "Beedrill ex",
     "ラティアスex": "Latias ex",
     "オーガポン いしずえのめんex": "Cornerstone Mask Ogerpon ex",
@@ -466,13 +467,13 @@ JP_CARD_NAME_MAP: dict[str, str] = {
     # --- Secondary cards (non-ex, used in composite detection) ---
     "ヨノワール": "Dusknoir",
     "ヨルノズク": "Noctowl",
-    "ピジョットex": "Pidgeot ex",
+    "ピジョットex": "Pidgeot ex",  # Not in Ninja Spinner; only Nihil Zero
     "ノココッチ": "Dudunsparce",
     "マシマシラ": "Munkidori",
     "ソルロック": "Solrock",
     "ハリテヤマ": "Hariyama",
     "ゲッコウガex": "Greninja ex",
-    "オーガポン みどりのめんex": "Ogerpon ex",
+    "オーガポン みどりのめんex": "Teal Mask Ogerpon ex",
     "シロナのロズレイド": "Cynthia's Roserade",
     "ロケット団のワナイダー": "Team Rocket's Spidops",
     "ロケット団のポリゴンZ": "Porygon-Z",
@@ -480,7 +481,7 @@ JP_CARD_NAME_MAP: dict[str, str] = {
     "バチンキー": "Thwackey",
     "ゴリランダー": "Rillaboom",
     "メタグロス": "Metagross",
-    "ガケガニ": "Barbaracle",
+    "ガケガニ": "Klawf",
     # Non-ex anchor variants
     "ユキメノコ": "Froslass",
     "ユキメノコex": "Froslass ex",

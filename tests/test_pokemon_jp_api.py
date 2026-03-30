@@ -181,7 +181,7 @@ class TestStoreCLResults:
             "SELECT archetype FROM placements WHERE tournament_id = ? AND standing = 1",
             ("jp-77777",),
         ).fetchone()
-        assert p1["archetype"] == "Charizard / Pidgeot"
+        assert p1["archetype"] == "Charizard"
 
         # Placement without decklist stays Unknown
         p2 = db.execute(
@@ -208,7 +208,7 @@ class TestClassifyJPDecklist:
             ),
         ]
         result = classify_jp_decklist(cards)
-        assert result == "Charizard / Pidgeot"
+        assert result == "Charizard"
 
     def test_unknown_when_no_mappings(self, db):
         """classify_jp_decklist returns Unknown when cards can't be translated to known anchors."""

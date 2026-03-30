@@ -132,13 +132,18 @@ function ArchetypeSummaryBar({
 }) {
   if (!summary || summary.length === 0) return null;
 
+  const MAX_SHOWN = 8;
+  const shown = summary.slice(0, MAX_SHOWN);
+  const remaining = summary.slice(MAX_SHOWN);
+  const remainingCount = remaining.reduce((s, e) => s + e.count, 0);
+
   return (
     <div className="bg-surface-800 border border-surface-600 rounded-md px-4 py-3">
       <h3 className="text-xs text-surface-300 uppercase tracking-wider mb-2">
         Archetype Distribution
       </h3>
       <div className="flex flex-wrap gap-x-4 gap-y-2">
-        {summary.map((entry) => (
+        {shown.map((entry) => (
           <div
             key={entry.archetype}
             className="flex items-center gap-1.5 text-sm text-slate-200"
@@ -150,6 +155,11 @@ function ArchetypeSummaryBar({
             <span className="text-surface-400 text-xs">x{entry.count}</span>
           </div>
         ))}
+        {remainingCount > 0 && (
+          <span className="text-xs text-surface-400 self-center">
+            +{remaining.length} more ({remainingCount})
+          </span>
+        )}
       </div>
     </div>
   );
@@ -178,15 +188,19 @@ export function ChampionsClient({
         </p>
       </div>
 
-      {/* Incomplete Results Notice */}
-      {division.placements.length > 0 &&
-        !division.placements.some((p) => p.standing === 1) && (
-          <div className="bg-amber-900/30 border border-amber-700/50 rounded-md px-4 py-3 text-sm text-amber-200">
-            <span className="font-medium">Preliminary results.</span>{" "}
-            Official top cut data is not yet available. Showing community-submitted placements
-            from Day 1. This page will be updated when full results are published.
-          </div>
-        )}
+      {/* Data Source Notice */}
+      <div className="bg-surface-700/50 border border-surface-600 rounded-md px-4 py-3 text-sm text-surface-300 space-y-1">
+        <p>
+          <span className="font-medium text-slate-200">Early results.</span>{" "}
+          Standings sourced from{" "}
+          <a href="https://pokecabook.com" target="_blank" rel="noopener noreferrer" className="text-accent hover:text-accent/80">PokecaBook</a>
+          {" "}and{" "}
+          <a href="https://pokecazilla.com" target="_blank" rel="noopener noreferrer" className="text-accent hover:text-accent/80">Pokecazilla</a>.
+          {" "}Decklists from{" "}
+          <a href="https://pokemon-card.com" target="_blank" rel="noopener noreferrer" className="text-accent hover:text-accent/80">pokemon-card.com</a>.
+          {" "}Data is still being collected and will be updated as more results become available.
+        </p>
+      </div>
 
       {/* Division Tabs */}
       <div className="flex items-center gap-1 border-b border-surface-600">

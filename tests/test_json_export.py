@@ -618,7 +618,7 @@ class TestExportChampionsLeagueEnriched:
         export_champions_league(db, tmp_path)
         data = json.loads((tmp_path / "champions-league" / "masters.json").read_text())
         taro = next(p for p in data["placements"] if p["standing"] == 1)
-        assert taro["archetype"] == "Charizard / Pidgeot"
+        assert taro["archetype"] == "Charizard"
 
     def test_archetype_summary_has_required_fields(self, db, tmp_path):
         """Each summary entry should have archetype, count, and sprite_filenames."""

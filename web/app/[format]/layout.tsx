@@ -35,7 +35,7 @@ export default async function FormatLayout({
           <div className="max-w-7xl mx-auto flex items-center justify-center gap-2 px-4 py-2 text-xs text-accent">
             <span className="font-semibold">NEW</span>
             <span className="text-accent/60">|</span>
-            <span>Champions League 2026 Osaka -- Top 16 decklists now available.</span>
+            <span>CL 2026 Osaka -- Early Top 16 decklists available. More data incoming.</span>
             <a href={`/${format}/champions`} className="underline underline-offset-2 hover:text-accent/80 font-medium">View results</a>
           </div>
         </div>
