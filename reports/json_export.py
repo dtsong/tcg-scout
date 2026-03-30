@@ -3551,9 +3551,7 @@ def export_players(conn: sqlite3.Connection, output_dir: Path) -> None:
     logger.info("Exported %d top performers", len(index_data))
 
     # Export curated player profiles (from players table)
-    player_rows = conn.execute(
-        "SELECT id FROM players ORDER BY id"
-    ).fetchall()
+    player_rows = conn.execute("SELECT id FROM players ORDER BY id").fetchall()
 
     profiles = []
     for row in player_rows:

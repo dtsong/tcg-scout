@@ -121,9 +121,7 @@ class TestCreatePlayer:
         assert row["country"] == "JP"
 
     def test_creates_with_options(self, db_players):
-        player_id = create_player(
-            db_players, "John Smith", country="US", notes="Top NA player"
-        )
+        player_id = create_player(db_players, "John Smith", country="US", notes="Top NA player")
         row = db_players.execute("SELECT * FROM players WHERE id = ?", (player_id,)).fetchone()
         assert row["country"] == "US"
         assert row["notes"] == "Top NA player"
@@ -134,9 +132,7 @@ class TestLinkAlias:
         player_id = create_player(db_players, "Alice Player")
         link_alias(db_players, "Alice", player_id, source="limitless")
 
-        row = db_players.execute(
-            "SELECT * FROM player_aliases WHERE alias = 'Alice'"
-        ).fetchone()
+        row = db_players.execute("SELECT * FROM player_aliases WHERE alias = 'Alice'").fetchone()
         assert row["player_id"] == player_id
         assert row["source"] == "limitless"
 

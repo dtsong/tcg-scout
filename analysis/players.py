@@ -132,9 +132,7 @@ def list_top_performers(
 
 def get_player_profile(conn: sqlite3.Connection, player_id: int) -> PlayerProfile | None:
     """Build a full profile for a curated player identity."""
-    player = conn.execute(
-        "SELECT * FROM players WHERE id = ?", (player_id,)
-    ).fetchone()
+    player = conn.execute("SELECT * FROM players WHERE id = ?", (player_id,)).fetchone()
     if not player:
         return None
 

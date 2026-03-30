@@ -1413,9 +1413,7 @@ def players_list(ctx: click.Context, min_appearances: int, limit: int) -> None:
     conn = get_format_connection(ctx.obj["format"])
     init_db(conn)
     try:
-        performers = list_top_performers(
-            conn, min_appearances=min_appearances, limit=limit
-        )
+        performers = list_top_performers(conn, min_appearances=min_appearances, limit=limit)
         if not performers:
             console.print("[yellow]No players found with enough appearances.[/yellow]")
             return
