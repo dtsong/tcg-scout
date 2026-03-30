@@ -1395,5 +1395,147 @@ def validate(ctx: click.Context, strict: bool) -> None:
         console.print(f"[green bold]PASSED[/green bold]: 0 errors, {total_warnings} warning(s)")
 
 
+@cli.group()
+@click.pass_context
+def players(ctx: click.Context) -> None:
+    """Player intelligence — track top performers."""
+    pass
+
+
+@players.command("list")
+@click.option("--min-appearances", default=2, help="Minimum tournament appearances")
+@click.option("--limit", default=50, help="Max players to show")
+@click.pass_context
+def players_list(ctx: click.Context, min_appearances: int, limit: int) -> None:
+    """List top performers by weighted placement score."""
+    from analysis.players import list_top_performers
+
+    conn = get_format_connection(ctx.obj["format"])
+    init_db(conn)
+    try:
+        performers = list_top_performers(
+            conn, min_appearances=min_appearances, limit=limit
+        )
+        if not performers:
+            console.print("[yellow]No players found with enough appearances.[/yellow]")
+            return
+
+        table = Table(title=f"Top Performers (min {min_appearances} appearances)")
+        table.add_column("#", justify="right", style="dim")
+        table.add_column("Player", style="bold")
+        table.add_column("Events", justify="right")
+        table.add_column("Best", justify="right")
+        table.add_column("Score", justify="right")
+        table.add_column("Archetypes")
+
+        for i, p in enumerate(performers, 1):
+            archetypes_str = ", ".join(p.archetypes[:3])
+            if len(p.archetypes) > 3:
+                archetypes_str += f" +{len(p.archetypes) - 3}"
+            table.add_row(
+                str(i),
+                p.player_name,
+                str(p.tournament_count),
+                str(p.best_placement),
+                f"{p.weighted_score:.1f}",
+                archetypes_str,
+            )
+
+        console.print(table)
+    finally:
+        conn.close()
+
+
+@players.command("create")
+@click.argument("name")
+@click.option("--country", default="JP", help="Country code")
+@click.option("--notes", default=None, help="Notes about this player")
+@click.pass_context
+def players_create(ctx: click.Context, name: str, country: str, notes: str | None) -> None:
+    """Create a new player identity."""
+    from analysis.players import create_player
+
+    conn = get_format_connection(ctx.obj["format"])
+    init_db(conn)
+    try:
+        player_id = create_player(conn, name, country=country, notes=notes)
+        console.print(f"[green]Created player #{player_id}: {name} ({country})[/green]")
+    finally:
+        conn.close()
+
+
+@players.command("link")
+@click.argument("alias")
+@click.argument("player_id", type=int)
+@click.option("--source", default="limitless", help="Data source for this alias")
+@click.pass_context
+def players_link(ctx: click.Context, alias: str, player_id: int, source: str) -> None:
+    """Link a tournament name (alias) to a player identity and backfill placements."""
+    from analysis.players import link_alias, link_placements_by_alias
+
+    conn = get_format_connection(ctx.obj["format"])
+    init_db(conn)
+    try:
+        link_alias(conn, alias, player_id, source=source)
+        linked = link_placements_by_alias(conn, player_id, alias)
+        console.print(
+            f"[green]Linked alias '{alias}' to player #{player_id} "
+            f"({linked} placement(s) connected)[/green]"
+        )
+    finally:
+        conn.close()
+
+
+@players.command("profile")
+@click.argument("player_id", type=int)
+@click.pass_context
+def players_profile(ctx: click.Context, player_id: int) -> None:
+    """Show a player's full profile and tournament history."""
+    from analysis.players import get_player_profile
+
+    conn = get_format_connection(ctx.obj["format"])
+    init_db(conn)
+    try:
+        profile = get_player_profile(conn, player_id)
+        if not profile:
+            console.print(f"[red]Player #{player_id} not found.[/red]")
+            return
+
+        console.print(f"\n[bold]{profile.display_name}[/bold] (#{profile.player_id})")
+        console.print(f"  Country: {profile.country}")
+        if profile.notes:
+            console.print(f"  Notes: {profile.notes}")
+        if profile.twitter_handle:
+            console.print(f"  Twitter: @{profile.twitter_handle}")
+        if profile.youtube_url:
+            console.print(f"  YouTube: {profile.youtube_url}")
+        if profile.blog_url:
+            console.print(f"  Blog: {profile.blog_url}")
+        if profile.aliases:
+            console.print(f"  Aliases: {', '.join(profile.aliases)}")
+
+        console.print(
+            f"\n  [cyan]{profile.tournament_count} tournaments, "
+            f"weighted score: {profile.weighted_score}[/cyan]"
+        )
+
+        if profile.deck_timeline:
+            console.print("\n  [bold]Deck Timeline:[/bold]")
+            table = Table()
+            table.add_column("Date")
+            table.add_column("Archetype")
+            table.add_column("Standing", justify="right")
+
+            for entry in profile.deck_timeline:
+                table.add_row(
+                    entry["date"],
+                    entry["archetype"],
+                    str(entry["standing"]),
+                )
+            console.print(table)
+    finally:
+        conn.close()
+
+
 if __name__ == "__main__":
     cli()

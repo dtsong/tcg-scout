@@ -15,33 +15,26 @@ from datetime import UTC, datetime
 from pathlib import Path
 
 STALE_HOURS = 72
-ACTIVE_FORMAT = "ninja-spinner"
-DATA_DIR = Path(__file__).parent.parent / "web" / "public" / "data"
+MANIFEST_PATH = Path(__file__).parent.parent / "web" / "data-manifest.json"
 
 
-def get_latest_snapshot_date(format_slug: str) -> datetime | None:
-    """Read the latest snapshot date from meta.json's generated_at field, falling back to file mtime."""
-    meta_path = DATA_DIR / format_slug / "meta.json"
-    if not meta_path.exists():
+def get_latest_snapshot_date() -> datetime | None:
+    """Read the latest snapshot date from data-manifest.json's created_at field."""
+    if not MANIFEST_PATH.exists():
         return None
 
     try:
-        meta = json.loads(meta_path.read_text(encoding="utf-8"))
-        generated_at = meta.get("generated_at")
-        if generated_at:
-            return datetime.fromisoformat(generated_at.replace("Z", "+00:00"))
-    except (json.JSONDecodeError, OSError, ValueError) as exc:
-        print(
-            f"WARNING: Could not parse generated_at from meta.json: {exc}, falling back to file mtime"
-        )
+        manifest = json.loads(MANIFEST_PATH.read_text(encoding="utf-8"))
+        archives = manifest.get("archives", [])
+        if not archives:
+            return None
+        created_at = archives[0].get("created_at")
+        if created_at:
+            return datetime.strptime(created_at, "%Y%m%dT%H%M%SZ").replace(tzinfo=UTC)
+    except (json.JSONDecodeError, OSError, ValueError, KeyError) as exc:
+        print(f"WARNING: Could not parse created_at from data-manifest.json: {exc}")
 
-    # Fallback: use file modification time
-    try:
-        mtime = meta_path.stat().st_mtime
-        return datetime.fromtimestamp(mtime, tz=UTC)
-    except OSError as exc:
-        print(f"WARNING: Could not stat meta.json: {exc}")
-        return None
+    return None
 
 
 def send_discord_alert(message: str) -> None:
@@ -68,13 +61,13 @@ def send_discord_alert(message: str) -> None:
 
 def main() -> int:
     now = datetime.now(UTC)
-    snapshot_date = get_latest_snapshot_date(ACTIVE_FORMAT)
+    snapshot_date = get_latest_snapshot_date()
 
     if snapshot_date is None:
         send_discord_alert(
-            f"**Scout Freshness Alert**\n"
-            f"Cannot read meta.json for `{ACTIVE_FORMAT}`. "
-            f"Data directory may be missing."
+            "**Scout Freshness Alert**\n"
+            "Cannot read data-manifest.json. "
+            "Data pipeline may not have run."
         )
         return 1
 
@@ -87,9 +80,8 @@ def main() -> int:
     if age_hours > STALE_HOURS:
         send_discord_alert(
             f"**Scout Freshness Alert**\n"
-            f"Data for `{ACTIVE_FORMAT}` is {age_hours:.0f}h old "
-            f"(threshold: {STALE_HOURS}h).\n"
-            f"Last snapshot: {snapshot_date.strftime('%Y-%m-%d %H:%M UTC')}\n"
+            f"Data is {age_hours:.0f}h old (threshold: {STALE_HOURS}h).\n"
+            f"Last export: {snapshot_date.strftime('%Y-%m-%d %H:%M UTC')}\n"
             f"Check Cloud Build for pipeline failures."
         )
         return 1

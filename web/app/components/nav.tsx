@@ -416,6 +416,20 @@ function MobileDrawer({
             Matchups
           </Link>
 
+          {/* Meta EV */}
+          <Link
+            href={`/${format}/meta-ev`}
+            onClick={onClose}
+            className={cn(
+              "flex items-center px-3 min-h-11 text-sm rounded-md transition-colors mt-1",
+              pathname.startsWith(`/${format}/meta-ev`)
+                ? "bg-surface-600 text-slate-100"
+                : "text-surface-300 hover:text-slate-200 hover:bg-surface-700",
+            )}
+          >
+            Meta EV
+          </Link>
+
           {/* Grouped nav */}
           {groups.map((group) => {
             const isExpanded = expandedGroup === group.label;
@@ -546,6 +560,7 @@ export function Nav({ format, formats }: { format: string; formats: FormatInfo[]
 
   const dashboardLink = { href: `/${format}`, label: "Dashboard" };
   const matchupsLink = { href: `/${format}/matchups`, label: "Matchups" };
+  const metaEvLink = { href: `/${format}/meta-ev`, label: "Meta EV" };
 
   const groups: NavGroup[] = [
     {
@@ -568,6 +583,7 @@ export function Nav({ format, formats }: { format: string; formats: FormatInfo[]
       label: "Meta",
       items: [
         { href: `/${format}/tournaments`, label: "Tournaments" },
+        { href: `/${format}/players`, label: "Players" },
         { href: `/${format}/trends`, label: "Trends" },
         { href: `/${format}/shifts`, label: "Shifts" },
         { href: `/${format}/forecast`, label: "Forecast" },
@@ -689,6 +705,17 @@ export function Nav({ format, formats }: { format: string; formats: FormatInfo[]
                 )}
               >
                 Matchups
+              </Link>
+              <Link
+                href={metaEvLink.href}
+                className={cn(
+                  "px-3 py-1.5 text-sm rounded-md whitespace-nowrap transition-colors min-h-11 flex items-center",
+                  pathname.startsWith(`/${format}/meta-ev`)
+                    ? "bg-surface-600 text-slate-100"
+                    : "text-surface-300 hover:text-slate-200 hover:bg-surface-700",
+                )}
+              >
+                Meta EV
               </Link>
               {groups.map((group) => (
                 <NavDropdown

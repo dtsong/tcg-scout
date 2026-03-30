@@ -620,3 +620,55 @@ export interface CityLeagueIndex {
   recent_winners: RecentWinner[];
   tournaments: CityLeagueTournament[];
 }
+
+// Player Intelligence
+export interface PlayerSummary {
+  player_name: string;
+  slug: string;
+  tournament_count: number;
+  best_placement: number;
+  weighted_score: number;
+  archetypes: string[];
+}
+
+export interface CuratedPlayer {
+  player_id: number;
+  display_name: string;
+  slug: string;
+  country: string;
+  twitter_handle?: string;
+  tournament_count: number;
+  weighted_score: number;
+  aliases: string[];
+}
+
+export interface DeckTimelineEntry {
+  date: string;
+  archetype: string;
+  standing: number;
+}
+
+export interface PlayerPlacement {
+  standing: number;
+  archetype: string;
+  player_name: string;
+  tournament_name: string;
+  date: string;
+  confidence: number;
+}
+
+export interface PlayerDetail {
+  player_id: number;
+  display_name: string;
+  slug: string;
+  country: string;
+  notes?: string;
+  twitter_handle?: string;
+  youtube_url?: string;
+  blog_url?: string;
+  aliases: string[];
+  tournament_count: number;
+  weighted_score: number;
+  deck_timeline: DeckTimelineEntry[];
+  placements: PlayerPlacement[];
+}

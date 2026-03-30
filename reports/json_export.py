@@ -3530,6 +3530,71 @@ def export_city_league_index(conn: sqlite3.Connection, output_dir: Path) -> None
     )
 
 
+def export_players(conn: sqlite3.Connection, output_dir: Path) -> None:
+    """Export player intelligence data: top performers list + individual profiles."""
+    from analysis.players import get_player_profile, list_top_performers
+
+    # Export top performers index (raw name-based, no identity resolution needed)
+    performers = list_top_performers(conn, min_appearances=2, limit=100)
+    index_data = [
+        {
+            "player_name": p.player_name,
+            "slug": _slugify(p.player_name),
+            "tournament_count": p.tournament_count,
+            "best_placement": p.best_placement,
+            "weighted_score": p.weighted_score,
+            "archetypes": p.archetypes,
+        }
+        for p in performers
+    ]
+    _write_json(index_data, output_dir / "players" / "index.json")
+    logger.info("Exported %d top performers", len(index_data))
+
+    # Export curated player profiles (from players table)
+    player_rows = conn.execute(
+        "SELECT id FROM players ORDER BY id"
+    ).fetchall()
+
+    profiles = []
+    for row in player_rows:
+        profile = get_player_profile(conn, row["id"])
+        if profile is None:
+            continue
+        slug = _slugify(profile.display_name)
+        profile_data = {
+            "player_id": profile.player_id,
+            "display_name": profile.display_name,
+            "slug": slug,
+            "country": profile.country,
+            "notes": profile.notes,
+            "twitter_handle": profile.twitter_handle,
+            "youtube_url": profile.youtube_url,
+            "blog_url": profile.blog_url,
+            "aliases": profile.aliases,
+            "tournament_count": profile.tournament_count,
+            "weighted_score": profile.weighted_score,
+            "deck_timeline": profile.deck_timeline,
+            "placements": profile.placements,
+        }
+        _write_json(profile_data, output_dir / "players" / f"{slug}.json")
+        profiles.append(
+            {
+                "player_id": profile.player_id,
+                "display_name": profile.display_name,
+                "slug": slug,
+                "country": profile.country,
+                "twitter_handle": profile.twitter_handle,
+                "tournament_count": profile.tournament_count,
+                "weighted_score": profile.weighted_score,
+                "aliases": profile.aliases,
+            }
+        )
+
+    if profiles:
+        _write_json(profiles, output_dir / "players" / "curated.json")
+        logger.info("Exported %d curated player profiles", len(profiles))
+
+
 def export_all(
     conn: sqlite3.Connection,
     output_dir: Path | None = None,
@@ -3620,6 +3685,13 @@ def export_all(
             raise
         logger.warning("Skipping optimal 60 export: %s", exc)
         skipped.append("optimal 60")
+    try:
+        export_players(conn, out)
+    except (sqlite3.OperationalError, ValueError) as exc:
+        if strict:
+            raise
+        logger.warning("Skipping player export: %s", exc)
+        skipped.append("players")
 
     if skipped:
         logger.info("Skipped %d optional exports: %s", len(skipped), ", ".join(skipped))
