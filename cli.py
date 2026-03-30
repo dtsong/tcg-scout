@@ -693,6 +693,17 @@ def import_cl(ctx: click.Context, data_dir: str) -> None:
                 (meta["event_id"], meta["event_name"], meta["division"], meta["date"]),
             )
 
+            # Clear existing data for this event (idempotent re-import)
+            conn.execute(
+                "DELETE FROM cl_decklist_cards WHERE placement_id IN "
+                "(SELECT id FROM cl_placements WHERE event_id = ?)",
+                (meta["event_id"],),
+            )
+            conn.execute(
+                "DELETE FROM cl_placements WHERE event_id = ?",
+                (meta["event_id"],),
+            )
+
             # Store placements
             placement_id_map: dict[tuple[int, str], int] = {}
             with open(placements_file, newline="", encoding="utf-8") as f:
