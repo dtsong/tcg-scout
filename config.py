@@ -481,7 +481,8 @@ JP_CARD_NAME_MAP: dict[str, str] = {
     "バチンキー": "Thwackey",
     "ゴリランダー": "Rillaboom",
     "メタグロス": "Metagross",
-    "ガケガニ": "Barbaracle",
+    "カメテテ": "Binacle",
+    "ガメノデス": "Barbaracle",
     # Non-ex anchor variants
     "ユキメノコ": "Froslass",
     "ユキメノコex": "Froslass ex",
