@@ -30,16 +30,6 @@ export default async function FormatLayout({
 
   return (
     <DateFilterProvider initialDateRange={dateRange}>
-      {format === "ninja-spinner" && (
-        <div className="w-full bg-accent/10 border-b border-accent/20">
-          <div className="max-w-7xl mx-auto flex items-center justify-center gap-2 px-4 py-2 text-xs text-accent">
-            <span className="font-semibold">NEW</span>
-            <span className="text-accent/60">|</span>
-            <span>CL 2026 Osaka -- Early Top 16 decklists available. More data incoming.</span>
-            <a href={`/${format}/champions`} className="underline underline-offset-2 hover:text-accent/80 font-medium">View results</a>
-          </div>
-        </div>
-      )}
       {meta && (
         <MetaTicker
           formatName={meta.format?.name_en ?? format}
