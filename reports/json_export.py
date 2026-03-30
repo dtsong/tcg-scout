@@ -378,7 +378,7 @@ JP_CARD_NAMES: dict[str, str] = {
     "レガシーエネルギー": "Legacy Energy",
     "ネオアッパーエネルギー": "Neo Upper Energy",
     "イグニッションエネルギー": "Ignition Energy",
-    "リッチエネルギー": "Rich Energy",
+    "リッチエネルギー": "Enriching Energy",
     "ロック闘エネルギー": "Rock Fighting Energy",
     "グロウ草エネルギー": "Grow Grass Energy",
     "ニトロ炎エネルギー": "Nitro Fire Energy",
