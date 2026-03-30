@@ -198,7 +198,7 @@ export function ChampionsClient({
           <a href="https://pokecazilla.com" target="_blank" rel="noopener noreferrer" className="text-accent hover:text-accent/80">Pokecazilla</a>.
           {" "}Decklists from{" "}
           <a href="https://pokemon-card.com" target="_blank" rel="noopener noreferrer" className="text-accent hover:text-accent/80">pokemon-card.com</a>.
-          {" "}Data is still being collected and will be updated as more results become available.
+          {" "}Data will be updated as more results become available.
         </p>
       </div>
 

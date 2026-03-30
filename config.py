@@ -45,7 +45,7 @@ FORMATS = {
     },
 }
 
-DEFAULT_FORMAT = "nihil-zero"
+DEFAULT_FORMAT = "ninja-spinner"
 
 
 def get_format_config(format_slug: str) -> dict:

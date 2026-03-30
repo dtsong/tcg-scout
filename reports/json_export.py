@@ -2600,7 +2600,7 @@ def export_champions_league(conn: sqlite3.Connection, output_dir: Path) -> None:
 
         placements = conn.execute(
             """
-            SELECT DISTINCT standing, player_name, region, deck_code
+            SELECT DISTINCT id, standing, player_name, region, deck_code
             FROM cl_placements
             WHERE event_id = ?
             ORDER BY standing
@@ -2614,13 +2614,12 @@ def export_champions_league(conn: sqlite3.Connection, output_dir: Path) -> None:
         for p in placements:
             decklist_rows = conn.execute(
                 """
-                SELECT DISTINCT c.card_name_jp, c.card_name_en, c.count, c.category
-                FROM cl_placements cp
-                JOIN cl_decklist_cards c ON c.placement_id = cp.id
-                WHERE cp.event_id = ? AND cp.standing = ? AND cp.player_name = ?
+                SELECT c.card_name_jp, c.card_name_en, c.count, c.category
+                FROM cl_decklist_cards c
+                WHERE c.placement_id = ?
                 ORDER BY c.category, c.card_name_jp
                 """,
-                (event["id"], p["standing"], p["player_name"]),
+                (p["id"],),
             ).fetchall()
 
             decklist = []
