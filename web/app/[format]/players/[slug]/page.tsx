@@ -1,6 +1,7 @@
 import {
   getPlayerDetail,
   getPlayerSlugs,
+  getFormats,
   formatHasData,
 } from "@/app/lib/data";
 import Link from "next/link";
@@ -20,14 +21,17 @@ export async function generateMetadata({
   };
 }
 
-export async function generateStaticParams({
-  params: parentParams,
-}: {
-  params: Promise<{ format: string }>;
-}) {
-  const { format } = await parentParams;
-  if (!formatHasData(format)) return [];
-  return getPlayerSlugs(format).map((slug) => ({ slug }));
+export function generateStaticParams() {
+  const formats = getFormats();
+  const params: { format: string; slug: string }[] = [];
+  for (const fmt of formats) {
+    if (!formatHasData(fmt.slug)) continue;
+    const slugs = getPlayerSlugs(fmt.slug);
+    for (const slug of slugs) {
+      params.push({ format: fmt.slug, slug });
+    }
+  }
+  return params;
 }
 
 export default async function PlayerDetailPage({
