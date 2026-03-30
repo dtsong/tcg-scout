@@ -1528,9 +1528,9 @@ def players_profile(ctx: click.Context, player_id: int) -> None:
 
             for entry in profile.deck_timeline:
                 table.add_row(
-                    entry["date"],
-                    entry["archetype"],
-                    str(entry["standing"]),
+                    entry.date,
+                    entry.archetype,
+                    str(entry.standing),
                 )
             console.print(table)
     finally:
