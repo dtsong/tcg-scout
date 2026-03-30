@@ -705,6 +705,8 @@ def import_cl(ctx: click.Context, data_dir: str) -> None:
             )
 
             # Store placements
+            # Key by (standing, deck_code) since player_name can be empty
+            # and multiple players may share the same standing
             placement_id_map: dict[tuple[int, str], int] = {}
             with open(placements_file, newline="", encoding="utf-8") as f:
                 reader = csv.DictReader(f)
@@ -721,7 +723,7 @@ def import_cl(ctx: click.Context, data_dir: str) -> None:
                             row["deck_url"],
                         ),
                     )
-                    key = (int(row["standing"]), row["player_name"])
+                    key = (int(row["standing"]), row["deck_code"])
                     placement_id_map[key] = cursor.lastrowid
                     total_placements += 1
 
@@ -729,7 +731,7 @@ def import_cl(ctx: click.Context, data_dir: str) -> None:
             with open(decklists_file, newline="", encoding="utf-8") as f:
                 reader = csv.DictReader(f)
                 for row in reader:
-                    key = (int(row["standing"]), row["player_name"])
+                    key = (int(row["standing"]), row["deck_code"])
                     pid = placement_id_map.get(key)
                     if not pid:
                         continue
