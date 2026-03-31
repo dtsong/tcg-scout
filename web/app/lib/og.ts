@@ -46,7 +46,7 @@ export function archetypeOgMetadata(
       ...(imageUrl ? { images: [{ url: imageUrl, width: 68, height: 68, alt: name }] } : {}),
     },
     twitter: {
-      card: "summary",
+      card: "summary_large_image",
       title,
       description,
       ...(imageUrl ? { images: [imageUrl] } : {}),
@@ -91,7 +91,7 @@ export function dashboardOgMetadata(
       ...(imageUrl ? { images: [{ url: imageUrl, width: 68, height: 68, alt: formatName }] } : {}),
     },
     twitter: {
-      card: "summary",
+      card: "summary_large_image",
       title,
       description,
       ...(imageUrl ? { images: [imageUrl] } : {}),

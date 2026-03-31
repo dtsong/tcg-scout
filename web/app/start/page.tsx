@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     url: "https://scout.trainerlab.io/start",
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "Scout | Everything in one place",
     description:
       "Tier lists, consensus decklists, trends, matchups, and tournament results. The fastest way to read Japan's Pokemon TCG meta.",

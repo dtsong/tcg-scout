@@ -102,10 +102,10 @@ describe("archetypeOgMetadata", () => {
     spy.mockRestore();
   });
 
-  it("includes twitter card as summary", () => {
+  it("includes twitter card as summary_large_image", () => {
     const result = archetypeOgMetadata("ninja-spinner", "Ninja Spinner", mockArchDetail(), "charizard-pidgeot");
     const twitter = result.twitter as Record<string, unknown>;
-    expect(twitter.card).toBe("summary");
+    expect(twitter.card).toBe("summary_large_image");
   });
 });
 
@@ -152,9 +152,9 @@ describe("dashboardOgMetadata", () => {
     expect(result.description).toContain("Latest meta tier list for Ninja Spinner");
   });
 
-  it("includes twitter card as summary", () => {
+  it("includes twitter card as summary_large_image", () => {
     const result = dashboardOgMetadata("ninja-spinner", "Ninja Spinner", mockMeta());
     const twitter = result.twitter as Record<string, unknown>;
-    expect(twitter.card).toBe("summary");
+    expect(twitter.card).toBe("summary_large_image");
   });
 });

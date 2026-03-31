@@ -136,6 +136,24 @@ describe("formatPageMetadata", () => {
     expect(result.description).toBe("Desc for Ninja Spinner");
   });
 
+  it("includes openGraph and twitter metadata", async () => {
+    vi.mocked(fs.readFileSync).mockReturnValue(JSON.stringify(MOCK_FORMATS));
+    const result = await formatPageMetadata(
+      Promise.resolve({ format: "ninja-spinner" }),
+      (formatName) => ({
+        title: `Test -- ${formatName} | Scout`,
+        description: `Desc for ${formatName}`,
+      }),
+    );
+    const og = result.openGraph as Record<string, unknown>;
+    expect(og.title).toBe("Test -- Ninja Spinner | Scout");
+    expect(og.description).toBe("Desc for Ninja Spinner");
+    expect(og.siteName).toBe("Scout");
+    const twitter = result.twitter as Record<string, unknown>;
+    expect(twitter.card).toBe("summary_large_image");
+    expect(twitter.title).toBe("Test -- Ninja Spinner | Scout");
+  });
+
   it("throws when format is unknown", async () => {
     vi.mocked(fs.readFileSync).mockReturnValue(JSON.stringify(MOCK_FORMATS));
     await expect(
