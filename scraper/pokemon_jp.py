@@ -663,13 +663,50 @@ def store_event_results(
     )
 
 
+def store_decklist_cards(
+    conn: sqlite3.Connection,
+    placement_id: int,
+    cards: list[JPDeckCard],
+    jp_en_lookup: dict[str, str],
+) -> None:
+    """Store decklist cards for a placement, disambiguating duplicate card IDs.
+
+    Caller must DELETE existing decklist_cards for this placement_id before calling,
+    or counts may be incorrect due to INSERT OR REPLACE on the first occurrence card_id.
+    """
+    from analysis.card_stats import EN_CARD_ALIASES
+
+    card_id_counts: dict[str, int] = {}
+    for card in cards:
+        if card.set_code and card.card_number:
+            base_id = f"{card.set_code}-{card.card_number}"
+        elif card.set_code:
+            base_id = f"{card.set_code}-{card.name_jp}"
+        else:
+            base_id = card.name_jp
+        # Disambiguate duplicate card_ids (same name+set, different art)
+        card_id_counts[base_id] = card_id_counts.get(base_id, 0) + 1
+        if card_id_counts[base_id] > 1:
+            card_id = f"{base_id}#{card_id_counts[base_id]}"
+        else:
+            card_id = base_id
+        card_name = jp_en_lookup.get(card.name_jp, card.name_jp)
+        card_name = EN_CARD_ALIASES.get(card_name, card_name)
+        conn.execute(
+            "INSERT OR REPLACE INTO decklist_cards "
+            "(placement_id, card_id, card_name, count) "
+            "VALUES (?, ?, ?, ?)",
+            (placement_id, card_id, card_name, card.count),
+        )
+
+
 def store_cl_city_league_results(
     conn: sqlite3.Connection,
     event: JPEventResult,
     decklists: dict[str, list[JPDeckCard]],
 ) -> None:
     """Store City League event results and decklists in the standard tournaments/placements tables."""
-    from analysis.card_stats import EN_CARD_ALIASES, build_jp_en_lookup
+    from analysis.card_stats import build_jp_en_lookup
     from reports.json_export import JP_CARD_NAMES
 
     jp_en_lookup = build_jp_en_lookup(conn, fallback=JP_CARD_NAMES)
@@ -716,19 +753,7 @@ def store_cl_city_league_results(
 
         # Store decklist cards if available (translate JP→EN at ingestion time)
         if deck_cards is not None:
-            for card in deck_cards:
-                if card.set_code and card.card_number:
-                    card_id = f"{card.set_code}-{card.card_number}"
-                else:
-                    card_id = card.name_jp
-                card_name = jp_en_lookup.get(card.name_jp, card.name_jp)
-                card_name = EN_CARD_ALIASES.get(card_name, card_name)
-                conn.execute(
-                    "INSERT OR REPLACE INTO decklist_cards "
-                    "(placement_id, card_id, card_name, count) "
-                    "VALUES (?, ?, ?, ?)",
-                    (placement_id, card_id, card_name, card.count),
-                )
+            store_decklist_cards(conn, placement_id, deck_cards, jp_en_lookup)
 
     conn.commit()
     logger.info(

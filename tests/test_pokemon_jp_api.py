@@ -127,8 +127,8 @@ class TestStoreCLResults:
         card_ids = {row["card_id"] for row in stored_cards}
         assert "sv5-001" in card_ids
 
-        # Card with set_code but no card_number -> falls back to name_jp
-        assert "ネストボール" in card_ids
+        # Card with set_code but no card_number -> "set_code-name_jp"
+        assert "sv5-ネストボール" in card_ids
 
         # Card with no set_code -> falls back to name_jp
         assert "基本炎エネルギー" in card_ids
@@ -144,6 +144,48 @@ class TestStoreCLResults:
             (placement2["id"],),
         ).fetchall()
         assert len(cards_for_p2) == 0
+
+    def test_card_id_collision_disambiguation(self, db):
+        """Duplicate card_ids (same name+set, different art) get #N suffix to avoid collision."""
+        event = JPEventResult(
+            event_id=88888,
+            event_name="Collision Test",
+            division="open",
+            date="2026-03-20",
+            placements=[
+                JPPlacement(standing=1, player_name="Test", region="Tokyo", deck_code="deck-col"),
+            ],
+        )
+
+        # Two copies of the same card from the same set but no card_number (different art prints)
+        cards = [
+            JPDeckCard(name_jp="フーディン", set_code="M1S", card_number="", count=3, category="Pokemon"),
+            JPDeckCard(name_jp="フーディン", set_code="M1S", card_number="", count=1, category="Pokemon"),
+            JPDeckCard(name_jp="基本超エネルギー", set_code="", card_number="", count=6, category="Energy"),
+        ]
+
+        store_cl_city_league_results(db, event, decklists={"deck-col": cards})
+
+        placement = db.execute(
+            "SELECT id FROM placements WHERE tournament_id = ? AND standing = 1",
+            ("jp-88888",),
+        ).fetchone()
+
+        stored = db.execute(
+            "SELECT card_id, count FROM decklist_cards WHERE placement_id = ? ORDER BY card_id",
+            (placement["id"],),
+        ).fetchall()
+
+        # All 3 cards stored (no collision loss)
+        assert len(stored) == 3
+        total = sum(row["count"] for row in stored)
+        assert total == 10  # 3 + 1 + 6
+
+        # The duplicate gets a #2 suffix
+        card_ids = {row["card_id"] for row in stored}
+        assert "M1S-フーディン" in card_ids
+        assert "M1S-フーディン#2" in card_ids
+        assert "基本超エネルギー" in card_ids
 
     def test_classifies_archetype_from_decklist(self, db):
         """store_cl_city_league_results classifies archetype when decklist has known cards."""
@@ -296,6 +338,38 @@ class TestEventTypeConfig:
         # Should not have hardcoded event types
         assert "3:1" not in source, "Event types should come from config, not be hardcoded"
         assert "POKEMON_JP_CITY_LEAGUE_EVENT_TYPES" in source
+
+
+class TestCLEventsConfig:
+    def test_cl_events_structure(self):
+        """Every CL event entry has required keys and valid division values."""
+        from config import POKEMON_JP_CL_EVENTS
+
+        valid_divisions = {"masters", "seniors", "juniors"}
+        for key, info in POKEMON_JP_CL_EVENTS.items():
+            assert "name" in info, f"{key} missing 'name'"
+            assert "date" in info, f"{key} missing 'date'"
+            assert "events" in info, f"{key} missing 'events'"
+            for eid, division in info["events"].items():
+                assert isinstance(eid, int), f"{key} event_id {eid} should be int"
+                assert division in valid_divisions, (
+                    f"{key} event {eid} has invalid division '{division}'"
+                )
+
+    @pytest.mark.skipif(not _POKEMON_JP_API_AVAILABLE, reason="httpx not installed")
+    def test_masters_division_maps_to_open(self):
+        """Masters league (マスター) should map to 'open' division."""
+        from scraper.pokemon_jp_api import JPCityLeagueEvent
+
+        event = JPCityLeagueEvent.from_api({
+            "event_holding_id": 1,
+            "event_date_params": "20260329",
+            "prefecture_name": "大阪府",
+            "shop_name": "",
+            "capacity": 1200,
+            "leagueName": "マスター",
+        })
+        assert event.division == "open"
 
 
 class TestArchetypeCrossRef:
