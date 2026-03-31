@@ -860,11 +860,10 @@ def _run_repair_decklists(
     all_decklists = _fetch_decklists_batch(fetch_list, pool_size)
 
     # Phase 3: Delete old cards and re-store
-    console.print(f"\nReplacing card data...")
-    from scraper.pokemon_jp import store_decklist_cards
-
+    console.print("\nReplacing card data...")
     from analysis.card_stats import build_jp_en_lookup
     from reports.json_export import JP_CARD_NAMES
+    from scraper.pokemon_jp import store_decklist_cards
 
     jp_en_lookup = build_jp_en_lookup(conn, fallback=JP_CARD_NAMES)
     repaired = 0
