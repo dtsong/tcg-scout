@@ -19,8 +19,6 @@ from analysis.card_stats import (
     compute_card_detail,
     compute_card_stats,
 )
-from analysis.jp_card_names import JP_CARD_NAMES
-from analysis.shared import BASIC_ENERGY_NAMES, slugify
 from analysis.deep_dive import (
     compute_notable_techs,
     compute_placement_distribution,
@@ -28,6 +26,7 @@ from analysis.deep_dive import (
     compute_weighted_consensus_60,
 )
 from analysis.evolution import compute_archetype_evolution, compute_meta_evolution
+from analysis.jp_card_names import JP_CARD_NAMES
 from analysis.matchup import (
     compute_labs_archetype_winrates,
     compute_labs_matchup_matrix,
@@ -35,6 +34,7 @@ from analysis.matchup import (
 )
 from analysis.meta import get_latest_snapshot
 from analysis.optimal_60 import compute_optimal_60
+from analysis.shared import BASIC_ENERGY_NAMES, slugify
 from analysis.synergy import compute_archetype_overlap_matrix, compute_synergy_pairs
 from analysis.tech_forecast import compute_tech_forecast
 from config import (
