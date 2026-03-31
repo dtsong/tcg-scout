@@ -23,7 +23,12 @@ RELEVANT_HOST = "players.pokemon-card.com"
 
 # Skip static assets, analytics, etc.
 SKIP_EXTENSIONS = {".js", ".css", ".png", ".jpg", ".gif", ".svg", ".ico", ".woff", ".woff2", ".ttf"}
-SKIP_HOSTS = {"www.googletagmanager.com", "www.google-analytics.com", "fonts.googleapis.com", "fonts.gstatic.com"}
+SKIP_HOSTS = {
+    "www.googletagmanager.com",
+    "www.google-analytics.com",
+    "fonts.googleapis.com",
+    "fonts.gstatic.com",
+}
 
 
 async def main():
@@ -104,7 +109,9 @@ async def main():
             selects = await page.query_selector_all("select")
             print(f"  Found {len(selects)} <select> elements")
             for i, sel in enumerate(selects):
-                options = await sel.evaluate("el => Array.from(el.options).map(o => ({value: o.value, text: o.textContent.trim()}))")
+                options = await sel.evaluate(
+                    "el => Array.from(el.options).map(o => ({value: o.value, text: o.textContent.trim()}))"
+                )
                 print(f"    Select #{i}: {json.dumps(options, ensure_ascii=False)}")
 
             # Look for buttons/links that might be filters or pagination
@@ -135,7 +142,9 @@ async def main():
                         pre_count = len(captured)
 
             # Try clicking pagination if present
-            next_btns = await page.query_selector_all("text=次のページ, text=次へ, .next, [aria-label='next']")
+            next_btns = await page.query_selector_all(
+                "text=次のページ, text=次へ, .next, [aria-label='next']"
+            )
             if next_btns:
                 print(f"  Found {len(next_btns)} pagination elements, clicking first...")
                 await next_btns[0].click()
@@ -158,7 +167,7 @@ async def main():
 
     print(f"\n--- {RELEVANT_HOST} requests ({len(api_calls)}) ---\n")
     for i, call in enumerate(api_calls):
-        print(f"[{i+1}] {call['method']} {call['path']}")
+        print(f"[{i + 1}] {call['method']} {call['path']}")
         print(f"    Status: {call['status']}")
         if call["params"]:
             print(f"    Params: {json.dumps(call['params'], ensure_ascii=False)}")

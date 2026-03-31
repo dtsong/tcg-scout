@@ -159,9 +159,15 @@ class TestStoreCLResults:
 
         # Two copies of the same card from the same set but no card_number (different art prints)
         cards = [
-            JPDeckCard(name_jp="フーディン", set_code="M1S", card_number="", count=3, category="Pokemon"),
-            JPDeckCard(name_jp="フーディン", set_code="M1S", card_number="", count=1, category="Pokemon"),
-            JPDeckCard(name_jp="基本超エネルギー", set_code="", card_number="", count=6, category="Energy"),
+            JPDeckCard(
+                name_jp="フーディン", set_code="M1S", card_number="", count=3, category="Pokemon"
+            ),
+            JPDeckCard(
+                name_jp="フーディン", set_code="M1S", card_number="", count=1, category="Pokemon"
+            ),
+            JPDeckCard(
+                name_jp="基本超エネルギー", set_code="", card_number="", count=6, category="Energy"
+            ),
         ]
 
         store_cl_city_league_results(db, event, decklists={"deck-col": cards})
@@ -361,14 +367,16 @@ class TestCLEventsConfig:
         """Masters league (マスター) should map to 'open' division."""
         from scraper.pokemon_jp_api import JPCityLeagueEvent
 
-        event = JPCityLeagueEvent.from_api({
-            "event_holding_id": 1,
-            "event_date_params": "20260329",
-            "prefecture_name": "大阪府",
-            "shop_name": "",
-            "capacity": 1200,
-            "leagueName": "マスター",
-        })
+        event = JPCityLeagueEvent.from_api(
+            {
+                "event_holding_id": 1,
+                "event_date_params": "20260329",
+                "prefecture_name": "大阪府",
+                "shop_name": "",
+                "capacity": 1200,
+                "leagueName": "マスター",
+            }
+        )
         assert event.division == "open"
 
 

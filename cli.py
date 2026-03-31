@@ -37,8 +37,7 @@ def _fetch_decklists_batch(
     from scraper.pokemon_jp import PokemonJPClient
 
     console.print(
-        f"\nFetching {len(deck_entries)} decklists "
-        f"with {pool_size} concurrent browsers..."
+        f"\nFetching {len(deck_entries)} decklists with {pool_size} concurrent browsers..."
     )
 
     completed = [0]
@@ -49,26 +48,18 @@ def _fetch_decklists_batch(
         completed[0] += 1
         if card_count < 0:
             failed[0] += 1
-            console.print(
-                f"  [{completed[0]}/{len(deck_entries)}] {deck_code}: [red]failed[/red]"
-            )
+            console.print(f"  [{completed[0]}/{len(deck_entries)}] {deck_code}: [red]failed[/red]")
         elif card_count == 0:
             console.print(
-                f"  [{completed[0]}/{len(deck_entries)}] "
-                f"{deck_code}: [yellow]0 cards[/yellow]"
+                f"  [{completed[0]}/{len(deck_entries)}] {deck_code}: [yellow]0 cards[/yellow]"
             )
         else:
-            console.print(
-                f"  [{completed[0]}/{len(deck_entries)}] "
-                f"{deck_code}: {card_count} cards"
-            )
+            console.print(f"  [{completed[0]}/{len(deck_entries)}] {deck_code}: {card_count} cards")
 
     async def run_batch() -> dict[str, list]:
         jp_client = PokemonJPClient(pool_size=pool_size)
         async with jp_client.browser_pool():
-            return await jp_client.fetch_decklists_batch(
-                deck_entries, on_complete=on_complete
-            )
+            return await jp_client.fetch_decklists_batch(deck_entries, on_complete=on_complete)
 
     all_decklists = asyncio.run(run_batch())
 
@@ -763,9 +754,7 @@ def repair_decklists(ctx: click.Context, dry_run: bool, pool_size: int) -> None:
         conn.close()
 
 
-def _run_repair_decklists(
-    conn: sqlite3.Connection, dry_run: bool, pool_size: int
-) -> None:
+def _run_repair_decklists(conn: sqlite3.Connection, dry_run: bool, pool_size: int) -> None:
     from scraper.pokemon_jp_api import PokemonJPAPIClient
 
     # Find all sub-60 placements
@@ -831,9 +820,7 @@ def _run_repair_decklists(
                 for p in needs_api:
                     deck_id = api_by_standing.get(p["standing"])
                     if deck_id:
-                        deck_entries.append(
-                            (p["id"], deck_id, deck_url_base + deck_id)
-                        )
+                        deck_entries.append((p["id"], deck_id, deck_url_base + deck_id))
                     else:
                         console.print(
                             f"  [yellow]No deck code for {p['player_name']} "
@@ -1162,7 +1149,9 @@ def scrape_cl_api(
         console.print("[bold]Available CL events:[/bold]")
         for key, info in POKEMON_JP_CL_EVENTS.items():
             event_ids_str = ", ".join(str(eid) for eid in info["events"])
-            console.print(f"  [cyan]{key}[/cyan]: {info['name']} ({info['date']}) -- {event_ids_str}")
+            console.print(
+                f"  [cyan]{key}[/cyan]: {info['name']} ({info['date']}) -- {event_ids_str}"
+            )
         return
 
     # Build list of (event_id, division) to scrape
@@ -1915,7 +1904,11 @@ def players_profile(ctx: click.Context, player_id: int) -> None:
 
 @cli.command("scrape-pokecazilla")
 @click.argument("url")
-@click.option("--list-articles", is_flag=True, help="List recent Pokemon TCG articles instead of scraping a URL")
+@click.option(
+    "--list-articles",
+    is_flag=True,
+    help="List recent Pokemon TCG articles instead of scraping a URL",
+)
 @click.option("--max-pages", default=3, help="Max listing pages to scan (with --list-articles)")
 @click.pass_context
 def scrape_pokecazilla(
