@@ -4,28 +4,9 @@ import sqlite3
 from collections import defaultdict
 from datetime import date, datetime, timedelta
 
+from analysis.card_stats import build_jp_en_lookup
+from analysis.jp_card_names import JP_CARD_NAMES
 from config import TECH_TREND_THRESHOLD
-
-
-def _build_jp_to_en(conn: sqlite3.Connection) -> dict[str, str]:
-    """Build JP→EN card name lookup from cards table and card_mappings."""
-    lookup: dict[str, str] = {}
-    try:
-        for row in conn.execute(
-            "SELECT name_jp, name_en FROM cards WHERE name_jp IS NOT NULL AND name_jp != ''"
-        ):
-            lookup[row["name_jp"]] = row["name_en"]
-    except sqlite3.OperationalError:
-        pass
-    try:
-        for row in conn.execute(
-            "SELECT card_name_jp, card_name_en FROM card_mappings "
-            "WHERE card_name_jp IS NOT NULL AND card_name_en IS NOT NULL"
-        ):
-            lookup[row["card_name_jp"]] = row["card_name_en"]
-    except sqlite3.OperationalError:
-        pass
-    return lookup
 
 
 def compute_tech_forecast(conn: sqlite3.Connection, watchlist: set[str]) -> dict:
@@ -39,7 +20,7 @@ def compute_tech_forecast(conn: sqlite3.Connection, watchlist: set[str]) -> dict
         return {"generated_at": datetime.now().isoformat(), "cards": []}
 
     # Build JP→EN mapping so we can match JP card names to EN watchlist
-    jp_to_en = _build_jp_to_en(conn)
+    jp_to_en = build_jp_en_lookup(conn, fallback=JP_CARD_NAMES)
     en_to_jp: dict[str, str] = {v: k for k, v in jp_to_en.items()}
 
     # Build the full set of names to query (EN + JP equivalents)

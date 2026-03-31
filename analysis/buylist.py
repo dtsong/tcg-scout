@@ -4,6 +4,7 @@ import logging
 import sqlite3
 from collections import defaultdict
 
+from analysis.shared import BASIC_ENERGY_NAMES
 from config import (
     CORE_AVG_COPIES_OTHER,
     CORE_AVG_COPIES_POKEMON,
@@ -12,29 +13,6 @@ from config import (
 )
 
 logger = logging.getLogger(__name__)
-
-# Basic energy card names to exclude from buy list analytics
-BASIC_ENERGY_NAMES = {
-    "Basic Fire Energy",
-    "Basic Water Energy",
-    "Basic Lightning Energy",
-    "Basic Psychic Energy",
-    "Basic Fighting Energy",
-    "Basic Darkness Energy",
-    "Basic Metal Energy",
-    "Basic Grass Energy",
-    "Basic Colorless Energy",
-    "Basic Fairy Energy",
-    # DB stores without "Basic" prefix
-    "Fire Energy",
-    "Water Energy",
-    "Lightning Energy",
-    "Psychic Energy",
-    "Fighting Energy",
-    "Darkness Energy",
-    "Metal Energy",
-    "Grass Energy",
-}
 
 
 def generate_buylist(conn: sqlite3.Connection, snapshot_id: int) -> list[dict]:

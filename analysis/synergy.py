@@ -3,8 +3,7 @@
 import sqlite3
 from collections import defaultdict
 
-from analysis.card_stats import BASIC_ENERGY_NAMES
-from config import PLACEMENT_WEIGHT_DEFAULT, PLACEMENT_WEIGHTS
+from analysis.shared import BASIC_ENERGY_NAMES, placement_weight, slugify
 
 
 def compute_synergy_pairs(
@@ -87,7 +86,7 @@ def compute_synergy_pairs(
 
             # Weighted score: sum of placement weights for co-occurrences
             weighted_score = sum(
-                PLACEMENT_WEIGHTS.get(placement_standings.get(pid, 99), PLACEMENT_WEIGHT_DEFAULT)
+                placement_weight(placement_standings.get(pid, 99))
                 for pid in intersection
             )
 
@@ -158,7 +157,6 @@ def compute_archetype_overlap_matrix(
             "matrix": [[float, ...], ...]  # n x n Jaccard similarity
         }
     """
-    from analysis.card_stats import _slugify
 
     # Get top archetypes by deck count from latest snapshot
     snapshot_rows = conn.execute(
@@ -219,7 +217,7 @@ def compute_archetype_overlap_matrix(
         archetypes.append(
             {
                 "archetype": r["archetype"],
-                "slug": _slugify(r["archetype"]),
+                "slug": slugify(r["archetype"]),
                 "sprite_filenames": _get_sprite_filenames(r["archetype"]),
                 "weighted_share": round(weighted_shares.get(r["archetype"], 0.0), 1),
             }

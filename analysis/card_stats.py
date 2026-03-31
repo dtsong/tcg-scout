@@ -8,10 +8,7 @@ from collections import defaultdict
 from datetime import date, timedelta
 from pathlib import Path
 
-from config import (
-    PLACEMENT_WEIGHT_DEFAULT,
-    PLACEMENT_WEIGHTS,
-)
+from analysis.shared import BASIC_ENERGY_NAMES, placement_weight, slugify
 
 _log = logging.getLogger(__name__)
 
@@ -29,26 +26,7 @@ if _POKEMON_NAMES_FILE.exists():
             exc,
         )
 
-# Basic energy card names to exclude from all analytics (canonical definition;
-# also imported by json_export.py, synergy.py, evolution.py)
-BASIC_ENERGY_NAMES = {
-    "Basic Fire Energy",
-    "Basic Water Energy",
-    "Basic Lightning Energy",
-    "Basic Psychic Energy",
-    "Basic Fighting Energy",
-    "Basic Darkness Energy",
-    "Basic Metal Energy",
-    "Basic Grass Energy",
-    "Fire Energy",
-    "Water Energy",
-    "Lightning Energy",
-    "Psychic Energy",
-    "Fighting Energy",
-    "Darkness Energy",
-    "Metal Energy",
-    "Grass Energy",
-}
+# BASIC_ENERGY_NAMES re-exported from analysis.shared for backward compatibility
 
 # EN→EN card name aliases: local-shop fan translations → City League (Limitless) canonical names.
 # Applied after JP→EN translation to normalise variant English names for the same card.
@@ -151,11 +129,7 @@ def build_jp_en_lookup(
     return lookup
 
 
-def _slugify(name: str) -> str:
-    """Convert name to URL slug."""
-    slug = name.lower()
-    slug = re.sub(r"[^a-z0-9]+", "-", slug)
-    return slug.strip("-")
+_slugify = slugify
 
 
 def build_category_lookup(conn: sqlite3.Connection) -> dict[str, str]:
@@ -369,7 +343,7 @@ def compute_card_stats(conn: sqlite3.Connection) -> list[dict]:
 
     weighted_scores: dict[str, float] = defaultdict(float)
     for wr in weight_rows:
-        weight = PLACEMENT_WEIGHTS.get(wr["standing"], PLACEMENT_WEIGHT_DEFAULT)
+        weight = placement_weight(wr["standing"])
         weighted_scores[wr["card_name"]] += weight
 
     # Build card stats
@@ -470,7 +444,7 @@ def compute_card_detail(conn: sqlite3.Connection, card_name: str) -> dict | None
         (card_name,),
     ).fetchall()
 
-    ws = sum(PLACEMENT_WEIGHTS.get(r["standing"], PLACEMENT_WEIGHT_DEFAULT) for r in weight_rows)
+    ws = sum(placement_weight(r["standing"]) for r in weight_rows)
     win_rate_proxy = round(ws / appearances, 2)
 
     # Archetype breakdown

@@ -4,7 +4,7 @@ import logging
 import sqlite3
 from dataclasses import dataclass
 
-from config import PLACEMENT_WEIGHT_DEFAULT, PLACEMENT_WEIGHTS
+from analysis.shared import placement_weight
 
 logger = logging.getLogger(__name__)
 
@@ -59,10 +59,6 @@ class PlayerProfile:
     deck_timeline: list[DeckTimelineEntry]
 
 
-def _placement_weight(standing: int) -> float:
-    """Get the weight for a given standing."""
-    return PLACEMENT_WEIGHTS.get(standing, PLACEMENT_WEIGHT_DEFAULT)
-
 
 def list_top_performers(
     conn: sqlite3.Connection,
@@ -107,7 +103,7 @@ def list_top_performers(
         entry = aggregated[name]
         entry["dates"].add(str(row["date"]))
         entry["best"] = min(entry["best"], row["standing"])
-        entry["score"] += _placement_weight(row["standing"])
+        entry["score"] += placement_weight(row["standing"])
         if row["archetype"] not in entry["archetypes"]:
             entry["archetypes"].append(row["archetype"])
 
@@ -174,7 +170,7 @@ def get_player_profile(conn: sqlite3.Connection, player_id: int) -> PlayerProfil
         for row in placements
     ]
     tournament_dates = {p.date for p in placement_list}
-    weighted_score = sum(_placement_weight(p.standing) for p in placement_list)
+    weighted_score = sum(placement_weight(p.standing) for p in placement_list)
 
     deck_timeline = [
         DeckTimelineEntry(date=p.date, archetype=p.archetype, standing=p.standing)
