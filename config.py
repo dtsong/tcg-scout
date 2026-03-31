@@ -208,6 +208,53 @@ POKEMON_JP_CITY_LEAGUE_EVENT_TYPES = [
     "3:8",
 ]
 
+# Pokemon JP API: Champions League event_holding_ids
+# Discovered via /event_result_detail_search probing and /event/result/list page
+POKEMON_JP_CL_EVENTS = {
+    "yokohama-2026": {
+        "name": "Champions League 2026 Yokohama",
+        "date": "2025-09-21",
+        "events": {
+            795984: "masters",
+            795978: "seniors",  # Day 1
+            795979: "seniors",  # Day 2
+            795981: "juniors",  # Day 1
+            795982: "juniors",  # Day 2
+        },
+    },
+    "aichi-2026": {
+        "name": "Champions League 2026 Aichi",
+        "date": "2025-12-07",
+        "events": {
+            849967: "masters",
+            849961: "seniors",  # Day 1
+            849962: "seniors",  # Day 2
+            849964: "juniors",  # Day 1
+            849965: "juniors",  # Day 2
+        },
+    },
+    "fukuoka-2026": {
+        "name": "Champions League 2026 Fukuoka",
+        "date": "2026-02-23",
+        "events": {
+            903703: "masters",
+            903701: "seniors",
+            903702: "juniors",
+        },
+    },
+    "osaka-2026": {
+        "name": "Champions League 2026 Osaka",
+        "date": "2026-03-29",
+        "events": {
+            981570: "masters",
+            953305: "seniors",  # Day 1
+            953306: "seniors",  # Day 2
+            953308: "juniors",  # Day 1
+            953309: "juniors",  # Day 2
+        },
+    },
+}
+
 # TCGdex
 TCGDEX_API_URL = "https://api.tcgdex.net/v2/en"
 

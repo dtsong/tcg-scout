@@ -127,8 +127,8 @@ class TestStoreCLResults:
         card_ids = {row["card_id"] for row in stored_cards}
         assert "sv5-001" in card_ids
 
-        # Card with set_code but no card_number -> falls back to name_jp
-        assert "ネストボール" in card_ids
+        # Card with set_code but no card_number -> "set_code-name_jp"
+        assert "sv5-ネストボール" in card_ids
 
         # Card with no set_code -> falls back to name_jp
         assert "基本炎エネルギー" in card_ids

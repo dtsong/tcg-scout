@@ -34,8 +34,16 @@ PAGE_SIZE = 20  # event_search returns 20 per page
 
 LEAGUE_NAME_MAP = {
     "オープン": "open",
+    "マスター": "open",  # Masters league treated as open division
     "シニア": "senior",
     "ジュニア": "junior",
+}
+
+# CL division name extraction from event titles
+CL_DIVISION_MAP = {
+    "マスター": "masters",
+    "シニア": "seniors",
+    "ジュニア": "juniors",
 }
 
 
@@ -191,6 +199,53 @@ class PokemonJPAPIClient:
         results.sort(key=lambda r: r.rank)
         logger.info("Fetched %d results for event %d", len(results), event_holding_id)
         return results
+
+    def fetch_event_with_metadata(
+        self, event_holding_id: int
+    ) -> tuple[dict, list[JPCityLeagueResult]]:
+        """Fetch event metadata and placements in one call.
+
+        Returns:
+            Tuple of (event_metadata_dict, list_of_results).
+            event_metadata_dict has keys: event_title, event_date_params, leagueName, etc.
+        """
+        resp = self._client.get(
+            "/event_result_detail_search",
+            params={
+                "event_holding_id": event_holding_id,
+                "offset": 0,
+                "per_page": 64,
+            },
+        )
+        resp.raise_for_status()
+        data = resp.json()
+
+        if data.get("code") != 200:
+            logger.warning("API returned code %s for event %d", data.get("code"), event_holding_id)
+            return {}, []
+
+        event_meta = data.get("event", {})
+
+        results = []
+        for r in data.get("results", []):
+            results.append(
+                JPCityLeagueResult(
+                    rank=r.get("rank", 0),
+                    player_name=r.get("name", ""),
+                    player_id=r.get("player_id", ""),
+                    area=r.get("area", ""),
+                    deck_id=r.get("deck_id") or None,
+                )
+            )
+
+        results.sort(key=lambda r: r.rank)
+        logger.info(
+            "Fetched %d results for event %d (%s)",
+            len(results),
+            event_holding_id,
+            event_meta.get("event_title", "?"),
+        )
+        return event_meta, results
 
     def close(self) -> None:
         self._client.close()

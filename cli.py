@@ -651,6 +651,209 @@ def _run_reclassify(ctx: click.Context, *, dry_run: bool, target_all: bool) -> N
         conn.close()
 
 
+@cli.command("repair-decklists")
+@click.option("--dry-run", is_flag=True, help="Show what would be repaired without fetching")
+@click.option("--pool-size", default=5, help="Number of concurrent browser instances")
+@click.pass_context
+def repair_decklists(ctx: click.Context, dry_run: bool, pool_size: int) -> None:
+    """Re-fetch decklists that have fewer than 60 cards due to card_id collisions.
+
+    Recovers deck codes from the API when decklist_url is missing.
+    """
+    import asyncio
+    import time
+
+    from scraper.pokemon_jp import (
+        JPDeckCard,
+        PokemonJPClient,
+        store_cl_city_league_results,
+    )
+    from scraper.pokemon_jp_api import PokemonJPAPIClient
+
+    fmt = ctx.obj["format"]
+    conn = get_format_connection(fmt)
+    init_db(conn)
+
+    # Find all sub-60 placements
+    bad_placements = conn.execute("""
+        SELECT p.id, p.tournament_id, p.standing, p.player_name, p.decklist_url,
+               SUM(dc.count) as total_cards
+        FROM placements p
+        JOIN tournaments t ON p.tournament_id = t.id
+        JOIN decklist_cards dc ON dc.placement_id = p.id
+        WHERE t.id LIKE 'jp-%'
+        GROUP BY p.id
+        HAVING total_cards < 60
+        ORDER BY t.date, p.standing
+    """).fetchall()
+
+    console.print(f"Found [bold]{len(bad_placements)}[/bold] decklists with <60 cards")
+
+    if not bad_placements:
+        return
+
+    # Group by tournament to batch API lookups
+    by_tournament: dict[str, list] = {}
+    for row in bad_placements:
+        tid = row["tournament_id"]
+        if tid not in by_tournament:
+            by_tournament[tid] = []
+        by_tournament[tid].append(row)
+
+    console.print(f"Across [bold]{len(by_tournament)}[/bold] tournaments\n")
+
+    # Phase 1: Recover deck codes for placements missing URLs
+    deck_url_base = "https://www.pokemon-card.com/deck/confirm.html/deckID/"
+    deck_entries: list[tuple[int, str, str]] = []  # (placement_id, deck_code, deck_url)
+    api_client = PokemonJPAPIClient()
+
+    try:
+        for tid, placements in by_tournament.items():
+            event_id = int(tid.replace("jp-", ""))
+
+            # Check if any placements need URL recovery
+            needs_api = [p for p in placements if not p["decklist_url"]]
+            has_url = [p for p in placements if p["decklist_url"]]
+
+            # Add known URLs
+            for p in has_url:
+                url = p["decklist_url"]
+                code = url.split("deckID/")[-1] if "deckID/" in url else None
+                if code:
+                    deck_entries.append((p["id"], code, url))
+
+            if needs_api:
+                # Fetch from API to get deck codes
+                results = api_client.fetch_event_results(event_id)
+                api_by_standing: dict[int, str] = {}
+                for r in results:
+                    if r.deck_id:
+                        api_by_standing[r.rank] = r.deck_id
+
+                for p in needs_api:
+                    deck_id = api_by_standing.get(p["standing"])
+                    if deck_id:
+                        deck_entries.append(
+                            (p["id"], deck_id, deck_url_base + deck_id)
+                        )
+                    else:
+                        console.print(
+                            f"  [yellow]No deck code for {p['player_name']} "
+                            f"(#{p['standing']}) in {tid}[/yellow]"
+                        )
+    finally:
+        api_client.close()
+
+    console.print(
+        f"\n[cyan]Recovered {len(deck_entries)} deck URLs "
+        f"({len(bad_placements) - len(deck_entries)} unrecoverable)[/cyan]"
+    )
+
+    if dry_run:
+        console.print("\n[yellow]Dry run -- no changes made[/yellow]")
+        return
+
+    if not deck_entries:
+        console.print("[yellow]No decklists to repair[/yellow]")
+        return
+
+    # Phase 2: Re-fetch all decklists
+    from dotenv import load_dotenv
+
+    load_dotenv()
+
+    console.print(
+        f"\n[bold cyan]Phase 2:[/bold cyan] Re-fetching {len(deck_entries)} decklists "
+        f"with {pool_size} concurrent browsers..."
+    )
+
+    completed = [0]
+    failed_count = [0]
+    t_start = time.monotonic()
+
+    def on_complete(deck_code: str, card_count: int) -> None:
+        completed[0] += 1
+        if card_count < 0:
+            failed_count[0] += 1
+
+    fetch_list = [(code, url) for _, code, url in deck_entries]
+
+    async def run_batch() -> dict[str, list[JPDeckCard]]:
+        jp_client = PokemonJPClient(pool_size=pool_size)
+        async with jp_client.browser_pool():
+            return await jp_client.fetch_decklists_batch(fetch_list, on_complete=on_complete)
+
+    all_decklists = asyncio.run(run_batch())
+
+    elapsed = time.monotonic() - t_start
+    console.print(
+        f"[green]Fetched {len(all_decklists)} decklists in {elapsed:.0f}s "
+        f"({failed_count[0]} failed)[/green]"
+    )
+
+    # Phase 3: Delete old cards and re-store
+    console.print(f"\n[bold cyan]Phase 3:[/bold cyan] Replacing card data...")
+    from analysis.card_stats import EN_CARD_ALIASES, build_jp_en_lookup
+    from reports.json_export import JP_CARD_NAMES
+
+    jp_en_lookup = build_jp_en_lookup(conn, fallback=JP_CARD_NAMES)
+    repaired = 0
+    still_bad = 0
+
+    for placement_id, deck_code, _ in deck_entries:
+        if deck_code not in all_decklists:
+            continue
+
+        cards = all_decklists[deck_code]
+        total = sum(c.count for c in cards)
+
+        if total < 60:
+            still_bad += 1
+            continue
+
+        # Delete old cards
+        conn.execute("DELETE FROM decklist_cards WHERE placement_id = ?", (placement_id,))
+
+        # Re-store with fixed card_id logic (disambiguate same-name cards)
+        card_id_counts: dict[str, int] = {}
+        for card in cards:
+            if card.set_code and card.card_number:
+                base_id = f"{card.set_code}-{card.card_number}"
+            elif card.set_code:
+                base_id = f"{card.set_code}-{card.name_jp}"
+            else:
+                base_id = card.name_jp
+            card_id_counts[base_id] = card_id_counts.get(base_id, 0) + 1
+            if card_id_counts[base_id] > 1:
+                card_id = f"{base_id}#{card_id_counts[base_id]}"
+            else:
+                card_id = base_id
+            card_name = jp_en_lookup.get(card.name_jp, card.name_jp)
+            card_name = EN_CARD_ALIASES.get(card_name, card_name)
+            conn.execute(
+                "INSERT OR REPLACE INTO decklist_cards "
+                "(placement_id, card_id, card_name, count) "
+                "VALUES (?, ?, ?, ?)",
+                (placement_id, card_id, card_name, card.count),
+            )
+
+        # Also update decklist_url if it was missing
+        conn.execute(
+            "UPDATE placements SET decklist_url = ? WHERE id = ? AND (decklist_url IS NULL OR decklist_url = '')",
+            (f"https://www.pokemon-card.com/deck/confirm.html/deckID/{deck_code}", placement_id),
+        )
+
+        repaired += 1
+
+    conn.commit()
+    console.print(
+        f"\n[green]Repaired {repaired} decklists[/green]"
+        f"\n[yellow]{still_bad} still <60 after re-fetch (parser issue)[/yellow]"
+        f"\n[yellow]{len(bad_placements) - len(deck_entries)} had no deck code[/yellow]"
+    )
+    conn.close()
+
+
 @cli.command("import-cl")
 @click.option("--dir", "data_dir", default="data/fukuoka-cl", help="Directory with CL CSV files")
 @click.pass_context
@@ -867,6 +1070,237 @@ def scrape_jp(
         )
 
         # Phase 2: Batch fetch all decklists concurrently
+        all_decklists: dict[str, list] = {}
+        if fetch_decklists and all_deck_entries:
+            from dotenv import load_dotenv
+
+            load_dotenv()
+            from scraper.pokemon_jp import PokemonJPClient
+
+            console.print(
+                f"\n[bold cyan]Phase 2:[/bold cyan] Fetching {len(all_deck_entries)} decklists "
+                f"with {pool_size} concurrent browsers..."
+            )
+
+            completed = [0]
+            failed = [0]
+            t_start = time.monotonic()
+
+            def on_complete(deck_code: str, card_count: int) -> None:
+                completed[0] += 1
+                if card_count < 0:
+                    failed[0] += 1
+                    console.print(
+                        f"  [{completed[0]}/{len(all_deck_entries)}] {deck_code}: [red]failed[/red]"
+                    )
+                elif card_count == 0:
+                    console.print(
+                        f"  [{completed[0]}/{len(all_deck_entries)}] "
+                        f"{deck_code}: [yellow]0 cards[/yellow]"
+                    )
+                else:
+                    console.print(
+                        f"  [{completed[0]}/{len(all_deck_entries)}] "
+                        f"{deck_code}: {card_count} cards"
+                    )
+
+            async def run_batch() -> dict[str, list]:
+                jp_client = PokemonJPClient(pool_size=pool_size)
+                async with jp_client.browser_pool():
+                    return await jp_client.fetch_decklists_batch(
+                        all_deck_entries, on_complete=on_complete
+                    )
+
+            all_decklists = asyncio.run(run_batch())
+
+            elapsed = time.monotonic() - t_start
+            console.print(
+                f"[green]Fetched {len(all_decklists)} decklists in {elapsed:.0f}s "
+                f"({failed[0]} failed)[/green]"
+            )
+
+        # Phase 3: Store everything
+        console.print(f"\n[bold cyan]Phase 3:[/bold cyan] Storing {len(events_data)} events...")
+        total_placements = 0
+        total_decklists = 0
+
+        for jp_event in events_data:
+            event_decklists = {
+                p.deck_code: all_decklists[p.deck_code]
+                for p in jp_event.placements
+                if p.deck_code and p.deck_code in all_decklists
+            }
+            store_cl_city_league_results(conn, jp_event, event_decklists)
+            total_placements += len(jp_event.placements)
+            total_decklists += len(event_decklists)
+
+        console.print(
+            f"\n[green]Done! Stored {total_placements} placements "
+            f"and {total_decklists} decklists across {len(events_data)} events.[/green]"
+        )
+    finally:
+        api_client.close()
+        conn.close()
+
+
+@cli.command("scrape-cl-api")
+@click.argument("cl_name", required=False, default=None)
+@click.option("--event-ids", default=None, help="Comma-separated event_holding_ids to scrape")
+@click.option(
+    "--fetch-decklists/--no-decklists", default=True, help="Fetch decklists via Playwright"
+)
+@click.option("--top", default=16, help="Max placements to fetch decklists for")
+@click.option(
+    "--pool-size", default=5, help="Number of concurrent browser instances for decklist fetching"
+)
+@click.option("--list", "list_cls", is_flag=True, help="List available CL events")
+@click.pass_context
+def scrape_cl_api(
+    ctx: click.Context,
+    cl_name: str | None,
+    event_ids: str | None,
+    fetch_decklists: bool,
+    top: int,
+    pool_size: int,
+    list_cls: bool,
+) -> None:
+    """Scrape Champions League results from players.pokemon-card.com API.
+
+    Uses plain HTTP for event results (no browser required for listings).
+    Pass --fetch-decklists to also fetch decklists via Playwright.
+
+    Examples:
+        scout scrape-cl-api --list
+        scout scrape-cl-api osaka-2026
+        scout scrape-cl-api --event-ids 981570,953305,953306
+    """
+    import asyncio
+    import time
+
+    from config import POKEMON_JP_CL_EVENTS
+    from scraper.pokemon_jp import JPEventResult, JPPlacement, store_cl_city_league_results
+    from scraper.pokemon_jp_api import CL_DIVISION_MAP, PokemonJPAPIClient
+
+    if list_cls:
+        console.print("[bold]Available CL events:[/bold]")
+        for key, info in POKEMON_JP_CL_EVENTS.items():
+            event_ids_str = ", ".join(str(eid) for eid in info["events"])
+            console.print(f"  [cyan]{key}[/cyan]: {info['name']} ({info['date']}) -- {event_ids_str}")
+        return
+
+    # Build list of (event_id, division) to scrape
+    events_to_scrape: list[tuple[int, str | None]] = []
+
+    if event_ids:
+        for eid_str in event_ids.split(","):
+            events_to_scrape.append((int(eid_str.strip()), None))
+    elif cl_name:
+        if cl_name not in POKEMON_JP_CL_EVENTS:
+            console.print(f"[red]Unknown CL event: {cl_name}[/red]")
+            console.print(f"Available: {', '.join(POKEMON_JP_CL_EVENTS.keys())}")
+            return
+        cl_info = POKEMON_JP_CL_EVENTS[cl_name]
+        for eid, division in cl_info["events"].items():
+            events_to_scrape.append((eid, division))
+    else:
+        console.print("[red]Specify a CL name or --event-ids. Use --list to see options.[/red]")
+        return
+
+    fmt = ctx.obj["format"]
+    conn = get_format_connection(fmt)
+    init_db(conn)
+
+    api_client = PokemonJPAPIClient()
+    deck_url_base = "https://www.pokemon-card.com/deck/confirm.html/deckID/"
+
+    try:
+        # Phase 1: Fetch event metadata and results via API
+        console.print(
+            f"[bold cyan]Phase 1:[/bold cyan] Fetching {len(events_to_scrape)} CL events via API..."
+        )
+        events_data: list[JPEventResult] = []
+        all_deck_entries: list[tuple[str, str]] = []
+
+        for eid, known_division in events_to_scrape:
+            meta, results = api_client.fetch_event_with_metadata(eid)
+
+            if not results:
+                console.print(f"  [yellow]Event {eid}: no results[/yellow]")
+                continue
+
+            # Determine division from metadata or known config
+            title = meta.get("event_title", "")
+            division = known_division or "masters"
+            if not known_division:
+                for jp_div, en_div in CL_DIVISION_MAP.items():
+                    if jp_div in title:
+                        division = en_div
+                        break
+
+            # Map CL division to tournament division
+            tournament_division = {"masters": "open", "seniors": "senior", "juniors": "junior"}.get(
+                division, "open"
+            )
+
+            # Parse date -- event_result_detail_search uses different fields than event_search
+            date_iso = ""
+            event_date = meta.get("eventDate")
+            if isinstance(event_date, dict) and event_date.get("date"):
+                date_iso = event_date["date"][:10]  # "2026-03-29 00:00:00.000000" -> "2026-03-29"
+            elif meta.get("eventDaySupply"):
+                date_iso = meta["eventDaySupply"].replace("/", "-")
+            elif meta.get("event_date_params"):
+                date_raw = meta["event_date_params"]
+                if len(date_raw) == 8 and date_raw.isdigit():
+                    date_iso = f"{date_raw[:4]}-{date_raw[4:6]}-{date_raw[6:8]}"
+
+            console.print(
+                f"  [green]{eid}[/green]: {title[:60]} | {len(results)} placements | {division}"
+            )
+
+            # Check if already in DB
+            existing = conn.execute(
+                "SELECT id FROM tournaments WHERE id = ?", (f"jp-{eid}",)
+            ).fetchone()
+            if existing:
+                console.print(f"    [yellow]Already in database, skipping[/yellow]")
+                continue
+
+            placements = [
+                JPPlacement(
+                    standing=r.rank,
+                    player_name=r.player_name,
+                    region=r.area,
+                    deck_url=(deck_url_base + r.deck_id) if r.deck_id else None,
+                    deck_code=r.deck_id,
+                )
+                for r in results
+            ]
+
+            jp_event = JPEventResult(
+                event_id=eid,
+                event_name=title,
+                division=tournament_division,
+                date=date_iso,
+                placements=placements,
+            )
+            events_data.append(jp_event)
+
+            if fetch_decklists:
+                for p in placements:
+                    if p.deck_url and p.deck_code and p.standing <= top:
+                        all_deck_entries.append((p.deck_code, p.deck_url))
+
+        if not events_data:
+            console.print("[yellow]No new events to process.[/yellow]")
+            return
+
+        console.print(
+            f"\n[green]Collected {sum(len(e.placements) for e in events_data)} placements "
+            f"across {len(events_data)} events[/green]"
+        )
+
+        # Phase 2: Batch fetch decklists
         all_decklists: dict[str, list] = {}
         if fetch_decklists and all_deck_entries:
             from dotenv import load_dotenv

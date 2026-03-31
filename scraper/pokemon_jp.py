@@ -716,11 +716,20 @@ def store_cl_city_league_results(
 
         # Store decklist cards if available (translate JP→EN at ingestion time)
         if deck_cards is not None:
+            card_id_counts: dict[str, int] = {}
             for card in deck_cards:
                 if card.set_code and card.card_number:
-                    card_id = f"{card.set_code}-{card.card_number}"
+                    base_id = f"{card.set_code}-{card.card_number}"
+                elif card.set_code:
+                    base_id = f"{card.set_code}-{card.name_jp}"
                 else:
-                    card_id = card.name_jp
+                    base_id = card.name_jp
+                # Disambiguate duplicate card_ids (same name+set, different art)
+                card_id_counts[base_id] = card_id_counts.get(base_id, 0) + 1
+                if card_id_counts[base_id] > 1:
+                    card_id = f"{base_id}#{card_id_counts[base_id]}"
+                else:
+                    card_id = base_id
                 card_name = jp_en_lookup.get(card.name_jp, card.name_jp)
                 card_name = EN_CARD_ALIASES.get(card_name, card_name)
                 conn.execute(
