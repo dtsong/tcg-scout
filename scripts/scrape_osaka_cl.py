@@ -464,9 +464,7 @@ async def fetch_decklists_pooled(
         return {}
 
     pool_size = min(BROWSER_POOL_SIZE, len(targets))
-    logger.info(
-        "Fetching %d decklists with %d browser pool", len(targets), pool_size
-    )
+    logger.info("Fetching %d decklists with %d browser pool", len(targets), pool_size)
 
     # Create browser pool
     pool_queue: asyncio.Queue = asyncio.Queue()

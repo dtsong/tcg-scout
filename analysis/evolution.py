@@ -4,7 +4,9 @@ import sqlite3
 from collections import defaultdict
 from datetime import date, timedelta
 
-from analysis.card_stats import BASIC_ENERGY_NAMES, EN_CARD_ALIASES, _slugify, build_jp_en_lookup
+from analysis.card_stats import EN_CARD_ALIASES, build_jp_en_lookup
+from analysis.jp_card_names import JP_CARD_NAMES
+from analysis.shared import BASIC_ENERGY_NAMES, slugify
 
 # Minimum decks with decklists required per week to compute shifts.
 # Prevents small-sample noise (e.g., 4 decks in week 1 → 100% rates).
@@ -202,9 +204,6 @@ def compute_meta_evolution(
     if not arch_rows:
         return {"highlights": [], "movements": []}
 
-    # Lazy import to avoid circular dependency (json_export imports from this module)
-    from reports.json_export import JP_CARD_NAMES
-
     jp_en_lookup = build_jp_en_lookup(conn, fallback=JP_CARD_NAMES)
 
     all_movements = []
@@ -215,7 +214,7 @@ def compute_meta_evolution(
         for event in evolution:
             base = {
                 "archetype": ar["archetype"],
-                "archetype_slug": _slugify(ar["archetype"]),
+                "archetype_slug": slugify(ar["archetype"]),
                 "deck_count": ar["deck_count"],
                 "week": event["week"],
             }

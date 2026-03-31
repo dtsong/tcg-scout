@@ -5,19 +5,11 @@ from collections import defaultdict
 from statistics import variance
 
 from analysis.card_stats import EN_CARD_ALIASES, classify_card
+from analysis.shared import placement_weight
 from config import (
     CL_BOOST_FACTOR,
     CL_TOURNAMENT_IDS,
-    PLACEMENT_WEIGHT_DEFAULT,
-    PLACEMENT_WEIGHTS,
 )
-
-
-def _get_placement_weight(
-    standing: int, is_cl: bool = False, boost: float = CL_BOOST_FACTOR
-) -> float:
-    base = PLACEMENT_WEIGHTS.get(standing, PLACEMENT_WEIGHT_DEFAULT)
-    return base * boost if is_cl else base
 
 
 def _generate_insight(
@@ -122,7 +114,7 @@ def compute_optimal_60(
     for r in rows:
         pid = r["placement_id"]
         is_cl = pid in cl_pids
-        weight_by_pid[pid] = _get_placement_weight(r["standing"], is_cl, effective_boost)
+        weight_by_pid[pid] = placement_weight(r["standing"], effective_boost if is_cl else 1.0)
 
     total_weight = sum(weight_by_pid.values())
     placement_ids = list(weight_by_pid.keys())

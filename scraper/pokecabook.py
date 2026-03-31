@@ -56,9 +56,7 @@ _PLACEMENT_MAP: list[tuple[str, int]] = [
 ]
 
 # Regex to extract deck ID from pokemon-card.com URLs
-_DECK_ID_RE = re.compile(
-    r"pokemon-card\.com/deck/result\.html/deckID/([A-Za-z0-9-]+)"
-)
+_DECK_ID_RE = re.compile(r"pokemon-card\.com/deck/result\.html/deckID/([A-Za-z0-9-]+)")
 
 
 @dataclass

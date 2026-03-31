@@ -75,7 +75,9 @@ def parse_standing(text: str) -> int | None:
 
     # Check longer patterns first to avoid 優勝 matching before 準優勝
     # Sort by pattern length descending
-    for pattern, standing in sorted(STANDING_PATTERNS.items(), key=lambda x: len(x[0]), reverse=True):
+    for pattern, standing in sorted(
+        STANDING_PATTERNS.items(), key=lambda x: len(x[0]), reverse=True
+    ):
         if pattern in text:
             return standing
 
@@ -325,9 +327,7 @@ class PokecazillaClient:
             placements=placements,
         )
 
-    async def list_pokemon_articles(
-        self, max_pages: int = 3
-    ) -> list[PokecazillaListEntry]:
+    async def list_pokemon_articles(self, max_pages: int = 3) -> list[PokecazillaListEntry]:
         """List recent Pokemon TCG articles from Pokecazilla.
 
         Browses the Pokemon TCG category/tag pages to find tournament result articles.

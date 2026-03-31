@@ -146,39 +146,39 @@ function isFileNotFound(err: unknown): boolean {
   return (err as NodeJS.ErrnoException).code === "ENOENT";
 }
 
-export function getTimeline(format: string): TimelineData | null {
-  try {
-    return readJson(`${format}/timeline.json`);
-  } catch (err) {
-    if (isFileNotFound(err)) return null;
-    console.error(`Failed to load timeline for ${format}:`, err);
-    return null;
-  }
+function makeSafeLoader<T>(filename: string, label: string): (format: string) => T | null {
+  return (format: string): T | null => {
+    try {
+      return readJson<T>(`${format}/${filename}`);
+    } catch (err) {
+      if (isFileNotFound(err)) return null;
+      console.error(`Failed to load ${label} for ${format}:`, err);
+      return null;
+    }
+  };
 }
 
-export function getCardIndex(format: string): CardSummary[] {
-  try {
-    return readJson(`${format}/cards/index.json`);
-  } catch (err) {
-    if (isFileNotFound(err)) return [];
-    console.error(`Failed to load card index for ${format}:`, err);
-    return [];
-  }
+function makeSafeArrayLoader<T>(filename: string, label: string): (format: string) => T[] {
+  return (format: string): T[] => {
+    try {
+      return readJson<T[]>(`${format}/${filename}`);
+    } catch (err) {
+      if (isFileNotFound(err)) return [];
+      console.error(`Failed to load ${label} for ${format}:`, err);
+      return [];
+    }
+  };
 }
+
+export const getTimeline = makeSafeLoader<TimelineData>("timeline.json", "timeline");
+
+export const getCardIndex = makeSafeArrayLoader<CardSummary>("cards/index.json", "card index");
 
 export function getCardDetail(format: string, slug: string): CardDetail {
   return readJson(`${format}/cards/${slug}.json`);
 }
 
-export function getSynergyPairs(format: string): SynergyPair[] {
-  try {
-    return readJson(`${format}/cards/synergy.json`);
-  } catch (err) {
-    if (isFileNotFound(err)) return [];
-    console.error(`Failed to load synergy pairs for ${format}:`, err);
-    return [];
-  }
-}
+export const getSynergyPairs = makeSafeArrayLoader<SynergyPair>("cards/synergy.json", "synergy pairs");
 
 export function getCardSlugs(format: string): string[] {
   const dir = path.join(DATA_DIR, format, "cards");
@@ -209,70 +209,22 @@ export function getMetaEvolution(format: string): MetaEvolutionData {
   }
 }
 
-export function getMatchupMatrix(format: string): MatchupMatrixData | null {
-  try {
-    return readJson(`${format}/matchup.json`);
-  } catch (err) {
-    if (isFileNotFound(err)) return null;
-    console.error(`Failed to load matchup matrix for ${format}:`, err);
-    return null;
-  }
-}
+export const getMatchupMatrix = makeSafeLoader<MatchupMatrixData>("matchup.json", "matchup matrix");
 
-export function getArchetypeOverlap(format: string): OverlapMatrixData | null {
-  try {
-    return readJson(`${format}/archetype-overlap.json`);
-  } catch (err) {
-    if (isFileNotFound(err)) return null;
-    console.error(`Failed to load archetype overlap for ${format}:`, err);
-    return null;
-  }
-}
+export const getArchetypeOverlap = makeSafeLoader<OverlapMatrixData>("archetype-overlap.json", "archetype overlap");
 
-export function getCardAnalysis(format: string): CardAnalysisData | null {
-  try {
-    return readJson(`${format}/card-analysis.json`);
-  } catch (err) {
-    if (isFileNotFound(err)) return null;
-    console.error(`Failed to load card analysis for ${format}:`, err);
-    return null;
-  }
-}
+export const getCardAnalysis = makeSafeLoader<CardAnalysisData>("card-analysis.json", "card analysis");
 
-export function getTechForecast(format: string): TechForecast | null {
-  try {
-    return readJson(`${format}/tech-forecast.json`);
-  } catch (err) {
-    if (isFileNotFound(err)) return null;
-    console.error(`Failed to load tech forecast for ${format}:`, err);
-    return null;
-  }
-}
+export const getTechForecast = makeSafeLoader<TechForecast>("tech-forecast.json", "tech forecast");
 
 export function formatHasData(format: string): boolean {
   const metaPath = path.join(DATA_DIR, format, "meta.json");
   return fs.existsSync(metaPath);
 }
 
-export function getMetaReport(format: string): MetaReport | null {
-  try {
-    return readJson(`${format}/report.json`);
-  } catch (err) {
-    if (isFileNotFound(err)) return null;
-    console.error(`Failed to load meta report for ${format}:`, err);
-    return null;
-  }
-}
+export const getMetaReport = makeSafeLoader<MetaReport>("report.json", "meta report");
 
-export function getOptimal60Index(format: string): Optimal60Index | null {
-  try {
-    return readJson(`${format}/optimal-60/index.json`);
-  } catch (err) {
-    if (isFileNotFound(err)) return null;
-    console.error(`Failed to load optimal 60 index for ${format}:`, err);
-    return null;
-  }
-}
+export const getOptimal60Index = makeSafeLoader<Optimal60Index>("optimal-60/index.json", "optimal 60 index");
 
 export function getOptimal60(format: string, slug: string): Optimal60Detail | null {
   try {

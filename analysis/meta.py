@@ -4,7 +4,8 @@ import logging
 import sqlite3
 from datetime import UTC, datetime
 
-from config import PLACEMENT_WEIGHT_DEFAULT, PLACEMENT_WEIGHTS, TIER_THRESHOLDS
+from analysis.shared import placement_weight
+from config import TIER_THRESHOLDS
 
 logger = logging.getLogger(__name__)
 
@@ -72,7 +73,7 @@ def compute_meta_snapshot(
     weighted_sums: dict[str, float] = {}
     total_weight = 0.0
     for wr in weight_rows:
-        w = PLACEMENT_WEIGHTS.get(wr["standing"], PLACEMENT_WEIGHT_DEFAULT)
+        w = placement_weight(wr["standing"])
         weighted_sums[wr["archetype"]] = weighted_sums.get(wr["archetype"], 0.0) + w
         total_weight += w
     weighted_shares = (

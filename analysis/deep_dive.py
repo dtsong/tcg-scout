@@ -4,12 +4,8 @@ import sqlite3
 from collections import defaultdict
 from datetime import date, timedelta
 
-from analysis.card_stats import BASIC_ENERGY_NAMES, classify_card
-from config import PLACEMENT_WEIGHT_DEFAULT, PLACEMENT_WEIGHTS
-
-
-def _get_placement_weight(standing: int) -> float:
-    return PLACEMENT_WEIGHTS.get(standing, PLACEMENT_WEIGHT_DEFAULT)
+from analysis.card_stats import classify_card
+from analysis.shared import BASIC_ENERGY_NAMES, placement_weight
 
 
 def compute_weighted_consensus_60(
@@ -53,7 +49,7 @@ def compute_weighted_consensus_60(
         return None
 
     weight_by_pid = {
-        r["placement_id"]: _get_placement_weight(r["standing"])
+        r["placement_id"]: placement_weight(r["standing"])
         for r in rows
         if r["placement_id"] in pids_with_decklists
     }
