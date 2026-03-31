@@ -169,35 +169,7 @@ class PokemonJPAPIClient:
         Returns:
             List of placements sorted by rank.
         """
-        resp = self._client.get(
-            "/event_result_detail_search",
-            params={
-                "event_holding_id": event_holding_id,
-                "offset": 0,
-                "per_page": 64,  # Max out to get all placements
-            },
-        )
-        resp.raise_for_status()
-        data = resp.json()
-
-        if data.get("code") != 200:
-            logger.warning("API returned code %s for event %d", data.get("code"), event_holding_id)
-            return []
-
-        results = []
-        for r in data.get("results", []):
-            results.append(
-                JPCityLeagueResult(
-                    rank=r.get("rank", 0),
-                    player_name=r.get("name", ""),
-                    player_id=r.get("player_id", ""),
-                    area=r.get("area", ""),
-                    deck_id=r.get("deck_id") or None,
-                )
-            )
-
-        results.sort(key=lambda r: r.rank)
-        logger.info("Fetched %d results for event %d", len(results), event_holding_id)
+        _, results = self.fetch_event_with_metadata(event_holding_id)
         return results
 
     def fetch_event_with_metadata(
