@@ -4,26 +4,28 @@ import re
 
 from config import PLACEMENT_WEIGHT_DEFAULT, PLACEMENT_WEIGHTS
 
-BASIC_ENERGY_NAMES: frozenset[str] = frozenset({
-    "Basic Fire Energy",
-    "Basic Water Energy",
-    "Basic Lightning Energy",
-    "Basic Psychic Energy",
-    "Basic Fighting Energy",
-    "Basic Darkness Energy",
-    "Basic Metal Energy",
-    "Basic Grass Energy",
-    "Basic Colorless Energy",
-    "Basic Fairy Energy",
-    "Fire Energy",
-    "Water Energy",
-    "Lightning Energy",
-    "Psychic Energy",
-    "Fighting Energy",
-    "Darkness Energy",
-    "Metal Energy",
-    "Grass Energy",
-})
+BASIC_ENERGY_NAMES: frozenset[str] = frozenset(
+    {
+        "Basic Fire Energy",
+        "Basic Water Energy",
+        "Basic Lightning Energy",
+        "Basic Psychic Energy",
+        "Basic Fighting Energy",
+        "Basic Darkness Energy",
+        "Basic Metal Energy",
+        "Basic Grass Energy",
+        "Basic Colorless Energy",
+        "Basic Fairy Energy",
+        "Fire Energy",
+        "Water Energy",
+        "Lightning Energy",
+        "Psychic Energy",
+        "Fighting Energy",
+        "Darkness Energy",
+        "Metal Energy",
+        "Grass Energy",
+    }
+)
 
 
 def placement_weight(standing: int, boost: float = 1.0) -> float:

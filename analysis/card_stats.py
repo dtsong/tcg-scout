@@ -127,7 +127,6 @@ def build_jp_en_lookup(
     return lookup
 
 
-
 def build_category_lookup(conn: sqlite3.Connection) -> dict[str, str]:
     """Pre-load {card_name: category} from the cards table.
 

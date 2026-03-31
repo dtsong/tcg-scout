@@ -59,7 +59,6 @@ class PlayerProfile:
     deck_timeline: list[DeckTimelineEntry]
 
 
-
 def list_top_performers(
     conn: sqlite3.Connection,
     *,

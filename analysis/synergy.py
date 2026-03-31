@@ -86,8 +86,7 @@ def compute_synergy_pairs(
 
             # Weighted score: sum of placement weights for co-occurrences
             weighted_score = sum(
-                placement_weight(placement_standings.get(pid, 99))
-                for pid in intersection
+                placement_weight(placement_standings.get(pid, 99)) for pid in intersection
             )
 
             pair = {
