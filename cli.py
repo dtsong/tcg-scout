@@ -753,11 +753,20 @@ def repair_decklists(ctx: click.Context, dry_run: bool, pool_size: int) -> None:
 
     Recovers deck codes from the API when decklist_url is missing.
     """
-    from scraper.pokemon_jp_api import PokemonJPAPIClient
-
     fmt = ctx.obj["format"]
     conn = get_format_connection(fmt)
     init_db(conn)
+
+    try:
+        _run_repair_decklists(conn, dry_run, pool_size)
+    finally:
+        conn.close()
+
+
+def _run_repair_decklists(
+    conn: sqlite3.Connection, dry_run: bool, pool_size: int
+) -> None:
+    from scraper.pokemon_jp_api import PokemonJPAPIClient
 
     # Find all sub-60 placements
     bad_placements = conn.execute("""

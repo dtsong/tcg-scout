@@ -669,7 +669,11 @@ def store_decklist_cards(
     cards: list[JPDeckCard],
     jp_en_lookup: dict[str, str],
 ) -> None:
-    """Store decklist cards for a placement, disambiguating duplicate card IDs."""
+    """Store decklist cards for a placement, disambiguating duplicate card IDs.
+
+    Caller must DELETE existing decklist_cards for this placement_id before calling,
+    or counts may be incorrect due to INSERT OR REPLACE on the first occurrence card_id.
+    """
     from analysis.card_stats import EN_CARD_ALIASES
 
     card_id_counts: dict[str, int] = {}
