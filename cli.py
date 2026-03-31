@@ -1225,7 +1225,7 @@ def scrape_cl_api(
                         break
                 if not detected:
                     console.print(
-                        f"    [yellow]Could not detect division from title, defaulting to masters[/yellow]"
+                        "    [yellow]Could not detect division from title, defaulting to masters[/yellow]"
                     )
 
             # Map CL division to tournament division
@@ -1257,7 +1257,7 @@ def scrape_cl_api(
                 "SELECT id FROM tournaments WHERE id = ?", (f"jp-{eid}",)
             ).fetchone()
             if existing:
-                console.print(f"    [yellow]Already in database, skipping[/yellow]")
+                console.print("    [yellow]Already in database, skipping[/yellow]")
                 continue
 
             placements = [
