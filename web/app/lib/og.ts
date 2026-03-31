@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import type { ArchetypeDetail, ArchetypeSummary, MetaData } from "./types";
 import { safePercent, safeInt, humanizeSlug } from "./metadata";
 
-const SITE_URL = "https://scout.trainerlab.io";
+export const SITE_URL = "https://scout.trainerlab.io";
 
 /**
  * Build the full public URL for an archetype sprite image.

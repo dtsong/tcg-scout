@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { getFormatName } from "@/app/lib/data";
 
-const SITE_URL = "https://scout.trainerlab.io";
-
 /**
  * Build page metadata for a format-level page (no slug needed).
  * Handles the async params unwrapping and format name resolution that

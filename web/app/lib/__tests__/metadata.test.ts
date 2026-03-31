@@ -152,6 +152,8 @@ describe("formatPageMetadata", () => {
     const twitter = result.twitter as Record<string, unknown>;
     expect(twitter.card).toBe("summary_large_image");
     expect(twitter.title).toBe("Test -- Ninja Spinner | Scout");
+    expect(twitter.description).toBe("Desc for Ninja Spinner");
+    expect(og.type).toBe("website");
   });
 
   it("throws when format is unknown", async () => {
