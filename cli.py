@@ -898,7 +898,6 @@ def _run_repair_decklists(
         f"\n[yellow]{still_bad} still <60 after re-fetch (parser issue)[/yellow]"
         f"\n[yellow]{len(bad_placements) - len(deck_entries)} had no deck code[/yellow]"
     )
-    conn.close()
 
 
 @cli.command("import-cl")
