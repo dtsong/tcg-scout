@@ -26,7 +26,6 @@ if _POKEMON_NAMES_FILE.exists():
             exc,
         )
 
-# BASIC_ENERGY_NAMES re-exported from analysis.shared for backward compatibility
 
 # EN→EN card name aliases: local-shop fan translations → City League (Limitless) canonical names.
 # Applied after JP→EN translation to normalise variant English names for the same card.
@@ -128,8 +127,6 @@ def build_jp_en_lookup(
     )
     return lookup
 
-
-_slugify = slugify
 
 
 def build_category_lookup(conn: sqlite3.Connection) -> dict[str, str]:
@@ -269,7 +266,7 @@ def _card_slug(card_name: str) -> str:
     We aggregate stats across all printings of a card, so the slug is purely
     name-based. This avoids mismatches when multiple set printings exist.
     """
-    return _slugify(card_name)
+    return slugify(card_name)
 
 
 def compute_card_stats(conn: sqlite3.Connection) -> list[dict]:
@@ -477,7 +474,7 @@ def compute_card_detail(conn: sqlite3.Connection, card_name: str) -> dict | None
         archetypes.append(
             {
                 "name": ar["archetype"],
-                "slug": _slugify(ar["archetype"]),
+                "slug": slugify(ar["archetype"]),
                 "usage_count": ar["usage_count"],
                 "avg_copies": ar["avg_copies"],
                 "tier": archetype_tiers.get(ar["archetype"], "Rogue"),
