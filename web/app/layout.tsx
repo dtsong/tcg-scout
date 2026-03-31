@@ -39,9 +39,17 @@ export const metadata: Metadata = {
   openGraph: {
     siteName: "Scout",
     type: "website",
+    images: [
+      {
+        url: "/og-default.png",
+        width: 1200,
+        height: 630,
+        alt: "Scout - JP Meta Explorer for Pokemon TCG",
+      },
+    ],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
   },
 };
 

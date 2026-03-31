@@ -4,7 +4,7 @@ import { getFormatName } from "@/app/lib/data";
 /**
  * Build page metadata for a format-level page (no slug needed).
  * Handles the async params unwrapping and format name resolution that
- * every [format]/* page repeats.
+ * every [format]/* page repeats. Includes OpenGraph and Twitter Card tags.
  */
 export async function formatPageMetadata(
   params: Promise<{ format: string }>,
@@ -12,7 +12,23 @@ export async function formatPageMetadata(
 ): Promise<Metadata> {
   const { format } = await params;
   const formatName = getFormatName(format);
-  return build(formatName);
+  const { title, description } = build(formatName);
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      siteName: "Scout",
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+    },
+  };
 }
 
 /** Capitalize a hyphenated slug for display (e.g. "nihil-zero" -> "Nihil Zero"). */
