@@ -69,22 +69,25 @@ describe("archetypeOgMetadata", () => {
     expect(og.type).toBe("article");
   });
 
-  it("includes sprite image in OpenGraph and Twitter metadata", () => {
+  it("uses default OG image for OpenGraph and Twitter metadata", () => {
     const result = archetypeOgMetadata("ninja-spinner", "Ninja Spinner", mockArchDetail(), "charizard-pidgeot");
     const og = result.openGraph as Record<string, unknown>;
-    const images = og.images as Array<{ url: string }>;
-    expect(images[0].url).toBe("https://scout.trainerlab.io/images/sprites/charizard.png");
+    const images = og.images as Array<{ url: string; width: number; height: number }>;
+    expect(images[0].url).toBe("https://scout.trainerlab.io/og-default.png");
+    expect(images[0].width).toBe(1200);
+    expect(images[0].height).toBe(630);
 
     const twitter = result.twitter as Record<string, unknown>;
     const twitterImages = twitter.images as string[];
-    expect(twitterImages[0]).toBe("https://scout.trainerlab.io/images/sprites/charizard.png");
+    expect(twitterImages[0]).toBe("https://scout.trainerlab.io/og-default.png");
   });
 
-  it("omits images when no sprite_filenames", () => {
+  it("still uses default OG image when no sprite_filenames", () => {
     const arch = mockArchDetail({ sprite_filenames: [] });
     const result = archetypeOgMetadata("ninja-spinner", "Ninja Spinner", arch, "charizard-pidgeot");
     const og = result.openGraph as Record<string, unknown>;
-    expect(og.images).toBeUndefined();
+    const images = og.images as Array<{ url: string }>;
+    expect(images[0].url).toBe("https://scout.trainerlab.io/og-default.png");
   });
 
   it("falls back to humanized slug when archetype name is empty", () => {
@@ -131,11 +134,12 @@ describe("dashboardOgMetadata", () => {
     expect(og.siteName).toBe("Scout");
   });
 
-  it("uses top archetype sprite as image", () => {
+  it("uses default OG image", () => {
     const result = dashboardOgMetadata("ninja-spinner", "Ninja Spinner", mockMeta());
     const og = result.openGraph as Record<string, unknown>;
-    const images = og.images as Array<{ url: string }>;
-    expect(images[0].url).toBe("https://scout.trainerlab.io/images/sprites/charizard.png");
+    const images = og.images as Array<{ url: string; width: number; height: number }>;
+    expect(images[0].url).toBe("https://scout.trainerlab.io/og-default.png");
+    expect(images[0].width).toBe(1200);
   });
 
   it("handles null meta gracefully", () => {
@@ -143,7 +147,8 @@ describe("dashboardOgMetadata", () => {
     expect(result.title).toBe("Meta Dashboard -- Ninja Spinner | Scout");
     expect(result.description).toContain("Latest meta tier list for Ninja Spinner");
     const og = result.openGraph as Record<string, unknown>;
-    expect(og.images).toBeUndefined();
+    const images = og.images as Array<{ url: string }>;
+    expect(images[0].url).toBe("https://scout.trainerlab.io/og-default.png");
   });
 
   it("handles meta with empty archetypes", () => {

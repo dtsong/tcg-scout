@@ -4,13 +4,12 @@ import { safePercent, safeInt, humanizeSlug } from "./metadata";
 
 export const SITE_URL = "https://scout.trainerlab.io";
 
-/**
- * Build the full public URL for an archetype sprite image.
- * Sprites are stored at /images/sprites/{filename} and served statically by Vercel.
- */
-function spriteUrl(filename: string): string {
-  return `${SITE_URL}/images/sprites/${filename}`;
-}
+const OG_DEFAULT_IMAGE = {
+  url: `${SITE_URL}/og-default.png`,
+  width: 1200,
+  height: 630,
+  alt: "Scout - JP Meta Explorer for Pokemon TCG",
+};
 
 /**
  * Build Open Graph + Twitter Card metadata for an archetype detail page.
@@ -30,10 +29,6 @@ export function archetypeOgMetadata(
   const title = `${name} -- ${share}% Meta Share, Tier ${tier} | Scout`;
   const description = `${name} in ${formatName}: ${share}% meta share, Tier ${tier}, ${deckCount} decks. Core cards, results, and performance analysis.`;
 
-  // Use the first sprite as the OG image, falling back to no image
-  const sprites = arch.sprite_filenames ?? [];
-  const imageUrl = sprites.length > 0 ? spriteUrl(sprites[0]) : undefined;
-
   return {
     title,
     description,
@@ -43,13 +38,13 @@ export function archetypeOgMetadata(
       url: pageUrl,
       siteName: "Scout",
       type: "article",
-      ...(imageUrl ? { images: [{ url: imageUrl, width: 68, height: 68, alt: name }] } : {}),
+      images: [OG_DEFAULT_IMAGE],
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
-      ...(imageUrl ? { images: [imageUrl] } : {}),
+      images: [OG_DEFAULT_IMAGE.url],
     },
   };
 }
@@ -75,10 +70,6 @@ export function dashboardOgMetadata(
     ? `${formatName} meta tier list: ${topNames}. ${tournamentCount} tournaments, ${deckCount} decks analyzed.`
     : `Latest meta tier list for ${formatName} Pokemon TCG. Archetype rankings, trending cards, and tournament results from Japan's City Leagues.`;
 
-  // Use the top archetype's first sprite as the OG image
-  const topSprites = topArchetypes[0]?.sprite_filenames ?? [];
-  const imageUrl = topSprites.length > 0 ? spriteUrl(topSprites[0]) : undefined;
-
   return {
     title,
     description,
@@ -88,13 +79,13 @@ export function dashboardOgMetadata(
       url: pageUrl,
       siteName: "Scout",
       type: "website",
-      ...(imageUrl ? { images: [{ url: imageUrl, width: 68, height: 68, alt: formatName }] } : {}),
+      images: [OG_DEFAULT_IMAGE],
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
-      ...(imageUrl ? { images: [imageUrl] } : {}),
+      images: [OG_DEFAULT_IMAGE.url],
     },
   };
 }
