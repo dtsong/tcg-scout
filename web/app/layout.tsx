@@ -1,29 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import { Outfit, JetBrains_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
-
-const outfit = Outfit({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-display",
-  display: "swap",
-});
-
-const outfitBody = Outfit({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-  variable: "--font-body",
-  display: "swap",
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  weight: ["400"],
-  variable: "--font-mono",
-  display: "swap",
-});
 
 const pokemonClassic = localFont({
   src: "../public/fonts/pokemon-classic.ttf",
@@ -58,14 +36,13 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const shouldEnableAnalytics = process.env.NODE_ENV === "production" && Boolean(process.env.VERCEL);
+
   return (
-    <html
-      lang="en"
-      className={`${outfit.variable} ${outfitBody.variable} ${jetbrainsMono.variable} ${pokemonClassic.variable}`}
-    >
+    <html lang="en" className={pokemonClassic.variable}>
       <body className="min-h-screen antialiased">
         {children}
-        <Analytics />
+        {shouldEnableAnalytics ? <Analytics /> : null}
       </body>
     </html>
   );

@@ -1,7 +1,24 @@
-import { describe, expect, it } from "vitest";
-import { render, screen } from "@testing-library/react";
+import { afterEach, describe, expect, it, vi } from "vitest";
+import { cleanup, render, screen } from "@testing-library/react";
+import type { AnchorHTMLAttributes } from "react";
 import { KeyMatchups } from "../key-matchups";
 import type { MatchupMatrixData } from "@/app/lib/types";
+
+vi.mock("next/link", () => ({
+  default: ({
+    children,
+    href,
+    ...props
+  }: AnchorHTMLAttributes<HTMLAnchorElement> & { href: string }) => (
+    <a href={href} {...props}>
+      {children}
+    </a>
+  ),
+}));
+
+afterEach(() => {
+  cleanup();
+});
 
 const mockCooccurrence: MatchupMatrixData = {
   archetypes: ["Charizard-Pidgeot", "Dragapult-Dusknoir", "Lugia-Archeops"],

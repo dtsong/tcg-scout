@@ -23,6 +23,7 @@ data/*.sqlite
 
 # Exported JSON data (fetched from GCS at build time)
 web/public/data/
+web/test-route-manifest.json
 
 # Reports output
 reports/output/

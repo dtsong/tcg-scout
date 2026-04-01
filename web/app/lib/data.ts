@@ -32,11 +32,15 @@ import type {
 
 const DATA_DIR = path.join(process.cwd(), "public", "data");
 
-function readJson<T>(filePath: string): T {
-  const resolved = path.resolve(DATA_DIR, filePath);
-  if (!resolved.startsWith(DATA_DIR + path.sep) && resolved !== DATA_DIR) {
-    throw new Error(`Path traversal blocked: ${filePath}`);
+function assertSafeSegment(segment: string, label: string): string {
+  if (!segment.length || segment.includes("/") || segment.includes("\\") || segment === "." || segment === "..") {
+    throw new Error(`Invalid ${label}: ${segment}`);
   }
+  return segment;
+}
+
+function readJsonFile<T>(...segments: string[]): T {
+  const resolved = path.join(DATA_DIR, ...segments);
   const raw = fs.readFileSync(resolved, "utf-8");
   try {
     return JSON.parse(raw);
@@ -45,8 +49,46 @@ function readJson<T>(filePath: string): T {
   }
 }
 
+function readRootJson<T>(filename: string): T {
+  return readJsonFile<T>(assertSafeSegment(filename, "filename"));
+}
+
+function splitSafePath(relativePath: string, label: string): string[] {
+  return relativePath
+    .split("/")
+    .filter(Boolean)
+    .map((segment) => assertSafeSegment(segment, label));
+}
+
+function readFormatJson<T>(format: string, filename: string): T {
+  return readJsonFile<T>(
+    assertSafeSegment(format, "format"),
+    ...splitSafePath(filename, "filename"),
+  );
+}
+
+function readScopedJson<T>(format: string, scope: string, filename: string): T {
+  return readJsonFile<T>(
+    assertSafeSegment(format, "format"),
+    assertSafeSegment(scope, "scope"),
+    assertSafeSegment(filename, "filename"),
+  );
+}
+
+function readEntityJson<T>(
+  format: string,
+  scope: string,
+  slug: string,
+): T {
+  return readJsonFile<T>(
+    assertSafeSegment(format, "format"),
+    assertSafeSegment(scope, "scope"),
+    `${assertSafeSegment(slug, "slug")}.json`,
+  );
+}
+
 export function getFormats(): FormatInfo[] {
-  return readJson("formats.json");
+  return readRootJson("formats.json");
 }
 
 /** Return the slug of the first active format, falling back to the first format with data. */
@@ -83,25 +125,25 @@ export function getFormatName(format: string): string {
 }
 
 export function getMeta(format: string): MetaData {
-  return readJson(`${format}/meta.json`);
+  return readFormatJson(format, "meta.json");
 }
 
 export function getBuylist(format: string): BuylistCard[] {
-  return readJson(`${format}/buylist.json`);
+  return readFormatJson(format, "buylist.json");
 }
 
 export function getStaples(format: string): StapleCard[] {
-  return readJson(`${format}/staples.json`);
+  return readFormatJson(format, "staples.json");
 }
 
 export function getFlex(format: string): StapleCard[] {
-  return readJson(`${format}/flex.json`);
+  return readFormatJson(format, "flex.json");
 }
 
 export function getTrends(format: string): TrendsData {
   // Handle both old format (cards) and new format (surging/declining)
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const raw: any = readJson(`${format}/trends.json`);
+  const raw: any = readFormatJson(format, "trends.json");
   if (raw.cards && !raw.surging) {
     return { ...raw, surging: raw.cards, declining: [] };
   }
@@ -109,15 +151,15 @@ export function getTrends(format: string): TrendsData {
 }
 
 export function getWinningEdge(format: string): WinningEdgeCard[] {
-  return readJson(`${format}/winning-edge.json`);
+  return readFormatJson(format, "winning-edge.json");
 }
 
 export function getAceSpecs(format: string): AceSpec[] {
-  return readJson(`${format}/ace-specs.json`);
+  return readFormatJson(format, "ace-specs.json");
 }
 
 export function getArchetype(format: string, slug: string): ArchetypeDetail {
-  return readJson(`${format}/archetypes/${slug}.json`);
+  return readEntityJson(format, "archetypes", slug);
 }
 
 /** Load archetype data, returning null for missing files (ENOENT). */
@@ -139,7 +181,7 @@ export function getArchetypeSlugs(format: string): string[] {
 }
 
 export function getCLDivision(format: string, division: string): CLDivision {
-  return readJson(`${format}/champions-league/${division}.json`);
+  return readEntityJson(format, "champions-league", division);
 }
 
 function isFileNotFound(err: unknown): boolean {
@@ -149,7 +191,7 @@ function isFileNotFound(err: unknown): boolean {
 function makeSafeLoader<T>(filename: string, label: string): (format: string) => T | null {
   return (format: string): T | null => {
     try {
-      return readJson<T>(`${format}/${filename}`);
+      return readFormatJson<T>(format, filename);
     } catch (err) {
       if (isFileNotFound(err)) return null;
       console.error(`Failed to load ${label} for ${format}:`, err);
@@ -161,7 +203,7 @@ function makeSafeLoader<T>(filename: string, label: string): (format: string) =>
 function makeSafeArrayLoader<T>(filename: string, label: string): (format: string) => T[] {
   return (format: string): T[] => {
     try {
-      return readJson<T[]>(`${format}/${filename}`);
+      return readFormatJson<T[]>(format, filename);
     } catch (err) {
       if (isFileNotFound(err)) return [];
       console.error(`Failed to load ${label} for ${format}:`, err);
@@ -175,7 +217,7 @@ export const getTimeline = makeSafeLoader<TimelineData>("timeline.json", "timeli
 export const getCardIndex = makeSafeArrayLoader<CardSummary>("cards/index.json", "card index");
 
 export function getCardDetail(format: string, slug: string): CardDetail {
-  return readJson(`${format}/cards/${slug}.json`);
+  return readEntityJson(format, "cards", slug);
 }
 
 export const getSynergyPairs = makeSafeArrayLoader<SynergyPair>("cards/synergy.json", "synergy pairs");
@@ -192,8 +234,9 @@ export function getCardSlugs(format: string): string[] {
 export function getMetaEvolution(format: string): MetaEvolutionData {
   const empty: MetaEvolutionData = { highlights: [], movements: [] };
   try {
-    const raw = readJson<MetaEvolutionData | MetaEvolutionMovement[]>(
-      `${format}/meta-evolution.json`
+    const raw = readFormatJson<MetaEvolutionData | MetaEvolutionMovement[]>(
+      format,
+      "meta-evolution.json",
     );
     // Support both old (bare array) and new (object) formats
     if (Array.isArray(raw)) {
@@ -228,7 +271,7 @@ export const getOptimal60Index = makeSafeLoader<Optimal60Index>("optimal-60/inde
 
 export function getOptimal60(format: string, slug: string): Optimal60Detail | null {
   try {
-    return readJson(`${format}/optimal-60/${slug}.json`);
+    return readEntityJson(format, "optimal-60", slug);
   } catch (err) {
     if (isFileNotFound(err)) return null;
     console.error(`Failed to load optimal 60 for ${format}/${slug}:`, err);
@@ -249,7 +292,7 @@ export function getArchetypeReport(
   slug: string,
 ): ArchetypeReport | null {
   try {
-    return readJson(`${format}/archetype-reports/${slug}.json`);
+    return readEntityJson(format, "archetype-reports", slug);
   } catch (err) {
     if (isFileNotFound(err)) return null;
     throw err;
@@ -258,7 +301,7 @@ export function getArchetypeReport(
 
 export function getCityLeagueIndex(format: string): CityLeagueIndex | null {
   try {
-    return readJson(`${format}/city-league-index.json`);
+    return readFormatJson(format, "city-league-index.json");
   } catch (err) {
     if (isFileNotFound(err)) return null;
     throw err;
@@ -267,7 +310,7 @@ export function getCityLeagueIndex(format: string): CityLeagueIndex | null {
 
 export function getPlayerIndex(format: string): PlayerSummary[] | null {
   try {
-    return readJson(`${format}/players/index.json`);
+    return readScopedJson(format, "players", "index.json");
   } catch (err) {
     if (isFileNotFound(err)) return null;
     throw err;
@@ -276,7 +319,7 @@ export function getPlayerIndex(format: string): PlayerSummary[] | null {
 
 export function getCuratedPlayers(format: string): CuratedPlayer[] | null {
   try {
-    return readJson(`${format}/players/curated.json`);
+    return readScopedJson(format, "players", "curated.json");
   } catch (err) {
     if (isFileNotFound(err)) return null;
     throw err;
@@ -285,7 +328,7 @@ export function getCuratedPlayers(format: string): CuratedPlayer[] | null {
 
 export function getPlayerDetail(format: string, slug: string): PlayerDetail | null {
   try {
-    return readJson(`${format}/players/${slug}.json`);
+    return readEntityJson(format, "players", slug);
   } catch (err) {
     if (isFileNotFound(err)) return null;
     throw err;
