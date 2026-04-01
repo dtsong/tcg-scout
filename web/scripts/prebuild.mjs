@@ -159,3 +159,10 @@ if (shouldDownload()) {
   await downloadAndExtract();
 }
 validate();
+const testManifestScript = path.join(import.meta.dirname, "generate-test-manifest.mjs");
+if (fs.existsSync(testManifestScript)) {
+  execSync(`node "${testManifestScript}"`, {
+    cwd: ROOT,
+    stdio: "inherit",
+  });
+}
