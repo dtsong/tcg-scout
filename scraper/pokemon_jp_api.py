@@ -191,7 +191,7 @@ class PokemonJPAPIClient:
         )
         try:
             resp.raise_for_status()
-        except httpx.HTTPStatusError as e:
+        except httpx.HTTPStatusError:
             if resp.status_code == 404:
                 logger.warning("Event %d returned 404 (no results published yet)", event_holding_id)
                 return {}, []
