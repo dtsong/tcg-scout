@@ -212,11 +212,18 @@ def validate_database(conn: sqlite3.Connection) -> ValidationResult:
         result.warnings.append("No tournaments in database")
         return result
 
-    # Unknown archetype rate
+    # Unknown archetype rate (exclude last 7 days -- Limitless indexing lag)
     try:
-        total = conn.execute("SELECT COUNT(*) as cnt FROM open_placements").fetchone()
+        total = conn.execute(
+            """SELECT COUNT(*) as cnt FROM open_placements op
+               JOIN tournaments t ON t.id = op.tournament_id
+               WHERE t.date <= date('now', '-7 days')"""
+        ).fetchone()
         unknown = conn.execute(
-            "SELECT COUNT(*) as cnt FROM open_placements WHERE archetype = 'Unknown'"
+            """SELECT COUNT(*) as cnt FROM open_placements op
+               JOIN tournaments t ON t.id = op.tournament_id
+               WHERE op.archetype = 'Unknown'
+               AND t.date <= date('now', '-7 days')"""
         ).fetchone()
     except sqlite3.OperationalError as exc:
         result.errors.append(f"Could not query open_placements view (schema issue): {exc}")
@@ -225,19 +232,36 @@ def validate_database(conn: sqlite3.Connection) -> ValidationResult:
     total_count = total["cnt"] if total else 0
     unknown_count = unknown["cnt"] if unknown else 0
 
+    # Also count recent unknowns for informational warning
+    try:
+        recent_unknown = conn.execute(
+            """SELECT COUNT(*) as cnt FROM open_placements op
+               JOIN tournaments t ON t.id = op.tournament_id
+               WHERE op.archetype = 'Unknown'
+               AND t.date > date('now', '-7 days')"""
+        ).fetchone()
+        recent_unknown_count = recent_unknown["cnt"] if recent_unknown else 0
+    except sqlite3.OperationalError:
+        recent_unknown_count = 0
+
     if total_count > 0:
         unknown_rate = unknown_count / total_count * 100
         if unknown_rate > 5:
             result.errors.append(
                 f"Unknown archetype rate is {unknown_rate:.1f}% "
-                f"({unknown_count}/{total_count} placements) - exceeds 5% threshold. "
+                f"({unknown_count}/{total_count} settled placements) - exceeds 5% threshold. "
                 f"Run 'scout reclassify' after populating card_mappings."
             )
         elif unknown_rate > 2:
             result.warnings.append(
                 f"Unknown archetype rate is {unknown_rate:.1f}% "
-                f"({unknown_count}/{total_count} placements) - consider running 'scout reclassify'"
+                f"({unknown_count}/{total_count} settled placements) - consider running 'scout reclassify'"
             )
+
+    if recent_unknown_count > 0:
+        result.warnings.append(
+            f"{recent_unknown_count} placements from the last 7 days pending archetype classification"
+        )
 
     # Duplicate tournaments (same name and date)
     dupes = conn.execute(
