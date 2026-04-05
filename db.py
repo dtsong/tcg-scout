@@ -84,11 +84,23 @@ CREATE TABLE IF NOT EXISTS card_mappings (
     en_set_id TEXT
 );
 
--- View: open-division placements only (used by meta/export queries)
+-- View: open-division placements only (used by meta/export queries).
+-- Deduplicates: excludes Limitless-sourced events (id NOT LIKE 'jp-%') for any
+-- (date, division) that already has JP API coverage (id LIKE 'jp-%'), preventing
+-- double-counting when both scrapers have ingested the same physical event.
 CREATE VIEW IF NOT EXISTS open_placements AS
 SELECT p.* FROM placements p
 JOIN tournaments t ON t.id = p.tournament_id
-WHERE t.division = 'open';
+WHERE t.division = 'open'
+AND (
+    t.id LIKE 'jp-%'
+    OR NOT EXISTS (
+        SELECT 1 FROM tournaments t2
+        WHERE t2.id LIKE 'jp-%'
+        AND t2.date = t.date
+        AND t2.division = t.division
+    )
+);
 
 -- Champions League events and decklists
 CREATE TABLE IF NOT EXISTS cl_events (
@@ -196,6 +208,14 @@ def init_db(conn: sqlite3.Connection | None = None) -> None:
     if conn is None:
         conn = get_connection()
         close = True
+    # Migration: drop stale open_placements view before SCHEMA creates the new one.
+    # Required because CREATE VIEW IF NOT EXISTS won't update an existing view definition.
+    view_row = conn.execute(
+        "SELECT sql FROM sqlite_master WHERE type='view' AND name='open_placements'"
+    ).fetchone()
+    if view_row and "jp-%" not in (view_row[0] or ""):
+        conn.execute("DROP VIEW IF EXISTS open_placements")
+        logger.info("Migration: dropping stale open_placements view for recreation")
     conn.executescript(SCHEMA)
     # Migration: ensure division column exists on older databases
     cols = {row[1] for row in conn.execute("PRAGMA table_info(tournaments)")}

@@ -6,7 +6,87 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from db import get_connection, get_format_connection, init_db, reset_db
+from db import SCHEMA, get_connection, get_format_connection, init_db, reset_db
+
+
+class TestOpenPlacementsDeduplication:
+    """open_placements view must not double-count events that appear in both
+    the JP API (id LIKE 'jp-%') and Limitless (URL id) sources on the same date."""
+
+    def _make_db(self) -> sqlite3.Connection:
+        conn = sqlite3.connect(":memory:")
+        conn.row_factory = sqlite3.Row
+        conn.executescript(SCHEMA)
+        return conn
+
+    def test_excludes_limitless_when_jp_api_covers_same_date(self):
+        conn = self._make_db()
+        # Same date, same division — both sources
+        conn.executemany(
+            "INSERT INTO tournaments (id, name, date, division) VALUES (?, ?, ?, ?)",
+            [
+                ("jp-952716", "埼玉県 somestore", "2026-03-21", "open"),
+                ("https://limitlesstcg.com/tournaments/jp/4359", "City League Saitama", "2026-03-21", "open"),
+            ],
+        )
+        conn.executemany(
+            "INSERT INTO placements (id, tournament_id, standing, player_name, archetype) VALUES (?, ?, ?, ?, ?)",
+            [
+                (1, "jp-952716", 1, "Alice", "Charizard ex"),
+                (2, "jp-952716", 2, "Bob", "Dragapult ex"),
+                (3, "https://limitlesstcg.com/tournaments/jp/4359", 1, "Alice", "Charizard ex"),
+                (4, "https://limitlesstcg.com/tournaments/jp/4359", 2, "Bob", "Dragapult ex"),
+            ],
+        )
+        conn.commit()
+
+        rows = conn.execute("SELECT * FROM open_placements").fetchall()
+        tournament_ids = {r["tournament_id"] for r in rows}
+
+        assert "jp-952716" in tournament_ids
+        assert "https://limitlesstcg.com/tournaments/jp/4359" not in tournament_ids
+        assert len(rows) == 2  # 2 JP placements, not 4
+
+    def test_includes_limitless_when_no_jp_api_on_that_date(self):
+        conn = self._make_db()
+        # Limitless-only date
+        conn.execute(
+            "INSERT INTO tournaments (id, name, date, division) VALUES (?, ?, ?, ?)",
+            ("https://limitlesstcg.com/tournaments/jp/4300", "City League Aichi", "2026-03-17", "open"),
+        )
+        conn.execute(
+            "INSERT INTO placements (id, tournament_id, standing, player_name, archetype) VALUES (?, ?, ?, ?, ?)",
+            (1, "https://limitlesstcg.com/tournaments/jp/4300", 1, "Carol", "Raging Bolt ex"),
+        )
+        conn.commit()
+
+        rows = conn.execute("SELECT * FROM open_placements").fetchall()
+        assert len(rows) == 1
+        assert rows[0]["tournament_id"] == "https://limitlesstcg.com/tournaments/jp/4300"
+
+    def test_deduplication_is_per_division(self):
+        conn = self._make_db()
+        # JP API has open; Limitless has senior — both should be included
+        conn.executemany(
+            "INSERT INTO tournaments (id, name, date, division) VALUES (?, ?, ?, ?)",
+            [
+                ("jp-100001", "Store Open", "2026-03-21", "open"),
+                ("https://limitlesstcg.com/tournaments/jp/9999", "City League Senior", "2026-03-21", "senior"),
+            ],
+        )
+        conn.executemany(
+            "INSERT INTO placements (id, tournament_id, standing, player_name, archetype) VALUES (?, ?, ?, ?, ?)",
+            [
+                (1, "jp-100001", 1, "Dave", "Charizard ex"),
+                (2, "https://limitlesstcg.com/tournaments/jp/9999", 1, "Eve", "Dragapult ex"),
+            ],
+        )
+        conn.commit()
+
+        rows = conn.execute("SELECT * FROM open_placements").fetchall()
+        # Only open division; senior Limitless event is not open so excluded by existing filter
+        assert len(rows) == 1
+        assert rows[0]["tournament_id"] == "jp-100001"
 
 
 class TestGetFormatConnection:

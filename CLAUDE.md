@@ -86,6 +86,13 @@ Placements weighted by finish position (config `PLACEMENT_WEIGHTS`):
 - Direct pushes to main during active development
 - Vercel auto-deploys from main (root directory: `web/`)
 
+## Session Guidelines
+
+This project is the highest-friction project in the workspace (135 friction events, 7 cost-sink sessions). To avoid context decay:
+- **Split by layer:** Separate sessions for Python pipeline work vs Next.js frontend work. Do not mix both in one session.
+- **Session cap:** If a session exceeds 100 tool calls, wrap up current work and suggest starting a new session.
+- **Key files first:** Read `config.py`, `db.py`, and `web/app/lib/types.ts` early — these are re-read most often.
+
 ## Conventions
 
 - Avoid emdashes in UI text
