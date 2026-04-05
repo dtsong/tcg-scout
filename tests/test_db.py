@@ -26,7 +26,12 @@ class TestOpenPlacementsDeduplication:
             "INSERT INTO tournaments (id, name, date, division) VALUES (?, ?, ?, ?)",
             [
                 ("jp-952716", "埼玉県 somestore", "2026-03-21", "open"),
-                ("https://limitlesstcg.com/tournaments/jp/4359", "City League Saitama", "2026-03-21", "open"),
+                (
+                    "https://limitlesstcg.com/tournaments/jp/4359",
+                    "City League Saitama",
+                    "2026-03-21",
+                    "open",
+                ),
             ],
         )
         conn.executemany(
@@ -52,7 +57,12 @@ class TestOpenPlacementsDeduplication:
         # Limitless-only date
         conn.execute(
             "INSERT INTO tournaments (id, name, date, division) VALUES (?, ?, ?, ?)",
-            ("https://limitlesstcg.com/tournaments/jp/4300", "City League Aichi", "2026-03-17", "open"),
+            (
+                "https://limitlesstcg.com/tournaments/jp/4300",
+                "City League Aichi",
+                "2026-03-17",
+                "open",
+            ),
         )
         conn.execute(
             "INSERT INTO placements (id, tournament_id, standing, player_name, archetype) VALUES (?, ?, ?, ?, ?)",
@@ -71,7 +81,12 @@ class TestOpenPlacementsDeduplication:
             "INSERT INTO tournaments (id, name, date, division) VALUES (?, ?, ?, ?)",
             [
                 ("jp-100001", "Store Open", "2026-03-21", "open"),
-                ("https://limitlesstcg.com/tournaments/jp/9999", "City League Senior", "2026-03-21", "senior"),
+                (
+                    "https://limitlesstcg.com/tournaments/jp/9999",
+                    "City League Senior",
+                    "2026-03-21",
+                    "senior",
+                ),
             ],
         )
         conn.executemany(
