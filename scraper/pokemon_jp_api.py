@@ -189,7 +189,13 @@ class PokemonJPAPIClient:
                 "per_page": 64,
             },
         )
-        resp.raise_for_status()
+        try:
+            resp.raise_for_status()
+        except httpx.HTTPStatusError as e:
+            if resp.status_code == 404:
+                logger.warning("Event %d returned 404 (no results published yet)", event_holding_id)
+                return {}, []
+            raise
         data = resp.json()
 
         if data.get("code") != 200:

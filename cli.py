@@ -1059,7 +1059,11 @@ def scrape_jp(
             )
             console.print(f"  [{i}/{len(new_events)}] {event_name} ({event.date})")
 
-            results = api_client.fetch_event_results(event.event_id)
+            try:
+                results = api_client.fetch_event_results(event.event_id)
+            except Exception as exc:
+                console.print(f"    [red]Error fetching event {event.event_id}: {exc}[/red]")
+                continue
 
             if not results:
                 console.print("    [yellow]No results found, skipping[/yellow]")
