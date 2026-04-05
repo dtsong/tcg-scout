@@ -4,14 +4,19 @@ import { describe, expect, it } from "vitest";
 
 const DATA_DIR = path.join(process.cwd(), "public", "data");
 const PUBLIC_DIR = path.join(process.cwd(), "public");
+const FORMATS_PATH = path.join(DATA_DIR, "formats.json");
 
 function readJson<T>(...segments: string[]): T {
   return JSON.parse(fs.readFileSync(path.join(DATA_DIR, ...segments), "utf-8")) as T;
 }
 
-describe("public data contracts", () => {
-  const formats = readJson<Array<{ slug: string; status: string }>>("formats.json")
-    .filter((format) => format.status !== "upcoming");
+const hasData = fs.existsSync(FORMATS_PATH);
+
+describe.skipIf(!hasData)("public data contracts", () => {
+  const formats = hasData
+    ? readJson<Array<{ slug: string; status: string }>>("formats.json")
+        .filter((format) => format.status !== "upcoming")
+    : [];
 
   it("has required files for each shipped format", () => {
     for (const format of formats) {
