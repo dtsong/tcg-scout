@@ -18,17 +18,17 @@ function ConsensusCardRow({ card }: { card: ConsensusCard }) {
         className={`absolute inset-y-0 left-0 ${isCore ? "bg-amber-500/10" : isCommon ? "bg-accent/6" : "bg-surface-600/20"}`}
         style={{ width: `${card.weighted_inclusion_pct}%` }}
       />
-      <div className="relative flex items-center justify-between">
-        <div className="flex items-center gap-2 min-w-0">
-          <span className="font-mono text-xs w-6 h-5 flex items-center justify-center rounded bg-surface-700 text-slate-300 shrink-0 tabular-nums">
+      <div className="relative flex items-start justify-between gap-2">
+        <div className="flex items-start gap-2 min-w-0">
+          <span className="font-mono text-xs w-6 h-5 flex items-center justify-center rounded bg-surface-700 text-slate-300 shrink-0 tabular-nums mt-0.5">
             {card.count}
           </span>
           <CardLink
             name={card.card_name}
-            className={`text-sm truncate ${consensusTextClass(card.consensus)}`}
+            className={`text-sm leading-snug ${consensusTextClass(card.consensus)}`}
           />
         </div>
-        <div className="flex items-center gap-2 ml-2 shrink-0">
+        <div className="flex items-center gap-2 shrink-0 mt-0.5">
           <span
             className={`text-[10px] font-mono tabular-nums ${
               isCore ? "text-amber-500/80" : "text-surface-400"

@@ -49,18 +49,18 @@ function CardRow({ card, isCore }: { card: ArchetypeCard; isCore: boolean }) {
         className={`absolute inset-y-0 left-0 ${isCore ? "bg-accent/8" : "bg-surface-600/30"}`}
         style={{ width: `${card.inclusion_pct}%` }}
       />
-      <div className="relative flex items-center justify-between">
-        <div className="flex items-center gap-2.5 min-w-0">
-          <span className="font-mono text-xs w-7 h-6 flex items-center justify-center rounded bg-surface-700 text-slate-300 shrink-0 tabular-nums">
+      <div className="relative flex items-start justify-between gap-2">
+        <div className="flex items-start gap-2.5 min-w-0">
+          <span className="font-mono text-xs w-7 h-6 flex items-center justify-center rounded bg-surface-700 text-slate-300 shrink-0 tabular-nums mt-0.5">
             {copies}
           </span>
           <CardLink
             name={card.card_name}
-            className={`text-sm truncate ${isCore ? "font-semibold text-slate-200" : "text-slate-400"}`}
+            className={`text-sm leading-snug ${isCore ? "font-semibold text-slate-200" : "text-slate-400"}`}
           />
         </div>
         <span
-          className={`text-xs font-mono ml-3 shrink-0 tabular-nums ${
+          className={`text-xs font-mono shrink-0 tabular-nums mt-0.5 ${
             card.inclusion_pct >= 80 ? "text-accent/70" : "text-surface-400"
           }`}
         >
