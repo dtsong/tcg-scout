@@ -29,6 +29,7 @@ steps:
       - |
         pip install -r requirements.txt &&
         python cli.py --format ninja-spinner init &&
+        python cli.py --format ninja-spinner scrape --no-decklists &&
         python cli.py --format ninja-spinner scrape-jp --no-decklists &&
         python cli.py --format ninja-spinner backfill-archetypes &&
         python cli.py --format ninja-spinner translate-cards &&

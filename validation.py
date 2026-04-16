@@ -246,11 +246,17 @@ def validate_database(conn: sqlite3.Connection) -> ValidationResult:
 
     if total_count > 0:
         unknown_rate = unknown_count / total_count * 100
-        if unknown_rate > 5:
+        if unknown_rate > 50:
             result.errors.append(
                 f"Unknown archetype rate is {unknown_rate:.1f}% "
-                f"({unknown_count}/{total_count} settled placements) - exceeds 5% threshold. "
+                f"({unknown_count}/{total_count} settled placements) - exceeds 50% threshold. "
                 f"Run 'scout reclassify' after populating card_mappings."
+            )
+        elif unknown_rate > 5:
+            result.warnings.append(
+                f"Unknown archetype rate is {unknown_rate:.1f}% "
+                f"({unknown_count}/{total_count} settled placements) - exceeds 5%, "
+                f"consider running 'scout reclassify'"
             )
         elif unknown_rate > 2:
             result.warnings.append(

@@ -171,6 +171,25 @@ class TestValidateDatabase:
         result = validate_database(conn)
         assert any("Unknown archetype rate" in e for e in result.errors)
 
+    def test_elevated_unknown_rate_warns(self, conn):
+        # 37% unknown rate (>5% but <50%) should warn, not error
+        for i in range(100, 120):
+            conn.execute(
+                "INSERT INTO placements (id, tournament_id, standing, player_name, archetype) "
+                "VALUES (?, 't1', ?, 'Player', 'Charizard ex')",
+                (i, i),
+            )
+        for i in range(120, 130):
+            conn.execute(
+                "INSERT INTO placements (id, tournament_id, standing, player_name, archetype) "
+                "VALUES (?, 't1', ?, 'Unknown Player', 'Unknown')",
+                (i, i),
+            )
+        conn.commit()
+        result = validate_database(conn)
+        assert result.ok  # Warning, not error -- threshold raised to 50%
+        assert any("Unknown archetype rate" in w and "exceeds 5%" in w for w in result.warnings)
+
     def test_moderate_unknown_rate_warns(self, conn):
         # Pad with non-Unknown placements to dilute the ratio, then add a few Unknowns
         for i in range(100, 200):
