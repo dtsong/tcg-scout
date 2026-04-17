@@ -66,7 +66,7 @@ async function downloadAndExtract() {
     console.error(
       "prebuild: FATAL - Failed to download data archive.\n" +
         `  ${err.message}\n` +
-        "  The signed URL may have expired. Trigger a new Cloud Build run.",
+        "  Check that the GCS bucket is publicly readable and Cloud Build is running.",
     );
     process.exit(1);
   }

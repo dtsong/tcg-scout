@@ -57,9 +57,9 @@ steps:
       - gsutil -m cp data/*.db "gs://${_CACHE_BUCKET}/scout-dbs/"
     waitFor: ["validate"]
 
-  # Tar and upload exported JSON data to GCS
+  # Tar and upload exported JSON data to GCS (public bucket, no signed URLs)
   - id: upload-data
-    name: gcr.io/google.com/cloudsdktool/google-cloud-cli:slim
+    name: gcr.io/cloud-builders/gsutil
     entrypoint: bash
     args:
       - -c
@@ -67,6 +67,7 @@ steps:
         TIMESTAMP=$$(date -u +%Y%m%dT%H%M%SZ)
         TAR_FILE="data-$${TIMESTAMP}.tar.gz"
         GCS_PATH="gs://${_DATA_BUCKET}/$${TAR_FILE}"
+        PUBLIC_URL="https://storage.googleapis.com/${_DATA_BUCKET}/data-latest.tar.gz"
 
         echo "Creating data archive..."
         tar -czf "/tmp/$${TAR_FILE}" --exclude='._*' -C /workspace/web/public/data .
@@ -74,13 +75,6 @@ steps:
         echo "Uploading to $${GCS_PATH}..."
         gsutil cp "/tmp/$${TAR_FILE}" "$${GCS_PATH}"
         gsutil cp "$${GCS_PATH}" "gs://${_DATA_BUCKET}/data-latest.tar.gz"
-
-        echo "Generating signed URL (valid 24h)..."
-        SIGNED_URL=$$(gcloud storage sign-url "$${GCS_PATH}" \
-          --impersonate-service-account="${_SIGNER_SA}" \
-          --region=us-central1 \
-          --duration=12h --quiet 2>/dev/null \
-          | grep 'signed_url:' | sed 's/signed_url: //')
 
         SHA256=$$(sha256sum "/tmp/$${TAR_FILE}" | cut -d' ' -f1)
 
@@ -90,7 +84,7 @@ steps:
           "version": 1,
           "archives": [
             {
-              "url": "$${SIGNED_URL}",
+              "url": "$${PUBLIC_URL}",
               "sha256": "$${SHA256}",
               "created_at": "$${TIMESTAMP}"
             }
@@ -121,7 +115,6 @@ steps:
 substitutions:
   _CACHE_BUCKET: tcg-scout-cache
   _DATA_BUCKET: tcg-scout-data
-  _SIGNER_SA: scout-data-signer@trainerlab-prod.iam.gserviceaccount.com
 
 timeout: 2700s
 options:
