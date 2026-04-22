@@ -1471,10 +1471,12 @@ def backfill_archetypes(
             console.print("[yellow]No Limitless tournaments found for that range.[/yellow]")
             return
 
-        # Build lookup: (date_str, standing) -> archetype
-        # Mark keys that appear more than once as ambiguous (non-unique standing)
-        archetype_lookup: dict[tuple[str, int], str] = {}
-        ambiguous_keys: set[tuple[str, int]] = set()
+        # Build lookup: (date_str, player_name) -> archetype
+        # Player names are nearly unique per date; keying on (date, standing)
+        # collapses when multiple tournaments share the same prefecture/day.
+        # Mark keys where the same (date, name) maps to different archetypes.
+        archetype_lookup: dict[tuple[str, str], str] = {}
+        ambiguous_keys: set[tuple[str, str]] = set()
 
         for i, tournament in enumerate(tournaments, 1):
             console.print(
@@ -1485,26 +1487,30 @@ def backfill_archetypes(
             )
             date_str = tournament.tournament_date.isoformat()
             for p in placements:
-                key = (date_str, p.placement)
-                if key in archetype_lookup:
+                if not p.player_name or not p.archetype or p.archetype == "Unknown":
+                    continue
+                key = (date_str, p.player_name)
+                existing = archetype_lookup.get(key)
+                if existing is not None and existing != p.archetype:
                     ambiguous_keys.add(key)
-                archetype_lookup[key] = p.archetype
+                else:
+                    archetype_lookup[key] = p.archetype
 
-        # Remove ambiguous keys to avoid assigning one tournament's archetype
-        # to a different tournament's placements at the same standing
         for key in ambiguous_keys:
-            del archetype_lookup[key]
+            archetype_lookup.pop(key, None)
 
         if ambiguous_keys:
             console.print(
-                f"[yellow]Skipped {len(ambiguous_keys)} ambiguous (date, standing) keys[/yellow]"
+                f"[yellow]Skipped {len(ambiguous_keys)} ambiguous (date, player_name) keys[/yellow]"
             )
         console.print(f"Built lookup with [bold]{len(archetype_lookup)}[/bold] unique entries")
 
         # Update placements in DB
         updated = 0
         for row in rows:
-            key = (row["date"], row["standing"])
+            if not row["player_name"]:
+                continue
+            key = (row["date"], row["player_name"])
             archetype = archetype_lookup.get(key)
             if archetype and archetype != "Unknown":
                 conn.execute(
