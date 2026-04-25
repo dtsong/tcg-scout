@@ -175,6 +175,78 @@ class TestComputeCityLeagueIndex:
         dates = [t["date"] for t in data["tournaments"]]
         assert dates == sorted(dates, reverse=True)
 
+    def test_deduplicates_limitless_against_jp_api(self, db_cl: sqlite3.Connection) -> None:
+        # Same physical event ingested from both scrapers on the same date.
+        # open_tournaments view must drop the Limitless row when a jp-* row exists.
+        db_cl.executemany(
+            "INSERT INTO tournaments (id, name, date, player_count, division, prefecture, tournament_type) "
+            "VALUES (?, ?, ?, ?, ?, ?, ?)",
+            [
+                ("jp-999001", "東京都 Sample Store", "2026-03-22", 16, "open", "Tokyo", "city-league"),
+                (
+                    "https://limitlesstcg.com/tournaments/jp/9999",
+                    "City League Tōkyō",
+                    "2026-03-22",
+                    16,
+                    "open",
+                    "Tokyo",
+                    "city-league",
+                ),
+            ],
+        )
+        db_cl.executemany(
+            "INSERT INTO placements (tournament_id, standing, player_name, archetype) VALUES (?, ?, ?, ?)",
+            [
+                ("jp-999001", 1, "JPWinner", "Charizard ex"),
+                ("jp-999001", 2, "JPRunnerUp", "Dragapult ex"),
+                ("https://limitlesstcg.com/tournaments/jp/9999", 1, "JPWinner", "Charizard ex"),
+                ("https://limitlesstcg.com/tournaments/jp/9999", 2, "JPRunnerUp", "Dragapult ex"),
+            ],
+        )
+        db_cl.commit()
+
+        data = _compute_city_league_index(db_cl)
+        ids = [t["id"] for t in data["tournaments"]]
+
+        # Exactly one of the two entries for 2026-03-22 survives, and it is the jp-* source.
+        assert "jp-999001" in ids
+        assert "https://limitlesstcg.com/tournaments/jp/9999" not in ids
+        # tournament_count = original 3 + 1 (deduped pair), not + 2.
+        assert data["tournament_count"] == 4
+        # Placements from the excluded Limitless row must not contribute to deck_count.
+        assert data["deck_count"] == 12 + 2
+
+    def test_count_matches_meta_snapshot_invariant(self, db_cl: sqlite3.Connection) -> None:
+        # Regression guard: CL index tournament_count must never inflate relative
+        # to a direct count over open_tournaments for the same window.
+        db_cl.executemany(
+            "INSERT INTO tournaments (id, name, date, player_count, division, prefecture, tournament_type) "
+            "VALUES (?, ?, ?, ?, ?, ?, ?)",
+            [
+                ("jp-888001", "JP Event", "2026-03-25", 16, "open", "Tokyo", "city-league"),
+                (
+                    "https://limitlesstcg.com/tournaments/jp/8888",
+                    "Limitless mirror",
+                    "2026-03-25",
+                    16,
+                    "open",
+                    "Tokyo",
+                    "city-league",
+                ),
+            ],
+        )
+        db_cl.execute(
+            "INSERT INTO placements (tournament_id, standing, player_name, archetype) "
+            "VALUES ('jp-888001', 1, 'Winner', 'Charizard ex')"
+        )
+        db_cl.commit()
+
+        data = _compute_city_league_index(db_cl)
+        expected = db_cl.execute(
+            "SELECT COUNT(*) FROM open_tournaments WHERE tournament_type = 'city-league'"
+        ).fetchone()[0]
+        assert data["tournament_count"] == expected
+
 
 class TestExportCityLeagueIndex:
     def test_writes_json_file(self, db_cl: sqlite3.Connection, tmp_path: Path) -> None:

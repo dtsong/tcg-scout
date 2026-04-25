@@ -102,6 +102,22 @@ AND (
     )
 );
 
+-- View: open-division tournaments only, deduplicated across scrapers.
+-- Mirrors open_placements at the tournament level so queries that list or
+-- count events (rather than placements) also avoid cross-source duplicates.
+CREATE VIEW IF NOT EXISTS open_tournaments AS
+SELECT t.* FROM tournaments t
+WHERE t.division = 'open'
+AND (
+    t.id LIKE 'jp-%'
+    OR NOT EXISTS (
+        SELECT 1 FROM tournaments t2
+        WHERE t2.id LIKE 'jp-%'
+        AND t2.date = t.date
+        AND t2.division = t.division
+    )
+);
+
 -- Champions League events and decklists
 CREATE TABLE IF NOT EXISTS cl_events (
     id INTEGER PRIMARY KEY,           -- Official event ID (e.g. 903702)

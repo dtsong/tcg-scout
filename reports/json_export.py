@@ -2815,9 +2815,9 @@ def _compute_city_league_index(
         f"""
         SELECT t.id, t.name, t.date, t.prefecture, t.player_count,
                COUNT(p.id) as deck_count
-        FROM tournaments t
-        LEFT JOIN placements p ON p.tournament_id = t.id
-        WHERE t.division = 'open' AND t.tournament_type = 'city-league' {date_filter}
+        FROM open_tournaments t
+        LEFT JOIN open_placements p ON p.tournament_id = t.id
+        WHERE t.tournament_type = 'city-league' {date_filter}
         GROUP BY t.id
         ORDER BY t.date DESC
         """,
@@ -2847,7 +2847,7 @@ def _compute_city_league_index(
     top_finishers_rows = conn.execute(
         f"""
         SELECT p.tournament_id, p.standing, p.player_name, p.archetype
-        FROM placements p
+        FROM open_placements p
         WHERE p.tournament_id IN ({placeholders}) AND p.standing <= 4
         ORDER BY p.tournament_id, p.standing
         """,
@@ -2872,7 +2872,7 @@ def _compute_city_league_index(
     dist_rows = conn.execute(
         f"""
         SELECT p.tournament_id, p.archetype, COUNT(*) as count
-        FROM placements p
+        FROM open_placements p
         WHERE p.tournament_id IN ({placeholders})
         GROUP BY p.tournament_id, p.archetype
         ORDER BY p.tournament_id, count DESC
@@ -2939,9 +2939,9 @@ def _compute_city_league_index(
     recent_winners_rows = conn.execute(
         f"""
         SELECT t.name, t.date, p.archetype, p.player_name
-        FROM placements p
-        JOIN tournaments t ON t.id = p.tournament_id
-        WHERE t.division = 'open' AND t.tournament_type = 'city-league'
+        FROM open_placements p
+        JOIN open_tournaments t ON t.id = p.tournament_id
+        WHERE t.tournament_type = 'city-league'
           AND p.standing = 1 {date_filter}
         ORDER BY t.date DESC
         LIMIT 5
