@@ -886,6 +886,193 @@ def _run_repair_decklists(conn: sqlite3.Connection, dry_run: bool, pool_size: in
     )
 
 
+@cli.command("backfill-decklists")
+@click.option("--limit", default=None, type=int, help="Max placements to backfill")
+@click.option("--since", default=None, help="Only backfill tournaments on/after this date (YYYY-MM-DD)")
+@click.option(
+    "--source",
+    type=click.Choice(["jp", "limitless", "all"]),
+    default="all",
+    help="Which scraper source to backfill",
+)
+@click.option("--pool-size", default=5, help="Concurrent browsers for JP decklist fetching")
+@click.pass_context
+def backfill_decklists(
+    ctx: click.Context,
+    limit: int | None,
+    since: str | None,
+    source: str,
+    pool_size: int,
+) -> None:
+    """Fetch missing decklists for placements that have a deck URL but no card data.
+
+    Targets placements in open_placements (post-dedup) where decklist_url is set
+    but no rows exist in decklist_cards. Use --source to limit to one scraper,
+    --since to bound by tournament date, and --limit to cap volume per run.
+    """
+    fmt = ctx.obj["format"]
+    conn = get_format_connection(fmt)
+    init_db(conn)
+
+    try:
+        remaining = limit
+        if source in ("jp", "all"):
+            n = _backfill_jp_decklists(conn, remaining, since, pool_size)
+            if remaining is not None:
+                remaining = max(0, remaining - n)
+        if source in ("limitless", "all") and (remaining is None or remaining > 0):
+            _backfill_limitless_decklists(conn, remaining, since)
+    finally:
+        conn.close()
+
+
+def _select_missing_decklist_placements(
+    conn: sqlite3.Connection,
+    tournament_id_pattern: str,
+    limit: int | None,
+    since: str | None,
+) -> list[sqlite3.Row]:
+    """Return open placements with decklist_url but no decklist_cards rows."""
+    sql = """
+        SELECT p.id, p.tournament_id, p.standing, p.decklist_url, t.date
+        FROM open_placements p
+        JOIN tournaments t ON t.id = p.tournament_id
+        LEFT JOIN decklist_cards dc ON dc.placement_id = p.id
+        WHERE p.decklist_url IS NOT NULL
+          AND p.decklist_url != ''
+          AND dc.placement_id IS NULL
+          AND t.id LIKE ?
+    """
+    params: list = [tournament_id_pattern]
+    if since:
+        sql += " AND t.date >= ?"
+        params.append(since)
+    sql += " GROUP BY p.id ORDER BY t.date DESC, p.standing ASC"
+    if limit:
+        sql += " LIMIT ?"
+        params.append(limit)
+    return conn.execute(sql, params).fetchall()
+
+
+def _backfill_jp_decklists(
+    conn: sqlite3.Connection,
+    limit: int | None,
+    since: str | None,
+    pool_size: int,
+) -> int:
+    """Fetch missing JP (jp-*) decklists via Playwright batch and store cards."""
+    placements = _select_missing_decklist_placements(conn, "jp-%", limit, since)
+    console.print(
+        f"\n[cyan]JP backfill:[/cyan] {len(placements)} placements missing decklists"
+    )
+    if not placements:
+        return 0
+
+    deck_url_base = "https://www.pokemon-card.com/deck/confirm.html/deckID/"
+    deck_entries: list[tuple[str, str]] = []
+    by_code: dict[str, list[int]] = {}
+    for p in placements:
+        url = p["decklist_url"]
+        code = url.split("deckID/")[-1] if "deckID/" in url else None
+        if not code:
+            continue
+        by_code.setdefault(code, []).append(p["id"])
+        deck_entries.append((code, deck_url_base + code))
+
+    # Deduplicate codes (same deck shared across placements)
+    unique_entries = list({code: (code, url) for code, url in deck_entries}.values())
+    if not unique_entries:
+        console.print("[yellow]No recoverable JP deck codes[/yellow]")
+        return 0
+
+    all_decklists = _fetch_decklists_batch(unique_entries, pool_size)
+
+    from analysis.card_stats import build_jp_en_lookup
+    from reports.json_export import JP_CARD_NAMES
+    from scraper.pokemon_jp import store_decklist_cards
+
+    jp_en_lookup = build_jp_en_lookup(conn, fallback=JP_CARD_NAMES)
+    stored = 0
+    empty = 0
+    for code, placement_ids in by_code.items():
+        cards = all_decklists.get(code)
+        if not cards:
+            empty += 1
+            continue
+        for placement_id in placement_ids:
+            conn.execute(
+                "DELETE FROM decklist_cards WHERE placement_id = ?", (placement_id,)
+            )
+            store_decklist_cards(conn, placement_id, cards, jp_en_lookup)
+            stored += 1
+    conn.commit()
+
+    console.print(
+        f"[green]JP backfill: stored {stored} decklists "
+        f"({empty} deck codes returned no cards)[/green]"
+    )
+    return stored
+
+
+def _backfill_limitless_decklists(
+    conn: sqlite3.Connection,
+    limit: int | None,
+    since: str | None,
+) -> int:
+    """Fetch missing Limitless decklists via plain HTTP and store cards."""
+    placements = _select_missing_decklist_placements(
+        conn, "https://limitlesstcg.com/%", limit, since
+    )
+    console.print(
+        f"\n[cyan]Limitless backfill:[/cyan] {len(placements)} placements missing decklists"
+    )
+    if not placements:
+        return 0
+
+    from scraper.limitless import LimitlessClient
+
+    client = LimitlessClient()
+    stored = 0
+    empty = 0
+    try:
+        for i, p in enumerate(placements, 1):
+            url = p["decklist_url"]
+            console.print(f"  [{i}/{len(placements)}] placement #{p['id']} {url}")
+            try:
+                decklist = client.fetch_decklist(url)
+            except (httpx.HTTPError, OSError) as exc:
+                console.print(f"    [red]Error: {exc}[/red]")
+                continue
+            if not decklist or not decklist.cards:
+                empty += 1
+                continue
+            conn.execute(
+                "DELETE FROM decklist_cards WHERE placement_id = ?", (p["id"],)
+            )
+            for card in decklist.cards:
+                conn.execute(
+                    "INSERT OR REPLACE INTO decklist_cards "
+                    "(placement_id, card_id, card_name, count) "
+                    "VALUES (?, ?, ?, ?)",
+                    (
+                        p["id"],
+                        card.get("card_id", card.get("name", "unknown")),
+                        card.get("name"),
+                        card.get("count", 1),
+                    ),
+                )
+            stored += 1
+        conn.commit()
+    finally:
+        client.close()
+
+    console.print(
+        f"[green]Limitless backfill: stored {stored} decklists "
+        f"({empty} returned no cards)[/green]"
+    )
+    return stored
+
+
 @cli.command("import-cl")
 @click.option("--dir", "data_dir", default="data/fukuoka-cl", help="Directory with CL CSV files")
 @click.pass_context
