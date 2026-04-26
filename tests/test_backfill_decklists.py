@@ -22,12 +22,17 @@ def db_missing_decklists() -> sqlite3.Connection:
     conn.executescript(SCHEMA)
 
     conn.executemany(
-        "INSERT INTO tournaments (id, name, date, player_count, division) "
-        "VALUES (?, ?, ?, ?, ?)",
+        "INSERT INTO tournaments (id, name, date, player_count, division) VALUES (?, ?, ?, ?, ?)",
         [
             ("jp-1001", "JP Event 1", "2026-04-15", 16, "open"),
             ("jp-1002", "JP Event 2", "2026-04-20", 16, "open"),
-            ("https://limitlesstcg.com/tournaments/jp/5001", "Limitless Event", "2026-04-18", 16, "open"),
+            (
+                "https://limitlesstcg.com/tournaments/jp/5001",
+                "Limitless Event",
+                "2026-04-18",
+                16,
+                "open",
+            ),
             # Senior division: must be excluded by open_placements view
             ("jp-2001", "JP Senior Cup", "2026-04-19", 16, "senior"),
         ],
@@ -87,9 +92,7 @@ class TestSelectMissingDecklistPlacements:
         assert ids == [4]
 
     def test_since_filters_older(self, db_missing_decklists):
-        rows = _select_missing_decklist_placements(
-            db_missing_decklists, "jp-%", None, "2026-04-19"
-        )
+        rows = _select_missing_decklist_placements(db_missing_decklists, "jp-%", None, "2026-04-19")
         # Only jp-1001 (2026-04-15) is excluded; jp-1002 only has placement 3 (already has cards)
         ids = [r["id"] for r in rows]
         assert 1 not in ids
@@ -152,9 +155,7 @@ class TestBackfillJp:
         db_missing_decklists.commit()
 
         called = []
-        monkeypatch.setattr(
-            "cli._fetch_decklists_batch", lambda *a, **k: called.append(1) or {}
-        )
+        monkeypatch.setattr("cli._fetch_decklists_batch", lambda *a, **k: called.append(1) or {})
         n = _backfill_jp_decklists(db_missing_decklists, None, None, pool_size=2)
         assert n == 0
         assert called == []  # batch fetch should be skipped
@@ -242,8 +243,9 @@ class TestBackfillCli:
 
         proxy = _ConnProxy(db_missing_decklists)
 
-        with patch("cli.get_format_connection", return_value=proxy), patch(
-            "cli.init_db", lambda conn: None
+        with (
+            patch("cli.get_format_connection", return_value=proxy),
+            patch("cli.init_db", lambda conn: None),
         ):
             runner = CliRunner()
             result = runner.invoke(

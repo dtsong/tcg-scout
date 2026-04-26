@@ -182,7 +182,15 @@ class TestComputeCityLeagueIndex:
             "INSERT INTO tournaments (id, name, date, player_count, division, prefecture, tournament_type) "
             "VALUES (?, ?, ?, ?, ?, ?, ?)",
             [
-                ("jp-999001", "東京都 Sample Store", "2026-03-22", 16, "open", "Tokyo", "city-league"),
+                (
+                    "jp-999001",
+                    "東京都 Sample Store",
+                    "2026-03-22",
+                    16,
+                    "open",
+                    "Tokyo",
+                    "city-league",
+                ),
                 (
                     "https://limitlesstcg.com/tournaments/jp/9999",
                     "City League Tōkyō",

@@ -58,9 +58,10 @@ def _make_db(tmp_path, rows):
 
 
 def _run_backfill(db_path, stub_cls):
-    with patch("scraper.limitless.LimitlessClient", stub_cls), patch(
-        "cli.get_format_connection"
-    ) as mock_conn:
+    with (
+        patch("scraper.limitless.LimitlessClient", stub_cls),
+        patch("cli.get_format_connection") as mock_conn,
+    ):
         import sqlite3
 
         conn = sqlite3.connect(str(db_path))
@@ -93,10 +94,20 @@ class TestBackfillArchetypes:
         # Two JP tournaments on same day, same standing-1 placement, different players.
         # Keying on (date, standing) alone would be ambiguous.
         jp_rows = [
-            {"tid": "jp-1", "tname": "愛知県 Store A", "date": "2026-04-12",
-             "standing": 1, "player_name": "alice"},
-            {"tid": "jp-2", "tname": "愛知県 Store B", "date": "2026-04-12",
-             "standing": 1, "player_name": "bob"},
+            {
+                "tid": "jp-1",
+                "tname": "愛知県 Store A",
+                "date": "2026-04-12",
+                "standing": 1,
+                "player_name": "alice",
+            },
+            {
+                "tid": "jp-2",
+                "tname": "愛知県 Store B",
+                "date": "2026-04-12",
+                "standing": 1,
+                "player_name": "bob",
+            },
         ]
         db_path = _make_db(tmp_path, jp_rows)
 
@@ -108,8 +119,7 @@ class TestBackfillArchetypes:
                     tournament_date=date(2026, 4, 12),
                     source_url="https://limitlesstcg.com/tournaments/jp/1",
                 ),
-                [LimitlessPlacement(placement=1, player_name="alice",
-                                     archetype="Dragapult ex")],
+                [LimitlessPlacement(placement=1, player_name="alice", archetype="Dragapult ex")],
             ),
             (
                 LimitlessTournament(
@@ -117,8 +127,7 @@ class TestBackfillArchetypes:
                     tournament_date=date(2026, 4, 12),
                     source_url="https://limitlesstcg.com/tournaments/jp/2",
                 ),
-                [LimitlessPlacement(placement=1, player_name="bob",
-                                     archetype="Charizard ex")],
+                [LimitlessPlacement(placement=1, player_name="bob", archetype="Charizard ex")],
             ),
         ]
 
@@ -133,8 +142,13 @@ class TestBackfillArchetypes:
         """If the same (date, player_name) maps to conflicting archetypes in
         Limitless data, leave the placement as Unknown."""
         jp_rows = [
-            {"tid": "jp-1", "tname": "東京都 Store A", "date": "2026-04-12",
-             "standing": 1, "player_name": "aki"},
+            {
+                "tid": "jp-1",
+                "tname": "東京都 Store A",
+                "date": "2026-04-12",
+                "standing": 1,
+                "player_name": "aki",
+            },
         ]
         db_path = _make_db(tmp_path, jp_rows)
 
@@ -145,8 +159,7 @@ class TestBackfillArchetypes:
                     tournament_date=date(2026, 4, 12),
                     source_url="https://limitlesstcg.com/tournaments/jp/10",
                 ),
-                [LimitlessPlacement(placement=1, player_name="aki",
-                                     archetype="Dragapult ex")],
+                [LimitlessPlacement(placement=1, player_name="aki", archetype="Dragapult ex")],
             ),
             (
                 LimitlessTournament(
@@ -154,8 +167,7 @@ class TestBackfillArchetypes:
                     tournament_date=date(2026, 4, 12),
                     source_url="https://limitlesstcg.com/tournaments/jp/11",
                 ),
-                [LimitlessPlacement(placement=5, player_name="aki",
-                                     archetype="Charizard ex")],
+                [LimitlessPlacement(placement=5, player_name="aki", archetype="Charizard ex")],
             ),
         ]
 
@@ -169,8 +181,13 @@ class TestBackfillArchetypes:
         """Seeing the same (date, player_name, archetype) twice (e.g. from
         overlapping listings) is not ambiguous; the placement still updates."""
         jp_rows = [
-            {"tid": "jp-1", "tname": "大阪府 Store A", "date": "2026-04-12",
-             "standing": 3, "player_name": "yuki"},
+            {
+                "tid": "jp-1",
+                "tname": "大阪府 Store A",
+                "date": "2026-04-12",
+                "standing": 3,
+                "player_name": "yuki",
+            },
         ]
         db_path = _make_db(tmp_path, jp_rows)
 
@@ -181,8 +198,7 @@ class TestBackfillArchetypes:
                     tournament_date=date(2026, 4, 12),
                     source_url="https://limitlesstcg.com/tournaments/jp/20",
                 ),
-                [LimitlessPlacement(placement=3, player_name="yuki",
-                                     archetype="Gardevoir ex")],
+                [LimitlessPlacement(placement=3, player_name="yuki", archetype="Gardevoir ex")],
             ),
             (
                 LimitlessTournament(
@@ -190,8 +206,7 @@ class TestBackfillArchetypes:
                     tournament_date=date(2026, 4, 12),
                     source_url="https://limitlesstcg.com/tournaments/jp/21",
                 ),
-                [LimitlessPlacement(placement=3, player_name="yuki",
-                                     archetype="Gardevoir ex")],
+                [LimitlessPlacement(placement=3, player_name="yuki", archetype="Gardevoir ex")],
             ),
         ]
 
@@ -204,8 +219,13 @@ class TestBackfillArchetypes:
     def test_placements_without_player_name_are_ignored(self, tmp_path):
         """A JP placement with no player_name cannot be backfilled via this path."""
         jp_rows = [
-            {"tid": "jp-1", "tname": "東京都 Store A", "date": "2026-04-12",
-             "standing": 1, "player_name": None},
+            {
+                "tid": "jp-1",
+                "tname": "東京都 Store A",
+                "date": "2026-04-12",
+                "standing": 1,
+                "player_name": None,
+            },
         ]
         db_path = _make_db(tmp_path, jp_rows)
 
@@ -216,8 +236,7 @@ class TestBackfillArchetypes:
                     tournament_date=date(2026, 4, 12),
                     source_url="https://limitlesstcg.com/tournaments/jp/30",
                 ),
-                [LimitlessPlacement(placement=1, player_name=None,
-                                     archetype="Dragapult ex")],
+                [LimitlessPlacement(placement=1, player_name=None, archetype="Dragapult ex")],
             ),
         ]
 

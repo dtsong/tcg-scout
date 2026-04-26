@@ -888,7 +888,9 @@ def _run_repair_decklists(conn: sqlite3.Connection, dry_run: bool, pool_size: in
 
 @cli.command("backfill-decklists")
 @click.option("--limit", default=None, type=int, help="Max placements to backfill")
-@click.option("--since", default=None, help="Only backfill tournaments on/after this date (YYYY-MM-DD)")
+@click.option(
+    "--since", default=None, help="Only backfill tournaments on/after this date (YYYY-MM-DD)"
+)
 @click.option(
     "--source",
     type=click.Choice(["jp", "limitless", "all"]),
@@ -962,9 +964,7 @@ def _backfill_jp_decklists(
 ) -> int:
     """Fetch missing JP (jp-*) decklists via Playwright batch and store cards."""
     placements = _select_missing_decklist_placements(conn, "jp-%", limit, since)
-    console.print(
-        f"\n[cyan]JP backfill:[/cyan] {len(placements)} placements missing decklists"
-    )
+    console.print(f"\n[cyan]JP backfill:[/cyan] {len(placements)} placements missing decklists")
     if not placements:
         return 0
 
@@ -1000,9 +1000,7 @@ def _backfill_jp_decklists(
             empty += 1
             continue
         for placement_id in placement_ids:
-            conn.execute(
-                "DELETE FROM decklist_cards WHERE placement_id = ?", (placement_id,)
-            )
+            conn.execute("DELETE FROM decklist_cards WHERE placement_id = ?", (placement_id,))
             store_decklist_cards(conn, placement_id, cards, jp_en_lookup)
             stored += 1
     conn.commit()
@@ -1046,9 +1044,7 @@ def _backfill_limitless_decklists(
             if not decklist or not decklist.cards:
                 empty += 1
                 continue
-            conn.execute(
-                "DELETE FROM decklist_cards WHERE placement_id = ?", (p["id"],)
-            )
+            conn.execute("DELETE FROM decklist_cards WHERE placement_id = ?", (p["id"],))
             for card in decklist.cards:
                 conn.execute(
                     "INSERT OR REPLACE INTO decklist_cards "
@@ -1067,8 +1063,7 @@ def _backfill_limitless_decklists(
         client.close()
 
     console.print(
-        f"[green]Limitless backfill: stored {stored} decklists "
-        f"({empty} returned no cards)[/green]"
+        f"[green]Limitless backfill: stored {stored} decklists ({empty} returned no cards)[/green]"
     )
     return stored
 
