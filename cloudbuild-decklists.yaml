@@ -48,6 +48,7 @@ steps:
     args:
       - -c
       - |
+        mkdir -p data
         gsutil -m cp "gs://${_CACHE_BUCKET}/scout-dbs/*.db" data/ || {
           echo "ERROR: DB cache restore failed (exit $?). Cannot backfill against an empty DB.";
           exit 1;
