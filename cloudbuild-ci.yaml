@@ -34,13 +34,6 @@ steps:
     dir: web
     waitFor: ["npm-install"]
 
-  - id: playwright-install
-    name: node:22-slim
-    entrypoint: npx
-    args: ["playwright", "install", "--with-deps", "chromium"]
-    dir: web
-    waitFor: ["npm-install"]
-
   - id: frontend-build
     name: node:22-slim
     entrypoint: npm
@@ -55,34 +48,36 @@ steps:
     dir: web
     waitFor: ["frontend-build"]
 
+  # Playwright image bundles Chromium + system deps (libglib, libnss, etc.).
+  # Tag must match @playwright/test version pinned in package-lock.json (1.58.2).
   - id: e2e-smoke
-    name: node:22-slim
+    name: mcr.microsoft.com/playwright:v1.58.2-jammy
     entrypoint: npm
     args: ["run", "test:e2e:smoke"]
     dir: web
-    waitFor: ["frontend-build", "playwright-install"]
+    waitFor: ["frontend-build"]
 
   - id: e2e-assets
-    name: node:22-slim
+    name: mcr.microsoft.com/playwright:v1.58.2-jammy
     entrypoint: npm
     args: ["run", "test:e2e:assets"]
     dir: web
     waitFor: ["e2e-smoke"]
 
   - id: e2e-render
-    name: node:22-slim
+    name: mcr.microsoft.com/playwright:v1.58.2-jammy
     entrypoint: npm
     args: ["run", "test:e2e:render"]
     dir: web
     waitFor: ["e2e-assets"]
 
   - id: e2e-performance
-    name: node:22-slim
+    name: mcr.microsoft.com/playwright:v1.58.2-jammy
     entrypoint: npm
     args: ["run", "test:e2e:performance"]
     dir: web
     waitFor: ["e2e-render"]
 
-timeout: 600s
+timeout: 1800s
 options:
   logging: CLOUD_LOGGING_ONLY

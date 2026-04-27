@@ -103,13 +103,23 @@ steps:
     args:
       - -c
       - |
+        set -euo pipefail
         git config user.name "cloud-build[bot]"
         git config user.email "cloud-build[bot]@scout.trainerlab.io"
         git remote set-url origin "https://x-access-token:$$GITHUB_TOKEN@github.com/dtsong/tcg-scout.git"
         git add web/data-manifest.json
         git diff --cached --quiet && { echo "No manifest changes"; exit 0; }
         git commit -m "data: scrape $$(date -u +%Y-%m-%dT%H:%MZ)"
-        git push origin HEAD:main
+        # Race-tolerant push: another pipeline (e.g. tcg-scout-decklists) may
+        # have advanced main between our checkout and now. Rebase + retry.
+        for attempt in 1 2 3; do
+          if git push origin HEAD:main; then exit 0; fi
+          echo "push rejected, fetching and rebasing (attempt $$attempt)..."
+          git fetch origin main
+          git rebase origin/main || { git rebase --abort; exit 1; }
+        done
+        echo "ERROR: push failed after 3 attempts" >&2
+        exit 1
     waitFor: ["upload-data"]
 
 substitutions:
