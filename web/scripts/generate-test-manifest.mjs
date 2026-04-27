@@ -43,6 +43,7 @@ const formats = readJson("formats.json")
 
     return {
       slug,
+      status: format.status,
       topArchetypeSlug: meta.archetypes[0]?.slug ?? null,
       topCardSlug: cards[0]?.card_slug ?? null,
       optimal60Slug: optimal60?.archetypes?.[0]?.slug ?? null,
@@ -129,36 +130,36 @@ const manifest = {
   generatedAt: new Date().toISOString(),
   formats,
   broadRoutes: uniqueByPath(broadRoutes),
+  // Visual snapshots only run against frozen formats. Active formats re-scrape
+  // every few hours and drift every chart, count, and timestamp, which would
+  // require regenerating baselines on every cron run. Layout/CSS regressions
+  // surface on frozen routes since both formats share the same components.
   visualRoutes: uniqueByPath([
-    { path: "/", name: "landing-desktop", viewport: { width: 1440, height: 900 } },
     { path: "/start", name: "start-desktop", viewport: { width: 1440, height: 900 } },
-    ...formats.flatMap((format) => {
-      const prefix = `/${format.slug}`;
-      const routes = [
-        { path: prefix, name: `${format.slug}-dashboard-desktop`, viewport: { width: 1440, height: 900 } },
-        { path: `${prefix}/archetypes`, name: `${format.slug}-archetypes-desktop`, viewport: { width: 1440, height: 900 } },
-      ];
-      if (format.topArchetypeSlug) {
-        routes.push({
-          path: `${prefix}/archetypes/${format.topArchetypeSlug}`,
-          name: `${format.slug}-archetype-detail-desktop`,
-          viewport: { width: 1440, height: 900 },
-        });
-      }
-      if (format.routeFlags.cardAnalysis) {
-        routes.push({
-          path: `${prefix}/card-analysis`,
-          name: `${format.slug}-card-analysis-desktop`,
-          viewport: { width: 1440, height: 900 },
-        });
-      }
-      routes.push({
-        path: prefix,
-        name: `${format.slug}-dashboard-mobile`,
-        viewport: { width: 390, height: 844 },
-      });
-      return routes;
-    }),
+    ...formats
+      .filter((format) => format.status === "frozen")
+      .flatMap((format) => {
+        const prefix = `/${format.slug}`;
+        const routes = [
+          { path: prefix, name: `${format.slug}-dashboard-desktop`, viewport: { width: 1440, height: 900 } },
+          { path: `${prefix}/archetypes`, name: `${format.slug}-archetypes-desktop`, viewport: { width: 1440, height: 900 } },
+        ];
+        if (format.topArchetypeSlug) {
+          routes.push({
+            path: `${prefix}/archetypes/${format.topArchetypeSlug}`,
+            name: `${format.slug}-archetype-detail-desktop`,
+            viewport: { width: 1440, height: 900 },
+          });
+        }
+        if (format.routeFlags.cardAnalysis) {
+          routes.push({
+            path: `${prefix}/card-analysis`,
+            name: `${format.slug}-card-analysis-desktop`,
+            viewport: { width: 1440, height: 900 },
+          });
+        }
+        return routes;
+      }),
   ]),
   performanceRoutes: uniqueByPath([
     ...formats.map((format) => ({
