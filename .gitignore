@@ -20,6 +20,10 @@ data/*.db-wal
 data/*.db-shm
 data/*.sqlite
 *.db
+data/*.db.bak.*
+
+# Logs
+logs/
 
 # Exported JSON data (fetched from GCS at build time)
 web/public/data/
