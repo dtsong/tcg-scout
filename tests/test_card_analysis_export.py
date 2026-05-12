@@ -39,6 +39,16 @@ def _seed(conn: sqlite3.Connection) -> None:
             "VALUES (?, 'rare-candy', 'Rare Candy', 3)",
             (pid,),
         )
+    # Filler card on the non-top-4 placements so they have decklists and are
+    # counted in the field denominator. Inclusion stats now use the count of
+    # placements with at least one decklist row, so deckless placements would
+    # otherwise be excluded entirely.
+    for pid in [3, 4, 7, 8]:
+        conn.execute(
+            "INSERT INTO decklist_cards (placement_id, card_id, card_name, count) "
+            "VALUES (?, 'filler', 'Filler Card', 1)",
+            (pid,),
+        )
     conn.execute(
         "INSERT INTO meta_snapshots (id, generated_at, tournament_count, deck_count) "
         "VALUES (1, '2026-03-01', 1, 8)"
@@ -141,6 +151,14 @@ def test_export_card_analysis_weighted_impact_favors_higher_tier(tmp_path):
         "INSERT INTO decklist_cards (placement_id, card_id, card_name, count) "
         "VALUES (11, 'tech', 'Tech Card', 1)"
     )
+    # Filler decklists for the remaining placements so they're counted in the
+    # field denominator (decks without published lists no longer count).
+    for pid in [5, 6, 7, 8, 9, 10, 12, 13, 14]:
+        conn.execute(
+            "INSERT INTO decklist_cards (placement_id, card_id, card_name, count) "
+            "VALUES (?, 'filler', 'Filler Card', 1)",
+            (pid,),
+        )
 
     conn.execute(
         "INSERT INTO meta_snapshots (id, generated_at, tournament_count, deck_count) "

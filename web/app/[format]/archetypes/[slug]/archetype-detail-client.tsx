@@ -219,31 +219,50 @@ function TabContent({
               <h2 className="font-display text-lg font-semibold text-slate-100 mb-1">
                 Decklist
               </h2>
-              <p className="text-xs text-surface-400 mb-4">
-                Averaged across {arch.deck_count}{" "}
-                {arch.deck_count === 1 ? "deck" : "decks"}. Bold = core (80%+),
-                dimmed = flex.
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                <DeckColumn
-                  title="Pokemon"
-                  cards={pokemon}
-                  coreNames={coreNames}
-                  count={totalCards(pokemon)}
-                />
-                <DeckColumn
-                  title="Trainer"
-                  cards={trainer}
-                  coreNames={coreNames}
-                  count={totalCards(trainer)}
-                />
-                <DeckColumn
-                  title="Energy"
-                  cards={energy}
-                  coreNames={coreNames}
-                  count={totalCards(energy)}
-                />
-              </div>
+              {(() => {
+                const decksWithLists =
+                  arch.decks_with_lists ?? (arch.all_cards.length > 0 ? arch.deck_count : 0);
+                if (decksWithLists === 0) {
+                  return (
+                    <p className="text-sm text-surface-400">
+                      No decklists available yet for this archetype. Standings are
+                      tracked but full decklists haven&apos;t been published.
+                    </p>
+                  );
+                }
+                return (
+                  <>
+                    <p className="text-xs text-surface-400 mb-4">
+                      Averaged across {decksWithLists}{" "}
+                      {decksWithLists === 1 ? "deck" : "decks"}
+                      {decksWithLists < arch.deck_count
+                        ? ` (of ${arch.deck_count} placements with published lists)`
+                        : ""}
+                      . Bold = core (80%+), dimmed = flex.
+                    </p>
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                      <DeckColumn
+                        title="Pokemon"
+                        cards={pokemon}
+                        coreNames={coreNames}
+                        count={totalCards(pokemon)}
+                      />
+                      <DeckColumn
+                        title="Trainer"
+                        cards={trainer}
+                        coreNames={coreNames}
+                        count={totalCards(trainer)}
+                      />
+                      <DeckColumn
+                        title="Energy"
+                        cards={energy}
+                        coreNames={coreNames}
+                        count={totalCards(energy)}
+                      />
+                    </div>
+                  </>
+                );
+              })()}
             </section>
             {arch.top4_card_stats && arch.top4_card_stats.length > 0 && (
               <Top4CardStats

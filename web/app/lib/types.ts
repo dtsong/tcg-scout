@@ -183,6 +183,7 @@ export interface ArchetypeDetail {
   meta_share: number;
   weighted_share?: number;
   deck_count: number;
+  decks_with_lists?: number;
   best_placement: number;
   sprite_filenames?: string[];
   core_cards: ArchetypeCard[];

@@ -1424,6 +1424,21 @@ def export_ace_specs(conn: sqlite3.Connection, output_dir: Path) -> None:
     _write_json(specs, output_dir / "ace-specs.json")
 
 
+def _count_placements_with_decklists(
+    conn: sqlite3.Connection, placement_ids: list[int]
+) -> int:
+    """Return how many of the given placements have at least one decklist_cards row."""
+    if not placement_ids:
+        return 0
+    placeholders = ",".join("?" * len(placement_ids))
+    row = conn.execute(
+        f"SELECT COUNT(DISTINCT placement_id) AS n FROM decklist_cards "
+        f"WHERE placement_id IN ({placeholders})",
+        placement_ids,
+    ).fetchone()
+    return row["n"] if row else 0
+
+
 def _compute_card_stats_for_ids(
     conn: sqlite3.Connection,
     placement_ids: list[int],
@@ -1433,11 +1448,16 @@ def _compute_card_stats_for_ids(
     """Compute per-card inclusion stats for a set of placement IDs.
 
     Returns a list of dicts with card_name, inclusion_pct, avg_copies, decks_with, category.
+    The inclusion denominator is the count of placements that actually have decklists
+    -- placements without scraped decklists are excluded so they don't deflate inclusion %.
     """
     if not placement_ids:
         return []
 
-    total_decks = len(placement_ids)
+    total_decks = _count_placements_with_decklists(conn, placement_ids)
+    if total_decks == 0:
+        return []
+
     placeholders = ",".join("?" * len(placement_ids))
     if include_basic_energy:
         energy_clause = ""
@@ -1518,6 +1538,7 @@ def export_archetypes(
         all_cards = _compute_card_stats_for_ids(
             conn, placement_ids, category_lookup, include_basic_energy=True
         )
+        decks_with_lists = _count_placements_with_decklists(conn, placement_ids)
         core_cards = [c for c in all_cards if c["inclusion_pct"] >= 80]
 
         # Top-4 segmented card stats (derived from already-fetched placements)
@@ -1670,6 +1691,7 @@ def export_archetypes(
             "meta_share": round(arch["meta_share"], 1),
             "weighted_share": round(weighted_shares.get(archetype_name, 0.0), 1),
             "deck_count": arch["deck_count"],
+            "decks_with_lists": decks_with_lists,
             "best_placement": arch["best_placement"],
             "sprite_filenames": _get_sprite_filenames(archetype_name),
             "core_cards": core_cards,
