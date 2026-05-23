@@ -52,6 +52,18 @@ FORMATS = {
         "description": "Temporal Forces through Mega Evolution: Abyss Eye",
         "db_name": "abyss-eye.db",
     },
+    # TPCi (English) Standard — international Regionals, ICs, Worlds, and grassroots
+    # majors aggregated from limitlesstcg.com. Cardpool spans Temporal Forces (TEF)
+    # through Perfect Order (POR) — the post-2025-09 rotation window.
+    "tpci-standard": {
+        "name": "TPCi Standard",
+        "name_en": "Temporal Forces - Perfect Order",
+        "dataset_start": "2025-09-12",
+        "dataset_end": "2026-09-04",
+        "rotation_date": "2026-09-05",
+        "description": "International Standard (Regionals, ICs, Worlds, grassroots majors)",
+        "db_name": "tpci-standard.db",
+    },
 }
 
 DEFAULT_FORMAT = "ninja-spinner"
