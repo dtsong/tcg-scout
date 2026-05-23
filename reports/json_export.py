@@ -1424,9 +1424,7 @@ def export_ace_specs(conn: sqlite3.Connection, output_dir: Path) -> None:
     _write_json(specs, output_dir / "ace-specs.json")
 
 
-def _count_placements_with_decklists(
-    conn: sqlite3.Connection, placement_ids: list[int]
-) -> int:
+def _count_placements_with_decklists(conn: sqlite3.Connection, placement_ids: list[int]) -> int:
     """Return how many of the given placements have at least one decklist_cards row."""
     if not placement_ids:
         return 0
