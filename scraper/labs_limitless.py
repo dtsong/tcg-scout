@@ -67,6 +67,9 @@ _DATE_RE = re.compile(
     rf"(\d{{1,2}})(?:st|nd|rd|th)?\s+({'|'.join(_MONTH_TO_NUM.keys())})\s+(\d{{2,4}})"
 )
 
+# Matches the Labs standings URL pattern, capturing the zero-padded labs tournament ID.
+_LABS_STANDINGS_HREF_RE = re.compile(r"labs\.limitlesstcg\.com/(\d+)/standings")
+
 
 # ---------------------------------------------------------------------------
 # Data classes
@@ -111,6 +114,7 @@ class LabsTournament:
     country: str = ""
     region: str = ""
     format: str = ""
+    labs_tournament_id: str | None = None  # e.g. "0065" from labs.limitlesstcg.com/0065/standings
     placements: list[LabsPlacement] = field(default_factory=list)
 
     def __post_init__(self) -> None:
@@ -118,6 +122,22 @@ class LabsTournament:
             raise ValueError("tournament_id must be non-empty")
         if not self.name.strip():
             raise ValueError("name must be non-empty")
+
+
+@dataclass
+class LabsTournamentListing:
+    """One row from the limitlesstcg.com/tournaments listing page."""
+
+    tournament_id: str
+    name: str
+    date: str  # ISO YYYY-MM-DD
+    country: str  # ISO 2-letter (e.g. "US", "BR")
+    player_count: int
+    format_string: str  # e.g. "standard" (from format icon alt)
+
+    def __post_init__(self) -> None:
+        if not self.tournament_id.strip():
+            raise ValueError("tournament_id must be non-empty")
 
 
 @dataclass
@@ -169,8 +189,10 @@ class LabsLimitlessClient(RateLimitedHTTPClient):
         title_el = soup.find("h1") or soup.find("title")
         if title_el:
             name = title_el.get_text(strip=True)
-            # Remove pipe-delimited suffixes (e.g. "| Pokémon")
-            name = name.split("|")[0].strip()
+            # Strip site-identifier suffixes that Limitless appends to page titles:
+            # "| Pokémon", "– Limitless" (U+2013 en-dash), "— Limitless" (U+2014 em-dash).
+            for sep in ("|", "–", "—"):
+                name = name.split(sep)[0].strip()
 
         # Try to extract date and player count from info section
         for el in soup.find_all(["span", "div", "p"]):
@@ -197,6 +219,14 @@ class LabsLimitlessClient(RateLimitedHTTPClient):
                     country = alt.upper()
                     break
 
+        # Extract labs tournament ID from any link to labs.limitlesstcg.com/<id>/standings
+        labs_tournament_id: str | None = None
+        for a in soup.find_all("a", href=True):
+            m = _LABS_STANDINGS_HREF_RE.search(a["href"])
+            if m:
+                labs_tournament_id = m.group(1)
+                break
+
         if not player_count:
             logger.warning("Could not parse player count from %s", url)
         if not name or not date:
@@ -210,6 +240,130 @@ class LabsLimitlessClient(RateLimitedHTTPClient):
             date=date,
             player_count=player_count,
             country=country,
+            labs_tournament_id=labs_tournament_id,
+        )
+
+    # ------------------------------------------------------------------
+    # Tournament discovery — listing page
+    # ------------------------------------------------------------------
+
+    def list_tournaments(
+        self,
+        *,
+        format_filter: str = "STANDARD",
+        type_filter: str = "major",
+        show: int = 100,
+        since: str | None = None,
+    ) -> list[LabsTournamentListing]:
+        """Discover tournaments from the main Limitless listing page.
+
+        Hits ``https://limitlesstcg.com/tournaments`` with the given filters
+        and parses each row into a LabsTournamentListing. The listing is
+        chronological (newest first); ``since`` is applied client-side after
+        parsing and stops iteration once dates fall past the cutoff.
+
+        Args:
+            format_filter: Format query value (e.g. "STANDARD", "EXPANDED").
+            type_filter: Type query value ("major", "regional", "international",
+                "worlds", "special", "national"). "major" aggregates the
+                checkpoint event types.
+            show: Page size (1..100). Single page; no pagination — use a
+                ``since`` filter for incremental scraping.
+            since: ISO date (YYYY-MM-DD) lower bound. Tournaments on or after
+                this date are returned.
+
+        Returns:
+            List of LabsTournamentListing, ordered newest-first.
+        """
+        params: dict[str, str | int] = {
+            "game": "PTCG",
+            "format": format_filter,
+            "type": type_filter,
+            "show": show,
+        }
+        # Build query string manually so we don't depend on httpx URL building order
+        query = "&".join(f"{k}={v}" for k, v in params.items())
+        url = f"{self._base_url}/tournaments?{query}"
+        logger.info("Fetching tournament listings from %s", url)
+        soup = self._soup(url)
+
+        table = soup.find("table")
+        if table is None:
+            logger.warning("No listings table at %s", url)
+            return []
+
+        results: list[LabsTournamentListing] = []
+        rows = table.find_all("tr")
+        for row in rows[1:]:  # Skip header
+            try:
+                listing = self._parse_listing_row(row)
+            except ValueError as exc:
+                logger.debug("Skipping listing row: %s", exc)
+                continue
+            if listing is None:
+                continue
+            if since and listing.date < since:
+                # Listing is reverse-chronological; we can stop here.
+                break
+            results.append(listing)
+
+        logger.info("Discovered %d tournaments matching filters", len(results))
+        return results
+
+    def _parse_listing_row(self, row: Tag) -> LabsTournamentListing | None:
+        """Parse a single row from the /tournaments listing table."""
+        cells = row.find_all("td")
+        if len(cells) < 5:
+            return None
+
+        # Col 0: date ("16 May 26")
+        date_text = cells[0].get_text(strip=True)
+        date_match = _DATE_RE.search(date_text)
+        if not date_match:
+            return None
+        day, month, year = date_match.groups()
+        if len(year) == 2:
+            year = f"20{year}"
+        iso_date = f"{year}-{_MONTH_TO_NUM[month]}-{int(day):02d}"
+
+        # Col 1: country flag (img alt = 2-letter code)
+        country = ""
+        country_img = cells[1].find("img")
+        if country_img:
+            alt = country_img.get("alt", "")
+            if alt and len(alt) <= 3:
+                country = alt.upper()
+
+        # Col 2: name + tournament link
+        name_link = cells[2].find("a", href=True)
+        if not name_link:
+            return None
+        href = name_link.get("href", "")
+        m = re.search(r"/tournaments/(\d+)", href)
+        if not m:
+            return None
+        tournament_id = m.group(1)
+        name = name_link.get_text(strip=True)
+
+        # Col 3: format icon (img alt = format string)
+        format_string = ""
+        fmt_img = cells[3].find("img")
+        if fmt_img:
+            format_string = fmt_img.get("alt", "").strip().lower()
+
+        # Col 4: player count
+        try:
+            player_count = int(cells[4].get_text(strip=True).replace(",", ""))
+        except ValueError:
+            player_count = 0
+
+        return LabsTournamentListing(
+            tournament_id=tournament_id,
+            name=name,
+            date=iso_date,
+            country=country,
+            player_count=player_count,
+            format_string=format_string,
         )
 
     # ------------------------------------------------------------------

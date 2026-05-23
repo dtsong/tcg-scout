@@ -803,6 +803,19 @@ class TestFetchTournamentMetadata:
         assert result.player_count == 2635
         assert result.country == "US"
 
+    def test_strips_endash_limitless_suffix(self, client):
+        """Live Limitless titles use ' – Limitless' (U+2013); suffix must be removed."""
+        html = """
+        <html><body>
+            <h1>Regional Campinas – Limitless</h1>
+            <span>16 May 26</span>
+            <span>1725 Players</span>
+            <img src="/flags/br.png" alt="BR">
+        </body></html>
+        """
+        result = self._mock_soup(client, html)
+        assert result.name == "Regional Campinas"
+
     def test_four_digit_year(self, client):
         html = """
         <html><body>
@@ -1554,3 +1567,203 @@ class TestDateParsingNonAsciiMonth:
                 client.fetch_tournament_metadata("999")
 
         client.close()
+
+
+class TestFetchTournamentMetadataLabsId:
+    """fetch_tournament_metadata extracts labs_tournament_id when the page links to Labs."""
+
+    @pytest.fixture()
+    def client(self):
+        from scraper.labs_limitless import LabsLimitlessClient
+
+        c = LabsLimitlessClient()
+        yield c
+        c.close()
+
+    def test_extracts_labs_id_from_standings_link(self, client) -> None:
+        html = """
+        <html>
+          <h1>Regional Campinas</h1>
+          <span>16 May 2026</span>
+          <span>1725 Players</span>
+          <a href="https://labs.limitlesstcg.com/0065/standings">Standings</a>
+        </html>
+        """
+        mock_response = MagicMock()
+        mock_response.text = html
+        mock_response.status_code = 200
+
+        with patch.object(client, "_get", return_value=mock_response):
+            t = client.fetch_tournament_metadata("544")
+        assert t.labs_tournament_id == "0065"
+        assert t.name == "Regional Campinas"
+        assert t.date == "2026-05-16"
+
+    def test_labs_id_none_when_no_standings_link(self, client) -> None:
+        html = """
+        <html>
+          <h1>Some Local Event</h1>
+          <span>1 Apr 2026</span>
+          <span>50 Players</span>
+        </html>
+        """
+        mock_response = MagicMock()
+        mock_response.text = html
+        mock_response.status_code = 200
+
+        with patch.object(client, "_get", return_value=mock_response):
+            t = client.fetch_tournament_metadata("777")
+        assert t.labs_tournament_id is None
+
+
+class TestParseListingRow:
+    """_parse_listing_row maps a /tournaments table row to LabsTournamentListing."""
+
+    @pytest.fixture()
+    def client(self):
+        from scraper.labs_limitless import LabsLimitlessClient
+
+        c = LabsLimitlessClient()
+        yield c
+        c.close()
+
+    @staticmethod
+    def _make_row(cells_html: list[str]):
+        from bs4 import BeautifulSoup
+
+        html = "<table><tr>" + "".join(f"<td>{c}</td>" for c in cells_html) + "</tr></table>"
+        soup = BeautifulSoup(html, "html.parser")
+        return soup.find("tr")
+
+    def test_basic_regional_row(self, client) -> None:
+        row = self._make_row(
+            [
+                "16 May 26",
+                '<img src="https://r2.limitlesstcg.net/flags/BR.png" alt="BR">',
+                '<a href="/tournaments/544">Regional Campinas</a>',
+                '<img alt="standard" class="format" src="x.png">',
+                "1725",
+                '<a href="/players/1198">Matias</a>',
+            ]
+        )
+        listing = client._parse_listing_row(row)
+        assert listing is not None
+        assert listing.tournament_id == "544"
+        assert listing.name == "Regional Campinas"
+        assert listing.date == "2026-05-16"
+        assert listing.country == "BR"
+        assert listing.player_count == 1725
+        assert listing.format_string == "standard"
+
+    def test_missing_link_returns_none(self, client) -> None:
+        row = self._make_row(
+            [
+                "16 May 26",
+                '<img alt="US">',
+                "No link here",
+                "",
+                "100",
+            ]
+        )
+        assert client._parse_listing_row(row) is None
+
+    def test_unparseable_date_returns_none(self, client) -> None:
+        row = self._make_row(
+            [
+                "TBD",
+                '<img alt="US">',
+                '<a href="/tournaments/999">X</a>',
+                "",
+                "100",
+            ]
+        )
+        assert client._parse_listing_row(row) is None
+
+    def test_player_count_with_comma(self, client) -> None:
+        row = self._make_row(
+            [
+                "09 May 26",
+                '<img alt="JP">',
+                '<a href="/tournaments/567">Champions League Aichi</a>',
+                "",
+                "8,000",
+            ]
+        )
+        listing = client._parse_listing_row(row)
+        assert listing is not None
+        assert listing.player_count == 8000
+
+
+class TestListTournaments:
+    """list_tournaments fetches the listing page and filters by date."""
+
+    @pytest.fixture()
+    def client(self):
+        from scraper.labs_limitless import LabsLimitlessClient
+
+        c = LabsLimitlessClient()
+        yield c
+        c.close()
+
+    @staticmethod
+    def _make_listing_html(rows: list[tuple[str, str, str, str, str, int]]) -> str:
+        """Build a listing HTML page from (date, country, tid, name, format, players) tuples."""
+        body = [
+            "<html><body><table><tr><th>Date</th><th>Country</th><th>Name</th><th></th><th>Players</th><th>Winner</th></tr>"
+        ]
+        for date_text, country, tid, name, fmt, players in rows:
+            body.append(
+                f"<tr>"
+                f"<td>{date_text}</td>"
+                f'<td><img src="x" alt="{country}"></td>'
+                f'<td><a href="/tournaments/{tid}">{name}</a></td>'
+                f'<td><img alt="{fmt}" class="format"></td>'
+                f"<td>{players}</td>"
+                f"<td></td>"
+                f"</tr>"
+            )
+        body.append("</table></body></html>")
+        return "".join(body)
+
+    def test_returns_all_when_no_since(self, client) -> None:
+        html = self._make_listing_html(
+            [
+                ("16 May 26", "BR", "544", "Regional Campinas", "standard", 1725),
+                ("09 May 26", "US", "558", "Regional Los Angeles", "standard", 1849),
+                ("25 Apr 26", "CZ", "539", "Regional Prague", "standard", 1370),
+            ]
+        )
+        mock_response = MagicMock()
+        mock_response.text = html
+        mock_response.status_code = 200
+
+        with patch.object(client, "_get", return_value=mock_response):
+            listings = client.list_tournaments()
+        assert len(listings) == 3
+        assert [t.tournament_id for t in listings] == ["544", "558", "539"]
+
+    def test_since_filter_stops_at_cutoff(self, client) -> None:
+        html = self._make_listing_html(
+            [
+                ("16 May 26", "BR", "544", "Regional Campinas", "standard", 1725),
+                ("09 May 26", "US", "558", "Regional Los Angeles", "standard", 1849),
+                ("25 Apr 26", "CZ", "539", "Regional Prague", "standard", 1370),
+            ]
+        )
+        mock_response = MagicMock()
+        mock_response.text = html
+        mock_response.status_code = 200
+
+        with patch.object(client, "_get", return_value=mock_response):
+            listings = client.list_tournaments(since="2026-05-01")
+        assert [t.tournament_id for t in listings] == ["544", "558"]
+
+    def test_empty_table_returns_empty_list(self, client) -> None:
+        html = "<html><body><p>no table here</p></body></html>"
+        mock_response = MagicMock()
+        mock_response.text = html
+        mock_response.status_code = 200
+
+        with patch.object(client, "_get", return_value=mock_response):
+            listings = client.list_tournaments()
+        assert listings == []
