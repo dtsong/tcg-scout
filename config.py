@@ -38,10 +38,19 @@ FORMATS = {
         "name": "Ninja Spinner",
         "name_en": "Chaos Rising",
         "dataset_start": "2026-03-14",
-        "dataset_end": "2026-05-22",
+        "dataset_end": "2026-06-04",
         "rotation_date": "2026-06-05",
         "description": "Temporal Forces through Mega Evolution: Chaos Rising",
         "db_name": "ninja-spinner.db",
+    },
+    "abyss-eye": {
+        "name": "Abyss Eye",
+        "name_en": "Abyss Eye",
+        "dataset_start": "2026-06-05",
+        "dataset_end": "2026-09-04",
+        "rotation_date": "2026-09-05",
+        "description": "Temporal Forces through Mega Evolution: Abyss Eye",
+        "db_name": "abyss-eye.db",
     },
 }
 
@@ -442,6 +451,15 @@ ARCHETYPE_ANCHOR_CARDS: dict[str, dict[str, str] | str] = {
     "Hydreigon ex": "Hydreigon",
     "Reshiram ex": "Reshiram",
     "Misty's Gyarados": "Misty's Gyarados",
+    # --- Abyss Eye (M5) format anchors ---
+    "Lurantis ex": "Lurantis",
+    "Wailord ex": "Wailord",
+    "Rampardos ex": "Rampardos",
+    "Morpeko ex": "Morpeko",
+    "Mega Zeraora ex": "Zeraora-Mega",
+    "Mega Chandelure ex": "Chandelure-Mega",
+    "Mega Darkrai ex": "Darkrai-Mega",
+    "Mega Excadrill ex": "Excadrill-Mega",
 }
 
 # JP card name -> EN card name mapping for classifying JP City League decklists.
@@ -511,6 +529,15 @@ JP_CARD_NAME_MAP: dict[str, str] = {
     "カボチャex": "Gourgeist ex",
     "レシラムex": "Reshiram ex",
     "カスミのギャラドス": "Misty's Gyarados",
+    # Abyss Eye (M5) anchors
+    "ラランテスex": "Lurantis ex",
+    "ホエルオーex": "Wailord ex",
+    "ラムパルドex": "Rampardos ex",
+    "モルペコex": "Morpeko ex",
+    "メガゼラオラex": "Mega Zeraora ex",
+    "メガシャンデラex": "Mega Chandelure ex",
+    "メガダークライex": "Mega Darkrai ex",
+    "メガドリュウズex": "Mega Excadrill ex",
     # --- Secondary cards (non-ex, used in composite detection) ---
     "ヨノワール": "Dusknoir",
     "ヨルノズク": "Noctowl",

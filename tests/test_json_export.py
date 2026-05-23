@@ -365,7 +365,6 @@ class TestExportFormats:
         formats_file = tmp_path / "formats.json"
         assert formats_file.exists()
         data = json.loads(formats_file.read_text())
-        assert len(data) == 2
         slugs = [f["slug"] for f in data]
         assert "nihil-zero" in slugs
         assert "ninja-spinner" in slugs
@@ -375,6 +374,7 @@ class TestExportFormats:
         ns = next(f for f in data if f["slug"] == "ninja-spinner")
         assert nz["status"] == "frozen"  # dataset_end is in the past
         assert nz["tournament_count"] == 42
+        # ninja-spinner has no meta.json in tmp_path -> "upcoming"
         assert ns["status"] == "upcoming"
 
 
