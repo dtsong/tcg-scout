@@ -269,6 +269,35 @@ class TestCLICommands:
         commands = list(cli.commands.keys())
         assert "labs-matchups" in commands
 
+    def test_scrape_tpci_registered(self):
+        from cli import cli
+
+        commands = list(cli.commands.keys())
+        assert "scrape-tpci" in commands
+
+
+class TestClassifyTpciType:
+    """_classify_tpci_type derives Scout tournament_type from Limitless name."""
+
+    @pytest.mark.parametrize(
+        ("name", "expected"),
+        [
+            ("Regional Campinas", "regional"),
+            ("Regional Los Angeles, CA", "regional"),
+            ("Special Event Stuttgart", "special-event"),
+            ("World Championship 2025", "worlds"),
+            ("Champions League Aichi", "champions-league"),
+            ("EUIC", "international"),
+            ("LAIC", "international"),
+            ("Korean League Season 4", "other"),
+            ("", "other"),
+        ],
+    )
+    def test_classification(self, name, expected):
+        from cli import _classify_tpci_type
+
+        assert _classify_tpci_type(name) == expected
+
 
 # ---------------------------------------------------------------------------
 # Scraper HTML parsing tests

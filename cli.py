@@ -1828,6 +1828,234 @@ def scrape_labs(
         conn.close()
 
 
+_TPCI_TYPE_BY_PREFIX = {
+    "regional": "regional",
+    "special": "special-event",
+    "world": "worlds",
+    "champions": "champions-league",
+}
+
+
+def _classify_tpci_type(name: str) -> str:
+    """Derive Scout tournament_type from Limitless tournament name.
+
+    Best-effort classification based on the first word of the name. Falls
+    back to 'other' for things we haven't tagged (e.g. "Korean League").
+    """
+    if not name:
+        return "other"
+    first = name.split()[0].lower()
+    if first in _TPCI_TYPE_BY_PREFIX:
+        return _TPCI_TYPE_BY_PREFIX[first]
+    upper = name.upper()
+    if "INTERNATIONAL" in upper or upper.endswith("IC") or " IC " in f" {upper} ":
+        return "international"
+    return "other"
+
+
+@cli.command("scrape-tpci")
+@click.option(
+    "--since",
+    default=None,
+    help="ISO date lower bound (defaults to active format's dataset_start)",
+)
+@click.option(
+    "--type-filter",
+    default="major",
+    help="Limitless type filter: major (all checkpoints), regional, international, worlds, special",
+)
+@click.option(
+    "--format-filter",
+    default="STANDARD",
+    help="Limitless format filter (STANDARD, EXPANDED)",
+)
+@click.option(
+    "--max-placements", default=None, type=int, help="Limit to top N standings per tournament"
+)
+@click.option("--fetch-decklists/--no-decklists", default=True, help="Fetch decklists")
+@click.option(
+    "--max-tournaments",
+    default=None,
+    type=int,
+    help="Limit number of new tournaments to process (useful for smoke testing)",
+)
+@click.pass_context
+def scrape_tpci(
+    ctx: click.Context,
+    since: str | None,
+    type_filter: str,
+    format_filter: str,
+    max_placements: int | None,
+    fetch_decklists: bool,
+    max_tournaments: int | None,
+) -> None:
+    """Discover and ingest international TPCi tournaments into the active format's DB.
+
+    Writes to the standard format DB (configured by --format), not data/labs.db.
+    Use --format tpci-standard to target the dedicated international DB.
+
+    Example:
+        scout --format tpci-standard scrape-tpci --since 2026-04-01
+    """
+    from scraper.labs_limitless import LabsLimitlessClient
+
+    fmt_slug = ctx.obj["format"]
+    fmt = get_format_config(fmt_slug)
+    since = since or fmt["dataset_start"]
+
+    conn = get_format_connection(fmt_slug)
+    init_db(conn)
+
+    with LabsLimitlessClient() as client:
+        console.print(
+            f"[cyan]Discovering {format_filter}/{type_filter} tournaments since {since}...[/cyan]"
+        )
+        listings = client.list_tournaments(
+            format_filter=format_filter, type_filter=type_filter, since=since
+        )
+        console.print(f"Found [bold]{len(listings)}[/bold] tournaments in listing")
+
+        if not listings:
+            console.print("[yellow]No tournaments matched filters.[/yellow]")
+            conn.close()
+            return
+
+        # Skip tournaments already in this DB
+        existing = {row["id"] for row in conn.execute("SELECT id FROM tournaments")}
+        new_listings = [t for t in listings if t.tournament_id not in existing]
+        if max_tournaments:
+            new_listings = new_listings[:max_tournaments]
+        console.print(
+            f"[cyan]{len(new_listings)} new tournament(s) to ingest "
+            f"({len(existing)} already in DB)[/cyan]"
+        )
+
+        total_placements = 0
+        total_decklists = 0
+        skipped_no_labs = 0
+        failed = 0
+
+        try:
+            for i, listing in enumerate(new_listings, 1):
+                console.print(
+                    f"  [{i}/{len(new_listings)}] {listing.name} ({listing.date}, {listing.country})"
+                )
+
+                try:
+                    metadata = client.fetch_tournament_metadata(listing.tournament_id)
+                except ValueError as exc:
+                    console.print(f"    [yellow]Metadata parse failed: {exc}[/yellow]")
+                    failed += 1
+                    continue
+
+                if not metadata.labs_tournament_id:
+                    console.print("    [yellow]No Labs standings link yet; skipping[/yellow]")
+                    skipped_no_labs += 1
+                    continue
+
+                try:
+                    standings = client.fetch_standings(metadata.labs_tournament_id)
+                except ValueError as exc:
+                    console.print(f"    [yellow]Standings parse failed: {exc}[/yellow]")
+                    failed += 1
+                    continue
+
+                if not standings:
+                    console.print("    [yellow]Empty standings; skipping[/yellow]")
+                    continue
+
+                if max_placements:
+                    standings = standings[:max_placements]
+
+                tournament_type = _classify_tpci_type(listing.name)
+
+                try:
+                    conn.execute(
+                        "INSERT OR REPLACE INTO tournaments "
+                        "(id, name, date, player_count, country, division, tournament_type) "
+                        "VALUES (?, ?, ?, ?, ?, ?, ?)",
+                        (
+                            listing.tournament_id,
+                            listing.name,
+                            listing.date,
+                            listing.player_count,
+                            listing.country,
+                            "open",
+                            tournament_type,
+                        ),
+                    )
+
+                    for placement in standings:
+                        cursor = conn.execute(
+                            "INSERT INTO placements "
+                            "(tournament_id, standing, player_name, archetype, decklist_url) "
+                            "VALUES (?, ?, ?, ?, ?)",
+                            (
+                                listing.tournament_id,
+                                placement.standing,
+                                placement.player.name,
+                                placement.archetype,
+                                placement.decklist_url,
+                            ),
+                        )
+                        placement_id = cursor.lastrowid
+                        total_placements += 1
+
+                        if fetch_decklists and placement.decklist_url:
+                            try:
+                                decklist = client.fetch_decklist(placement.decklist_url)
+                            except httpx.HTTPStatusError as exc:
+                                if exc.response.status_code in (401, 403):
+                                    raise  # Circuit-break out of this tournament
+                                decklist = None
+                            if decklist and decklist.cards:
+                                for card in decklist.cards:
+                                    conn.execute(
+                                        "INSERT OR REPLACE INTO decklist_cards "
+                                        "(placement_id, card_id, card_name, count) "
+                                        "VALUES (?, ?, ?, ?)",
+                                        (
+                                            placement_id,
+                                            card.get("card_id") or card.get("name") or "unknown",
+                                            card.get("name"),
+                                            card.get("count", 1),
+                                        ),
+                                    )
+                                total_decklists += 1
+
+                    conn.commit()
+                except sqlite3.Error:
+                    logger.exception(
+                        "Failed to ingest tournament %s, rolling back",
+                        listing.tournament_id,
+                    )
+                    conn.rollback()
+                    failed += 1
+                    continue
+                except httpx.HTTPStatusError as exc:
+                    console.print(
+                        f"    [red]Aborting tournament — HTTP {exc.response.status_code} "
+                        f"on {exc.request.url}[/red]"
+                    )
+                    conn.rollback()
+                    failed += 1
+                    continue
+
+            console.print(
+                f"\n[green]Done! Ingested {total_placements} placements "
+                f"and {total_decklists} decklists from {len(new_listings) - skipped_no_labs - failed} "
+                f"tournament(s).[/green]"
+            )
+            if skipped_no_labs:
+                console.print(
+                    f"[yellow]{skipped_no_labs} tournament(s) skipped — no Labs standings yet.[/yellow]"
+                )
+            if failed:
+                console.print(f"[red]{failed} tournament(s) failed to ingest. Check logs.[/red]")
+        finally:
+            conn.close()
+
+
 @cli.command("labs-matchups")
 @click.option("--top", default=15, help="Number of top archetypes")
 @click.pass_context
