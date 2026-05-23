@@ -12,6 +12,7 @@ dependencies = [
     "kernel>=0.1",
     "playwright>=1.40",
     "python-dotenv>=1.0",
+    "psycopg[binary]>=3.2",
 ]
 
 [project.scripts]
