@@ -5,8 +5,11 @@ and decklists from Labs Limitless (labs.limitlesstcg.com) and the main
 Limitless site (limitlesstcg.com).
 
 Labs standings pages are server-rendered HTML — no browser rendering needed.
+Per-player decklist pages are SvelteKit-rendered: cards are embedded as
+JSON inside <script> tags rather than as <a class="card-link"> elements.
 """
 
+import json
 import logging
 import re
 import sqlite3
@@ -69,6 +72,9 @@ _DATE_RE = re.compile(
 
 # Matches the Labs standings URL pattern, capturing the zero-padded labs tournament ID.
 _LABS_STANDINGS_HREF_RE = re.compile(r"labs\.limitlesstcg\.com/(\d+)/standings")
+
+# Matches the labs per-player decklist URL pattern.
+_LABS_PLAYER_DECKLIST_RE = re.compile(r"/\d+/player/\d+/decklist\b")
 
 
 # ---------------------------------------------------------------------------
@@ -144,6 +150,61 @@ class LabsTournamentListing:
 class LabsDecklist:
     cards: list[CardEntry]
     source_url: str | None = None
+
+
+# Inline server-response payload SvelteKit emits into <script> tags.
+# Shape: {"status":200,"statusText":"OK","headers":{},"body":"{...stringified JSON...}"}
+_LABS_SERVER_DATA_RE = re.compile(r'<script[^>]*>(\{"status":\s*200[^<]+?\})</script>')
+
+
+def _parse_labs_player_decklist_html(html: str) -> list[CardEntry]:
+    """Extract decklist cards from a labs per-player decklist HTML page.
+
+    Labs serializes server-fetched data into inline <script> tags. One of the
+    blobs contains ``{"pokemon": [...], "trainer": [...], "energy": [...]}``
+    with cards shaped as ``{"count": int, "name": str, "set": str, "number": str}``.
+    """
+    for raw in _LABS_SERVER_DATA_RE.findall(html):
+        try:
+            outer = json.loads(raw)
+            body = outer.get("body")
+            if not isinstance(body, str):
+                continue
+            inner = json.loads(body)
+        except json.JSONDecodeError:
+            continue
+        message = inner.get("message") if isinstance(inner, dict) else None
+        if not isinstance(message, dict):
+            continue
+        if not any(k in message for k in ("pokemon", "trainer", "energy")):
+            continue
+        return _labs_message_to_cards(message)
+    return []
+
+
+def _labs_message_to_cards(message: dict) -> list[CardEntry]:
+    cards: list[CardEntry] = []
+    for section in ("pokemon", "trainer", "energy"):
+        for entry in message.get(section, []) or []:
+            try:
+                count = int(entry["count"])
+                name = str(entry["name"]).strip()
+                set_code = str(entry.get("set") or "").strip()
+                number = str(entry.get("number") or "").strip()
+            except (KeyError, TypeError, ValueError):
+                continue
+            if not name:
+                continue
+            cards.append(
+                {
+                    "count": count,
+                    "name": name,
+                    "set_code": set_code,
+                    "card_number": number,
+                    "card_id": f"{set_code}-{number}" if set_code and number else name,
+                }
+            )
+    return cards
 
 
 # ---------------------------------------------------------------------------
@@ -511,22 +572,28 @@ class LabsLimitlessClient(RateLimitedHTTPClient):
             has_pokemon_sprites = any("pokemon" in (img.get("src", "") or "") for img in imgs)
             if has_pokemon_sprites:
                 archetype, sprite_urls = self._extract_archetype(cell)
-                # Check for decklist link
-                link = cell.find("a")
-                if link:
-                    href = link.get("href", "")
-                    if "/decks/" in href:
-                        decklist_url = urljoin(self._base_url, href)
                 break
 
-        # Also check for separate decklist column
+        # Prefer the per-player decklist URL (/<tid>/player/<pid>/decklist) — it's the
+        # only URL that yields a single player's actual cards. The /decks/<archetype>
+        # URL is an aggregate overview page and is not parseable as one deck.
+        for cell in cells:
+            for link in cell.find_all("a", href=True):
+                href = link["href"]
+                if re.search(r"/player/\d+/decklist\b", href):
+                    decklist_url = urljoin(self._labs_url, href)
+                    break
+            if decklist_url:
+                break
+
+        # Fallback: separate decklist column with /decks/list/ path (older format)
         if not decklist_url:
             for cell in cells:
                 link = cell.find("a")
                 if link:
                     href = link.get("href", "")
                     if "/decks/list/" in href:
-                        decklist_url = urljoin(self._base_url, href)
+                        decklist_url = urljoin(self._labs_url, href)
                         break
 
         # Fallback archetype from text if no sprites found
@@ -578,12 +645,11 @@ class LabsLimitlessClient(RateLimitedHTTPClient):
     # ------------------------------------------------------------------
 
     def fetch_decklist(self, decklist_url: str) -> LabsDecklist | None:
-        """Fetch and parse a decklist from the main Limitless site.
+        """Fetch and parse a decklist.
 
-        Tries structured card-link elements (class="card-link") first.
-        Falls back to text-line regex parsing if no card links are found.
-        Does not handle bare basic energy lines (e.g., "2 Basic Fire Energy"
-        without a set code).
+        Labs per-player decklist pages (``labs.limitlesstcg.com/<tid>/player/<pid>/decklist``)
+        are SvelteKit-rendered and embed cards as JSON inside <script> tags.
+        Main-site decklists use ``<a class="card-link">`` markup with a text-line fallback.
 
         Args:
             decklist_url: Full URL to the decklist page.
@@ -591,7 +657,18 @@ class LabsLimitlessClient(RateLimitedHTTPClient):
         Returns:
             Parsed LabsDecklist, or None if parsing fails.
         """
+        is_labs_player = _LABS_PLAYER_DECKLIST_RE.search(decklist_url) is not None
+
         try:
+            if is_labs_player:
+                # Labs pages: fetch raw HTML; soup parsing isn't needed for JSON extraction
+                raw_html = self._get(decklist_url).text
+                cards = _parse_labs_player_decklist_html(raw_html)
+                if not cards:
+                    logger.warning("No cards parsed from labs decklist: %s", decklist_url)
+                    return None
+                return LabsDecklist(cards=cards, source_url=decklist_url)
+
             soup = self._soup(decklist_url)
         except httpx.HTTPStatusError as exc:
             status = exc.response.status_code

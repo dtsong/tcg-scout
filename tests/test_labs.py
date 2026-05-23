@@ -388,6 +388,26 @@ class TestParseStandingsRow:
         result = client._parse_standings_row(cells)
         assert result is None
 
+    def test_decklist_url_prefers_per_player_path(self, client):
+        """Decklist URL must be the per-player path (resolves to labs.limitlesstcg.com)
+        — the /decks/<archetype>/ overview URL aggregates multiple players and is
+        not parseable as a single decklist."""
+        cells = self._make_cells(
+            [
+                "1.",
+                '<a href="/0064/player/1416">Alice</a>',
+                "",
+                "14 - 1 - 1",
+                '<a href="/0064/decks/lopunny-dudunsparce">'
+                '<img src="/pokemon/lopunny.png" alt="Lopunny"></a>',
+                '<a aria-label="Decklist" href="/0064/player/1416/decklist">'
+                '<i class="fa-list-alt"></i></a>',
+            ]
+        )
+        result = client._parse_standings_row(cells)
+        assert result is not None
+        assert result.decklist_url == "https://labs.limitlesstcg.com/0064/player/1416/decklist"
+
 
 class TestExtractArchetype:
     """Test _extract_archetype with HTML snippets."""
@@ -996,6 +1016,55 @@ class TestFetchDecklistParsing:
             with pytest.raises(httpx.HTTPStatusError):
                 client.fetch_decklist("http://example.com/decks/list/42")
         assert "scraper may be blocked" in caplog.text
+
+    def test_labs_player_decklist_parses_embedded_json(self, client):
+        """Labs per-player decklist URLs trigger the SvelteKit JSON parser, not soup."""
+        body_obj = {
+            "ok": True,
+            "message": {
+                "pokemon": [
+                    {"count": 4, "name": "Teal Mask Ogerpon ex", "set": "TWM", "number": "25"},
+                    {"count": 2, "name": "Hydrapple ex", "set": "SCR", "number": "14"},
+                ],
+                "trainer": [
+                    {"count": 4, "name": "Ultra Ball", "set": "MEG", "number": "131"},
+                ],
+                "energy": [
+                    {"count": 14, "name": "Grass Energy", "set": "MEE", "number": "1"},
+                ],
+            },
+        }
+        import json as _json
+
+        outer = _json.dumps(
+            {"status": 200, "statusText": "OK", "headers": {}, "body": _json.dumps(body_obj)}
+        )
+        html = f"<html><body><script>{outer}</script></body></html>"
+        mock_resp = MagicMock()
+        mock_resp.text = html
+        url = "https://labs.limitlesstcg.com/0065/player/1416/decklist"
+        with patch.object(client, "_get", return_value=mock_resp):
+            result = client.fetch_decklist(url)
+        assert result is not None
+        assert len(result.cards) == 4
+        names = [c["name"] for c in result.cards]
+        assert "Teal Mask Ogerpon ex" in names
+        assert "Grass Energy" in names
+        ogerpon = next(c for c in result.cards if c["name"] == "Teal Mask Ogerpon ex")
+        assert ogerpon["count"] == 4
+        assert ogerpon["set_code"] == "TWM"
+        assert ogerpon["card_number"] == "25"
+        assert ogerpon["card_id"] == "TWM-25"
+
+    def test_labs_player_decklist_no_data_returns_none(self, client):
+        """Labs page without the expected JSON payload returns None."""
+        html = "<html><body><script>{}</script></body></html>"
+        mock_resp = MagicMock()
+        mock_resp.text = html
+        url = "https://labs.limitlesstcg.com/0065/player/1416/decklist"
+        with patch.object(client, "_get", return_value=mock_resp):
+            result = client.fetch_decklist(url)
+        assert result is None
 
 
 # ---------------------------------------------------------------------------
