@@ -46,6 +46,8 @@ reports/output/
 .DS_Store
 Thumbs.db
 
+# uv build-time cache (Cloud Build sets UV_CACHE_DIR=/workspace/.uv-cache)
+.uv-cache/
 .superpowers/
 .worktrees/
 memory/

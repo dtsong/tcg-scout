@@ -38,7 +38,7 @@
 #      gcloud builds triggers run tcg-scout-decklists --branch=main \
 #        --substitutions=_LIMIT=2000
 # or run cli.py locally:
-#      python cli.py --format ninja-spinner backfill-decklists --since 2026-04-06
+#      uv run scout --format ninja-spinner backfill-decklists --since 2026-04-06
 
 steps:
   # Restore cached SQLite databases from GCS
@@ -69,36 +69,38 @@ steps:
   # Backfill missing decklists for placements ingested by the lean 3-hour scrape.
   # Playwright + Kernel cloud browsers handle JP fetches; plain httpx for Limitless.
   - id: backfill-decklists
-    name: python:3.12-slim
+    name: ghcr.io/astral-sh/uv:python3.12-bookworm-slim
     entrypoint: bash
     secretEnv: ["KERNEL_API_KEY"]
+    env: ["UV_CACHE_DIR=/workspace/.uv-cache"]
     args:
       - -c
       - |
         set -euo pipefail
-        pip install -r requirements.txt
-        python cli.py --format ninja-spinner init
+        uv sync --locked --no-dev
+        uv run python cli.py --format ninja-spinner init
         # Bound the run to recent placements; older gaps can be backfilled
         # manually via `--since YYYY-MM-DD` from a one-off run.
-        python cli.py --format ninja-spinner backfill-decklists \
+        uv run python cli.py --format ninja-spinner backfill-decklists \
           --since "$$(date -u -d '14 days ago' +%Y-%m-%d 2>/dev/null || date -u -v-14d +%Y-%m-%d)" \
           --pool-size ${_POOL_SIZE} \
           --limit ${_LIMIT}
         # Re-export so the next manifest reflects fresh card-level data.
-        python cli.py --format ninja-spinner translate-cards
-        python cli.py --format ninja-spinner meta
-        python cli.py --format ninja-spinner export-web --strict
+        uv run python cli.py --format ninja-spinner translate-cards
+        uv run python cli.py --format ninja-spinner meta
+        uv run python cli.py --format ninja-spinner export-web --strict
     waitFor: ["restore-db-cache", "restore-frozen"]
 
   # Validate exported data and database integrity before saving
   - id: validate
-    name: python:3.12-slim
+    name: ghcr.io/astral-sh/uv:python3.12-bookworm-slim
     entrypoint: bash
+    env: ["UV_CACHE_DIR=/workspace/.uv-cache"]
     args:
       - -c
       - |
-        pip install -r requirements.txt &&
-        python cli.py --format ninja-spinner validate
+        uv sync --locked --no-dev &&
+        uv run python cli.py --format ninja-spinner validate
     waitFor: ["backfill-decklists"]
 
   # Save SQLite databases to GCS for next run

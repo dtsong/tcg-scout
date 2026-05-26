@@ -20,32 +20,36 @@ steps:
         tar -xzf /tmp/nihil-zero.tar.gz -C /workspace/web/public/data/nihil-zero
         echo "Restored frozen nihil-zero data"
 
-  # Single Python step -- pip installs don't persist across containers
+  # Single Python step -- the uv venv + cache live in /workspace (shared across
+  # steps), so the later `validate` step reuses them. `--no-dev` = runtime only;
+  # `--locked` fails if uv.lock is stale vs pyproject.toml.
   - id: scrape
-    name: python:3.12-slim
+    name: ghcr.io/astral-sh/uv:python3.12-bookworm-slim
     entrypoint: bash
+    env: ["UV_CACHE_DIR=/workspace/.uv-cache"]
     args:
       - -c
       - |
-        pip install -r requirements.txt &&
-        python cli.py --format ninja-spinner init &&
-        python cli.py --format ninja-spinner scrape --no-decklists &&
-        python cli.py --format ninja-spinner scrape-jp --no-decklists &&
-        python cli.py --format ninja-spinner backfill-archetypes &&
-        python cli.py --format ninja-spinner translate-cards &&
-        python cli.py --format ninja-spinner meta &&
-        python cli.py --format ninja-spinner export-web --strict
+        uv sync --locked --no-dev &&
+        uv run python cli.py --format ninja-spinner init &&
+        uv run python cli.py --format ninja-spinner scrape --no-decklists &&
+        uv run python cli.py --format ninja-spinner scrape-jp --no-decklists &&
+        uv run python cli.py --format ninja-spinner backfill-archetypes &&
+        uv run python cli.py --format ninja-spinner translate-cards &&
+        uv run python cli.py --format ninja-spinner meta &&
+        uv run python cli.py --format ninja-spinner export-web --strict
     waitFor: ["restore-db-cache", "restore-frozen"]
 
   # Validate exported data and database integrity before saving
   - id: validate
-    name: python:3.12-slim
+    name: ghcr.io/astral-sh/uv:python3.12-bookworm-slim
     entrypoint: bash
+    env: ["UV_CACHE_DIR=/workspace/.uv-cache"]
     args:
       - -c
       - |
-        pip install -r requirements.txt &&
-        python cli.py --format ninja-spinner validate
+        uv sync --locked --no-dev &&
+        uv run python cli.py --format ninja-spinner validate
     waitFor: ["scrape"]
 
   # Save SQLite databases to GCS for next run
