@@ -22,8 +22,12 @@
 
 ### Python
 
-- **pytest** for testing (`python -m pytest tests/ -v`)
-- No virtualenv tooling configured; uses system Python 3.12+
+- **uv** for env + dependency management (Python 3.12, pinned in `.python-version`)
+  - `uv sync` installs runtime + the `dev` dependency group (PEP 735; `dev` includes `test`)
+  - `uv run pytest tests/ -v` to test; `uv run scout <cmd>` (or `uv run python cli.py ...`) to run the CLI
+  - `uv lock` after editing `pyproject.toml`; commit `uv.lock`
+  - Deps live in `pyproject.toml` (`[project].dependencies` + `[dependency-groups]`); the top-level `requirements.txt` is the pinned export used by Cloud Build deploy
+- **pytest** for testing, **ruff** for lint + format (`uv run ruff check . && uv run ruff format .`)
 - SQLite with WAL journaling, row_factory = sqlite3.Row
 
 ### TypeScript (web/)
@@ -59,7 +63,7 @@ Cloud Build uploads exported JSON as a tarball to `gs://tcg-scout-data/`.
 Vercel prebuild downloads via signed URL in `web/data-manifest.json`.
 All frontend data is static JSON read at build time via `fs.readFileSync`. No runtime API calls.
 
-For local development, run `python cli.py --format <format> export-web` to generate data on disk.
+For local development, run `uv run scout --format <format> export-web` to generate data on disk.
 
 ### Archetype Detection
 
@@ -79,7 +83,7 @@ Placements weighted by finish position (config `PLACEMENT_WEIGHTS`):
 - All feature work should include tests
 - Python: pytest with in-memory SQLite fixtures (see `tests/conftest.py`)
 - Frontend: vitest with mocked fs for data loaders
-- Run both before pushing: `python -m pytest tests/ -v && cd web && npm test`
+- Run both before pushing: `uv run pytest tests/ -v && cd web && npm test`
 
 ## Git Workflow
 

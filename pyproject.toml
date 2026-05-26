@@ -13,19 +13,24 @@ dependencies = [
     "playwright>=1.40",
     "python-dotenv>=1.0",
     "psycopg[binary]>=3.2",
+    "anthropic>=0.40",
+    "jinja2>=3.1",
 ]
 
-[project.optional-dependencies]
-# Cloud Function (functions/poll_tournaments) deploy deps, also needed to run
-# tests/test_poll_tournaments.py locally. Mirrors functions/*/requirements.txt.
+[dependency-groups]
+# PEP 735 groups. `uv sync` installs the `dev` group by default; `dev` pulls in
+# `test` so a default sync can run the full suite + lint gate.
+# `test` mirrors functions/poll_tournaments/requirements.txt (Cloud Function
+# deploy deps) so tests/test_poll_tournaments.py can import functions_framework.
 test = [
+    "pytest>=8.0",
     "functions-framework==3.*",
     "google-cloud-storage==2.*",
     "google-cloud-build==3.*",
 ]
 dev = [
     "ruff>=0.15",
-    "pytest>=8.0",
+    {include-group = "test"},
 ]
 
 [project.scripts]
