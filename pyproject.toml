@@ -15,6 +15,19 @@ dependencies = [
     "psycopg[binary]>=3.2",
 ]
 
+[project.optional-dependencies]
+# Cloud Function (functions/poll_tournaments) deploy deps, also needed to run
+# tests/test_poll_tournaments.py locally. Mirrors functions/*/requirements.txt.
+test = [
+    "functions-framework==3.*",
+    "google-cloud-storage==2.*",
+    "google-cloud-build==3.*",
+]
+dev = [
+    "ruff>=0.15",
+    "pytest>=8.0",
+]
+
 [project.scripts]
 scout = "cli:cli"
 

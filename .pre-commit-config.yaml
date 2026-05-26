@@ -1,7 +1,7 @@
 repos:
   # Python: ruff lint + format
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.15.6
+    rev: v0.15.14
     hooks:
       - id: ruff
         args: [--fix]
