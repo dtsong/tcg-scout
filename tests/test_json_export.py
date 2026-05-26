@@ -22,6 +22,7 @@ from reports.json_export import (
     _compute_windowed_winning_edge,
     _detect_variants,
     _get_sprite_filenames,
+    _prune_missing_sprites,
     _slugify,
     export_all,
     export_archetypes,
@@ -345,6 +346,43 @@ class TestExportAll:
         out, _skipped = export_all(db, output_dir=tmp_path, format_slug="nihil-zero")
         assert out == tmp_path / "nihil-zero"
         assert (tmp_path / "nihil-zero" / "meta.json").exists()
+
+
+class TestPruneMissingSprites:
+    def test_drops_dangling_sprite_references(self, tmp_path):
+        # Simulate the layout export_all produces: <output_dir>/<slug>/*.json
+        # with sibling <output_dir>/images/sprites/*.png
+        format_dir = tmp_path / "ninja-spinner"
+        format_dir.mkdir()
+        sprite_dir = tmp_path / "images" / "sprites"
+        sprite_dir.mkdir(parents=True)
+        (sprite_dir / "dragapult.png").write_bytes(b"\x89PNG")
+        # mawile-mega.png deliberately missing
+
+        meta = {
+            "archetypes": [
+                {"archetype": "Dragapult", "sprite_filenames": ["dragapult.png"]},
+                {
+                    "archetype": "Mawile-Mega",
+                    "sprite_filenames": ["mawile-mega.png"],
+                },
+            ]
+        }
+        (format_dir / "meta.json").write_text(json.dumps(meta))
+
+        _prune_missing_sprites(format_dir)
+
+        result = json.loads((format_dir / "meta.json").read_text())
+        assert result["archetypes"][0]["sprite_filenames"] == ["dragapult.png"]
+        assert result["archetypes"][1]["sprite_filenames"] == []
+
+    def test_no_sprite_dir_is_noop(self, tmp_path):
+        format_dir = tmp_path / "format"
+        format_dir.mkdir()
+        (format_dir / "meta.json").write_text(json.dumps({"sprite_filenames": ["x.png"]}))
+        _prune_missing_sprites(format_dir)
+        # File untouched
+        assert json.loads((format_dir / "meta.json").read_text()) == {"sprite_filenames": ["x.png"]}
 
 
 class TestExportFormats:

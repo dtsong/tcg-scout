@@ -1,5 +1,7 @@
 """Tests for Labs database, matchup analysis, and CLI commands."""
 
+import json as _json
+import re as _re
 import sqlite3
 import sys
 from pathlib import Path
@@ -9,7 +11,17 @@ import pytest
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
+from analysis.matchup import (
+    compute_labs_archetype_winrates_pg,
+    compute_labs_matchup_matrix_pg,
+)
 from labs_db import LABS_SCHEMA, init_labs_db, make_match_id
+from scraper.labs_limitless import (
+    LabsPairing,
+    labs_player_id,
+    pairing_to_match_row,
+    parse_pairings_html,
+)
 
 # ---------------------------------------------------------------------------
 # Schema tests
@@ -1084,17 +1096,14 @@ class TestFetchStandings:
         c.close()
 
     def test_no_table_raises_value_error(self, client):
-        from bs4 import BeautifulSoup
-
+        # No server blob and no <table>: HTML-table fallback should raise.
         html = "<html><body><p>No standings here</p></body></html>"
-        with patch.object(client, "_soup", return_value=BeautifulSoup(html, "html.parser")):
+        with patch.object(client, "_get", return_value=MagicMock(text=html)):
             with pytest.raises(ValueError, match="No standings table found"):
                 client.fetch_standings("0058")
 
     def test_rows_with_few_cells_skipped_with_warning(self, client, caplog):
         import logging
-
-        from bs4 import BeautifulSoup
 
         html = """
         <html><body><table>
@@ -1110,7 +1119,7 @@ class TestFetchStandings:
         """
         with (
             caplog.at_level(logging.WARNING),
-            patch.object(client, "_soup", return_value=BeautifulSoup(html, "html.parser")),
+            patch.object(client, "_get", return_value=MagicMock(text=html)),
         ):
             placements = client.fetch_standings("0058")
         assert len(placements) == 1
@@ -1118,8 +1127,6 @@ class TestFetchStandings:
 
     def test_unknown_archetype_warning(self, client, caplog):
         import logging
-
-        from bs4 import BeautifulSoup
 
         # Build a table where >50% are Unknown archetype
         rows = ["<tr><th>R</th><th>P</th><th>C</th><th>Rec</th><th>Deck</th></tr>"]
@@ -1132,11 +1139,66 @@ class TestFetchStandings:
         html = f"<html><body><table>{''.join(rows)}</table></body></html>"
         with (
             caplog.at_level(logging.WARNING),
-            patch.object(client, "_soup", return_value=BeautifulSoup(html, "html.parser")),
+            patch.object(client, "_get", return_value=MagicMock(text=html)),
         ):
             placements = client.fetch_standings("0058")
         assert all(p.archetype == "Unknown" for p in placements)
         assert "sprite parsing may be broken" in caplog.text
+
+    def test_server_blob_preferred_over_truncated_table(self, client):
+        """The rendered <table> truncates large events; the server blob carries
+        every player. fetch_standings must prefer the blob (full field), use
+        tp_id as the local id, and sprite-normalize icons -> archetype."""
+        blob = [
+            {
+                "tp_id": 1323,
+                "player_id": 4390,
+                "placement": 1,
+                "name": "Mateusz",
+                "country": "pl",
+                "wins": 14,
+                "losses": 1,
+                "ties": 2,
+                "deck_name": "Dragapult Dudunsparce",
+                "icons": "dragapult dudunsparce",
+                "decklist": 1,
+            },
+            {
+                "tp_id": 646,
+                "player_id": 3701,
+                "placement": 2,
+                "name": "Elmar",
+                "country": "DE",
+                "wins": 13,
+                "losses": 3,
+                "ties": 1,
+                "deck_name": "Crustle",
+                "icons": "crustle",
+                "decklist": 0,
+            },
+        ]
+        inner = _json.dumps({"message": blob})
+        outer = _json.dumps({"status": 200, "statusText": "OK", "body": inner})
+        # A <table> is present but deliberately truncated (only the header) to
+        # prove the blob, not the table, is the source.
+        html = (
+            "<html><body>"
+            "<table><tr><th>Rank</th></tr></table>"
+            f"<script>{outer}</script>"
+            "</body></html>"
+        )
+        with patch.object(client, "_get", return_value=MagicMock(text=html)):
+            placements = client.fetch_standings("0062")
+
+        assert len(placements) == 2
+        first = placements[0]
+        assert first.player.player_id == "1323"  # tp_id, not global player_id
+        assert first.player.country == "PL"
+        assert first.archetype == "Dragapult / Dudunsparce"  # sprite-normalized
+        assert first.record_w == 14 and first.record_l == 1 and first.record_t == 2
+        assert first.decklist_url == (f"{client._labs_url}/0062/player/1323/decklist")
+        assert placements[1].archetype == "Crustle"
+        assert placements[1].decklist_url is None  # decklist flag was 0
 
 
 # ---------------------------------------------------------------------------
@@ -1865,3 +1927,196 @@ class TestListTournaments:
         with patch.object(client, "_get", return_value=mock_response):
             listings = client.list_tournaments()
         assert listings == []
+
+
+# ---------------------------------------------------------------------------
+# Pairings parsing + match derivation (Phase 3) — validated against snapshotted
+# Prague (0062) fixtures: explicit winner reconstruction reconciles with the
+# per-player Matches pages (the Phase 0 spike, now a regression test).
+# ---------------------------------------------------------------------------
+
+_FIX = Path(__file__).resolve().parent / "fixtures" / "labs" / "0062"
+
+
+class TestPairingToMatchRow:
+    def test_decisive_winner_maps_to_low_high(self):
+        # p1=5 beats p2=6; namespaced "0062:5" < "0062:6" => low.
+        p = LabsPairing(
+            round=1,
+            table=3,
+            p1_local=5,
+            p2_local=6,
+            winner_local=5,
+            p1_deck="dragapult-blaziken",
+            p2_deck="lucario-hariyama",
+        )
+        row = pairing_to_match_row("99", "99", p)
+        assert row["player_low_id"] == "99:5"
+        assert row["player_high_id"] == "99:6"
+        assert row["winner_id"] == "low"
+        assert row["result"] == "win-low"
+        assert row["id"] == "99:r1:99:5:99:6"
+        assert row["is_bye"] is False
+
+    def test_tie_has_null_winner(self):
+        p = LabsPairing(round=1, table=1, p1_local=1, p2_local=2, winner_local=0)
+        row = pairing_to_match_row("99", "99", p)
+        assert row["winner_id"] is None
+        assert row["result"] == "tie"
+
+    def test_bye_returns_none(self):
+        p = LabsPairing(round=1, table=1, p1_local=7, p2_local=None, winner_local=7)
+        assert pairing_to_match_row("99", "99", p) is None
+
+    def test_winner_is_high_when_higher_id_wins(self):
+        p = LabsPairing(round=2, table=1, p1_local=6, p2_local=5, winner_local=5)
+        row = pairing_to_match_row("99", "99", p)
+        # winner local 5 -> "99:5" == low
+        assert row["winner_id"] == "low"
+
+
+@pytest.mark.skipif(not _FIX.exists(), reason="labs fixtures not snapshotted")
+class TestParsePairingsFixtures:
+    def test_round1_parses_full_field(self):
+        html = (_FIX / "pairings_round_01.html").read_text()
+        page = parse_pairings_html(html, 1)
+        assert page.total_rounds == 17
+        assert page.player_count > 1000
+        assert page.city == "Prague"
+        assert len(page.pairings) > 600
+        first = page.pairings[0]
+        assert first.p1_local == 1 and first.p2_local == 2
+        assert first.p1_deck  # deck slug present
+
+    def test_winner_reconstruction_reconciles_with_player_pages(self):
+        """Rebuild W-L-T from pairings winner field across all rounds and check
+        it against the explicit per-player Matches truth (8 sampled players)."""
+        rec: dict[str, list[int]] = {}
+
+        def bump(pid, idx):
+            rec.setdefault(pid, [0, 0, 0])[idx] += 1
+
+        for rf in sorted(_FIX.glob("pairings_round_*.html")):
+            rnd = int(_re.search(r"round_(\d+)", rf.name).group(1))
+            page = parse_pairings_html(rf.read_text(), rnd)
+            for p in page.pairings:
+                if p.is_bye:
+                    bump(labs_player_id("0062", p.p1_local), 0)  # bye = win
+                    continue
+                row = pairing_to_match_row("0062", "0062", p)
+                low, high = row["player_low_id"], row["player_high_id"]
+                if row["winner_id"] is None:
+                    bump(low, 2)
+                    bump(high, 2)
+                elif row["winner_id"] == "low":
+                    bump(low, 0)
+                    bump(high, 1)
+                else:
+                    bump(high, 0)
+                    bump(low, 1)
+
+        _server_re = _re.compile(r'<script[^>]*>(\{"status":\s*200[^<]+?\})</script>')
+        checked = 0
+        for pf in sorted(_FIX.glob("player_*.html")):
+            local = int(_re.search(r"player_(\d+)", pf.name).group(1))
+            meta = None
+            for raw in _server_re.findall(pf.read_text()):
+                try:
+                    msg = _json.loads(_json.loads(raw)["body"]).get("message")
+                except (KeyError, TypeError, ValueError):
+                    continue
+                if isinstance(msg, dict) and "wins" in msg:
+                    meta = msg
+                    break
+            if not meta:
+                continue
+            got = tuple(rec.get(labs_player_id("0062", local), [0, 0, 0]))
+            assert got == (meta["wins"], meta["losses"], meta["ties"]), (
+                f"player {local}: recon {got} != truth "
+                f"({meta['wins']},{meta['losses']},{meta['ties']})"
+            )
+            checked += 1
+        assert checked >= 5, f"expected to validate several players, got {checked}"
+
+
+# ---------------------------------------------------------------------------
+# Postgres analysis variants (Phase 5) — validated with a fake dict-row conn so
+# the symmetric matrix / winrate math is covered without a live database.
+# ---------------------------------------------------------------------------
+
+
+class _FakeResult:
+    def __init__(self, rows):
+        self._rows = rows
+
+    def fetchall(self):
+        return self._rows
+
+    def fetchone(self):
+        return self._rows[0] if self._rows else None
+
+
+class _FakePgConn:
+    """Minimal dict-row connection stub: routes queries by SQL keywords."""
+
+    def __init__(self, *, top_archetypes, winrate_rows, match_rows, tournaments=1):
+        self._top = top_archetypes
+        self._winrates = winrate_rows
+        self._matches = match_rows
+        self._tournaments = tournaments
+
+    def execute(self, sql, params=None):
+        s = " ".join(sql.split())
+        if "FROM labs.tournaments" in s:
+            return _FakeResult([{"c": self._tournaments}])
+        if "FROM labs.placements" in s and "SUM(record_w)" in s:
+            return _FakeResult(self._winrates)
+        if "FROM labs.placements" in s:  # top archetypes
+            return _FakeResult([{"archetype": a} for a in self._top])
+        if "FROM labs.matches" in s:
+            return _FakeResult(self._matches)
+        raise AssertionError(f"unexpected SQL: {s}")
+
+
+class TestPostgresMatchupMatrix:
+    def test_symmetric_winrate_from_low_high(self):
+        # A beats B 3x (A is low), B beats A 1x (B is low) => A 3/4 vs B.
+        matches = (
+            [{"a_low": "A", "a_high": "B", "winner_id": "low"}] * 3  # A wins (A is low)
+            + [{"a_low": "B", "a_high": "A", "winner_id": "low"}] * 1  # B wins (B is low)
+        )
+        conn = _FakePgConn(top_archetypes=["A", "B"], winrate_rows=[], match_rows=matches)
+        res = compute_labs_matchup_matrix_pg(conn, top_n=2, min_matches=1)
+        assert res["source"] == "labs-h2h"
+        ai, bi = res["archetypes"].index("A"), res["archetypes"].index("B")
+        assert res["sample_sizes"][ai][bi] == 4
+        assert res["matrix"][ai][bi] == 0.75
+        assert res["matrix"][bi][ai] == 0.25
+        assert res["matrix"][ai][ai] == 0.5  # mirror
+
+    def test_below_threshold_is_none(self):
+        matches = [{"a_low": "A", "a_high": "B", "winner_id": "low"}]
+        conn = _FakePgConn(top_archetypes=["A", "B"], winrate_rows=[], match_rows=matches)
+        res = compute_labs_matchup_matrix_pg(conn, top_n=2, min_matches=30)
+        ai, bi = res["archetypes"].index("A"), res["archetypes"].index("B")
+        assert res["matrix"][ai][bi] is None
+
+    def test_empty_when_no_archetypes(self):
+        conn = _FakePgConn(top_archetypes=[], winrate_rows=[], match_rows=[])
+        res = compute_labs_matchup_matrix_pg(conn)
+        assert res["archetypes"] == []
+
+
+class TestPostgresWinrates:
+    def test_winrate_and_ci(self):
+        rows = [
+            {"archetype": "A", "players": 10, "total_w": 60, "total_l": 30, "total_t": 10},
+        ]
+        conn = _FakePgConn(top_archetypes=["A"], winrate_rows=rows, match_rows=[], tournaments=4)
+        res = compute_labs_archetype_winrates_pg(conn, min_players=1)
+        assert res["source"] == "labs-h2h"
+        assert res["tournament_count"] == 4
+        entry = res["archetypes"][0]
+        assert entry["total_matches"] == 100
+        assert entry["win_rate"] == 0.6
+        assert 0 < entry["ci_lower"] < entry["win_rate"] < entry["ci_upper"] < 1

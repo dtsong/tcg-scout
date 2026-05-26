@@ -212,7 +212,10 @@ LABS_TIMEOUT = 30.0
 LABS_MAX_RETRIES = 3
 
 # Labs matchup analysis thresholds
-LABS_MIN_MATCHES_TO_PUBLISH = 30  # Minimum H2H matches for credible win rate
+LABS_MIN_MATCHES_TO_PUBLISH = 30  # Minimum H2H matches to publish a pair win rate
+LABS_MIN_MATCHES_CONFIDENT = (
+    80  # H2H matches above which a pair is "confident" (vs tentative 30-79)
+)
 LABS_MIN_ENCOUNTERS_TO_PUBLISH = 5  # Minimum weighted encounters for record-based fallback
 LABS_CI_Z = 1.96  # z-score for 95% confidence interval (used in Wilson and Wald CIs)
 

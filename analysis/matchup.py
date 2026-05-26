@@ -4,7 +4,7 @@ import logging
 import math
 import sqlite3
 from collections import defaultdict
-from typing import Literal, TypedDict
+from typing import Any, Literal, TypedDict
 
 from config import LABS_CI_Z, LABS_MIN_ENCOUNTERS_TO_PUBLISH, LABS_MIN_MATCHES_TO_PUBLISH
 
@@ -554,4 +554,157 @@ def _compute_h2h_from_records(
         "sample_sizes": counts,
         "confidence": confidence,
         "source": "labs-records",
+    }
+
+
+# ---------------------------------------------------------------------------
+# Postgres (Supabase labs schema) variants — true H2H from labs.matches.
+#
+# Same output shapes as the SQLite variants above, but querying the labs.*
+# schema with %s placeholders, player_low/high columns, and winner_id semantics
+# ('low' | 'high' | NULL). The SQLite functions hardcode player1/2_archetype and
+# would crash against Postgres, hence these parallel implementations.
+# ---------------------------------------------------------------------------
+
+
+def _top_archetypes_pg(conn: Any, top_n: int) -> list[str]:
+    rows = conn.execute(
+        """
+        SELECT archetype, COUNT(*) AS cnt
+        FROM labs.placements
+        WHERE archetype IS NOT NULL AND archetype <> 'Unknown'
+        GROUP BY archetype
+        ORDER BY cnt DESC
+        LIMIT %s
+        """,
+        (top_n,),
+    ).fetchall()
+    return [r["archetype"] for r in rows]
+
+
+def compute_labs_archetype_winrates_pg(
+    conn: Any,
+    top_n: int = 20,
+    min_players: int = 5,
+) -> WinrateResult:
+    """Postgres twin of compute_labs_archetype_winrates (labs.placements)."""
+    rows = conn.execute(
+        """
+        SELECT
+            archetype,
+            COUNT(*) AS players,
+            SUM(record_w) AS total_w,
+            SUM(record_l) AS total_l,
+            SUM(record_t) AS total_t
+        FROM labs.placements
+        WHERE archetype IS NOT NULL AND archetype <> 'Unknown'
+        GROUP BY archetype
+        HAVING COUNT(*) >= %s
+        ORDER BY SUM(record_w) + SUM(record_l) + SUM(record_t) DESC
+        LIMIT %s
+        """,
+        (min_players, top_n),
+    ).fetchall()
+
+    tournament_count = conn.execute("SELECT COUNT(*) AS c FROM labs.tournaments").fetchone()["c"]
+
+    archetypes: list[ArchetypeWinrateEntry] = []
+    for r in rows:
+        total_w = r["total_w"] or 0
+        total_l = r["total_l"] or 0
+        total_t = r["total_t"] or 0
+        total_matches = total_w + total_l + total_t
+        if total_matches == 0:
+            continue
+        win_rate = total_w / total_matches
+        ci_lower, ci_upper = _wilson_ci(total_w, total_matches)
+        archetypes.append(
+            {
+                "archetype": r["archetype"],
+                "players": r["players"],
+                "total_wins": total_w,
+                "total_losses": total_l,
+                "total_ties": total_t,
+                "total_matches": total_matches,
+                "win_rate": round(win_rate, 4),
+                "ci_lower": round(ci_lower, 4),
+                "ci_upper": round(ci_upper, 4),
+            }
+        )
+
+    return {
+        "archetypes": archetypes,
+        "source": "labs-h2h",
+        "tournament_count": tournament_count,
+    }
+
+
+def compute_labs_matchup_matrix_pg(
+    conn: Any,
+    top_n: int = 15,
+    min_matches: int = LABS_MIN_MATCHES_TO_PUBLISH,
+) -> MatchupMatrixResult:
+    """Postgres twin of compute_labs_matchup_matrix: true H2H from labs.matches.
+
+    Reads decisive, non-bye matches for the top archetypes and builds a
+    symmetric win-rate matrix with Wilson CIs. winner_id is 'low'/'high'
+    relative to the deterministic player-id ordering, so a 'low' win credits
+    the low player's archetype and vice versa.
+    """
+    arch_names = _top_archetypes_pg(conn, top_n)
+    if not arch_names:
+        return _empty_matrix("labs-h2h")
+
+    arch_idx = {name: i for i, name in enumerate(arch_names)}
+    n = len(arch_names)
+    wins = [[0] * n for _ in range(n)]
+    totals = [[0] * n for _ in range(n)]
+
+    rows = conn.execute(
+        """
+        SELECT player_low_archetype AS a_low, player_high_archetype AS a_high, winner_id
+        FROM labs.matches
+        WHERE NOT is_bye
+          AND winner_id IS NOT NULL
+          AND player_low_archetype = ANY(%s)
+          AND player_high_archetype = ANY(%s)
+        """,
+        (arch_names, arch_names),
+    ).fetchall()
+
+    for r in rows:
+        a_low, a_high = r["a_low"], r["a_high"]
+        if a_low not in arch_idx or a_high not in arch_idx:
+            continue
+        i, j = arch_idx[a_low], arch_idx[a_high]
+        if i == j:
+            continue  # mirror
+        totals[i][j] += 1
+        totals[j][i] += 1
+        if r["winner_id"] == "low":
+            wins[i][j] += 1
+        else:  # "high"
+            wins[j][i] += 1
+
+    matrix: list[list[float | None]] = [[None] * n for _ in range(n)]
+    confidence: list[list[ConfidenceInterval]] = [
+        [{"lower": None, "upper": None} for _ in range(n)] for _ in range(n)
+    ]
+    for i in range(n):
+        for j in range(n):
+            if i == j:
+                matrix[i][j] = 0.5
+                confidence[i][j] = {"lower": 0.5, "upper": 0.5}
+            elif totals[i][j] >= min_matches:
+                wr = wins[i][j] / totals[i][j]
+                ci_lo, ci_hi = _wilson_ci(wins[i][j], totals[i][j])
+                matrix[i][j] = round(wr, 4)
+                confidence[i][j] = {"lower": round(ci_lo, 4), "upper": round(ci_hi, 4)}
+
+    return {
+        "archetypes": arch_names,
+        "matrix": matrix,
+        "sample_sizes": totals,
+        "confidence": confidence,
+        "source": "labs-h2h",
     }

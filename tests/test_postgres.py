@@ -41,6 +41,29 @@ def test_init_migration_indexes_archetype_and_tournament():
     assert "placements_tourn_arch_idx" in init
 
 
+def _all_migrations_sql() -> str:
+    return "\n".join(f.read_text() for f in sorted(MIGRATIONS_DIR.glob("*.sql")))
+
+
+def test_placements_unique_rekeyed_to_player_id():
+    """The original UNIQUE(tournament_id, standing) breaks on ties/divisions;
+    a later migration must re-key it to (tournament_id, player_id)."""
+    sql = _all_migrations_sql()
+    assert "labs_placements_tournament_id_player_id_key" in sql
+    assert "UNIQUE (tournament_id, player_id)" in sql
+    # And the old standing-scoped constraint must be dropped. Postgres named the
+    # inline constraint after the table (no schema prefix).
+    assert "DROP CONSTRAINT IF EXISTS placements_tournament_id_standing_key" in sql
+
+
+def test_matchup_matrix_materialized_view_present():
+    sql = _all_migrations_sql()
+    assert "CREATE MATERIALIZED VIEW labs.matchup_matrix_agg" in sql
+    # Directed buckets the export aggregates symmetrically.
+    for col in ("wins_a", "wins_b", "ties", "total"):
+        assert col in sql, f"matview should expose {col}"
+
+
 def test_get_database_url_raises_when_unset(monkeypatch):
     from db_postgres import PostgresConfigError, get_database_url
 

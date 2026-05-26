@@ -53,3 +53,7 @@ uv.lock
 memory/
 .vercel
 .env*.local
+
+# Labs spike fixtures: large (~13MB) regional HTML snapshots used only by
+# skipif-guarded reconstruction tests. Regenerate with scripts/snapshot_labs_fixtures.py
+tests/fixtures/labs/

@@ -17,7 +17,7 @@ from dataclasses import dataclass, field
 from urllib.parse import urljoin
 
 import httpx
-from bs4 import Tag
+from bs4 import BeautifulSoup, Tag
 
 from analysis.archetype import normalize_archetype
 from config import (
@@ -152,9 +152,174 @@ class LabsDecklist:
     source_url: str | None = None
 
 
+@dataclass
+class LabsPairing:
+    """One pairing row from /<labs_id>/pairings?round=N.
+
+    Player ids here are tournament-LOCAL (1..N) — they collide across
+    tournaments, so the DB layer namespaces them ``<labs_id>:<local>``. The
+    ``winner`` field is explicit: 0 (or None) = tie, otherwise the local id of
+    the winning player. A missing/zero ``player2`` is a bye.
+    """
+
+    round: int
+    table: int | None
+    p1_local: int
+    p2_local: int | None
+    winner_local: int  # 0 = tie/no decisive result
+    p1_name: str = ""
+    p2_name: str = ""
+    p1_country: str = ""
+    p2_country: str = ""
+    p1_deck: str = ""  # slug, e.g. "dragapult-ex"
+    p2_deck: str = ""
+    completed: bool = True
+
+    @property
+    def is_bye(self) -> bool:
+        return self.p2_local in (None, 0)
+
+
+@dataclass
+class LabsPairingsPage:
+    """Parsed /pairings?round=N page: round matches plus tournament meta."""
+
+    round: int
+    total_rounds: int
+    player_count: int
+    pairings: list[LabsPairing]
+    rk9_id: str | None = None
+    tournament_type: str | None = None
+    city: str | None = None
+    country: str | None = None
+
+
+def labs_player_id(labs_id: str, local_id: int | str) -> str:
+    """Namespace a tournament-local player id to avoid cross-tournament collisions."""
+    return f"{labs_id}:{local_id}"
+
+
 # Inline server-response payload SvelteKit emits into <script> tags.
 # Shape: {"status":200,"statusText":"OK","headers":{},"body":"{...stringified JSON...}"}
 _LABS_SERVER_DATA_RE = re.compile(r'<script[^>]*>(\{"status":\s*200[^<]+?\})</script>')
+
+
+def _iter_labs_server_blobs(html: str):
+    """Yield decoded inner ``message`` payloads from SvelteKit server-data scripts.
+
+    Each blob is ``{"status":200,...,"body":"<stringified inner JSON>"}`` and the
+    inner JSON carries a ``message`` (dict or list). Malformed blobs are skipped.
+    """
+    for raw in _LABS_SERVER_DATA_RE.findall(html):
+        try:
+            outer = json.loads(raw)
+            body = outer.get("body")
+            inner = json.loads(body) if isinstance(body, str) else None
+        except (json.JSONDecodeError, TypeError):
+            continue
+        if isinstance(inner, dict) and "message" in inner:
+            yield inner["message"]
+
+
+def parse_pairings_html(html: str, round_num: int) -> LabsPairingsPage:
+    """Parse a /<labs_id>/pairings?round=N page into structured pairings.
+
+    The page embeds two server blobs: a tournament-meta dict (``round`` = total
+    rounds, ``players``, ``type``, ``city``, ``country``, ``rk9_id``) and a list
+    of match dicts (``player1``/``player2`` local ids, explicit ``winner``,
+    ``p1_deck``/``p2_deck`` slugs, names, countries).
+    """
+    meta: dict = {}
+    rows: list[dict] = []
+    for message in _iter_labs_server_blobs(html):
+        if isinstance(message, dict) and "players" in message and "round" in message:
+            meta = message
+        elif isinstance(message, list):
+            rows = message
+
+    pairings: list[LabsPairing] = []
+    for m in rows:
+        if not isinstance(m, dict) or "player1" not in m:
+            continue
+        p2 = m.get("player2")
+        pairings.append(
+            LabsPairing(
+                round=round_num,
+                table=m.get("table"),
+                p1_local=int(m["player1"]),
+                p2_local=int(p2) if p2 not in (None, 0) else None,
+                winner_local=int(m.get("winner") or 0),
+                p1_name=str(m.get("p1_name") or ""),
+                p2_name=str(m.get("p2_name") or ""),
+                p1_country=str(m.get("p1_country") or ""),
+                p2_country=str(m.get("p2_country") or ""),
+                p1_deck=str(m.get("p1_deck") or ""),
+                p2_deck=str(m.get("p2_deck") or ""),
+                completed=bool(m.get("completed")),
+            )
+        )
+
+    return LabsPairingsPage(
+        round=round_num,
+        total_rounds=int(meta.get("round") or 0),
+        player_count=int(meta.get("players") or 0),
+        pairings=pairings,
+        rk9_id=meta.get("rk9_id"),
+        tournament_type=meta.get("type"),
+        city=meta.get("city"),
+        country=meta.get("country"),
+    )
+
+
+def pairing_to_match_row(labs_id: str, tournament_id: str, pairing: LabsPairing) -> dict | None:
+    """Build a labs.matches row dict from a pairing (None for byes).
+
+    Applies the deterministic low/high player-id ordering (matching
+    ``labs_db.make_match_id``) so the same physical match dedupes to one id, and
+    maps the explicit pairings ``winner`` onto ``winner_id ∈ {'low','high',NULL}``.
+    Archetype columns are seeded from the pairing deck slug and later overwritten
+    from labs.placements (sprite-normalized truth) via backfill.
+    """
+    if pairing.is_bye:
+        return None
+
+    p1 = labs_player_id(labs_id, pairing.p1_local)
+    p2 = labs_player_id(labs_id, pairing.p2_local)
+    deck_by_pid = {p1: pairing.p1_deck or None, p2: pairing.p2_deck or None}
+
+    low, high = sorted([p1, p2])
+    match_id = f"{tournament_id}:r{pairing.round}:{low}:{high}"
+
+    if pairing.winner_local in (0, None):
+        winner_id, result = None, "tie"
+    else:
+        winner_pid = labs_player_id(labs_id, pairing.winner_local)
+        if winner_pid == low:
+            winner_id, result = "low", "win-low"
+        elif winner_pid == high:
+            winner_id, result = "high", "win-high"
+        else:
+            # Winner id matched neither participant — treat as undecided rather
+            # than fabricate a result.
+            logger.warning(
+                "pairing winner %s matched neither player in match %s",
+                winner_pid,
+                match_id,
+            )
+            winner_id, result = None, "tie"
+
+    return {
+        "id": match_id,
+        "tournament_id": tournament_id,
+        "round": pairing.round,
+        "player_low_id": low,
+        "player_high_id": high,
+        "player_low_archetype": deck_by_pid[low],
+        "player_high_archetype": deck_by_pid[high],
+        "winner_id": winner_id,
+        "result": result,
+        "is_bye": False,
+    }
 
 
 def _parse_labs_player_decklist_html(html: str) -> list[CardEntry]:
@@ -445,9 +610,31 @@ class LabsLimitlessClient(RateLimitedHTTPClient):
         """
         url = f"{self._labs_url}/{labs_tournament_id}/standings"
         logger.info("Fetching Labs standings from %s", url)
-        soup = self._soup(url)
+        html = self._get(url).text
 
-        placements: list[LabsPlacement] = []
+        # Prefer the SvelteKit server-data blob: the rendered HTML <table> is
+        # truncated (~512 rows) for large events, but the blob carries every
+        # player. tp_id is the tournament-local id pairings use; deck_name/icons
+        # give the archetype.
+        blob = self._find_standings_blob(html)
+        if blob:
+            placements = self._parse_standings_blob(labs_tournament_id, blob)
+            if placements:
+                logger.info(
+                    "Parsed %d standings (server blob) from Labs tournament %s",
+                    len(placements),
+                    labs_tournament_id,
+                )
+                return placements
+            logger.warning(
+                "Standings blob present but yielded no placements for %s; "
+                "falling back to HTML table",
+                labs_tournament_id,
+            )
+
+        soup = BeautifulSoup(html, "html.parser")
+
+        placements = []
 
         # Find the standings table
         table = soup.find("table")
@@ -504,6 +691,72 @@ class LabsLimitlessClient(RateLimitedHTTPClient):
         logger.info(
             "Parsed %d standings from Labs tournament %s", len(placements), labs_tournament_id
         )
+        return placements
+
+    @staticmethod
+    def _find_standings_blob(html: str) -> list[dict] | None:
+        """Locate the full standings list in the SvelteKit server-data blobs.
+
+        The standings list is the server blob that is a list of player dicts
+        carrying both ``tp_id`` (tournament-local id) and ``placement``.
+        """
+        for message in _iter_labs_server_blobs(html):
+            if (
+                isinstance(message, list)
+                and message
+                and isinstance(message[0], dict)
+                and "tp_id" in message[0]
+                and "placement" in message[0]
+            ):
+                return message
+        return None
+
+    def _parse_standings_blob(
+        self, labs_tournament_id: str, blob: list[dict]
+    ) -> list[LabsPlacement]:
+        """Build placements from the standings server blob (full field).
+
+        ``tp_id`` is the tournament-local player id (matches pairing local ids).
+        Archetype is sprite-normalized from ``icons`` (consistent with the JP /
+        HTML-sprite path), falling back to the curated ``deck_name`` label.
+        """
+        placements: list[LabsPlacement] = []
+        for row in blob:
+            tp_id = row.get("tp_id")
+            if not tp_id:
+                continue
+            name = (row.get("name") or f"player-{tp_id}").strip()
+            country = (row.get("country") or "").strip().upper()
+            try:
+                standing = int(row.get("placement") or 0)
+            except (TypeError, ValueError):
+                standing = 0
+            if standing < 1:
+                standing = len(placements) + 1
+
+            sprite_urls = [f"/{tok}.png" for tok in (row.get("icons") or "").split()]
+            archetype = normalize_archetype(
+                sprite_urls, html_archetype=(row.get("deck_name") or "").strip()
+            )
+
+            decklist_url = (
+                f"{self._labs_url}/{labs_tournament_id}/player/{tp_id}/decklist"
+                if row.get("decklist")
+                else None
+            )
+
+            placements.append(
+                LabsPlacement(
+                    standing=standing,
+                    player=LabsPlayer(player_id=str(tp_id), name=name, country=country),
+                    archetype=archetype,
+                    record_w=int(row.get("wins") or 0),
+                    record_l=int(row.get("losses") or 0),
+                    record_t=int(row.get("ties") or 0),
+                    decklist_url=decklist_url,
+                    sprite_urls=sprite_urls,
+                )
+            )
         return placements
 
     def _parse_standings_row(self, cells: list[Tag]) -> LabsPlacement | None:
@@ -639,6 +892,30 @@ class LabsLimitlessClient(RateLimitedHTTPClient):
     def _extract_archetype(cell: Tag) -> tuple[str, list[str]]:
         """Extract archetype name and sprite URLs from a cell."""
         return extract_sprites(cell, join_sep=" ")
+
+    # ------------------------------------------------------------------
+    # Pairings (per-round H2H) from Labs Limitless
+    # ------------------------------------------------------------------
+
+    def fetch_pairings(self, labs_tournament_id: str, round_num: int) -> LabsPairingsPage:
+        """Fetch and parse one round's pairings from Labs Limitless.
+
+        Returns a LabsPairingsPage with the round's matches (explicit winner,
+        decks, namespaceable local player ids) plus tournament meta (total
+        rounds, player count). One HTTP request per round (~17/tournament).
+        """
+        url = f"{self._labs_url}/{labs_tournament_id}/pairings?round={round_num}"
+        logger.info("Fetching Labs pairings from %s", url)
+        html = self._get(url).text
+        page = parse_pairings_html(html, round_num)
+        logger.info(
+            "Parsed %d pairings for round %d of tournament %s (total_rounds=%d)",
+            len(page.pairings),
+            round_num,
+            labs_tournament_id,
+            page.total_rounds,
+        )
+        return page
 
     # ------------------------------------------------------------------
     # Decklists — parsed from main Limitless site (same HTML structure as JP scraper)

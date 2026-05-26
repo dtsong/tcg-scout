@@ -1,6 +1,7 @@
 """CLI entry point for Rotation Scout."""
 
 import logging
+import os
 import sqlite3
 
 import click
@@ -1738,8 +1739,28 @@ def export_web(ctx: click.Context, narrative: bool, strict: bool) -> None:
     except Exception:
         logger.warning("Failed to connect to Labs database, skipping Labs exports", exc_info=True)
         labs_conn = None
+
+    # Open the Postgres labs store when configured — it's the canonical
+    # international source and takes precedence over the SQLite labs DB.
+    labs_pg_cm = None
+    labs_pg_conn = None
+    if any(os.environ.get(k) for k in ("SCOUT_DATABASE_URL", "DATABASE_URL", "SUPABASE_DB_URL")):
+        try:
+            from db_postgres import get_pg_connection
+
+            labs_pg_cm = get_pg_connection()
+            labs_pg_conn = labs_pg_cm.__enter__()
+        except Exception as exc:  # noqa: BLE001 - fall back to SQLite/co-occurrence
+            console.print(
+                f"[yellow]Labs Postgres unavailable, using SQLite/co-occurrence: {exc}[/yellow]"
+            )
+            labs_pg_cm = None
+            labs_pg_conn = None
+
     try:
-        out, skipped = export_all(conn, format_slug=fmt, strict=strict, labs_conn=labs_conn)
+        out, skipped = export_all(
+            conn, format_slug=fmt, strict=strict, labs_conn=labs_conn, labs_pg_conn=labs_pg_conn
+        )
         console.print(f"[green]Web data exported to {out}[/green]")
         if skipped:
             console.print(
@@ -1757,6 +1778,8 @@ def export_web(ctx: click.Context, narrative: bool, strict: bool) -> None:
         conn.close()
         if labs_conn:
             labs_conn.close()
+        if labs_pg_cm is not None:
+            labs_pg_cm.__exit__(None, None, None)
 
 
 @cli.command("scrape-labs")
@@ -1826,6 +1849,204 @@ def scrape_labs(
         raise
     finally:
         conn.close()
+
+
+@cli.command("scrape-labs-pg")
+@click.argument("tournament_id", type=str)
+@click.argument("labs_id", type=str)
+@click.option("--fetch-decklists/--no-decklists", default=True, help="Fetch decklists")
+@click.option("--max-placements", default=None, type=int, help="Limit standings to top N")
+@click.option("--dry-run", is_flag=True, help="Fetch + validate, write nothing")
+@click.pass_context
+def scrape_labs_pg(
+    ctx: click.Context,
+    tournament_id: str,
+    labs_id: str,
+    fetch_decklists: bool,
+    max_placements: int | None,
+    dry_run: bool,
+) -> None:
+    """Full-depth Labs ingestion into Postgres (labs schema): standings,
+    decklists, and per-round H2H matches.
+
+    TOURNAMENT_ID is the main Limitless id (e.g. 551); LABS_ID is the labs id
+    (e.g. 0062). Resumable (skips rounds already in labs.matches) and idempotent
+    (re-runs are free). Requires SCOUT_DATABASE_URL (Supabase Session Pooler).
+
+    Example: scout scrape-labs-pg 551 0062
+    """
+    from db_postgres import (
+        backfill_match_archetypes,
+        get_ingested_rounds,
+        insert_matches,
+        refresh_matchup_matrix,
+        upsert_decklist,
+        upsert_placement,
+        upsert_player,
+        upsert_tournament,
+    )
+    from scraper.labs_limitless import (
+        LabsLimitlessClient,
+        labs_player_id,
+        pairing_to_match_row,
+    )
+
+    pg_cm = None
+    conn = None
+    if not dry_run:
+        from dotenv import load_dotenv
+
+        from db_postgres import PostgresConfigError, get_pg_connection
+
+        # Pick up the connection string from .env / .env.local without forcing
+        # the operator to export it manually (consistent with sibling commands).
+        load_dotenv()
+        load_dotenv(".env.local", override=False)
+
+        try:
+            pg_cm = get_pg_connection()
+            conn = pg_cm.__enter__()
+        except PostgresConfigError as exc:
+            console.print(f"[red]{exc}[/red]")
+            console.print(
+                "[yellow]Set SCOUT_DATABASE_URL to the Supabase Session Pooler URI "
+                "(port 5432) or pass --dry-run.[/yellow]"
+            )
+            raise click.Abort()
+
+    try:
+        with LabsLimitlessClient() as client:
+            console.print(
+                f"[cyan]Labs->Postgres: tournament {tournament_id} (labs {labs_id})"
+                f"{' [DRY RUN]' if dry_run else ''}[/cyan]"
+            )
+
+            # --- Metadata + standings -------------------------------------
+            meta = client.fetch_tournament_metadata(tournament_id)
+            standings = client.fetch_standings(labs_id)
+            if max_placements:
+                standings = standings[:max_placements]
+            if not standings:
+                raise ValueError(f"No standings for labs tournament {labs_id}")
+
+            tournament_type = _classify_tpci_type(meta.name)
+
+            if conn is not None:
+                upsert_tournament(
+                    conn,
+                    tournament_id=tournament_id,
+                    name=meta.name,
+                    date=meta.date,
+                    labs_id=labs_id,
+                    country=meta.country or None,
+                    region=meta.region or None,
+                    fmt=meta.format or None,
+                    tournament_type=tournament_type,
+                    player_count=meta.player_count or None,
+                    division="open",
+                )
+
+                for placement in standings:
+                    pid = labs_player_id(labs_id, placement.player.player_id)
+                    upsert_player(
+                        conn,
+                        player_id=pid,
+                        name=placement.player.name,
+                        country=placement.player.country or None,
+                    )
+                    placement_db_id = upsert_placement(
+                        conn,
+                        tournament_id=tournament_id,
+                        player_id=pid,
+                        player_name=placement.player.name,
+                        standing=placement.standing,
+                        archetype=placement.archetype,
+                        record_w=placement.record_w,
+                        record_l=placement.record_l,
+                        record_t=placement.record_t,
+                        decklist_url=placement.decklist_url,
+                        has_decklist=bool(placement.decklist_url) and fetch_decklists,
+                    )
+                    if fetch_decklists and placement.decklist_url:
+                        deck = client.fetch_decklist(placement.decklist_url)
+                        if deck and deck.cards:
+                            upsert_decklist(
+                                conn,
+                                placement_id=placement_db_id,
+                                source_url=deck.source_url,
+                                cards=deck.cards,
+                            )
+                conn.commit()
+                console.print(f"  [green]standings: {len(standings)} placements[/green]")
+
+            # --- Per-round matches (resumable) ----------------------------
+            first = client.fetch_pairings(labs_id, 1)
+            total_rounds = first.total_rounds or 1
+            done_rounds = get_ingested_rounds(conn, tournament_id) if conn else set()
+
+            total_matches = 0
+            for rnd in range(1, total_rounds + 1):
+                if rnd in done_rounds:
+                    console.print(f"  round {rnd}: already ingested, skipping")
+                    continue
+                page = first if rnd == 1 else client.fetch_pairings(labs_id, rnd)
+                rows = [
+                    r
+                    for p in page.pairings
+                    if (r := pairing_to_match_row(labs_id, tournament_id, p)) is not None
+                ]
+                total_matches += len(rows)
+                if conn is not None:
+                    # Safety net: ensure every match participant exists in players.
+                    for p in page.pairings:
+                        if p.is_bye:
+                            continue
+                        for local, name, ctry in (
+                            (p.p1_local, p.p1_name, p.p1_country),
+                            (p.p2_local, p.p2_name, p.p2_country),
+                        ):
+                            upsert_player(
+                                conn,
+                                player_id=labs_player_id(labs_id, local),
+                                name=name or f"player-{local}",
+                                country=ctry or None,
+                            )
+                    insert_matches(conn, rows)
+                    conn.commit()
+                console.print(f"  round {rnd}: {len(rows)} matches")
+
+            if conn is not None:
+                backfill_match_archetypes(conn, tournament_id)
+                conn.commit()
+                refresh_matchup_matrix(conn)
+                conn.commit()
+                console.print(
+                    f"[green]Done. {total_matches} matches across {total_rounds} rounds; "
+                    f"archetypes backfilled; matview refreshed.[/green]"
+                )
+            else:
+                console.print(
+                    f"[green][DRY RUN] would write {total_matches} matches across "
+                    f"{total_rounds} rounds (no DB changes).[/green]"
+                )
+    except ValueError as exc:
+        if conn is not None:
+            conn.rollback()
+        console.print(f"[red]Error: {exc}[/red]")
+        raise click.Abort()
+    except httpx.HTTPStatusError as exc:
+        if conn is not None:
+            conn.rollback()
+        console.print(f"[red]HTTP {exc.response.status_code} from {exc.request.url}[/red]")
+        raise click.Abort()
+    except Exception:
+        if conn is not None:
+            conn.rollback()
+        logger.exception("Unexpected error ingesting labs tournament %s to Postgres", tournament_id)
+        raise
+    finally:
+        if pg_cm is not None:
+            pg_cm.__exit__(None, None, None)
 
 
 _TPCI_TYPE_BY_PREFIX = {

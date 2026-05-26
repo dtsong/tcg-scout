@@ -2489,18 +2489,58 @@ def export_matchup_data(
     conn: sqlite3.Connection,
     output_dir: Path,
     labs_conn: "sqlite3.Connection | None" = None,
+    labs_pg_conn: "object | None" = None,
 ) -> None:
     """Export matchup data with cascade: Labs H2H > Labs records > co-occurrence.
 
     Tries the best available data source and falls back gracefully:
-    1. Labs H2H (actual match-level win rates with Wilson CI)
-    2. Labs records (W-L-T based win rate proxy with CI)
+    1. Labs H2H from Postgres (``labs_pg_conn``) — canonical international store
+    2. Labs H2H / records from SQLite (``labs_conn``) — legacy/local store
     3. Co-occurrence proxy (standing-based performance advantage, no CI)
 
     The output JSON always includes a ``source`` field so the frontend
-    can display the data provenance.
+    can display the data provenance. The emitted shape is identical across
+    sources (frontend just reads ``source``).
     """
-    # Try Labs first if connection provided
+    # Postgres labs schema is the canonical international store; prefer it.
+    if labs_pg_conn is not None:
+        from analysis.matchup import (
+            compute_labs_archetype_winrates_pg,
+            compute_labs_matchup_matrix_pg,
+        )
+
+        try:
+            pg_placements = labs_pg_conn.execute(
+                "SELECT COUNT(*) AS c FROM labs.placements"
+            ).fetchone()["c"]
+        except Exception as exc:  # noqa: BLE001 - tolerate missing schema/conn
+            logger.warning("Labs Postgres placements unavailable: %s", exc)
+            pg_placements = 0
+
+        if pg_placements > 0:
+            result = compute_labs_matchup_matrix_pg(labs_pg_conn)
+            if result["archetypes"]:
+                _write_json(result, output_dir / "matchup.json")
+                logger.info(
+                    "Exported matchup matrix (source=%s [postgres], %d archetypes)",
+                    result["source"],
+                    len(result["archetypes"]),
+                )
+                winrates = compute_labs_archetype_winrates_pg(labs_pg_conn, min_players=2)
+                if winrates["archetypes"]:
+                    _write_json(winrates, output_dir / "labs-winrates.json")
+                    logger.info(
+                        "Exported Labs archetype win rates (%d archetypes) [postgres]",
+                        len(winrates["archetypes"]),
+                    )
+                return
+            logger.info(
+                "Labs Postgres has %d placements but matchup matrix is empty "
+                "(insufficient data), falling through",
+                pg_placements,
+            )
+
+    # Try SQLite Labs if connection provided
     if labs_conn is not None:
         # Check if Labs has any placement data
         try:
@@ -3087,6 +3127,7 @@ def export_all(
     format_slug: str | None = None,
     strict: bool = False,
     labs_conn: "sqlite3.Connection | None" = None,
+    labs_pg_conn: "object | None" = None,
 ) -> tuple[Path, list[str]]:
     """Run all exports. Returns (output_directory, skipped_export_names).
 
@@ -3143,7 +3184,7 @@ def export_all(
             skipped.append(name)
     # Matchup data with cascade: Labs H2H > Labs records > co-occurrence
     try:
-        export_matchup_data(conn, out, labs_conn=labs_conn)
+        export_matchup_data(conn, out, labs_conn=labs_conn, labs_pg_conn=labs_pg_conn)
     except (sqlite3.OperationalError, ValueError, KeyError) as exc:
         if strict:
             raise
@@ -3186,8 +3227,58 @@ def export_all(
     jp_en = _build_jp_en_lookup(conn)
     _translate_all_json(out, jp_en)
 
+    # Post-process: remove sprite_filenames entries pointing to files that
+    # didn't download (Limitless 404, transient network failure, etc.) so the
+    # JSON doesn't promise sprites the site can't actually serve.
+    _prune_missing_sprites(out)
+
     logger.info("Export complete")
     return out, skipped
+
+
+def _prune_missing_sprites(output_dir: Path) -> None:
+    """Walk JSON files and drop sprite_filenames entries with no file on disk.
+
+    Sprite download is best-effort (Limitless CDN may 404 for newly-named
+    archetypes). Without this pass, the JSON keeps the dangling reference
+    and the frontend renders a broken image.
+    """
+    sprite_dir = output_dir.parent / "images" / "sprites"
+    if not sprite_dir.exists():
+        return
+
+    available: set[str] = {p.name for p in sprite_dir.iterdir() if p.suffix == ".png"}
+    pruned = 0
+
+    def _walk(node):
+        nonlocal pruned
+        if isinstance(node, dict):
+            for key, value in list(node.items()):
+                if key == "sprite_filenames" and isinstance(value, list):
+                    kept = [f for f in value if f in available]
+                    if len(kept) != len(value):
+                        pruned += len(value) - len(kept)
+                        node[key] = kept
+                else:
+                    _walk(value)
+        elif isinstance(node, list):
+            for item in node:
+                _walk(item)
+
+    files_touched = 0
+    for json_path in output_dir.rglob("*.json"):
+        try:
+            data = json.loads(json_path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError, UnicodeDecodeError):
+            continue
+        before = pruned
+        _walk(data)
+        if pruned != before:
+            json_path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+            files_touched += 1
+
+    if pruned:
+        logger.info("Pruned %d dangling sprite references across %d files", pruned, files_touched)
 
 
 def _translate_all_json(directory: Path, lookup: dict[str, str]) -> None:
