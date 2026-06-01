@@ -790,7 +790,7 @@ class LabsLimitlessClient(RateLimitedHTTPClient):
                 skipped_short += 1
                 continue
             try:
-                placement = self._parse_standings_row(cells)
+                placement = self._parse_standings_row(cells, expect_records=False)
             except ValueError as exc:
                 logger.warning("Skipping main-site standings row at %s: %s", url, exc)
                 continue
@@ -880,8 +880,15 @@ class LabsLimitlessClient(RateLimitedHTTPClient):
             )
         return placements
 
-    def _parse_standings_row(self, cells: list[Tag]) -> LabsPlacement | None:
-        """Parse a single standings table row."""
+    def _parse_standings_row(
+        self, cells: list[Tag], *, expect_records: bool = True
+    ) -> LabsPlacement | None:
+        """Parse a single standings table row.
+
+        ``expect_records`` controls the missing-W-L-T warning: Labs standings
+        always carry records, but main-site Results pages (pre-Labs majors) do
+        not, so callers pass ``False`` there to avoid per-row warning spam.
+        """
         # Parse rank from first cell
         try:
             rank_text = cells[0].get_text(strip=True)
@@ -929,7 +936,7 @@ class LabsLimitlessClient(RateLimitedHTTPClient):
                 record_t = int(record_match.group(3))
                 record_found = True
                 break
-        if not record_found:
+        if not record_found and expect_records:
             logger.warning(
                 "No W-L-T record parsed for player %s (standing %d)",
                 player_name,
