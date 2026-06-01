@@ -1053,10 +1053,33 @@ def _backfill_limitless_decklists(
     since: str | None,
     max_standing: int | None = None,
 ) -> int:
-    """Fetch missing Limitless decklists via plain HTTP and store cards."""
-    placements = _select_missing_decklist_placements(
+    """Fetch missing Limitless decklists via plain HTTP and store cards.
+
+    Covers two id shapes on limitlesstcg.com: JP City League tournaments
+    (``t.id`` is the full tournament URL) and the main-site international majors
+    scrape-tpci ingests for pre-Labs events (opaque integer ``t.id``, decklists
+    at ``limitlesstcg.com/decks/list/<id>``). The two patterns match different
+    columns, so query each and merge unique by placement id.
+    """
+    by_tid = _select_missing_decklist_placements(
         conn, "https://limitlesstcg.com/%", limit, since, max_standing
     )
+    by_url = _select_missing_decklist_placements(
+        conn,
+        "https://limitlesstcg.com/decks/list/%",
+        limit,
+        since,
+        max_standing,
+        match_column="p.decklist_url",
+    )
+    seen: set = set()
+    placements = []
+    for row in (*by_tid, *by_url):
+        if row["id"] not in seen:
+            seen.add(row["id"])
+            placements.append(row)
+    if limit:
+        placements = placements[:limit]
     console.print(
         f"\n[cyan]Limitless backfill:[/cyan] {len(placements)} placements missing decklists"
     )

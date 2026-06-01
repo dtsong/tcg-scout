@@ -37,6 +37,9 @@ def db_missing_decklists() -> sqlite3.Connection:
             ("jp-2001", "JP Senior Cup", "2026-04-19", 16, "senior"),
             # TPCI/Labs major: integer id, decklists on labs.limitlesstcg.com
             ("700", "Regional Labsville", "2026-05-01", 100, "open"),
+            # Pre-Labs main-site major: integer id, decklists on
+            # limitlesstcg.com/decks/list/ (no Labs index)
+            ("420", "World Championships 2024", "2024-08-16", 1147, "open"),
         ],
     )
 
@@ -79,6 +82,16 @@ def db_missing_decklists() -> sqlite3.Connection:
                 "Hank",
                 "Dragapult ex",
                 "https://labs.limitlesstcg.com/0070/player/12/decklist",
+            ),
+            # Pre-Labs main-site placement (target for the limitless source via
+            # decklist_url; t.id is an opaque integer so t.id matching misses it)
+            (
+                9,
+                "420",
+                1,
+                "Ivan",
+                "Iron-Thorns",
+                "https://limitlesstcg.com/decks/list/12238",
             ),
         ],
     )
@@ -136,6 +149,20 @@ class TestSelectMissingDecklistPlacements:
         )
         ids = sorted(r["id"] for r in rows)
         assert ids == [1, 2]
+
+    def test_decks_list_url_pattern_selects_main_site_majors(self, db_missing_decklists):
+        # Pre-Labs main-site majors have integer t.id, so they must be matched
+        # by their /decks/list/ decklist_url, not by t.id.
+        rows = _select_missing_decklist_placements(
+            db_missing_decklists,
+            "https://limitlesstcg.com/decks/list/%",
+            None,
+            None,
+            match_column="p.decklist_url",
+        )
+        ids = sorted(r["id"] for r in rows)
+        # Placement 9 (integer t.id) and 4 (JP CL, also a /decks/list/ url).
+        assert ids == [4, 9]
 
     def test_match_column_decklist_url_selects_labs(self, db_missing_decklists):
         # TPCI tournament ids are bare integers, so labs placements must be
@@ -273,13 +300,17 @@ class TestBackfillLimitless:
         monkeypatch.setattr("scraper.limitless.LimitlessClient", lambda: _StubClient())
 
         n = _backfill_limitless_decklists(db_missing_decklists, None, None)
-        assert n == 1
-        rows = db_missing_decklists.execute(
-            "SELECT card_id, count FROM decklist_cards WHERE placement_id = 4 ORDER BY card_id"
-        ).fetchall()
-        assert len(rows) == 2
-        assert rows[0]["card_id"] == "SV1-123"
-        assert rows[0]["count"] == 4
+        # Placement 4 (JP CL, matched by t.id) + placement 9 (main-site major,
+        # matched by /decks/list/ decklist_url).
+        assert n == 2
+        for pid in (4, 9):
+            rows = db_missing_decklists.execute(
+                "SELECT card_id, count FROM decklist_cards WHERE placement_id = ? ORDER BY card_id",
+                (pid,),
+            ).fetchall()
+            assert len(rows) == 2
+            assert rows[0]["card_id"] == "SV1-123"
+            assert rows[0]["count"] == 4
 
     def test_skips_when_no_cards(self, db_missing_decklists, monkeypatch):
         class _StubClient:
