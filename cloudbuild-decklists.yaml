@@ -89,6 +89,9 @@ steps:
         uv run python cli.py --format ninja-spinner translate-cards
         uv run python cli.py --format ninja-spinner meta
         uv run python cli.py --format ninja-spinner export-web --strict
+        # tpci-standard isn't scraped here; re-export from its cached DB
+        # (precomputed meta) so it stays in the published tarball + formats.json.
+        uv run python cli.py --format tpci-standard export-web --strict
     waitFor: ["restore-db-cache", "restore-frozen"]
 
   # Validate exported data and database integrity before saving

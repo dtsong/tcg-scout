@@ -37,7 +37,12 @@ steps:
         uv run python cli.py --format ninja-spinner backfill-archetypes &&
         uv run python cli.py --format ninja-spinner translate-cards &&
         uv run python cli.py --format ninja-spinner meta &&
-        uv run python cli.py --format ninja-spinner export-web --strict
+        uv run python cli.py --format ninja-spinner export-web --strict &&
+        # tpci-standard is not scraped here -- its DB is restored from the cache
+        # with a precomputed meta_snapshot (operator runs scrape-tpci + meta
+        # out of band). Re-export it so its JSON + formats.json entry land in
+        # the published tarball alongside ninja-spinner.
+        uv run python cli.py --format tpci-standard export-web --strict
     waitFor: ["restore-db-cache", "restore-frozen"]
 
   # Validate exported data and database integrity before saving
