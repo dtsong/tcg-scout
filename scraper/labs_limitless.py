@@ -481,6 +481,8 @@ class LabsLimitlessClient(RateLimitedHTTPClient):
         show: int = 100,
         since: str | None = None,
         until: str | None = None,
+        max_pages: int = 1,
+        exclude_countries: frozenset[str] = frozenset(),
     ) -> list[LabsTournamentListing]:
         """Discover tournaments from the main Limitless listing page.
 
@@ -489,27 +491,74 @@ class LabsLimitlessClient(RateLimitedHTTPClient):
         chronological (newest first); ``since`` is applied client-side after
         parsing and stops iteration once dates fall past the cutoff.
 
+        Pagination (``max_pages`` > 1) walks ``&page=N`` from newest to oldest,
+        stopping early once a row falls before ``since`` or a page has no rows.
+
         Args:
             format_filter: Format query value (e.g. "STANDARD", "EXPANDED").
             type_filter: Type query value ("major", "regional", "international",
                 "worlds", "special", "national"). "major" aggregates the
                 checkpoint event types.
-            show: Page size (1..100). Single page; no pagination — use a
-                ``since`` filter for incremental scraping.
+            show: Page size (1..100, the listing's per-page maximum).
             since: ISO date (YYYY-MM-DD) lower bound. Tournaments on or after
                 this date are returned.
             until: ISO date (YYYY-MM-DD) upper bound. Tournaments on or before
                 this date are returned. Because the listing is newest-first,
                 rows newer than ``until`` are skipped (not a stopping point).
+            max_pages: Number of listing pages to walk (default 1). Deep history
+                lives on later pages, so backfills raise this.
+            exclude_countries: ISO 2-letter country codes to drop (e.g. TPC-region
+                events on the shared listing). Excluding a row never stops
+                pagination — later pages may still carry in-region events.
 
         Returns:
             List of LabsTournamentListing, ordered newest-first.
+        """
+        results: list[LabsTournamentListing] = []
+        for page in range(1, max_pages + 1):
+            page_listings, hit_since, had_rows = self._fetch_listing_page(
+                format_filter=format_filter,
+                type_filter=type_filter,
+                show=show,
+                since=since,
+                until=until,
+                exclude_countries=exclude_countries,
+                page=page,
+            )
+            results.extend(page_listings)
+            # Reverse-chronological listing: once a row falls before `since`, every
+            # later row and page is older too. A page with no data rows means we
+            # have walked past the last result.
+            if hit_since or not had_rows:
+                break
+
+        logger.info("Discovered %d tournaments matching filters", len(results))
+        return results
+
+    def _fetch_listing_page(
+        self,
+        *,
+        format_filter: str,
+        type_filter: str,
+        show: int,
+        since: str | None,
+        until: str | None,
+        exclude_countries: frozenset[str],
+        page: int,
+    ) -> tuple[list[LabsTournamentListing], bool, bool]:
+        """Fetch and parse a single listing page.
+
+        Returns ``(listings, hit_since_cutoff, had_rows)``: ``hit_since_cutoff``
+        is True when a row older than ``since`` was reached (caller stops
+        paginating); ``had_rows`` is False when the page has no data rows (no
+        table, or header only) — the signal that we have run off the end.
         """
         params: dict[str, str | int] = {
             "game": "PTCG",
             "format": format_filter,
             "type": type_filter,
             "show": show,
+            "page": page,
         }
         # Build query string manually so we don't depend on httpx URL building order
         query = "&".join(f"{k}={v}" for k, v in params.items())
@@ -520,11 +569,12 @@ class LabsLimitlessClient(RateLimitedHTTPClient):
         table = soup.find("table")
         if table is None:
             logger.warning("No listings table at %s", url)
-            return []
+            return [], False, False
 
+        data_rows = table.find_all("tr")[1:]  # Skip header
         results: list[LabsTournamentListing] = []
-        rows = table.find_all("tr")
-        for row in rows[1:]:  # Skip header
+        hit_since = False
+        for row in data_rows:
             try:
                 listing = self._parse_listing_row(row)
             except ValueError as exc:
@@ -537,11 +587,13 @@ class LabsLimitlessClient(RateLimitedHTTPClient):
                 continue
             if since and listing.date < since:
                 # Listing is reverse-chronological; we can stop here.
+                hit_since = True
                 break
+            if exclude_countries and listing.country in exclude_countries:
+                continue
             results.append(listing)
 
-        logger.info("Discovered %d tournaments matching filters", len(results))
-        return results
+        return results, hit_since, bool(data_rows)
 
     def _parse_listing_row(self, row: Tag) -> LabsTournamentListing | None:
         """Parse a single row from the /tournaments listing table."""

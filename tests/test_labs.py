@@ -287,6 +287,52 @@ class TestCLICommands:
         commands = list(cli.commands.keys())
         assert "scrape-tpci" in commands
 
+    @staticmethod
+    def _run_scrape_tpci(monkeypatch, extra_args=None):
+        """Invoke scrape-tpci with a stub client; capture list_tournaments kwargs."""
+        from click.testing import CliRunner
+
+        from cli import cli
+
+        captured: dict = {}
+
+        class _StubClient:
+            def __enter__(self):
+                return self
+
+            def __exit__(self, *exc):
+                return False
+
+            def list_tournaments(self, **kwargs):
+                captured.update(kwargs)
+                return []  # early-return: command does no DB work
+
+            def close(self):
+                pass
+
+        monkeypatch.setattr("scraper.labs_limitless.LabsLimitlessClient", _StubClient)
+        with (
+            patch("cli.get_format_connection", return_value=MagicMock()),
+            patch("cli.init_db", lambda conn: None),
+        ):
+            result = CliRunner().invoke(
+                cli,
+                ["--format", "tpci-standard", "scrape-tpci", *(extra_args or [])],
+                catch_exceptions=False,
+            )
+        assert result.exit_code == 0, result.output
+        return captured
+
+    def test_scrape_tpci_excludes_tpc_region_by_default(self, monkeypatch):
+        from config import TPC_REGION_COUNTRIES
+
+        captured = self._run_scrape_tpci(monkeypatch)
+        assert captured["exclude_countries"] == TPC_REGION_COUNTRIES
+
+    def test_scrape_tpci_forwards_max_pages(self, monkeypatch):
+        captured = self._run_scrape_tpci(monkeypatch, ["--max-pages", "3"])
+        assert captured["max_pages"] == 3
+
 
 class TestClassifyTpciType:
     """_classify_tpci_type derives Scout tournament_type from Limitless name."""
@@ -1961,6 +2007,90 @@ class TestListTournaments:
         with patch.object(client, "_get", return_value=mock_response):
             listings = client.list_tournaments()
         assert listings == []
+
+    @staticmethod
+    def _resp(text: str) -> MagicMock:
+        r = MagicMock()
+        r.text = text
+        r.status_code = 200
+        return r
+
+    def test_pagination_combines_pages(self, client) -> None:
+        page1 = self._make_listing_html(
+            [("16 May 26", "BR", "544", "Regional Campinas", "standard", 1725)]
+        )
+        page2 = self._make_listing_html(
+            [("05 May 24", "US", "300", "Regional Indianapolis", "standard", 1200)]
+        )
+        with patch.object(
+            client, "_get", side_effect=[self._resp(page1), self._resp(page2)]
+        ) as mock_get:
+            listings = client.list_tournaments(max_pages=2)
+        assert [t.tournament_id for t in listings] == ["544", "300"]
+        assert mock_get.call_count == 2
+
+    def test_pagination_requests_page_param(self, client) -> None:
+        page1 = self._make_listing_html([("16 May 26", "BR", "544", "A", "standard", 1)])
+        page2 = self._make_listing_html([("05 May 24", "US", "300", "B", "standard", 1)])
+        with patch.object(
+            client, "_get", side_effect=[self._resp(page1), self._resp(page2)]
+        ) as mock_get:
+            client.list_tournaments(max_pages=2)
+        urls = [call.args[0] for call in mock_get.call_args_list]
+        assert "page=2" in urls[1]
+
+    def test_pagination_stops_on_empty_page(self, client) -> None:
+        page1 = self._make_listing_html([("16 May 26", "BR", "544", "A", "standard", 1)])
+        empty = "<html><body><p>no table here</p></body></html>"
+        never = self._make_listing_html([("01 Jan 23", "US", "200", "C", "standard", 1)])
+        with patch.object(
+            client, "_get", side_effect=[self._resp(page1), self._resp(empty), self._resp(never)]
+        ) as mock_get:
+            listings = client.list_tournaments(max_pages=3)
+        assert [t.tournament_id for t in listings] == ["544"]
+        assert mock_get.call_count == 2  # stopped after the empty page
+
+    def test_pagination_stops_at_since_cutoff_across_pages(self, client) -> None:
+        page1 = self._make_listing_html([("16 May 26", "BR", "544", "A", "standard", 1)])
+        page2 = self._make_listing_html(
+            [
+                ("10 May 26", "US", "558", "B", "standard", 1),
+                ("01 Jan 24", "US", "300", "Old", "standard", 1),  # past since cutoff
+            ]
+        )
+        never = self._make_listing_html([("01 Jan 23", "US", "200", "C", "standard", 1)])
+        with patch.object(
+            client, "_get", side_effect=[self._resp(page1), self._resp(page2), self._resp(never)]
+        ) as mock_get:
+            listings = client.list_tournaments(since="2026-05-01", max_pages=3)
+        assert [t.tournament_id for t in listings] == ["544", "558"]
+        assert mock_get.call_count == 2  # since cutoff hit on page 2, no page 3
+
+    def test_exclude_countries_drops_those_rows(self, client) -> None:
+        html = self._make_listing_html(
+            [
+                ("16 May 26", "JP", "900", "Champions League Tokyo", "standard", 1),
+                ("15 May 26", "KR", "901", "Korean League Final", "standard", 1),
+                ("14 May 26", "US", "558", "Regional Los Angeles", "standard", 1),
+            ]
+        )
+        with patch.object(client, "_get", return_value=self._resp(html)):
+            listings = client.list_tournaments(exclude_countries=frozenset({"JP", "KR"}))
+        assert [t.tournament_id for t in listings] == ["558"]
+
+    def test_exclude_countries_does_not_stop_pagination(self, client) -> None:
+        # A page fully excluded by country must not halt pagination — later pages
+        # may still carry in-region events.
+        page1 = self._make_listing_html(
+            [("16 May 26", "JP", "900", "Champions League", "standard", 1)]
+        )
+        page2 = self._make_listing_html([("10 May 26", "US", "558", "Regional LA", "standard", 1)])
+        with patch.object(
+            client, "_get", side_effect=[self._resp(page1), self._resp(page2)]
+        ) as mock_get:
+            listings = client.list_tournaments(exclude_countries=frozenset({"JP"}), max_pages=2)
+        assert [t.tournament_id for t in listings] == ["558"]
+        assert mock_get.call_count == 2
 
 
 # ---------------------------------------------------------------------------

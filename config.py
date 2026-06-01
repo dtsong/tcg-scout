@@ -226,6 +226,13 @@ LABS_REQUESTS_PER_MINUTE = 20
 LABS_TIMEOUT = 30.0
 LABS_MAX_RETRIES = 3
 
+# Country codes run by The Pokemon Company (TPC) on circuits separate from the
+# international TPCi Play! Pokemon program (Regionals/ICs/Worlds). Their events
+# (e.g. JP Champions League, Korean League) surface on the same Limitless listing
+# but belong to different formats/cardpools, so the TPCi scrape excludes them by
+# country even when Labs standings exist for them.
+TPC_REGION_COUNTRIES = frozenset({"JP", "KR"})
+
 # Labs matchup analysis thresholds
 LABS_MIN_MATCHES_TO_PUBLISH = 30  # Minimum H2H matches to publish a pair win rate
 LABS_MIN_MATCHES_CONFIDENT = (

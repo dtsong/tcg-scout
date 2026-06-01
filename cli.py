@@ -9,7 +9,7 @@ import httpx
 from rich.console import Console
 from rich.table import Table
 
-from config import DEFAULT_FORMAT, FORMATS, get_format_config
+from config import DEFAULT_FORMAT, FORMATS, TPC_REGION_COUNTRIES, get_format_config
 from db import get_format_connection, init_db, reset_db
 
 console = Console()
@@ -2205,6 +2205,19 @@ def _classify_tpci_type(name: str) -> str:
     type=int,
     help="Limit number of new tournaments to process (useful for smoke testing)",
 )
+@click.option(
+    "--max-pages",
+    default=1,
+    type=int,
+    help="Listing pages to walk newest-to-oldest (raise for deep historical backfills)",
+)
+@click.option(
+    "--exclude-country",
+    "exclude_country",
+    multiple=True,
+    help="ISO 2-letter country code to drop (repeatable). Defaults to the TPC "
+    "region (JP, KR) so their separate circuits stay out of the TPCi format.",
+)
 @click.pass_context
 def scrape_tpci(
     ctx: click.Context,
@@ -2215,6 +2228,8 @@ def scrape_tpci(
     max_placements: int | None,
     fetch_decklists: bool,
     max_tournaments: int | None,
+    max_pages: int,
+    exclude_country: tuple[str, ...],
 ) -> None:
     """Discover and ingest international TPCi tournaments into the active format's DB.
 
@@ -2230,17 +2245,32 @@ def scrape_tpci(
     fmt = get_format_config(fmt_slug)
     since = since or fmt["dataset_start"]
     until = until or fmt["dataset_end"]
+    # Default to dropping TPC-region events; an explicit --exclude-country overrides.
+    exclude_countries = (
+        frozenset(c.strip().upper() for c in exclude_country)
+        if exclude_country
+        else TPC_REGION_COUNTRIES
+    )
 
     conn = get_format_connection(fmt_slug)
     init_db(conn)
 
     with LabsLimitlessClient() as client:
+        pages_note = f", {max_pages} listing pages" if max_pages > 1 else ""
+        excl_note = (
+            f", excluding {', '.join(sorted(exclude_countries))}" if exclude_countries else ""
+        )
         console.print(
             f"[cyan]Discovering {format_filter}/{type_filter} tournaments "
-            f"from {since} to {until}...[/cyan]"
+            f"from {since} to {until}{pages_note}{excl_note}...[/cyan]"
         )
         listings = client.list_tournaments(
-            format_filter=format_filter, type_filter=type_filter, since=since, until=until
+            format_filter=format_filter,
+            type_filter=type_filter,
+            since=since,
+            until=until,
+            max_pages=max_pages,
+            exclude_countries=exclude_countries,
         )
         console.print(f"Found [bold]{len(listings)}[/bold] tournaments in listing")
 

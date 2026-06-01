@@ -15,7 +15,19 @@ from config import (
     PLACEMENT_WEIGHTS,
     TIER_THRESHOLDS,
     TIER_WEIGHTS,
+    TPC_REGION_COUNTRIES,
 )
+
+
+class TestTpcRegionCountries:
+    def test_excludes_tpc_operated_markets(self):
+        """TPC (Japan/Korea) circuits are distinct from TPCi international play."""
+        assert "JP" in TPC_REGION_COUNTRIES
+        assert "KR" in TPC_REGION_COUNTRIES
+
+    def test_codes_are_uppercase_two_letter(self):
+        for code in TPC_REGION_COUNTRIES:
+            assert code == code.upper() and len(code) == 2
 
 
 class TestTierThresholds:
