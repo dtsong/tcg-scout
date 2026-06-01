@@ -26,6 +26,16 @@ export function daysUntil(dateStr: string): number {
   return Math.ceil((target.getTime() - now.getTime()) / (1000 * 60 * 60 * 24));
 }
 
+// Intro copy for a completed (frozen) format. International (TPCi) formats
+// aggregate Regionals/ICs/Worlds, not Japan's City Leagues, so the blurb must
+// not assert a JP source for them.
+export function frozenFormatBlurb(format: string): string {
+  if (format.startsWith("tpci")) {
+    return "is a completed international Standard format. This is the final competitive record of Regionals, ICs, and Worlds from this rotation.";
+  }
+  return "is a completed format. This is the final competitive record from Japan's City Leagues.";
+}
+
 export function slugify(name: string): string {
   return name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 }

@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, afterEach } from "vitest";
-import { formatPlacement, formatPct, daysUntil, cn, slugify, effectiveImpact, computeCrossMetaStaples } from "../utils";
+import { formatPlacement, formatPct, daysUntil, cn, slugify, effectiveImpact, computeCrossMetaStaples, frozenFormatBlurb } from "../utils";
 import type { CardAnalysisEntry } from "../types";
 
 describe("formatPlacement", () => {
@@ -226,5 +226,17 @@ describe("computeCrossMetaStaples", () => {
 
   it("returns empty array for empty input", () => {
     expect(computeCrossMetaStaples([])).toEqual([]);
+  });
+});
+
+describe("frozenFormatBlurb", () => {
+  it("describes international majors for tpci formats", () => {
+    const blurb = frozenFormatBlurb("tpci-standard-2025");
+    expect(blurb).toMatch(/international/i);
+    expect(blurb).not.toMatch(/City Leagues/i);
+  });
+
+  it("describes Japan City Leagues for JP-codename formats", () => {
+    expect(frozenFormatBlurb("nihil-zero")).toMatch(/City Leagues/i);
   });
 });

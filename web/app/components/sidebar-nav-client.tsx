@@ -123,24 +123,43 @@ export function SidebarNavClient({ format, formats }: SidebarNavClientProps) {
         </nav>
       </div>
 
-      {/* Format Switcher */}
-      {formats.length > 1 && (
-        <div>
-          <h3 className="font-display text-xs font-semibold text-surface-300 uppercase tracking-wider mb-3">
-            Formats
-          </h3>
-          <nav className="space-y-1">
-            {formats.map((f) => (
-              <Link key={f.slug} href={`/${f.slug}`} className={navLinkClass(f.slug === format)}>
-                {f.name_en}
-                {f.status === "frozen" && (
-                  <span className="ml-1 text-[10px] text-surface-500">archived</span>
-                )}
-              </Link>
-            ))}
-          </nav>
-        </div>
-      )}
+      {/* Format Switcher — active formats, with frozen ones grouped under Archives */}
+      {formats.length > 1 && (() => {
+        const activeFormats = formats.filter((f) => f.status !== "frozen");
+        const archivedFormats = formats.filter((f) => f.status === "frozen");
+        return (
+          <div className="space-y-4">
+            {activeFormats.length > 0 && (
+              <div>
+                <h3 className="font-display text-xs font-semibold text-surface-300 uppercase tracking-wider mb-3">
+                  Formats
+                </h3>
+                <nav className="space-y-1">
+                  {activeFormats.map((f) => (
+                    <Link key={f.slug} href={`/${f.slug}`} className={navLinkClass(f.slug === format)}>
+                      {f.name_en}
+                    </Link>
+                  ))}
+                </nav>
+              </div>
+            )}
+            {archivedFormats.length > 0 && (
+              <div>
+                <h3 className="font-display text-xs font-semibold text-surface-300 uppercase tracking-wider mb-3">
+                  Archives
+                </h3>
+                <nav className="space-y-1">
+                  {archivedFormats.map((f) => (
+                    <Link key={f.slug} href={`/${f.slug}`} className={navLinkClass(f.slug === format)}>
+                      {f.name_en}
+                    </Link>
+                  ))}
+                </nav>
+              </div>
+            )}
+          </div>
+        );
+      })()}
     </>
   );
 }

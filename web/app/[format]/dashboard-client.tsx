@@ -11,7 +11,7 @@ import { StatCard } from "@/app/components/stat-card";
 import { DateFilter } from "@/app/components/date-filter";
 import { WelcomeGuide } from "@/app/components/welcome-guide";
 import { useDateFilter, fetchWindowedData } from "@/app/components/date-filter-provider";
-import { formatPct, daysUntil } from "@/app/lib/utils";
+import { formatPct, daysUntil, frozenFormatBlurb } from "@/app/lib/utils";
 import { InfoIcon } from "@/app/components/tooltip";
 import { MetaTimeline } from "@/app/components/meta-timeline";
 import type { MetaData, TrendsData, WinningEdgeCard, AceSpec, TimelineData, TimeWindow, MetaEvolutionMovement, CrossMetaStaple } from "@/app/lib/types";
@@ -159,7 +159,7 @@ export function DashboardClient({
             <p className="text-sm text-surface-300 max-w-xl">
               <span className="text-slate-200 font-medium">{formatName}</span>{" "}
               {formatStatus === "frozen"
-                ? "is a completed format. This is the final competitive record from Japan's City Leagues."
+                ? frozenFormatBlurb(format)
                 : <>is Japan&apos;s post-rotation format. {rotationDays > 0
                     ? `These results preview the Standard meta. Set legal internationally on ${meta.rotation_date}.`
                     : "This set is now legal internationally."}</>
