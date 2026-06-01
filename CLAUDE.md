@@ -11,7 +11,7 @@
 
 - `config.py` - Rotation sets, tier thresholds, placement weights
 - `db.py` - SQLite schema (cards, tournaments, placements, decklist_cards, cl_*, meta_snapshots, archetype_stats)
-- `analysis/archetype.py` - Sprite-based archetype detection (`SPRITE_ARCHETYPE_MAP`, `_COMPOSITE_SPRITE_FILENAMES`)
+- `analysis/archetype.py` - Sprite-filename archetype derivation (`normalize_archetype`, `build_sprite_key`); content-based fallback lives in `analysis/archetype_classifier.py` (`ARCHETYPE_ANCHOR_CARDS` in `config.py`)
 - `analysis/meta.py` - Meta snapshot computation, tier assignment
 - `analysis/buylist.py` - Priority-scored buy list for S/A/B archetypes
 - `reports/json_export.py` - All JSON exports (meta, buylist, trends, archetypes, champions league, images)
@@ -67,10 +67,15 @@ For local development, run `uv run scout --format <format> export-web` to genera
 
 ### Archetype Detection
 
-- Primary: `SPRITE_ARCHETYPE_MAP` lookup from Limitless sprite URLs
-- Fallback: Auto-derive name from sprite key (`_derive_name_from_key`)
-- Last resort: HTML text label from tournament page
-- Sprite key: sorted, hyphenated filename stems (e.g., "charizard-pidgeot")
+- Primary (`normalize_archetype`): derive the name directly from Limitless sprite-URL
+  filenames — no lookup table. Single sprite -> titled stem ("Dragapult"); multiple ->
+  alphabetical, " / "-joined ("Dragapult / Dusknoir"). This is host- and era-agnostic.
+- Fallback: HTML text label from the tournament page, then "Unknown".
+- Content-based (`classify_from_decklist` -> `archetype_classifier.classify_decklist`):
+  classifies from decklist contents via `ARCHETYPE_ANCHOR_CARDS` (config) for JP City
+  League / CL placements that have no sprite icons (`JP_CARD_NAME_MAP` maps JP names).
+- Sprite key (`build_sprite_key`): sorted, lowercased, hyphenated filename stems
+  (e.g., "charizard-pidgeot").
 
 ### Weighted Scoring
 
