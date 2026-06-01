@@ -35,6 +35,8 @@ def db_missing_decklists() -> sqlite3.Connection:
             ),
             # Senior division: must be excluded by open_placements view
             ("jp-2001", "JP Senior Cup", "2026-04-19", 16, "senior"),
+            # TPCI/Labs major: integer id, decklists on labs.limitlesstcg.com
+            ("700", "Regional Labsville", "2026-05-01", 100, "open"),
         ],
     )
 
@@ -61,6 +63,23 @@ def db_missing_decklists() -> sqlite3.Connection:
             (5, "jp-2001", 1, "Eve", "Charizard ex", deck_base + "code-E"),
             # No decklist_url (skipped by query)
             (6, "jp-1002", 2, "Frank", "Charizard ex", None),
+            # Labs placements (target for the labs source backfill)
+            (
+                7,
+                "700",
+                1,
+                "Gina",
+                "Charizard ex",
+                "https://labs.limitlesstcg.com/0070/player/11/decklist",
+            ),
+            (
+                8,
+                "700",
+                2,
+                "Hank",
+                "Dragapult ex",
+                "https://labs.limitlesstcg.com/0070/player/12/decklist",
+            ),
         ],
     )
 
@@ -117,6 +136,25 @@ class TestSelectMissingDecklistPlacements:
         )
         ids = sorted(r["id"] for r in rows)
         assert ids == [1, 2]
+
+    def test_match_column_decklist_url_selects_labs(self, db_missing_decklists):
+        # TPCI tournament ids are bare integers, so labs placements must be
+        # matched by their decklist_url host, not by t.id.
+        rows = _select_missing_decklist_placements(
+            db_missing_decklists,
+            "https://labs.limitlesstcg.com/%",
+            None,
+            None,
+            match_column="p.decklist_url",
+        )
+        ids = sorted(r["id"] for r in rows)
+        assert ids == [7, 8]
+
+    def test_match_column_rejects_unknown_column(self, db_missing_decklists):
+        with pytest.raises(ValueError):
+            _select_missing_decklist_placements(
+                db_missing_decklists, "%", None, None, match_column="p.player_name; DROP TABLE"
+            )
 
 
 class TestBackfillJp:
@@ -256,6 +294,70 @@ class TestBackfillLimitless:
         assert n == 0
 
 
+class TestBackfillLabs:
+    def _stub(self, monkeypatch, decklist):
+        class _StubClient:
+            def fetch_decklist(self, url):
+                return decklist
+
+            def close(self):
+                pass
+
+        monkeypatch.setattr("scraper.labs_limitless.LabsLimitlessClient", lambda: _StubClient())
+
+    def test_stores_decklists(self, db_missing_decklists, monkeypatch):
+        from cli import _backfill_labs_decklists
+        from scraper.labs_limitless import LabsDecklist
+
+        self._stub(
+            monkeypatch,
+            LabsDecklist(
+                cards=[
+                    {
+                        "count": 3,
+                        "name": "Charizard ex",
+                        "card_id": "SV5-001",
+                        "set_code": "SV5",
+                        "card_number": "001",
+                    }
+                ]
+            ),
+        )
+
+        n = _backfill_labs_decklists(db_missing_decklists, None, None)
+        assert n == 2  # labs placements 7 and 8
+        for pid in (7, 8):
+            count = db_missing_decklists.execute(
+                "SELECT COUNT(*) FROM decklist_cards WHERE placement_id = ?", (pid,)
+            ).fetchone()[0]
+            assert count == 1
+
+    def test_max_standing_bounds_depth(self, db_missing_decklists, monkeypatch):
+        from cli import _backfill_labs_decklists
+        from scraper.labs_limitless import LabsDecklist
+
+        self._stub(
+            monkeypatch,
+            LabsDecklist(
+                cards=[{"count": 1, "name": "X", "card_id": "x", "set_code": "", "card_number": ""}]
+            ),
+        )
+
+        n = _backfill_labs_decklists(db_missing_decklists, None, None, max_standing=1)
+        assert n == 1  # only placement 7 (standing 1)
+        stored_8 = db_missing_decklists.execute(
+            "SELECT COUNT(*) FROM decklist_cards WHERE placement_id = 8"
+        ).fetchone()[0]
+        assert stored_8 == 0
+
+    def test_skips_when_no_cards(self, db_missing_decklists, monkeypatch):
+        from cli import _backfill_labs_decklists
+
+        self._stub(monkeypatch, None)
+        n = _backfill_labs_decklists(db_missing_decklists, None, None)
+        assert n == 0
+
+
 class TestBackfillCli:
     def test_command_runs(self, db_missing_decklists, monkeypatch, tmp_path):
         from click.testing import CliRunner
@@ -297,3 +399,74 @@ class TestBackfillCli:
                 catch_exceptions=False,
             )
             assert result.exit_code == 0, result.output
+
+    def test_source_labs_with_max_standing(self, db_missing_decklists, monkeypatch):
+        from click.testing import CliRunner
+
+        from cli import cli
+        from scraper.labs_limitless import LabsDecklist
+
+        class _StubClient:
+            def fetch_decklist(self, url):
+                return LabsDecklist(
+                    cards=[
+                        {
+                            "count": 4,
+                            "name": "Nest Ball",
+                            "card_id": "SV1-123",
+                            "set_code": "SV1",
+                            "card_number": "123",
+                        }
+                    ]
+                )
+
+            def close(self):
+                pass
+
+        monkeypatch.setattr("scraper.labs_limitless.LabsLimitlessClient", lambda: _StubClient())
+
+        class _ConnProxy:
+            def __init__(self, conn):
+                self._conn = conn
+
+            def __getattr__(self, name):
+                return getattr(self._conn, name)
+
+            def close(self):
+                pass
+
+        proxy = _ConnProxy(db_missing_decklists)
+
+        with (
+            patch("cli.get_format_connection", return_value=proxy),
+            patch("cli.init_db", lambda conn: None),
+        ):
+            runner = CliRunner()
+            result = runner.invoke(
+                cli,
+                [
+                    "--format",
+                    "tpci-standard",
+                    "backfill-decklists",
+                    "--source",
+                    "labs",
+                    "--max-standing",
+                    "1",
+                ],
+                catch_exceptions=False,
+            )
+            assert result.exit_code == 0, result.output
+
+        # Only placement 7 (standing 1) backfilled; placement 8 (standing 2) skipped.
+        assert (
+            db_missing_decklists.execute(
+                "SELECT COUNT(*) FROM decklist_cards WHERE placement_id = 7"
+            ).fetchone()[0]
+            == 1
+        )
+        assert (
+            db_missing_decklists.execute(
+                "SELECT COUNT(*) FROM decklist_cards WHERE placement_id = 8"
+            ).fetchone()[0]
+            == 0
+        )

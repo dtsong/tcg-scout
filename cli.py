@@ -894,9 +894,9 @@ def _run_repair_decklists(conn: sqlite3.Connection, dry_run: bool, pool_size: in
 )
 @click.option(
     "--source",
-    type=click.Choice(["jp", "limitless", "all"]),
+    type=click.Choice(["jp", "limitless", "labs", "all"]),
     default="all",
-    help="Which scraper source to backfill",
+    help="Which scraper source to backfill (labs = labs.limitlesstcg.com, i.e. TPCI)",
 )
 @click.option("--pool-size", default=5, help="Concurrent browsers for JP decklist fetching")
 @click.option(
@@ -932,24 +932,41 @@ def backfill_decklists(
             if remaining is not None:
                 remaining = max(0, remaining - n)
         if source in ("limitless", "all") and (remaining is None or remaining > 0):
-            _backfill_limitless_decklists(conn, remaining, since, max_standing)
+            n = _backfill_limitless_decklists(conn, remaining, since, max_standing)
+            if remaining is not None:
+                remaining = max(0, remaining - n)
+        if source in ("labs", "all") and (remaining is None or remaining > 0):
+            _backfill_labs_decklists(conn, remaining, since, max_standing)
     finally:
         conn.close()
 
 
+# Columns the backfill selector may match a source pattern against. Allowlisted
+# because the value is interpolated into SQL; never accept caller-supplied columns.
+_MATCH_COLUMNS = {"t.id", "p.decklist_url"}
+
+
 def _select_missing_decklist_placements(
     conn: sqlite3.Connection,
-    tournament_id_pattern: str,
+    pattern: str,
     limit: int | None,
     since: str | None,
     max_standing: int | None = None,
+    match_column: str = "t.id",
 ) -> list[sqlite3.Row]:
     """Return open placements with decklist_url but no decklist_cards rows.
+
+    ``pattern`` is a SQL LIKE pattern matched against ``match_column``. Sources
+    keyed by tournament id (JP, main-site Limitless) match ``t.id``; sources
+    where the tournament id is opaque (TPCI/Labs integer ids) match
+    ``p.decklist_url`` by host instead.
 
     ``max_standing`` bounds the depth per tournament (e.g. 32 = top cut only),
     enabling a fast top-cut backfill instead of fetching every standings row.
     """
-    sql = """
+    if match_column not in _MATCH_COLUMNS:
+        raise ValueError(f"Unsupported match_column: {match_column!r}")
+    sql = f"""
         SELECT p.id, p.tournament_id, p.standing, p.decklist_url, t.date
         FROM open_placements p
         JOIN tournaments t ON t.id = p.tournament_id
@@ -957,9 +974,9 @@ def _select_missing_decklist_placements(
         WHERE p.decklist_url IS NOT NULL
           AND p.decklist_url != ''
           AND dc.placement_id IS NULL
-          AND t.id LIKE ?
+          AND {match_column} LIKE ?
     """
-    params: list = [tournament_id_pattern]
+    params: list = [pattern]
     if since:
         sql += " AND t.date >= ?"
         params.append(since)
@@ -1083,6 +1100,70 @@ def _backfill_limitless_decklists(
 
     console.print(
         f"[green]Limitless backfill: stored {stored} decklists ({empty} returned no cards)[/green]"
+    )
+    return stored
+
+
+def _backfill_labs_decklists(
+    conn: sqlite3.Connection,
+    limit: int | None,
+    since: str | None,
+    max_standing: int | None = None,
+) -> int:
+    """Fetch missing Labs (labs.limitlesstcg.com) decklists and store cards.
+
+    TPCI tournament ids are opaque integers, so placements are matched by their
+    per-player decklist_url host rather than by tournament id.
+    """
+    placements = _select_missing_decklist_placements(
+        conn,
+        "https://labs.limitlesstcg.com/%",
+        limit,
+        since,
+        max_standing,
+        match_column="p.decklist_url",
+    )
+    console.print(f"\n[cyan]Labs backfill:[/cyan] {len(placements)} placements missing decklists")
+    if not placements:
+        return 0
+
+    from scraper.labs_limitless import LabsLimitlessClient
+
+    client = LabsLimitlessClient()
+    stored = 0
+    empty = 0
+    try:
+        for i, p in enumerate(placements, 1):
+            url = p["decklist_url"]
+            console.print(f"  [{i}/{len(placements)}] placement #{p['id']} {url}")
+            try:
+                decklist = client.fetch_decklist(url)
+            except (httpx.HTTPError, OSError) as exc:
+                console.print(f"    [red]Error: {exc}[/red]")
+                continue
+            if not decklist or not decklist.cards:
+                empty += 1
+                continue
+            conn.execute("DELETE FROM decklist_cards WHERE placement_id = ?", (p["id"],))
+            for card in decklist.cards:
+                conn.execute(
+                    "INSERT OR REPLACE INTO decklist_cards "
+                    "(placement_id, card_id, card_name, count) "
+                    "VALUES (?, ?, ?, ?)",
+                    (
+                        p["id"],
+                        card.get("card_id", card.get("name", "unknown")),
+                        card.get("name"),
+                        card.get("count", 1),
+                    ),
+                )
+            stored += 1
+        conn.commit()
+    finally:
+        client.close()
+
+    console.print(
+        f"[green]Labs backfill: stored {stored} decklists ({empty} returned no cards)[/green]"
     )
     return stored
 
