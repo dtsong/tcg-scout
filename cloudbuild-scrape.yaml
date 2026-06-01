@@ -42,7 +42,11 @@ steps:
         # with a precomputed meta_snapshot (operator runs scrape-tpci + meta
         # out of band). Re-export it so its JSON + formats.json entry land in
         # the published tarball alongside ninja-spinner.
-        uv run python cli.py --format tpci-standard export-web --strict
+        uv run python cli.py --format tpci-standard export-web --strict &&
+        # tpci-standard-2025 is a frozen historical format (2025 spring
+        # rotation). Same cached-DB re-export pattern so its JSON + Archives
+        # entry stay in the published tarball + formats.json.
+        uv run python cli.py --format tpci-standard-2025 export-web --strict
     waitFor: ["restore-db-cache", "restore-frozen"]
 
   # Validate exported data and database integrity before saving
