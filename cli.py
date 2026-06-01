@@ -2180,6 +2180,12 @@ def _classify_tpci_type(name: str) -> str:
     help="ISO date lower bound (defaults to active format's dataset_start)",
 )
 @click.option(
+    "--until",
+    default=None,
+    help="ISO date upper bound (defaults to active format's dataset_end). "
+    "Bounds a historical rotation window so it does not bleed into later formats.",
+)
+@click.option(
     "--type-filter",
     default="major",
     help="Limitless type filter: major (all checkpoints), regional, international, worlds, special",
@@ -2203,6 +2209,7 @@ def _classify_tpci_type(name: str) -> str:
 def scrape_tpci(
     ctx: click.Context,
     since: str | None,
+    until: str | None,
     type_filter: str,
     format_filter: str,
     max_placements: int | None,
@@ -2222,16 +2229,18 @@ def scrape_tpci(
     fmt_slug = ctx.obj["format"]
     fmt = get_format_config(fmt_slug)
     since = since or fmt["dataset_start"]
+    until = until or fmt["dataset_end"]
 
     conn = get_format_connection(fmt_slug)
     init_db(conn)
 
     with LabsLimitlessClient() as client:
         console.print(
-            f"[cyan]Discovering {format_filter}/{type_filter} tournaments since {since}...[/cyan]"
+            f"[cyan]Discovering {format_filter}/{type_filter} tournaments "
+            f"from {since} to {until}...[/cyan]"
         )
         listings = client.list_tournaments(
-            format_filter=format_filter, type_filter=type_filter, since=since
+            format_filter=format_filter, type_filter=type_filter, since=since, until=until
         )
         console.print(f"Found [bold]{len(listings)}[/bold] tournaments in listing")
 

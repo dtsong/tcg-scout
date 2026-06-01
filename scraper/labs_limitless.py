@@ -480,6 +480,7 @@ class LabsLimitlessClient(RateLimitedHTTPClient):
         type_filter: str = "major",
         show: int = 100,
         since: str | None = None,
+        until: str | None = None,
     ) -> list[LabsTournamentListing]:
         """Discover tournaments from the main Limitless listing page.
 
@@ -497,6 +498,9 @@ class LabsLimitlessClient(RateLimitedHTTPClient):
                 ``since`` filter for incremental scraping.
             since: ISO date (YYYY-MM-DD) lower bound. Tournaments on or after
                 this date are returned.
+            until: ISO date (YYYY-MM-DD) upper bound. Tournaments on or before
+                this date are returned. Because the listing is newest-first,
+                rows newer than ``until`` are skipped (not a stopping point).
 
         Returns:
             List of LabsTournamentListing, ordered newest-first.
@@ -527,6 +531,9 @@ class LabsLimitlessClient(RateLimitedHTTPClient):
                 logger.debug("Skipping listing row: %s", exc)
                 continue
             if listing is None:
+                continue
+            if until and listing.date > until:
+                # Newer than the upper bound; older rows follow, so skip don't stop.
                 continue
             if since and listing.date < since:
                 # Listing is reverse-chronological; we can stop here.

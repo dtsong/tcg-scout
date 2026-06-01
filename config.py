@@ -64,6 +64,21 @@ FORMATS = {
         "description": "International Standard (Regionals, ICs, Worlds, grassroots majors)",
         "db_name": "tpci-standard.db",
     },
+    # Historical international Standard — the 2025 spring rotation (regulation
+    # marks F removed, G+H legal), spanning the post-Journey Together cardpool up
+    # to the eve of Mega Evolution. Bracket events: NAIC 2025, Worlds 2025.
+    # Spike for the historical multi-format backfill; bounded by --until so it
+    # does not bleed into tpci-standard (2025-09-12+).
+    "tpci-standard-2025": {
+        "name": "TPCi Standard 2025",
+        "name_en": "2025 Standard (post-F rotation)",
+        "dataset_start": "2025-04-11",
+        "dataset_end": "2025-09-11",
+        "rotation_date": "2025-09-12",
+        "description": "International Standard, 2025 spring rotation (regulation G-H): "
+        "NAIC 2025, Worlds 2025, and majors before Mega Evolution",
+        "db_name": "tpci-standard-2025.db",
+    },
 }
 
 DEFAULT_FORMAT = "ninja-spinner"

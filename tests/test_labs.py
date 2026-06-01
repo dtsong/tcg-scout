@@ -1918,6 +1918,40 @@ class TestListTournaments:
             listings = client.list_tournaments(since="2026-05-01")
         assert [t.tournament_id for t in listings] == ["544", "558"]
 
+    def test_until_filter_skips_newer(self, client) -> None:
+        # Listing is newest-first; until is an upper bound, so newer rows are
+        # skipped while older in-window rows are kept.
+        html = self._make_listing_html(
+            [
+                ("16 May 26", "BR", "544", "Regional Campinas", "standard", 1725),
+                ("09 May 26", "US", "558", "Regional Los Angeles", "standard", 1849),
+                ("25 Apr 26", "CZ", "539", "Regional Prague", "standard", 1370),
+            ]
+        )
+        mock_response = MagicMock()
+        mock_response.text = html
+        mock_response.status_code = 200
+
+        with patch.object(client, "_get", return_value=mock_response):
+            listings = client.list_tournaments(until="2026-05-10")
+        assert [t.tournament_id for t in listings] == ["558", "539"]
+
+    def test_since_and_until_bound_a_window(self, client) -> None:
+        html = self._make_listing_html(
+            [
+                ("16 May 26", "BR", "544", "Regional Campinas", "standard", 1725),
+                ("09 May 26", "US", "558", "Regional Los Angeles", "standard", 1849),
+                ("25 Apr 26", "CZ", "539", "Regional Prague", "standard", 1370),
+            ]
+        )
+        mock_response = MagicMock()
+        mock_response.text = html
+        mock_response.status_code = 200
+
+        with patch.object(client, "_get", return_value=mock_response):
+            listings = client.list_tournaments(since="2026-05-01", until="2026-05-10")
+        assert [t.tournament_id for t in listings] == ["558"]
+
     def test_empty_table_returns_empty_list(self, client) -> None:
         html = "<html><body><p>no table here</p></body></html>"
         mock_response = MagicMock()
