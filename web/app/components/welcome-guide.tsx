@@ -72,7 +72,7 @@ export function WelcomeGuide() {
           Welcome to Scout
         </h2>
         <p className="text-sm text-surface-300 mt-1">
-          Real-time meta intelligence from Japan's City League tournaments. Here's how to use it.
+          Real-time meta intelligence from Japan&apos;s City League tournaments. Here&apos;s how to use it.
         </p>
       </div>
 
