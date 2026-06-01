@@ -102,6 +102,22 @@ class TestSelectMissingDecklistPlacements:
         rows = _select_missing_decklist_placements(db_missing_decklists, "jp-%", 1, None)
         assert len(rows) == 1
 
+    def test_max_standing_excludes_deeper_finishes(self, db_missing_decklists):
+        # jp-1001 has placement 1 (standing 1) and placement 2 (standing 2).
+        # max_standing=1 keeps only the top finish.
+        rows = _select_missing_decklist_placements(
+            db_missing_decklists, "jp-%", None, None, max_standing=1
+        )
+        ids = [r["id"] for r in rows]
+        assert ids == [1]
+
+    def test_max_standing_none_returns_all(self, db_missing_decklists):
+        rows = _select_missing_decklist_placements(
+            db_missing_decklists, "jp-%", None, None, max_standing=None
+        )
+        ids = sorted(r["id"] for r in rows)
+        assert ids == [1, 2]
+
 
 class TestBackfillJp:
     def test_stores_decklists(self, db_missing_decklists, monkeypatch):
@@ -143,6 +159,33 @@ class TestBackfillJp:
             "SELECT card_id FROM decklist_cards WHERE placement_id = 3"
         ).fetchone()
         assert existing["card_id"] == "sv5-001"
+
+    def test_max_standing_limits_backfill(self, db_missing_decklists, monkeypatch):
+        from scraper.pokemon_jp import JPDeckCard
+
+        fake_cards = [
+            JPDeckCard(
+                name_jp="ネストボール",
+                count=4,
+                set_code="SV1",
+                card_number="123",
+                category="Trainer",
+            ),
+        ]
+
+        def fake_batch(deck_entries, pool_size):
+            return {code: fake_cards for code, _ in deck_entries}
+
+        monkeypatch.setattr("cli._fetch_decklists_batch", fake_batch)
+
+        # jp-1001 placements: id 1 (standing 1), id 2 (standing 2). Top-1 only.
+        n = _backfill_jp_decklists(db_missing_decklists, None, None, pool_size=2, max_standing=1)
+        assert n == 1
+
+        stored_2 = db_missing_decklists.execute(
+            "SELECT COUNT(*) FROM decklist_cards WHERE placement_id = 2"
+        ).fetchone()[0]
+        assert stored_2 == 0  # standing 2 excluded by max_standing
 
     def test_no_missing_returns_zero(self, db_missing_decklists, monkeypatch):
         # Insert cards for every JP placement so nothing is missing

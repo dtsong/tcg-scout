@@ -899,6 +899,12 @@ def _run_repair_decklists(conn: sqlite3.Connection, dry_run: bool, pool_size: in
     help="Which scraper source to backfill",
 )
 @click.option("--pool-size", default=5, help="Concurrent browsers for JP decklist fetching")
+@click.option(
+    "--max-standing",
+    default=None,
+    type=int,
+    help="Only backfill placements finishing at/above this standing (e.g. 32 = top cut)",
+)
 @click.pass_context
 def backfill_decklists(
     ctx: click.Context,
@@ -906,12 +912,14 @@ def backfill_decklists(
     since: str | None,
     source: str,
     pool_size: int,
+    max_standing: int | None,
 ) -> None:
     """Fetch missing decklists for placements that have a deck URL but no card data.
 
     Targets placements in open_placements (post-dedup) where decklist_url is set
     but no rows exist in decklist_cards. Use --source to limit to one scraper,
-    --since to bound by tournament date, and --limit to cap volume per run.
+    --since to bound by tournament date, --limit to cap total volume per run, and
+    --max-standing to bound depth per tournament (top-cut only).
     """
     fmt = ctx.obj["format"]
     conn = get_format_connection(fmt)
@@ -920,11 +928,11 @@ def backfill_decklists(
     try:
         remaining = limit
         if source in ("jp", "all"):
-            n = _backfill_jp_decklists(conn, remaining, since, pool_size)
+            n = _backfill_jp_decklists(conn, remaining, since, pool_size, max_standing)
             if remaining is not None:
                 remaining = max(0, remaining - n)
         if source in ("limitless", "all") and (remaining is None or remaining > 0):
-            _backfill_limitless_decklists(conn, remaining, since)
+            _backfill_limitless_decklists(conn, remaining, since, max_standing)
     finally:
         conn.close()
 
@@ -934,8 +942,13 @@ def _select_missing_decklist_placements(
     tournament_id_pattern: str,
     limit: int | None,
     since: str | None,
+    max_standing: int | None = None,
 ) -> list[sqlite3.Row]:
-    """Return open placements with decklist_url but no decklist_cards rows."""
+    """Return open placements with decklist_url but no decklist_cards rows.
+
+    ``max_standing`` bounds the depth per tournament (e.g. 32 = top cut only),
+    enabling a fast top-cut backfill instead of fetching every standings row.
+    """
     sql = """
         SELECT p.id, p.tournament_id, p.standing, p.decklist_url, t.date
         FROM open_placements p
@@ -950,6 +963,9 @@ def _select_missing_decklist_placements(
     if since:
         sql += " AND t.date >= ?"
         params.append(since)
+    if max_standing is not None:
+        sql += " AND p.standing <= ?"
+        params.append(max_standing)
     sql += " GROUP BY p.id ORDER BY t.date DESC, p.standing ASC"
     if limit:
         sql += " LIMIT ?"
@@ -962,9 +978,10 @@ def _backfill_jp_decklists(
     limit: int | None,
     since: str | None,
     pool_size: int,
+    max_standing: int | None = None,
 ) -> int:
     """Fetch missing JP (jp-*) decklists via Playwright batch and store cards."""
-    placements = _select_missing_decklist_placements(conn, "jp-%", limit, since)
+    placements = _select_missing_decklist_placements(conn, "jp-%", limit, since, max_standing)
     console.print(f"\n[cyan]JP backfill:[/cyan] {len(placements)} placements missing decklists")
     if not placements:
         return 0
@@ -1017,10 +1034,11 @@ def _backfill_limitless_decklists(
     conn: sqlite3.Connection,
     limit: int | None,
     since: str | None,
+    max_standing: int | None = None,
 ) -> int:
     """Fetch missing Limitless decklists via plain HTTP and store cards."""
     placements = _select_missing_decklist_placements(
-        conn, "https://limitlesstcg.com/%", limit, since
+        conn, "https://limitlesstcg.com/%", limit, since, max_standing
     )
     console.print(
         f"\n[cyan]Limitless backfill:[/cyan] {len(placements)} placements missing decklists"
