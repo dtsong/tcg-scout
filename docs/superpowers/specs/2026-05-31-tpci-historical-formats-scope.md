@@ -1,8 +1,28 @@
 # TPCI Historical Multi-Format Backfill — Scope Note
 
-**Date:** 2026-05-31
-**Status:** Scoping only. Not yet designed. Brainstorm before implementation.
+**Date:** 2026-05-31 (updated 2026-06-01)
+**Status:** First rotation SHIPPED. `tpci-standard-2025` (2025 spring rotation) is
+backfilled, exported, and wired to publish. See "2026-06-01 — Spike shipped" below.
 **Trigger:** "Leverage labs.limitlesstcg.com as source of truth — there's a ton of historical data across formats."
+
+## 2026-06-01 — Spike shipped (tpci-standard-2025)
+
+One-rotation spike taken through full publish (commits `94f7a97`, `b012852`, `a8fcd7e`).
+
+- **Window:** 2025-04-11 → 2025-09-11 (F rotated out, G+H legal; pre-Mega Evolution).
+- **Data:** 11 majors (incl. NAIC 2025, Worlds 2025), 16,998 placements, 352 top-32 decklists.
+- **Quality gate PASSED:** archetype coverage **99.65%** (59 Unknown). The Q4 fear below is
+  empirically moot for this era — `normalize_archetype` derives names from sprite-URL
+  filenames (era-agnostic), NOT a `SPRITE_ARCHETYPE_MAP` lookup (Q4 / CLAUDE.md are stale).
+- **Tooling added:** `--until` upper bound on `scrape-tpci` (meta.py doesn't filter by
+  `dataset_end`, so a per-format DB must be window-bounded at scrape time).
+- **Frontend (Q5 resolved):** frozen formats now group under an "Archives" heading; no new
+  status needed (`status:"frozen"` already derives from `dataset_end < today`). Frozen banner
+  copy made format-aware (was JP-City-League-hardcoded).
+- **Floor (Q1):** stopped at the 2025 spring rotation. Deeper history (Worlds 2024 etc.)
+  blocked on `list_tournaments` pagination (single 100-row page; 2025 window fit, older won't).
+
+### Original scope (preserved below for the remaining open questions)
 
 ## What's available (discovery 2026-05-31)
 
