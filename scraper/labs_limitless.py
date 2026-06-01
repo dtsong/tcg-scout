@@ -752,6 +752,68 @@ class LabsLimitlessClient(RateLimitedHTTPClient):
         )
         return placements
 
+    def fetch_main_site_standings(self, tournament_id: str) -> list[LabsPlacement]:
+        """Scrape standings from a main-site tournament Results page.
+
+        Pre-Labs international majors (Worlds/NAIC/EUIC 2024 and earlier) are not
+        indexed on Labs, so ``fetch_tournament_metadata`` finds no
+        ``labs_tournament_id``. Their Results page
+        (``limitlesstcg.com/tournaments/<id>``) renders a 5-column standings
+        table — rank, player, country, deck sprite, decklist link — that
+        ``_parse_standings_row`` already understands. The page exposes a clean
+        finish-ordered top cut (e.g. Worlds 2024 shows ranks 1-127 of 1147);
+        finish-weighted scoring uses that directly.
+
+        Args:
+            tournament_id: Main-site tournament id (e.g. "420" for Worlds 2024).
+
+        Returns:
+            List of LabsPlacement objects ordered by finish.
+        """
+        url = f"{self._base_url}/tournaments/{tournament_id}"
+        logger.info("Fetching main-site standings from %s", url)
+        soup = self._soup(url)
+
+        table = soup.find("table", class_="data-table") or soup.find("table")
+        if table is None:
+            raise ValueError(
+                f"No standings table found at {url}. "
+                "The page structure may have changed or the tournament id may be incorrect."
+            )
+
+        placements: list[LabsPlacement] = []
+        rows = table.find_all("tr")
+        skipped_short = 0
+        for row in rows[1:]:  # Skip header
+            cells = row.find_all("td")
+            if len(cells) < 5:
+                skipped_short += 1
+                continue
+            try:
+                placement = self._parse_standings_row(cells)
+            except ValueError as exc:
+                logger.warning("Skipping main-site standings row at %s: %s", url, exc)
+                continue
+            if placement:
+                placements.append(placement)
+
+        if skipped_short:
+            logger.warning(
+                "Skipped %d short row(s) (<5 cells) while parsing %s", skipped_short, url
+            )
+        if placements:
+            unknown_count = sum(1 for p in placements if p.archetype == "Unknown")
+            if unknown_count > len(placements) * 0.5:
+                logger.warning(
+                    "%d of %d main-site placements have Unknown archetype for %s"
+                    " -- sprite parsing may be broken",
+                    unknown_count,
+                    len(placements),
+                    url,
+                )
+        logger.info("Parsed %d main-site standings from %s", len(placements), url)
+        return placements
+
     @staticmethod
     def _find_standings_blob(html: str) -> list[dict] | None:
         """Locate the full standings list in the SvelteKit server-data blobs.
@@ -898,14 +960,16 @@ class LabsLimitlessClient(RateLimitedHTTPClient):
             if decklist_url:
                 break
 
-        # Fallback: separate decklist column with /decks/list/ path (older format)
+        # Fallback: separate decklist column with /decks/list/ path. These lists
+        # live on the main site (limitlesstcg.com), so resolve against _base_url
+        # — used by the main-site Results pages of pre-Labs international majors.
         if not decklist_url:
             for cell in cells:
                 link = cell.find("a")
                 if link:
                     href = link.get("href", "")
                     if "/decks/list/" in href:
-                        decklist_url = urljoin(self._labs_url, href)
+                        decklist_url = urljoin(self._base_url, href)
                         break
 
         # Fallback archetype from text if no sprites found

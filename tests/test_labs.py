@@ -333,6 +333,114 @@ class TestCLICommands:
         captured = self._run_scrape_tpci(monkeypatch, ["--max-pages", "3"])
         assert captured["max_pages"] == 3
 
+    def test_scrape_tpci_falls_back_to_main_site_when_no_labs_id(self, monkeypatch):
+        """Pre-Labs majors (no labs_tournament_id) ingest via the main-site
+        Results page instead of being skipped."""
+        from click.testing import CliRunner
+
+        from cli import cli
+        from db import init_db as _init_db
+        from scraper.labs_limitless import (
+            LabsPlacement,
+            LabsPlayer,
+            LabsTournament,
+            LabsTournamentListing,
+        )
+
+        conn = sqlite3.connect(":memory:")
+        conn.row_factory = sqlite3.Row
+        _init_db(conn)
+
+        class _NonClosing:
+            def __init__(self, c):
+                self._c = c
+
+            def close(self):
+                pass
+
+            def __getattr__(self, n):
+                return getattr(self._c, n)
+
+        listing = LabsTournamentListing(
+            tournament_id="420",
+            name="World Championship 2024",
+            date="2024-08-16",
+            country="US",
+            player_count=1147,
+            format_string="standard",
+        )
+        meta = LabsTournament(
+            tournament_id="420",
+            name="World Championship 2024",
+            date="2024-08-16",
+            player_count=1147,
+            country="US",
+            labs_tournament_id=None,
+        )
+        standings = [
+            LabsPlacement(
+                standing=1,
+                player=LabsPlayer(player_id="5845", name="Fernando", country="CL"),
+                archetype="Iron Thorns",
+                decklist_url="https://limitlesstcg.com/decks/list/12238",
+            ),
+            LabsPlacement(
+                standing=2,
+                player=LabsPlayer(player_id="6705", name="Seinosuke", country="JP"),
+                archetype="Roaring Moon",
+                decklist_url="https://limitlesstcg.com/decks/list/12239",
+            ),
+        ]
+        calls = {"main_site": 0, "labs": 0}
+
+        class _StubClient:
+            def __enter__(self):
+                return self
+
+            def __exit__(self, *exc):
+                return False
+
+            def list_tournaments(self, **kwargs):
+                return [listing]
+
+            def fetch_tournament_metadata(self, tid):
+                return meta
+
+            def fetch_standings(self, labs_id):
+                calls["labs"] += 1
+                return []
+
+            def fetch_main_site_standings(self, tid):
+                calls["main_site"] += 1
+                assert tid == "420"
+                return standings
+
+            def fetch_decklist(self, url):
+                return None
+
+            def close(self):
+                pass
+
+        monkeypatch.setattr("scraper.labs_limitless.LabsLimitlessClient", _StubClient)
+        with (
+            patch("cli.get_format_connection", return_value=_NonClosing(conn)),
+            patch("cli.init_db", lambda c: None),
+        ):
+            result = CliRunner().invoke(
+                cli,
+                ["--format", "tpci-standard", "scrape-tpci", "--no-decklists"],
+                catch_exceptions=False,
+            )
+        assert result.exit_code == 0, result.output
+        assert calls["main_site"] == 1
+        assert calls["labs"] == 0
+
+        rows = conn.execute(
+            "SELECT standing, archetype FROM placements WHERE tournament_id='420' ORDER BY standing"
+        ).fetchall()
+        assert [r["archetype"] for r in rows] == ["Iron Thorns", "Roaring Moon"]
+        conn.close()
+
 
 class TestClassifyTpciType:
     """_classify_tpci_type derives Scout tournament_type from Limitless name."""
@@ -465,6 +573,81 @@ class TestParseStandingsRow:
         result = client._parse_standings_row(cells)
         assert result is not None
         assert result.decklist_url == "https://labs.limitlesstcg.com/0064/player/1416/decklist"
+
+    def test_decks_list_url_resolves_to_main_site(self, client):
+        """The /decks/list/<id> fallback (main-site Results pages) must resolve
+        against limitlesstcg.com, not labs.limitlesstcg.com — those decklists
+        only exist on the main site."""
+        cells = self._make_cells(
+            [
+                "1",
+                '<a href="/players/5845">Fernando Cifuentes</a>',
+                '<img class="flag" src="/flags/CL.png" alt="CL">',
+                '<a href="/decks/283"><img class="pokemon" '
+                'src="/pokemon/gen9/iron-thorns.png" alt="iron-thorns"></a>',
+                '<a href="/decks/list/12238"><i class="fa-list-alt"></i></a>',
+            ]
+        )
+        result = client._parse_standings_row(cells)
+        assert result is not None
+        assert result.decklist_url == "https://limitlesstcg.com/decks/list/12238"
+
+
+class TestFetchMainSiteStandings:
+    """fetch_main_site_standings parses pre-Labs majors' Results page."""
+
+    @pytest.fixture()
+    def client(self):
+        from scraper.labs_limitless import LabsLimitlessClient
+
+        c = LabsLimitlessClient()
+        yield c
+        c.close()
+
+    @staticmethod
+    def _fixture_soup():
+        from bs4 import BeautifulSoup
+
+        html = (
+            Path(__file__).resolve().parent
+            / "fixtures"
+            / "main_site"
+            / "worlds-2024-standings.html"
+        ).read_text()
+        return BeautifulSoup(html, "html.parser")
+
+    def test_parses_top_cut_rows(self, client):
+        with patch.object(client, "_soup", return_value=self._fixture_soup()):
+            placements = client.fetch_main_site_standings("420")
+
+        assert len(placements) == 5
+        assert [p.standing for p in placements] == [1, 2, 3, 4, 5]
+        first = placements[0]
+        assert first.player.name == "Fernando Cifuentes"
+        assert first.player.player_id == "5845"
+        assert first.player.country == "CL"
+        # Sprite-stem normalization (same path as Labs ingestion).
+        assert first.archetype == "Iron-Thorns"
+        # Main-site decklist links must resolve to the main site.
+        assert first.decklist_url == "https://limitlesstcg.com/decks/list/12238"
+
+    def test_hits_main_site_tournament_url(self, client):
+        with patch.object(client, "_soup", return_value=self._fixture_soup()) as mock_soup:
+            client.fetch_main_site_standings("420")
+        mock_soup.assert_called_once_with("https://limitlesstcg.com/tournaments/420")
+
+    def test_no_table_raises(self, client):
+        from bs4 import BeautifulSoup
+
+        with patch.object(client, "_soup", return_value=BeautifulSoup("<div/>", "html.parser")):
+            with pytest.raises(ValueError, match="No standings table"):
+                client.fetch_main_site_standings("999")
+
+    def test_archetype_sprite_normalized_not_unknown(self, client):
+        with patch.object(client, "_soup", return_value=self._fixture_soup()):
+            placements = client.fetch_main_site_standings("420")
+        unknown = [p for p in placements if p.archetype == "Unknown"]
+        assert not unknown, f"sprite normalization failed: {[p.archetype for p in placements]}"
 
 
 class TestExtractArchetype:

@@ -2291,7 +2291,6 @@ def scrape_tpci(
 
         total_placements = 0
         total_decklists = 0
-        skipped_no_labs = 0
         failed = 0
 
         try:
@@ -2307,13 +2306,16 @@ def scrape_tpci(
                     failed += 1
                     continue
 
-                if not metadata.labs_tournament_id:
-                    console.print("    [yellow]No Labs standings link yet; skipping[/yellow]")
-                    skipped_no_labs += 1
-                    continue
-
                 try:
-                    standings = client.fetch_standings(metadata.labs_tournament_id)
+                    if metadata.labs_tournament_id:
+                        standings = client.fetch_standings(metadata.labs_tournament_id)
+                    else:
+                        # Pre-Labs international major: standings live on the
+                        # main-site Results page (no Labs index before ~Sept 2024).
+                        console.print(
+                            "    [cyan]No Labs standings; falling back to main-site page[/cyan]"
+                        )
+                        standings = client.fetch_main_site_standings(listing.tournament_id)
                 except ValueError as exc:
                     console.print(f"    [yellow]Standings parse failed: {exc}[/yellow]")
                     failed += 1
@@ -2402,13 +2404,9 @@ def scrape_tpci(
 
             console.print(
                 f"\n[green]Done! Ingested {total_placements} placements "
-                f"and {total_decklists} decklists from {len(new_listings) - skipped_no_labs - failed} "
+                f"and {total_decklists} decklists from {len(new_listings) - failed} "
                 f"tournament(s).[/green]"
             )
-            if skipped_no_labs:
-                console.print(
-                    f"[yellow]{skipped_no_labs} tournament(s) skipped — no Labs standings yet.[/yellow]"
-                )
             if failed:
                 console.print(f"[red]{failed} tournament(s) failed to ingest. Check logs.[/red]")
         finally:
