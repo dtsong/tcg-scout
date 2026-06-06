@@ -46,7 +46,11 @@ steps:
         # tpci-standard-2025 is a frozen historical format (2025 spring
         # rotation). Same cached-DB re-export pattern so its JSON + Archives
         # entry stay in the published tarball + formats.json.
-        uv run python cli.py --format tpci-standard-2025 export-web --strict
+        uv run python cli.py --format tpci-standard-2025 export-web --strict &&
+        # tpci-standard-2024 is a frozen historical format (2024-25 season,
+        # incl. Worlds/NAIC/EUIC 2024 via the main-site standings backfill).
+        # Same cached-DB re-export pattern.
+        uv run python cli.py --format tpci-standard-2024 export-web --strict
     waitFor: ["restore-db-cache", "restore-frozen"]
 
   # Validate exported data and database integrity before saving

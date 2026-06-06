@@ -79,6 +79,21 @@ FORMATS = {
         "NAIC 2025, Worlds 2025, and majors before Mega Evolution",
         "db_name": "tpci-standard-2025.db",
     },
+    # Historical international Standard — the 2024-25 season (regulation marks
+    # F-G-H legal, post-E rotation), spanning NAIC 2024, Worlds 2024, and the
+    # 2024-25 Regional/IC circuit. Pre-Labs majors (Worlds/NAIC/EUIC 2024) are
+    # ingested via the main-site standings fallback. Bounded by --until so it
+    # does not bleed into tpci-standard-2025 (2025-04-11+).
+    "tpci-standard-2024": {
+        "name": "TPCi Standard 2024",
+        "name_en": "2024-25 Standard (post-E rotation)",
+        "dataset_start": "2024-04-05",
+        "dataset_end": "2025-04-10",
+        "rotation_date": "2025-04-11",
+        "description": "International Standard, 2024-25 season (regulation F-G-H): "
+        "NAIC 2024, Worlds 2024, and the 2024-25 Regional/IC circuit",
+        "db_name": "tpci-standard-2024.db",
+    },
 }
 
 DEFAULT_FORMAT = "ninja-spinner"

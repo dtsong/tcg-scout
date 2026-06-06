@@ -95,6 +95,9 @@ steps:
         # tpci-standard-2025: frozen historical format (2025 spring rotation),
         # same cached-DB re-export so it stays published + in formats.json.
         uv run python cli.py --format tpci-standard-2025 export-web --strict
+        # tpci-standard-2024: frozen historical format (2024-25 season),
+        # same cached-DB re-export so it stays published + in formats.json.
+        uv run python cli.py --format tpci-standard-2024 export-web --strict
     waitFor: ["restore-db-cache", "restore-frozen"]
 
   # Validate exported data and database integrity before saving

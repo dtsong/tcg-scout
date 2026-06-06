@@ -103,6 +103,25 @@ class TestFormatDates:
                 f"FORMATS[{slug!r}]: dataset_end ({end}) should be < rotation_date ({rotation})"
             )
 
+    def test_tpci_historical_chain_is_contiguous(self):
+        """The TPCi Standard rotations must tile the timeline with no gap or
+        overlap: each format's dataset_end is the day before the next format's
+        dataset_start, and its rotation_date equals that next start."""
+        from datetime import timedelta
+
+        # Oldest -> newest. Each rolls into the next at the rotation boundary.
+        chain = ["tpci-standard-2024", "tpci-standard-2025", "tpci-standard"]
+        for older, newer in zip(chain, chain[1:]):
+            older_end = date.fromisoformat(FORMATS[older]["dataset_end"])
+            newer_start = date.fromisoformat(FORMATS[newer]["dataset_start"])
+            assert older_end + timedelta(days=1) == newer_start, (
+                f"{older} ends {older_end} but {newer} starts {newer_start} "
+                "(expected 1-day adjacency, no gap/overlap)"
+            )
+            assert date.fromisoformat(FORMATS[older]["rotation_date"]) == newer_start, (
+                f"{older} rotation_date should equal {newer}'s dataset_start ({newer_start})"
+            )
+
 
 class TestCoreThresholds:
     def test_inclusion_rate_between_zero_and_one(self):
