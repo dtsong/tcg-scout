@@ -3,7 +3,6 @@ import path from "path";
 import { describe, expect, it } from "vitest";
 
 const DATA_DIR = path.join(process.cwd(), "public", "data");
-const PUBLIC_DIR = path.join(process.cwd(), "public");
 const FORMATS_PATH = path.join(DATA_DIR, "formats.json");
 
 function readJson<T>(...segments: string[]): T {
@@ -60,7 +59,7 @@ describe.skipIf(!hasData)("public data contracts", () => {
 
         for (const spriteFilename of detail.sprite_filenames ?? []) {
           expect(
-            fs.existsSync(path.join(PUBLIC_DIR, "images", "sprites", spriteFilename)),
+            fs.existsSync(path.join(DATA_DIR, "images", "sprites", spriteFilename)),
             `${format.slug}:${spriteFilename}`,
           ).toBe(true);
         }

@@ -21,7 +21,7 @@ test.describe("Assets", () => {
 
       for (const archetype of meta.archetypes.slice(0, 20)) {
         for (const spriteFilename of archetype.sprite_filenames ?? []) {
-          const spriteResponse = await page.request.get(`/images/sprites/${spriteFilename}`);
+          const spriteResponse = await page.request.get(`/data/images/sprites/${spriteFilename}`);
           expect(spriteResponse.ok(), `${format.slug}:${spriteFilename}`).toBeTruthy();
         }
       }

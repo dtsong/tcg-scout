@@ -8,7 +8,7 @@ export function SpriteRow({ filenames, size = 24 }: { filenames: string[]; size?
       {filenames.map((fn) => (
         <Image
           key={fn}
-          src={`/images/sprites/${fn}`}
+          src={`/data/images/sprites/${fn}`}
           alt={fn.replace(".png", "")}
           width={size}
           height={size}
