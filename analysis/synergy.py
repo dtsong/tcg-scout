@@ -22,7 +22,13 @@ def compute_synergy_pairs(
     energy_names = sorted(BASIC_ENERGY_NAMES)
     energy_placeholders = ",".join("?" * len(energy_names))
 
-    total_decks = conn.execute("SELECT COUNT(*) FROM open_placements").fetchone()[0]
+    total_decks = conn.execute(
+        """
+        SELECT COUNT(DISTINCT p.id)
+        FROM open_placements p
+        JOIN decklist_cards dc ON dc.placement_id = p.id
+        """
+    ).fetchone()[0]
     if total_decks < 2:
         return {"pairs": [], "per_card": {}}
 
@@ -31,6 +37,7 @@ def compute_synergy_pairs(
         f"""
         SELECT dc.card_name, dc.placement_id
         FROM decklist_cards dc
+        JOIN open_placements p ON p.id = dc.placement_id
         WHERE dc.card_name NOT IN ({energy_placeholders})
         """,
         energy_names,

@@ -30,6 +30,13 @@ steps:
     dir: web
     waitFor: ["npm-install"]
 
+  - id: frontend-lint
+    name: node:22-slim
+    entrypoint: npx
+    args: ["eslint", ".", "--quiet"]
+    dir: web
+    waitFor: ["npm-install"]
+
   - id: frontend-test
     name: node:22-slim
     entrypoint: npx
@@ -42,7 +49,7 @@ steps:
     entrypoint: npm
     args: ["run", "build"]
     dir: web
-    waitFor: ["typecheck", "frontend-test"]
+    waitFor: ["typecheck", "frontend-lint", "frontend-test"]
 
   - id: export-validation
     name: node:22-slim

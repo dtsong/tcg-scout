@@ -131,7 +131,7 @@ steps:
         TIMESTAMP=$$(date -u +%Y%m%dT%H%M%SZ)
         TAR_FILE="data-$${TIMESTAMP}.tar.gz"
         GCS_PATH="gs://${_DATA_BUCKET}/$${TAR_FILE}"
-        PUBLIC_URL="https://storage.googleapis.com/${_DATA_BUCKET}/data-latest.tar.gz"
+        PUBLIC_URL="https://storage.googleapis.com/${_DATA_BUCKET}/$${TAR_FILE}"
 
         echo "Creating data archive..."
         tar -czf "/tmp/$${TAR_FILE}" --exclude='._*' -C /workspace/web/public/data .

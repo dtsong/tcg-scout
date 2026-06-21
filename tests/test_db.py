@@ -52,6 +52,37 @@ class TestOpenPlacementsDeduplication:
         assert "https://limitlesstcg.com/tournaments/jp/4359" not in tournament_ids
         assert len(rows) == 2  # 2 JP placements, not 4
 
+    def test_includes_same_date_different_store_events(self):
+        conn = self._make_db()
+        conn.executemany(
+            "INSERT INTO tournaments (id, name, date, division, store_name) VALUES (?, ?, ?, ?, ?)",
+            [
+                ("jp-952716", "埼玉県 Store A", "2026-03-21", "open", "Store A"),
+                (
+                    "https://limitlesstcg.com/tournaments/jp/4360",
+                    "City League Store B",
+                    "2026-03-21",
+                    "open",
+                    "Store B",
+                ),
+            ],
+        )
+        conn.executemany(
+            "INSERT INTO placements (id, tournament_id, standing, player_name, archetype) VALUES (?, ?, ?, ?, ?)",
+            [
+                (1, "jp-952716", 1, "Alice", "Charizard ex"),
+                (2, "https://limitlesstcg.com/tournaments/jp/4360", 1, "Carol", "Gardevoir ex"),
+            ],
+        )
+        conn.commit()
+
+        rows = conn.execute("SELECT * FROM open_placements ORDER BY id").fetchall()
+
+        assert [r["tournament_id"] for r in rows] == [
+            "jp-952716",
+            "https://limitlesstcg.com/tournaments/jp/4360",
+        ]
+
     def test_includes_limitless_when_no_jp_api_on_that_date(self):
         conn = self._make_db()
         # Limitless-only date

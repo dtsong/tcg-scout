@@ -24,14 +24,11 @@ trainerlab-scout/
     buylist.py           # Priority-scored buy list generation
   reports/
     json_export.py       # Static JSON export for Next.js
-  scrapers/              # Limitless and pokemon-card.com scrapers
+  scraper/               # Limitless/Labs and pokemon-card.com scrapers
   tests/                 # Python test suite (pytest)
   web/                   # Next.js frontend (deployed to Vercel)
     app/
-      page.tsx           # Dashboard
-      archetypes/        # Archetype list + detail pages
-      buylist/           # Buy list with TCGPlayer links
-      trends/            # Surging/declining card trends
+      [format]/          # Format dashboard and detail pages
       champions/         # Champions League decklists
       lib/
         types.ts         # TypeScript type definitions
@@ -39,8 +36,8 @@ trainerlab-scout/
         utils.ts         # Formatting utilities
       components/        # Shared UI components
     public/
-      data/              # Exported JSON (meta, buylist, trends, etc.)
-      images/            # Pokemon sprites and card images
+      data/              # Exported JSON fetched from GCS at build time
+      images/            # Committed static card/Oak assets; sprites are in /data/images
 ```
 
 ## Data Pipeline
@@ -50,6 +47,7 @@ Scrape (Limitless/pokemon-card.com)
   -> SQLite (tournaments, placements, decklist_cards, cl_*)
   -> compute_meta_snapshot (tier assignment)
   -> json_export (static JSON to web/public/data/)
+  -> GCS data tarball + web/data-manifest.json
   -> Next.js build (static HTML)
   -> Vercel deploy
 ```
@@ -58,36 +56,36 @@ Scrape (Limitless/pokemon-card.com)
 
 ```bash
 # Scrape latest City League results
-python cli.py scrape
+uv run scout --format ninja-spinner scrape-jp
 
 # Compute meta snapshot
-python cli.py compute
+uv run scout --format ninja-spinner meta
 
 # Export all data for the web frontend
-python cli.py export-web
+uv run scout --format ninja-spinner export-web --strict
 
-# Or use make
-make export-web
+# Validate exported data and database integrity
+uv run scout --format ninja-spinner validate
 ```
 
 ## Frontend Development
 
 ```bash
 cd web
-npm install
+npm ci
 npm run dev       # Dev server on localhost:3000
-npm run build     # Production build (276 static pages)
+npm run build     # Production static export
 npm test          # Run vitest
 ```
 
 ## Testing
 
 ```bash
-# Python tests (55 tests)
-python -m pytest tests/ -v
+# Python tests
+uv run pytest tests/ -v
 
-# Frontend tests (20 tests)
-cd web && npm test
+# Frontend checks
+cd web && npx tsc --noEmit && npx eslint . --quiet && npm test
 ```
 
 ## Format Context
@@ -98,5 +96,5 @@ cd web && npm test
 
 - **Weighted scoring:** Tournament placements weighted by finish position (1st = 3.0x through top 16 = 1.2x, others = 1.0x)
 - **Tier assignment:** S (15%+), A (8%+), B (3%+), C (1%+), Rogue (<1%)
-- **Archetype detection:** Sprite-based from Limitless CDN URLs, with canonical name mapping
+- **Archetype detection:** Sprite filename derivation from Limitless URLs, with content-based fallback for decklist-only sources
 - **Trend analysis:** Early vs late period comparison with per-archetype breakdowns

@@ -3,7 +3,7 @@
  * Prebuild step: ensure JSON data is available for Next.js build.
  *
  * In CI (Vercel): downloads data tarball from GCS via signed URL in data-manifest.json.
- * In local dev: expects data already on disk from `python cli.py export-web`.
+ * In local dev: expects data already on disk from `uv run scout export-web`.
  */
 import fs from "fs";
 import path from "path";
@@ -116,7 +116,7 @@ function validate() {
     console.error(
       "prebuild: FATAL - No data found at public/data/formats.json.\n" +
         "  In CI: check data-manifest.json has a valid URL.\n" +
-        "  Locally: run python cli.py --format <format> export-web",
+        "  Locally: run uv run scout --format <format> export-web",
     );
     process.exit(1);
   }

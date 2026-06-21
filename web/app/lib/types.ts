@@ -38,17 +38,25 @@ export interface MetaData {
   tier_thresholds: Record<string, number>;
   breakout_threshold?: number;
   breakout_display_count?: number;
+  unknown_archetype?: {
+    archetype: "Unknown";
+    meta_share: number;
+    deck_count: number;
+    best_placement: number;
+    tier: Tier;
+    weighted_share?: number | null;
+  } | null;
   archetypes: ArchetypeSummary[];
   format?: { slug: string; name: string; name_en: string };
 }
 
 export interface BuylistCard {
   card_name: string;
-  card_id: string | null;
-  set_code: string | null;
-  set_number: string | null;
+  card_id?: string | null;
+  set_code?: string | null;
+  set_number?: string | null;
   priority_score: number;
-  core_flex: "core" | "flex";
+  core_flex?: "core" | "flex";
   image_path?: string;
   archetypes: string[];
   avg_copies: number;
@@ -637,7 +645,7 @@ export interface CuratedPlayer {
   display_name: string;
   slug: string;
   country: string;
-  twitter_handle?: string;
+  twitter_handle?: string | null;
   tournament_count: number;
   weighted_score: number;
   aliases: string[];
@@ -663,10 +671,10 @@ export interface PlayerDetail {
   display_name: string;
   slug: string;
   country: string;
-  notes?: string;
-  twitter_handle?: string;
-  youtube_url?: string;
-  blog_url?: string;
+  notes?: string | null;
+  twitter_handle?: string | null;
+  youtube_url?: string | null;
+  blog_url?: string | null;
   aliases: string[];
   tournament_count: number;
   weighted_score: number;

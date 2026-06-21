@@ -77,6 +77,37 @@ class TestGetSpriteFilenames:
         assert result == ["lucario-mega.png"]
 
 
+def test_export_all_removes_stale_files(db, tmp_path):
+    stale_dir = tmp_path / "nihil-zero" / "cards"
+    stale_dir.mkdir(parents=True)
+    stale_file = stale_dir / "stale-card.json"
+    stale_file.write_text('{"stale": true}', encoding="utf-8")
+
+    with patch("reports.json_export.export_images"):
+        out, _skipped = export_all(db, output_dir=tmp_path, format_slug="nihil-zero")
+
+    assert out == tmp_path / "nihil-zero"
+    assert not stale_file.exists()
+    assert (out / "meta.json").exists()
+
+
+def test_staples_use_decklisted_denominator(db, tmp_path):
+    db.execute(
+        "INSERT INTO placements (id, tournament_id, standing, player_name, archetype) VALUES (?, ?, ?, ?, ?)",
+        (99, "t1", 32, "No List", "Charizard ex"),
+    )
+    db.commit()
+
+    with patch("reports.json_export.export_images"):
+        out, _skipped = export_all(db, output_dir=tmp_path, format_slug="nihil-zero")
+
+    staples = json.loads((out / "staples.json").read_text(encoding="utf-8"))
+    nest_ball = next(card for card in staples if card["card_name"] == "Nest Ball")
+
+    assert nest_ball["deck_count"] == 6
+    assert nest_ball["usage_pct"] == 100.0
+
+
 # --- _build_jp_en_lookup ---
 
 

@@ -106,14 +106,13 @@ Scrapers (limitless.py, pokemon_jp.py, tcgdex.py)
 
 ## Archetype Detection Pipeline
 
-1. **Primary**: `SPRITE_ARCHETYPE_MAP` lookup from Limitless sprite URLs (analysis/archetype.py)
-2. **Content-based**: `classify_decklist()` matches Pokemon anchor cards (analysis/archetype_classifier.py)
-3. **Fallback**: Auto-derive name from sprite key via `_derive_name_from_key()`
-4. **Last resort**: HTML text label from tournament page
+1. **Primary**: derive archetype names directly from Limitless sprite URL filenames (`analysis/archetype.py`)
+2. **Fallback**: HTML text label from tournament page, then `Unknown`
+3. **Content-based**: `classify_decklist()` matches Pokemon anchor cards for sources without sprites (`analysis/archetype_classifier.py`)
 
 ## JSON Export Outputs (json_export.py)
 
-All exports land in `web/public/data/{format}/`:
+All exports land in `web/public/data/{format}/` locally, then Cloud Build packages them into a GCS data tarball referenced by `web/data-manifest.json`:
 
 | File | Function | Content |
 |------|----------|---------|

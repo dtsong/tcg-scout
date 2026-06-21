@@ -36,7 +36,7 @@ const formats = readJson("formats.json")
     const cardAnalysisExists = exists(`${slug}/card-analysis.json`);
     const playersExists = exists(`${slug}/players/index.json`);
     const shiftsExists = exists(`${slug}/meta-evolution.json`);
-    const tournamentsExists = exists(`${slug}/timeline.json`);
+    const tournamentsExists = exists(`${slug}/city-league-index.json`);
     const archetypeReportExists = meta.archetypes.some((arch) =>
       exists(`${slug}/archetype-reports/${arch.slug}.json`),
     );

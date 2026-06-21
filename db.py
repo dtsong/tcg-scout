@@ -85,9 +85,10 @@ CREATE TABLE IF NOT EXISTS card_mappings (
 );
 
 -- View: open-division placements only (used by meta/export queries).
--- Deduplicates: excludes Limitless-sourced events (id NOT LIKE 'jp-%') for any
--- (date, division) that already has JP API coverage (id LIKE 'jp-%'), preventing
--- double-counting when both scrapers have ingested the same physical event.
+-- Deduplicates cross-source copies of the same physical event without dropping
+-- unrelated same-day City League stores. A non-JP event is excluded only when a
+-- JP API event on the same date/division has matching event identity or matching
+-- placement rows.
 CREATE VIEW IF NOT EXISTS open_placements AS
 SELECT p.* FROM placements p
 JOIN tournaments t ON t.id = p.tournament_id
@@ -96,9 +97,28 @@ AND (
     t.id LIKE 'jp-%'
     OR NOT EXISTS (
         SELECT 1 FROM tournaments t2
+        LEFT JOIN placements p2 ON p2.tournament_id = t2.id
         WHERE t2.id LIKE 'jp-%'
         AND t2.date = t.date
         AND t2.division = t.division
+        AND (
+            (
+                t.store_name IS NOT NULL
+                AND t2.store_name IS NOT NULL
+                AND lower(t2.store_name) = lower(t.store_name)
+            )
+            OR (
+                t.prefecture IS NOT NULL
+                AND t2.prefecture IS NOT NULL
+                AND lower(t2.prefecture) = lower(t.prefecture)
+                AND coalesce(t.capacity, -1) = coalesce(t2.capacity, -1)
+            )
+            OR (
+                p2.standing = p.standing
+                AND coalesce(p2.player_name, '') = coalesce(p.player_name, '')
+                AND p2.archetype = p.archetype
+            )
+        )
     )
 );
 
@@ -115,6 +135,28 @@ AND (
         WHERE t2.id LIKE 'jp-%'
         AND t2.date = t.date
         AND t2.division = t.division
+        AND (
+            (
+                t.store_name IS NOT NULL
+                AND t2.store_name IS NOT NULL
+                AND lower(t2.store_name) = lower(t.store_name)
+            )
+            OR (
+                t.prefecture IS NOT NULL
+                AND t2.prefecture IS NOT NULL
+                AND lower(t2.prefecture) = lower(t.prefecture)
+                AND coalesce(t.capacity, -1) = coalesce(t2.capacity, -1)
+            )
+            OR EXISTS (
+                SELECT 1
+                FROM placements p
+                JOIN placements p2 ON p2.tournament_id = t2.id
+                WHERE p.tournament_id = t.id
+                AND p2.standing = p.standing
+                AND coalesce(p2.player_name, '') = coalesce(p.player_name, '')
+                AND p2.archetype = p.archetype
+            )
+        )
     )
 );
 
@@ -224,14 +266,9 @@ def init_db(conn: sqlite3.Connection | None = None) -> None:
     if conn is None:
         conn = get_connection()
         close = True
-    # Migration: drop stale open_placements view before SCHEMA creates the new one.
-    # Required because CREATE VIEW IF NOT EXISTS won't update an existing view definition.
-    view_row = conn.execute(
-        "SELECT sql FROM sqlite_master WHERE type='view' AND name='open_placements'"
-    ).fetchone()
-    if view_row and "jp-%" not in (view_row[0] or ""):
-        conn.execute("DROP VIEW IF EXISTS open_placements")
-        logger.info("Migration: dropping stale open_placements view for recreation")
+    # Required because CREATE VIEW IF NOT EXISTS won't update existing definitions.
+    conn.execute("DROP VIEW IF EXISTS open_placements")
+    conn.execute("DROP VIEW IF EXISTS open_tournaments")
     conn.executescript(SCHEMA)
     # Migration: ensure division column exists on older databases
     cols = {row[1] for row in conn.execute("PRAGMA table_info(tournaments)")}

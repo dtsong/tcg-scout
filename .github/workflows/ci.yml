@@ -54,6 +54,9 @@ jobs:
       - name: Typecheck
         run: npx tsc --noEmit
 
+      - name: Lint
+        run: npx eslint . --quiet
+
       - name: Tests
         run: npx vitest run
 

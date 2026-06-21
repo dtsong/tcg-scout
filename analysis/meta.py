@@ -138,10 +138,17 @@ def get_latest_snapshot(conn: sqlite3.Connection) -> dict | None:
         (snapshot["id"],),
     ).fetchall()
 
+    all_archetypes = [dict(row) for row in stats]
+    unknown_archetype = next(
+        (row for row in all_archetypes if row["archetype"] == "Unknown"),
+        None,
+    )
+
     return {
         "id": snapshot["id"],
         "generated_at": snapshot["generated_at"],
         "tournament_count": snapshot["tournament_count"],
         "deck_count": snapshot["deck_count"],
-        "archetypes": [dict(row) for row in stats if row["archetype"] != "Unknown"],
+        "archetypes": [row for row in all_archetypes if row["archetype"] != "Unknown"],
+        "unknown_archetype": unknown_archetype,
     }

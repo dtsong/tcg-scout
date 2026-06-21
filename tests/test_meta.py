@@ -114,6 +114,26 @@ class TestGetLatestSnapshot:
         for arch in result["archetypes"]:
             assert "weighted_share" in dict(arch), f"{arch['archetype']} missing weighted_share"
 
+    def test_exposes_unknown_archetype_separately(self, db):
+        db.execute(
+            "INSERT INTO placements (id, tournament_id, standing, player_name, archetype) VALUES (?, ?, ?, ?, ?)",
+            (99, "t1", 16, "Mystery", "Unknown"),
+        )
+        db.execute(
+            "INSERT INTO decklist_cards (placement_id, card_id, card_name, count) VALUES (?, ?, ?, ?)",
+            (99, "card-mystery", "Mystery Card", 1),
+        )
+        db.execute("DELETE FROM archetype_stats")
+        db.execute("DELETE FROM meta_snapshots")
+        db.commit()
+
+        compute_meta_snapshot(db)
+        result = get_latest_snapshot(db)
+
+        assert all(a["archetype"] != "Unknown" for a in result["archetypes"])
+        assert result["unknown_archetype"]["archetype"] == "Unknown"
+        assert result["unknown_archetype"]["deck_count"] == 1
+
     def test_archetypes_sorted_by_share_desc(self, db):
         result = get_latest_snapshot(db)
         shares = [a["meta_share"] for a in result["archetypes"]]

@@ -154,7 +154,11 @@ def _check_unknown_archetype(meta_path: Path) -> ValidationResult:
         result.warnings.append(f"Could not perform Unknown archetype check: {exc}")
         return result
 
-    for arch in meta.get("archetypes", []):
+    unknown = meta.get("unknown_archetype")
+    candidates = [unknown] if isinstance(unknown, dict) else []
+    candidates.extend(meta.get("archetypes", []))
+
+    for arch in candidates:
         if arch.get("archetype") == "Unknown":
             share = arch.get("meta_share", 0)
             decks = arch.get("deck_count", 0)

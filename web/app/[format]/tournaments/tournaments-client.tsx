@@ -435,6 +435,7 @@ export function TournamentsClient({
               onWindowChange={handleWindowChange}
               dateRange={dateRange}
               customRange={customRange}
+              enableCustom
             />
           </div>
         </div>

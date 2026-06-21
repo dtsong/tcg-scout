@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Local scrape-to-deploy pipeline for ninja-spinner format.
+# Local scrape-to-deploy pipeline for Scout formats.
 #
 # Runs the full ingestion pipeline locally, uploads data to GCS,
 # updates the manifest, and pushes to main to trigger Vercel deploy.
@@ -11,10 +11,9 @@
 
 set -euo pipefail
 
-FORMAT="ninja-spinner"
+FORMATS=("ninja-spinner" "tpci-standard" "tpci-standard-2025" "tpci-standard-2024")
 PROJECT="trainerlab-prod"
 DATA_BUCKET="tcg-scout-data"
-SIGNER_SA="scout-data-signer@${PROJECT}.iam.gserviceaccount.com"
 
 FETCH_DECKLISTS="--fetch-decklists"
 SKIP_SCRAPE=false
@@ -26,23 +25,25 @@ for arg in "$@"; do
   esac
 done
 
-echo "=== Local Scrape & Deploy (${FORMAT}) ==="
+echo "=== Local Scrape & Deploy ==="
 
 # Step 1: Scrape
 if [ "$SKIP_SCRAPE" = false ]; then
   echo ""
   echo "--- Step 1: Scraping ---"
-  python3 cli.py --format "$FORMAT" scrape-jp $FETCH_DECKLISTS
-  python3 cli.py --format "$FORMAT" backfill-archetypes
-  python3 cli.py --format "$FORMAT" translate-cards
+  uv run scout --format ninja-spinner scrape-jp $FETCH_DECKLISTS
+  uv run scout --format ninja-spinner backfill-archetypes
+  uv run scout --format ninja-spinner translate-cards
 fi
 
 # Step 2: Meta + Export + Validate
 echo ""
 echo "--- Step 2: Meta + Export ---"
-python3 cli.py --format "$FORMAT" meta
-python3 cli.py --format "$FORMAT" export-web
-python3 cli.py --format "$FORMAT" validate
+uv run scout --format ninja-spinner meta
+for FORMAT in "${FORMATS[@]}"; do
+  uv run scout --format "$FORMAT" export-web --strict
+  uv run scout --format "$FORMAT" validate
+done
 
 # Step 3: Create tarball (COPYFILE_DISABLE prevents macOS xattr pollution)
 echo ""
@@ -55,23 +56,18 @@ COPYFILE_DISABLE=1 tar -czf "/tmp/${TAR_FILE}" --exclude='._*' -C web/public/dat
 gsutil cp "/tmp/${TAR_FILE}" "gs://${DATA_BUCKET}/${TAR_FILE}"
 gsutil cp "gs://${DATA_BUCKET}/${TAR_FILE}" "gs://${DATA_BUCKET}/data-latest.tar.gz"
 
-# Step 5: Sign URL and write manifest
+# Step 5: Write manifest with immutable public URL
 echo ""
 echo "--- Step 4: Update manifest ---"
-SIGNED_URL=$(gcloud storage sign-url "gs://${DATA_BUCKET}/${TAR_FILE}" \
-  --impersonate-service-account="${SIGNER_SA}" \
-  --region=us-central1 \
-  --duration=12h --quiet 2>/dev/null \
-  | grep 'signed_url:' | sed 's/signed_url: //')
-
 SHA256=$(sha256sum "/tmp/${TAR_FILE}" | cut -d' ' -f1)
+PUBLIC_URL="https://storage.googleapis.com/${DATA_BUCKET}/${TAR_FILE}"
 
 cat > web/data-manifest.json <<EOF
 {
   "version": 1,
   "archives": [
     {
-      "url": "${SIGNED_URL}",
+      "url": "${PUBLIC_URL}",
       "sha256": "${SHA256}",
       "created_at": "${TIMESTAMP}"
     }

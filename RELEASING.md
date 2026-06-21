@@ -11,11 +11,12 @@ Semantic versioning: `MAJOR.MINOR.PATCH`
 ## Pre-Release Checklist
 
 ```
-python -m pytest tests/ -v
-cd web && npm test && cd ..
-python cli.py --format <active-format> export-web --strict
-python cli.py --format <active-format> validate
-cd web && npx next build && cd ..
+uv run ruff check .
+uv run ruff format --check .
+uv run pytest tests/ -v
+uv run scout --format <format> export-web --strict
+uv run scout --format <format> validate
+cd web && npx tsc --noEmit && npx eslint . --quiet && npm test && npm run build
 ```
 
 Spot-check in browser:
@@ -43,4 +44,4 @@ Card search returns results
 Mobile: nav works, tables scroll horizontally
 ```
 
-The smoke-test GitHub Action runs automatically when data changes are pushed to main. A separate freshness-check workflow runs every 12 hours to detect stale data.
+The smoke-test GitHub Action runs automatically when `web/data-manifest.json` changes. A separate freshness-check workflow runs every 12 hours to detect stale data.

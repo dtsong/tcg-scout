@@ -3,6 +3,7 @@
 import json
 import logging
 import re
+import shutil
 import sqlite3
 import urllib.request
 from collections import defaultdict
@@ -32,7 +33,7 @@ from analysis.matchup import (
     compute_labs_matchup_matrix,
     compute_matchup_matrix,
 )
-from analysis.meta import get_latest_snapshot
+from analysis.meta import compute_meta_snapshot, get_latest_snapshot
 from analysis.optimal_60 import compute_optimal_60
 from analysis.shared import BASIC_ENERGY_NAMES, slugify
 from analysis.synergy import compute_archetype_overlap_matrix, compute_synergy_pairs
@@ -74,6 +75,47 @@ def _basic_energy_exclusion_sql() -> str:
 def _basic_energy_params() -> list[str]:
     """Return params list for basic energy exclusion."""
     return sorted(BASIC_ENERGY_NAMES)
+
+
+def _count_decklisted_open_placements(
+    conn: sqlite3.Connection,
+    date_from: str | None = None,
+    date_to: str | None = None,
+    date_before: str | None = None,
+    archetypes: list[str] | tuple[str, ...] | None = None,
+    standing: int | None = None,
+) -> int:
+    """Count open placements that have at least one decklist card row."""
+    clauses = ["EXISTS (SELECT 1 FROM decklist_cards dc WHERE dc.placement_id = p.id)"]
+    params: list[object] = []
+
+    if date_from is not None:
+        clauses.append("t.date >= ?")
+        params.append(date_from)
+    if date_to is not None:
+        clauses.append("t.date <= ?")
+        params.append(date_to)
+    if date_before is not None:
+        clauses.append("t.date < ?")
+        params.append(date_before)
+    if archetypes:
+        placeholders = ",".join("?" * len(archetypes))
+        clauses.append(f"p.archetype IN ({placeholders})")
+        params.extend(archetypes)
+    if standing is not None:
+        clauses.append("p.standing = ?")
+        params.append(standing)
+
+    where = " AND ".join(clauses)
+    return conn.execute(
+        f"""
+        SELECT COUNT(*)
+        FROM open_placements p
+        JOIN tournaments t ON t.id = p.tournament_id
+        WHERE {where}
+        """,
+        params,
+    ).fetchone()[0]
 
 
 def _normalize_card_name(name: str) -> str:
@@ -508,23 +550,8 @@ def _compute_windowed_trends(
     mid = d_from + (d_to - d_from) / 2
     midpoint = mid.isoformat()
 
-    early_total = conn.execute(
-        """
-        SELECT COUNT(*) FROM open_placements p
-        JOIN tournaments t ON t.id = p.tournament_id
-        WHERE t.date >= ? AND t.date < ?
-        """,
-        (date_from, midpoint),
-    ).fetchone()[0]
-
-    late_total = conn.execute(
-        """
-        SELECT COUNT(*) FROM open_placements p
-        JOIN tournaments t ON t.id = p.tournament_id
-        WHERE t.date >= ? AND t.date <= ?
-        """,
-        (midpoint, date_to),
-    ).fetchone()[0]
+    early_total = _count_decklisted_open_placements(conn, date_from=date_from, date_before=midpoint)
+    late_total = _count_decklisted_open_placements(conn, date_from=midpoint, date_to=date_to)
 
     if early_total == 0 or late_total == 0:
         return {
@@ -606,24 +633,19 @@ def _compute_windowed_winning_edge(
 
     placeholders = ",".join("?" * len(sa_archetypes))
 
-    total_field = conn.execute(
-        f"""
-        SELECT COUNT(*) FROM open_placements p
-        JOIN tournaments t ON t.id = p.tournament_id
-        WHERE p.archetype IN ({placeholders}) AND t.date >= ? AND t.date <= ?
-        """,
-        (*sa_archetypes, date_from, date_to),
-    ).fetchone()[0]
-
-    total_winners = conn.execute(
-        f"""
-        SELECT COUNT(*) FROM open_placements p
-        JOIN tournaments t ON t.id = p.tournament_id
-        WHERE p.standing = 1 AND p.archetype IN ({placeholders})
-          AND t.date >= ? AND t.date <= ?
-        """,
-        (*sa_archetypes, date_from, date_to),
-    ).fetchone()[0]
+    total_field = _count_decklisted_open_placements(
+        conn,
+        date_from=date_from,
+        date_to=date_to,
+        archetypes=sa_archetypes,
+    )
+    total_winners = _count_decklisted_open_placements(
+        conn,
+        date_from=date_from,
+        date_to=date_to,
+        archetypes=sa_archetypes,
+        standing=1,
+    )
 
     if total_field == 0 or total_winners == 0:
         return []
@@ -701,14 +723,11 @@ def _compute_windowed_ace_specs(
 ) -> list[dict]:
     """Compute ACE SPEC distribution filtered to a specific date window."""
     if total_decks is None:
-        total_decks = conn.execute(
-            """
-            SELECT COUNT(*) FROM open_placements p
-            JOIN tournaments t ON t.id = p.tournament_id
-            WHERE t.date >= ? AND t.date <= ?
-            """,
-            (date_from, date_to),
-        ).fetchone()[0]
+        total_decks = _count_decklisted_open_placements(
+            conn,
+            date_from=date_from,
+            date_to=date_to,
+        )
 
     if total_decks == 0:
         return []
@@ -751,14 +770,11 @@ def _compute_windowed_card_usage(
     Returns list of {card_name, deck_count, usage_pct, avg_copies} sorted by deck_count DESC.
     """
     if total_decks is None:
-        total_decks = conn.execute(
-            """
-            SELECT COUNT(*) FROM open_placements p
-            JOIN tournaments t ON t.id = p.tournament_id
-            WHERE t.date >= ? AND t.date <= ?
-            """,
-            (date_from, date_to),
-        ).fetchone()[0]
+        total_decks = _count_decklisted_open_placements(
+            conn,
+            date_from=date_from,
+            date_to=date_to,
+        )
 
     if total_decks == 0:
         return []
@@ -940,8 +956,12 @@ def export_windowed(
         trends = _compute_windowed_trends(conn, date_from, date_to)
         _write_json(trends, output_dir / f"trends-{suffix}.json")
 
-        # Pre-compute windowed deck count and card usage (shared by ace-specs, staples, flex)
-        windowed_total = meta["deck_count"] or 0
+        # Card usage denominators count only placements with decklists.
+        windowed_total = _count_decklisted_open_placements(
+            conn,
+            date_from=date_from,
+            date_to=date_to,
+        )
 
         # ACE SPECs
         specs = _compute_windowed_ace_specs(conn, date_from, date_to, total_decks=windowed_total)
@@ -1027,6 +1047,7 @@ def export_meta(
         "generated_at": snapshot["generated_at"],
         "tournament_count": snapshot["tournament_count"],
         "deck_count": snapshot["deck_count"],
+        "unknown_archetype": snapshot.get("unknown_archetype"),
         "date_range": {
             "start": date_range["earliest"] if date_range else dataset_start,
             "end": date_range["latest"] if date_range else dataset_end,
@@ -1053,18 +1074,16 @@ def export_buylist(conn: sqlite3.Connection, output_dir: Path) -> None:
     """Export buylist.json — full prioritized card list."""
     snapshot = get_latest_snapshot(conn)
     if not snapshot:
+        _write_json([], output_dir / "buylist.json")
         return
 
     cards = generate_buylist(conn, snapshot["id"])
-    if not cards:
-        return
-
     _write_json(cards, output_dir / "buylist.json")
 
 
 def export_staples(conn: sqlite3.Connection, output_dir: Path) -> None:
     """Export staples.json — format staples with 40%+ usage across all decks."""
-    total_decks = conn.execute("SELECT COUNT(*) FROM open_placements").fetchone()[0]
+    total_decks = _count_decklisted_open_placements(conn)
 
     rows = conn.execute(
         f"""
@@ -1072,6 +1091,7 @@ def export_staples(conn: sqlite3.Connection, output_dir: Path) -> None:
                COUNT(DISTINCT placement_id) AS deck_count,
                ROUND(AVG(count), 1) AS avg_copies
         FROM decklist_cards dc
+        JOIN open_placements p ON p.id = dc.placement_id
         WHERE {_basic_energy_exclusion_sql()}
         GROUP BY card_name
         HAVING COUNT(DISTINCT placement_id) * 100.0 / ? >= 40
@@ -1097,7 +1117,7 @@ def export_staples(conn: sqlite3.Connection, output_dir: Path) -> None:
 
 def export_flex(conn: sqlite3.Connection, output_dir: Path) -> None:
     """Export flex.json — broad flex cards with 20-40% usage."""
-    total_decks = conn.execute("SELECT COUNT(*) FROM open_placements").fetchone()[0]
+    total_decks = _count_decklisted_open_placements(conn)
 
     rows = conn.execute(
         f"""
@@ -1105,6 +1125,7 @@ def export_flex(conn: sqlite3.Connection, output_dir: Path) -> None:
                COUNT(DISTINCT placement_id) AS deck_count,
                ROUND(AVG(count), 1) AS avg_copies
         FROM decklist_cards dc
+        JOIN open_placements p ON p.id = dc.placement_id
         WHERE {_basic_energy_exclusion_sql()}
         GROUP BY card_name
         HAVING COUNT(DISTINCT placement_id) * 100.0 / ? >= 20
@@ -2252,7 +2273,7 @@ def export_images(conn: sqlite3.Connection, output_dir: Path) -> None:
         url = f"https://r2.limitlesstcg.net/pokemon/gen9/{name}.png"
         try:
             req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 Scout/1.0"})
-            with urllib.request.urlopen(req) as resp:
+            with urllib.request.urlopen(req, timeout=20) as resp:
                 dest.write_bytes(resp.read())
             downloaded += 1
         except Exception as e:
@@ -2292,7 +2313,7 @@ def export_images(conn: sqlite3.Connection, output_dir: Path) -> None:
             req = urllib.request.Request(
                 info["image_url"], headers={"User-Agent": "Mozilla/5.0 Scout/1.0"}
             )
-            with urllib.request.urlopen(req) as resp:
+            with urllib.request.urlopen(req, timeout=20) as resp:
                 dest.write_bytes(resp.read())
             card_downloaded += 1
         except Exception as e:
@@ -2401,10 +2422,13 @@ def export_cards(conn: sqlite3.Connection, output_dir: Path) -> None:
 
     for card in cards:
         name = card["card_name"]
+        if not name or not card.get("card_slug"):
+            logger.warning("Skipping card export row with missing name/slug: %s", card)
+            continue
 
         # For index: compute trend direction from the detail if available
         trend_direction = "stable"
-        if card["total_appearances"] >= min_appearances_for_detail:
+        if len(index_entries) < 50 or card["total_appearances"] >= min_appearances_for_detail:
             detail = compute_card_detail(conn, name)
             if detail:
                 trend_direction = detail["trend_direction"]
@@ -3139,11 +3163,16 @@ def export_all(
     # Write to format subdirectory
     slug = format_slug or DEFAULT_FORMAT
     out = base / slug
+    if out.exists():
+        shutil.rmtree(out)
     out.mkdir(parents=True, exist_ok=True)
 
     logger.info("Exporting web data to %s", out)
 
-    export_meta(conn, out, format_slug=slug)
+    if export_meta(conn, out, format_slug=slug) is None:
+        compute_meta_snapshot(conn)
+        if export_meta(conn, out, format_slug=slug) is None:
+            raise ValueError(f"No meta snapshot available for format {slug}")
     export_buylist(conn, out)
     export_staples(conn, out)
     export_flex(conn, out)
