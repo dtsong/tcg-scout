@@ -46,6 +46,26 @@ CL_DIVISION_MAP = {
     "ジュニア": "juniors",
 }
 
+# Championship-tier markers in official JP event titles. These events are run by
+# TPC rather than a card shop, so they carry no shop_name and must be classified
+# from the title alone.
+#   ポケモンジャパンチャンピオンシップス -- Pokemon Japan Championships (PJCS)
+#   チャンピオンズリーグ                 -- Champions League
+_CHAMPIONSHIP_TITLE_MARKERS = (
+    "ジャパンチャンピオンシップス",
+    "チャンピオンズリーグ",
+)
+
+
+def classify_jp_tournament_type(event_title: str) -> str:
+    """Derive a Scout ``tournament_type`` from an official JP event title.
+
+    Returns ``"championship"`` for national majors, else ``"city-league"``.
+    """
+    if any(marker in event_title for marker in _CHAMPIONSHIP_TITLE_MARKERS):
+        return "championship"
+    return "city-league"
+
 
 @dataclass
 class JPCityLeagueEvent:
@@ -55,6 +75,29 @@ class JPCityLeagueEvent:
     store_name: str
     capacity: int
     division: str  # open, senior, junior
+    event_title: str = ""  # Official title; the only name national events carry
+
+    @property
+    def tournament_type(self) -> str:
+        """Classify from the official title.
+
+        Championship-tier events (PJCS, Champions League) are national/regional
+        majors, not shop-run City Leagues, and are surfaced differently on the site.
+        """
+        return classify_jp_tournament_type(self.event_title)
+
+    @property
+    def display_name(self) -> str:
+        """Human-readable event name.
+
+        City League events are identified by prefecture + shop. National events
+        have no shop (``shop_name`` is null in the API) and carry their identity
+        in ``event_title``; a bare prefecture is not an event name, so the shop
+        form is only used when a shop is actually present.
+        """
+        if self.store_name:
+            return f"{self.prefecture} {self.store_name}".strip()
+        return self.event_title or self.prefecture or f"City League {self.date}"
 
     @classmethod
     def from_api(cls, data: dict) -> "JPCityLeagueEvent":
@@ -75,13 +118,24 @@ class JPCityLeagueEvent:
                 data.get("event_holding_id", "?"),
             )
             division = "open"
+
+        # National events send these keys with an explicit null, so `.get(k, "")`
+        # is not enough -- the default only fires when the key is absent.
+        def _text(*keys: str) -> str:
+            for key in keys:
+                value = data.get(key)
+                if value:
+                    return str(value)
+            return ""
+
         return cls(
             event_id=data.get("event_holding_id", data.get("event_id", 0)),
             date=date_iso,
-            prefecture=data.get("prefecture_name", data.get("prefecture", "")),
-            store_name=data.get("shop_name", data.get("store_name", "")),
-            capacity=data.get("capacity", 0),
+            prefecture=_text("prefecture_name", "prefecture"),
+            store_name=_text("shop_name", "store_name"),
+            capacity=data.get("capacity") or 0,
             division=division,
+            event_title=_text("event_title"),
         )
 
 

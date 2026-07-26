@@ -96,7 +96,7 @@ FORMATS = {
     },
 }
 
-DEFAULT_FORMAT = "ninja-spinner"
+DEFAULT_FORMAT = "abyss-eye"
 
 
 def get_format_config(format_slug: str) -> dict:
@@ -104,6 +104,23 @@ def get_format_config(format_slug: str) -> dict:
     if format_slug not in FORMATS:
         raise KeyError(f"Unknown format: {format_slug!r}. Available: {list(FORMATS.keys())}")
     return FORMATS[format_slug]
+
+
+def is_format_frozen(format_slug: str, today: str | None = None) -> bool:
+    """True once a format's dataset window has closed.
+
+    A frozen format can never gain placements, so its exported JSON is
+    byte-stable and does not need recomputing on every pipeline run.
+    """
+    from datetime import date
+
+    today = today or date.today().isoformat()
+    return get_format_config(format_slug)["dataset_end"] < today
+
+
+def get_formats_by_status(frozen: bool, today: str | None = None) -> list[str]:
+    """Format slugs partitioned by whether their dataset window has closed."""
+    return [slug for slug in FORMATS if is_format_frozen(slug, today) is frozen]
 
 
 # Dataset window — JP City League results (backward compat, delegates to default format)

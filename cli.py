@@ -1359,9 +1359,7 @@ def scrape_jp(
         all_deck_entries: list[tuple[str, str]] = []
 
         for i, event in enumerate(new_events, 1):
-            event_name = (
-                f"{event.prefecture} {event.store_name}".strip() or f"City League {event.date}"
-            )
+            event_name = event.display_name
             console.print(f"  [{i}/{len(new_events)}] {event_name} ({event.date})")
 
             try:
@@ -1394,6 +1392,7 @@ def scrape_jp(
                 prefecture=event.prefecture,
                 store_name=event.store_name,
                 capacity=event.capacity,
+                tournament_type=event.tournament_type,
             )
             events_data.append(jp_event)
 
@@ -1414,6 +1413,76 @@ def scrape_jp(
 
         # Phase 3: Store everything
         _store_events_with_decklists(conn, events_data, all_decklists)
+    finally:
+        api_client.close()
+        conn.close()
+
+
+@cli.command("formats-list")
+@click.option(
+    "--status",
+    type=click.Choice(["active", "frozen", "all"]),
+    default="all",
+    help="Filter by whether the format's dataset window has closed",
+)
+def formats_list(status: str) -> None:
+    """Print format slugs, one per line, for pipeline scripting."""
+    from config import FORMATS, get_formats_by_status
+
+    if status == "all":
+        slugs = list(FORMATS)
+    else:
+        slugs = get_formats_by_status(frozen=status == "frozen")
+    for slug in slugs:
+        click.echo(slug)
+
+
+@cli.command("backfill-jp-metadata")
+@click.option("--dry-run", is_flag=True, help="Report changes without writing")
+@click.pass_context
+def backfill_jp_metadata(ctx: click.Context, dry_run: bool) -> None:
+    """Repair name/tournament_type on already-ingested JP events.
+
+    ``scrape-jp`` skips events already present in the DB, so rows stored before a
+    naming fix keep their stale values. This re-reads the official title from the
+    listing API and corrects them in place.
+    """
+    from scraper.pokemon_jp_api import PokemonJPAPIClient
+
+    conn = get_format_connection(ctx.obj["format"])
+    api_client = PokemonJPAPIClient()
+    try:
+        fmt = get_format_config(ctx.obj["format"])
+        events = api_client.fetch_cl_events(fmt["dataset_start"], fmt["dataset_end"])
+        by_id = {f"jp-{e.event_id}": e for e in events}
+
+        rows = conn.execute(
+            "SELECT id, name, tournament_type FROM tournaments WHERE id LIKE 'jp-%'"
+        ).fetchall()
+
+        updated = 0
+        for row in rows:
+            event = by_id.get(row["id"])
+            if event is None:
+                continue
+            name, ttype = event.display_name, event.tournament_type
+            if name == row["name"] and ttype == row["tournament_type"]:
+                continue
+            console.print(
+                f"  {row['id']}: {row['name']!r} ({row['tournament_type']}) -> {name!r} ({ttype})",
+                highlight=False,
+            )
+            if not dry_run:
+                conn.execute(
+                    "UPDATE tournaments SET name = ?, tournament_type = ? WHERE id = ?",
+                    (name, ttype, row["id"]),
+                )
+            updated += 1
+
+        if not dry_run:
+            conn.commit()
+        verb = "Would update" if dry_run else "Updated"
+        console.print(f"[green]{verb} {updated} of {len(rows)} JP tournaments[/green]")
     finally:
         api_client.close()
         conn.close()

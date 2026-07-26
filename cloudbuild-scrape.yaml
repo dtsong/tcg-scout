@@ -8,17 +8,30 @@ steps:
       - |
         gsutil -m cp "gs://${_CACHE_BUCKET}/scout-dbs/*.db" data/ || echo "WARNING: DB cache restore failed (exit $?), starting fresh"
 
-  # Restore frozen format data (nihil-zero) so formats.json includes it
+  # Restore exported JSON for every frozen format.
+  #
+  # A frozen format's dataset window has closed, so its export is byte-stable --
+  # recomputing it each run cost ~20 min per format and was what pushed this
+  # build past its deadline. Instead each frozen export is snapshotted to GCS
+  # once and restored here. A missing snapshot is NOT fatal: the scrape step
+  # detects the gap and seeds it (see `seed-frozen` below).
   - id: restore-frozen
     name: gcr.io/cloud-builders/gsutil
     entrypoint: bash
     args:
       - -c
       - |
-        mkdir -p /workspace/web/public/data/nihil-zero
-        gsutil cp "gs://${_CACHE_BUCKET}/frozen/nihil-zero-data.tar.gz" /tmp/nihil-zero.tar.gz
-        tar -xzf /tmp/nihil-zero.tar.gz -C /workspace/web/public/data/nihil-zero
-        echo "Restored frozen nihil-zero data"
+        set -u
+        for slug in ${_FROZEN_FORMATS}; do
+          dest="/workspace/web/public/data/$slug"
+          mkdir -p "$dest"
+          if gsutil cp "gs://${_CACHE_BUCKET}/frozen/$slug-data.tar.gz" "/tmp/$slug.tar.gz" 2>/dev/null; then
+            tar -xzf "/tmp/$slug.tar.gz" -C "$dest"
+            echo "Restored frozen $slug"
+          else
+            echo "No frozen snapshot for $slug -- will be seeded this run"
+          fi
+        done
 
   # Single Python step -- the uv venv + cache live in /workspace (shared across
   # steps), so the later `validate` step reuses them. `--no-dev` = runtime only;
@@ -30,28 +43,58 @@ steps:
     args:
       - -c
       - |
-        uv sync --locked --no-dev &&
-        uv run python cli.py --format ninja-spinner init &&
-        uv run python cli.py --format ninja-spinner scrape --no-decklists &&
-        uv run python cli.py --format ninja-spinner scrape-jp --no-decklists &&
-        uv run python cli.py --format ninja-spinner backfill-archetypes &&
-        uv run python cli.py --format ninja-spinner translate-cards &&
-        uv run python cli.py --format ninja-spinner meta &&
-        uv run python cli.py --format ninja-spinner export-web --strict &&
-        # tpci-standard is not scraped here -- its DB is restored from the cache
-        # with a precomputed meta_snapshot (operator runs scrape-tpci + meta
-        # out of band). Re-export it so its JSON + formats.json entry land in
-        # the published tarball alongside ninja-spinner.
-        uv run python cli.py --format tpci-standard export-web --strict &&
-        # tpci-standard-2025 is a frozen historical format (2025 spring
-        # rotation). Same cached-DB re-export pattern so its JSON + Archives
-        # entry stay in the published tarball + formats.json.
-        uv run python cli.py --format tpci-standard-2025 export-web --strict &&
-        # tpci-standard-2024 is a frozen historical format (2024-25 season,
-        # incl. Worlds/NAIC/EUIC 2024 via the main-site standings backfill).
-        # Same cached-DB re-export pattern.
-        uv run python cli.py --format tpci-standard-2024 export-web --strict
+        set -eu
+        uv sync --locked --no-dev
+
+        # JP City League is only scraped for the active format. tpci-standard is
+        # active but ingested out of band (operator runs scrape-tpci + meta), so
+        # it is export-only here -- its cached DB already carries a meta_snapshot.
+        for slug in ${_SCRAPE_FORMATS}; do
+          echo "=== scraping $slug ==="
+          uv run python cli.py --format "$slug" init
+          uv run python cli.py --format "$slug" scrape --no-decklists
+          uv run python cli.py --format "$slug" scrape-jp --no-decklists
+          uv run python cli.py --format "$slug" backfill-archetypes
+          uv run python cli.py --format "$slug" translate-cards
+          uv run python cli.py --format "$slug" meta
+        done
+
+        # Active formats are re-exported every run -- their data still moves.
+        for slug in $(uv run python cli.py formats-list --status active); do
+          echo "=== exporting active $slug ==="
+          uv run python cli.py --format "$slug" export-web --strict
+        done
+
+        # Frozen formats are exported ONLY when restore-frozen found no snapshot.
+        # meta.json is the marker the restore would have produced.
+        for slug in $(uv run python cli.py formats-list --status frozen); do
+          if [ -f "web/public/data/$slug/meta.json" ]; then
+            echo "=== frozen $slug restored from snapshot, skipping export ==="
+          else
+            echo "=== seeding frozen $slug (one-time export) ==="
+            uv run python cli.py --format "$slug" export-web --strict
+            touch "/workspace/.seed-$slug"
+          fi
+        done
     waitFor: ["restore-db-cache", "restore-frozen"]
+
+  # Upload snapshots for any frozen format seeded this run, so subsequent runs
+  # restore instead of recomputing. Marker files are written by the scrape step.
+  - id: seed-frozen
+    name: gcr.io/cloud-builders/gsutil
+    entrypoint: bash
+    args:
+      - -c
+      - |
+        set -u
+        for slug in ${_FROZEN_FORMATS}; do
+          [ -f "/workspace/.seed-$slug" ] || continue
+          src="/workspace/web/public/data/$slug"
+          tar -czf "/tmp/$slug-data.tar.gz" -C "$src" .
+          gsutil cp "/tmp/$slug-data.tar.gz" "gs://${_CACHE_BUCKET}/frozen/$slug-data.tar.gz"
+          echo "Seeded frozen snapshot for $slug"
+        done
+    waitFor: ["scrape"]
 
   # Validate exported data and database integrity before saving
   - id: validate
@@ -144,8 +187,17 @@ steps:
 substitutions:
   _CACHE_BUCKET: tcg-scout-cache
   _DATA_BUCKET: tcg-scout-data
+  # Formats whose JP City League results are scraped each run. Keep in sync with
+  # the active format in config.FORMATS -- `scout formats-list --status active`.
+  # tpci-standard is active but ingested out of band, so it is not listed here.
+  _SCRAPE_FORMATS: abyss-eye
+  # Frozen formats, restored from GCS snapshots instead of being recomputed.
+  # Must match `scout formats-list --status frozen`.
+  _FROZEN_FORMATS: nihil-zero ninja-spinner tpci-standard-2025 tpci-standard-2024
 
-timeout: 2700s
+# Headroom for the one-time frozen-snapshot seeding run, which exports every
+# frozen format. Steady-state runs restore those and finish far inside this.
+timeout: 7200s
 options:
   logging: CLOUD_LOGGING_ONLY
 

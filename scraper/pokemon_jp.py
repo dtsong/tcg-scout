@@ -80,6 +80,7 @@ class JPEventResult:
     prefecture: str | None = None
     store_name: str | None = None
     capacity: int | None = None
+    tournament_type: str = "city-league"
 
 
 class PokemonJPClient:
@@ -716,8 +717,8 @@ def store_cl_city_league_results(
     tournament_division = _TOURNAMENT_DIVISION.get(event.division, event.division)
     conn.execute(
         "INSERT OR REPLACE INTO tournaments "
-        "(id, name, date, country, division, prefecture, store_name, capacity) "
-        "VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+        "(id, name, date, country, division, prefecture, store_name, capacity, tournament_type) "
+        "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
         (
             tournament_id,
             event.event_name,
@@ -727,6 +728,7 @@ def store_cl_city_league_results(
             event.prefecture,
             event.store_name,
             event.capacity,
+            event.tournament_type,
         ),
     )
 
