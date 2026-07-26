@@ -23,6 +23,18 @@ def _index_names(conn: sqlite3.Connection) -> set[str]:
     return {r[0] for r in rows}
 
 
+class TestIndexesExist:
+    def test_init_db_creates_expected_indexes(self, db):
+        assert EXPECTED_INDEXES <= _index_names(db)
+
+    def test_indexes_are_declared_in_schema_not_ad_hoc(self):
+        """Indexes must live in SCHEMA so existing databases pick them up too."""
+        from db import SCHEMA
+
+        for name in EXPECTED_INDEXES:
+            assert f"CREATE INDEX IF NOT EXISTS {name}" in SCHEMA
+
+
 class TestViewResultsUnchangedByIndexes:
     """Indexes are an access-path change only. Row counts must be identical."""
 
