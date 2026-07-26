@@ -11,7 +11,7 @@ import pytest
 # Ensure project root is on sys.path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from db import SCHEMA
+from db import init_db
 from labs_db import LABS_SCHEMA
 
 
@@ -33,7 +33,7 @@ def db() -> sqlite3.Connection:
     conn = sqlite3.connect(":memory:")
     conn.row_factory = sqlite3.Row
     conn.execute("PRAGMA foreign_keys=ON")
-    conn.executescript(SCHEMA)
+    init_db(conn)
 
     # --- Tournaments ---
     conn.executemany(
@@ -198,7 +198,7 @@ def db_integration() -> sqlite3.Connection:
     conn = sqlite3.connect(":memory:")
     conn.row_factory = sqlite3.Row
     conn.execute("PRAGMA foreign_keys=ON")
-    conn.executescript(SCHEMA)
+    init_db(conn)
 
     # --- Tournaments (4 open across 4 weeks, 1 senior, 1 junior) ---
     conn.executemany(
@@ -408,8 +408,7 @@ def db_empty() -> sqlite3.Connection:
     conn = sqlite3.connect(":memory:")
     conn.row_factory = sqlite3.Row
     conn.execute("PRAGMA foreign_keys=ON")
-    conn.executescript(SCHEMA)
-    conn.commit()
+    init_db(conn)
     yield conn
     conn.close()
 
@@ -505,7 +504,7 @@ def db_single_tournament() -> sqlite3.Connection:
     conn = sqlite3.connect(":memory:")
     conn.row_factory = sqlite3.Row
     conn.execute("PRAGMA foreign_keys=ON")
-    conn.executescript(SCHEMA)
+    init_db(conn)
 
     conn.execute(
         "INSERT INTO tournaments (id, name, date, player_count, division) VALUES (?, ?, ?, ?, ?)",

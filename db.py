@@ -316,6 +316,9 @@ def init_db(conn: sqlite3.Connection | None = None) -> None:
     if "weighted_share" not in as_cols:
         conn.execute("ALTER TABLE archetype_stats ADD COLUMN weighted_share REAL")
         logger.info("Migration: added weighted_share column to archetype_stats")
+    # Populate sqlite_stat1 so the planner chooses between the dedup indexes
+    # rather than guessing. Cheap at our row counts and re-run on every init.
+    conn.execute("ANALYZE")
     conn.commit()
     if close:
         conn.close()

@@ -50,3 +50,17 @@ class TestViewResultsUnchangedByIndexes:
             db.execute(f"DROP INDEX {name}")
         without_indexes = self._counts(db)
         assert with_indexes == without_indexes
+
+
+class TestPlannerUsesIndexes:
+    def test_open_placements_searches_rather_than_scans_tournaments(self, db):
+        plan = db.execute("EXPLAIN QUERY PLAN SELECT COUNT(*) FROM open_placements").fetchall()
+        detail = " | ".join(row[3] for row in plan)
+        assert "SCAN t2" not in detail, f"planner still scans tournaments: {detail}"
+        assert "idx_tournaments_date_div" in detail, detail
+
+    def test_init_db_populates_planner_statistics(self, db):
+        tables = db.execute(
+            "SELECT name FROM sqlite_master WHERE type = 'table' AND name = 'sqlite_stat1'"
+        ).fetchall()
+        assert tables, "ANALYZE was never run, so the planner has no statistics"
