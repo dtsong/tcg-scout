@@ -235,14 +235,6 @@ CREATE INDEX IF NOT EXISTS idx_decklist_cards_card
     ON decklist_cards(card_id);
 """
 
-# Index statements extracted for separate creation with error handling
-_INDEX_STATEMENTS = [
-    "CREATE INDEX IF NOT EXISTS idx_placements_tournament ON placements(tournament_id)",
-    "CREATE INDEX IF NOT EXISTS idx_tournaments_date_div ON tournaments(date, division)",
-    "CREATE INDEX IF NOT EXISTS idx_placements_dedup ON placements(standing, archetype, player_name)",
-    "CREATE INDEX IF NOT EXISTS idx_decklist_cards_card ON decklist_cards(card_id)",
-]
-
 
 def get_format_connection(format_slug: str) -> sqlite3.Connection:
     """Get a SQLite connection for a specific format."""
@@ -292,26 +284,7 @@ def init_db(conn: sqlite3.Connection | None = None) -> None:
     # Required because CREATE VIEW IF NOT EXISTS won't update existing definitions.
     conn.execute("DROP VIEW IF EXISTS open_placements")
     conn.execute("DROP VIEW IF EXISTS open_tournaments")
-    try:
-        conn.executescript(SCHEMA)
-    except sqlite3.OperationalError as e:
-        # If executescript fails (e.g., index on missing column), it might be because
-        # an existing database has incomplete table definitions. Execute statements
-        # individually, skipping index creation failures.
-        if "no such column" in str(e):
-            # Re-execute SCHEMA statements individually to skip problematic indexes
-            for statement in SCHEMA.split(";"):
-                statement = statement.strip()
-                if not statement:
-                    continue
-                try:
-                    conn.execute(statement)
-                except sqlite3.OperationalError:
-                    # Skip statements that fail (typically index creation on missing columns)
-                    pass
-            conn.commit()
-        else:
-            raise
+    conn.executescript(SCHEMA)
     # Migration: ensure division column exists on older databases
     cols = {row[1] for row in conn.execute("PRAGMA table_info(tournaments)")}
     if "division" not in cols:

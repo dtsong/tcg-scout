@@ -210,8 +210,12 @@ class TestMigrations:
         conn.execute(
             "CREATE TABLE IF NOT EXISTS cards (id TEXT PRIMARY KEY, name_en TEXT NOT NULL)"
         )
-        conn.execute("CREATE TABLE IF NOT EXISTS placements (id INTEGER PRIMARY KEY)")
-        conn.execute("CREATE TABLE IF NOT EXISTS decklist_cards (id INTEGER PRIMARY KEY)")
+        conn.execute(
+            "CREATE TABLE IF NOT EXISTS placements (id INTEGER PRIMARY KEY, tournament_id TEXT NOT NULL REFERENCES tournaments(id), standing INTEGER NOT NULL, archetype TEXT NOT NULL, player_name TEXT)"
+        )
+        conn.execute(
+            "CREATE TABLE IF NOT EXISTS decklist_cards (placement_id INTEGER NOT NULL REFERENCES placements(id), card_id TEXT NOT NULL, PRIMARY KEY (placement_id, card_id))"
+        )
         conn.execute("CREATE TABLE IF NOT EXISTS cl_events (id INTEGER PRIMARY KEY)")
         conn.execute("CREATE TABLE IF NOT EXISTS cl_placements (id INTEGER PRIMARY KEY)")
         conn.execute("CREATE TABLE IF NOT EXISTS cl_decklist_cards (id INTEGER PRIMARY KEY)")
