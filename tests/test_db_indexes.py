@@ -8,6 +8,8 @@ what the views return.
 
 import sqlite3
 
+from db import init_db
+
 EXPECTED_INDEXES = {
     "idx_placements_tournament",
     "idx_tournaments_date_div",
@@ -60,10 +62,10 @@ class TestPlannerUsesIndexes:
         assert "idx_tournaments_date_div" in detail, detail
 
     def test_init_db_populates_planner_statistics(self, db):
-        # init_db() ran ANALYZE before seed data, so sqlite_stat1 exists but
-        # reflects empty tables. Re-run ANALYZE with actual data present.
-        db.execute("ANALYZE")
-        db.commit()
+        # The fixture ran init_db() before inserting seed data, so ANALYZE ran
+        # against an empty database. Call init_db() again to re-run ANALYZE
+        # through the production code path against the seeded database.
+        init_db(db)
 
         # Verify sqlite_stat1 exists and contains entries for all dedup indexes
         stat_rows = db.execute(
@@ -75,7 +77,7 @@ class TestPlannerUsesIndexes:
 
         # All four indexes must have cardinality statistics
         assert len(stat_rows) == 4, (
-            f"ANALYZE should populate statistics for 4 indexes; got {len(stat_rows)}"
+            f"init_db() should populate statistics for 4 indexes; got {len(stat_rows)}"
         )
 
         # Each index stat must have non-empty cardinality data
