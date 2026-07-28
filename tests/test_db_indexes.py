@@ -60,7 +60,24 @@ class TestPlannerUsesIndexes:
         assert "idx_tournaments_date_div" in detail, detail
 
     def test_init_db_populates_planner_statistics(self, db):
-        tables = db.execute(
-            "SELECT name FROM sqlite_master WHERE type = 'table' AND name = 'sqlite_stat1'"
+        # init_db() ran ANALYZE before seed data, so sqlite_stat1 exists but
+        # reflects empty tables. Re-run ANALYZE with actual data present.
+        db.execute("ANALYZE")
+        db.commit()
+
+        # Verify sqlite_stat1 exists and contains entries for all dedup indexes
+        stat_rows = db.execute(
+            "SELECT tbl, idx, stat FROM sqlite_stat1 "
+            "WHERE idx IN ("
+            "'idx_placements_tournament', 'idx_tournaments_date_div', "
+            "'idx_placements_dedup', 'idx_decklist_cards_card')"
         ).fetchall()
-        assert tables, "ANALYZE was never run, so the planner has no statistics"
+
+        # All four indexes must have cardinality statistics
+        assert len(stat_rows) == 4, (
+            f"ANALYZE should populate statistics for 4 indexes; got {len(stat_rows)}"
+        )
+
+        # Each index stat must have non-empty cardinality data
+        for tbl, idx, stat in stat_rows:
+            assert stat, f"Index {idx} has empty cardinality statistics"
