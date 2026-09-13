@@ -91,13 +91,19 @@ export function getFormats(): FormatInfo[] {
   return readRootJson("formats.json");
 }
 
-/** Return the slug of the first active format, falling back to the first format with data. */
+/**
+ * Return the slug of the first active format. Between seasons (new formats
+ * registered but no events published yet) fall back to the most recently
+ * ended frozen format, then to the first format listed.
+ */
 export function getDefaultFormat(): string {
   const formats = getFormats();
   const active = formats.find((f) => f.status === "active");
   if (active) return active.slug;
-  const frozen = formats.find((f) => f.status === "frozen");
-  const slug = frozen?.slug ?? formats[0]?.slug;
+  const latestFrozen = formats
+    .filter((f) => f.status === "frozen")
+    .sort((a, b) => b.dataset_end.localeCompare(a.dataset_end))[0];
+  const slug = latestFrozen?.slug ?? formats[0]?.slug;
   if (!slug) {
     throw new Error(
       "[data] getDefaultFormat: formats.json contains no formats. " +

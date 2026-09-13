@@ -46,9 +46,12 @@ source ~/.nvm/nvm.sh && nvm use default --silent && <command>
 
 ## Databases
 
-- `data/scout.db` (Nihil Zero format) -- **frozen**, no new tournament data will be ingested
-- `data/nihil-zero.db` -- **frozen**, no new tournament data will be ingested
-- `data/ninja-spinner.db` -- **active**, current rotation format receiving new data
+- One SQLite DB per format slug in `config.FORMATS` (`data/<slug>.db`); status derives from `dataset_end` via `is_format_frozen`
+- **Active (2026-27 season, from 2026-09):** `storm-emeralda.db` (JP, M6 Storm Emeralda legal 2026-08-14, until M7 Hadou Seeker legality 2026-12-11), `tpci-standard-2027.db` (TPCi 2026-27 season, regulation H-I-J; end date is a placeholder until the 2027 rotation is announced)
+- **Frozen:** `nihil-zero.db`, `ninja-spinner.db`, `abyss-eye.db` (JP, ended 2026-08-13), `tpci-standard.db` (2025-26 season incl. Worlds 2026), `tpci-standard-2025.db`, `tpci-standard-2024.db`, plus legacy `scout.db`
+- Cloud Build reads the active/frozen split from `_SCRAPE_FORMATS` / `_FROZEN_FORMATS` in `cloudbuild-scrape.yaml`; `tests/test_jp_event_metadata.py` guards that they match `config.FORMATS`. Empty active formats (no placements yet) export nothing and appear as `"upcoming"` in `formats.json`.
+- JP set legality convention: a JP set is tournament-legal two weeks after release; format boundaries follow that date
+- `scraper/pokemon_jp_api.py` must use `curl_cffi` with Chrome impersonation (Cloudflare fingerprints TLS; plain httpx gets 403)
 - Tournaments have a `division` column (open/senior/junior); meta analysis filters to open only
 
 ## Architecture
@@ -68,7 +71,7 @@ For local development, run `uv run scout --format <format> export-web` to genera
 ### Archetype Detection
 
 - Primary (`normalize_archetype`): derive the name directly from Limitless sprite-URL
-  filenames — no lookup table. Single sprite -> titled stem ("Dragapult"); multiple ->
+  filenames, no lookup table. Single sprite -> titled stem ("Dragapult"); multiple ->
   alphabetical, " / "-joined ("Dragapult / Dusknoir"). This is host- and era-agnostic.
 - Fallback: HTML text label from the tournament page, then "Unknown".
 - Content-based (`classify_from_decklist` -> `archetype_classifier.classify_decklist`):
@@ -100,7 +103,7 @@ Placements weighted by finish position (config `PLACEMENT_WEIGHTS`):
 This project is the highest-friction project in the workspace (135 friction events, 7 cost-sink sessions). To avoid context decay:
 - **Split by layer:** Separate sessions for Python pipeline work vs Next.js frontend work. Do not mix both in one session.
 - **Session cap:** If a session exceeds 100 tool calls, wrap up current work and suggest starting a new session.
-- **Key files first:** Read `config.py`, `db.py`, and `web/app/lib/types.ts` early — these are re-read most often.
+- **Key files first:** Read `config.py`, `db.py`, and `web/app/lib/types.ts` early, these are re-read most often.
 
 ## Conventions
 

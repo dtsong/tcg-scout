@@ -3145,6 +3145,12 @@ def export_players(conn: sqlite3.Connection, output_dir: Path) -> None:
         logger.info("Exported %d curated player profiles", len(profiles))
 
 
+def _has_placements(conn: sqlite3.Connection) -> bool:
+    """True once at least one placement row exists (any division)."""
+    row = conn.execute("SELECT 1 FROM placements LIMIT 1").fetchone()
+    return row is not None
+
+
 def export_all(
     conn: sqlite3.Connection,
     output_dir: Path | None = None,
@@ -3165,6 +3171,14 @@ def export_all(
     out = base / slug
     if out.exists():
         shutil.rmtree(out)
+
+    if not _has_placements(conn):
+        # Newly registered format with no published events yet. Leave the
+        # directory absent so export_formats() marks the slug "upcoming" and the
+        # frontend renders the format without a meta report.
+        logger.warning("No placements yet for format %s; skipping data export", slug)
+        return out, ["all exports (no placements yet)"]
+
     out.mkdir(parents=True, exist_ok=True)
 
     logger.info("Exporting web data to %s", out)

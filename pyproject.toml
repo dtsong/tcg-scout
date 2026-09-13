@@ -5,6 +5,7 @@ description = "JP rotation meta scout for Pokemon TCG"
 requires-python = ">=3.11"
 dependencies = [
     "httpx>=0.27",
+    "curl-cffi>=0.7",
     "beautifulsoup4>=4.12",
     "lxml>=5.0",
     "click>=8.1",

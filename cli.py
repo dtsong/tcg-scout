@@ -305,7 +305,16 @@ def meta(ctx: click.Context) -> None:
 
     conn = get_format_connection(ctx.obj["format"])
     try:
-        snapshot_id = compute_meta_snapshot(conn)
+        try:
+            snapshot_id = compute_meta_snapshot(conn)
+        except ValueError:
+            # A freshly registered format has no placements until its first event
+            # is published. That is expected early in a season, not a failure.
+            console.print(
+                f"[yellow]No placements yet for format {ctx.obj['format']}; "
+                "skipping meta snapshot.[/yellow]"
+            )
+            return
         snapshot = get_latest_snapshot(conn)
 
         if not snapshot:

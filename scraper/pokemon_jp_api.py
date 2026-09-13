@@ -17,12 +17,17 @@ Discovered API endpoints (no browser rendering required):
 3. Decklists:
    NO API endpoint found. Deck codes (e.g. "niQgLg-PR7m4f-Q9NPLL") are decoded
    client-side on the deck confirm page. Still requires Playwright for extraction.
+
+Transport: the host is fronted by Cloudflare bot management, which 403s any
+client whose TLS fingerprint is not a browser (httpx, requests, curl). curl_cffi
+with Chrome impersonation passes cleanly; see PokemonJPAPIClient.
 """
 
 import logging
+import time
 from dataclasses import dataclass
-
-import httpx
+from typing import Any
+from urllib.parse import urlencode
 
 from config import POKEMON_JP_CITY_LEAGUE_EVENT_TYPES
 
@@ -30,6 +35,13 @@ logger = logging.getLogger(__name__)
 
 BASE_URL = "https://players.pokemon-card.com"
 PAGE_SIZE = 20  # event_search returns 20 per page
+# curl_cffi impersonation target. Cloudflare fingerprints the TLS handshake, so
+# this must be a real browser profile, not just a User-Agent string.
+IMPERSONATE_BROWSER = "chrome"
+
+
+class JPAPIError(RuntimeError):
+    """Non-retryable HTTP failure from players.pokemon-card.com."""
 
 
 LEAGUE_NAME_MAP = {
@@ -151,16 +163,37 @@ class JPCityLeagueResult:
 class PokemonJPAPIClient:
     """Fetch City League event listings and results from pokemon-card.com API.
 
-    Uses plain HTTP -- no browser rendering required for event data.
-    Decklists still require Playwright (see PokemonJPClient).
+    Plain HTTP, no browser rendering. The host sits behind Cloudflare bot
+    management that rejects non-browser TLS fingerprints with 403 regardless of
+    User-Agent (observed 2026-07-28 onward), so requests go through curl_cffi
+    with Chrome impersonation. Decklists still require a browser (PokemonJPClient).
     """
 
-    def __init__(self) -> None:
-        self._client = httpx.Client(
-            base_url=BASE_URL,
-            timeout=30.0,
-            headers={"User-Agent": "Mozilla/5.0 Scout/1.0"},
-        )
+    # Cloudflare occasionally serves a transient 403/5xx before a clean session
+    # is established; a single retry after a short pause is enough in practice.
+    _RETRY_STATUSES = frozenset({403, 429, 500, 502, 503, 504})
+    _RETRY_DELAY_SECONDS = 2.0
+
+    def __init__(self, *, session: Any | None = None) -> None:
+        if session is None:
+            from curl_cffi import requests as cffi_requests
+
+            session = cffi_requests.Session(impersonate=IMPERSONATE_BROWSER, timeout=30.0)
+        self._session = session
+
+    def _get_json(self, path: str, params: dict[str, Any]) -> dict | None:
+        """GET a JSON endpoint. Returns None on 404 (results not published)."""
+        url = f"{BASE_URL}{path}?{urlencode(params, doseq=True)}"
+        resp = self._session.get(url)
+        if resp.status_code in self._RETRY_STATUSES:
+            logger.warning("JP API %s returned %d, retrying once", path, resp.status_code)
+            time.sleep(self._RETRY_DELAY_SECONDS)
+            resp = self._session.get(url)
+        if resp.status_code == 404:
+            return None
+        if resp.status_code >= 400:
+            raise JPAPIError(f"JP API {path} returned HTTP {resp.status_code}")
+        return resp.json()
 
     def fetch_cl_events(self, start: str, end: str) -> list[JPCityLeagueEvent]:
         """Fetch City League events in a date range.
@@ -176,20 +209,17 @@ class PokemonJPAPIClient:
         offset = 0
 
         while True:
-            resp = self._client.get(
+            data = self._get_json(
                 "/event_search",
-                params={
+                {
                     "offset": offset,
                     "order": 4,  # Sort by date desc
                     "result_resist": 1,  # Only events with results
                     "event_type[]": POKEMON_JP_CITY_LEAGUE_EVENT_TYPES,
                 },
             )
-            resp.raise_for_status()
-            data = resp.json()
-
-            if data.get("code") != 200:
-                logger.warning("API returned code %s", data.get("code"))
+            if data is None or data.get("code") != 200:
+                logger.warning("API returned code %s", None if data is None else data.get("code"))
                 break
 
             page_events = data.get("event", [])
@@ -235,22 +265,13 @@ class PokemonJPAPIClient:
             Tuple of (event_metadata_dict, list_of_results).
             event_metadata_dict has keys: event_title, event_date_params, leagueName, etc.
         """
-        resp = self._client.get(
+        data = self._get_json(
             "/event_result_detail_search",
-            params={
-                "event_holding_id": event_holding_id,
-                "offset": 0,
-                "per_page": 64,
-            },
+            {"event_holding_id": event_holding_id, "offset": 0, "per_page": 64},
         )
-        try:
-            resp.raise_for_status()
-        except httpx.HTTPStatusError:
-            if resp.status_code == 404:
-                logger.warning("Event %d returned 404 (no results published yet)", event_holding_id)
-                return {}, []
-            raise
-        data = resp.json()
+        if data is None:
+            logger.warning("Event %d returned 404 (no results published yet)", event_holding_id)
+            return {}, []
 
         if data.get("code") != 200:
             logger.warning("API returned code %s for event %d", data.get("code"), event_holding_id)
@@ -280,7 +301,7 @@ class PokemonJPAPIClient:
         return event_meta, results
 
     def close(self) -> None:
-        self._client.close()
+        self._session.close()
 
     def __enter__(self) -> "PokemonJPAPIClient":
         return self

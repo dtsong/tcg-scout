@@ -19,6 +19,10 @@ ROTATION_LEGAL_SETS = {
     "me01",
     "me02",
     "me02.5",
+    "me03",
+    "me04",
+    "me05",
+    "me06",
     # Promos
     "svp",
 }
@@ -47,10 +51,22 @@ FORMATS = {
         "name": "Abyss Eye",
         "name_en": "Abyss Eye",
         "dataset_start": "2026-06-05",
-        "dataset_end": "2026-09-04",
-        "rotation_date": "2026-09-05",
+        "dataset_end": "2026-08-13",
+        "rotation_date": "2026-08-14",
         "description": "Temporal Forces through Mega Evolution: Abyss Eye",
         "db_name": "abyss-eye.db",
+    },
+    # Storm Emeralda (M6, released 2026-07-31) follows the JP convention used for
+    # M5: tournament-legal two weeks after release. Runs until Hadou Seeker (M7,
+    # 2026-11-27) goes legal. Covers City League 2027 Season 1 and CL 2027 Yokohama.
+    "storm-emeralda": {
+        "name": "Storm Emeralda",
+        "name_en": "Storm Emerald",
+        "dataset_start": "2026-08-14",
+        "dataset_end": "2026-12-10",
+        "rotation_date": "2026-12-11",
+        "description": "Temporal Forces through Mega Evolution: Storm Emeralda",
+        "db_name": "storm-emeralda.db",
     },
     # TPCi (English) Standard — international Regionals, ICs, Worlds, and grassroots
     # majors aggregated from limitlesstcg.com. Cardpool spans Temporal Forces (TEF)
@@ -63,6 +79,18 @@ FORMATS = {
         "rotation_date": "2026-09-05",
         "description": "International Standard (Regionals, ICs, Worlds, grassroots majors)",
         "db_name": "tpci-standard.db",
+    },
+    # TPCi 2026-27 season. Opens the week after Worlds 2026 (2026-08-28, San
+    # Francisco). The next Standard rotation has not been announced; dataset_end
+    # is a placeholder that must be tightened once TPCi publishes the 2027 date.
+    "tpci-standard-2027": {
+        "name": "TPCi Standard 2026-27",
+        "name_en": "2026-27 Standard (regulation H-I-J)",
+        "dataset_start": "2026-09-05",
+        "dataset_end": "2027-09-03",
+        "rotation_date": "2027-09-04",
+        "description": "International Standard, 2026-27 season (Regionals, ICs, Worlds, grassroots majors)",
+        "db_name": "tpci-standard-2027.db",
     },
     # Historical international Standard — the 2025 spring rotation (regulation
     # marks F removed, G+H legal), spanning the post-Journey Together cardpool up
@@ -96,7 +124,7 @@ FORMATS = {
     },
 }
 
-DEFAULT_FORMAT = "abyss-eye"
+DEFAULT_FORMAT = "storm-emeralda"
 
 
 def get_format_config(format_slug: str) -> dict:

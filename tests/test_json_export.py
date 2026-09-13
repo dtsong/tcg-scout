@@ -91,6 +91,31 @@ def test_export_all_removes_stale_files(db, tmp_path):
     assert (out / "meta.json").exists()
 
 
+def test_export_all_skips_format_with_no_placements(db_empty, tmp_path):
+    """A newly registered format must not crash the export before its first event.
+
+    No directory means no meta.json, so export_formats() marks it "upcoming".
+    """
+    stale_dir = tmp_path / "storm-emeralda"
+    stale_dir.mkdir()
+    (stale_dir / "meta.json").write_text("{}", encoding="utf-8")
+
+    with patch("reports.json_export.export_images"):
+        out, skipped = export_all(db_empty, output_dir=tmp_path, format_slug="storm-emeralda")
+
+    assert out == tmp_path / "storm-emeralda"
+    assert not out.exists(), "stale output must be removed and nothing re-created"
+    assert skipped == ["all exports (no placements yet)"]
+
+
+def test_export_all_strict_still_skips_empty_format(db_empty, tmp_path):
+    with patch("reports.json_export.export_images"):
+        out, _skipped = export_all(
+            db_empty, output_dir=tmp_path, format_slug="storm-emeralda", strict=True
+        )
+    assert not (out / "meta.json").exists()
+
+
 def test_staples_use_decklisted_denominator(db, tmp_path):
     db.execute(
         "INSERT INTO placements (id, tournament_id, standing, player_name, archetype) VALUES (?, ?, ?, ?, ?)",

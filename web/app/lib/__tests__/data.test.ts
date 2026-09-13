@@ -71,6 +71,17 @@ describe("getDefaultFormat", () => {
     expect(getDefaultFormat()).toBe("nihil-zero");
   });
 
+  it("prefers the most recently ended frozen format when only upcoming formats are active-season", () => {
+    vi.mocked(fs.readFileSync).mockReturnValue(
+      JSON.stringify([
+        fmt("nihil-zero", "frozen"),
+        { ...fmt("abyss-eye", "frozen"), dataset_end: "2026-08-13" },
+        fmt("storm-emeralda", "upcoming"),
+      ]),
+    );
+    expect(getDefaultFormat()).toBe("abyss-eye");
+  });
+
   it("falls back to first format when none are active or frozen", () => {
     vi.mocked(fs.readFileSync).mockReturnValue(
       JSON.stringify([fmt("some-format", "archived")]),
