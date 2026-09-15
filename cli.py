@@ -1818,9 +1818,18 @@ def backfill_archetypes(
     tournament data for those date ranges, and updates archetypes by
     matching on (date, standing).
     """
+    from config import format_region
     from scraper.limitless import LimitlessClient
 
-    conn = get_format_connection(ctx.obj["format"])
+    slug = ctx.obj["format"]
+    if format_region(slug) != "jp":
+        # The lookup source is Limitless's JP City League listing. For TPCi
+        # formats it cannot match anything, and walking it page by page under
+        # the rate limit runs for 10+ minutes before giving up.
+        console.print(f"[yellow]Skipping archetype backfill: {slug} is not a JP format.[/yellow]")
+        return
+
+    conn = get_format_connection(slug)
     init_db(conn)
 
     try:

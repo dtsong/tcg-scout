@@ -37,6 +37,7 @@ FORMATS = {
         "rotation_date": "2026-04-10",
         "description": "Temporal Forces through Mega Evolution: Perfect Order",
         "db_name": "scout.db",
+        "region": "jp",
     },
     "ninja-spinner": {
         "name": "Ninja Spinner",
@@ -46,6 +47,7 @@ FORMATS = {
         "rotation_date": "2026-06-05",
         "description": "Temporal Forces through Mega Evolution: Chaos Rising",
         "db_name": "ninja-spinner.db",
+        "region": "jp",
     },
     "abyss-eye": {
         "name": "Abyss Eye",
@@ -55,6 +57,7 @@ FORMATS = {
         "rotation_date": "2026-08-14",
         "description": "Temporal Forces through Mega Evolution: Abyss Eye",
         "db_name": "abyss-eye.db",
+        "region": "jp",
     },
     # Storm Emeralda (M6, released 2026-07-31) follows the JP convention used for
     # M5: tournament-legal two weeks after release. Runs until Hadou Seeker (M7,
@@ -67,6 +70,7 @@ FORMATS = {
         "rotation_date": "2026-12-11",
         "description": "Temporal Forces through Mega Evolution: Storm Emeralda",
         "db_name": "storm-emeralda.db",
+        "region": "jp",
     },
     # TPCi (English) Standard — international Regionals, ICs, Worlds, and grassroots
     # majors aggregated from limitlesstcg.com. Cardpool spans Temporal Forces (TEF)
@@ -79,6 +83,7 @@ FORMATS = {
         "rotation_date": "2026-09-05",
         "description": "International Standard (Regionals, ICs, Worlds, grassroots majors)",
         "db_name": "tpci-standard.db",
+        "region": "tpci",
     },
     # TPCi 2026-27 season. Opens the week after Worlds 2026 (2026-08-28, San
     # Francisco). The next Standard rotation has not been announced; dataset_end
@@ -91,6 +96,7 @@ FORMATS = {
         "rotation_date": "2027-09-04",
         "description": "International Standard, 2026-27 season (Regionals, ICs, Worlds, grassroots majors)",
         "db_name": "tpci-standard-2027.db",
+        "region": "tpci",
     },
     # Historical international Standard — the 2025 spring rotation (regulation
     # marks F removed, G+H legal), spanning the post-Journey Together cardpool up
@@ -106,6 +112,7 @@ FORMATS = {
         "description": "International Standard, 2025 spring rotation (regulation G-H): "
         "NAIC 2025, Worlds 2025, and majors before Mega Evolution",
         "db_name": "tpci-standard-2025.db",
+        "region": "tpci",
     },
     # Historical international Standard — the 2024-25 season (regulation marks
     # F-G-H legal, post-E rotation), spanning NAIC 2024, Worlds 2024, and the
@@ -121,10 +128,16 @@ FORMATS = {
         "description": "International Standard, 2024-25 season (regulation F-G-H): "
         "NAIC 2024, Worlds 2024, and the 2024-25 Regional/IC circuit",
         "db_name": "tpci-standard-2024.db",
+        "region": "tpci",
     },
 }
 
 DEFAULT_FORMAT = "storm-emeralda"
+
+
+def format_region(format_slug: str) -> str:
+    """Return "jp" or "tpci": which scrapers and backfills apply to a format."""
+    return get_format_config(format_slug)["region"]
 
 
 def get_format_config(format_slug: str) -> dict:

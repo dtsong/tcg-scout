@@ -245,3 +245,21 @@ class TestBackfillArchetypes:
 
         rows = _read_archetypes(db_path)
         assert rows[0]["archetype"] == "Unknown"
+
+
+class TestRegionGate:
+    def test_tpci_format_never_touches_limitless(self, tmp_path):
+        """backfill-archetypes is JP-only; on a TPCi format it must exit before any HTTP."""
+
+        with (
+            patch("cli.get_format_connection") as get_conn,
+            patch("scraper.limitless.LimitlessClient") as client_cls,
+        ):
+            result = CliRunner().invoke(
+                cli, ["--format", "tpci-standard", "backfill-archetypes"], catch_exceptions=False
+            )
+
+        assert result.exit_code == 0, result.output
+        assert "not a JP format" in result.output
+        get_conn.assert_not_called()
+        client_cls.assert_not_called()
