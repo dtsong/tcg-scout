@@ -112,7 +112,7 @@ Scrapers (limitless.py, pokemon_jp.py, tcgdex.py)
 
 ## JSON Export Outputs (json_export.py)
 
-All exports land in `web/public/data/{format}/` locally, then Cloud Build packages them into a GCS data tarball referenced by `web/data-manifest.json`:
+All exports land in `web/public/data/{format}/` locally, then the Harness `scout_scrape` pipeline packages them into a GitHub Release tarball referenced by `web/data-manifest.json`:
 
 | File | Function | Content |
 |------|----------|---------|

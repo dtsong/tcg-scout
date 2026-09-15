@@ -36,7 +36,7 @@ trainerlab-scout/
         utils.ts         # Formatting utilities
       components/        # Shared UI components
     public/
-      data/              # Exported JSON fetched from GCS at build time
+      data/              # Exported JSON fetched from the GitHub Release at build time
       images/            # Committed static card/Oak assets; sprites are in /data/images
 ```
 
@@ -47,7 +47,7 @@ Scrape (Limitless/pokemon-card.com)
   -> SQLite (tournaments, placements, decklist_cards, cl_*)
   -> compute_meta_snapshot (tier assignment)
   -> json_export (static JSON to web/public/data/)
-  -> GCS data tarball + web/data-manifest.json
+  -> GitHub Release tarball (Harness scout_scrape) + web/data-manifest.json
   -> Next.js build (static HTML)
   -> Vercel deploy
 ```

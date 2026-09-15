@@ -14,8 +14,8 @@ Date: 2026-09-13. Status: proposal for discussion, nothing here is implemented.
 | Area | State |
 | --- | --- |
 | Formats | `storm-emeralda` and `tpci-standard-2027` registered, empty, shown as "Coming Soon". Six frozen formats with data. |
-| Pipeline | Cloud Build every 3h. JP API unblocked (curl_cffi). Empty formats no longer fail the build. |
-| JP sources | Official API (event_search, event_result_detail_search): results end 2026-06-07, S1 2027 events publish from ~2026-09-20. Limitless JP feed: dead since 2026-05-06, do not rebuild on it. pokecabook/pokecazilla: need KERNEL_API_KEY, not in Cloud Build secrets. |
+| Pipeline | Harness CI `scout_scrape`, daily 06:00 UTC on Harness Cloud, state in Cache Intelligence plus the GitHub Release `data`. JP API unblocked (curl_cffi). Empty formats no longer fail the run. |
+| JP sources | Official API (event_search, event_result_detail_search): results end 2026-06-07, S1 2027 events publish from ~2026-09-20. Limitless JP feed: dead since 2026-05-06, do not rebuild on it. pokecabook/pokecazilla: need KERNEL_API_KEY, not a Harness secret. |
 | TPCi sources | Limitless main site + labs.limitlesstcg.com. Worlds 2026 (797 players) ingested into `tpci-standard`. |
 | Untapped | play.limitlesstcg.com (online events, daily). |
 | Frontend | 20 routes per format. Vercel Analytics installed. Root `metadata` has OG and Twitter cards. Archetype and card pages have `generateMetadata`. No sitemap, robots, canonical, or JSON-LD. |
@@ -127,4 +127,4 @@ Vercel Analytics gives pageviews. Add Search Console (queries, impressions, posi
 
 1. Is the online meta (A1) shown blended with offline or as a separate view? Recommendation: separate toggle, default off, until we have a season of evidence on how well it predicts offline results.
 2. Do we want `tpci-standard-2027` to include grassroots majors from Limitless (League Cups, 100+ players) or only Regionals and up? Caliber weighting (A2) makes "include everything" safe.
-3. Should pokecabook/pokecazilla be revived? It requires adding KERNEL_API_KEY to Cloud Build secrets and costs cloud-browser minutes per run. Only worth it if the official JP API stops publishing decklists for City League this season; check after the first S1 events.
+3. Should pokecabook/pokecazilla be revived? It requires adding KERNEL_API_KEY as a Harness secret and costs cloud-browser minutes per run. Only worth it if the official JP API stops publishing decklists for City League this season; check after the first S1 events.

@@ -2,7 +2,7 @@
 /**
  * Prebuild step: ensure JSON data is available for Next.js build.
  *
- * In CI (Vercel): downloads data tarball from GCS via signed URL in data-manifest.json.
+ * In CI (Vercel): downloads the data tarball from the GitHub Release URL in data-manifest.json.
  * In local dev: expects data already on disk from `uv run scout export-web`.
  */
 import fs from "fs";
@@ -54,7 +54,7 @@ async function downloadAndExtract() {
   const url = archive.url;
   const expectedHash = archive.sha256;
 
-  console.log("prebuild: Downloading data from GCS...");
+  console.log("prebuild: Downloading data from the GitHub Release...");
   const tarPath = path.join(ROOT, ".data-download.tar.gz");
 
   try {
@@ -66,7 +66,7 @@ async function downloadAndExtract() {
     console.error(
       "prebuild: FATAL - Failed to download data archive.\n" +
         `  ${err.message}\n` +
-        "  Check that the GCS bucket is publicly readable and Cloud Build is running.",
+        "  Check that the release asset in data-manifest.json exists and the Harness scout_scrape pipeline is running.",
     );
     process.exit(1);
   }

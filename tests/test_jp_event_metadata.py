@@ -1,11 +1,8 @@
-"""JP event naming/classification and pipeline format-partition invariants.
+"""JP event naming/classification and format-partition invariants.
 
 Covers the PJCS 2026 regression: national championships carry no shop_name, so
 they were stored as "<prefecture> None" city-league rows.
 """
-
-import re
-from pathlib import Path
 
 import pytest
 
@@ -14,8 +11,6 @@ from scraper.pokemon_jp_api import JPCityLeagueEvent, classify_jp_tournament_typ
 
 PJCS_TITLE = "ポケモンジャパンチャンピオンシップス2026 カードゲーム部門 マスターリーグ Day2"
 CL_TITLE = "チャンピオンズリーグ2026 京都"
-
-REPO_ROOT = Path(__file__).resolve().parent.parent
 
 
 def _event(**overrides) -> JPCityLeagueEvent:
@@ -98,23 +93,3 @@ class TestFormatPartition:
         from config import DEFAULT_FORMAT
 
         assert not is_format_frozen(DEFAULT_FORMAT)
-
-
-class TestCloudBuildSubstitutionsMatchConfig:
-    """cloudbuild-scrape.yaml duplicates the format partition as substitutions
-    (gsutil steps cannot call Python). Guard against drift on rotation."""
-
-    @staticmethod
-    def _substitution(name: str) -> list[str]:
-        text = (REPO_ROOT / "cloudbuild-scrape.yaml").read_text(encoding="utf-8")
-        match = re.search(rf"^  {name}: (.+)$", text, re.MULTILINE)
-        assert match, f"{name} missing from cloudbuild-scrape.yaml"
-        return match.group(1).split()
-
-    def test_frozen_formats_match_config(self):
-        assert set(self._substitution("_FROZEN_FORMATS")) == set(get_formats_by_status(frozen=True))
-
-    def test_scrape_formats_are_active(self):
-        """Scraping a frozen format burns the budget for zero new rows."""
-        active = set(get_formats_by_status(frozen=False))
-        assert set(self._substitution("_SCRAPE_FORMATS")) <= active

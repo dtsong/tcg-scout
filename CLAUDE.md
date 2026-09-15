@@ -26,7 +26,7 @@
   - `uv sync` installs runtime + the `dev` dependency group (PEP 735; `dev` includes `test`)
   - `uv run pytest tests/ -v` to test; `uv run scout <cmd>` (or `uv run python cli.py ...`) to run the CLI
   - `uv lock` after editing `pyproject.toml`; commit `uv.lock`
-  - Deps live in `pyproject.toml` (`[project].dependencies` + `[dependency-groups]`); the top-level `requirements.txt` is the pinned export used by Cloud Build deploy
+  - Deps live in `pyproject.toml` (`[project].dependencies` + `[dependency-groups]`); the Harness pipelines run `uv sync --locked`, so `uv.lock` must be committed
 - **pytest** for testing, **ruff** for lint + format (`uv run ruff check . && uv run ruff format .`)
 - SQLite with WAL journaling, row_factory = sqlite3.Row
 
@@ -36,6 +36,14 @@
 - **vitest** for testing (`npm test`)
 - **eslint** via next lint
 - Path alias: `@/` maps to `web/app/`
+
+### Pipelines (Harness)
+
+- Source of truth is `.harness/` (v0 YAML), applied through the Harness MCP tools; `tests/test_harness_pipelines.py` pins the shape
+- `scout_scrape` (`.harness/pipelines/scrape.yaml`): daily 06:00 UTC on Harness Cloud, trigger `scout_scrape_daily`. Bootstraps from the GitHub Release, scrapes active JP formats, exports, validates, publishes, commits `web/data-manifest.json` as `harness-scrape[bot]`
+- `scout_verify` (`.harness/pipelines/verify.yaml`): on push to main, runs ruff, pytest, tsc, eslint, vitest (no Playwright, credit budget)
+- Account `jKE_O7LaTmaV8BCJt1ic7w`, org `default`, project `default_project`; Free plan, 2000 credits/month, 2 credits/min
+- State between runs: stage-level Cache Intelligence (key `scout-state`) plus the release; run with `restore_from_release: "true"` to rebuild from the release
 
 ### Node.js / NVM
 
@@ -49,7 +57,7 @@ source ~/.nvm/nvm.sh && nvm use default --silent && <command>
 - One SQLite DB per format slug in `config.FORMATS` (`data/<slug>.db`); status derives from `dataset_end` via `is_format_frozen`
 - **Active (2026-27 season, from 2026-09):** `storm-emeralda.db` (JP, M6 Storm Emeralda legal 2026-08-14, until M7 Hadou Seeker legality 2026-12-11), `tpci-standard-2027.db` (TPCi 2026-27 season, regulation H-I-J; end date is a placeholder until the 2027 rotation is announced)
 - **Frozen:** `nihil-zero.db`, `ninja-spinner.db`, `abyss-eye.db` (JP, ended 2026-08-13), `tpci-standard.db` (2025-26 season incl. Worlds 2026), `tpci-standard-2025.db`, `tpci-standard-2024.db`, plus legacy `scout.db`
-- Cloud Build reads the active/frozen split from `_SCRAPE_FORMATS` / `_FROZEN_FORMATS` in `cloudbuild-scrape.yaml`; `tests/test_jp_event_metadata.py` guards that they match `config.FORMATS`. Empty active formats (no placements yet) export nothing and appear as `"upcoming"` in `formats.json`.
+- The scrape pipeline derives the active/frozen split from `scout formats-list --status active|frozen`, so rotation only touches `config.FORMATS`; `tests/test_harness_pipelines.py` guards that no slug is hard-coded. Empty active formats (no placements yet) export nothing and appear as `"upcoming"` in `formats.json`.
 - JP set legality convention: a JP set is tournament-legal two weeks after release; format boundaries follow that date
 - `scraper/pokemon_jp_api.py` must use `curl_cffi` with Chrome impersonation (Cloudflare fingerprints TLS; plain httpx gets 403)
 - Tournaments have a `division` column (open/senior/junior); meta analysis filters to open only
@@ -59,11 +67,11 @@ source ~/.nvm/nvm.sh && nvm use default --silent && <command>
 ### Data Flow
 
 ```
-Scrapers -> SQLite -> compute_meta_snapshot -> json_export -> GCS tarball -> Vercel prebuild -> Next.js SSG
+Scrapers -> SQLite -> compute_meta_snapshot -> json_export -> GitHub Release tarball -> Vercel prebuild -> Next.js SSG
 ```
 
-Cloud Build uploads exported JSON as a tarball to `gs://tcg-scout-data/`.
-Vercel prebuild downloads via signed URL in `web/data-manifest.json`.
+`scripts/publish_data_release.py` (run by `scout_scrape`) uploads exported JSON as `data-<ts>.tar.gz` and the SQLite DBs as `dbs.tar.gz` to the GitHub Release tagged `data` (prerelease, last 8 tarballs kept), then commits `web/data-manifest.json`.
+Vercel prebuild downloads the URL in `web/data-manifest.json` and verifies its sha256.
 All frontend data is static JSON read at build time via `fs.readFileSync`. No runtime API calls.
 
 For local development, run `uv run scout --format <format> export-web` to generate data on disk.
