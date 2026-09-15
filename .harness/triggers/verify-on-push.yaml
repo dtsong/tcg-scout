@@ -1,0 +1,33 @@
+trigger:
+  name: verify on push to main
+  identifier: scout_verify_on_push
+  enabled: true
+  orgIdentifier: default
+  projectIdentifier: default_project
+  pipelineIdentifier: scout_verify
+  source:
+    type: Webhook
+    spec:
+      type: Github
+      spec:
+        type: Push
+        spec:
+          connectorRef: account.Github_OAuth_1784959546725
+          autoAbortPreviousExecutions: true
+          payloadConditions:
+            - key: targetBranch
+              operator: Equals
+              value: main
+          headerConditions: []
+          repoName: dtsong/tcg-scout
+          actions: []
+  inputYaml: |
+    pipeline:
+      identifier: scout_verify
+      properties:
+        ci:
+          codebase:
+            build:
+              type: branch
+              spec:
+                branch: <+trigger.branch>

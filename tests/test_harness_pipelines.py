@@ -19,7 +19,7 @@ from config import FORMATS, format_region
 REPO_ROOT = Path(__file__).resolve().parent.parent
 HARNESS = REPO_ROOT / ".harness"
 CODEBASE_CONNECTOR = "account.Github_OAuth_1784959546725"
-TOKEN_SECRET = 'account.harnessoauthaccesstoken_github_1784959546428'
+TOKEN_SECRET = "account.harnessoauthaccesstoken_github_1784959546428"
 
 
 def _load(relative: str) -> dict:
@@ -138,3 +138,48 @@ class TestFormatsListRegion:
     def test_region_defaults_to_all(self):
         result = CliRunner().invoke(cli, ["formats-list"])
         assert result.output.split() == list(FORMATS)
+
+
+class TestVerifyPipeline:
+    @classmethod
+    def setup_class(cls):
+        cls.doc = _load("pipelines/verify.yaml")
+        cls.pipeline = cls.doc["pipeline"]
+        cls.steps = _steps(cls.doc)
+
+    def test_identity_and_codebase(self):
+        assert self.pipeline["identifier"] == "scout_verify"
+        codebase = self.pipeline["properties"]["ci"]["codebase"]
+        assert codebase["connectorRef"] == CODEBASE_CONNECTOR
+        assert codebase["repoName"] == "dtsong/tcg-scout"
+
+    def test_python_and_web_gates(self):
+        assert [s["identifier"] for s in self.steps] == ["python", "web"]
+        python = self.steps[0]["spec"]["command"]
+        for gate in ("uv sync --locked", "ruff check .", "ruff format --check .", "pytest tests/"):
+            assert gate in python, gate
+        web = self.steps[1]["spec"]["command"]
+        for gate in ("npm ci", "tsc --noEmit", "eslint . --quiet", "vitest run"):
+            assert gate in web, gate
+
+    def test_playwright_is_not_run_on_harness(self):
+        """e2e would blow the free-tier credit budget; see the spec's budget table."""
+        assert "playwright" not in _run_commands(self.steps).lower()
+
+    def test_no_secrets_needed(self):
+        assert "secrets.getValue" not in (HARNESS / "pipelines" / "verify.yaml").read_text()
+
+
+class TestVerifyTrigger:
+    def test_push_to_main_aborts_previous(self):
+        trigger = _load("triggers/verify-on-push.yaml")["trigger"]
+        assert trigger["identifier"] == "scout_verify_on_push"
+        assert trigger["pipelineIdentifier"] == "scout_verify"
+        assert trigger["enabled"] is True
+        webhook = trigger["source"]["spec"]
+        assert webhook["type"] == "Github"
+        assert webhook["spec"]["type"] == "Push"
+        assert webhook["spec"]["spec"]["connectorRef"] == CODEBASE_CONNECTOR
+        assert webhook["spec"]["spec"]["autoAbortPreviousExecutions"] is True
+        conditions = webhook["spec"]["spec"]["payloadConditions"]
+        assert {"key": "targetBranch", "operator": "Equals", "value": "main"} in conditions

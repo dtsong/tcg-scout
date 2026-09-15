@@ -1,0 +1,75 @@
+pipeline:
+  name: scout verify
+  identifier: scout_verify
+  projectIdentifier: default_project
+  orgIdentifier: default
+  tags:
+    app: tcg-scout
+  description: >-
+    Lint, type-check, and unit-test the Python pipeline and the Next.js site on
+    every push to main. Playwright e2e is intentionally not run here: it would
+    consume most of the Harness Free credit budget; run it locally with
+    `npm run e2e` in web/.
+  properties:
+    ci:
+      codebase:
+        connectorRef: account.Github_OAuth_1784959546725
+        repoName: dtsong/tcg-scout
+        build: <+input>
+  stages:
+    - stage:
+        name: Verify
+        identifier: verify
+        type: CI
+        spec:
+          cloneCodebase: true
+          caching:
+            enabled: true
+            paths:
+              - /harness/.uv-cache
+              - /harness/.npm
+          platform:
+            os: Linux
+            arch: Amd64
+          runtime:
+            type: Cloud
+            spec: {}
+          execution:
+            steps:
+              - step:
+                  type: Run
+                  name: Python lint, format, tests
+                  identifier: python
+                  spec:
+                    shell: Bash
+                    envVariables:
+                      UV_CACHE_DIR: /harness/.uv-cache
+                    command: |
+                      set -euo pipefail
+                      curl -LsSf https://astral.sh/uv/install.sh | sh
+                      export PATH="$HOME/.local/bin:$PATH"
+                      # --locked fails if uv.lock is stale vs pyproject.toml.
+                      uv sync --locked
+                      uv run ruff check .
+                      uv run ruff format --check .
+                      uv run pytest tests/ -q
+              - step:
+                  type: Run
+                  name: Web type-check, lint, tests
+                  identifier: web
+                  spec:
+                    shell: Bash
+                    envVariables:
+                      NODE_VERSION: 22.22.0
+                      npm_config_cache: /harness/.npm
+                    command: |
+                      set -euo pipefail
+                      mkdir -p "$HOME/nodejs"
+                      curl -fsSL "https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.xz" | tar xJ -C "$HOME/nodejs"
+                      export PATH="$HOME/nodejs/node-v${NODE_VERSION}-linux-x64/bin:$PATH"
+                      node -v
+                      cd web
+                      npm ci
+                      npx tsc --noEmit
+                      npx eslint . --quiet
+                      npx vitest run
