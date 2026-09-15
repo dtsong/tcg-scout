@@ -35,14 +35,14 @@
 - Produces: `upload_dbs(release, data_dir) -> dict`.
 - CLI: `python scripts/publish_data_release.py {restore|publish|upload-dbs}`; env `GITHUB_TOKEN`, `GITHUB_REPO` (default `dtsong/tcg-scout`), `DATA_RELEASE_TAG` (default `data`).
 
-- [ ] **Step 1: Write the failing tests** (fake `Http` records requests; release JSON fixtures)
+- [x] **Step 1: Write the failing tests** (fake `Http` records requests; release JSON fixtures)
 
 Tests: `ensure` creates the release when GET 404s and marks `prerelease: true`; `publish` uploads `data-<ts>.tar.gz` and `dbs.tar.gz`, deletes the oldest data assets beyond 8, writes the manifest with the browser download URL and the sha256 of the tarball on disk; `restore` skips when both dirs are populated, downloads `dbs.tar.gz` when `data/` has no DBs, downloads the newest `data-*.tar.gz` when `formats.json` is missing, and falls back to `fallback_url` when the release has no data asset; the token never appears in any URL.
 
-- [ ] **Step 2: Run tests, expect ImportError**
-- [ ] **Step 3: Implement the script** (stdlib only; `Http` protocol with `request(method, url, data, headers) -> (status, body)`; upload via `uploads.github.com` with `Content-Type: application/gzip`; asset ordering by name, which sorts by timestamp)
-- [ ] **Step 4: Tests pass; ruff clean**
-- [ ] **Step 5: Commit** `feat: GitHub Release publisher for exported data and DB backups`
+- [x] **Step 2: Run tests, expect ImportError**
+- [x] **Step 3: Implement the script** (stdlib only; `Http` protocol with `request(method, url, data, headers) -> (status, body)`; upload via `uploads.github.com` with `Content-Type: application/gzip`; asset ordering by name, which sorts by timestamp)
+- [x] **Step 4: Tests pass; ruff clean**
+- [x] **Step 5: Commit** `feat: GitHub Release publisher for exported data and DB backups`
 
 ### Task 2: Scrape pipeline YAML, trigger, and guards
 
@@ -54,11 +54,11 @@ Tests: `ensure` creates the release when GET 404s and marks `prerelease: true`; 
 **Interfaces:**
 - Consumes: `scout formats-list --status active --region jp`, `python scripts/publish_data_release.py restore|publish`.
 
-- [ ] **Step 1: Failing tests**: YAML parses; `pipeline.identifier == "scout_scrape"`; steps in order `RestoreCache x2, Run bootstrap, Run scrape, Run validate, SaveCache x2, Run publish`; both SaveCache `override: true`; scrape command contains `formats-list --status active --region jp` and no literal format slug; publish step guards on `main`; trigger cron is `0 6 * * *` and pins branch `main`; `formats-list --region jp` returns only JP slugs.
-- [ ] **Step 2: Run, expect failures**
-- [ ] **Step 3: Write YAML and the CLI option**
-- [ ] **Step 4: Tests pass; ruff clean**
-- [ ] **Step 5: Commit** `ci: Harness scrape pipeline and daily trigger`
+- [x] **Step 1: Failing tests**: YAML parses; `pipeline.identifier == "scout_scrape"`; steps in order `RestoreCache x2, Run bootstrap, Run scrape, Run validate, SaveCache x2, Run publish`; both SaveCache `override: true`; scrape command contains `formats-list --status active --region jp` and no literal format slug; publish step guards on `main`; trigger cron is `0 6 * * *` and pins branch `main`; `formats-list --region jp` returns only JP slugs.
+- [x] **Step 2: Run, expect failures**
+- [x] **Step 3: Write YAML and the CLI option**
+- [x] **Step 4: Tests pass; ruff clean**
+- [x] **Step 5: Commit** `ci: Harness scrape pipeline and daily trigger`
 
 ### Task 3: Verify pipeline YAML and push trigger
 
@@ -66,18 +66,18 @@ Tests: `ensure` creates the release when GET 404s and marks `prerelease: true`; 
 - Create: `.harness/pipelines/verify.yaml`, `.harness/triggers/verify-on-push.yaml`
 - Modify: `tests/test_harness_pipelines.py`
 
-- [ ] **Step 1: Failing tests**: identifier `scout_verify`; python step runs `ruff check`, `ruff format --check`, `pytest`; web step runs `npm ci`, `tsc --noEmit`, `eslint . --quiet`, `vitest run`; no `playwright` anywhere; trigger is Github Push to `main` with `autoAbortPreviousExecutions: true`.
-- [ ] **Step 2: Run, expect failures**
-- [ ] **Step 3: Write YAML** (Node 22 curl+tar recipe from vgc-trainerlab)
-- [ ] **Step 4: Tests pass**
-- [ ] **Step 5: Commit** `ci: Harness verify pipeline and push trigger`
+- [x] **Step 1: Failing tests**: identifier `scout_verify`; python step runs `ruff check`, `ruff format --check`, `pytest`; web step runs `npm ci`, `tsc --noEmit`, `eslint . --quiet`, `vitest run`; no `playwright` anywhere; trigger is Github Push to `main` with `autoAbortPreviousExecutions: true`.
+- [x] **Step 2: Run, expect failures**
+- [x] **Step 3: Write YAML** (Node 22 curl+tar recipe from vgc-trainerlab)
+- [x] **Step 4: Tests pass**
+- [x] **Step 5: Commit** `ci: Harness verify pipeline and push trigger`
 
 ### Task 4: Apply to Harness and run
 
-- [ ] **Step 1:** `harness_create` pipeline `scout_scrape` and `scout_verify` from the YAML files; `harness_create` both triggers.
-- [ ] **Step 2:** `harness_execute` `scout_verify` on `main`; confirm success.
-- [ ] **Step 3:** `harness_execute` `scout_scrape` on `main`; confirm the `data` release exists, the manifest commit landed, and Vercel redeployed (check `scout.trainerlab.io/data/formats.json` matches).
-- [ ] **Step 4:** Record execution URLs and durations in the handover.
+- [x] **Step 1:** `harness_create` pipeline `scout_scrape` and `scout_verify` from the YAML files; `harness_create` both triggers.
+- [x] **Step 2:** `harness_execute` `scout_verify` on `main`; confirm success.
+- [x] **Step 3:** `harness_execute` `scout_scrape` on `main`; confirm the `data` release exists, the manifest commit landed, and Vercel redeployed (check `scout.trainerlab.io/data/formats.json` matches).
+- [x] **Step 4:** Record execution URLs and durations in the handover.
 
 ### Task 5: Cutover documentation and Cloud Build removal
 
@@ -85,6 +85,6 @@ Tests: `ensure` creates the release when GET 404s and marks `prerelease: true`; 
 - Delete: `cloudbuild-scrape.yaml`, `cloudbuild-decklists.yaml`, `cloudbuild-ci.yaml`
 - Modify: `tests/test_jp_event_metadata.py` (remove the substitutions guard class), `CLAUDE.md` (Databases and Data Flow sections), `web/scripts/prebuild.mjs` (error text), `memory/HANDOVER-*.md`
 
-- [ ] **Step 1:** Edit files; run full pytest and `cd web && npm test`.
-- [ ] **Step 2:** Commit `ci: retire Cloud Build in favour of Harness`.
-- [ ] **Step 3:** Owner actions listed in the final message: `gcloud auth login`; seed DBs to the release; pause then delete Cloud Scheduler job `tcg-scout-scrape` and the Cloud Build triggers; the `functions/poll_tournaments` Cloud Function still references `cloudbuild-scrape.yaml` and must be disabled or retargeted.
+- [x] **Step 1:** Edit files; run full pytest and `cd web && npm test`.
+- [x] **Step 2:** Commit `ci: retire Cloud Build in favour of Harness`.
+- [x] **Step 3:** Owner actions listed in the final message: `gcloud auth login`; seed DBs to the release; pause then delete Cloud Scheduler job `tcg-scout-scrape` and the Cloud Build triggers; the `functions/poll_tournaments` Cloud Function still references `cloudbuild-scrape.yaml` and must be disabled or retargeted.

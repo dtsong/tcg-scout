@@ -34,7 +34,7 @@ function shouldDownload() {
   const archive = manifest.archives?.[0];
   if (!archive?.url?.length) return false;
 
-  // In local dev, data already on disk from export-web — skip unless hash changed
+  // In local dev, data already on disk from export-web, so skip unless the hash changed
   const formatsPath = path.join(DATA_DIR, "formats.json");
   if (!fs.existsSync(formatsPath)) return true;
 
