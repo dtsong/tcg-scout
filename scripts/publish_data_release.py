@@ -29,7 +29,7 @@ import tempfile
 import urllib.error
 import urllib.request
 from collections.abc import Iterable
-from datetime import UTC, datetime
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Protocol
 
@@ -211,7 +211,7 @@ def publish(
     keep: int = DEFAULT_KEEP,
 ) -> dict:
     """Upload the export tarball and DB backup, prune, and write the manifest."""
-    stamp = now or datetime.now(UTC).strftime("%Y%m%dT%H%M%SZ")
+    stamp = now or datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")  # noqa: UP017 (runner python may be 3.10)
     name = f"{DATA_ASSET_PREFIX}{stamp}.tar.gz"
     with tempfile.TemporaryDirectory() as tmp:
         archive = Path(tmp) / name

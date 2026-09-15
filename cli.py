@@ -1434,16 +1434,23 @@ def scrape_jp(
     default="all",
     help="Filter by whether the format's dataset window has closed",
 )
-def formats_list(status: str) -> None:
+@click.option(
+    "--region",
+    type=click.Choice(["jp", "tpci", "all"]),
+    default="all",
+    help="Filter by which scrapers apply (JP City League vs TPCi)",
+)
+def formats_list(status: str, region: str) -> None:
     """Print format slugs, one per line, for pipeline scripting."""
-    from config import FORMATS, get_formats_by_status
+    from config import FORMATS, format_region, get_formats_by_status
 
     if status == "all":
         slugs = list(FORMATS)
     else:
         slugs = get_formats_by_status(frozen=status == "frozen")
     for slug in slugs:
-        click.echo(slug)
+        if region == "all" or format_region(slug) == region:
+            click.echo(slug)
 
 
 @cli.command("backfill-jp-metadata")

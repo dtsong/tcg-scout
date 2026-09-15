@@ -1,0 +1,23 @@
+trigger:
+  name: daily 0600 UTC
+  identifier: scout_scrape_daily
+  enabled: true
+  orgIdentifier: default
+  projectIdentifier: default_project
+  pipelineIdentifier: scout_scrape
+  source:
+    type: Scheduled
+    spec:
+      type: Cron
+      spec:
+        expression: 0 6 * * *
+  inputYaml: |
+    pipeline:
+      identifier: scout_scrape
+      properties:
+        ci:
+          codebase:
+            build:
+              type: branch
+              spec:
+                branch: main

@@ -1,0 +1,186 @@
+pipeline:
+  name: scout scrape
+  identifier: scout_scrape
+  projectIdentifier: default_project
+  orgIdentifier: default
+  tags:
+    app: tcg-scout
+  description: >-
+    Daily JP City League scrape, meta computation, and export. State lives in
+    Harness cache (scout-dbs, scout-export) with the GitHub Release tagged
+    "data" as durable backup and as the public download Vercel builds from.
+  properties:
+    ci:
+      codebase:
+        connectorRef: account.Github_OAuth_1784959546725
+        repoName: dtsong/tcg-scout
+        build: <+input>
+  stages:
+    - stage:
+        name: Scrape and publish
+        identifier: scrape
+        type: CI
+        spec:
+          cloneCodebase: true
+          caching:
+            enabled: true
+            paths:
+              - /harness/.uv-cache
+          platform:
+            os: Linux
+            arch: Amd64
+          runtime:
+            type: Cloud
+            spec: {}
+          execution:
+            steps:
+              - step:
+                  type: RestoreCache
+                  name: Restore SQLite databases
+                  identifier: restore_dbs
+                  spec:
+                    key: scout-dbs
+                    archiveFormat: Tar
+                    failIfKeyDoesntExist: false
+              - step:
+                  type: RestoreCache
+                  name: Restore exported JSON
+                  identifier: restore_export
+                  spec:
+                    key: scout-export
+                    archiveFormat: Tar
+                    failIfKeyDoesntExist: false
+              - step:
+                  type: Run
+                  name: Bootstrap from release on cache miss
+                  identifier: bootstrap
+                  spec:
+                    shell: Bash
+                    envVariables:
+                      GITHUB_TOKEN: <+secrets.getValue("account.harnessoauthaccesstoken_github_1784959546428")>
+                    command: |
+                      set -euo pipefail
+                      # Stdlib-only, so it runs before uv is installed. A warm cache makes this a no-op.
+                      python3 scripts/publish_data_release.py restore
+                      ls -la data/ | grep '\.db$' || echo "No databases yet: active formats start empty"
+              - step:
+                  type: Run
+                  name: Scrape, compute meta, export
+                  identifier: scrape
+                  timeout: 45m
+                  spec:
+                    shell: Bash
+                    envVariables:
+                      UV_CACHE_DIR: /harness/.uv-cache
+                    command: |
+                      set -euo pipefail
+                      curl -LsSf https://astral.sh/uv/install.sh | sh
+                      export PATH="$HOME/.local/bin:$PATH"
+                      uv sync --locked --no-dev
+
+                      # JP City League is scraped for active JP formats only. TPCi formats are
+                      # ingested out of band (operator runs scrape-tpci + meta) and are export-only.
+                      for slug in $(uv run scout formats-list --status active --region jp); do
+                        echo "=== scraping $slug ==="
+                        uv run scout --format "$slug" init
+                        uv run scout --format "$slug" scrape --no-decklists
+                        uv run scout --format "$slug" scrape-jp --no-decklists
+                        uv run scout --format "$slug" backfill-archetypes
+                        uv run scout --format "$slug" translate-cards
+                        uv run scout --format "$slug" meta
+                      done
+
+                      # Active formats are re-exported every run; their data still moves.
+                      for slug in $(uv run scout formats-list --status active); do
+                        echo "=== exporting active $slug ==="
+                        uv run scout --format "$slug" export-web --strict
+                      done
+
+                      # Frozen exports are byte-stable and cost ~20 min each, so they are only
+                      # produced when the restored cache has no snapshot (meta.json is the marker).
+                      for slug in $(uv run scout formats-list --status frozen); do
+                        if [ -f "web/public/data/$slug/meta.json" ]; then
+                          echo "=== frozen $slug restored, skipping export ==="
+                        elif [ -f "data/$slug.db" ]; then
+                          echo "=== seeding frozen $slug (one-time export) ==="
+                          uv run scout --format "$slug" export-web --strict
+                        else
+                          echo "=== frozen $slug has neither snapshot nor database; nothing to export ==="
+                        fi
+                      done
+              - step:
+                  type: Run
+                  name: Validate databases and exports
+                  identifier: validate
+                  spec:
+                    shell: Bash
+                    envVariables:
+                      UV_CACHE_DIR: /harness/.uv-cache
+                    command: |
+                      set -euo pipefail
+                      export PATH="$HOME/.local/bin:$PATH"
+                      # Validate every format that has both a database and an export.
+                      for slug in $(uv run scout formats-list); do
+                        if [ -f "data/$slug.db" ] && [ -f "web/public/data/$slug/meta.json" ]; then
+                          uv run scout --format "$slug" validate
+                        fi
+                      done
+              - step:
+                  type: SaveCache
+                  name: Save SQLite databases
+                  identifier: save_dbs
+                  spec:
+                    key: scout-dbs
+                    sourcePaths:
+                      - data
+                    archiveFormat: Tar
+                    override: true
+              - step:
+                  type: SaveCache
+                  name: Save exported JSON
+                  identifier: save_export
+                  spec:
+                    key: scout-export
+                    sourcePaths:
+                      - web/public/data
+                    archiveFormat: Tar
+                    override: true
+              - step:
+                  type: Run
+                  name: Publish release and commit manifest
+                  identifier: publish
+                  spec:
+                    shell: Bash
+                    envVariables:
+                      BRANCH: <+codebase.branch>
+                      GITHUB_TOKEN: <+secrets.getValue("account.harnessoauthaccesstoken_github_1784959546428")>
+                    command: |
+                      set -euo pipefail
+                      if [ "$BRANCH" != "main" ]; then
+                        echo "Built on branch '$BRANCH', not main: nothing is published."
+                        exit 0
+                      fi
+                      # Uploads data-<ts>.tar.gz and dbs.tar.gz to the "data" release,
+                      # prunes old tarballs, and rewrites web/data-manifest.json.
+                      python3 scripts/publish_data_release.py publish
+
+                      git config user.name "harness-scrape[bot]"
+                      git config user.email "harness-scrape[bot]@scout.trainerlab.io"
+                      git add web/data-manifest.json
+                      if git diff --cached --quiet; then
+                        echo "No manifest changes."
+                        exit 0
+                      fi
+                      git commit -m "data: scrape $(date -u +%Y-%m-%dT%H:%MZ)"
+                      # The token is a Harness secret and is masked in step logs. Rebase and
+                      # retry in case a human push advanced main during this run.
+                      for attempt in 1 2 3; do
+                        if git -c credential.helper= push "https://x-access-token:${GITHUB_TOKEN}@github.com/dtsong/tcg-scout.git" HEAD:main; then
+                          exit 0
+                        fi
+                        echo "push rejected, rebasing (attempt $attempt)"
+                        git fetch origin main
+                        git rebase origin/main || { git rebase --abort; exit 1; }
+                      done
+                      echo "ERROR: push failed after 3 attempts" >&2
+                      exit 1
