@@ -102,6 +102,18 @@ class TestScrapePipeline:
         assert "git add web/data-manifest.json" in command
         assert "HEAD:main" in command
 
+    def test_validate_blocks_on_active_formats_only(self):
+        """Frozen exports are restored, not rebuilt, so their findings must not stop publishing."""
+        validate = next(s for s in self.steps if s["identifier"] == "validate")
+        command = validate["spec"]["command"]
+        assert "formats-list --status active" in command
+        assert "formats-list --status frozen" in command
+        active_loop = command.index("formats-list --status active")
+        frozen_loop = command.index("formats-list --status frozen")
+        assert active_loop < frozen_loop
+        assert "||" not in command[active_loop:frozen_loop], "active validation must be fatal"
+        assert "|| echo" in command[frozen_loop:], "frozen validation must be non-blocking"
+
     def test_bootstrap_restores_before_scraping(self):
         bootstrap = next(s for s in self.steps if s["identifier"] == "bootstrap")
         assert "publish_data_release.py restore" in bootstrap["spec"]["command"]

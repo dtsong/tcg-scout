@@ -68,8 +68,11 @@ last step, whatever the outcome.
    translate-cards, meta. tpci-standard-2027 stays export-only, as today.
    Export every active format with `--strict`. For each frozen slug, export
    only if `web/public/data/<slug>/meta.json` is missing. `timeout: 45m`.
-3. `Run` **validate**: `scout --format <slug> validate` for every slug whose
-   DB file exists (today's list is hard-coded and stale).
+3. `Run` **validate**: `scout --format <slug> validate` for every active
+   slug with an export (fatal), then for every frozen slug with a DB and an
+   export (reported, non-blocking: frozen exports are restored, never rebuilt,
+   and abyss-eye already carries a 13% Unknown rate in its 15 placements).
+   Today's Cloud Build list is hard-coded and stale.
 4. `Run` **publish**: `python scripts/publish_data_release.py publish`
    tars `web/public/data`, uploads it and `dbs.tar.gz` to the `data` release
    (creating the release if absent), prunes data tarballs beyond the newest

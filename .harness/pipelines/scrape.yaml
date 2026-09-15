@@ -125,10 +125,21 @@ pipeline:
                     command: |
                       set -euo pipefail
                       export PATH="$HOME/.local/bin:$PATH"
-                      # Validate every format that has both a database and an export.
-                      for slug in $(uv run scout formats-list); do
-                        if [ -f "data/$slug.db" ] && [ -f "web/public/data/$slug/meta.json" ]; then
+                      # Active formats are the only ones this run rewrote, so only they can
+                      # block publishing. Formats with no placements yet have no meta.json.
+                      for slug in $(uv run scout formats-list --status active); do
+                        if [ -f "web/public/data/$slug/meta.json" ]; then
                           uv run scout --format "$slug" validate
+                        else
+                          echo "=== active $slug has no export yet; nothing to validate ==="
+                        fi
+                      done
+                      # Frozen exports are restored byte-for-byte and never regenerated here,
+                      # so their findings are reported for visibility but cannot fail the run.
+                      for slug in $(uv run scout formats-list --status frozen); do
+                        if [ -f "data/$slug.db" ] && [ -f "web/public/data/$slug/meta.json" ]; then
+                          uv run scout --format "$slug" validate \
+                            || echo "=== frozen $slug has validation findings (non-blocking) ==="
                         fi
                       done
               - step:
