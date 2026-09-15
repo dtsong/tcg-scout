@@ -58,26 +58,28 @@ class TestScrapePipeline:
 
     def test_step_order(self):
         assert [(s["type"], s["identifier"]) for s in self.steps] == [
-            ("RestoreCache", "restore_dbs"),
-            ("RestoreCache", "restore_export"),
             ("Run", "bootstrap"),
             ("Run", "scrape"),
             ("Run", "validate"),
-            ("SaveCache", "save_dbs"),
-            ("SaveCache", "save_export"),
             ("Run", "publish"),
+            ("Run", "discard_state"),
         ]
 
-    def test_cache_keys_match_between_restore_and_save(self):
-        by_id = {s["identifier"]: s["spec"] for s in self.steps}
-        assert by_id["restore_dbs"]["key"] == by_id["save_dbs"]["key"] == "scout-dbs"
-        assert by_id["restore_export"]["key"] == by_id["save_export"]["key"] == "scout-export"
-        assert by_id["save_dbs"]["sourcePaths"] == ["data"]
-        assert by_id["save_export"]["sourcePaths"] == ["web/public/data"]
-        for name in ("save_dbs", "save_export"):
-            assert by_id[name]["override"] is True, f"{name} must replace the previous cache"
-        for name in ("restore_dbs", "restore_export"):
-            assert by_id[name]["failIfKeyDoesntExist"] is False, "first run has no cache"
+    def test_state_rides_cache_intelligence(self):
+        """Harness Cloud has no bucket connector, so stage-level caching holds the state."""
+        caching = self.pipeline["stages"][0]["stage"]["spec"]["caching"]
+        assert caching["enabled"] is True
+        assert caching["key"] == "scout-state", "a fixed key so every run restores the last one"
+        assert caching["override"] is True, "each run must replace the previous state"
+        assert "/harness/data" in caching["paths"]
+        assert "/harness/web/public/data" in caching["paths"]
+
+    def test_failed_run_discards_cached_state(self):
+        discard = self.steps[-1]
+        assert discard["when"] == {"stageStatus": "Failure"}
+        assert "rm -rf data web/public/data" in discard["spec"]["command"]
+        publish = next(s for s in self.steps if s["identifier"] == "publish")
+        assert "when" not in publish, "publish runs only on the default (success) path"
 
     def test_scrape_step_derives_formats_from_config_not_literals(self):
         scrape = next(s for s in self.steps if s["identifier"] == "scrape")
@@ -168,6 +170,21 @@ class TestVerifyPipeline:
 
     def test_no_secrets_needed(self):
         assert "secrets.getValue" not in (HARNESS / "pipelines" / "verify.yaml").read_text()
+
+    def test_dependency_cache_keyed_on_lockfiles(self):
+        caching = self.pipeline["stages"][0]["stage"]["spec"]["caching"]
+        assert caching["enabled"] is True
+        assert 'checksum "uv.lock"' in caching["key"]
+        assert 'checksum "web/package-lock.json"' in caching["key"]
+
+
+def test_step_names_are_harness_safe():
+    """Harness rejects step names containing commas or other punctuation."""
+    import re
+
+    for name in ("scrape.yaml", "verify.yaml"):
+        for step in _steps(_load(f"pipelines/{name}")):
+            assert re.fullmatch(r"[a-zA-Z_][-0-9a-zA-Z_\s]{0,127}", step["name"]), step["name"]
 
 
 class TestVerifyTrigger:

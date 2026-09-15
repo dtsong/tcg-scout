@@ -7,7 +7,7 @@ pipeline:
     app: tcg-scout
   description: >-
     Daily JP City League scrape, meta computation, and export. State lives in
-    Harness cache (scout-dbs, scout-export) with the GitHub Release tagged
+    Harness Cache Intelligence (key scout-state) with the GitHub Release tagged
     "data" as durable backup and as the public download Vercel builds from.
   properties:
     ci:
@@ -22,9 +22,18 @@ pipeline:
         type: CI
         spec:
           cloneCodebase: true
+          # Cache Intelligence is the only cache on Harness Cloud without a bucket
+          # connector. One key holds the SQLite databases, the exported JSON, and
+          # the uv cache; it is restored before the first step and saved after the
+          # last one. discard_state empties it on failure so a broken run never
+          # poisons the next one (which then bootstraps from the GitHub Release).
           caching:
             enabled: true
+            key: scout-state
+            override: true
             paths:
+              - /harness/data
+              - /harness/web/public/data
               - /harness/.uv-cache
           platform:
             os: Linux
@@ -34,22 +43,6 @@ pipeline:
             spec: {}
           execution:
             steps:
-              - step:
-                  type: RestoreCache
-                  name: Restore SQLite databases
-                  identifier: restore_dbs
-                  spec:
-                    key: scout-dbs
-                    archiveFormat: Tar
-                    failIfKeyDoesntExist: false
-              - step:
-                  type: RestoreCache
-                  name: Restore exported JSON
-                  identifier: restore_export
-                  spec:
-                    key: scout-export
-                    archiveFormat: Tar
-                    failIfKeyDoesntExist: false
               - step:
                   type: Run
                   name: Bootstrap from release on cache miss
@@ -65,7 +58,7 @@ pipeline:
                       ls -la data/ | grep '\.db$' || echo "No databases yet: active formats start empty"
               - step:
                   type: Run
-                  name: Scrape, compute meta, export
+                  name: Scrape compute meta and export
                   identifier: scrape
                   timeout: 45m
                   spec:
@@ -126,26 +119,6 @@ pipeline:
                         fi
                       done
               - step:
-                  type: SaveCache
-                  name: Save SQLite databases
-                  identifier: save_dbs
-                  spec:
-                    key: scout-dbs
-                    sourcePaths:
-                      - data
-                    archiveFormat: Tar
-                    override: true
-              - step:
-                  type: SaveCache
-                  name: Save exported JSON
-                  identifier: save_export
-                  spec:
-                    key: scout-export
-                    sourcePaths:
-                      - web/public/data
-                    archiveFormat: Tar
-                    override: true
-              - step:
                   type: Run
                   name: Publish release and commit manifest
                   identifier: publish
@@ -184,3 +157,17 @@ pipeline:
                       done
                       echo "ERROR: push failed after 3 attempts" >&2
                       exit 1
+              - step:
+                  type: Run
+                  name: Discard cached state on failure
+                  identifier: discard_state
+                  when:
+                    stageStatus: Failure
+                  spec:
+                    shell: Bash
+                    command: |
+                      set -euo pipefail
+                      # Cache Intelligence saves at stage end regardless of outcome. Empty the
+                      # cached paths so the next run bootstraps from the last good release.
+                      rm -rf data web/public/data
+                      echo "Cached state discarded; next run restores from the data release."

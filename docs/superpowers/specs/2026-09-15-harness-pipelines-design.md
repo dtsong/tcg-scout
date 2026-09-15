@@ -47,30 +47,30 @@ are literal strings (Harness treats them as primary keys).
 
 | Data | Where | Why |
 |---|---|---|
-| `data/*.db` (16 MB compressed) | Harness cache key `scout-dbs`, `override: true`; backed up every run to the release asset `dbs.tar.gz` | Cache is fast; the release survives the 15-day cache retention and eviction. |
-| `web/public/data/` (31 MB compressed) | Harness cache key `scout-export` | Frozen formats are byte-stable and cost ~20 min each to recompute. Active formats are re-exported every run over the top. |
+| `data/*.db` (16 MB compressed) | Stage-level Cache Intelligence, key `scout-state`, `override: true`, path `/harness/data`; backed up every run to the release asset `dbs.tar.gz` | The `RestoreCache`/`SaveCache` step types require an S3 or GCS bucket connector, which Approach A rules out. Cache Intelligence needs none. The release survives the 15-day cache retention and eviction. |
+| `web/public/data/` (31 MB compressed) | Same cache key, path `/harness/web/public/data` | Frozen formats are byte-stable and cost ~20 min each to recompute. Active formats are re-exported every run over the top. |
 | Data tarball for Vercel | GitHub Release tagged `data` (prerelease, so it never becomes "Latest"), asset `data-<ts>.tar.gz`, last 8 kept | Public URL, `fetch` in `prebuild.mjs` follows the redirect and verifies sha256. Manifest format unchanged. |
 
 ## scout_scrape stage steps
 
-1. `RestoreCache` key `scout-dbs` and `RestoreCache` key `scout-export`
-   (a missing key is not an error).
-2. `Run` **bootstrap**: `python scripts/publish_data_release.py restore`.
+Cache Intelligence restores `scout-state` before step 1 and saves it after the
+last step, whatever the outcome.
+
+1. `Run` **bootstrap**: `python scripts/publish_data_release.py restore`.
    If `data/` has no `.db` files, download `dbs.tar.gz` from the release
    (skip if the asset does not exist yet). If `web/public/data/formats.json`
    is missing, download the newest `data-*.tar.gz` from the release, or, when
    the release has none, `https://storage.googleapis.com/tcg-scout-data/data-latest.tar.gz`
    (public, one-time migration path).
-3. `Run` **scrape and export**: install uv with the official installer,
+2. `Run` **scrape and export**: install uv with the official installer,
    `uv sync --locked --no-dev`, then for each `formats-list --status active`
    slug with region `jp`: init, scrape, scrape-jp, backfill-archetypes,
    translate-cards, meta. tpci-standard-2027 stays export-only, as today.
    Export every active format with `--strict`. For each frozen slug, export
    only if `web/public/data/<slug>/meta.json` is missing. `timeout: 45m`.
-4. `Run` **validate**: `scout --format <slug> validate` for every slug whose
+3. `Run` **validate**: `scout --format <slug> validate` for every slug whose
    DB file exists (today's list is hard-coded and stale).
-5. `SaveCache` `scout-dbs` and `SaveCache` `scout-export`, both `override: true`.
-6. `Run` **publish**: `python scripts/publish_data_release.py publish`
+4. `Run` **publish**: `python scripts/publish_data_release.py publish`
    tars `web/public/data`, uploads it and `dbs.tar.gz` to the `data` release
    (creating the release if absent), prunes data tarballs beyond the newest
    8, writes `web/data-manifest.json`, and pushes the manifest commit to

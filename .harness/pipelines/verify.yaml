@@ -25,6 +25,7 @@ pipeline:
           cloneCodebase: true
           caching:
             enabled: true
+            key: scout-verify-{{ checksum "uv.lock" }}-{{ checksum "web/package-lock.json" }}
             paths:
               - /harness/.uv-cache
               - /harness/.npm
@@ -38,7 +39,7 @@ pipeline:
             steps:
               - step:
                   type: Run
-                  name: Python lint, format, tests
+                  name: Python lint format and tests
                   identifier: python
                   spec:
                     shell: Bash
@@ -55,7 +56,7 @@ pipeline:
                       uv run pytest tests/ -q
               - step:
                   type: Run
-                  name: Web type-check, lint, tests
+                  name: Web typecheck lint and tests
                   identifier: web
                   spec:
                     shell: Bash
