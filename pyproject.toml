@@ -25,6 +25,7 @@ dependencies = [
 # deploy deps) so tests/test_poll_tournaments.py can import functions_framework.
 test = [
     "pytest>=8.0",
+    "pyyaml>=6",
     "functions-framework==3.*",
     "google-cloud-storage==2.*",
     "google-cloud-build==3.*",
