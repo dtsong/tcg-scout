@@ -107,6 +107,18 @@ class TestScrapePipeline:
         assert "publish_data_release.py restore" in bootstrap["spec"]["command"]
         assert "GITHUB_TOKEN" in bootstrap["spec"]["envVariables"]
 
+    def test_restore_from_release_flag_drops_cached_state_first(self):
+        variables = {v["name"]: v for v in self.pipeline["variables"]}
+        assert variables["restore_from_release"]["value"] == "<+input>.default(false)"
+        bootstrap = next(s for s in self.steps if s["identifier"] == "bootstrap")
+        env = bootstrap["spec"]["envVariables"]
+        assert env["RESTORE_FROM_RELEASE"] == "<+pipeline.variables.restore_from_release>"
+        command = bootstrap["spec"]["command"]
+        assert 'if [ "$RESTORE_FROM_RELEASE" = "true" ]' in command
+        assert command.index("rm -rf data web/public/data") < command.index(
+            "publish_data_release.py restore"
+        )
+
     def test_no_plain_text_secrets(self):
         text = (HARNESS / "pipelines" / "scrape.yaml").read_text(encoding="utf-8")
         for marker in ("ghp_", "gho_", "ghs_", "github_pat_", "pat."):
@@ -126,6 +138,9 @@ class TestScrapeTrigger:
             "type": "branch",
             "spec": {"branch": "main"},
         }
+        assert inputs["pipeline"]["variables"] == [
+            {"name": "restore_from_release", "type": "String", "value": "false"}
+        ]
 
 
 class TestFormatsListRegion:

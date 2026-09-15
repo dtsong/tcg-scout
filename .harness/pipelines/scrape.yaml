@@ -15,6 +15,14 @@ pipeline:
         connectorRef: account.Github_OAuth_1784959546725
         repoName: dtsong/tcg-scout
         build: <+input>
+  variables:
+    - name: restore_from_release
+      type: String
+      description: >-
+        Set to "true" to drop the cached SQLite databases and export before the
+        bootstrap step, so the run rebuilds them from the GitHub Release
+        (use after re-seeding dbs.tar.gz by hand).
+      value: <+input>.default(false)
   stages:
     - stage:
         name: Scrape and publish
@@ -51,8 +59,13 @@ pipeline:
                     shell: Bash
                     envVariables:
                       GITHUB_TOKEN: <+secrets.getValue("account.harnessoauthaccesstoken_github_1784959546428")>
+                      RESTORE_FROM_RELEASE: <+pipeline.variables.restore_from_release>
                     command: |
                       set -euo pipefail
+                      if [ "$RESTORE_FROM_RELEASE" = "true" ]; then
+                        echo "restore_from_release=true: dropping cached state"
+                        rm -rf data web/public/data
+                      fi
                       # Stdlib-only, so it runs before uv is installed. A warm cache makes this a no-op.
                       python3 scripts/publish_data_release.py restore
                       ls -la data/ | grep '\.db$' || echo "No databases yet: active formats start empty"
