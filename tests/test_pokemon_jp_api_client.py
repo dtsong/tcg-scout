@@ -116,23 +116,42 @@ class TestFetchClEvents:
         offsets = [parse_qs(urlparse(u).query)["offset"] for u in session.calls]
         assert offsets == [["0"], ["20"]]
 
-    def test_retries_once_on_403_then_succeeds(self, monkeypatch):
-        monkeypatch.setattr(pokemon_jp_api.time, "sleep", lambda _s: None)
+    def test_retries_with_backoff_on_403_then_succeeds(self, monkeypatch):
+        """Two transient 403s (the 2026-09-17 scheduled run saw this) must not fail the scrape."""
+        slept: list[float] = []
+        monkeypatch.setattr(pokemon_jp_api.time, "sleep", slept.append)
         payload = {"code": 200, "eventCount": 1, "event": [_event(9, "20260920")]}
-        session = _FakeSession({"/event_search": [_FakeResponse(403), _FakeResponse(200, payload)]})
+        session = _FakeSession(
+            {"/event_search": [_FakeResponse(403), _FakeResponse(403), _FakeResponse(200, payload)]}
+        )
 
         events = PokemonJPAPIClient(session=session).fetch_cl_events("2026-08-14", "2026-12-10")
 
         assert [e.event_id for e in events] == [9]
-        assert len(session.calls) == 2
+        assert len(session.calls) == 3
+        assert slept == [2.0, 4.0], "exponential backoff between attempts"
 
-    def test_persistent_403_raises_instead_of_silently_returning_nothing(self, monkeypatch):
+    def test_persistent_403_raises_after_all_retries(self, monkeypatch):
         """A silent empty result would look like a quiet season and mask the block."""
-        monkeypatch.setattr(pokemon_jp_api.time, "sleep", lambda _s: None)
+        slept: list[float] = []
+        monkeypatch.setattr(pokemon_jp_api.time, "sleep", slept.append)
         session = _FakeSession({"/event_search": [_FakeResponse(403)]})
 
         with pytest.raises(JPAPIError, match="403"):
             PokemonJPAPIClient(session=session).fetch_cl_events("2026-08-14", "2026-12-10")
+
+        assert len(session.calls) == 1 + len(PokemonJPAPIClient._RETRY_DELAYS_SECONDS)
+        assert slept == [2.0, 4.0, 8.0]
+
+    def test_success_path_never_sleeps(self, monkeypatch):
+        slept: list[float] = []
+        monkeypatch.setattr(pokemon_jp_api.time, "sleep", slept.append)
+        payload = {"code": 200, "eventCount": 0, "event": []}
+        session = _FakeSession({"/event_search": [_FakeResponse(200, payload)]})
+
+        PokemonJPAPIClient(session=session).fetch_cl_events("2026-08-14", "2026-12-10")
+
+        assert slept == []
 
 
 class TestFetchEventWithMetadata:

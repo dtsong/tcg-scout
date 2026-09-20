@@ -145,6 +145,7 @@ class TestPublish:
         data_dir.mkdir()
         (data_dir / "storm-emeralda.db").write_bytes(b"sqlite")
         (data_dir / "storm-emeralda.db-wal").write_bytes(b"wal")
+        (data_dir / "nihil-zero.db").write_bytes(b"")
         return {
             "export": export_dir,
             "data": data_dir,
@@ -199,7 +200,9 @@ class TestPublish:
         assert deleted == sorted([f"{API}/assets/1", f"{API}/assets/2", f"{API}/assets/50"])
         uploaded_dbs = next(b for m, u, b, _ in http.calls if u.endswith("name=dbs.tar.gz"))
         with tarfile.open(fileobj=io.BytesIO(uploaded_dbs), mode="r:gz") as tar:
-            assert tar.getnames() == ["storm-emeralda.db"], "WAL sidecars are not backed up"
+            assert tar.getnames() == ["storm-emeralda.db"], (
+                "WAL sidecars and zero-byte placeholder databases are not backed up"
+            )
 
 
 class TestRestore:

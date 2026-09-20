@@ -190,8 +190,13 @@ def data_assets(release: GitHubRelease) -> list[dict]:
 
 
 def upload_dbs(release: GitHubRelease, data_dir: Path) -> dict:
-    """Back up ``*.db`` (not WAL/SHM sidecars) as ``dbs.tar.gz``, replacing any previous copy."""
-    dbs = sorted(data_dir.glob("*.db"))
+    """Back up ``*.db`` (not WAL/SHM sidecars) as ``dbs.tar.gz``, replacing any previous copy.
+
+    Zero-byte files are skipped: an empty ``.db`` is a placeholder left by an
+    ``init`` that never ran, not a database, and restoring it would shadow a
+    later real one.
+    """
+    dbs = sorted(p for p in data_dir.glob("*.db") if p.stat().st_size > 0)
     if not dbs:
         raise ReleaseError(f"no .db files in {data_dir}")
     with tempfile.TemporaryDirectory() as tmp:

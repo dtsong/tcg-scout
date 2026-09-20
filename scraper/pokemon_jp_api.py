@@ -169,10 +169,11 @@ class PokemonJPAPIClient:
     with Chrome impersonation. Decklists still require a browser (PokemonJPClient).
     """
 
-    # Cloudflare occasionally serves a transient 403/5xx before a clean session
-    # is established; a single retry after a short pause is enough in practice.
+    # Cloudflare occasionally serves transient 403/5xx responses before a clean
+    # session is established. One retry was not enough on the 2026-09-17 scheduled
+    # run, so retries back off exponentially: 2s, 4s, 8s (14s worst case).
     _RETRY_STATUSES = frozenset({403, 429, 500, 502, 503, 504})
-    _RETRY_DELAY_SECONDS = 2.0
+    _RETRY_DELAYS_SECONDS = (2.0, 4.0, 8.0)
 
     def __init__(self, *, session: Any | None = None) -> None:
         if session is None:
@@ -185,9 +186,13 @@ class PokemonJPAPIClient:
         """GET a JSON endpoint. Returns None on 404 (results not published)."""
         url = f"{BASE_URL}{path}?{urlencode(params, doseq=True)}"
         resp = self._session.get(url)
-        if resp.status_code in self._RETRY_STATUSES:
-            logger.warning("JP API %s returned %d, retrying once", path, resp.status_code)
-            time.sleep(self._RETRY_DELAY_SECONDS)
+        for delay in self._RETRY_DELAYS_SECONDS:
+            if resp.status_code not in self._RETRY_STATUSES:
+                break
+            logger.warning(
+                "JP API %s returned %d, retrying in %.0fs", path, resp.status_code, delay
+            )
+            time.sleep(delay)
             resp = self._session.get(url)
         if resp.status_code == 404:
             return None
