@@ -32,7 +32,9 @@ BRANCH = os.environ.get("BRANCH", "main")
 
 # JP API constants
 JP_API_BASE = "https://players.pokemon-card.com"
-CITY_LEAGUE_EVENT_TYPES = ["3:1", "3:2", "3:3", "3:4", "3:5", "3:6", "3:7", "3:8"]
+# Mirrors config.POKEMON_JP_CITY_LEAGUE_EVENT_TYPES (this function deploys without
+# the repo root). "3:8" is not a valid type: the API answers 400 if it is sent.
+CITY_LEAGUE_EVENT_TYPES = ["3:1", "3:2", "3:3", "3:4", "3:5", "3:6", "3:7"]
 
 
 def fetch_recent_event_ids() -> set[int]:

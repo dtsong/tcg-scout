@@ -9,7 +9,13 @@ import httpx
 from rich.console import Console
 from rich.table import Table
 
-from config import DEFAULT_FORMAT, FORMATS, TPC_REGION_COUNTRIES, get_format_config
+from config import (
+    DEFAULT_FORMAT,
+    FORMATS,
+    JP_API_BLOCK_TOLERANCE_DAYS,
+    TPC_REGION_COUNTRIES,
+    get_format_config,
+)
 from db import get_format_connection, init_db, reset_db
 
 console = Console()
@@ -97,6 +103,51 @@ def _store_events_with_decklists(
     console.print(
         f"\n[green]Done! Stored {total_placements} placements "
         f"and {total_decklists} decklists across {len(events_data)} events.[/green]"
+    )
+
+
+def _official_results_lag_days(conn: sqlite3.Connection, baseline: str) -> int:
+    """Days by which other sources lead the official JP feed in this database.
+
+    Limitless lists the same City Leagues, so its newest event date shows how far
+    ``jp-`` results have fallen behind. ``baseline`` (the window start) stands in
+    for the official date while a format has no official events yet.
+    """
+    from datetime import date
+
+    official, other = conn.execute(
+        "SELECT MAX(CASE WHEN id LIKE 'jp-%' THEN date END), "
+        "MAX(CASE WHEN id NOT LIKE 'jp-%' THEN date END) FROM tournaments"
+    ).fetchone()
+    if not other:
+        return 0
+    return max(0, (date.fromisoformat(other) - date.fromisoformat(official or baseline)).days)
+
+
+def _handle_jp_api_blocked(conn: sqlite3.Connection, baseline: str, exc: Exception) -> None:
+    """Skip a Cloudflare-blocked JP API run, unless official results are overdue.
+
+    The block is decided per runner IP and clears on its own, and ``scrape-jp``
+    only ever adds events it has not stored, so a skipped run is made up by the
+    next one that gets through. Failing here would also hold back the Limitless
+    results scraped in the same run. A block that persists is not tolerated:
+    once Limitless leads the official feed by more than
+    ``JP_API_BLOCK_TOLERANCE_DAYS`` the command fails so the outage is noticed.
+    """
+    lag = _official_results_lag_days(conn, baseline)
+    if lag > JP_API_BLOCK_TOLERANCE_DAYS:
+        console.print(
+            f"[red]ERROR: JP API blocked ({exc}) and official results are {lag} days behind "
+            f"Limitless (tolerance: {JP_API_BLOCK_TOLERANCE_DAYS}). Re-run the pipeline for a "
+            "fresh runner IP, or run scrape-jp from an unblocked network.[/red]",
+            highlight=False,
+        )
+        raise SystemExit(1)
+    console.print(
+        f"[bold yellow]WARNING: JP API blocked ({exc}). Skipping official results for this "
+        f"run; they are {lag} day(s) behind Limitless (tolerance: "
+        f"{JP_API_BLOCK_TOLERANCE_DAYS}) and the next unblocked run will catch up.[/bold yellow]",
+        highlight=False,
     )
 
 
@@ -1334,7 +1385,7 @@ def scrape_jp(
     Uses a pool of concurrent browsers (default 5) for faster decklist fetching.
     """
     from scraper.pokemon_jp import JPEventResult, JPPlacement
-    from scraper.pokemon_jp_api import PokemonJPAPIClient
+    from scraper.pokemon_jp_api import JPAPIBlockedError, PokemonJPAPIClient
 
     fmt = get_format_config(ctx.obj["format"])
     start = start or fmt["dataset_start"]
@@ -1348,7 +1399,11 @@ def scrape_jp(
     try:
         # Fetch event listings via plain HTTP
         console.print(f"[cyan]Fetching JP City League events ({start} to {end})...[/cyan]")
-        events = api_client.fetch_cl_events(start, end)
+        try:
+            events = api_client.fetch_cl_events(start, end)
+        except JPAPIBlockedError as exc:
+            _handle_jp_api_blocked(conn, start, exc)
+            return
         console.print(f"Found [bold]{len(events)}[/bold] events")
 
         if not events:
@@ -1367,6 +1422,7 @@ def scrape_jp(
         deck_url_base = "https://www.pokemon-card.com/deck/confirm.html/deckID/"
         events_data: list[JPEventResult] = []
         all_deck_entries: list[tuple[str, str]] = []
+        blocked: JPAPIBlockedError | None = None
 
         for i, event in enumerate(new_events, 1):
             event_name = event.display_name
@@ -1374,6 +1430,12 @@ def scrape_jp(
 
             try:
                 results = api_client.fetch_event_results(event.event_id)
+            except JPAPIBlockedError as exc:
+                # Once Cloudflare starts challenging, every remaining event would burn
+                # the full backoff too. Keep what was fetched; the rest are still
+                # "new" on the next run.
+                blocked = exc
+                break
             except Exception as exc:
                 console.print(f"    [red]Error fetching event {event.event_id}: {exc}[/red]")
                 continue
@@ -1423,6 +1485,9 @@ def scrape_jp(
 
         # Phase 3: Store everything
         _store_events_with_decklists(conn, events_data, all_decklists)
+
+        if blocked is not None:
+            _handle_jp_api_blocked(conn, start, blocked)
     finally:
         api_client.close()
         conn.close()

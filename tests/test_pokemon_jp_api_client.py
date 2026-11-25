@@ -20,6 +20,7 @@ from scraper import pokemon_jp_api
 from scraper.pokemon_jp_api import (
     BASE_URL,
     IMPERSONATE_BROWSER,
+    JPAPIBlockedError,
     JPAPIError,
     PokemonJPAPIClient,
 )
@@ -31,7 +32,8 @@ class _FakeResponse:
     payload: dict | None = None
 
     def json(self) -> dict:
-        assert self.payload is not None
+        if self.payload is None:
+            raise ValueError("body is not JSON")  # e.g. Cloudflare's HTML challenge page
         return self.payload
 
 
@@ -148,7 +150,7 @@ class TestFetchClEvents:
         monkeypatch.setattr(pokemon_jp_api.time, "sleep", slept.append)
         session = _FakeSession({"/event_search": [_FakeResponse(403)]})
 
-        with pytest.raises(JPAPIError, match="403"):
+        with pytest.raises(JPAPIBlockedError, match="403"):
             PokemonJPAPIClient(session=session).fetch_cl_events(
                 "2026-08-14", "2026-12-10", event_types=["3:2"]
             )
@@ -197,6 +199,34 @@ class TestFetchClEvents:
             PokemonJPAPIClient(session=session).fetch_cl_events(
                 "2026-08-14", "2026-12-10", event_types=["3:1", "3:2"]
             )
+
+    def test_block_is_a_distinct_kind_of_api_error(self):
+        """Callers skip a block but must still fail on every other JPAPIError."""
+        assert issubclass(JPAPIBlockedError, JPAPIError)
+
+    def test_rejected_type_is_logged_with_the_api_message_and_query(self, monkeypatch, caplog):
+        """The 2026-10/11 outage: a bare "HTTP 400" gave no hint of the cause.
+
+        Retrying cannot help and it is not a Cloudflare block, so the warning carries
+        the API's message and the query, and no backoff sleep happens.
+        """
+        slept: list[float] = []
+        monkeypatch.setattr(pokemon_jp_api.time, "sleep", slept.append)
+        city = {"code": 200, "eventCount": 1, "event": [_event(11, "20261115")]}
+        rejected = _FakeResponse(400, {"code": 400, "message": "パラメータが不正です"})
+        session = _FakeSession(
+            {"/event_search#3:8": [rejected], "/event_search": [_FakeResponse(200, city)]}
+        )
+
+        with caplog.at_level("WARNING", logger=pokemon_jp_api.logger.name):
+            events = PokemonJPAPIClient(session=session).fetch_cl_events(
+                "2026-08-14", "2026-12-10", event_types=["3:8", "3:2"]
+            )
+
+        assert [e.event_id for e in events] == [11]
+        assert "HTTP 400: パラメータが不正です" in caplog.text
+        assert "event_type[]=3:8" in caplog.text
+        assert slept == []
 
     def test_success_path_never_sleeps(self, monkeypatch):
         slept: list[float] = []

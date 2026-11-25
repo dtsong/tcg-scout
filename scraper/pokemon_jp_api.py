@@ -51,6 +51,26 @@ class JPAPIError(RuntimeError):
         self.status_code = status_code
 
 
+class JPAPIBlockedError(JPAPIError):
+    """Cloudflare kept challenging the request after every retry.
+
+    The endpoints need no auth, so a 403 here is the bot-management challenge
+    (``cf-mitigated: challenge``). Observed 2026-11-25: once it starts it applies
+    to every request from that IP, whatever the browser profile or headers, for
+    30+ minutes, so no backoff this client could afford clears it. Callers may
+    treat it as "source unavailable this run" rather than as a bug.
+    """
+
+
+def _error_detail(resp: Any) -> str:
+    """The API's own ``message`` for an error response, or "" (e.g. HTML body)."""
+    try:
+        message = resp.json().get("message")
+    except (ValueError, AttributeError):
+        return ""
+    return f": {message}" if message else ""
+
+
 LEAGUE_NAME_MAP = {
     "オープン": "open",
     "マスター": "open",  # Masters league treated as open division
@@ -203,9 +223,19 @@ class PokemonJPAPIClient:
             resp = self._session.get(url)
         if resp.status_code == 404:
             return None
+        if resp.status_code == 403:
+            raise JPAPIBlockedError(
+                f"JP API {path} returned HTTP 403 after {len(self._RETRY_DELAYS_SECONDS)} "
+                "retries (Cloudflare challenge)"
+            )
         if resp.status_code >= 400:
+            # A 400 is the API rejecting the query itself, e.g. an event_type[] it
+            # does not recognise. Surface its message and the query so the offending
+            # parameter is visible in the pipeline log.
             raise JPAPIError(
-                f"JP API {path} returned HTTP {resp.status_code}", status_code=resp.status_code
+                f"JP API {path} returned HTTP {resp.status_code}{_error_detail(resp)} "
+                f"(query: {urlencode(params, doseq=True, safe=':[]')})",
+                status_code=resp.status_code,
             )
         return resp.json()
 
@@ -242,7 +272,7 @@ class PokemonJPAPIClient:
             except JPAPIError as exc:
                 if exc.status_code != 400:
                     raise
-                logger.warning("JP API rejected event_type %s (HTTP 400), skipping", event_type)
+                logger.warning("JP API rejected event_type %s, skipping: %s", event_type, exc)
                 rejected.append(event_type)
                 continue
             for evt in page_events:

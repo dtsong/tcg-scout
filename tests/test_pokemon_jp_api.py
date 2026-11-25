@@ -324,14 +324,16 @@ class TestClassifyJPDecklist:
 
 
 class TestEventTypeConfig:
-    def test_all_city_league_seasons_included(self):
-        """Ensure all City League seasons 1-8 are included in event types."""
+    def test_only_event_types_the_api_accepts_are_sent(self):
+        """One unrecognised event_type[] makes /event_search reject the whole query.
+
+        "3:8" was listed speculatively; once the API began validating the list it
+        answered HTTP 400 to every scrape from mid-October 2026. This pins the set
+        verified against the live API so a value cannot be added on a guess.
+        """
         from config import POKEMON_JP_CITY_LEAGUE_EVENT_TYPES
 
-        for season in range(1, 9):
-            assert f"3:{season}" in POKEMON_JP_CITY_LEAGUE_EVENT_TYPES, (
-                f"Missing City League season 3:{season}"
-            )
+        assert POKEMON_JP_CITY_LEAGUE_EVENT_TYPES == [f"3:{n}" for n in range(1, 8)]
 
     @pytest.mark.skipif(not _POKEMON_JP_API_AVAILABLE, reason="httpx not installed")
     def test_scraper_uses_config_event_types(self):
