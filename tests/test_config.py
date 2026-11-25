@@ -103,6 +103,22 @@ class TestFormatDates:
                 f"FORMATS[{slug!r}]: dataset_end ({end}) should be < rotation_date ({rotation})"
             )
 
+    def test_jp_chain_is_contiguous(self):
+        """JP formats must tile the timeline: each one ends the day before the next
+        set goes legal. A gap would leave City League results in no format, and an
+        overlap would count them in two."""
+        from datetime import timedelta
+
+        chain = [slug for slug, fmt in FORMATS.items() if fmt["region"] == "jp"]
+        assert len(chain) >= 2
+        for older, newer in zip(chain, chain[1:]):
+            older_end = date.fromisoformat(FORMATS[older]["dataset_end"])
+            newer_start = date.fromisoformat(FORMATS[newer]["dataset_start"])
+            assert older_end + timedelta(days=1) == newer_start, (
+                f"{older} ends {older_end} but {newer} starts {newer_start} "
+                "(expected 1-day adjacency, no gap/overlap)"
+            )
+
     def test_tpci_historical_chain_is_contiguous(self):
         """The TPCi Standard rotations must tile the timeline with no gap or
         overlap: each format's dataset_end is the day before the next format's

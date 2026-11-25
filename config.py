@@ -23,6 +23,7 @@ ROTATION_LEGAL_SETS = {
     "me04",
     "me05",
     "me06",
+    "me07",
     # Promos
     "svp",
 }
@@ -70,6 +71,21 @@ FORMATS = {
         "rotation_date": "2026-12-11",
         "description": "Temporal Forces through Mega Evolution: Storm Emeralda",
         "db_name": "storm-emeralda.db",
+        "region": "jp",
+    },
+    # Hadou Seeker (M7, released 2026-11-27 per pokemon-card.com/ex/m7/) follows the
+    # same JP convention: tournament-legal two weeks after release. Covers City
+    # League 2027 Season 2 (2026-12 to 2027-01). M8 has not been announced, so
+    # dataset_end / rotation_date are provisional (13 weeks, as abyss-eye was first
+    # registered) and must be tightened once the M8 release date is published.
+    "hadou-seeker": {
+        "name": "Hadou Seeker",
+        "name_en": "Hadou Seeker",
+        "dataset_start": "2026-12-11",
+        "dataset_end": "2027-03-11",
+        "rotation_date": "2027-03-12",
+        "description": "Temporal Forces through Mega Evolution: Hadou Seeker",
+        "db_name": "hadou-seeker.db",
         "region": "jp",
     },
     # TPCi (English) Standard — international Regionals, ICs, Worlds, and grassroots
