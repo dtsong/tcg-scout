@@ -1,35 +1,7 @@
 import Link from "next/link";
-import { Crosshair, ChevronRight } from "lucide-react";
+import { Crosshair } from "lucide-react";
 import { getFormats, getDefaultFormat } from "@/app/lib/data";
-
-function formatFreshness(generatedAt?: string): string | null {
-  if (!generatedAt) return null;
-  const ms = Date.now() - new Date(generatedAt).getTime();
-  const hours = Math.floor(ms / 3_600_000);
-  if (hours < 1) return "Updated just now";
-  if (hours < 24) return `Updated ${hours}h ago`;
-  const days = Math.floor(hours / 24);
-  return `Updated ${days}d ago`;
-}
-
-const FORMAT_STYLES: Record<string, { accent: string; glow: string; badge: string }> = {
-  "nihil-zero": {
-    accent: "text-amber-400",
-    glow: "hover:border-amber-500/40 hover:shadow-[0_0_24px_-4px_rgba(245,158,11,0.15)]",
-    badge: "bg-amber-500/15 text-amber-400 border-amber-500/30",
-  },
-  "ninja-spinner": {
-    accent: "text-teal-400",
-    glow: "hover:border-teal-500/40 hover:shadow-[0_0_24px_-4px_rgba(20,184,166,0.15)]",
-    badge: "bg-teal-500/15 text-teal-400 border-teal-500/30",
-  },
-};
-
-const DEFAULT_STYLE = {
-  accent: "text-accent",
-  glow: "hover:border-surface-400",
-  badge: "bg-surface-700 text-surface-300 border-surface-600",
-};
+import { HomeFormatSections } from "@/app/components/home-format-sections";
 
 export default function FormatSelectorPage() {
   const formats = getFormats();
@@ -78,7 +50,7 @@ export default function FormatSelectorPage() {
                 Welcome to the world of competitive Pokemon TCG!
               </p>
               <p className="text-[11px] text-slate-200 leading-relaxed mt-1.5">
-                I&apos;m here to help you explore Japan&apos;s City League meta.
+                I&apos;m here to help you explore the Japanese City League and TPCi metas.
               </p>
               <p className="text-[11px] text-slate-200 leading-relaxed mt-1.5">
                 Pick a format below to examine tier lists, trending cards, and tournament results.
@@ -86,97 +58,7 @@ export default function FormatSelectorPage() {
             </div>
           </div>
 
-          {/* Format cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-            {formats.map((fmt) => {
-              const style = FORMAT_STYLES[fmt.slug] || DEFAULT_STYLE;
-              const hasData = fmt.status === "active" || fmt.status === "frozen";
-              const isFrozen = fmt.status === "frozen";
-
-              return (
-                <Link
-                  key={fmt.slug}
-                  href={hasData ? `/${fmt.slug}` : "#"}
-                  aria-disabled={!hasData}
-                  className={`group relative bg-surface-800 border border-surface-600 rounded-xl p-6 transition-all duration-200 ${
-                    hasData
-                      ? `${style.glow} cursor-pointer`
-                      : "opacity-60 cursor-default"
-                  }`}
-                >
-                  {/* Status badge */}
-                  <div className="flex items-center justify-between mb-4">
-                    <span
-                      className={`text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 rounded-full border ${
-                        isFrozen
-                          ? "bg-surface-700 text-surface-300 border-surface-500"
-                          : fmt.status === "active"
-                            ? style.badge
-                            : "bg-surface-700 text-surface-300 border-surface-600"
-                      }`}
-                    >
-                      {isFrozen ? "Complete" : fmt.status === "active" ? "Active" : "Coming Soon"}
-                    </span>
-                    {hasData && (
-                      <ChevronRight className="w-4 h-4 text-surface-500 group-hover:text-surface-300 transition-colors" />
-                    )}
-                  </div>
-
-                  {/* Name */}
-                  <h2 className={`font-display text-2xl font-bold ${style.accent}`}>
-                    {fmt.name}
-                  </h2>
-                  <p className="text-sm text-surface-300 mt-0.5">
-                    {fmt.name_en}
-                  </p>
-
-                  {/* Description */}
-                  <p className="text-xs text-surface-400 mt-3 leading-relaxed">
-                    {fmt.description}
-                  </p>
-
-                  {/* Stats */}
-                  {hasData && fmt.tournament_count && fmt.tournament_count > 0 ? (
-                    <div className="mt-5 pt-4 border-t border-surface-700">
-                      <div className="flex gap-6">
-                        <div>
-                          <span className="font-mono text-lg font-medium text-slate-200 tabular-nums">
-                            {fmt.tournament_count?.toLocaleString()}
-                          </span>
-                          <p className="text-[10px] text-surface-400 uppercase tracking-wider mt-0.5">
-                            Tournaments
-                          </p>
-                        </div>
-                        <div>
-                          <span className="font-mono text-lg font-medium text-slate-200 tabular-nums">
-                            {fmt.deck_count?.toLocaleString()}
-                          </span>
-                          <p className="text-[10px] text-surface-400 uppercase tracking-wider mt-0.5">
-                            Decks
-                          </p>
-                        </div>
-                      </div>
-                      {isFrozen ? (
-                        <p className="text-[10px] text-surface-400 mt-2">
-                          Complete competitive record. Format has concluded.
-                        </p>
-                      ) : fmt.generated_at ? (
-                        <p className="text-[10px] text-surface-400 mt-2">
-                          {formatFreshness(fmt.generated_at)}
-                        </p>
-                      ) : null}
-                    </div>
-                  ) : !hasData ? (
-                    <div className="mt-5 pt-4 border-t border-surface-700">
-                      <p className="text-xs text-surface-400">
-                        First results expected after {fmt.dataset_start}
-                      </p>
-                    </div>
-                  ) : null}
-                </Link>
-              );
-            })}
-          </div>
+          <HomeFormatSections formats={formats} />
 
           {/* About & Methodology */}
           <div className="mt-10 pt-8 border-t border-surface-700 space-y-6">
