@@ -87,8 +87,28 @@ function readEntityJson<T>(
   );
 }
 
+const FORMAT_STATUS_RANK: Record<FormatInfo["status"], number> = {
+  active: 0,
+  upcoming: 1,
+  frozen: 2,
+};
+
+/**
+ * Order formats for display: active, then upcoming, then frozen with the most
+ * recently ended first. Active and upcoming keep their formats.json order.
+ * Returns a new array.
+ */
+export function sortFormats(formats: FormatInfo[]): FormatInfo[] {
+  return [...formats].sort((a, b) => {
+    const byStatus = FORMAT_STATUS_RANK[a.status] - FORMAT_STATUS_RANK[b.status];
+    if (byStatus !== 0) return byStatus;
+    if (a.status === "frozen") return b.dataset_end.localeCompare(a.dataset_end);
+    return 0;
+  });
+}
+
 export function getFormats(): FormatInfo[] {
-  return readRootJson("formats.json");
+  return sortFormats(readRootJson("formats.json"));
 }
 
 /**
@@ -98,12 +118,10 @@ export function getFormats(): FormatInfo[] {
  */
 export function getDefaultFormat(): string {
   const formats = getFormats();
-  const active = formats.find((f) => f.status === "active");
-  if (active) return active.slug;
-  const latestFrozen = formats
-    .filter((f) => f.status === "frozen")
-    .sort((a, b) => b.dataset_end.localeCompare(a.dataset_end))[0];
-  const slug = latestFrozen?.slug ?? formats[0]?.slug;
+  const slug =
+    formats.find((f) => f.status === "active")?.slug ??
+    formats.find((f) => f.status === "frozen")?.slug ??
+    formats[0]?.slug;
   if (!slug) {
     throw new Error(
       "[data] getDefaultFormat: formats.json contains no formats. " +

@@ -12,7 +12,8 @@ vi.mock("fs", () => ({
 }));
 
 import fs from "fs";
-import { getMeta, getTrends, getArchetypeSlugs, getFormats, getDefaultFormat, getFormatName, getCardAnalysis, getTechForecast, getMetaReport, getMetaEvolution, tryGetArchetype } from "../data";
+import type { FormatInfo } from "../types";
+import { getMeta, getTrends, getArchetypeSlugs, getFormats, sortFormats, getDefaultFormat, getFormatName, getCardAnalysis, getTechForecast, getMetaReport, getMetaEvolution, tryGetArchetype } from "../data";
 
 beforeEach(() => {
   vi.clearAllMocks();
@@ -41,6 +42,44 @@ describe("getFormats", () => {
     expect(result).toHaveLength(1);
     expect(result[0].slug).toBe("nihil-zero");
     expect(result[0].status).toBe("active");
+  });
+
+  const fmt = (slug: string, status: FormatInfo["status"], dataset_end = "2026-12-31"): FormatInfo => ({
+    slug,
+    name: slug,
+    name_en: slug,
+    description: "",
+    dataset_start: "2026-01-01",
+    dataset_end,
+    status,
+  });
+
+  it("orders active, then upcoming, then frozen by dataset_end desc", () => {
+    vi.mocked(fs.readFileSync).mockReturnValue(
+      JSON.stringify([
+        fmt("old", "frozen", "2026-03-13"),
+        fmt("up", "upcoming", "2027-09-03"),
+        fmt("live", "active", "2026-12-10"),
+        fmt("mid", "frozen", "2026-08-13"),
+        fmt("older", "frozen", "2025-09-11"),
+      ]),
+    );
+    expect(getFormats().map((f) => f.slug)).toEqual(["live", "up", "mid", "old", "older"]);
+  });
+
+  it("keeps file order within active formats", () => {
+    vi.mocked(fs.readFileSync).mockReturnValue(
+      JSON.stringify([fmt("b", "active"), fmt("a", "active")]),
+    );
+    expect(getFormats().map((f) => f.slug)).toEqual(["b", "a"]);
+  });
+
+  it("sortFormats returns a new array and leaves its input alone", () => {
+    const input = [fmt("old", "frozen", "2026-03-13"), fmt("live", "active")];
+    const out = sortFormats(input);
+    expect(out).not.toBe(input);
+    expect(input.map((f) => f.slug)).toEqual(["old", "live"]);
+    expect(out.map((f) => f.slug)).toEqual(["live", "old"]);
   });
 });
 
