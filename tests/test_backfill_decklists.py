@@ -403,11 +403,9 @@ class TestBackfillCommitsInBatches:
         )
 
         class _DiesOnSecondFetch:
-            calls = 0
-
+            # Keyed on placement 8's URL, not call order: workers fetch concurrently.
             def fetch_decklist(self, url):
-                type(self).calls += 1
-                if type(self).calls == 2:
+                if "/player/12/" in url:
                     raise KeyboardInterrupt
                 return deck
 
@@ -426,6 +424,104 @@ class TestBackfillCommitsInBatches:
             "SELECT COUNT(DISTINCT placement_id) FROM decklist_cards WHERE placement_id IN (7, 8)"
         ).fetchone()[0]
         assert stored == 1, "the first list was committed before the interruption"
+        assert db_missing_decklists.execute(
+            "SELECT COUNT(*) FROM decklist_cards WHERE placement_id = 7"
+        ).fetchone()[0], "placement 7 comes first in selection order"
+
+
+class TestBackfillFetchesConcurrently:
+    """Each Limitless request waits ~5 s on the server, so one fetch at a time
+    reaches ~12 lists/min against a 25/min cap. Workers share the client's
+    rate limiter, so concurrency fills the cap without exceeding it."""
+
+    def _deck(self):
+        from scraper.labs_limitless import LabsDecklist
+
+        return LabsDecklist(
+            cards=[{"count": 1, "name": "X", "card_id": "x", "set_code": "", "card_number": ""}]
+        )
+
+    def test_fetches_overlap(self, db_missing_decklists, monkeypatch):
+        import threading
+
+        import cli
+
+        monkeypatch.setattr(cli, "DECKLIST_BACKFILL_WORKERS", 2)
+        deck = self._deck()
+        # Both fetches must be in flight at once to pass the barrier; a
+        # sequential loop times out and raises BrokenBarrierError.
+        barrier = threading.Barrier(2, timeout=5)
+
+        class _NeedsTwoAtOnce:
+            def fetch_decklist(self, url):
+                barrier.wait()
+                return deck
+
+            def close(self):
+                pass
+
+        monkeypatch.setattr("scraper.labs_limitless.LabsLimitlessClient", lambda: _NeedsTwoAtOnce())
+
+        assert cli._backfill_labs_decklists(db_missing_decklists, None, None) == 2
+
+    def test_writes_follow_selection_order_not_completion_order(
+        self, db_missing_decklists, monkeypatch
+    ):
+        """Newest-first order decides which lists an interrupted run keeps."""
+        import threading
+
+        import cli
+
+        monkeypatch.setattr(cli, "DECKLIST_BACKFILL_WORKERS", 2)
+        deck = self._deck()
+        second_done = threading.Event()
+
+        class _FirstFinishesLast:
+            def fetch_decklist(self, url):
+                if "/player/11/" in url:
+                    assert second_done.wait(timeout=5)
+                else:
+                    second_done.set()
+                return deck
+
+            def close(self):
+                pass
+
+        monkeypatch.setattr(
+            "scraper.labs_limitless.LabsLimitlessClient", lambda: _FirstFinishesLast()
+        )
+
+        cli._backfill_labs_decklists(db_missing_decklists, None, None)
+
+        order = [
+            r[0]
+            for r in db_missing_decklists.execute(
+                "SELECT placement_id FROM decklist_cards WHERE placement_id IN (7, 8) "
+                "ORDER BY rowid"
+            )
+        ]
+        assert order == [7, 8]
+
+    def test_fetch_error_skips_only_that_placement(self, db_missing_decklists, monkeypatch):
+        import httpx
+
+        import cli
+
+        monkeypatch.setattr(cli, "DECKLIST_BACKFILL_WORKERS", 2)
+        deck = self._deck()
+
+        class _FailsOnFirst:
+            def fetch_decklist(self, url):
+                if "/player/11/" in url:
+                    raise httpx.ConnectError("boom")
+                return deck
+
+            def close(self):
+                pass
+
+        monkeypatch.setattr("scraper.labs_limitless.LabsLimitlessClient", lambda: _FailsOnFirst())
+
+        assert cli._backfill_labs_decklists(db_missing_decklists, None, None) == 1
 
 
 class TestBackfillCli:

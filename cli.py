@@ -1059,6 +1059,10 @@ def _backfill_jp_decklists(
 # A full backfill runs for hours at 20-25 requests/min. Committing in batches
 # means an interrupted run (crash, Ctrl-C, pipeline timeout) keeps its progress.
 DECKLIST_BACKFILL_COMMIT_EVERY = 25
+# Each decklist page takes ~5 s to serve, so one fetch at a time reaches about
+# half of the 20-25 requests/min cap. The workers share the client's thread-safe
+# rate limiter, so more of them fill the cap but never exceed it.
+DECKLIST_BACKFILL_WORKERS = 3
 
 
 def _store_fetched_decklists(
@@ -1069,20 +1073,29 @@ def _store_fetched_decklists(
 ) -> int:
     """Fetch each placement's decklist with ``client`` and replace its cards.
 
-    ``client`` needs ``fetch_decklist(url)`` returning an object with ``cards``
-    (or None) and ``close()``. Commits every DECKLIST_BACKFILL_COMMIT_EVERY
-    stored lists and once at the end.
+    ``client`` needs a thread-safe ``fetch_decklist(url)`` returning an object
+    with ``cards`` (or None) and ``close()``. Fetches run on
+    DECKLIST_BACKFILL_WORKERS threads; results are written on this thread, in
+    selection order, so SQLite has one writer and an interrupted run keeps the
+    newest lists. Commits every DECKLIST_BACKFILL_COMMIT_EVERY stored lists and
+    once at the end.
     """
+    from concurrent.futures import ThreadPoolExecutor
+
+    def fetch(p: sqlite3.Row):
+        try:
+            return client.fetch_decklist(p["decklist_url"]), None
+        except (httpx.HTTPError, OSError) as exc:
+            return None, exc
+
     stored = 0
     empty = 0
+    pool = ThreadPoolExecutor(max_workers=DECKLIST_BACKFILL_WORKERS)
     try:
-        for i, p in enumerate(placements, 1):
-            url = p["decklist_url"]
-            console.print(f"  [{i}/{len(placements)}] placement #{p['id']} {url}")
-            try:
-                decklist = client.fetch_decklist(url)
-            except (httpx.HTTPError, OSError) as exc:
-                console.print(f"    [red]Error: {exc}[/red]")
+        for i, (p, (decklist, error)) in enumerate(zip(placements, pool.map(fetch, placements)), 1):
+            console.print(f"  [{i}/{len(placements)}] placement #{p['id']} {p['decklist_url']}")
+            if error is not None:
+                console.print(f"    [red]Error: {error}[/red]")
                 continue
             if not decklist or not decklist.cards:
                 empty += 1
@@ -1106,6 +1119,8 @@ def _store_fetched_decklists(
                 conn.commit()
         conn.commit()
     finally:
+        # On Ctrl-C or a crash, drop queued fetches instead of draining them.
+        pool.shutdown(wait=False, cancel_futures=True)
         client.close()
 
     console.print(
