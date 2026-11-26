@@ -575,7 +575,11 @@ class TestExportCards:
     def test_detail_file_has_archetypes(self, db, tmp_path):
         export_cards(db, tmp_path)
         cards_dir = tmp_path / "cards"
-        detail_files = [f for f in cards_dir.glob("*.json") if f.name != "index.json"]
+        # cards/ also holds synergy.json (a list of card pairs). Glob order differs
+        # by filesystem: macOS listed a card first, Linux CI listed synergy.json.
+        detail_files = sorted(
+            f for f in cards_dir.glob("*.json") if f.name not in {"index.json", "synergy.json"}
+        )
         assert len(detail_files) > 0
         data = json.loads(detail_files[0].read_text())
         assert "archetypes" in data
