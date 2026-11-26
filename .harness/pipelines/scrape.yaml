@@ -86,6 +86,10 @@ pipeline:
                       export PATH="$HOME/.local/bin:$PATH"
                       uv sync --locked --no-dev
 
+                      # Fails when a JP set is legal but config.FORMATS has no format for it;
+                      # otherwise the JP loop below would silently find nothing to scrape.
+                      uv run scout release-check
+
                       # JP City League is scraped for active JP formats only. TPCi formats are
                       # ingested out of band (operator runs scrape-tpci + meta) and are export-only.
                       # Decklists come from Limitless (top 16 per City League, plain HTTP); the

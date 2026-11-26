@@ -108,6 +108,13 @@ class TestScrapePipeline:
         assert command.index("backfill-decklists") < command.index('"$slug" meta')
         assert "KERNEL_API_KEY" not in command
 
+    def test_release_check_runs_before_the_jp_scrape(self):
+        """A JP set with no format must fail the run, not leave the JP loop empty."""
+        scrape = next(s for s in self.steps if s["identifier"] == "scrape")
+        command = scrape["spec"]["command"]
+        assert "uv run scout release-check" in command
+        assert command.index("release-check") < command.index("--region jp")
+
     def test_publish_step_guards_on_main_and_uses_the_account_secret(self):
         publish = next(s for s in self.steps if s["identifier"] == "publish")
         env = publish["spec"]["envVariables"]

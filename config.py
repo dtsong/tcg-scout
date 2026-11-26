@@ -59,9 +59,9 @@ FORMATS = {
         "db_name": "abyss-eye.db",
         "region": "jp",
     },
-    # Storm Emeralda (M6, released 2026-07-31) follows the JP convention used for
-    # M5: tournament-legal two weeks after release. Runs until Hadou Seeker (M7,
-    # 2026-11-27) goes legal. Covers City League 2027 Season 1 and CL 2027 Yokohama.
+    # JP format windows follow JP_SET_RELEASES (below); tests/test_release_schedule.py
+    # pins each window to its set's legal date (release + 14 days).
+    # Storm Emeralda (M6) covers City League 2027 Season 1 and CL 2027 Yokohama/Chiba.
     "storm-emeralda": {
         "name": "Storm Emeralda",
         "name_en": "Storm Emerald",
@@ -70,6 +70,19 @@ FORMATS = {
         "rotation_date": "2026-12-11",
         "description": "Temporal Forces through Mega Evolution: Storm Emeralda",
         "db_name": "storm-emeralda.db",
+        "region": "jp",
+    },
+    # Hadou Seeker (M7, "Aura Seeker" in PokeBeach's translation; cards reach
+    # English in Flowing Fists, 2027-02-06). dataset_end assumes the ex-star triple
+    # sets (2027-05-21) are the next format boundary; see JP_SET_RELEASES.
+    "hadou-seeker": {
+        "name": "Hadou Seeker",
+        "name_en": "Flowing Fists",
+        "dataset_start": "2026-12-11",
+        "dataset_end": "2027-06-03",
+        "rotation_date": "2027-06-04",
+        "description": "Temporal Forces through Mega Evolution: Hadou Seeker",
+        "db_name": "hadou-seeker.db",
         "region": "jp",
     },
     # TPCi (English) Standard — international Regionals, ICs, Worlds, and grassroots
@@ -157,6 +170,132 @@ def is_format_frozen(format_slug: str, today: str | None = None) -> bool:
 
     today = today or date.today().isoformat()
     return get_format_config(format_slug)["dataset_end"] < today
+
+
+# --- JP release schedule ---
+# Curated by hand: the official product list renders client-side and news sites
+# block scripted fetches, and the schedule changes a few times a year.
+# ``starts_format`` marks releases that open a new JP format window (main
+# expansions). High Class Packs, special sets and decks add cards but do not
+# split the data. ``format`` links the release to its config.FORMATS slug, or is
+# None until that format is added. `scout release-check` fails the daily scrape
+# once a format-starting set is legal without a format.
+JP_LEGALITY_DELAY_DAYS = 14
+JP_RELEASE_WARNING_DAYS = 21
+_POKEBEACH_M7 = "https://www.pokebeach.com/2026/11/aura-seeker-all-78-main-set-cards-revealed"
+
+JP_SET_RELEASES: tuple[dict, ...] = (
+    {
+        "code": "M6",
+        "name": "Storm Emeralda",
+        "kind": "expansion",
+        "release_date": "2026-07-31",
+        "starts_format": True,
+        "format": "storm-emeralda",
+        "source": "https://www.pokemon-card.com/products/",
+    },
+    {
+        "code": "M7",
+        "name": "Hadou Seeker",
+        "kind": "expansion",
+        "release_date": "2026-11-27",
+        "starts_format": True,
+        "format": "hadou-seeker",
+        "source": _POKEBEACH_M7,
+    },
+    {
+        # PokeBeach lists "February 29th", which does not exist in 2027.
+        # Unconfirmed until the official date is announced.
+        "code": None,
+        "name": "MEGA x MEGA Parade",
+        "kind": "high-class",
+        "release_date": None,
+        "starts_format": False,
+        "format": None,
+        "source": _POKEBEACH_M7,
+    },
+    {
+        "code": None,
+        "name": "MEGA Attack Special Set",
+        "kind": "special",
+        "release_date": "2027-03-19",
+        "starts_format": False,
+        "format": None,
+        "source": _POKEBEACH_M7,
+    },
+    {
+        # First Pokemon ex-star series sets (Entei, Suicune, Raikou).
+        "code": None,
+        "name": "Magma Heartbeat / Aurora Ripples / Lightning Impact",
+        "kind": "expansion",
+        "release_date": "2027-05-21",
+        "starts_format": True,
+        "format": None,
+        "source": _POKEBEACH_M7,
+    },
+    {
+        "code": None,
+        "name": "ex-star Battle Start Decks",
+        "kind": "deck",
+        "release_date": "2027-05-21",
+        "starts_format": False,
+        "format": None,
+        "source": _POKEBEACH_M7,
+    },
+)
+
+
+def jp_legal_date(release_date: str) -> str:
+    """JP sets are tournament-legal two weeks after release."""
+    from datetime import date, timedelta
+
+    legal = date.fromisoformat(release_date) + timedelta(days=JP_LEGALITY_DELAY_DAYS)
+    return legal.isoformat()
+
+
+def check_jp_release_coverage(today: str | None = None) -> tuple[list[str], list[str]]:
+    """Return (errors, warnings) about gaps between the schedule and config.FORMATS.
+
+    Errors mean the daily scrape would silently collect nothing (no JP format
+    is active, or a legal set has no format). Warnings give three weeks' notice.
+    """
+    from datetime import date, timedelta
+
+    today_d = date.fromisoformat(today) if today else date.today()
+    today_s = today_d.isoformat()
+    errors: list[str] = []
+    warnings: list[str] = []
+
+    jp = {slug: f for slug, f in FORMATS.items() if f["region"] == "jp"}
+    starts = {f["dataset_start"] for f in jp.values()}
+    active = [s for s, f in jp.items() if f["dataset_start"] <= today_s <= f["dataset_end"]]
+    if not active:
+        errors.append(
+            f"no active JP format on {today_s}: add the next set to "
+            "config.FORMATS and JP_SET_RELEASES"
+        )
+    for slug in active:
+        end = date.fromisoformat(jp[slug]["dataset_end"])
+        days_left = (end - today_d).days
+        if (
+            days_left <= JP_RELEASE_WARNING_DAYS
+            and (end + timedelta(days=1)).isoformat() not in starts
+        ):
+            warnings.append(f"{slug} ends on {end} ({days_left} days) and no JP format follows it")
+
+    for release in JP_SET_RELEASES:
+        if not release["starts_format"] or release["format"]:
+            continue
+        legal = date.fromisoformat(jp_legal_date(release["release_date"]))
+        days = (legal - today_d).days
+        if days <= 0:
+            errors.append(f"{release['name']} has been legal since {legal} but has no JP format")
+        elif days <= JP_RELEASE_WARNING_DAYS:
+            warnings.append(
+                f"{release['name']} becomes legal on {legal} ({days} days); "
+                "add its format to config.FORMATS"
+            )
+    return errors, warnings
 
 
 def get_formats_by_status(frozen: bool, today: str | None = None) -> list[str]:

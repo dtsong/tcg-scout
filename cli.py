@@ -1439,6 +1439,27 @@ def formats_list(status: str, region: str) -> None:
             click.echo(slug)
 
 
+@cli.command("release-check")
+@click.option("--today", default=None, help="ISO date to check against (default: today)")
+def release_check(today: str | None) -> None:
+    """Fail when config.FORMATS no longer covers the JP release schedule.
+
+    Without this, a JP format that reaches its dataset_end freezes and the daily
+    scrape loops over zero active JP formats without reporting anything.
+    """
+    from config import check_jp_release_coverage
+
+    errors, warnings = check_jp_release_coverage(today)
+    for warning in warnings:
+        click.echo(f"WARNING: {warning}")
+    for error in errors:
+        click.echo(f"ERROR: {error}")
+    if errors:
+        raise SystemExit(1)
+    if not warnings:
+        click.echo("JP release schedule is covered by config.FORMATS")
+
+
 @cli.command("backfill-jp-metadata")
 @click.option("--dry-run", is_flag=True, help="Report changes without writing")
 @click.pass_context
