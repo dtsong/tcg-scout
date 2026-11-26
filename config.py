@@ -465,8 +465,13 @@ POKEMON_JP_CITY_LEAGUE_EVENT_TYPES = [
     "3:5",
     "3:6",
     "3:7",
-    "3:8",
 ]
+
+# Pokemon JP API: how far official results may trail Limitless (which lists the
+# same City Leagues) before a Cloudflare-blocked scrape-jp run fails instead of
+# being skipped. Short blocks are routine on CI runner IPs and self-heal on the
+# next run; a week of missing official results means the block is not transient.
+JP_API_BLOCK_TOLERANCE_DAYS = 7
 
 # Pokemon JP API: Champions League event_holding_ids
 # Discovered via /event_result_detail_search probing and /event/result/list page

@@ -28,6 +28,14 @@ def _jp_api_response(event_ids: list[int]) -> dict:
 
 
 class TestFetchRecentEventIds:
+    def test_sends_the_same_event_types_as_the_scraper(self):
+        """The function keeps its own copy of the list; one value the API does not
+        recognise (as "3:8" was) makes /event_search answer 400."""
+        from config import POKEMON_JP_CITY_LEAGUE_EVENT_TYPES
+        from functions.poll_tournaments.main import CITY_LEAGUE_EVENT_TYPES
+
+        assert CITY_LEAGUE_EVENT_TYPES == POKEMON_JP_CITY_LEAGUE_EVENT_TYPES
+
     def test_returns_event_ids(self):
         from functions.poll_tournaments.main import fetch_recent_event_ids
 

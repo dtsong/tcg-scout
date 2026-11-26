@@ -61,6 +61,8 @@ source ~/.nvm/nvm.sh && nvm use default --silent && <command>
 - The scrape pipeline derives the active/frozen split from `scout formats-list --status active|frozen`, so rotation only touches `config.FORMATS`; `tests/test_harness_pipelines.py` guards that no slug is hard-coded. Empty active formats (no placements yet) export nothing and appear as `"upcoming"` in `formats.json`.
 - JP set legality convention: a JP set is tournament-legal two weeks after release; format boundaries follow that date
 - `scraper/pokemon_jp_api.py` must use `curl_cffi` with Chrome impersonation (Cloudflare fingerprints TLS; plain httpx gets 403)
+- Cloudflare still challenges some CI runner IPs outright (403 on every request). `scrape-jp` skips such a run with a warning (exit 0, the next unblocked run catches up) unless official `jp-` results trail Limitless by more than `JP_API_BLOCK_TOLERANCE_DAYS`; any other API error fails the run
+- `POKEMON_JP_CITY_LEAGUE_EVENT_TYPES`: list only values that `/event_search` accepts. The client sends one request per type and skips a type that returns HTTP 400 (it logs the API message), but fails when every type is rejected
 - Tournaments have a `division` column (open/senior/junior); meta analysis filters to open only
 
 ## Architecture
