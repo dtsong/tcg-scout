@@ -122,6 +122,16 @@ class TestFormatDates:
                 f"{older} rotation_date should equal {newer}'s dataset_start ({newer_start})"
             )
 
+    def test_tpci_format_names_carry_their_season(self):
+        """TPCi seasons run on a different calendar from JP formats, so every
+        TPCi display name states its season (for example "TPCi Standard 2025-26")."""
+        import re
+
+        tpci = {slug: f["name"] for slug, f in FORMATS.items() if f["region"] == "tpci"}
+        for slug, name in tpci.items():
+            assert re.search(r"\b\d{4}(-\d{2})?\b", name), f"{slug}: name {name!r} has no season"
+        assert len(set(tpci.values())) == len(tpci), f"duplicate TPCi names: {tpci}"
+
 
 class TestCoreThresholds:
     def test_inclusion_rate_between_zero_and_one(self):

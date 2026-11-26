@@ -10,6 +10,8 @@ export interface FormatInfo {
   dataset_start: string;
   dataset_end: string;
   status: "active" | "frozen" | "upcoming";
+  /** Tournament circuit. Optional: formats.json from before 2026-11-26 lacks it. */
+  region?: "jp" | "tpci";
   tournament_count?: number;
   deck_count?: number;
   generated_at?: string;

@@ -89,7 +89,7 @@ FORMATS = {
     # majors aggregated from limitlesstcg.com. Cardpool spans Temporal Forces (TEF)
     # through Perfect Order (POR) — the post-2025-09 rotation window.
     "tpci-standard": {
-        "name": "TPCi Standard",
+        "name": "TPCi Standard 2025-26",
         "name_en": "Temporal Forces - Perfect Order",
         "dataset_start": "2025-09-12",
         "dataset_end": "2026-09-04",
@@ -117,7 +117,7 @@ FORMATS = {
     # Spike for the historical multi-format backfill; bounded by --until so it
     # does not bleed into tpci-standard (2025-09-12+).
     "tpci-standard-2025": {
-        "name": "TPCi Standard 2025",
+        "name": "TPCi Standard Spring 2025",
         "name_en": "2025 Standard (post-F rotation)",
         "dataset_start": "2025-04-11",
         "dataset_end": "2025-09-11",
@@ -133,7 +133,7 @@ FORMATS = {
     # ingested via the main-site standings fallback. Bounded by --until so it
     # does not bleed into tpci-standard-2025 (2025-04-11+).
     "tpci-standard-2024": {
-        "name": "TPCi Standard 2024",
+        "name": "TPCi Standard 2024-25",
         "name_en": "2024-25 Standard (post-E rotation)",
         "dataset_start": "2024-04-05",
         "dataset_end": "2025-04-10",

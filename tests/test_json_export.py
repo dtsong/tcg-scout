@@ -471,6 +471,16 @@ class TestExportFormats:
         # ninja-spinner has no meta.json in tmp_path -> "upcoming"
         assert ns["status"] == "upcoming"
 
+    def test_exports_region_from_config(self, tmp_path):
+        """The web groups formats by circuit (Japan City League vs TPCi), so
+        formats.json carries each format's config region."""
+        export_formats(output_dir=tmp_path)
+        data = json.loads((tmp_path / "formats.json").read_text())
+        by_slug = {f["slug"]: f for f in data}
+        assert by_slug["storm-emeralda"]["region"] == "jp"
+        assert by_slug["tpci-standard-2027"]["region"] == "tpci"
+        assert {f["region"] for f in data} == {"jp", "tpci"}
+
 
 # --- Windowed exports ---
 

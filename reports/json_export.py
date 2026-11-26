@@ -3434,6 +3434,7 @@ def export_formats(output_dir: Path | None = None) -> None:
                 "dataset_start": fmt["dataset_start"],
                 "dataset_end": fmt["dataset_end"],
                 "status": status,
+                "region": fmt["region"],
                 "tournament_count": tournament_count,
                 "deck_count": deck_count,
                 "generated_at": generated_at,
