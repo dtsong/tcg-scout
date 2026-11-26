@@ -15,6 +15,7 @@ from urllib.parse import parse_qs, urlparse
 
 import pytest
 
+from config import POKEMON_JP_CITY_LEAGUE_EVENT_TYPES
 from scraper import pokemon_jp_api
 from scraper.pokemon_jp_api import (
     BASE_URL,
@@ -43,9 +44,12 @@ class _FakeSession:
     closed: bool = False
 
     def get(self, url: str) -> _FakeResponse:
+        """Route by ``path#event_type`` when scripted that way, else by path."""
         self.calls.append(url)
-        path = urlparse(url).path
-        queue = self.scripts[path]
+        parsed = urlparse(url)
+        types = parse_qs(parsed.query).get("event_type[]", [])
+        typed_key = f"{parsed.path}#{types[0]}" if len(types) == 1 else None
+        queue = self.scripts.get(typed_key) or self.scripts[parsed.path]
         return queue.pop(0) if len(queue) > 1 else queue[0]
 
     def close(self) -> None:
@@ -77,14 +81,17 @@ class TestTransportContract:
         module_source = inspect.getsource(pokemon_jp_api)
         assert "import httpx" not in module_source
 
-    def test_requests_are_absolute_and_carry_repeated_event_type_params(self):
+    def test_requests_are_absolute_and_query_one_event_type_at_a_time(self):
+        """One request per type: a retired type code then fails alone, not the whole listing."""
         session = _FakeSession({"/event_search": [_FakeResponse(200, {"code": 200, "event": []})]})
         PokemonJPAPIClient(session=session).fetch_cl_events("2026-08-14", "2026-12-10")
 
-        assert session.calls[0].startswith(f"{BASE_URL}/event_search?")
-        query = parse_qs(urlparse(session.calls[0]).query)
-        assert query["result_resist"] == ["1"]
-        assert len(query["event_type[]"]) >= 8, "every City League season code must be sent"
+        assert all(u.startswith(f"{BASE_URL}/event_search?") for u in session.calls)
+        queries = [parse_qs(urlparse(u).query) for u in session.calls]
+        assert all(q["result_resist"] == ["1"] for q in queries)
+        assert all(len(q["event_type[]"]) == 1 for q in queries)
+        sent = [q["event_type[]"][0] for q in queries]
+        assert sent == list(POKEMON_JP_CITY_LEAGUE_EVENT_TYPES)
 
     def test_close_releases_the_session(self):
         session = _FakeSession({})
@@ -109,7 +116,9 @@ class TestFetchClEvents:
             {"/event_search": [_FakeResponse(200, page1), _FakeResponse(200, page2)]}
         )
 
-        events = PokemonJPAPIClient(session=session).fetch_cl_events("2026-08-14", "2026-12-10")
+        events = PokemonJPAPIClient(session=session).fetch_cl_events(
+            "2026-08-14", "2026-12-10", event_types=["3:2"]
+        )
 
         assert [e.event_id for e in events] == [2, 1]
         assert len(session.calls) == 2, "stops paging once an event predates the window"
@@ -125,7 +134,9 @@ class TestFetchClEvents:
             {"/event_search": [_FakeResponse(403), _FakeResponse(403), _FakeResponse(200, payload)]}
         )
 
-        events = PokemonJPAPIClient(session=session).fetch_cl_events("2026-08-14", "2026-12-10")
+        events = PokemonJPAPIClient(session=session).fetch_cl_events(
+            "2026-08-14", "2026-12-10", event_types=["3:2"]
+        )
 
         assert [e.event_id for e in events] == [9]
         assert len(session.calls) == 3
@@ -138,10 +149,54 @@ class TestFetchClEvents:
         session = _FakeSession({"/event_search": [_FakeResponse(403)]})
 
         with pytest.raises(JPAPIError, match="403"):
-            PokemonJPAPIClient(session=session).fetch_cl_events("2026-08-14", "2026-12-10")
+            PokemonJPAPIClient(session=session).fetch_cl_events(
+                "2026-08-14", "2026-12-10", event_types=["3:2"]
+            )
 
         assert len(session.calls) == 1 + len(PokemonJPAPIClient._RETRY_DELAYS_SECONDS)
         assert slept == [2.0, 4.0, 8.0]
+
+    def test_rejected_event_type_is_skipped_and_other_types_still_collected(self):
+        """From 2026-10-15 the API answered 400 for ``3:8`` and every scheduled scrape died."""
+        cl = {"code": 200, "eventCount": 1, "event": [_event(20, "20261123")]}
+        city = {
+            "code": 200,
+            "eventCount": 2,
+            "event": [_event(11, "20261115"), _event(10, "20261001")],
+        }
+        session = _FakeSession(
+            {
+                "/event_search#3:1": [_FakeResponse(200, cl)],
+                "/event_search#3:2": [_FakeResponse(200, city)],
+                "/event_search#3:8": [_FakeResponse(400, {"code": 400})],
+                "/event_search": [_FakeResponse(404)],
+            }
+        )
+
+        events = PokemonJPAPIClient(session=session).fetch_cl_events(
+            "2026-08-14", "2026-12-10", event_types=["3:1", "3:8", "3:2"]
+        )
+
+        assert [e.event_id for e in events] == [20, 11, 10], "merged newest first"
+
+    def test_event_listed_under_two_types_is_returned_once(self):
+        payload = {"code": 200, "eventCount": 1, "event": [_event(5, "20261010")]}
+        session = _FakeSession({"/event_search": [_FakeResponse(200, payload)]})
+
+        events = PokemonJPAPIClient(session=session).fetch_cl_events(
+            "2026-08-14", "2026-12-10", event_types=["3:1", "3:2"]
+        )
+
+        assert [e.event_id for e in events] == [5]
+
+    def test_every_type_rejected_raises(self):
+        """If no type is accepted, the request shape changed; an empty list would hide that."""
+        session = _FakeSession({"/event_search": [_FakeResponse(400, {"code": 400})]})
+
+        with pytest.raises(JPAPIError, match="400"):
+            PokemonJPAPIClient(session=session).fetch_cl_events(
+                "2026-08-14", "2026-12-10", event_types=["3:1", "3:2"]
+            )
 
     def test_success_path_never_sleeps(self, monkeypatch):
         slept: list[float] = []

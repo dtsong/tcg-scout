@@ -314,8 +314,10 @@ LABS_MIN_MATCHES_CONFIDENT = (
 LABS_MIN_ENCOUNTERS_TO_PUBLISH = 5  # Minimum weighted encounters for record-based fallback
 LABS_CI_Z = 1.96  # z-score for 95% confidence interval (used in Wilson and Wald CIs)
 
-# Pokemon JP API: City League event_type values (3:N = City League Season N)
-# Each season maps to a different competitive period within the championship year.
+# Pokemon JP API: event_type[] codes listed by scrape-jp, one request per code.
+# Observed 2026-11-25: 3:1 = Champions League / championship tier, 3:2 = City League,
+# 3:7 = casual store events; 3:3-3:6 return 404 (no events); 3:8 returns HTTP 400
+# (retired). PokemonJPAPIClient skips a rejected code instead of failing the scrape.
 POKEMON_JP_CITY_LEAGUE_EVENT_TYPES = [
     "3:1",
     "3:2",

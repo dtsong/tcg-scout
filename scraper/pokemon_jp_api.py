@@ -3,11 +3,13 @@
 Discovered API endpoints (no browser rendering required):
 
 1. Event Listing:
-   GET /event_search?offset=0&order=4&result_resist=1&event_type[]=3:1&event_type[]=3:2&event_type[]=3:7
+   GET /event_search?offset=0&order=4&result_resist=1&event_type[]=3:2
    Returns: { code, event: [...], eventCount }
    Each event has: event_holding_id, event_date_params (YYYYMMDD), shop_name,
    prefecture_name, capacity, event_title, etc.
    Pagination: offset param (20 per page)
+   An unknown event_type code makes the whole request fail with HTTP 400, so
+   the client sends one code per request.
 
 2. Event Results (placements):
    GET /event_result_detail_search?event_holding_id={id}&offset=0&per_page=64
@@ -25,6 +27,7 @@ with Chrome impersonation passes cleanly; see PokemonJPAPIClient.
 
 import logging
 import time
+from collections.abc import Sequence
 from dataclasses import dataclass
 from typing import Any
 from urllib.parse import urlencode
@@ -42,6 +45,10 @@ IMPERSONATE_BROWSER = "chrome"
 
 class JPAPIError(RuntimeError):
     """Non-retryable HTTP failure from players.pokemon-card.com."""
+
+    def __init__(self, message: str, *, status_code: int | None = None) -> None:
+        super().__init__(message)
+        self.status_code = status_code
 
 
 LEAGUE_NAME_MAP = {
@@ -197,19 +204,62 @@ class PokemonJPAPIClient:
         if resp.status_code == 404:
             return None
         if resp.status_code >= 400:
-            raise JPAPIError(f"JP API {path} returned HTTP {resp.status_code}")
+            raise JPAPIError(
+                f"JP API {path} returned HTTP {resp.status_code}", status_code=resp.status_code
+            )
         return resp.json()
 
-    def fetch_cl_events(self, start: str, end: str) -> list[JPCityLeagueEvent]:
-        """Fetch City League events in a date range.
+    def fetch_cl_events(
+        self,
+        start: str,
+        end: str,
+        *,
+        event_types: Sequence[str] = POKEMON_JP_CITY_LEAGUE_EVENT_TYPES,
+    ) -> list[JPCityLeagueEvent]:
+        """Fetch City League and Champions League events in a date range.
+
+        Each event type is listed with its own request. The API rejects the whole
+        request with HTTP 400 when one type code is unknown (``3:8`` from
+        2026-10-15), so one retired code must not hide the valid ones.
 
         Args:
             start: Start date YYYY-MM-DD (inclusive)
             end: End date YYYY-MM-DD (inclusive)
+            event_types: ``event_type[]`` codes to list.
 
         Returns:
-            List of events within the date range, newest first.
+            Events within the date range, newest first, one per event_holding_id.
+
+        Raises:
+            JPAPIError: If every type is rejected with HTTP 400, or on any other
+                non-retryable failure.
         """
+        by_id: dict[int, JPCityLeagueEvent] = {}
+        rejected: list[str] = []
+        for event_type in event_types:
+            try:
+                page_events = self._fetch_events_for_type(event_type, start, end)
+            except JPAPIError as exc:
+                if exc.status_code != 400:
+                    raise
+                logger.warning("JP API rejected event_type %s (HTTP 400), skipping", event_type)
+                rejected.append(event_type)
+                continue
+            for evt in page_events:
+                by_id.setdefault(evt.event_id, evt)
+
+        if event_types and len(rejected) == len(event_types):
+            raise JPAPIError(
+                f"JP API /event_search returned HTTP 400 for every event_type {rejected}",
+                status_code=400,
+            )
+
+        return sorted(by_id.values(), key=lambda e: e.date, reverse=True)
+
+    def _fetch_events_for_type(
+        self, event_type: str, start: str, end: str
+    ) -> list[JPCityLeagueEvent]:
+        """Page one event type newest-first until an event predates ``start``."""
         events: list[JPCityLeagueEvent] = []
         offset = 0
 
@@ -220,34 +270,35 @@ class PokemonJPAPIClient:
                     "offset": offset,
                     "order": 4,  # Sort by date desc
                     "result_resist": 1,  # Only events with results
-                    "event_type[]": POKEMON_JP_CITY_LEAGUE_EVENT_TYPES,
+                    "event_type[]": [event_type],
                 },
             )
             if data is None or data.get("code") != 200:
-                logger.warning("API returned code %s", None if data is None else data.get("code"))
-                break
+                # 404 means the type currently has no events with results.
+                return events
 
             page_events = data.get("event", [])
             if not page_events:
-                break
+                return events
 
             for raw in page_events:
                 evt = JPCityLeagueEvent.from_api(raw)
-                # Filter by date range
                 if evt.date < start:
-                    # Past our window (events are newest-first)
-                    return events
+                    return events  # Past our window (events are newest-first)
                 if evt.date <= end:
                     events.append(evt)
 
             offset += PAGE_SIZE
-            total = data.get("eventCount", 0)
-            if offset >= total:
-                break
+            if offset >= data.get("eventCount", 0):
+                return events
 
-            logger.info("Fetched %d events so far (offset %d/%d)", len(events), offset, total)
-
-        return events
+            logger.info(
+                "event_type %s: %d events so far (offset %d/%d)",
+                event_type,
+                len(events),
+                offset,
+                data.get("eventCount", 0),
+            )
 
     def fetch_event_results(self, event_holding_id: int) -> list[JPCityLeagueResult]:
         """Fetch placements for a specific event.
