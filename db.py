@@ -2,6 +2,8 @@
 
 import logging
 import sqlite3
+from collections.abc import Iterator
+from contextlib import contextmanager
 from pathlib import Path
 
 from config import DEFAULT_FORMAT, FORMATS
@@ -248,6 +250,41 @@ def get_format_connection(format_slug: str) -> sqlite3.Connection:
     return conn
 
 
+# Indexes for the snapshot tables, matching the lookups the exports make.
+_SNAPSHOT_INDEXES = (
+    ("open_placements", "id"),
+    ("open_placements", "tournament_id"),
+    ("open_placements", "archetype"),
+    ("open_tournaments", "id"),
+    ("open_tournaments", "date"),
+)
+
+
+@contextmanager
+def snapshot_open_views(conn: sqlite3.Connection) -> Iterator[None]:
+    """Materialize the dedup views as TEMP tables for the duration of the block.
+
+    The open_placements and open_tournaments views run a correlated NOT EXISTS
+    per row, and SQLite re-evaluates a view on every query that reads it. A
+    full export reads them thousands of times (about 6 queries per card), so
+    the views alone cost ~4 s per card file on a 15k-placement database.
+    Unqualified names resolve to the temp schema before main, so the TEMP
+    tables shadow the views for this connection only, with no query changes.
+
+    Use it only around read-only work: writes to placements or tournaments
+    inside the block are not reflected in the snapshot.
+    """
+    for view in ("open_placements", "open_tournaments"):
+        conn.execute(f"CREATE TEMP TABLE {view} AS SELECT * FROM main.{view}")
+    for table, column in _SNAPSHOT_INDEXES:
+        conn.execute(f"CREATE INDEX temp.idx_snapshot_{table}_{column} ON {table}({column})")
+    try:
+        yield
+    finally:
+        for view in ("open_placements", "open_tournaments"):
+            conn.execute(f"DROP TABLE IF EXISTS temp.{view}")
+
+
 def get_connection() -> sqlite3.Connection:
     """Get a SQLite connection for the default format."""
     return get_format_connection(DEFAULT_FORMAT)
@@ -282,8 +319,9 @@ def init_db(conn: sqlite3.Connection | None = None) -> None:
         conn = get_connection()
         close = True
     # Required because CREATE VIEW IF NOT EXISTS won't update existing definitions.
-    conn.execute("DROP VIEW IF EXISTS open_placements")
-    conn.execute("DROP VIEW IF EXISTS open_tournaments")
+    # main.-qualified so a live snapshot_open_views() TEMP table is never the target.
+    conn.execute("DROP VIEW IF EXISTS main.open_placements")
+    conn.execute("DROP VIEW IF EXISTS main.open_tournaments")
     conn.executescript(SCHEMA)
     # Migration: ensure division column exists on older databases
     cols = {row[1] for row in conn.execute("PRAGMA table_info(tournaments)")}

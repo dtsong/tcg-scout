@@ -52,6 +52,7 @@ from config import (
     TIER_THRESHOLDS,
     get_format_config,
 )
+from db import snapshot_open_views
 from scraper.card_mappings import tcgdex_to_limitless
 
 # Time windows for pre-computed date-filtered exports
@@ -3164,7 +3165,22 @@ def export_all(
     Core exports always propagate errors. When strict=True, optional exports
     (cards, overlap, matchup, evolution, tech forecast, deep dive, optimal 60)
     also propagate instead of being caught and logged.
+
+    The exports read placements and tournaments only, so they run against a
+    snapshot of the dedup views (see db.snapshot_open_views).
     """
+    with snapshot_open_views(conn):
+        return _run_exports(conn, output_dir, format_slug, strict, labs_conn, labs_pg_conn)
+
+
+def _run_exports(
+    conn: sqlite3.Connection,
+    output_dir: Path | None,
+    format_slug: str | None,
+    strict: bool,
+    labs_conn: "sqlite3.Connection | None",
+    labs_pg_conn: "object | None",
+) -> tuple[Path, list[str]]:
     base = output_dir or DEFAULT_OUTPUT_DIR
     # Write to format subdirectory
     slug = format_slug or DEFAULT_FORMAT

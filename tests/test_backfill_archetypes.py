@@ -246,6 +246,61 @@ class TestBackfillArchetypes:
         rows = _read_archetypes(db_path)
         assert rows[0]["archetype"] == "Unknown"
 
+    def test_only_fetches_tournaments_on_dates_with_unknowns(self, tmp_path):
+        """A lookup entry can only match an Unknown on the same date, so pages for
+        other dates are rate-limited requests spent for nothing."""
+        jp_rows = [
+            {
+                "tid": "jp-1",
+                "tname": "東京都 Store A",
+                "date": "2026-04-12",
+                "standing": 1,
+                "player_name": "kaito",
+            },
+            {
+                "tid": "jp-2",
+                "tname": "東京都 Store B",
+                "date": "2026-04-20",
+                "standing": 1,
+                "player_name": "ren",
+            },
+        ]
+        db_path = _make_db(tmp_path, jp_rows)
+
+        def _tournament(day, n):
+            return LimitlessTournament(
+                name="City League Tōkyō",
+                tournament_date=date(2026, 4, day),
+                source_url=f"https://limitlesstcg.com/tournaments/jp/{n}",
+            )
+
+        lim_data = [
+            (_tournament(12, 40), [LimitlessPlacement(1, "kaito", "Dragapult ex")]),
+            (_tournament(15, 41), [LimitlessPlacement(1, "sora", "Gardevoir ex")]),
+            (_tournament(20, 42), [LimitlessPlacement(1, "ren", "Raging Bolt ex")]),
+        ]
+        stub_cls = _stub_limitless(lim_data)
+        fetched: list[str] = []
+        original = stub_cls.fetch_jp_city_league_placements
+
+        def _recording_fetch(self, url, _max=32):
+            fetched.append(url)
+            return original(self, url, _max)
+
+        stub_cls.fetch_jp_city_league_placements = _recording_fetch
+
+        result = _run_backfill(db_path, stub_cls)
+        assert result.exit_code == 0, result.output
+
+        assert fetched == [
+            "https://limitlesstcg.com/tournaments/jp/40",
+            "https://limitlesstcg.com/tournaments/jp/42",
+        ]
+        assert [r["archetype"] for r in _read_archetypes(db_path)] == [
+            "Dragapult ex",
+            "Raging Bolt ex",
+        ]
+
 
 class TestRegionGate:
     def test_tpci_format_never_touches_limitless(self, tmp_path):

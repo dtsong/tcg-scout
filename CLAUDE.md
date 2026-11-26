@@ -43,6 +43,8 @@
 - `scout_scrape` (`.harness/pipelines/scrape.yaml`): daily 06:00 UTC on Harness Cloud, trigger `scout_scrape_daily`. Bootstraps from the GitHub Release, scrapes active JP formats, exports, validates, publishes, commits `web/data-manifest.json` as `harness-scrape[bot]`
 - `scout_verify` (`.harness/pipelines/verify.yaml`): on push to main, runs ruff, pytest, tsc, eslint, vitest (no Playwright, credit budget)
 - Account `jKE_O7LaTmaV8BCJt1ic7w`, org `default`, project `default_project`; Free plan, 2000 credits/month, 2 credits/min
+- Harness Cloud expires a stage at 30 minutes, whatever the YAML timeout says. The scrape step timeout is 24m to leave room for setup, validate, publish and the cache save. Run 74 (2026-11-25) expired on this cap.
+- Exports run inside `db.snapshot_open_views`, which copies the dedup views into TEMP tables. Without it, the card export took about 6 s per card.
 - State between runs: stage-level Cache Intelligence (key `scout-state`) plus the release; run with `restore_from_release: "true"` to rebuild from the release
 
 ### Node.js / NVM

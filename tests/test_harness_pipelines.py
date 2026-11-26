@@ -89,7 +89,9 @@ class TestScrapePipeline:
         assert "formats-list --status frozen" in command
         for slug in FORMATS:
             assert slug not in command, f"{slug} is hard-coded; use formats-list"
-        assert scrape["timeout"] == "45m"
+        # Harness Cloud expires a stage at 30m; the step must leave room for the
+        # setup, validate, publish and cache-save work around it.
+        assert scrape["timeout"] == "24m"
 
     def test_jp_scrape_backfills_limitless_decklists_over_plain_http(self):
         """Card-level pages need decklists. The Kernel browser source needs a paid
@@ -103,10 +105,21 @@ class TestScrapePipeline:
         assert "--since" in backfill, "an unbounded backfill retries dead links forever"
         # ~12 lists/min: a backlog (e.g. after an outage) must drain over several
         # runs, newest first, instead of overrunning the step timeout.
-        assert "--limit" in backfill, "an uncapped backlog overruns the 45m step timeout"
+        assert "--limit" in backfill, "an uncapped backlog overruns the step timeout"
         assert command.index("scrape-jp") < command.index("backfill-decklists")
         assert command.index("backfill-decklists") < command.index('"$slug" meta')
         assert "KERNEL_API_KEY" not in command
+
+    def test_archetype_backfill_is_bounded_to_the_decklist_window(self):
+        """Unbounded, backfill-archetypes rechecked every Limitless event in the
+        format (~500 pages, ~20 min) for Unknowns it could never resolve."""
+        scrape = next(s for s in self.steps if s["identifier"] == "scrape")
+        backfill = next(
+            line.strip()
+            for line in scrape["spec"]["command"].splitlines()
+            if "backfill-archetypes" in line and not line.strip().startswith("#")
+        )
+        assert '--start "$decklist_since"' in backfill
 
     def test_release_check_runs_before_the_jp_scrape(self):
         """A JP set with no format must fail the run, not leave the JP loop empty."""

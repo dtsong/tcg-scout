@@ -1886,7 +1886,16 @@ def backfill_archetypes(
 
         client = LimitlessClient()
         tournaments = client.fetch_jp_city_league_listings(range_start, range_end)
-        console.print(f"Found [bold]{len(tournaments)}[/bold] Limitless tournaments")
+        # Each placement page costs a rate-limited request, and a lookup entry can
+        # only match an Unknown on the same date. Skip the other dates: a range
+        # spanning the whole format otherwise refetches ~500 pages (~20 min).
+        unknown_dates = {r["date"] for r in rows if r["player_name"]}
+        listed = len(tournaments)
+        tournaments = [t for t in tournaments if t.tournament_date.isoformat() in unknown_dates]
+        console.print(
+            f"Found [bold]{listed}[/bold] Limitless tournaments, "
+            f"[bold]{len(tournaments)}[/bold] on dates with Unknown placements"
+        )
 
         if not tournaments:
             console.print("[yellow]No Limitless tournaments found for that range.[/yellow]")
