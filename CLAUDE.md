@@ -56,6 +56,7 @@ source ~/.nvm/nvm.sh && nvm use default --silent && <command>
 
 - One SQLite DB per format slug in `config.FORMATS` (`data/<slug>.db`); status derives from `dataset_end` via `is_format_frozen`
 - **Active (2026-27 season, from 2026-09):** `storm-emeralda.db` (JP, M6 Storm Emeralda legal 2026-08-14, until M7 Hadou Seeker legality 2026-12-11), `tpci-standard-2027.db` (TPCi 2026-27 season, regulation H-I-J; end date is a placeholder until the 2027 rotation is announced)
+- **Next JP format:** `hadou-seeker.db` (M7, legal 2026-12-11 to 2027-06-03). Upcoming JP products live in `config.JP_SET_RELEASES`; `tests/test_release_schedule.py` pins JP format windows to them, and `scout release-check` (first command of the scrape step) fails the run once a format-starting set is legal with no format
 - **Frozen:** `nihil-zero.db`, `ninja-spinner.db`, `abyss-eye.db` (JP, ended 2026-08-13), `tpci-standard.db` (2025-26 season incl. Worlds 2026), `tpci-standard-2025.db`, `tpci-standard-2024.db`, plus legacy `scout.db`
 - The scrape pipeline derives the active/frozen split from `scout formats-list --status active|frozen`, so rotation only touches `config.FORMATS`; `tests/test_harness_pipelines.py` guards that no slug is hard-coded. Empty active formats (no placements yet) export nothing and appear as `"upcoming"` in `formats.json`.
 - JP set legality convention: a JP set is tournament-legal two weeks after release; format boundaries follow that date
