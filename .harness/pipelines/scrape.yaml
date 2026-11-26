@@ -90,6 +90,8 @@ pipeline:
                       # ingested out of band (operator runs scrape-tpci + meta) and are export-only.
                       # Decklists come from Limitless (top 16 per City League, plain HTTP); the
                       # 21-day window catches late uploads without retrying dead links forever.
+                      # At ~12 lists/min, --limit 300 (~25 min, newest first) lets a backlog
+                      # drain over several runs instead of overrunning the 45m timeout.
                       decklist_since="$(date -u -d '21 days ago' +%Y-%m-%d)"
                       for slug in $(uv run scout formats-list --status active --region jp); do
                         echo "=== scraping $slug ==="
@@ -97,7 +99,7 @@ pipeline:
                         uv run scout --format "$slug" scrape --no-decklists
                         uv run scout --format "$slug" scrape-jp --no-decklists
                         uv run scout --format "$slug" backfill-archetypes
-                        uv run scout --format "$slug" backfill-decklists --source limitless --since "$decklist_since"
+                        uv run scout --format "$slug" backfill-decklists --source limitless --since "$decklist_since" --limit 300
                         uv run scout --format "$slug" translate-cards
                         uv run scout --format "$slug" meta
                       done

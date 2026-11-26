@@ -101,6 +101,9 @@ class TestScrapePipeline:
         )
         assert "--source limitless" in backfill
         assert "--since" in backfill, "an unbounded backfill retries dead links forever"
+        # ~12 lists/min: a backlog (e.g. after an outage) must drain over several
+        # runs, newest first, instead of overrunning the step timeout.
+        assert "--limit" in backfill, "an uncapped backlog overruns the 45m step timeout"
         assert command.index("scrape-jp") < command.index("backfill-decklists")
         assert command.index("backfill-decklists") < command.index('"$slug" meta')
         assert "KERNEL_API_KEY" not in command
