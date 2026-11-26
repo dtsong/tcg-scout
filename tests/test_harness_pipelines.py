@@ -55,6 +55,7 @@ class TestScrapePipeline:
         stage = self.pipeline["stages"][0]["stage"]["spec"]
         assert stage["runtime"]["type"] == "Cloud"
         assert stage["platform"] == {"os": "Linux", "arch": "Amd64"}
+        assert stage["runtime"]["spec"] == {"size": "xsmall"}, "credit budget: 1 credit/min"
 
     def test_step_order(self):
         assert [(s["type"], s["identifier"]) for s in self.steps] == [
@@ -218,6 +219,10 @@ class TestVerifyPipeline:
         codebase = self.pipeline["properties"]["ci"]["codebase"]
         assert codebase["connectorRef"] == CODEBASE_CONNECTOR
         assert codebase["repoName"] == "dtsong/tcg-scout"
+
+    def test_runs_on_the_cheapest_cloud_machine(self):
+        stage = self.pipeline["stages"][0]["stage"]["spec"]
+        assert stage["runtime"] == {"type": "Cloud", "spec": {"size": "xsmall"}}
 
     def test_python_and_web_gates(self):
         assert [s["identifier"] for s in self.steps] == ["python", "web"]

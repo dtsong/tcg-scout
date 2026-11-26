@@ -50,7 +50,10 @@ pipeline:
             arch: Amd64
           runtime:
             type: Cloud
-            spec: {}
+            # xsmall (2 cores, 7 GB) bills 1 credit/min; the default is medium at 4.
+            # The Free plan's 2000 credits/month ran short on medium in 2026-11.
+            spec:
+              size: xsmall
           execution:
             steps:
               - step:
