@@ -201,7 +201,7 @@ JP_SET_RELEASES: tuple[dict, ...] = (
         "release_date": "2026-11-27",
         "starts_format": True,
         "format": "hadou-seeker",
-        "source": _POKEBEACH_M7,
+        "source": "https://www.pokemon-card.com/ex/m7/",
     },
     {
         # PokeBeach lists "February 29th", which does not exist in 2027.
