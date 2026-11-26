@@ -16,6 +16,12 @@ export function formatPlacement(placement: number | null): string {
   return `${placement}${suffix}`;
 }
 
+/** "1 deck", "13,422 decks". A missing count reads as 0. */
+export function countLabel(n: number | undefined, noun: string): string {
+  const value = n ?? 0;
+  return `${value.toLocaleString()} ${noun}${value === 1 ? "" : "s"}`;
+}
+
 export function formatPct(value: number): string {
   return `${value.toFixed(1)}%`;
 }

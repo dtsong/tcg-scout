@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import type { FormatInfo } from "@/app/lib/types";
+import { countLabel } from "@/app/lib/utils";
+import { groupFormatsByRegion, type FormatRegionGroup } from "@/app/lib/format-regions";
 
 export function formatFreshness(generatedAt?: string): string | null {
   if (!generatedAt) return null;
@@ -21,11 +23,6 @@ function formatDate(iso: string): string {
   });
 }
 
-function countLabel(n: number | undefined, noun: string): string {
-  const value = n ?? 0;
-  return `${value.toLocaleString()} ${noun}${value === 1 ? "" : "s"}`;
-}
-
 function Stat({ value, label }: { value: number; label: string }) {
   return (
     <div>
@@ -39,6 +36,12 @@ function Stat({ value, label }: { value: number; label: string }) {
 
 function ActiveFormatCard({ format }: { format: FormatInfo }) {
   const freshness = formatFreshness(format.generated_at);
+  // A TPCi season ends at the next rotation, which is announced late, so its
+  // dataset_end is a placeholder. Show only the start date for it.
+  const isSeason = format.region === "tpci";
+  const legal = isSeason
+    ? `Legal from ${formatDate(format.dataset_start)}`
+    : `Legal ${formatDate(format.dataset_start)} to ${formatDate(format.dataset_end)}`;
   return (
     <Link
       href={`/${format.slug}`}
@@ -46,7 +49,7 @@ function ActiveFormatCard({ format }: { format: FormatInfo }) {
     >
       <div className="flex items-center justify-between mb-4">
         <span className="text-xs font-medium px-2 py-0.5 rounded-full border bg-accent/15 text-accent border-accent/30">
-          Active
+          {isSeason ? "Current season" : "Active"}
         </span>
         <ChevronRight className="w-4 h-4 text-surface-500 group-hover:text-accent transition-colors" />
       </div>
@@ -63,7 +66,7 @@ function ActiveFormatCard({ format }: { format: FormatInfo }) {
           <p className="text-xs text-surface-400">No results yet. The first events are being collected.</p>
         )}
         <p className="text-xs text-surface-400 mt-2">
-          Legal {formatDate(format.dataset_start)} to {formatDate(format.dataset_end)}
+          {legal}
           {freshness ? `. ${freshness}` : ""}
         </p>
       </div>
@@ -123,51 +126,72 @@ function ArchivedFormatRow({ format }: { format: FormatInfo }) {
   );
 }
 
-/**
- * Home page format list: active and upcoming formats as cards, then frozen
- * formats as a compact archive. Expects formats already ordered by
- * sortFormats().
- */
-export function HomeFormatSections({ formats }: { formats: FormatInfo[] }) {
-  const current = formats.filter((f) => f.status !== "frozen");
-  const archived = formats.filter((f) => f.status === "frozen");
+const REGION_BLURB: Record<FormatRegionGroup["region"], string> = {
+  jp: "City League results from Japan. Each format runs from one set's release to the next.",
+  tpci: "Regionals, Internationals and Worlds. Each format is one season.",
+};
+
+function RegionSection({ group }: { group: FormatRegionGroup }) {
+  const current = group.formats.filter((f) => f.status !== "frozen");
+  const archived = group.formats.filter((f) => f.status === "frozen");
+  const headingId = `${group.region}-formats-heading`;
+  const archiveId = `${group.region}-archived-heading`;
 
   return (
-    <div className="space-y-10">
-      <section aria-labelledby="active-formats-heading">
-        <h2 id="active-formats-heading" className="font-display text-lg font-semibold text-slate-100 mb-4">
-          Active formats
-        </h2>
-        {current.length === 0 ? (
-          <p className="text-sm text-surface-400">No active formats right now.</p>
-        ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-            {current.map((f) =>
-              f.status === "active" ? (
-                <ActiveFormatCard key={f.slug} format={f} />
-              ) : (
-                <UpcomingFormatCard key={f.slug} format={f} />
-              ),
-            )}
-          </div>
-        )}
-      </section>
+    <section aria-labelledby={headingId}>
+      <h2 id={headingId} className="font-display text-lg font-semibold text-slate-100">
+        {group.label}
+      </h2>
+      <p className="text-sm text-surface-400 mt-1 mb-4">{REGION_BLURB[group.region]}</p>
+      {current.length === 0 ? (
+        <p className="text-sm text-surface-400">No current format right now.</p>
+      ) : (
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+          {current.map((f) =>
+            f.status === "active" ? (
+              <ActiveFormatCard key={f.slug} format={f} />
+            ) : (
+              <UpcomingFormatCard key={f.slug} format={f} />
+            ),
+          )}
+        </div>
+      )}
 
       {archived.length > 0 && (
-        <section aria-labelledby="archived-formats-heading">
-          <h2 id="archived-formats-heading" className="font-display text-lg font-semibold text-slate-100">
+        <>
+          <h3 id={archiveId} className="text-sm font-semibold text-surface-300 mt-6 mb-3">
             Archived formats
-          </h2>
-          <p className="text-sm text-surface-400 mt-1 mb-4">
-            Complete results for formats that have ended.
-          </p>
-          <ul className="bg-surface-800 border border-surface-600 rounded-xl overflow-hidden">
+          </h3>
+          <ul
+            aria-labelledby={archiveId}
+            className="bg-surface-800 border border-surface-600 rounded-xl overflow-hidden"
+          >
             {archived.map((f) => (
               <ArchivedFormatRow key={f.slug} format={f} />
             ))}
           </ul>
-        </section>
+        </>
       )}
+    </section>
+  );
+}
+
+/**
+ * Home page format list, one section per tournament circuit (Japan City
+ * League, then TPCi). Each section shows its active and upcoming formats as
+ * cards, then its frozen formats as a compact archive. Expects formats
+ * already ordered by sortFormats().
+ */
+export function HomeFormatSections({ formats }: { formats: FormatInfo[] }) {
+  const groups = groupFormatsByRegion(formats);
+  if (groups.length === 0) {
+    return <p className="text-sm text-surface-400">No formats yet.</p>;
+  }
+  return (
+    <div className="space-y-12">
+      {groups.map((g) => (
+        <RegionSection key={g.region} group={g} />
+      ))}
     </div>
   );
 }

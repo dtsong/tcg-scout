@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { FormatInfo } from "@/app/lib/types";
+import { groupFormatsByRegion } from "@/app/lib/format-regions";
 
 interface SidebarNavClientProps {
   format: string;
@@ -123,43 +124,49 @@ export function SidebarNavClient({ format, formats }: SidebarNavClientProps) {
         </nav>
       </div>
 
-      {/* Format Switcher — active formats, with frozen ones grouped under Archives */}
-      {formats.length > 1 && (() => {
-        const activeFormats = formats.filter((f) => f.status !== "frozen");
-        const archivedFormats = formats.filter((f) => f.status === "frozen");
-        return (
-          <div className="space-y-4">
-            {activeFormats.length > 0 && (
-              <div>
-                <h3 className="font-display text-xs font-semibold text-surface-300 uppercase tracking-wider mb-3">
-                  Formats
+      {/* Format switcher: one group per circuit, current formats first, then that circuit's archive */}
+      {formats.length > 1 && (
+        <nav aria-label="Formats" className="space-y-5">
+          {groupFormatsByRegion(formats).map((group) => {
+            const current = group.formats.filter((f) => f.status !== "frozen");
+            const archived = group.formats.filter((f) => f.status === "frozen");
+            const headingId = `sidebar-${group.region}-formats`;
+            return (
+              <div key={group.region} role="group" aria-labelledby={headingId}>
+                <h3
+                  id={headingId}
+                  className="font-display text-xs font-semibold text-surface-300 uppercase tracking-wider mb-3"
+                >
+                  {group.label}
                 </h3>
-                <nav className="space-y-1">
-                  {activeFormats.map((f) => (
-                    <Link key={f.slug} href={`/${f.slug}`} className={navLinkClass(f.slug === format)}>
-                      {f.name_en}
-                    </Link>
-                  ))}
-                </nav>
+                {current.length > 0 && (
+                  <div className="space-y-1">
+                    {current.map((f) => (
+                      <Link key={f.slug} href={`/${f.slug}`} className={navLinkClass(f.slug === format)}>
+                        {f.name}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+                {archived.length > 0 && (
+                  <>
+                    <h4 className="text-[11px] font-medium text-surface-400 mt-3 mb-1.5 px-3">
+                      Archived formats
+                    </h4>
+                    <div className="space-y-1">
+                      {archived.map((f) => (
+                        <Link key={f.slug} href={`/${f.slug}`} className={navLinkClass(f.slug === format)}>
+                          {f.name}
+                        </Link>
+                      ))}
+                    </div>
+                  </>
+                )}
               </div>
-            )}
-            {archivedFormats.length > 0 && (
-              <div>
-                <h3 className="font-display text-xs font-semibold text-surface-300 uppercase tracking-wider mb-3">
-                  Archives
-                </h3>
-                <nav className="space-y-1">
-                  {archivedFormats.map((f) => (
-                    <Link key={f.slug} href={`/${f.slug}`} className={navLinkClass(f.slug === format)}>
-                      {f.name_en}
-                    </Link>
-                  ))}
-                </nav>
-              </div>
-            )}
-          </div>
-        );
-      })()}
+            );
+          })}
+        </nav>
+      )}
     </>
   );
 }

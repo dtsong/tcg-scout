@@ -129,6 +129,52 @@ describe("Nav", () => {
     });
   });
 
+  describe("Format switcher circuits", () => {
+    const season: FormatInfo = {
+      slug: "tpci-standard-2027",
+      name: "TPCi Standard 2026-27",
+      name_en: "TPCi Standard 2026-27",
+      description: "International season",
+      dataset_start: "2026-09-05",
+      dataset_end: "2027-09-03",
+      status: "active",
+      region: "tpci",
+    };
+
+    async function openSwitcher() {
+      const user = userEvent.setup();
+      render(<Nav format="ninja-spinner" formats={[...formats, season]} />);
+      await user.click(screen.getAllByRole("button", { name: /Ninja Spinner/i })[0]);
+      return screen.getByRole("menu", { name: "Format switcher" });
+    }
+
+    it("groups formats by circuit, treating a missing region as Japan City League", async () => {
+      const menu = await openSwitcher();
+      const jp = within(menu).getByRole("group", { name: "Japan City League" });
+      const tpci = within(menu).getByRole("group", { name: "International (TPCi)" });
+      expect(within(jp).getAllByRole("menuitem").map((i) => i.textContent)).toEqual([
+        expect.stringContaining("Ninja Spinner"),
+        expect.stringContaining("Nihil Zero"),
+      ]);
+      expect(within(tpci).getByRole("menuitem").textContent).toContain("TPCi Standard 2026-27");
+    });
+
+    it("uses the singular for one tournament and one deck", async () => {
+      const user = userEvent.setup();
+      const tiny = { ...formats[1], tournament_count: 1, deck_count: 1 };
+      render(<Nav format="ninja-spinner" formats={[formats[0], tiny]} />);
+      await user.click(screen.getAllByRole("button", { name: /Ninja Spinner/i })[0]);
+      const menu = screen.getByRole("menu", { name: "Format switcher" });
+      expect(within(menu).getByText("1 tournament / 1 deck")).toBeInTheDocument();
+    });
+
+    it("marks the active TPCi format as the current season", async () => {
+      const menu = await openSwitcher();
+      const tpci = within(menu).getByRole("group", { name: "International (TPCi)" });
+      expect(within(tpci).getByText("Current season")).toBeInTheDocument();
+    });
+  });
+
   describe("Keyboard navigation", () => {
     it("Escape closes an open dropdown", async () => {
       const user = userEvent.setup();

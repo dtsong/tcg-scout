@@ -1,11 +1,12 @@
 "use client";
 
-import { useState, useRef, useEffect, useCallback } from "react";
+import { useState, useRef, useEffect, useCallback, useId } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { cn } from "@/app/lib/utils";
+import { cn, countLabel } from "@/app/lib/utils";
 import { Crosshair, ChevronDown, Menu, X } from "lucide-react";
 import type { FormatInfo } from "@/app/lib/types";
+import { groupFormatsByRegion } from "@/app/lib/format-regions";
 
 interface NavGroup {
   label: string;
@@ -192,6 +193,87 @@ function NavDropdown({
   );
 }
 
+function formatBadge(f: FormatInfo): string | null {
+  if (f.status === "upcoming") return "Soon";
+  if (f.status === "frozen") return "Complete";
+  return f.region === "tpci" ? "Current season" : null;
+}
+
+/**
+ * Format switcher items, grouped by circuit (Japan City League, then TPCi).
+ * Shared by the desktop dropdown and the mobile drawer. Items keep
+ * role="menuitem", so the menus' keyboard handling finds them through the
+ * group wrappers.
+ */
+function FormatMenuGroups({
+  formats,
+  current,
+  onSelect,
+  itemTabIndex,
+}: {
+  formats: FormatInfo[];
+  current: string;
+  onSelect: (slug: string) => void;
+  itemTabIndex?: number;
+}) {
+  const idPrefix = useId();
+  return (
+    <>
+      {groupFormatsByRegion(formats).map((group, i) => {
+        const labelId = `${idPrefix}-${group.region}`;
+        return (
+          <div
+            key={group.region}
+            role="group"
+            aria-labelledby={labelId}
+            className={cn(i > 0 && "border-t border-surface-600")}
+          >
+            <div id={labelId} className="px-3 pt-2.5 pb-1 text-[11px] font-medium text-surface-400">
+              {group.label}
+            </div>
+            {group.formats.map((f) => {
+              const badge = formatBadge(f);
+              return (
+                <button
+                  key={f.slug}
+                  role="menuitem"
+                  tabIndex={itemTabIndex}
+                  onClick={() => onSelect(f.slug)}
+                  className={cn(
+                    "w-full text-left px-3 py-2.5 min-h-11 transition-colors",
+                    f.slug === current
+                      ? "bg-accent/10 text-accent"
+                      : "text-slate-300 hover:bg-surface-600 hover:text-slate-100",
+                  )}
+                >
+                  <div className="flex items-start justify-between gap-3">
+                    <div className="min-w-0">
+                      <div className="text-sm font-medium">{f.name}</div>
+                      {f.name_en !== f.name && (
+                        <div className="text-xs text-surface-400 truncate">{f.name_en}</div>
+                      )}
+                    </div>
+                    {badge && (
+                      <span className="shrink-0 text-[10px] px-1.5 py-0.5 rounded bg-surface-600 text-surface-400">
+                        {badge}
+                      </span>
+                    )}
+                  </div>
+                  {f.tournament_count != null && f.tournament_count > 0 && (
+                    <div className="text-[11px] text-surface-400 font-mono mt-0.5">
+                      {countLabel(f.tournament_count, "tournament")} / {countLabel(f.deck_count, "deck")}
+                    </div>
+                  )}
+                </button>
+              );
+            })}
+          </div>
+        );
+      })}
+    </>
+  );
+}
+
 /* ------------------------------------------------------------------ */
 /* MobileDrawer                                                        */
 /* ------------------------------------------------------------------ */
@@ -344,44 +426,14 @@ function MobileDrawer({
           </button>
           {formatOpen && (
             <div role="menu" aria-label="Format switcher" className="mt-2 rounded-md border border-surface-500 bg-surface-700 overflow-hidden">
-              {formats.map((f) => (
-                <button
-                  key={f.slug}
-                  role="menuitem"
-                  onClick={() => {
-                    setFormatOpen(false);
-                    onSwitchFormat(f.slug);
-                  }}
-                  className={cn(
-                    "w-full text-left px-3 py-2.5 min-h-11 transition-colors",
-                    f.slug === format
-                      ? "bg-accent/10 text-accent"
-                      : "text-slate-300 hover:bg-surface-600 hover:text-slate-100",
-                  )}
-                >
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <span className="text-sm font-medium">{f.name}</span>
-                      <span className="text-xs text-surface-400 ml-2">{f.name_en}</span>
-                    </div>
-                    {f.status === "upcoming" && (
-                      <span className="text-[10px] px-1.5 py-0.5 rounded bg-surface-600 text-surface-400">
-                        Soon
-                      </span>
-                    )}
-                    {f.status === "frozen" && (
-                      <span className="text-[10px] px-1.5 py-0.5 rounded bg-surface-600 text-surface-400">
-                        Complete
-                      </span>
-                    )}
-                  </div>
-                  {f.tournament_count != null && f.tournament_count > 0 && (
-                    <div className="text-[11px] text-surface-400 font-mono mt-0.5">
-                      {f.tournament_count} tournaments / {f.deck_count} decks
-                    </div>
-                  )}
-                </button>
-              ))}
+              <FormatMenuGroups
+                formats={formats}
+                current={format}
+                onSelect={(slug) => {
+                  setFormatOpen(false);
+                  onSwitchFormat(slug);
+                }}
+              />
             </div>
           )}
         </div>
@@ -639,44 +691,14 @@ export function Nav({ format, formats }: { format: string; formats: FormatInfo[]
                     id={formatMenuId}
                     role="menu"
                     aria-label="Format switcher"
-                    className="absolute top-full left-0 mt-1.5 min-w-[200px] bg-surface-700 border border-surface-500 rounded-md shadow-xl shadow-black/40 overflow-hidden z-50"
+                    className="absolute top-full left-0 mt-1.5 w-80 max-h-[calc(100vh-5rem)] overflow-y-auto bg-surface-700 border border-surface-500 rounded-md shadow-xl shadow-black/40 overflow-hidden z-50"
                   >
-                    {formats.map((f) => (
-                      <button
-                        key={f.slug}
-                        role="menuitem"
-                        tabIndex={-1}
-                        onClick={() => switchFormat(f.slug)}
-                        className={cn(
-                          "w-full text-left px-3 py-2.5 transition-colors min-h-11",
-                          f.slug === format
-                            ? "bg-accent/10 text-accent"
-                            : "text-slate-300 hover:bg-surface-600 hover:text-slate-100",
-                        )}
-                      >
-                        <div className="flex items-center justify-between">
-                          <div>
-                            <span className="text-sm font-medium">{f.name}</span>
-                            <span className="text-xs text-surface-400 ml-2">{f.name_en}</span>
-                          </div>
-                          {f.status === "upcoming" && (
-                            <span className="text-[10px] px-1.5 py-0.5 rounded bg-surface-600 text-surface-400">
-                              Soon
-                            </span>
-                          )}
-                          {f.status === "frozen" && (
-                            <span className="text-[10px] px-1.5 py-0.5 rounded bg-surface-600 text-surface-400">
-                              Complete
-                            </span>
-                          )}
-                        </div>
-                        {f.tournament_count != null && f.tournament_count > 0 && (
-                          <div className="text-[11px] text-surface-400 font-mono mt-0.5">
-                            {f.tournament_count} tournaments / {f.deck_count} decks
-                          </div>
-                        )}
-                      </button>
-                    ))}
+                    <FormatMenuGroups
+                      formats={formats}
+                      current={format}
+                      onSelect={switchFormat}
+                      itemTabIndex={-1}
+                    />
                   </div>
                 )}
               </div>
