@@ -96,7 +96,7 @@ function ArchivedFormatRow({ format }: { format: FormatInfo }) {
     <li className="border-b border-surface-700 last:border-0">
       <Link
         href={`/${format.slug}`}
-        className="group grid grid-cols-[minmax(0,1fr)_1rem] sm:grid-cols-[minmax(0,1fr)_14rem_8.5rem_7rem_1rem] items-center gap-x-6 gap-y-1 px-4 py-3 hover:bg-surface-700/40 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-accent"
+        className="group grid grid-cols-[minmax(0,1fr)_1rem] md:grid-cols-[minmax(0,1fr)_11rem_7rem_6rem_1rem] items-center gap-x-6 gap-y-1 px-4 py-3 hover:bg-surface-700/40 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-accent"
       >
         <div className="min-w-0">
           <p className="text-sm font-medium text-slate-200 truncate group-hover:text-accent transition-colors">
@@ -104,19 +104,20 @@ function ArchivedFormatRow({ format }: { format: FormatInfo }) {
           </p>
           <p className="text-xs text-surface-400 truncate">{format.name_en}</p>
         </div>
-        {/* Mobile: dates and counts stack under the name. sm+: each is its own aligned column. */}
-        <div className="col-start-1 flex flex-wrap gap-x-4 gap-y-0.5 sm:contents">
+        {/* Below md: dates and counts stack under the name. md+: each is its own aligned column.
+            md, not sm: the fixed columns need about 500px, which leaves no room for the name at 640px. */}
+        <div className="col-start-1 flex flex-wrap gap-x-4 gap-y-0.5 md:contents">
           <p className="text-xs text-surface-400 tabular-nums">
             {formatDate(format.dataset_start)} to {formatDate(format.dataset_end)}
           </p>
-          <p className="text-xs text-surface-300 font-mono tabular-nums sm:text-right">
+          <p className="text-xs text-surface-300 font-mono tabular-nums md:text-right">
             {countLabel(format.tournament_count, "tournament")}
           </p>
-          <p className="text-xs text-surface-300 font-mono tabular-nums sm:text-right">
+          <p className="text-xs text-surface-300 font-mono tabular-nums md:text-right">
             {countLabel(format.deck_count, "deck")}
           </p>
         </div>
-        <ChevronRight className="w-4 h-4 text-surface-500 group-hover:text-surface-300 col-start-2 row-start-1 row-span-2 sm:col-start-auto sm:row-start-auto sm:row-span-1" />
+        <ChevronRight className="w-4 h-4 text-surface-500 group-hover:text-surface-300 col-start-2 row-start-1 row-span-2 md:col-start-auto md:row-start-auto md:row-span-1" />
       </Link>
     </li>
   );
