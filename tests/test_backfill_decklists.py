@@ -389,6 +389,45 @@ class TestBackfillLabs:
         assert n == 0
 
 
+class TestBackfillCommitsInBatches:
+    """At 20-25 requests/min a full backfill runs for hours. A crash or a pipeline
+    timeout must keep the lists already fetched, not roll all of them back."""
+
+    def test_interrupted_run_keeps_committed_batches(self, db_missing_decklists, monkeypatch):
+        import cli
+        from scraper.labs_limitless import LabsDecklist
+
+        monkeypatch.setattr(cli, "DECKLIST_BACKFILL_COMMIT_EVERY", 1)
+        deck = LabsDecklist(
+            cards=[{"count": 1, "name": "X", "card_id": "x", "set_code": "", "card_number": ""}]
+        )
+
+        class _DiesOnSecondFetch:
+            calls = 0
+
+            def fetch_decklist(self, url):
+                type(self).calls += 1
+                if type(self).calls == 2:
+                    raise KeyboardInterrupt
+                return deck
+
+            def close(self):
+                pass
+
+        monkeypatch.setattr(
+            "scraper.labs_limitless.LabsLimitlessClient", lambda: _DiesOnSecondFetch()
+        )
+
+        with pytest.raises(KeyboardInterrupt):
+            cli._backfill_labs_decklists(db_missing_decklists, None, None)
+        db_missing_decklists.rollback()
+
+        stored = db_missing_decklists.execute(
+            "SELECT COUNT(DISTINCT placement_id) FROM decklist_cards WHERE placement_id IN (7, 8)"
+        ).fetchone()[0]
+        assert stored == 1, "the first list was committed before the interruption"
+
+
 class TestBackfillCli:
     def test_command_runs(self, db_missing_decklists, monkeypatch, tmp_path):
         from click.testing import CliRunner

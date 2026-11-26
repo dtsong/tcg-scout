@@ -1056,6 +1056,64 @@ def _backfill_jp_decklists(
     return stored
 
 
+# A full backfill runs for hours at 20-25 requests/min. Committing in batches
+# means an interrupted run (crash, Ctrl-C, pipeline timeout) keeps its progress.
+DECKLIST_BACKFILL_COMMIT_EVERY = 25
+
+
+def _store_fetched_decklists(
+    conn: sqlite3.Connection,
+    client,
+    placements: list[sqlite3.Row],
+    label: str,
+) -> int:
+    """Fetch each placement's decklist with ``client`` and replace its cards.
+
+    ``client`` needs ``fetch_decklist(url)`` returning an object with ``cards``
+    (or None) and ``close()``. Commits every DECKLIST_BACKFILL_COMMIT_EVERY
+    stored lists and once at the end.
+    """
+    stored = 0
+    empty = 0
+    try:
+        for i, p in enumerate(placements, 1):
+            url = p["decklist_url"]
+            console.print(f"  [{i}/{len(placements)}] placement #{p['id']} {url}")
+            try:
+                decklist = client.fetch_decklist(url)
+            except (httpx.HTTPError, OSError) as exc:
+                console.print(f"    [red]Error: {exc}[/red]")
+                continue
+            if not decklist or not decklist.cards:
+                empty += 1
+                continue
+            conn.execute("DELETE FROM decklist_cards WHERE placement_id = ?", (p["id"],))
+            conn.executemany(
+                "INSERT OR REPLACE INTO decklist_cards "
+                "(placement_id, card_id, card_name, count) VALUES (?, ?, ?, ?)",
+                [
+                    (
+                        p["id"],
+                        card.get("card_id", card.get("name", "unknown")),
+                        card.get("name"),
+                        card.get("count", 1),
+                    )
+                    for card in decklist.cards
+                ],
+            )
+            stored += 1
+            if stored % DECKLIST_BACKFILL_COMMIT_EVERY == 0:
+                conn.commit()
+        conn.commit()
+    finally:
+        client.close()
+
+    console.print(
+        f"[green]{label} backfill: stored {stored} decklists ({empty} returned no cards)[/green]"
+    )
+    return stored
+
+
 def _backfill_limitless_decklists(
     conn: sqlite3.Connection,
     limit: int | None,
@@ -1097,43 +1155,7 @@ def _backfill_limitless_decklists(
 
     from scraper.limitless import LimitlessClient
 
-    client = LimitlessClient()
-    stored = 0
-    empty = 0
-    try:
-        for i, p in enumerate(placements, 1):
-            url = p["decklist_url"]
-            console.print(f"  [{i}/{len(placements)}] placement #{p['id']} {url}")
-            try:
-                decklist = client.fetch_decklist(url)
-            except (httpx.HTTPError, OSError) as exc:
-                console.print(f"    [red]Error: {exc}[/red]")
-                continue
-            if not decklist or not decklist.cards:
-                empty += 1
-                continue
-            conn.execute("DELETE FROM decklist_cards WHERE placement_id = ?", (p["id"],))
-            for card in decklist.cards:
-                conn.execute(
-                    "INSERT OR REPLACE INTO decklist_cards "
-                    "(placement_id, card_id, card_name, count) "
-                    "VALUES (?, ?, ?, ?)",
-                    (
-                        p["id"],
-                        card.get("card_id", card.get("name", "unknown")),
-                        card.get("name"),
-                        card.get("count", 1),
-                    ),
-                )
-            stored += 1
-        conn.commit()
-    finally:
-        client.close()
-
-    console.print(
-        f"[green]Limitless backfill: stored {stored} decklists ({empty} returned no cards)[/green]"
-    )
-    return stored
+    return _store_fetched_decklists(conn, LimitlessClient(), placements, "Limitless")
 
 
 def _backfill_labs_decklists(
@@ -1161,43 +1183,7 @@ def _backfill_labs_decklists(
 
     from scraper.labs_limitless import LabsLimitlessClient
 
-    client = LabsLimitlessClient()
-    stored = 0
-    empty = 0
-    try:
-        for i, p in enumerate(placements, 1):
-            url = p["decklist_url"]
-            console.print(f"  [{i}/{len(placements)}] placement #{p['id']} {url}")
-            try:
-                decklist = client.fetch_decklist(url)
-            except (httpx.HTTPError, OSError) as exc:
-                console.print(f"    [red]Error: {exc}[/red]")
-                continue
-            if not decklist or not decklist.cards:
-                empty += 1
-                continue
-            conn.execute("DELETE FROM decklist_cards WHERE placement_id = ?", (p["id"],))
-            for card in decklist.cards:
-                conn.execute(
-                    "INSERT OR REPLACE INTO decklist_cards "
-                    "(placement_id, card_id, card_name, count) "
-                    "VALUES (?, ?, ?, ?)",
-                    (
-                        p["id"],
-                        card.get("card_id", card.get("name", "unknown")),
-                        card.get("name"),
-                        card.get("count", 1),
-                    ),
-                )
-            stored += 1
-        conn.commit()
-    finally:
-        client.close()
-
-    console.print(
-        f"[green]Labs backfill: stored {stored} decklists ({empty} returned no cards)[/green]"
-    )
-    return stored
+    return _store_fetched_decklists(conn, LabsLimitlessClient(), placements, "Labs")
 
 
 @cli.command("import-cl")

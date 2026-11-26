@@ -91,6 +91,20 @@ class TestScrapePipeline:
             assert slug not in command, f"{slug} is hard-coded; use formats-list"
         assert scrape["timeout"] == "45m"
 
+    def test_jp_scrape_backfills_limitless_decklists_over_plain_http(self):
+        """Card-level pages need decklists. The Kernel browser source needs a paid
+        secret, so the pipeline takes Limitless lists only, in a bounded window."""
+        scrape = next(s for s in self.steps if s["identifier"] == "scrape")
+        command = scrape["spec"]["command"]
+        backfill = next(
+            line.strip() for line in command.splitlines() if "backfill-decklists" in line
+        )
+        assert "--source limitless" in backfill
+        assert "--since" in backfill, "an unbounded backfill retries dead links forever"
+        assert command.index("scrape-jp") < command.index("backfill-decklists")
+        assert command.index("backfill-decklists") < command.index('"$slug" meta')
+        assert "KERNEL_API_KEY" not in command
+
     def test_publish_step_guards_on_main_and_uses_the_account_secret(self):
         publish = next(s for s in self.steps if s["identifier"] == "publish")
         env = publish["spec"]["envVariables"]
